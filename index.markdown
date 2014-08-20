@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: landing_page
 title: XebiaLabs Documentation Site
 ---
 

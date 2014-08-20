@@ -1,8 +1,8 @@
 <html>
-<head>
-<title>{{page.title}}</title>
-</head>
+{% include head.html %}
 <body>
 {{content}}
+<p>{% include breadcrumbs.html %}</p>
+<p>{% include footer.html %}</p>
 </body>
 </html>
