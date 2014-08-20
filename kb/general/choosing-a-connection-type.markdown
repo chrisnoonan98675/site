@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Choosing a connection type
+tags: connectivity ssh infrastructure overthere
+categories: connectivity
 ---
 
 ### Which host type and connection type to choose? ###

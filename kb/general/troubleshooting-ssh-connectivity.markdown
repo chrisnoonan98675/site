@@ -1,5 +1,7 @@
 ---
 title: Troubleshooting SSH connectivity
+tags: xld troubleshooting ssh connectivity overthere
+categories: connectivity
 ---
 ### Troubleshooting SSH
 

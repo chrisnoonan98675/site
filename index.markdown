@@ -5,15 +5,15 @@ title: XebiaLabs Documentation Site
 
 Welcome to the documentation site!
 
+
 # Product documentation
 
 {% for product in site.data.products %}
 
-## {{product.name}}
+* [{{product.name}}](/products/{{product.id}})
 
 {% endfor %}
 
-[4.0](products/xl-deploy/4.0/)
+# General information
 
-# Knowledge base
-
+* [General](/kb/general/)
