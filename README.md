@@ -40,3 +40,7 @@ Editors can commit directly on master of the online docs repository. Content can
 * https://github.com/Shopify/liquid/wiki/Liquid-for-Designers
 * http://stackoverflow.com/editing-help
 * http://en.wikipedia.org/wiki/YAML#Sample_document
+
+# To do
+
+* Investigate this page about [advanced Jekyll features](http://www.divshot.com/blog/web-development/advanced-jekyll-features/) -- it looks like it tackles a lot of the things we want to do.
