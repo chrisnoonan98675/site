@@ -34,3 +34,9 @@ Jekyll layouts:
 # Workflow
 
 Editors can commit directly on master of the online docs repository. Content can be reviewed and approved on the `devdoc` site which refreshes automatically. On demand, content can be pushed out to the production site (e.g. via Jenkins).
+
+# Useful links
+
+https://github.com/Shopify/liquid/wiki/Liquid-for-Designers
+http://stackoverflow.com/editing-help
+http://en.wikipedia.org/wiki/YAML#Sample_document
