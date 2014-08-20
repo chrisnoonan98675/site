@@ -37,6 +37,6 @@ Editors can commit directly on master of the online docs repository. Content can
 
 # Useful links
 
-https://github.com/Shopify/liquid/wiki/Liquid-for-Designers
-http://stackoverflow.com/editing-help
-http://en.wikipedia.org/wiki/YAML#Sample_document
+* https://github.com/Shopify/liquid/wiki/Liquid-for-Designers
+* http://stackoverflow.com/editing-help
+* http://en.wikipedia.org/wiki/YAML#Sample_document
