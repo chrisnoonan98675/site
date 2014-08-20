@@ -1,6 +1,5 @@
 ---
-title: Placeholder file
+title: Placeholder file packaging 2
 tags: xld troubleshooting ssh connectivity overthere
-categories: connectivity
+categories: packaging
 ---
-### Placeholder file

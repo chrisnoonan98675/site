@@ -9,7 +9,7 @@ title: XebiaLabs knowledge base
     {% unless page.path contains "index" %}
       {% for pc in page.categories %}
         {% if pc == cat %}
-1. <a href="{{ page.url}}">{{ page.title }}</a>
+* <a href="{{ page.url}}">{{ page.title }}</a>
         {% endif %}
       {% endfor %}
     {% endunless %}
@@ -17,4 +17,3 @@ title: XebiaLabs knowledge base
 {% endfor %}
 
 {% endfor %}
-
