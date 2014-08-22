@@ -1,0 +1,18 @@
+<!-- begin sidebar -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+        
+<ul class="nav nav-sidebar">
+	{% assign pages_list = site.pages %}
+    {% for node in pages_list %}
+		{% if node.title != null %}
+			{% if node.layout == "list-in-sidebar" %}
+			<li><a href="{{ node.url }}">{{ node.title }}</a></li>
+			{% endif %}
+		{% endif %}
+	{% endfor %}
+</ul>
+
+</div> <!-- col-sm-3 col-md-2 sidebar -->
+<!-- end sidebar -->

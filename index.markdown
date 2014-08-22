@@ -1,19 +1,6 @@
 ---
-layout: landing_page
-title: XebiaLabs Documentation Site
+layout: default
+title: XebiaLabs documentation
 ---
 
-Welcome to the documentation site!
-
-
-# Product documentation
-
-{% for product in site.data.products %}
-
-* [{{product.name}}](/products/{{product.id}})
-
-{% endfor %}
-
-# General information
-
-* [General](/kb/general/)
+Welcome to the XebiaLabs documentation site
