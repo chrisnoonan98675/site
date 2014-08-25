@@ -11,10 +11,8 @@ title: XL Deploy documentation
 ## Knowledge base articles
 
 <ul>
-{% for post in site.categories.knowledge-base %}
-	{% for post in site.tags.xl-deploy %}
+{% for post in site.categories.xl-deploy and site.categories.knowledge-base%}
 		<li><a href="{{ post.url }}">{{ post.title }}</a></li>
 	{% endfor %}
-{% endfor %}
 </ul>
 

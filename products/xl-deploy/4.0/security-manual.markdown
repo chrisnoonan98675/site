@@ -29,7 +29,7 @@ Local permissions are granted **only** on `core.Directory` CIs and root nodes an
 
 The following table shows the permissions that XL Deploy supports:
 
-<table class="deployed-matrix">
+<table>
 <tr>
 	<th colspan="2">Global Permissions</th>
 </tr>

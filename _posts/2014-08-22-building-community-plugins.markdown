@@ -1,6 +1,6 @@
 ---
 title: Building community plugins
-categories: knowledge-base general
+categories: knowledge-base xl-platform
 tags: xl-community github
 ---
 

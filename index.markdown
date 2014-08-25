@@ -1,6 +1,5 @@
 ---
-layout: default
 title: XebiaLabs documentation
 ---
 
-Welcome to the XebiaLabs documentation site
+Welcome to the XebiaLabs documentation site.
