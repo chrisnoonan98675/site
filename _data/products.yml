@@ -1,4 +1,19 @@
 - name: XL Deploy
   id: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
 - name: XL Release
   id: xl-release
+  versions:
+    - 4.0
+    - 3.0
+- name: XL Scale
+  id: xl-scale
+  versions:
+    - 4.0
+- name: XL Test
+  id: xl-test
+  versions:
+    - 1.0

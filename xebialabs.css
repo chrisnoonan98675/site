@@ -1,0 +1,5 @@
+/* XebiaLabs-specific styles */
+
+.kb-category-name { text-transform: capitalize; }
+.hidden { display: none; }
+#footer { padding-top: 50px; font-size: 75%; }

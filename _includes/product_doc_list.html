@@ -1,0 +1,11 @@
+<h2>Product documentation</h2>
+
+<ul>
+	{% for product in site.data.products %}
+		{% if product.id == page.product-id %}
+			{% for version in product.versions %}
+					<li><a href="{{ site.url }}/{{ product.id }}/{{ version }}">{{ product.name }} {{ version }}</a></li>
+				{% endfor %}
+		{% endif %}
+	{% endfor %}
+</ul>

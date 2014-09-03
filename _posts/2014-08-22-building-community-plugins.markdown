@@ -1,7 +1,13 @@
 ---
 title: Building community plugins
-categories: knowledge-base xl-platform
-tags: xl-community github
+categories:
+- xl-deploy
+- xl-release
+- xl-test
+- xl-scale
+tags:
+- community
+- plugin
 ---
 
 Here's a quick list of steps you need to follow in order to build the community plugins repository.

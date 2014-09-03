@@ -1,0 +1,14 @@
+{% for product in site.data.products %}
+	{% if product.id == page.product-id %}
+	{% capture version %}{{ page.version-id }}{% endcapture %}
+			{% for page in site.pages %}
+				{% if page.path contains product.id %}
+					{% if page.path contains version %}
+						{% unless page.path contains "index" %}
+							<p><a href="{{ site.url }}/{{ page.url }}">{{ page.title }}</a></li>
+						{% endunless %}
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+	{% endif %}
+{% endfor %}

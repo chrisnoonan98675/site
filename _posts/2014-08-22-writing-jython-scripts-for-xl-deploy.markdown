@@ -1,7 +1,13 @@
 ---
 title: Writing Jython scripts for XL Deploy
-categories: knowledge-base xl-deploy
-tags: jython scripting customization extension
+categories:
+ 
+- xl-deploy
+tags:
+- Jython
+- scripting
+- customization
+- extension
 ---
 
 Jython scripting is a very powerful way to extend or customise XL Deploy. There are several components of XL Deploy which can make use of such scripts and although each of them puts different objects on the context of scripting engine, there are some general rules and good practices of writing, organising and packaging your scripts.

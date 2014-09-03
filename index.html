@@ -1,0 +1,12 @@
+---
+layout: default
+title: XebiaLabs documentation
+---
+
+<h1>XebiaLabs documentation</h1>
+
+Welcome to the XebiaLabs documentation site.
+
+{% for product in site.data.products %}
+		<p><a href="{{ site.url }}/{{ product.id }}"><img src="{{ site.url }}/images/{{ product.id }}-logo.png" alt="{{ product.product-name }}"></a></p>
+{% endfor %}

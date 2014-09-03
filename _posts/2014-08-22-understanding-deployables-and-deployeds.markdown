@@ -1,7 +1,11 @@
 ---
 title: Understanding Deployables and Deployeds
-categories: knowledge-base xl-deploy
-tags: deployable deployed package
+categories:
+- xl-deploy
+tags:
+- deployable
+- deployed
+- package
 ---
 
 In the [_XL Deploy: Understanding Packages_](http://vimeo.com/99837504) video, we described _Deployables_ - files and settings, delivered in a [deployment package](http://docs.xebialabs.com/releases/4.0/deployit/referencemanual.html#deployment-package), that your application needs to run - and _Deployeds_ - the things that are actually created in your target servers as part of a deployment.

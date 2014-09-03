@@ -1,0 +1,6 @@
+<ol class="breadcrumb">
+	{% for p in page.ancestors %}
+        <li><a href="{{ p.url }}">{{ p.title }}</a>
+ 	{% endfor %}
+        <li class="active">{{ page.title }}</li>
+</ol>

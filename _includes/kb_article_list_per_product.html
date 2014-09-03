@@ -1,0 +1,18 @@
+<h2>Knowledge base articles</h2>
+
+<span class="hidden">{% increment kb-counter %}</span>
+
+<ul>
+	{% for post in site.posts %}
+		{% if post.categories contains page.product-id %}
+			<span class="hidden">{% increment kb-counter %}</span>
+			{% if kb-counter <= 6 %}
+				<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+			{% endif %}
+		{% endif %}
+	{% endfor %}
+</ul>
+
+{% if kb-counter > 6 %}
+	<p><a href="{{ site.url }}/knowledge-base/{{ page.product-id }}">Read more ({{ kb-counter | minus: 1 }}) &#187;</a></p>
+{% endif %}
