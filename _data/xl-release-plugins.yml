@@ -1,0 +1,33 @@
+# XL RELEASE BUNDLED PLUGINS
+
+- name: Remote Script
+  id: remote-script
+  type: bundled
+  product: xl-release
+  versions:
+    - 3.0
+    - 4.0
+- name: JIRA
+  id: jira
+  type: bundled
+  product: xl-release
+  versions:
+    - 3.0
+    - 4.0
+- name: Git Trigger
+  id: git-trigger
+  type: bundled
+  product: xl-release
+  versions:
+    - 3.0
+    - 4.0
+
+# XL RELEASE OTHER PLUGINS
+
+- name: Subversion
+  id: subversion
+  type: other
+  product: xl-release
+  versions:
+    - 3.0
+    - 4.0

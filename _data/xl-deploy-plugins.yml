@@ -1,0 +1,240 @@
+# XL DEPLOY BUNDLED PLUGINS
+
+- name: Command
+  id: command-plugin
+  type: bundled
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: Database
+  id: database-plugin
+  type: bundled
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: Deployment Group Orchestrator
+  id: group-orchestrator-plugin
+  type: bundled
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: File
+  id: file-plugin
+  type: bundled
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: JEE
+  id: jee-plugin
+  type: bundled
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: PowerShell
+  id: powershell-plugin
+  type: bundled
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: Python
+  id: python-plugin
+  type: bundled
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: Remoting
+  id: remoting-plugin
+  type: bundled
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: Webserver
+  id: webserver-plugin
+  type: bundled
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: Trigger
+  id: trigger-plugin
+  type: bundled
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+
+# XL DEPLOY MIDDLEWARE PLUGINS
+
+- name: JBoss Application Server 5 and 6
+  id: jbossas-plugin
+  type: middleware
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: JBoss Application Server 7 and up
+  id: jbossdm-plugin
+  type: middleware
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: Oracle Service Bus
+  id: osb-pugin
+  type: middleware
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: WebLogic Application Server
+  id: wls-plugin
+  type: middleware
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: WebSphere Application Server
+  id: was-plugin
+  type: middleware
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: WebSphere Process Server
+  id: wls-plugin
+  type: middleware
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: Tomcat
+  id: tomcat-plugin
+  type: middleware
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: Glassfish
+  id: glassfish-plugin
+  type: middleware
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: BizTalk
+  id: biztalk-plugin
+  type: middleware
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: IIS
+  id: iis-plugin
+  type: middleware
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: Windows
+  id: windows-plugin
+  type: middleware
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: BigIP
+  id: big-ip
+  type: middleware
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: WebSphere MQ
+  id: wmq-plugin
+  type: middleware
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: Netscaler
+  id: netscaler-plugin
+  type: middleware
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+
+# XL DEPLOY TOOL PLUGINS
+
+- name: XL Deploy Maven
+  id: maven-plugin
+  type: tool
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: XL Deploy Jenkins
+  id: jenkins-plugin
+  type: tool
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: XL Deploy Bamboo
+  id: bamboo-plugin
+  type: tool
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: XL Deploy Team Foundation Server
+  id: tfs-plugin
+  type: tool
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5
+- name: XL Deploy Manifest Editor
+  id: manifest-editor
+  type: tool
+  product: xl-deploy
+  versions:
+    - 3.9
+    - 4.0
+    - 4.5

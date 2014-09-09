@@ -1,0 +1,14 @@
+# XL SCALE PLUGINS
+
+- name: EC2
+  id: ec2
+  type: bundled
+  product: xl-scale
+  versions:
+    - 4.0
+- name: vSphere
+  id: vsphere
+  type: bundled
+  product: xl-scale
+  versions:
+    - 4.0

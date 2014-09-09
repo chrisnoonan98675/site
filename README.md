@@ -20,7 +20,7 @@ online-docs-jekyll
             * Article
             * Article
             * Article
-    * Knowledge base for all products
+    * Knowledge base (contains articles for all products)
         * Article
         * Article
         * Article
@@ -46,7 +46,7 @@ Every page and post must have a YAML header.
 
 #### Pages
 
-The only required variable in a page header is `title`. This is the title that will appear on the page. Example:
+The only required variable in a page header is `title`. This is the title that will appear on the page, wrapped in `h1` tags. Example:
 
       ---
       title: My sample XL Deploy page
@@ -54,7 +54,7 @@ The only required variable in a page header is `title`. This is the title that w
 
 #### Posts
 
-Post headers need a title, categories, and tags. You can have one or more categories and tags. Example:
+Post headers need a title, categories, and tags. The title will appear on the page, wrapped in `h1` tags. You can have one or more categories and tags. Example:
 
       ---
       title: My sample XL Deploy knowledge base article
@@ -79,15 +79,15 @@ Tags are case-sensitive and cannot contain spaces.
 | Jekyll layout file   | Page(s) it applies to  | Why is this layout file needed? |
 |----------------------|------------------------|---------------------------------|
 | default.html | All | Master layout file that calls most of the `includes` that make up the page structure. |
-| list-in-sidebar.html | Landing page (index.markdown) of a product or of the KB | Triggers Jekyll to add a link to the page in the sidebar. |
-| post.html | All posts | Includes breadcrumbs and a "Related posts" section |
-| page.html | All pages | Includes breadcrumbs | 
+| list-in-sidebar.html | Landing page of a product or of the KB | Triggers Jekyll to add a link to the page in the sidebar. |
+| post.html | All posts | Includes static breadcrumbs and a "Related posts" section |
+| page.html | All pages | Includes dynamically generated breadcrumbs | 
 
 ### Plugins
 
 | Plugin file name | Description | Source | License |
 | ---------------- | ----------- | ------ | ------- |
-| `breadcrumbs.rb` | Creates breadcrumbs on pages | [Source](http://biosphere.cc/software-engineering/jekyll-breadcrumbs-navigation-plugin/) | None, apparently |
+| `breadcrumbs.rb` | Creates dynamic breadcrumbs on pages | [Source](http://biosphere.cc/software-engineering/jekyll-breadcrumbs-navigation-plugin/) | None, apparently |
 
 ### Tips
 
@@ -114,7 +114,20 @@ If you add a knowledge base article to the `_posts` folder but it doesn't appear
 * [Some Jekyll plugins](https://github.com/recurser/jekyll-plugins)
 * [HTML-to-Markdown converter](http://domchristie.github.io/to-markdown/): Useful for converting Tips & Tricks articles to Markdown (not perfect, but decent) 
 * [Markdown-Writer for Atom](https://atom.io/packages/markdown-writer): Might be useful for tag management/consistency
-* [Sort and filter in Jekyll](http://www.leveluplunch.com/blog/2014/04/03/sort-pages-by-title-filter-array-by-layout-jekyllrb/): Describes how to sort pages by weight and filter them by layout (used to generate the sidebar menu)
+* [Sort and filter in Jekyll](http://www.leveluplunch.com/blog/2014/04/03/sort-pages-by-title-filter-array-by-layout-jekyllrb/): Describes how to sort pages by weight and filter them by layout (method used to generate the sidebar menu)
+
+## Markdown warning!
+
+Jekyll does not correctly parse Markdown if an anchor is manually placed before a heading. For example, this Markdown:
+
+      <a name="upgrade_to_450"></a>
+      ### Upgrading to XL Deploy 4.5.0 ###
+
+Results in this line appearing in the HTML file (in body text, not as a heading):
+
+      ### Upgrading to XL Deploy 4.5.0 ###
+
+The solution is to **not** create anchors manually. Let Bootstrap create them based on the heading text.
 
 ## Workflow
 

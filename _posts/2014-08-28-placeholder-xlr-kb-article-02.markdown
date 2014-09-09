@@ -1,10 +1,10 @@
 ---
-title: Sample XLR KB article 02
+title: Sample XL Release article 02
 categories:
- 
 - xl-release
 tags:
 - sample
+- xl-release-4.0
 ---
 
 This is a placeholder.

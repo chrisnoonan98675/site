@@ -1,36 +1,100 @@
 ---
-title: XL Deploy 4.0 release notes
+title: Release Notes
 ---
 
-###    Version 4.5
+### Introduction
 
-#### Changes
+The release notes list the changes, improvements, and bug fixes included in each release of XL Deploy. **For upgrade instructions and important information about API deprecation, refer to the [Upgrade Manual](upgrademanual.html).**
 
-* Bigger amount of Permanent Generation memory (PermGen) is allocated to XL Deploy now. The default value of PermGen was increased from 128MB to 256MB. The values are specified in `bin/server.sh` and `bin/server.cmd`.
+###    Version 4.5.0
 
-###    Version 4.1.0-beta-1
+#### Major new features
 
-**N.B.:** This is a beta version that is only meant to allow our users to try out upcoming functionality and provide us with feedback. The features and functionality in this release will most likely be changed before the final release, based on the feedback from this beta. Only run this version of XL Deploy in a test environment!
+* Configuration compare
+    * New configuration comparison option based on XL Deploy's extensible discovery mechanism.
+    * Compare multiple live environments, as well as existing items in XL Deploy's repository with live state.
 
-#### Changes
+* Rules DSL
+    * Rules define the behavior of a plugin.
+    * Rules can be used to add behavior to an existing plugin.
+    * Rules can be used to change or disable behavior of an existing plugin.
+    * Rules can be defined in XML or in Jython. No Java required.
+    * XL Deploy ships with a set of standard steps that can be used by rules such as:
+        * Upload an artifact to a remote machine.
+        * Execute a script on a remote machine.
+    * Existing plugins are fully backwards-compatible.
 
-* Rule-based deployment model
-    * Rules allow you to specify behavior during deployment planning.
-    * Rules can be used to add behavior or change and disable behavior off plugins.
-    * Rules can be defined with XML and Python so no java is required.
-    * XL Deploy ships with a set of standard steps that can be used by rules
-        * Copy artifact
-        * Execute remote operating system (OS) script
-        * Resolve template
-        * Delete artifact
-        * Execute a PowerShell script
+* UI extensions
+    * Modular extension capability for the UI.
+    * Add new menu items to create your own screens and dashboards.
+    * Fully HTML5 based.
+    * Also define additional HTTP endpoints to easily add functionality.
+    
+#### Improvements
 
-* Allow the XLD server and UI to be extended with new endpoints and new UI components.
-    * Documentation is not ready yet, but will be added in a later (beta) release.
+* [DEPL-1231] - Delete multiple items at once from the GUI and the CLI
+* [DEPL-2586] - Add "close all tabs" button to deployment and repository browsers
+* [DEPL-4889] - Allow repository keystore password to be specified without appearing on the command line
+* [DEPL-4943] - Expose createdAt, createdBy, lastModifiedAt and lastModifiedBy attributes of configuration items
+* [DEPL-5170] - Add support for PostgreSQL
+* [DEPL-6004] - Expose limited task information to ExecutionContext
+* [DEPL-6030] - Automatically encrypt keystore.password and keystore.keypassword properties in server configuration file
+* [DEPL-6382] - Stop cli.cmd on windows from closing the CMD window on error
+* [DEPL-6402] - Add tab completion to the XLD CLI
+* [DEPL-6423] - Support file placeholders in .tar, .tar.gz, .tgz archives and similar formats
+    
+#### Bug fixes
+
+* [DEPL-5444] - Tasks do not respond to 'Stop' or 'Abort' commands when STOPPING
+* [DEPL-5906] - DAR export exposes passwords
+* [DEPL-5908] - Remote booter does not work when XL Deploy is proxied by a server using Server Name Identification
+* [DEPL-6011] - In database plugin when using dependencies for rollback scripts the sub-folder are not uploaded to the target host
+* [DEPL-6057] - Running the garbage collector results in dead letter
+* [DEPL-6089] - Not possible to use placeholder ${deployed.deployable.file} when extending generic.ExecutedScript
+* [DEPL-6246] - ConcurrentModificationException when using uploadArtifactData and exposePreviousDeployed
+* [DEPL-6285] - Regression in UI on authentication failure
+* [DEPL-6363] - Don't allow user to copy passwords from CI properties in the GUI
+* [DEPL-6381] - Error setting CI reference on the deployed user interface
+* [DEPL-6417] - Freemarker resolver fails to resolve CI property of type list
+* [DEPL-6435] - Staging step does not close Overthere connections
+* [DEPL-6579] - Tasks do not respond to 'Stop' or 'Abort' commands when FAILING
+
+###    Version 4.0.1
+
+
+#### Improvements
+
+* [DEPL-5340] - Improve filtering of possible values for a CI, SET_OF_CI or LIST_OF_CI property shown in UI
+* [DEPL-5517] - Use filename in Content-Disposition when downloading a package for import
+* [DEPL-5668] - Previous button disabled when discovery fails (REGRESSION)
+* [DEPL-5735] - Allow file copy buffer size to be configured in Overthere
+* [DEPL-5800] - Add a method __contains__ in CI.py to be able to use "IN"
+* [DEPL-5856] - Add HTTP access logs
+* [DEPL-5730] - Allow user to enable pre-4.0.0 file/folder copy behaviour
+
+#### Bug fixes
+
+* [DEPL-2934] - Wrong times displayed for deployments in "Deployments in date range report"
+* [DEPL-3625] - Removed unneeded 'create directory' step in upgrade process
+* [DEPL-4936] - Cannot import package that has a CI with an embedded LIST_OF_CI property
+* [DEPL-5325] - Python daemon does not work over CIFS/WINRM_NATIVE connections
+* [DEPL-5355] - Validate that all application names are unique
+* [DEPL-5652] - Unable to downloads DARs from a URL for import
+* [DEPL-5669] - Type-modifications are applied in the wrong order
+* [DEPL-5731] - Cannot use WINRM_NATIVE with a password containing special characters (&#$!*)
+* [DEPL-5789] - Short-circuit copy of directories does not work on AIX
+* [DEPL-5845] - Property suPassword on overthere.SshHost is not a password property
+* [DEPL-5847] - Python daemon does not work over SSH/SU connections
+* [DEPL-5858] - Hidden properties should be ignored by the importer
+* [DEPL-5870] - Cannot copy step log in hierarchical task view
+* [DEPL-5895] - The db2Home property is not used in the Db2Client script files
+* [DEPL-5931] - Staging can leave artifact files in the temporary directory
+* [DEPL-5939] - Race-condition match-error in par-tasker
+* [DEPL-6003] - taskId, stepDescription and username not added to MDC
 
 ###    Version 4.0.0
 
-#### Changes
+#### Major new features
 
 * Declarative parallel deployment
     * Deploy to many servers in parallel with the push of a button using your existing packages, environments and plugins.
@@ -45,7 +109,9 @@ title: XL Deploy 4.0 release notes
     * Prepare a deployment ahead of time and have it executed when load on your application is low.
     * See and interact with scheduled tasks in the task monitor.
 
-* Improve performance and resource utilisation
+#### Changes
+
+* Improved performance and resource utilisation
     * Deployment performance: by parallel deployment and staging, resulting in a decrease of downtime.
     * UI performance
 
@@ -615,7 +681,7 @@ Use of a version in the 4.0.x range is recommended over using this version.
 * [DEPLOYITPB-3011] - Security permissions are not enforced when reading multiple CIs
 * [DEPLOYITPB-3015] - Modification checking of deployed with a map_string_string property
 * [DEPLOYITPB-3017] - Deployed is regarded as modified when a property goes from 'no value' to 'default value'
-* [DEPLOYITPB-3026] - NamespaceException: deployit: is not a registered namespace prefix. in <script> at line number 1
+* [DEPLOYITPB-3026] - NamespaceException: deployit: is not a registered namespace prefix. in \<script\> at line number 1
 
 
 

@@ -1,14 +1,12 @@
-<!-- begin sidebar -->
+<!-- start sidebar -->
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-        
+        <div class="col-md-2 sidebar">
 			<ul class="nav nav-sidebar">
 				{% assign sidebar_menu_items = (site.pages | where: "layout" , "list-in-sidebar" | sort: 'weight') %}
 				{% for page in sidebar_menu_items %}
 					<li><a {% if page.url == page.url %}class="active"{% endif %} href="{{ page.url }}">{{ page.title }}</a></li>
 				{% endfor %}
 			</ul>
-
-		</div> <!-- col-sm-3 col-md-2 sidebar -->
+		</div> <!-- /.col-md-2 sidebar -->
 <!-- end sidebar -->

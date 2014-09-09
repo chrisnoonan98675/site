@@ -1,11 +1,22 @@
 <!-- start top_bar -->
-
-<div class="navbar navbar-fixed-top" role="navigation">
-	<div class="container-fluid">
-		<div class="navbar-header">
-        	<a class="navbar-brand" href="{{ site.url }}"><img height="50" src="{{ site.url }}/images/XebiaLabs_logo.png"></a>
-        </div> <!-- navbar-header -->
-    </div> <!-- container-fluid -->
-</div> <!-- navbar navbar-fixed-top -->
-
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{ site.url }}"><img height="50" src="{{ site.url }}/images/XebiaLabs_logo.png" alt="XebiaLabs"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://blog.xebialabs.com">Blog</a></li>
+        <li><a href="http://support.xebialabs.com">Support</a></li>
+		<li><a href="http://xebialabs.com/contact/">Contact</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 <!-- end top_bar -->

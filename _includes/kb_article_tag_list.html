@@ -1,0 +1,5 @@
+<div class="tag_list">
+{% for tag in page.tags %}
+	<a href="{{ site.url }}/knowledge-base/tag_index.html#{{ tag }}"><span class="label label-default">{{ tag }}</span></a>
+{% endfor %}
+</div>
