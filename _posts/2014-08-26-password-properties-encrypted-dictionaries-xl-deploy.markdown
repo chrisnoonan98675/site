@@ -7,9 +7,9 @@ tags:
 - dictionary
 - encryption
 - security
-- xl-deploy-3.9
-- xl-deploy-4.0
-- xl-deploy-4.5
+- xl-deploy-3.9.x
+- xl-deploy-4.0.x
+- xl-deploy-4.5.x
 ---
 
 In XL Deploy's [type system](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#type-system), any property defined as [`password="true"`](http://docs.xebialabs.com/releases/latest/deployit/customizationmanual.html#synthetic-properties) is stored in the [repository](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#repository) in encrypted form (AES-256 at the time of writing) and appears as `******` in the user interface. The [`password="true"`](http://docs.xebialabs.com/releases/latest/deployit/customizationmanual.html#synthetic-properties) setting usually applies to properties called "password", but you can define _any_ property as secure in this way.

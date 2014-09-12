@@ -5,8 +5,8 @@ categories:
 tags:
 - API
 - control-task
-- xl-deploy-4.0
-- xl-deploy-4.5
+- xl-deploy-4.0.x
+- xl-deploy-4.5.x
 ---
 
 Next to its primary task of executing deployments, XL Deploy also supports [Control Tasks](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#control-tasks). These are useful maintenance or utility actions, such as checking a connection to a host, or restarting a server, that can be associated with any [CI](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#configuration-items-cis) in XL Deploy's [repository](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#repository).

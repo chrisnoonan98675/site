@@ -2,19 +2,19 @@
   id: xl-deploy
   description: Welcome to one-click deployment! XL Deploy is the #1 award-winning deployment automation solution to support DevOps and Continuous Delivery teams. With XL Deploy, you take the fast, easy route to seamless, end-to-end automated application delivery in the cloud and on premise. Start deploying 10x faster. XL Deploy also features out-of-the-box integration with all build, provisioning, middleware and cloud solutions.
   versions:
-    - 3.9
-    - 4.0
-    - 4.5
+    - 3.9.x
+    - 4.0.x
+    - 4.5.x
 - name: XL Release
   id: xl-release
   versions:
-    - 4.0
-    - 3.0
+    - 4.0.x
+    - 3.0.x
 - name: XL Scale
   id: xl-scale
   versions:
-    - 4.0
+    - 4.0.x
 - name: XL Test
   id: xl-test
   versions:
-    - 1.0
+    - 1.0.x

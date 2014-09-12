@@ -4,8 +4,8 @@ categories:
 - xl-release
 tags:
 - sample
-- xl-release-3.0
-- xl-release-4.0
+- xl-release-3.0.x
+- xl-release-4.0.x
 ---
 
 This is a placeholder.

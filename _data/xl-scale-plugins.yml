@@ -5,10 +5,10 @@
   type: bundled
   product: xl-scale
   versions:
-    - 4.0
+    - 4.0.x
 - name: vSphere
   id: vsphere
   type: bundled
   product: xl-scale
   versions:
-    - 4.0
+    - 4.0.x

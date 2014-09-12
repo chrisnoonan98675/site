@@ -5,8 +5,8 @@ categories:
 tags:
 - API
 - CI
-- xl-deploy-4.0
-- xl-deploy-4.5
+- xl-deploy-4.0.x
+- xl-deploy-4.5.x
 ---
 
 One of the common maintenance activities when running XL Deploy is adding, modifying and removing items from its [repository](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#repository). This is especially the case for infrastructure and environment [configuration items](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#configuration-items-cis) (CIs) that are not published to XL Deploy automatically in the way [deployment packages](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#deployment-package) usually are.

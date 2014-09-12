@@ -5,8 +5,8 @@ categories:
 tags:
 - API
 - tasks
-- xl-deploy-4.0
-- xl-deploy-4.5
+- xl-deploy-4.0.x
+- xl-deploy-4.5.x
 ---
 
 One of the key aspects of XL Deploy's execution model is that pretty much all actions - whether [deployments](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#deploying-an-application), [control tasks](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#control-tasks) or running discovery - are ultimately [tasks](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#task) that run in XL Deploy's task engine. For example, if you [prepare a control task using XL Deploy's REST API](https://support.xebialabs.com/entries/46231275-How-to-prepare-and-invoke-a-control-task-using-the-XL-Deploy-REST-API), the output of the last API request is a task ID that can be used to execute the task.

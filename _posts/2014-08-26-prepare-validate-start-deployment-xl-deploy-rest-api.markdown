@@ -5,8 +5,8 @@ categories:
 tags:
 - API
 - deployment
-- xl-deploy-4.0
-- xl-deploy-4.5
+- xl-deploy-4.0.x
+- xl-deploy-4.5.x
 ---
 
 A deployment in XL Deploy may look like a single action when triggered by the [Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin), [Bamboo](http://docs.xebialabs.com/releases/latest/bamboo-xl-deploy-plugin/bambooPluginManual.html), [XL Release](http://docs.xebialabs.com/releases/latest/xl-release/reference_manual.html#xl-deploy-task) or other plugins. Actually, though, preparing, validating and executing a deployment is a sequence of individual steps. Here, we'll give an example of walking through each of these steps via the [XL Deploy REST API](http://docs.xebialabs.com/releases/latest/deployit/rest-api/index.html).
