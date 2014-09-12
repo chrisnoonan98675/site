@@ -136,5 +136,9 @@ Editors can commit directly on master of the online docs repository. Content can
 
 ## To do
 
-* In Liquid: Limit the list of KB articles per category on the KB splash page (similar to the way they are limited on the product splash pages).
+* Limit the list of KB articles, similar to the way they are limited on the product splash pages:
+     * Per category on the KB splash page (XL Deploy, XL Release, etc.)
+     * Per tag on the KB tags page (API, xl-deploy-4.0.x, etc.)
+* Decide how to handle plugin compatibility (e.g. Plugin A 4.0.x is compatible with both Product B 4.0.x and Product B 4.5.x).
+* See if current KB tag formatting is okay and, if not, figure out how to mask them.
 * **Before going live:** The `url` property in `_config.yml` has to be changed from `http://localhost:4000` to `http://docs.xebialabs.com`. This is the value of the `{{ site.url }}` variable.
