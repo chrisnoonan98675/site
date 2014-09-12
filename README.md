@@ -78,8 +78,8 @@ Tags are case-sensitive and cannot contain spaces.
 
 | Jekyll layout file   | Page(s) it applies to  | Why is this layout file needed? |
 |----------------------|------------------------|---------------------------------|
-| default.html | All | Master layout file that calls most of the `includes` that make up the page structure. |
-| list-in-sidebar.html | Landing page of a product or of the KB | Triggers Jekyll to add a link to the page in the sidebar. |
+| default.html | All | Master layout file that calls most of the `includes` that make up the page structure |
+| list-in-sidebar.html | Landing page of a product or of the KB | Triggers Jekyll to add a link to the page in the sidebar |
 | post.html | All posts | Includes static breadcrumbs and a "Related posts" section |
 | page.html | All pages | Includes dynamically generated breadcrumbs | 
 
@@ -114,11 +114,12 @@ If you add a knowledge base article to the `_posts` folder but it doesn't appear
 * [Some Jekyll plugins](https://github.com/recurser/jekyll-plugins)
 * [HTML-to-Markdown converter](http://domchristie.github.io/to-markdown/): Useful for converting Tips & Tricks articles to Markdown (not perfect, but decent) 
 * [Markdown-Writer for Atom](https://atom.io/packages/markdown-writer): Might be useful for tag management/consistency
-* [Sort and filter in Jekyll](http://www.leveluplunch.com/blog/2014/04/03/sort-pages-by-title-filter-array-by-layout-jekyllrb/): Describes how to sort pages by weight and filter them by layout (method used to generate the sidebar menu)
+* [Sort and filter in Jekyll](http://www.leveluplunch.com/blog/2014/04/03/sort-pages-by-title-filter-array-by-layout-jekyllrb/): Describes how to sort pages by weight and filter them by layout (this is the method used to generate the sidebar menu)
+* [Advanced Jekyll features](http://www.divshot.com/blog/web-development/advanced-jekyll-features/)
 
 ## Markdown warning!
 
-Jekyll does not correctly parse Markdown if an anchor is manually placed before a heading. For example, this Markdown:
+Jekyll does not correctly parse Markdown if an anchor is manually placed before a heading, as we have done in a few manuals (upgrade manual, Overthere manual, XLR manuals). For example, this Markdown:
 
       <a name="upgrade_to_450"></a>
       ### Upgrading to XL Deploy 4.5.0 ###
@@ -133,12 +134,7 @@ The solution is to **not** create anchors manually. Let Bootstrap create them ba
 
 Editors can commit directly on master of the online docs repository. Content can be reviewed and approved on the `devdoc` site which refreshes automatically. On demand, content can be pushed out to the production site (e.g. via Jenkins).
 
-## Changes
-
-* Moved the `knowledge-base` and product folders out of `products`. This was adding an extra directory to the URL and a superfluous page between the landing page and the product landing pages.
-
 ## To do
 
-* Limit the list of KB articles per category on the KB splash page (similar to the way they are limited on the product splash pages).
-* Investigate this page about [advanced Jekyll features](http://www.divshot.com/blog/web-development/advanced-jekyll-features/) -- it looks like it tackles a lot of the things we want to do.
+* In Liquid: Limit the list of KB articles per category on the KB splash page (similar to the way they are limited on the product splash pages).
 * **Before going live:** The `url` property in `_config.yml` has to be changed from `http://localhost:4000` to `http://docs.xebialabs.com`. This is the value of the `{{ site.url }}` variable.
