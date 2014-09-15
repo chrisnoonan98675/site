@@ -4,4 +4,62 @@
 			<p class="text-muted footer-text">&#169; Copyright 2014. XebiaLabs, Inc. All rights reserved</p>
 		</div>
 	</div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ site.url }}/bootstrap/js/bootstrap.min.js"></script>
+
+<script>
+ 
+$(function(){
+ 
+    $(document).on( 'scroll', function(){
+ 
+        if ($(window).scrollTop() > 100) {
+            $('.scroll-top-wrapper').addClass('show');
+        } else {
+            $('.scroll-top-wrapper').removeClass('show');
+        }
+    });
+ 
+    $('.scroll-top-wrapper').on('click', scrollToTop);
+});
+ 
+function scrollToTop() {
+    verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+    element = $('body');
+    offset = element.offset();
+    offsetTop = offset.top;
+    $('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
+}
+</script>
+
+<script>
+ 
+$(function(){
+ 
+    $(document).on( 'scroll', function(){
+ 
+        if ($(window).scrollTop() > 100) {
+            $('.scroll-top-wrapper').addClass('show');
+        } else {
+            $('.scroll-top-wrapper').removeClass('show');
+        }
+    });
+ 
+    $('.scroll-top-wrapper').on('click', scrollToTop);
+});
+ 
+function scrollToTop() {
+    verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+    element = $('body');
+    offset = element.offset();
+    offsetTop = offset.top;
+    $('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
+}
+</script>
+
+</body>
+</html>
 <!-- end footer -->

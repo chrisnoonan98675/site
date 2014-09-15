@@ -38,7 +38,7 @@ In Jekyll terminology:
 
 Pages can be named however you want.
 
-Posts must be named according to the convention `YEAR-MONTH-DAY-title.markdown`. Do not use underscores in post file names.
+Posts must be named according to the convention `YYYY-MM-DD-title.markdown`. Do not use underscores in post file names.
 
 ### File header
 
@@ -54,7 +54,7 @@ The only required variable in a page header is `title`. This is the title that w
 
 #### Posts
 
-Post headers need a title, categories, and tags. The title will appear on the page, wrapped in `h1` tags. You can have one or more categories and tags. Example:
+Post headers need a title, categories, and tags. The title will appear on the page, wrapped in `h1` tags. You can have one or more categories and tags (but the words `categories` and `tags` should always be plural). Example:
 
       ---
       title: My sample XL Deploy knowledge base article
@@ -64,13 +64,27 @@ Post headers need a title, categories, and tags. The title will appear on the pa
       - security
       - password
       - dictionary
+      - xl-deploy-4.0.x
+      - xl-deploy-4.5.x
       ---
 
 ### Categories vs. tags
 
-*Categories* can be used to form permalinks, while tags cannot.
+*Categories* can be used to form permalinks, while tags cannot. Tags are case-sensitive and cannot contain spaces.
 
-Tags are case-sensitive and cannot contain spaces.
+In our setup:
+
+* Categories are product IDs (`xl-deploy`, `xl-release`)
+* Tags are:
+    * Concepts (`plugin`, `rules`)
+    * Product IDs with version numbers (`xl-deploy-4.5.x`, `xl-release-4.0.x`)
+    * Middleware and CI tools (`tomcat`, `maven`)
+
+### Drafts
+
+Save drafts of pages and posts in the `_drafts` folder.
+
+*Post* drafts (identified by the `YYYY-MM-DD-title.markdown` file naming convention) are converted to HTML if you start Jekyll with the `--drafts` switch. *Page* drafts are never converted to HTML.
 
 ## Jekyll and Liquid
 
@@ -98,7 +112,7 @@ Tags are case-sensitive and cannot contain spaces.
 
 If you add a knowledge base article to the `_posts` folder but it doesn't appear on the website:
 
-* Check the `_site/knowledge-base` folder to see if the article was converted to HTML. 
+* Check the `_site` folder to see if the article was converted to HTML. 
 * Ensure that the file name starts with a date in `YYYY-MM-DD` format.
 * Ensure that words in the file name are separated with hyphens, *not* underscores.
 * Ensure that the YAML header is correct.
@@ -117,7 +131,54 @@ If you add a knowledge base article to the `_posts` folder but it doesn't appear
 * [Sort and filter in Jekyll](http://www.leveluplunch.com/blog/2014/04/03/sort-pages-by-title-filter-array-by-layout-jekyllrb/): Describes how to sort pages by weight and filter them by layout (this is the method used to generate the sidebar menu)
 * [Advanced Jekyll features](http://www.divshot.com/blog/web-development/advanced-jekyll-features/)
 
-## Markdown warning!
+## Workflow
+
+Editors can commit directly on master of the online docs repository. Content can be reviewed and approved on the `devdoc` site which refreshes automatically. On demand, content can be pushed out to the production site (e.g. via Jenkins).
+
+## Known issues
+
+### No in-manual TOC
+
+There is no TOC generated within each manual (such as `xl-deploy/plugins/command-plugin/4.0.x/`).
+
+Possible solution is to copy the code that generates it on the current site. Could float it to the right, like we currently do (to avoid collision with the sidebar).
+
+### Plugins list on product version page assumes versions match
+
+The list of plugins on product version pages (such as `xl-deploy/4.0.x/`):
+
+1. Cycles through every plugin for that product
+2. Lists the ones that have a version that matches the product version
+
+For example, the plugins would be listed on `xl-deploy/4.5.x/` would all be version 4.5.x. The Liquid code (in `includes/xl_deploy_plugins_list_per_version.html`) assumes that a product and a plugin are compatible if their versions match, and are *not* compatible if their versions do not match.
+
+Some workaround ideas:
+
+| Workaround | Pluses | Minuses |
+| ---- | ---- | ---- |
+| Don't list plugins on the version page at all | Easy | Not user-friendly; loss of functionality compared to the current site |
+| Manually list the plugins on the product version page (basically, what we do now) | Total control of which plugin versions are listed for each product version | Manual work must be done for every product release |
+| Create a compatibility matrix behind the scenes and use Liquid or Ruby to select the right plugins for each product version | Theoretically future-proof | Difficult to develop |
+| Create a compatibility matrix that is visible to users and let them choose the plugin version(s) they need | Relatively easy | We would really need to test every plugin+product combination |
+
+### Limit on articles on KB splash page is not intelligent
+
+The number of articles in each category on `knowledge-base/index.html` is limited by the `limit` filter on the `for` loop. This limit isn't "intelligent" because Liquid doesn't know the number of articles in each category beforehand. This means that:
+
+* The "Read more" link at the bottom of each category list will always appear, *even if* the number of articles in a category is *less than or equal to* the limit
+* We can't publish an article count next to each "Read more" link
+
+A Ruby plugin is probably required to improve this functionality (because you need to use a counter for each category).
+
+Side note: The limit on KB articles that are listed on the product splash pages (such as `xl-deploy/index.html`) is intelligent, because Liquid knows that it should only count posts where the category matches the product ID of that index page (so, `xl-deploy`). On these pages, the "Read more" link only appears if the number of articles for the product is greater than the limit, and we can show the total number of articles for the product.
+
+### Markdown files containing Liquid not converted correctly
+
+When a Markdown file contains some Liquid logic (such as a `for` loop or an `if` statement), Jekyll may not convert it to HTML correctly. This is probably because it interprets indentation of lines of Liquid code as text that should be formatted as a code sample.
+
+The solution is to change the file from Markdown to HTML. This is why most of the index files in our setup are called `index.html`, not `index.markdown`.
+
+### Manual anchors prevent correct Markdown parsing
 
 Jekyll does not correctly parse Markdown if an anchor is manually placed before a heading, as we have done in a few manuals (upgrade manual, Overthere manual, XLR manuals). For example, this Markdown:
 
@@ -129,10 +190,6 @@ Results in this line appearing in the HTML file (in body text, not as a heading)
       ### Upgrading to XL Deploy 4.5.0 ###
 
 The solution is to **not** create anchors manually. Let Bootstrap create them based on the heading text.
-
-## Workflow
-
-Editors can commit directly on master of the online docs repository. Content can be reviewed and approved on the `devdoc` site which refreshes automatically. On demand, content can be pushed out to the production site (e.g. via Jenkins).
 
 ## To do
 
