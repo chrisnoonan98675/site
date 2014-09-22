@@ -109,6 +109,7 @@ Save drafts of pages and posts in the `_drafts` folder.
 * Jekyll runs locally at `localhost:4000`.
 * If a folder does not contain an `index.markdown` or `index.html` file, trying to access it will return a 404 error. It's a good idea to always put an index file in each folder or to use `.htaccess` or another method to redirect users to a useful page.
 * If you combine conditions in a loop, the order of the conditions matters.
+* In gradle, when deploying the content, we use `jekyll build --config "_config.yml,_jekyll.xebialabs.config.yml"` in order to override base URL, which is taken from the second configuration file.
 
 If you add a knowledge base article to the `_posts` folder but it doesn't appear on the website:
 
@@ -133,7 +134,9 @@ If you add a knowledge base article to the `_posts` folder but it doesn't appear
 
 ## Workflow
 
-Editors can commit directly on master of the online docs repository. Content can be reviewed and approved on the `devdoc` site which refreshes automatically. On demand, content can be pushed out to the production site (e.g. via Jenkins).
+* Editors can commit directly on master of the online docs repository. 
+* Content can be reviewed and approved on the `jekyll.xebialabs.com` site which refreshes automatically (via [Documentation/Jekyll docs](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/Jekyll%20docs/) job).
+* On demand, content can be pushed out to the production site (e.g. via Jenkins) _not implemented yet_.
 
 ## Known issues
 
@@ -198,4 +201,3 @@ The solution is to **not** create anchors manually. Let Bootstrap create them ba
      * Per tag on the KB tags page (API, xl-deploy-4.0.x, etc.)
 * Decide how to handle plugin compatibility (e.g. Plugin A 4.0.x is compatible with both Product B 4.0.x and Product B 4.5.x).
 * See if current KB tag formatting is okay and, if not, figure out how to mask them.
-* **Before going live:** The `url` property in `_config.yml` has to be changed from `http://localhost:4000` to `http://docs.xebialabs.com`. This is the value of the `{{ site.url }}` variable.
