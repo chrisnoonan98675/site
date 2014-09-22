@@ -3,10 +3,52 @@ layout: default
 title: XebiaLabs documentation
 ---
 
-<h1>XebiaLabs documentation</h1>
+<h1 class="page-header">XL Platform documentation</h1>
 
-Welcome to the XebiaLabs documentation site.
+<p class="lead">Welcome to documentation site for XL Platform.</p>
 
-{% for product in site.data.products %}
-		<p><a href="{{ site.url }}/{{ product.id }}"><img src="{{ site.url }}/images/{{ product.id }}-logo.png" alt="{{ product.product-name }}"></a></p>
-{% endfor %}
+<p>XL Platform provides lightweight, plug-and-play delivery automation modules for deployment, environment provisioning, Agile test management, and release coordination to help enterprises deliver higher quality software faster.</p>
+
+<p>Choose your product to get started:</p>
+
+<div class="container-fluid">
+	<div class="row">
+		{% for product in site.data.products %}
+			<div class="col-md-3">
+				<p align="center"><a href="{{ site.url }}/{{ product.id }}"><img height="75" src="{{ site.url }}/images/{{ product.id }}-logo.png" alt="{{ product.name }}" title="{{ product.name }} | {{ product.description }}"></a>
+				</p>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row featureditems"> 
+		<div class="col-md-4"> {% comment %} Use this section to feature selected versions {% endcomment %}
+			<h4>Jump to a version</h4> 
+			<ul class="list-unstyled">
+				<li><a href="{{ site.url }}/xl-deploy/4.5.x">XL Deploy 4.5.x</a></li>
+				<li><a href="{{ site.url }}/xl-deploy/4.0.x">XL Deploy 4.0.x</a></li>
+				<li><a href="{{ site.url }}/xl-release/4.0.x">XL Release 4.0.x</a></li>
+				<li><a href="{{ site.url }}/xl-scale/4.0.x">XL Scale 4.0.x</a></li>
+			</ul>
+		</div>
+		<div class="col-md-4"> {% comment %} This section automatically shows the five latest KB articles in all categories/tags {% endcomment %}
+			<h4>Latest knowledge base articles</h4> 
+			<ul class="list-unstyled">
+				{% for post in site.posts limit: 5 %}
+					<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+				{% endfor %}
+			</ul>
+			<p><a href="{{ site.url }}/knowledge-base">Read more &#187;</a></p>
+		</div>
+		<div class="col-md-4"> {% comment %} Use this section to feature special links {% endcomment %}
+			<h4>Get started</h4>
+			<ul class="list-unstyled">
+				<li><a href="http://xebialabs.com/products/">Sign up for a free trial</a>
+				<li><a href="https://support.xebialabs.com/forums/324570-Announcements">Latest XL Platform announcements</a></li>
+				<li><a href="https://github.com/xebialabs/community-plugins">XL Community on GitHub</a></li>
+			</ul>
+		</div>
+	</div> <!-- /.row featureditems -->
+</div><!-- /.container-fluid -->
