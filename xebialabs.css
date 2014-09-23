@@ -4,8 +4,16 @@
 .tag_list { padding-bottom: 20px; font-size: 125%; }
 .tag_list a:hover { text-decoration: none; }
 .navbar { min-height: 75px; }
-.footer-text { margin: 20px 0; }
 .breadcrumb { background-color: #FFFFFF; padding-left: 0; }
+
+/* Footer styles */
+
+.footer h2 { font-size: 22px; font-weight: lighter; }
+.footer a { color: #FFF; }
+#copy { color: #FFF; }
+#copy p { font-size: 12px; line-height: 22px; color: #999; }
+#socials { color: #FFF; }
+#socials .fa-stack-1x { color: #444; }
 
 
 /* Sticky footer styles */
@@ -16,19 +24,18 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: 160px;
 }
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 60px;
-  background-color: #f5f5f5;
-  border-color: ##e7e7e7;
-}
+  height: 160px;
+  background-color: #333;
+} 
 
 
-/* Scroll-to-top styles */
+/* Scroll-to-top button styles */
 
 .scroll-top-wrapper {
     position: fixed;
@@ -66,3 +73,12 @@ body {
 .scroll-top-wrapper i.fa {
     line-height: inherit;
 }
+
+/* IE10 viewport width workaround */
+/* See http://getbootstrap.com/getting-started/#support-ie10-width */
+
+@-webkit-viewport   { width: device-width; }
+@-moz-viewport      { width: device-width; }
+@-ms-viewport       { width: device-width; }
+@-o-viewport        { width: device-width; }
+@viewport           { width: device-width; }

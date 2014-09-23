@@ -1,7 +1,7 @@
-<!-- start sidebar -->
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-2 sidebar">
+<!-- Start sidebar -->
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2 sidebar">
 			<ul class="nav nav-sidebar">
 				{% assign sidebar_menu_items = (site.pages | where: "layout" , "list-in-sidebar" | sort: 'weight') %}
 				{% for page in sidebar_menu_items %}
@@ -9,4 +9,4 @@
 				{% endfor %}
 			</ul>
 		</div> <!-- /.col-md-2 sidebar -->
-<!-- end sidebar -->
+<!-- End sidebar -->

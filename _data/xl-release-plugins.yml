@@ -5,29 +5,22 @@
   type: bundled
   product: xl-release
   versions:
-    - 3.0.x
     - 4.0.x
 - name: JIRA
   id: jira
   type: bundled
   product: xl-release
   versions:
-    - 3.0.x
     - 4.0.x
 - name: Git Trigger
   id: git-trigger
   type: bundled
   product: xl-release
   versions:
-    - 3.0.x
     - 4.0.x
-
-# XL RELEASE OTHER PLUGINS
-
-- name: Subversion
-  id: subversion
-  type: other
+- name: Nexus
+  id: nexus-trigger
+  type: bundled
   product: xl-release
   versions:
-    - 3.0.x
     - 4.0.x
