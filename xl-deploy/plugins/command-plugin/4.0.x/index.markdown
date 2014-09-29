@@ -6,7 +6,7 @@ title: Command Plugin Manual
 
 This document describes the functionality provided by the Command Plugin.
 
-Refer to the [XL Deploy Reference Manual](referencemanual.html) for background information on XL Deploy and deployment concepts.
+Refer to the [XL Deploy Reference Manual](/xl-deploy/4.0.x/referencemanual.html) for background information on XL Deploy and deployment concepts.
 
 ## Overview
 
