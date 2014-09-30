@@ -18,3 +18,14 @@ defaults:
             type: "posts"
         values:
             layout: "post"
+
+asciidoc: asciidoctor
+asciidoc_ext: asciidoc,adoc,ad
+asciidoctor:
+  safe: safe
+  attributes:
+    - notitle!
+    - hardbreaks
+    - idprefix=
+    - idseparator=-
+    - linkattrs
