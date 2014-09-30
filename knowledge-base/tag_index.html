@@ -2,12 +2,10 @@
 title: Knowledge base articles
 ---
 
-{% capture tags %}
-	{% for tag in site.tags %}
-		{{ tag[0] }}
-	{% endfor %}
-{% endcapture %}
-{% assign sortedtags = tags | split:' ' | sort %}
+{% comment %} Do not insert extra spaces or line breaks in the following line of code. The comma after each tag is needed to separate them, so we can allow tags to contain spaces. {% endcomment %}
+
+{% capture tags %}{% for tag in site.tags %}{{ tag[0] }},{% endfor %}{% endcapture %}
+{% assign sortedtags = tags | split:',' | sort %}
 
 {% for tag in sortedtags %}
 	<h5 id="{{ tag }}">{{ tag }}</h5>
