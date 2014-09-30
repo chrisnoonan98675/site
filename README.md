@@ -135,7 +135,7 @@ If you add a knowledge base article to the `_posts` folder but it doesn't appear
 ## Workflow
 
 * Editors can commit directly on master of the online docs repository. 
-* Content can be reviewed and approved on the `jekyll.xebialabs.com` site which refreshes automatically (via [Documentation/Jekyll docs](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/Jekyll%20docs/) job).
+* Content can be reviewed and approved on the [jekyll.xebialabs.com](http://jekyll.xebialabs.com) site which refreshes automatically (via [Documentation/Jekyll docs](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/Jekyll%20docs/) job).
 * On demand, content can be pushed out to the production site (e.g. via Jenkins) _not implemented yet_.
 
 ## Known issues
