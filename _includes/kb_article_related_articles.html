@@ -1,8 +1,12 @@
-<div class="related">
-	<h2>Related articles</h2>
-	<ul class="related-posts">
-		{% for post in site.related_posts limit:3 %}
-			<li><a href="{{ post.url }}">{{ post.title }}</a></li>
-		{% endfor %}
-	</ul>
-</div>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h2 class="panel-title">Related articles</h2>
+	</div>
+	<div class="panel-body">
+		<ul class="list-unstyled">
+			{% for post in site.related_posts limit: 5 %}
+				<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</div> <!-- /.panel-body -->
+</div> <!-- /.related -->
