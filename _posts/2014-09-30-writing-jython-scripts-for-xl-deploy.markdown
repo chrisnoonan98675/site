@@ -3,8 +3,8 @@ title: Writing Jython scripts for XL Deploy
 categories:
 - xl-deploy
 tags:
-- jython
-- python
+- Jython
+- Python
 - script
 ---
 

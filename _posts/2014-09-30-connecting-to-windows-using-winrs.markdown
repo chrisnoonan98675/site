@@ -4,7 +4,7 @@ categories:
 - xl-deploy
 tags:
 - Windows
-- host
+- connectivity
 ---
 
 [Windows Remote Management](http://msdn.microsoft.com/en-us/library/aa384426%28v=vs.85%29.aspx), or WinRM, is Microsoft's implementation of the open [DMTF WS-Management standard](https://en.wikipedia.org/wiki/WS-Management) and is the standard way that [XL Deploy](http://xebialabs.com/products/xl-deploy) runs commands on Windows target systems. WinRM is a SOAP-based protocol, and XL Deploy can communicate directly with the target system by sending the appropriate messages over HTTP or HTTPS. This is XL Deploy's [WINRM_INTERNAL](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#cifs-connection-types-includes-winrm-and-telnet) connection mode.
