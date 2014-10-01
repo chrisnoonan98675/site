@@ -5,6 +5,7 @@
 .tag_list a:hover { text-decoration: none; }
 .navbar { min-height: 75px; }
 .breadcrumb { background-color: #FFFFFF; padding-left: 0; }
+img { max-width: 650px; }
 
 /* Footer styles */
 
