@@ -1,6 +1,18 @@
 online-docs-jekyll
 ==================
 
+## Setting it up locally (subject to change)
+
+1. Clone this repository.
+1. Install [Jekyll](http://jekyllrb.com/docs/installation/) and its requirements (Ruby, etc.).
+1. Install [Asciidoctor](http://asciidoctor.org/docs/install-toolchain/).
+1. Add the `jekyll` properties listed [here](https://intranet.xebia.com/confluence/display/Labs/devdoc.xebialabs.com) to your `gradle.properties` file.
+1. Create a folder at `/var/lib/jenkins/jekyll` and set its permissions with `chmod o+w`.
+1. Go to the location where you cloned the repository.
+1. Execute `gradle jekyllFetchSources` or `gradle jFS`.
+1. Execute `jekyll serve`.
+1. Go to `http://localhost:4000`.
+
 ## How the site works
 
 ### Logical structure of the site
