@@ -5,6 +5,8 @@ url: http://localhost:4000
 baseurl: '/'
 permalink: /:title
 
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
 defaults:
     -
         scope:
@@ -20,7 +22,7 @@ defaults:
             layout: "post"
 
 asciidoc: asciidoctor
-asciidoc_ext: asciidoc,adoc,ad
+asciidoc_ext: "asciidoc,adoc,ad"
 asciidoctor:
   safe: safe
   attributes:

@@ -1,0 +1,85 @@
+---
+defaults:
+  branch: master
+  path: documentation/src/main/markdown
+  repositoryBase: git@github.com:xebialabs
+
+sources:
+  -
+    project: xl-deploy
+    branches:
+      -
+        target: 5.0.x
+      -
+        branch: 4.5.x-maintenance
+        target: 4.5.x
+      -
+        branch: 4.0.x-maintenance
+        target: 4.0.x
+      -
+        branch: 3.9.x-maintenance
+        target: 3.9.x
+  -
+    project: cloud-pack
+    branches:
+      -
+        path: xl-scale-ec2-plugin/src/main/markdown
+        target: xl-scale-ec2-plugin/5.0.x
+      -
+        path: xl-scale-plugin/src/main/markdown
+        target: xl-scale-plugin/5.0.x
+      -
+        path: xl-scale-vsphere-plugin/src/main/markdown
+        target: xl-scale-vsphere-plugin/5.0.x
+      -
+        branch: 4.0.x-maintenance
+        path: xl-scale-ec2-plugin/src/main/markdown
+        target: xl-scale-ec2-plugin/4.0.x
+      -
+        branch: 4.0.x-maintenance
+        path: xl-scale-plugin/src/main/markdown
+        target: xl-scale-plugin/4.0.x
+      -
+        branch: 4.0.x-maintenance
+        path: xl-scale-vsphere-plugin/src/main/markdown
+        target: xl-scale-vsphere-plugin/4.0.x
+      -
+        branch: 3.9.x-maintenance
+        path: ec2-plugin/src/main/markdown
+        target: xl-scale/ec2-plugin/3.9.x
+      -
+        branch: 3.9.x-maintenance
+        path: cloud-plugin/src/main/markdown
+        target: xl-scale/cloud-plugin/3.9.x
+      -
+        branch: 3.9.x-maintenance
+        path: vsphere-plugin/src/main/markdown
+        target: xl-scale/vsphere-plugin/3.9.x
+  -
+    project: xl-release
+    branches:
+      -
+        branch: 4.0-branch
+        target: 4.0.x
+      -
+        branch: 3.0-branch
+        target: 3.0.x
+  -
+    project: tomcat-plugin
+    branches:
+      -
+        target: 5.0.x
+        path: src/main/markdown
+      -
+        branch: 4.5.x-maintenance
+        target: 4.5.x
+        path: src/main/markdown
+      -
+        branch: 4.0.x-maintenance
+        target: 4.0.x
+        path: src/main/markdown
+      -
+        branch: 3.9.x-maintenance
+        target: 3.9.x
+        path: src/main/markdown
+
