@@ -1,2 +1,15 @@
 _site/
 .DS_Store
+*.iml
+*.ipr
+*.iws
+.idea/
+.classpath
+.project
+.settings/
+build/
+bin/
+.gradle/
+test-output/
+out/
+classes/
