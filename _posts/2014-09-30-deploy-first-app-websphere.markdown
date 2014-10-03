@@ -3,7 +3,7 @@ title: Getting started with XL Deploy&#58; Deploy your first application on IBM 
 categories:
 - xl-deploy
 tags:
-- WebSphere
+- websphere
 - middleware
 - deployment
 ---
@@ -97,7 +97,7 @@ If the connection check succeeds, the state of the steps will be **DONE**.
 
 ![Sample successful connection check]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_successful_connection_check.png)
 
-If the connection check fails, please refer to our tips for troubleshooting [SSH](http://docs.xebialabs.com/releases/4.0/deployit/remotingPluginManual.html#troubleshooting-ssh) and [WinRM](http://docs.xebialabs.com/releases/4.0/deployit/remotingPluginManual.html#cifs-winrm-and-telnet) connections.
+If the connection check fails, please refer to our tips for troubleshooting [SSH](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#troubleshooting-ssh) and [WinRM](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#cifs-winrm-and-telnet) connections.
 
 ## Accept WebSphere trusted certificate
 
@@ -107,8 +107,8 @@ If `wsadmin` has not been used on your WebSphere Deployment Manager or unmanaged
 
 Once XL Deploy can communicate with your host, it can scan for middleware containers and automatically add them to the Repository for you. You can:
 
-* [Add a WebSphere Network Deployment (ND) cell](xl_deploy_trial_websphere_deploy_first_app.html#add-a-websphere-nd-cell)
-* [Add an unmanaged server for WebSphere Base](xl_deploy_trial_websphere_deploy_first_app.html#add-an-unmanaged-server-for-websphere-base)
+* [Add a WebSphere Network Deployment (ND) cell](#add-a-websphere-nd-cell)
+* [Add an unmanaged server for WebSphere Base](#add-an-unmanaged-server-for-websphere-base)
 
 ### Add a WebSphere ND cell
 
@@ -204,7 +204,7 @@ To deploy PetClinic-ear 1.0:
 5. Click **Next**. The deployment plan appears.
 6. Click **Execute**. XL Deploy deploys the application. As each step is executed, you can click it to see real-time information about the deployment.
 
-**Note:** If the deployment appears to hang on a step, XL Deploy may have encountered an issue with the SSL certificate. See [Accept WebSphere trusted certificate](xl_deploy_websphere_deploy_first_app.html#accept-websphere-trusted-certificate) for more information. If this is the case, click **Abort** to abort the operation and stop the deployment.
+**Note:** If the deployment appears to hang on a step, XL Deploy may have encountered an issue with the SSL certificate. See [Accept WebSphere trusted certificate](#accept-websphere-trusted-certificate) for more information. If this is the case, click **Abort** to abort the operation and stop the deployment.
 
 If the deployment succeeds, the state of the deployment plan is **EXECUTED**.
 

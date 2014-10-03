@@ -4,13 +4,13 @@ categories:
 - xl-deploy
 tags:
 - repository
-- CLI
+- cli
 - script
 ---
 
 When using a continuous integration system like Jenkins to do automatic deployments in XL Deploy, your repository may fill up quickly with build versions of your application. You will need some periodical cleanup to keep the XL Deploy repository at a manageable size.
 
-At XebiaLabs, we use the XL Deploy command line interface (CLI) script below to do this job for us. It allows you to delete packages older than a certain number of days and that match a certain text or that reside in a certain directory. For example, you can tell it to 'delete all SNAPSHOT versions older than 7 days from Applications/PetClinic'.
+At XebiaLabs, we use the XL Deploy [command line interface](http://docs.xebialabs.com/releases/latest/xl-deploy/climanual.html) (CLI) script below to do this job for us. It allows you to delete packages older than a certain number of days and that match a certain text or that reside in a certain directory. For example, you can tell it to 'delete all SNAPSHOT versions older than 7 days from Applications/PetClinic'.
 
 Because deletion is a destructive operation, you may want to check what will be deleted, so we added a 'dry run' option that serves as a safety cap. With this option enabled, the script simply prints the packages that would be deleted, but doesn't actually delete them.
 

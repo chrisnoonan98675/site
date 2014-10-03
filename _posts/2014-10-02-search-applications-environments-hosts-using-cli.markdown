@@ -3,7 +3,7 @@ title: Search applications, environments, and hosts using the XL Deploy CLI
 categories:
 - xl-deploy
 tags:
-- CLI
+- cli
 - application
 - environment
 - host

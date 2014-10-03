@@ -3,7 +3,7 @@ title: Connecting to Windows target machines using a winrs proxy with XL Deploy
 categories:
 - xl-deploy
 tags:
-- Windows
+- windows
 - connectivity
 ---
 

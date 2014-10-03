@@ -4,8 +4,8 @@ categories:
 - xl-deploy
 - xl-release
 tags:
-- LDAP
-- Active Directory
+- ldap
+- active directory
 - security
 ---
 

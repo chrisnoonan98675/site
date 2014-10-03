@@ -3,7 +3,7 @@ title: Getting started with XL Deploy&#58; Deploy your first application on Apac
 categories:
 - xl-deploy
 tags:
-- Tomcat
+- tomcat
 - middleware
 - deployment
 ---
@@ -31,7 +31,7 @@ First, you need to connect XL Deploy to the host on which Tomcat is running. Fol
 * [Unix and SSH](#connect-to-a-unix-host-using-ssh)
 * [Windows and WinRM](#connect-to-a-windows-host-using-winrm)
 
-If you would like to use SSH on Windows through WinSSHD or OpenSSH, please refer to the [Remoting Plugin Manual](http://docs.xebialabs.com/releases/4.0/deployit/remotingPluginManual.html#host-setup-for-ssh)
+If you would like to use SSH on Windows through WinSSHD or OpenSSH, please refer to the [Remoting Plugin Manual](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#host-setup-for-ssh).
 
 **Tip:** To see a host setup and connection check in action, watch the *[Defining infrastructure](http://vimeo.com/97815291)* video.
 
@@ -98,7 +98,7 @@ If the connection check succeeds, the state of the steps will be **DONE**.
 
 ![Sample successful connection check]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_successful_connection_check_tomcat.png)
 
-If the connection check fails, please refer to our tips for troubleshooting [SSH](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#troubleshooting-ssh) and [WinRM](http://docs.xebialabs.com/releases/4.0/deployit/remotingPluginManual.html#cifs-winrm-and-telnet) connections.
+If the connection check fails, please refer to our tips for troubleshooting [SSH](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#troubleshooting-ssh) and [WinRM](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#cifs-winrm-and-telnet) connections.
 
 ## Add your middleware
 

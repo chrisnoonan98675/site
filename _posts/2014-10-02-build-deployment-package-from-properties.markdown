@@ -3,7 +3,7 @@ title: Build a package in XL Deploy from properties in files, dictionaries, and 
 categories:
 - xl-deploy
 tags:
-- CLI
+- cli
 - application
 - package
 ---
@@ -51,6 +51,6 @@ To use the script:
 
 For example:
 
-    cli.sh -username admin -password deploy -source /Users/tom/Documents/CreateDARCLI/createDAR.py -- -n TestApp -b 1.0-6 -p /Users/tom/builds/propertiesSample.properties -x "{'webContent.type' : 'www.WebContent', 'webContent.name' : 'myWebContent', 'webContent.fileLocation' : '/Users/tom/scratch/PetPortal_pages.zip'}" -a true -e "MyEnvironment"
+    cli.sh -username admin -password deploy -source /Users/tom/Documents/CreateDARcli/createDAR.py -- -n TestApp -b 1.0-6 -p /Users/tom/builds/propertiesSample.properties -x "{'webContent.type' : 'www.WebContent', 'webContent.name' : 'myWebContent', 'webContent.fileLocation' : '/Users/tom/scratch/PetPortal_pages.zip'}" -a true -e "MyEnvironment"
 
 This will create a package called `1.0-6` (from the build argument) for application `TestApp`. It will also deploy `TestApp` to `MyEnvironment`.

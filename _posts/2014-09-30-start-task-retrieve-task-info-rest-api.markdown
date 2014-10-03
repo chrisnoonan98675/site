@@ -4,7 +4,7 @@ categories:
 - xl-deploy
 tags:
 - task
-- API
+- api
 ---
 
 One of the key aspects of XL Deploy's execution model is that most actions—whether [deployments](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#deploying-an-application), [control tasks](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#control-tasks), or running discovery—are ultimately [tasks](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#task) that run in XL Deploy's task engine. For example, if you [prepare a control task using XL Deploy's REST API]({{ site.url }}/prepare-invoke-control-task-rest-api), the output of the last API request is a task ID that you can use to execute the task.

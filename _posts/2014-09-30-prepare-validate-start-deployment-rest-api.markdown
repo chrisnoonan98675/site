@@ -4,7 +4,7 @@ categories:
 - xl-deploy
 tags:
 - deployment
-- API
+- api
 ---
 
 A deployment in XL Deploy may look like a single action when triggered by [Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin), [Bamboo](http://docs.xebialabs.com/releases/latest/bamboo-xl-deploy-plugin/bambooPluginManual.html), [XL Release](http://docs.xebialabs.com/releases/latest/xl-release/reference_manual.html#xl-deploy-task), or other plugins. However, preparing, validating, and executing a deployment is a sequence of individual steps that you may want to trigger from an integration point such as cloud management, provisioning, release management tools, and others. Here, we provide an example of walking through each of these steps with the [XL Deploy REST API](http://docs.xebialabs.com/releases/latest/deployit/rest-api/index.html).
@@ -357,7 +357,7 @@ Output:
 	  </containers>
 	</deployment>
 
-As described [here](http://docs.xebialabs.com/releases/latest/deployit/rest-api/com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html#validation-messages), validation errors are indicated by a `<validation-messages>` block nested within the CI with errors. There are no validation errors in our case, as we anticipated.
+As described [here](http://docs.xebialabs.com/releases/latest/deployit/rest-api/com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html#validation-messages), validation errors are indicated by a `<validation-messages>` block nested within the ci with errors. There are no validation errors in our case, as we anticipated.
 
 Finally, then, we can ask XL Deploy to convert our validated deployment spec into a task that can be executed.
 

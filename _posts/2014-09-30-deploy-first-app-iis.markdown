@@ -3,7 +3,7 @@ title: Getting started with XL Deploy&#58; Deploy your first application on Micr
 categories:
 - xl-deploy
 tags:
-- IIS
+- iis
 - middleware
 - deployment
 ---
@@ -63,7 +63,7 @@ If the connection check succeeds, the state of the steps will be **DONE**.
 
 ![Sample successful connection check]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_successful_connection_check_iis.png)
 
-If the connection check fails, please refer to our tips for [troubleshooting WinRM](http://docs.xebialabs.com/releases/4.0/deployit/remotingPluginManual.html#cifs-winrm-and-telnet) connections.
+If the connection check fails, please refer to our tips for [troubleshooting WinRM](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#cifs-winrm-and-telnet) connections.
 
 ## Add your middleware
 

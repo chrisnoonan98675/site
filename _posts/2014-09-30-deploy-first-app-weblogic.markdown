@@ -3,7 +3,7 @@ title: Getting started with XL Deploy&#58; Deploy your first application on Orac
 categories:
 - xl-deploy
 tags:
-- WebLogic
+- weblogic
 - middleware
 - deployment
 ---
@@ -94,7 +94,7 @@ If the connection check succeeds, the state of the steps will be **DONE**.
 
 ![Sample successful connection check]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_successful_connection_check_wls.png)
 
-If the connection check fails, please refer to our tips for troubleshooting [SSH](http://docs.xebialabs.com/releases/4.0/deployit/remotingPluginManual.html#troubleshooting-ssh) and [WinRM](http://docs.xebialabs.com/releases/4.0/deployit/remotingPluginManual.html#cifs-winrm-and-telnet) connections.
+If the connection check fails, please refer to our tips for troubleshooting [SSH](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#troubleshooting-ssh) and [WinRM](http://docs.xebialabs.com/releases/4.0/deployit/remotingPluginManual.html#cifs-winrm-and-telnet) connections.
 
 ## Add your middleware
 

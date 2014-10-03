@@ -3,8 +3,8 @@ title: Writing Jython scripts for XL Deploy
 categories:
 - xl-deploy
 tags:
-- Jython
-- Python
+- jython
+- python
 - script
 ---
 
@@ -45,7 +45,7 @@ Let's imagine we have the following code in `run.py`:
         infrastructureCis = repositoryService.query(None, None, "Infrastructure", None, None, None, 0, -1)
         applicationsCis = repositoryService.query(None, None, "Applications", None, None, None, 0, -1)
   
-    # do something with those CIs
+    # do something with those cis
 
 You can create a class that helps perform queries to the repository and hides unnecessary parameters.
 
@@ -69,7 +69,7 @@ Then, in `run.py`, you can import and use `RepositoryHelper`:
     infrastructureCis = repository_helper.get_all_cis("Infrastructure")
     applicationsCis = repository_helper.get_all_cis("Applications")
   
-    # do something with those CIs
+    # do something with those cis
 
 The contents of the folder and JAR archive will then be:
 

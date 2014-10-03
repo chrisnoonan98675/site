@@ -5,12 +5,12 @@ categories:
 tags:
 - control task
 - repository
-- API
+- api
 ---
 
-In addition to its primary task of executing deployments, XL Deploy supports [control tasks](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#control-tasks). These are useful maintenance or utility actions, such as checking a connection to a host or restarting a server, that you can associate with any [configuration item](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#configuration-items-cis) (CI) in XL Deploy's [repository](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#repository).
+In addition to its primary task of executing deployments, XL Deploy supports [control tasks](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#control-tasks). These are useful maintenance or utility actions, such as checking a connection to a host or restarting a server, that you can associate with any [configuration item](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#configuration-items-cis) (ci) in XL Deploy's [repository](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#repository).
 
-You can see which out-of-the-box control tasks are available in the documentation for the plugins you have installed (for example, documentation for the `checkConnection` control task on an `overthere.Host` [here](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#overtherehost)). You can even define your own control tasks and attach them to existing CI types, if desired; for example, the [Generic Plugin Manual](http://docs.xebialabs.com/releases/latest/deployit/genericPluginManual.html#control-task-delegates) for documentation on adding tasks to any [`generic.Container`](http://docs.xebialabs.com/releases/latest/deployit/genericPluginManual.html#genericcontainer).
+You can see which out-of-the-box control tasks are available in the documentation for the plugins you have installed (for example, documentation for the `checkConnection` control task on an `overthere.Host` [here](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#overtherehost)). You can even define your own control tasks and attach them to existing ci types, if desired; for example, the [Generic Plugin Manual](http://docs.xebialabs.com/releases/latest/deployit/genericPluginManual.html#control-task-delegates) for documentation on adding tasks to any [`generic.Container`](http://docs.xebialabs.com/releases/latest/deployit/genericPluginManual.html#genericcontainer).
 
 Here, we will demonstrate how to invoke a control task using the [XL Deploy REST API](http://docs.xebialabs.com/releases/latest/deployit/rest-api/index.html). This actually breaks down into two steps:
 

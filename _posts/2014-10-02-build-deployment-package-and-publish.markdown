@@ -3,12 +3,12 @@ title: Use the XL Deploy CLI to build and publish a deployment package
 categories:
 - xl-deploy
 tags:
-- CLI
+- cli
 - application
 - package
 ---
 
-XL Deploy users often want to automate the process of building a deployment package (DAR file) and publishing it to an XL Deploy server. If you're using [Maven](http://tech.xebialabs.com/deployit-maven-plugin), [Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin), [Team Foundation Server](http://docs.xebialabs.com/releases/latest/tfs-plugin/tfsPluginManual.html), or one of the other build and CI tools for which we have plugins, there's not too much you should have to do here. But it's useful to see how easy it is to put together similar functionality using the XL Deploy [command-line interface](http://docs.xebialabs.com/releases/latest/xl-deploy/climanual.html) (CLI).
+XL Deploy users often want to automate the process of building a deployment package (DAR file) and publishing it to an XL Deploy server. If you're using [Maven](http://tech.xebialabs.com/deployit-maven-plugin), [Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin), [Team Foundation Server](http://docs.xebialabs.com/releases/latest/tfs-plugin/tfsPluginManual.html), or one of the other build and ci tools for which we have plugins, there's not too much you should have to do here. But it's useful to see how easy it is to put together similar functionality using the XL Deploy [command-line interface](http://docs.xebialabs.com/releases/latest/xl-deploy/climanual.html) (CLI).
 
 [This CLI script]({{ site.url }}/sample-scripts/createAndImportPackage.py):
 

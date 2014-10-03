@@ -57,13 +57,13 @@ Before you create a deployment package, you should explore the CI types that are
 9. Expand **Applications** and right-click a deployment package.
 10. Select a CI type to see the properties that are available for it.
 
-![image]({{ site.url }}/images/preparing_your_app_repository_CI_type_menu.png)
+![image]({{ site.url }}/images/preparing_your_app_repository_ci_type_menu.png)
 
 Alternatively, you can use the XL Deploy command line to explore configuration item types and properties, as described in the [Command Line Interface Manual](http://docs.xebialabs.com/releases/latest/deployit/climanual.html). Or you can read about CI types in the [XL Deploy documentation](http://docs.xebialabs.com/). 
 
 ### How do I know which type to use?
 
-In most cases, the CI types that you need to use are straightforwardly determined by the components of your application and by the target middleware. XL Deploy also includes types for common application components such as files that simply need to be moved to target servers. 
+In most cases, the ci types that you need to use are straightforwardly determined by the components of your application and by the target middleware. XL Deploy also includes types for common application components such as files that simply need to be moved to target servers. 
 
 For each type, you can specify properties that represent attributes of the artifact or resource to be deployed, such as the target location for a file or a JDBC connection URL for a datasource. If the value of a property is the same for all target environments, you can set the value in the deployment package itself.
 
@@ -156,7 +156,7 @@ For detailed information about deployment packages, refer to the [Packaging Manu
 
 To deploy a package that you have created to a target environment, you must first make the package available to the XL Deploy server. You can do so by publishing the package from a build tool or by manually importing the package.
 
-The tools listed above can automatically publish deployment packages to an XL Deploy server. You can also publish packages through the XL Deploy user interface, the command line, or a Web request to the XL Deploy HTTP API.
+The tools listed above can automatically publish deployment packages to an XL Deploy server. You can also publish packages through the XL Deploy user interface, the command line, or a Web request to the XL Deploy HTTP api.
 
 #### Import a deployment package using the XL Deploy interface
 
@@ -251,6 +251,6 @@ For more information about creating a plugin, refer to the [Customization Manual
 
 ### Learn more about extending XL Deploy
 
-To learn more about the ways you can extend XL Deploy functionality through plugins, refer to the [plugin API documentation](http://docs.xebialabs.com/).
+To learn more about the ways you can extend XL Deploy functionality through plugins, refer to the [plugin api documentation](http://docs.xebialabs.com/).
 
 Also, you can [browse plugins that other XL Deploy users have created](https://github.com/xebialabs/community-plugins) and connect with other users at [the forums](https://support.xebialabs.com/forums).

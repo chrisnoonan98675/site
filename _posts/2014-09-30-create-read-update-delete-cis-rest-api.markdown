@@ -3,9 +3,9 @@ title: How to create, read, update, and delete configuration items using the XL 
 categories:
 - xl-deploy
 tags:
-- CI
+- ci
 - repository
-- API
+- api
 ---
 
 Common maintenance activities when running XL Deploy are adding, modifying, and removing items from its [repository](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#repository). This is especially the case for infrastructure and environment [configuration items](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#configuration-items-cis) (CIs) that are not published to XL Deploy automatically in the way [deployment packages](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#deployment-package) usually are.
@@ -43,7 +43,7 @@ The description of the CI, as it was actually saved, is returned. This may diffe
 
 If you want to create a CI that is linked to an artifact (although this is usually the case only for CIs in deployment packages), take a look at the version of the API call that takes a multipart [`ArtifactAndData`](http://docs.xebialabs.com/releases/latest/deployit/rest-api/com.xebialabs.deployit.engine.api.dto.ArtifactAndData.html) parameter.
 
-The general structure for the XML representing the configuration item is described [here](http://docs.xebialabs.com/releases/latest/deployit/rest-api/com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html); you can find the specific properties that the CI supports in the documentation of the appropriate plugin (for example, in the [Remoting Plugin Manual](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#overtherelocalhost) for `overthere.LocalHost`). An easy way to get a sample of the XML for a certain type is to use the [UI](http://docs.xebialabs.com/releases/latest/deployit/guimanual.html) or [CLI](http://docs.xebialabs.com/releases/latest/deployit/climanual.html) to create a dummy CI of that type and then use the REST API to read it.
+The general structure for the XML representing the configuration item is described [here](http://docs.xebialabs.com/releases/latest/deployit/rest-api/com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html); you can find the specific properties that the CI supports in the documentation of the appropriate plugin (for example, in the [Remoting Plugin Manual](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#overtherelocalhost) for `overthere.LocalHost`). An easy way to get a sample of the XML for a certain type is to use the [UI](http://docs.xebialabs.com/releases/latest/deployit/guimanual.html) or [cli](http://docs.xebialabs.com/releases/latest/deployit/climanual.html) to create a dummy CI of that type and then use the REST API to read it.
 
 Which brings us to...
 

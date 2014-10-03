@@ -3,7 +3,7 @@ title: Using XL Deploy dictionary values in a FreeMarker template
 categories:
 - xl-deploy
 tags:
-- FreeMarker
+- freemarker
 - dictionary
 ---
 
