@@ -13,29 +13,54 @@ online-docs-jekyll
 1. Execute `jekyll serve`.
 1. Go to `http://localhost:4000`.
 
-## How the site works
+## Logical structure of the site
 
-### Logical structure of the site
+### Manual-based approach
 
 * Landing page (index.html)
     * Product
-        * Product documentation for specific version
+        * Version
+            * Manual
+            * Manual
+        * Version
+            * Manual
+            * Manual
+        * List of knowledge base articles related to the product
+            * Article
+            * Article
+    * List of all knowledge base articles (organised by product and/or tag)
+        * Article
+        * Article
+        * Article
+
+### Topic-based approach
+
+* Landing page (index.html)
+    * Product
+        * Version
             * Category
                 * Topic
                 * Topic
+            * Category
+                * Topic
+                * Topic
+         * Version
+            * Category
+                * Topic
                 * Topic
             * Category
                 * Topic
                 * Topic
-                * Topic
-        * Knowledge base articles about the product
+        * List of knowledge base articles related to the product
             * Article
             * Article
             * Article
-    * Knowledge base (contains articles for all products)
+    * List of all knowledge base articles (organised by product and/or tag)
         * Article
         * Article
         * Article
+
+## How the site works
 
 ### Product documentation vs. knowledge base
 
@@ -45,6 +70,20 @@ In Jekyll terminology:
 * Knowledge base articles are *posts* that are located in `_posts`
 
 [This site](http://jekyllbootstrap.com/lessons/jekyll-introduction.html#toc_9) explains more about the difference between pages and posts.
+
+### Folders
+
+The purpose of some folders might not be clear if you're not familiar with Jekyll, so here are some explanations:
+
+| Folder | Purpose |
+| ------ | ------- |
+| `_plugins` | Contains Jekyll plugins |
+| `plugins` | Makes Jekyll generate a page at `http://docs.xebialabs.com/plugins/`. This folder does not contain Jekyll plugins nor XebiaLabs plugin documentation. |
+| `_posts` | Contains knowledge base articles |
+| `images` | Contains images for the site itself (like product logos) *and* images for knowledge base articles (subject to change) |
+| `knowledge-base` | Makes Jekyll generate a page at `http://docs.xebialabs.com/knowledge-base/`, as well as pages like `http://docs.xebialabs.com/knowledge-base/xl-deploy/`. This folder does not contain knowledge base articles (those are in `_posts`). |
+| `sample-scripts` | Contains sample files for knowledge base articles. Currently, you would attach these to Tips & Tricks posts (see [here](https://support.xebialabs.com/entries/59035095-Using-rules-to-interact-with-WebSphere-cluster-members) for an example) |
+| `_site` | This is where Jekyll puts generated files. Don't store things here. |
 
 ### File names
 
@@ -76,20 +115,17 @@ Post headers need a title, categories, and tags. The title will appear on the pa
       - security
       - password
       - dictionary
-      - xl-deploy-4.0.x
-      - xl-deploy-4.5.x
       ---
 
 ### Categories vs. tags
 
-*Categories* can be used to form permalinks, while tags cannot. Tags are case-sensitive and cannot contain spaces.
+*Categories* can be used to form permalinks, while tags cannot. Tags are case-sensitive and should always be in **lowercase** (capitalisation affects the way Liquid sorts tags).
 
 In our setup:
 
 * Categories are product IDs (`xl-deploy`, `xl-release`)
 * Tags are:
     * Concepts (`plugin`, `rules`)
-    * Product IDs with version numbers (`xl-deploy-4.5.x`, `xl-release-4.0.x`)
     * Middleware and CI tools (`tomcat`, `maven`)
 
 ### Drafts
@@ -104,16 +140,17 @@ Save drafts of pages and posts in the `_drafts` folder.
 
 | Jekyll layout file   | Page(s) it applies to  | Why is this layout file needed? |
 |----------------------|------------------------|---------------------------------|
-| default.html | All | Master layout file that calls most of the `includes` that make up the page structure |
-| list-in-sidebar.html | Landing page of a product or of the KB | Triggers Jekyll to add a link to the page in the sidebar |
-| post.html | All posts | Includes static breadcrumbs and a "Related posts" section |
-| page.html | All pages | Includes dynamically generated breadcrumbs | 
+| `default.html` | All | Master layout file that calls most of the `includes` that make up the page structure |
+| `list-in-sidebar.html` | Landing page of a product or of the KB | Triggers Jekyll to add a link to the page in the sidebar |
+| `post.html` | All posts | Includes static breadcrumbs and a "Related posts" section |
+| `page.html` | All pages | Includes dynamically generated breadcrumbs | 
 
 ### Plugins
 
 | Plugin file name | Description | Source | License |
 | ---------------- | ----------- | ------ | ------- |
 | `breadcrumbs.rb` | Creates dynamic breadcrumbs on pages | [Source](http://biosphere.cc/software-engineering/jekyll-breadcrumbs-navigation-plugin/) | None, apparently |
+| `asciidoc_plugin.rb` | Enables Jekyll to interpret Asciidoc files | [Source](https://github.com/asciidoctor/jekyll-asciidoc) | MIT |
 
 ### Tips
 
