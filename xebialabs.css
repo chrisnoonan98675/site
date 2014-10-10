@@ -6,6 +6,25 @@
 .navbar { min-height: 75px; }
 .breadcrumb { background-color: #FFFFFF; padding-left: 0; }
 img { max-width: 650px; }
+.xltopmenu { height: 75px; padding-top: 10px; }
+
+/* Google Custom Search overrides */
+input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gsc-search-button, .gsc-inline-block {
+  	-webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    line-height: normal; 
+}
+.gsc-tabsArea div {
+	overflow: visible !important; 
+}
+.googlecse {
+	width: 25%;
+}
+.cse .gsc-control-cse, .gsc-control-cse {
+	background: none !important;
+	border: none !important;
+}
 
 /* Footer styles */
 
