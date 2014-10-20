@@ -12,7 +12,7 @@
 				<td>{{ plugin.name }} plugin</td>
 				<td>
 					{% for version in plugin.versions %}
-						<a href="{{ site.url }}/xl-release/plugins/{{ plugin.id }}/{{ version }}">{{ version }}</a>&nbsp;&nbsp;
+						<a href="{{ site.url }}/{{ plugin.id }}/{{ version }}">{{ version }}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					{% endfor %}
 				</td>
 				<td>{{ plugin.type | capitalize }}</td>

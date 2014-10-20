@@ -90,7 +90,6 @@
   versions:
     - 3.9.x
     - 4.0.x
-    - 4.5.x
 - name: JBoss Application Server 7 and up
   id: jbossdm-plugin
   type: middleware
@@ -124,13 +123,12 @@
     - 4.0.x
     - 4.5.x
 - name: WebSphere Process Server
-  id: wls-plugin
+  id: wps-plugin
   type: middleware
   product: xl-deploy
   versions:
     - 3.9.x
     - 4.0.x
-    - 4.5.x
 - name: Tomcat
   id: tomcat-plugin
   type: middleware
@@ -146,7 +144,6 @@
   versions:
     - 3.9.x
     - 4.0.x
-    - 4.5.x
 - name: BizTalk
   id: biztalk-plugin
   type: middleware
@@ -154,7 +151,6 @@
   versions:
     - 3.9.x
     - 4.0.x
-    - 4.5.x
 - name: IIS
   id: iis-plugin
   type: middleware
@@ -162,7 +158,6 @@
   versions:
     - 3.9.x
     - 4.0.x
-    - 4.5.x
 - name: Windows
   id: windows-plugin
   type: middleware
@@ -170,7 +165,6 @@
   versions:
     - 3.9.x
     - 4.0.x
-    - 4.5.x
 - name: BigIP
   id: big-ip
   type: middleware
