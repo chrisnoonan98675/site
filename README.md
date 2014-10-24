@@ -128,6 +128,12 @@ In our setup:
     * Concepts (`plugin`, `rules`)
     * Middleware and CI tools (`tomcat`, `maven`)
 
+#### Tag index pages
+
+The `tag_gen.rb` plugin generates a "tag index" for each tag under `_site/tag`. This lists all posts that are tagged with that tag. If you create a new tag, you must restart Jekyll to generate an index file for that tag.
+
+For example, if I create a post, tag it with `thisisanewtag`, and restart Jekyll, `tag/thisisanewtag/index.html` will be created at the site root, and it will list the post I just created.
+
 ### Drafts
 
 Save drafts of pages and posts in the `_drafts` folder.
@@ -151,6 +157,7 @@ Save drafts of pages and posts in the `_drafts` folder.
 | ---------------- | ----------- | ------ | ------- |
 | `breadcrumbs.rb` | Creates dynamic breadcrumbs on pages | [Source](http://biosphere.cc/software-engineering/jekyll-breadcrumbs-navigation-plugin/) | None, apparently |
 | `asciidoc_plugin.rb` | Enables Jekyll to interpret Asciidoc files | [Source](https://github.com/asciidoctor/jekyll-asciidoc) | MIT |
+| `tag_gen.rb` | Generates an index page in the `_site/tag` folder for every tag on a post | [Source](http://charliepark.org/tags-in-jekyll/) | None |
 
 ### Tips
 
