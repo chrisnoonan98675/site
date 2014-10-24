@@ -1,5 +1,9 @@
+{% capture page_tags %}{% for tag in page.tags %}{{ tag }},{% endfor %}{% endcapture %}
+
+{% assign sorted_page_tags = page_tags | split:',' | sort %}
+
 <div class="tag_list">
-{% for tag in page.tags %}
-	<a href="{{ site.url }}/knowledge-base/tag_index.html#{{ tag }}"><span class="label label-default">{{ tag }}</span></a>
-{% endfor %}
+	{% for tag in sorted_page_tags %}
+		<a href="{{ site.url }}/knowledge-base/tag_index.html#{{ tag }}"><span class="label label-default">{{ tag }}</span></a>
+	{% endfor %}
 </div>
