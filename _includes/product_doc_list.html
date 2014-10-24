@@ -4,7 +4,7 @@
 	{% for product in site.data.products %}
 		{% if product.id == page.product-id %}
 			{% for version in product.versions %}
-					<li><a href="/{{ product.id }}/{{ version }}">{{ product.name }} {{ version }}</a></li>
+					<li><a href="{{ version }}">{{ product.name }} {{ version }}</a></li>
 				{% endfor %}
 		{% endif %}
 	{% endfor %}

@@ -10,7 +10,7 @@
 			{% for version in plugin.versions %}
 			{% if version == page.version-id %}
 			<tr>
-				<td><a href="/xl-deploy/plugins/{{ plugin.id }}/{{ version }}">{{ plugin.name }} plugin</a></td>
+				<td><a href="xl-deploy/plugins/{{ plugin.id }}/{{ version }}">{{ plugin.name }} plugin</a></td>
 				<td>{{ plugin.type | capitalize }}</td>
 			</tr>
 			{% endif %}

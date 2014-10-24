@@ -7,7 +7,7 @@
 					{% if page.path contains version %}
 						{% unless page.path contains "index" %}
 							{% unless page.path contains "plugins" %}
-								<li><a href="/{{ page.url }}">{{ page.title }}</a></li>
+								<li><a href="{{ page.url }}">{{ page.title }}</a></li>
 							{% endunless %}
 						{% endunless %}
 					{% endif %}
