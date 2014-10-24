@@ -1,6 +1,7 @@
 /* XebiaLabs-specific styles */
 
 .hidden { display: none; }
+.indented { margin-left: 40px; }
 .tag_list { padding-bottom: 20px; font-size: 125%; }
 .tag_list a:hover { text-decoration: none; }
 .navbar { min-height: 75px; }
