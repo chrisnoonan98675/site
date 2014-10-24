@@ -1,14 +1,13 @@
 ---
-layout: default
+layout: page
 ---
 
-<h2 class="post_title">{{page.title}}</h2>
 <ul>
 	{% for post in site.posts %}
 		{% for tag in post.tags %}
 			{% if tag == page.tag %}
 				<li class="archive_list">
-					<a href='{{post.url}}' title="Posted {{post.date | date: "%Y-%m-%d"}}">{{post.title}}</a> | {% for tag in post.tags %}<a class="tag_list_link" href="/tag/{{ tag }}">{{ tag }}</a> | {% endfor %}
+					<a href='{{ post.url }}' title="Posted {{ post.date | date: "%Y-%m-%d" }}">{{ post.title }}</a> | Also tagged with: {% for tag in post.tags %}{% unless tag == page.tag %}<a class="tag_list_link" href="/tag/{{ tag }}">{{ tag }}</a>&nbsp;{% endunless %}{% endfor %}
 				</li>
 			{% endif %}
 		{% endfor %}
