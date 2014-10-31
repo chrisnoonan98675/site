@@ -48,7 +48,7 @@ To connect to a Windows host using WinRM:
 
       **Tip:** For information about the permissions that the user must have, see our documentation on [WinRM connections](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#cifs-winrm-and-telnet).
 
-      ![Sample Windows host with WinRM]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_windows_host_winrm.png)
+      ![Sample Windows host with WinRM](/images/xl-deploy-trial/xl_deploy_trial_windows_host_winrm.png)
 
 10. Click **Save**. XL Deploy saves the host in the Repository.
 
@@ -61,7 +61,7 @@ After you configure the host, verify that XL Deploy can connect to it:
 
 If the connection check succeeds, the state of the steps will be **DONE**.
 
-![Sample successful connection check]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_successful_connection_check_iis.png)
+![Sample successful connection check](/images/xl-deploy-trial/xl_deploy_trial_successful_connection_check_iis.png)
 
 If the connection check fails, please refer to our tips for [troubleshooting WinRM](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#cifs-winrm-and-telnet) connections.
 
@@ -79,7 +79,7 @@ To add an IIS 7.0+ server:
 1. Right-click the host that you created and select **New** > **iis** > **Server**.
 2. In the **Name** box, enter a name for the server.
 
-      ![Sample IIS 7.0+ server configuration]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_iis_server.png)
+      ![Sample IIS 7.0+ server configuration](/images/xl-deploy-trial/xl_deploy_trial_iis_server.png)
 
 3. Click **Save**. XL Deploy saves the server in the Repository.
 
@@ -91,7 +91,7 @@ To add an IIS 6.0 server:
 2. In the **Name** box, enter a name for the server.
 3. Optionally set the path to the .NET Framework installation in **.NET Framework Installation Path** (defaults to `C:\WINDOWS\Microsoft.NET\Framework64`).
 
-      ![Sample IIS 6.0 server configuration]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_iis6_server.png)
+      ![Sample IIS 6.0 server configuration](/images/xl-deploy-trial/xl_deploy_trial_iis6_server.png)
 
 3. Click **Save**. XL Deploy saves the server in the Repository.
 
@@ -105,9 +105,9 @@ To create an environment where you can deploy a sample application:
 
 1. Right-click **Environments** and select **New** > **Environment**.
 2. In the **Name** box, enter a name for this environment.
-3. On the **Common** tab, select the IIS server from the **Containers** list and click ![Right arrow button]({{ site.url }}/images/button_add_container.png) to move it to the **Members** list.
+3. On the **Common** tab, select the IIS server from the **Containers** list and click ![Right arrow button](/images/button_add_container.png) to move it to the **Members** list.
 
-      ![Sample environment]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_iis_environment.png)
+      ![Sample environment](/images/xl-deploy-trial/xl_deploy_trial_iis_environment.png)
 
 4. Click **Save**. XL Deploy saves the environment in the Repository.
 
@@ -120,11 +120,11 @@ Your trial version of XL Deploy includes two versions of a sample application ca
 To add the application to XL Deploy's Repository, you need to import it:
 
 1. Click **Deployment** in XL Deploy.
-2. Under **Packages**, click ![Import package button]({{ site.url }}/images/button_import_package.png). A new tab appears in the Deployment Workspace.
+2. Under **Packages**, click ![Import package button](/images/button_import_package.png). A new tab appears in the Deployment Workspace.
 3. Select **Import deployment package from server**.
 4. Next to **Select package**, select **NerdDinner/2.0**. This package contains version 2.0 of the NerdDinner application.
 
-      ![Sample application]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_import_sample_NerdDinner.png)
+      ![Sample application](/images/xl-deploy-trial/xl_deploy_trial_import_sample_NerdDinner.png)
 
 5. Click **Import**. XL Deploy imports the application.
 
@@ -139,9 +139,9 @@ To deploy NerdDinner 2.0:
 1. Under **Packages**, expand **NerdDinner**.
 2. Select the **2.0** package and drag it to the left side of the Deployment Workspace.
 3. Under **Deployed Applications**, select the environment and drag it to the right side of the Deployment Workspace.
-4. Click ![Auto-map button]({{ site.url }}/images/button_auto-map.png) to automatically map the deployables in the package to the appropriate container in the environment.
+4. Click ![Auto-map button](/images/button_auto-map.png) to automatically map the deployables in the package to the appropriate container in the environment.
 
-      ![Sample mapping]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_iis_mapping_sample_app.png)
+      ![Sample mapping](/images/xl-deploy-trial/xl_deploy_trial_iis_mapping_sample_app.png)
 
 5. Click **Analyze** to preview the deployment plan in the Plan Analyzer.
 6. Double-click the deployables that XL Deploy mapped. Here, you can see various properties that you can adjust at deployment time, like the website name.
@@ -150,17 +150,17 @@ To deploy NerdDinner 2.0:
 
 If the deployment succeeds, the state of the deployment plan is **EXECUTED**.
 
-![Sample successful deployment]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_iis_successful_deployment.png)
+![Sample successful deployment](/images/xl-deploy-trial/xl_deploy_trial_iis_successful_deployment.png)
 
 If the deployment fails, click the failed step to see information about the failure. In some cases, you can correct the error and try again. For example, in the deployment shown below, XL Deploy could not copy files to the IIS server because remote management is not enabled. If we enable remote management on the server and click **Continue**, XL Deploy will try to start the application again.
 
-![Sample failed deployment]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_iis_failed_deployment.png)
+![Sample failed deployment](/images/xl-deploy-trial/xl_deploy_trial_iis_failed_deployment.png)
 
 ## Verify the deployment
 
 To verify the deployment, use the <a href="http://msdn.microsoft.com/en-us/library/vstudio/bb763170(v=vs.100).aspx" target="_blank">IIS Manager</a> to connect to the IP address that you provided in [Connect to your infrastructure](#connect-to-your-infrastructure). NerdDinner will appear as a new site on the server. Click the link under **Browse Website** to visit the site.
 
-![Deployed application in IIS 8]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_iis_deployed_website.png)
+![Deployed application in IIS 8](/images/xl-deploy-trial/xl_deploy_trial_iis_deployed_website.png)
 
 ## What's next
 

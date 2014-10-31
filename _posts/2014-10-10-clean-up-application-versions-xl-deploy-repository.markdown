@@ -16,7 +16,7 @@ Every once in a while, you may want to delete a few of these previous revisions 
 
 ## Usage
 
-[This CLI script]({{ site.url }}/sample-scripts/cleanRevisions.py) can be used to clean up all revisions of an application older than a specified version. 
+[This CLI script](/sample-scripts/cleanRevisions.py) can be used to clean up all revisions of an application older than a specified version. 
 
 Save this file in the `scripts` directory of your XL Deploy CLI installation (if this directory does not exist, create it first). Then, you can run it from the CLI:
 

@@ -205,11 +205,11 @@ Now you can test the rules that you created. To do so, you must:
 4. Under Environments, create an environment that contains the `example.Server` container.
 5. Go to the Deployment Workspace and start a new deployment of the application to the environment. When preparing the deployment, click **Deployment Properties** and enter a wait time (if you do not provide a value, the wait step will not appear in the plan).
 
-      ![Deployment properties]({{ site.url }}/images/rulestutorial-deployment-properties.png)
+      ![Deployment properties](/images/rulestutorial-deployment-properties.png)
 
 5. Click **Next**. XL Deploy should create the following deployment plan:
 
-      ![First deployment plan]({{ site.url }}/images/rulestutorial-first-deployment.png)
+      ![First deployment plan](/images/rulestutorial-first-deployment.png)
 
 6. Execute the plan. The steps should succeed.
 7. Verify that there is a `context` folder in the directory that you set as the home directory of `example.Server`, and verify that the artifact was copied to it.
@@ -259,7 +259,7 @@ The Unix script `undeploy-artifact.sh.ftl` contains:
 
 Now, you can test the rule. After successfully deploying the artifact, roll back the deployment or undeploy the application. If you have defined undeployment rules for all deployeds or used the sample code provided by XebiaLabs, the deployment plan should look like this:
 
-![Undeploy plan]({{ site.url }}/images/rulestutorial-undeploy-plan.png)
+![Undeploy plan](/images/rulestutorial-undeploy-plan.png)
 
 ## Restart the server
 
@@ -355,11 +355,11 @@ In a real implementation, this script would need to contain the commands require
 
 To test the server restart rules, set up a deployment as described in [Test the deployment rules](#test-the-deployment-rules). The deployment plan should look like:
 
-![Final plan]({{ site.url }}/images/rulestutorial-final-plan.png)
+![Final plan](/images/rulestutorial-final-plan.png)
 
 Notice that steps to start and stop server are added even when application is undeployed:
 
-![Final plan]({{ site.url }}/images/rulestutorial-undeploy-final-plan.png)
+![Final plan](/images/rulestutorial-undeploy-final-plan.png)
 
 
 ## Roll back a deployment

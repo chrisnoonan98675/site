@@ -9,7 +9,7 @@ tags:
 - host
 ---
 
-[This script]({{ site.url }}/sample-scripts/searchRepo.py) enables you to use the XL Deploy [command-line interface](http://docs.xebialabs.com/releases/latest/xl-deploy/climanual.html) (CLI) to search for applications, environments, and hosts that are stored in your XL Deploy repository.
+[This script](/sample-scripts/searchRepo.py) enables you to use the XL Deploy [command-line interface](http://docs.xebialabs.com/releases/latest/xl-deploy/climanual.html) (CLI) to search for applications, environments, and hosts that are stored in your XL Deploy repository.
 
 To use it:
 

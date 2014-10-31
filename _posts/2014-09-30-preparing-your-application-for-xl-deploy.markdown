@@ -47,17 +47,17 @@ The plugins that are included in your XL Deploy installation determine the CI ty
 Before you create a deployment package, you should explore the CI types that are available. To do so in the XL Deploy interface, first import a sample deployment package:
 
 1. Go to **Deployment**.
-2. Click ![image]({{ site.url }}/images/button_import_package.png). The Import New Package tab appears.
+2. Click ![image](/images/button_import_package.png). The Import New Package tab appears.
 3. Select **Import deployment package from server**.
 4. Select the **PetClinic-ear 1.0** sample package.
 5. Click **Import**. XL Deploy imports the package.
 6. Click **Close**.
 7. Go to **Repository**.
-8. Click ![image]({{ site.url }}/images/button_refresh_repository.png) to refresh the repository.
+8. Click ![image](/images/button_refresh_repository.png) to refresh the repository.
 9. Expand **Applications** and right-click a deployment package.
 10. Select a CI type to see the properties that are available for it.
 
-![image]({{ site.url }}/images/preparing_your_app_repository_ci_type_menu.png)
+![image](/images/preparing_your_app_repository_ci_type_menu.png)
 
 Alternatively, you can use the XL Deploy command line to explore configuration item types and properties, as described in the [Command Line Interface Manual](http://docs.xebialabs.com/releases/latest/deployit/climanual.html). Or you can read about CI types in the [XL Deploy documentation](http://docs.xebialabs.com/). 
 
@@ -99,7 +99,7 @@ To create a dictionary that defines values that are specific to an environment:
 1. In the XL Deploy interface, go to **Repository**.
 2. Right-click **Environments** and select **New** > **Dictionary**. The dictionary properties appear.
 3. Enter a name for the dictionary in the **Name** box.
-4. On the **Common** tab, click ![image]({{ site.url }}/images/button_add_placeholder.png) to add entries to the dictionary.
+4. On the **Common** tab, click ![image](/images/button_add_placeholder.png) to add entries to the dictionary.
 5. Under **Key**, enter a placeholder that you are using in the application, without brackets (DB_USERNAME and DB_PASSWORD from the example above).
 6. Under **Value**, enter the value that XL Deploy should replace the placeholder with when you deploy the application to the target environment.
 7. Click **Save**.
@@ -166,13 +166,13 @@ To import a deployment package:
 
 1. Copy the deployment package (DAR) to `SERVER_HOME/importablePackages` on the XL Deploy server or to a location that is accessible via a URL.
 2. In the XL Deploy interface, go to **Deployment**.
-3. Click ![image]({{ site.url }}/images/button_import_package.png). The Import New Package tab appears.
+3. Click ![image](/images/button_import_package.png). The Import New Package tab appears.
 4. If you copied the DAR file to the XL Deploy server, select **Import deployment package from server** and select your deployment package.
 5. If you copied the deployment package to a location that is accessible via a URL, select **Import a deployment package from url**, and then enter the URL.
 6. Click **Import**. XL Deploy imports the package. If the package represents an application that is not already defined, XL Deploy automatically creates an application for it. If the package represents an application that is already defined, XL Deploy adds it as a new version of the application.
 7. Click **Close**.
 8. Go to **Repository**.
-9. Click ![image]({{ site.url }}/images/button_refresh_repository.png) to refresh the repository.
+9. Click ![image](/images/button_refresh_repository.png) to refresh the repository.
 10. Expand **Applications**.
 11. Expand the application that your package represents. Your package appears as a new version of the application.
 
@@ -201,7 +201,7 @@ To create the deployment plan:
 2. Under **Packages**, expand your application.
 3. Select the desired version of your application and drag it to the left side of the Deployment Workspace.
 4. Under **Deployment**, select the environment where your application should be deployed and drag it to the right side of the Deployment Workspace.
-5. Click ![image]({{ site.url }}/images/button_auto-map.png) to automatically map your application’s deployables to containers in the environment.
+5. Click ![image](/images/button_auto-map.png) to automatically map your application’s deployables to containers in the environment.
 6. Double-click each mapped deployable to verify that its properties are configured as expected. Here, you can see the placeholders that XL Deploy found in your deployment package and the values that it will assign to them during the deployment process.
 7. Click **Analyze** at the bottom of the Deployment Workspace. The Plan Analyzer appears.
 8. Review the steps in the Plan Analyzer.

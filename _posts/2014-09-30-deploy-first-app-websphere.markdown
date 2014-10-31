@@ -52,7 +52,7 @@ To connect to a Unix host using SSH:
 8. In the **Password** box, enter the user's password.
 9. If you chose the connection type SU, SUDO, or INTERACTIVE_SUDO, click the **Advanced** tab and enter the user name and password (in the case of SU) that XL Deploy should use.
 
-      ![Sample Unix host with SSH]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_unix_host_ssh.png)
+      ![Sample Unix host with SSH](/images/xl-deploy-trial/xl_deploy_trial_unix_host_ssh.png)
 
 10. Click **Save**. XL Deploy saves the host in the Repository.
 
@@ -82,7 +82,7 @@ To connect to a Windows host using WinRM:
 
       **Tip:** For information about the permissions that the user must have, see our documentation on [WinRM connections](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#cifs-winrm-and-telnet).
 
-      ![Sample Windows host with WinRM]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_windows_host_winrm.png)
+      ![Sample Windows host with WinRM](/images/xl-deploy-trial/xl_deploy_trial_windows_host_winrm.png)
 
 10. Click **Save**. XL Deploy saves the host in the Repository.
 
@@ -95,7 +95,7 @@ After you configure the host, verify that XL Deploy can connect to it:
 
 If the connection check succeeds, the state of the steps will be **DONE**.
 
-![Sample successful connection check]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_successful_connection_check.png)
+![Sample successful connection check](/images/xl-deploy-trial/xl_deploy_trial_successful_connection_check.png)
 
 If the connection check fails, please refer to our tips for troubleshooting [SSH](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#troubleshooting-ssh) and [WinRM](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#cifs-winrm-and-telnet) connections.
 
@@ -120,12 +120,12 @@ To add a WebSphere ND cell:
 4. In the **Administrative port**, **Administrative username**, and **Administrative password** boxes, optionally enter the TCP port, user name, and password to use when connecting to WebSphere using `wsadmin`.
 6. Click **Next**. A plan appears with the steps that XL Deploy will execute to discover the middleware on the host.
 
-      ![Sample discovery steps]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_websphere_discovery_steps.png)
+      ![Sample discovery steps](/images/xl-deploy-trial/xl_deploy_trial_websphere_discovery_steps.png)
 
 7. Click **Execute**. XL Deploy executes the plan. If it succeeds, the state of the steps will be **DONE**.
 8. Click **Next**. XL Deploy shows the items that it discovered.
 
-      ![Sample discovered infrastructure items]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_websphere_discovered_items.png)
+      ![Sample discovered infrastructure items](/images/xl-deploy-trial/xl_deploy_trial_websphere_discovered_items.png)
 
 9. You can click each item to view its properties. If an item is missing a property value that is required, a red triangle appears next to it. Provide the missing value and click **Apply** to save your changes.
 9. When you are finished, click **Save**. XL Deploy saves the items in the Repository.
@@ -139,11 +139,11 @@ To add an unmanaged server for WebSphere Base:
 3. In the **WebSphere Installation Path** box, enter the path to the WebSphere profile; for example, `/opt/IBM/WebSphere/AppServer/profiles/AppSrv01`
 4. Click **Next**. A plan appears with the steps that XL Deploy will execute to discover the middleware on the host.
 
-      ![Sample discovery steps]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_websphere_unmanaged_server_discovery_steps.png)
+      ![Sample discovery steps](/images/xl-deploy-trial/xl_deploy_trial_websphere_unmanaged_server_discovery_steps.png)
 
 5. Click **Execute**. XL Deploy executes the plan. If it succeeds, the state of the steps will be **DONE**.
 
-      ![Sample discovered infrastructure items]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_websphere_unmanaged_server_discovered_items_error.png)
+      ![Sample discovered infrastructure items](/images/xl-deploy-trial/xl_deploy_trial_websphere_unmanaged_server_discovered_items_error.png)
 
 9. Click each item to view its properties. If an item is missing a property value that is required, a red triangle appears next to it, as shown above. Provide the missing value and click **Apply** to save your changes.
 
@@ -159,11 +159,11 @@ To create an environment where you can deploy a sample application:
 
 1. Right-click **Environments** and select **New** > **Environment**.
 2. In the **Name** box, enter a name for this environment.
-3. On the **Common** tab, select middleware containers from the **Containers** list and click ![Right arrow button]({{ site.url }}/images/button_add_container.png) to move it to the **Members** list.
+3. On the **Common** tab, select middleware containers from the **Containers** list and click ![Right arrow button](/images/button_add_container.png) to move it to the **Members** list.
       * To deploy the sample application on WebSphere ND, you must add a *cluster* and a *node agent* to the environment.
       * To deploy the sample application on WebSphere Base, you must add a *server* to the environment.
 
-      ![Sample environment]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_websphere_nd_environment.png)
+      ![Sample environment](/images/xl-deploy-trial/xl_deploy_trial_websphere_nd_environment.png)
 
 4. Click **Save**. XL Deploy saves the environment in the Repository.
 
@@ -176,11 +176,11 @@ Your trial version of XL Deploy includes two versions of a sample application ca
 To add the application to XL Deploy's Repository, you need to import it:
 
 1. Click **Deployment** in XL Deploy.
-2. Under **Packages**, click ![Import package button]({{ site.url }}/images/button_import_package.png). A new tab appears in the Deployment Workspace.
+2. Under **Packages**, click ![Import package button](/images/button_import_package.png). A new tab appears in the Deployment Workspace.
 3. Select **Import deployment package from server**.
 4. Next to **Select package**, select **PetClinic-ear/1.0**. This package contains version 1.0 of the PetClinic-ear application.
 
-      ![Sample environment]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_import_sample_app.png)
+      ![Sample environment](/images/xl-deploy-trial/xl_deploy_trial_import_sample_app.png)
 
 5. Click **Import**. XL Deploy imports the application.
 
@@ -195,9 +195,9 @@ To deploy PetClinic-ear 1.0:
 1. Under **Packages**, expand **PetClinic-ear**.
 2. Select the **1.0** package and drag it to the left side of the Deployment Workspace.
 3. Under **Deployed Applications**, select the environment and drag it to the right side of the Deployment Workspace.
-4. Click ![Auto-map button]({{ site.url }}/images/button_auto-map.png) to automatically map the deployable in the package (which is an EAR file) in the package to the appropriate container in the environment.
+4. Click ![Auto-map button](/images/button_auto-map.png) to automatically map the deployable in the package (which is an EAR file) in the package to the appropriate container in the environment.
 
-      ![Sample mapping]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_websphere_nd_mapping_sample_app.png)
+      ![Sample mapping](/images/xl-deploy-trial/xl_deploy_trial_websphere_nd_mapping_sample_app.png)
 
 5. Click **Analyze** to preview the deployment plan in the Plan Analyzer.
 6. Double-click the EAR file that XL Deploy mapped. Here, you can see various WebSphere properties that you can adjust at deployment time, like the application edition, rollout strategy, and restart strategy.
@@ -208,17 +208,17 @@ To deploy PetClinic-ear 1.0:
 
 If the deployment succeeds, the state of the deployment plan is **EXECUTED**.
 
-![Sample failed deployment]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_successful_deployment.png)
+![Sample failed deployment](/images/xl-deploy-trial/xl_deploy_trial_successful_deployment.png)
 
 If the deployment fails, click the failed step to see information about the failure. In some cases, you can correct the error and try again. For example, in the deployment shown below, XL Deploy could not start the application because the WebSphere cluster was not running. If we start the cluster and click **Continue**, XL Deploy will try to start the application again.
 
-![Sample failed deployment]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_failed_deployment.png)
+![Sample failed deployment](/images/xl-deploy-trial/xl_deploy_trial_failed_deployment.png)
 
 ## Verify the deployment
 
 To verify the deployment, go to `http://IP:PORT/petclinic`, where `IP` and `PORT` are the IP address and port of the server where the application was deployed; for example, the *node* in a WebSphere ND environment or the *server* in a WebSphere Base environment.
 
-![Sample deployed PetClinic-ear application]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_deployed_petclinic.png)
+![Sample deployed PetClinic-ear application](/images/xl-deploy-trial/xl_deploy_trial_deployed_petclinic.png)
 
 ## What's next
 

@@ -13,4 +13,4 @@ You can configure multiple custom properties for a WebSphere resource in Jenkins
 
 For example, for the `was.DB2Type4DatasourceSpec` resource, select **customProperties** and set the **Value** to `val1=val1&val2=val2`.
 
-![Custom properties in Jenkins]({{ site.url }}/images/setting-custom-properties-websphere-resources-jenkins.jpg)
+![Custom properties in Jenkins](/images/setting-custom-properties-websphere-resources-jenkins.jpg)

@@ -10,7 +10,7 @@ tags:
 
 XL Deploy users often want to automate the process of building a deployment package (DAR file) and publishing it to an XL Deploy server. If you're using [Maven](http://tech.xebialabs.com/deployit-maven-plugin), [Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin), [Team Foundation Server](http://docs.xebialabs.com/releases/latest/tfs-plugin/tfsPluginManual.html), or one of the other build and ci tools for which we have plugins, there's not too much you should have to do here. But it's useful to see how easy it is to put together similar functionality using the XL Deploy [command-line interface](http://docs.xebialabs.com/releases/latest/xl-deploy/climanual.html) (CLI).
 
-[This CLI script]({{ site.url }}/sample-scripts/createAndImportPackage.py):
+[This CLI script](/sample-scripts/createAndImportPackage.py):
 
 1. Takes an XL Deploy manifest and a path to a directory containing the artifacts to be included in the deployment package as arguments
 2. Builds a DAR file based on the manifest
@@ -42,4 +42,4 @@ Using the modified script (that is, the version is passed as the third argument)
     
     CLI_HOME/bin/cli.sh [cli-arguments-if-needed] -f /path/to/create-and-import-package.py -- /path/to/deployit-manifest.xml /path/to/artifact/basedir packageversion
 
-For a related sample script that will create packages without requiring a manifest, refer to [*Build a package in XL Deploy from properties in files, dictionaries, and command arguments*]({{ site.url }}/build-deployment-package-from-properties).
+For a related sample script that will create packages without requiring a manifest, refer to [*Build a package in XL Deploy from properties in files, dictionaries, and command arguments*](/build-deployment-package-from-properties).

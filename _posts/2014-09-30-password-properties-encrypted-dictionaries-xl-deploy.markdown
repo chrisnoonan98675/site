@@ -40,7 +40,7 @@ The deployable contains `password = {{my.password}}`. XL Deploy resolves this pr
 
 This screenshot shows the resolved properties with `username = {{my.username}}` and `password = {{my.password}}`:
 
-![Resolved properties]({{ site.url }}/images/password-properties-encrypted-dictionaries-01.png)
+![Resolved properties](/images/password-properties-encrypted-dictionaries-01.png)
 
 ### Secret property, regular dictionary
 
@@ -52,7 +52,7 @@ The deployable contains `username = {{my.password}}`. XL Deploy will **not** res
 
 This screenshot shows the resolved properties with `password = {{my.username}}` (the value is not visible because passwords are obscured) and `username = {{my.password}}` (blank because it is a normal property attempting to use a value stored in an encrypted dictionary):
 
-![Resolved properties]({{ site.url }}/images/password-properties-encrypted-dictionaries-02.png)
+![Resolved properties](/images/password-properties-encrypted-dictionaries-02.png)
 
 ## Why don't the values that I entered in an encrypted dictionary appear in normal properties?
 

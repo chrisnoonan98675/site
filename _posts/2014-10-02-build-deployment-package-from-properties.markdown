@@ -8,7 +8,7 @@ tags:
 - package
 ---
 
-Your build process might not feature a tool like [Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin), which can integrate with XL Deploy. In this case, you can use [this CLI script]({{ site.url }}/sample-scripts/createDAR.py) to build an XL Deploy deployment package (DAR file) from properties that you can specify in:
+Your build process might not feature a tool like [Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin), which can integrate with XL Deploy. In this case, you can use [this CLI script](/sample-scripts/createDAR.py) to build an XL Deploy deployment package (DAR file) from properties that you can specify in:
 
 * A file
 * An XL Deploy dictionary
@@ -39,7 +39,7 @@ Note that:
 
 You can use the format above to specify properties in an XL Deploy dictionary. The dictionary must be stored in `Environments/AppDictionaries/<AppName>` by convention. For example:
 
-    ![Sample dictionary]({{ site.url }}/images/build-package-files-dictionaries-command-sample-dictionary.png)
+    ![Sample dictionary](/images/build-package-files-dictionaries-command-sample-dictionary.png)
 
 You can also set properties as command-line arguments to the script. When using this approach, you must set these properties using the Python `dict` literal format. For example:
 

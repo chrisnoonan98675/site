@@ -407,4 +407,4 @@ Output:
 
 	bd4aef1c-3a85-4d1a-a839-03ae619d01df
 
-The [task](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#task) ID returned by the server can be used to start and inspect the deployment task using the [`TaskService`](http://docs.xebialabs.com/releases/latest/deployit/rest-api/com.xebialabs.deployit.engine.api.TaskService.html). See [this article]({{ site.url }}/start-task-retrieve-task-info-rest-api) for an example of starting a task using the REST API.
+The [task](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#task) ID returned by the server can be used to start and inspect the deployment task using the [`TaskService`](http://docs.xebialabs.com/releases/latest/deployit/rest-api/com.xebialabs.deployit.engine.api.TaskService.html). See [this article](/start-task-retrieve-task-info-rest-api) for an example of starting a task using the REST API.

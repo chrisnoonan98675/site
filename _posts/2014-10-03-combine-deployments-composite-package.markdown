@@ -20,7 +20,7 @@ We want to deploy Group1 members AppA and AppB in parallel. If the deployment of
 
 First, we need to create composite packages for Group1 and Group2, containing their respective applications. Then, we'll create a third composite package called SuperGroup that contains Group1 and Group2.
 
-The SuperGroup cannot be deployed with the XL Deploy user interface, but can be deployed using [this CLI script]({{ site.url }}/sample-scripts/compositeGroupDeployer.py). Use it as follows:
+The SuperGroup cannot be deployed with the XL Deploy user interface, but can be deployed using [this CLI script](/sample-scripts/compositeGroupDeployer.py). Use it as follows:
 
     cli.sh -host <XLDeployHost> -username <username> -password <password> -f $ScriptPath/compositeGroupDeployer.py -- -p <package> -e <environment>
 

@@ -53,7 +53,7 @@ To connect to a Unix host using SSH:
 8. In the **Password** box, enter the user's password.
 9. If you chose the connection type SU, SUDO, or INTERACTIVE_SUDO, click the **Advanced** tab and enter the user name and password (in the case of SU) that XL Deploy should use.
 
-      ![Sample Unix host with SSH]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_unix_host_ssh.png)
+      ![Sample Unix host with SSH](/images/xl-deploy-trial/xl_deploy_trial_unix_host_ssh.png)
 
 10. Click **Save**. XL Deploy saves the host in the Repository.
 
@@ -83,7 +83,7 @@ To connect to a Windows host using WinRM:
 
       **Tip:** For information about the permissions that the user must have, see our documentation on [WinRM connections](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#cifs-winrm-and-telnet).
 
-      ![Sample Windows host with WinRM]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_windows_host_winrm.png)
+      ![Sample Windows host with WinRM](/images/xl-deploy-trial/xl_deploy_trial_windows_host_winrm.png)
 
 10. Click **Save**. XL Deploy saves the host in the Repository.
 
@@ -96,7 +96,7 @@ After you configure the host, verify that XL Deploy can connect to it:
 
 If the connection check succeeds, the state of the steps will be **DONE**.
 
-![Sample successful connection check]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_successful_connection_check_tomcat.png)
+![Sample successful connection check](/images/xl-deploy-trial/xl_deploy_trial_successful_connection_check_tomcat.png)
 
 If the connection check fails, please refer to our tips for troubleshooting [SSH](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#troubleshooting-ssh) and [WinRM](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#cifs-winrm-and-telnet) connections.
 
@@ -128,7 +128,7 @@ To add the Tomcat server:
 
       **Note:** If your startup and shutdown scripts only return after the server has fully started or stopped, you can set the wait time to 0.
 
-      ![Sample Tomcat server configuration]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_tomcat_server.png)
+      ![Sample Tomcat server configuration](/images/xl-deploy-trial/xl_deploy_trial_tomcat_server.png)
 
 8. Click **Save**. XL Deploy saves the server in the Repository.
 
@@ -140,7 +140,7 @@ To add a Tomcat [virtual host](http://tomcat.apache.org/tomcat-8.0-doc/virtual-h
 2. In the **Name** box, enter a name for the virtual host.
 3. Optionally change the **App Base** and **Host Name** (defaults are `webapps` and `localhost`).
  
-      ![Sample Tomcat virtual host configuration]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_tomcat_virtual_host.png)
+      ![Sample Tomcat virtual host configuration](/images/xl-deploy-trial/xl_deploy_trial_tomcat_virtual_host.png)
 
 4. Click **Save**. XL Deploy saves the virtual host in the Repository.
 
@@ -154,9 +154,9 @@ To create an environment where you can deploy a sample application:
 
 1. Right-click **Environments** and select **New** > **Environment**.
 2. In the **Name** box, enter a name for this environment.
-3. On the **Common** tab, select the Tomcat virtual host from the **Containers** list and click ![Right arrow button]({{ site.url }}/images/button_add_container.png) to move it to the **Members** list.
+3. On the **Common** tab, select the Tomcat virtual host from the **Containers** list and click ![Right arrow button](/images/button_add_container.png) to move it to the **Members** list.
 
-      ![Sample environment]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_tomcat_environment.png)
+      ![Sample environment](/images/xl-deploy-trial/xl_deploy_trial_tomcat_environment.png)
 
 4. Click **Save**. XL Deploy saves the environment in the Repository.
 
@@ -169,11 +169,11 @@ Your trial version of XL Deploy includes two versions of a sample application ca
 To add the application to XL Deploy's Repository, you need to import it:
 
 1. Click **Deployment** in XL Deploy.
-2. Under **Packages**, click ![Import package button]({{ site.url }}/images/button_import_package.png). A new tab appears in the Deployment Workspace.
+2. Under **Packages**, click ![Import package button](/images/button_import_package.png). A new tab appears in the Deployment Workspace.
 3. Select **Import deployment package from server**.
 4. Next to **Select package**, select **PetClinic-war/1.0**. This package contains version 1.0 of the PetClinic-war application.
 
-      ![Sample environment]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_import_sample_PetClinic-war.png)
+      ![Sample environment](/images/xl-deploy-trial/xl_deploy_trial_import_sample_PetClinic-war.png)
 
 5. Click **Import**. XL Deploy imports the application.
 
@@ -188,9 +188,9 @@ To deploy PetClinic-war 1.0:
 1. Under **Packages**, expand **PetClinic-war**.
 2. Select the **1.0** package and drag it to the left side of the Deployment Workspace.
 3. Under **Deployed Applications**, select the environment and drag it to the right side of the Deployment Workspace.
-4. Click ![Auto-map button]({{ site.url }}/images/button_auto-map.png) to automatically map the deployable in the package (which is a WAR file) in the package to the appropriate container in the environment.
+4. Click ![Auto-map button](/images/button_auto-map.png) to automatically map the deployable in the package (which is a WAR file) in the package to the appropriate container in the environment.
 
-      ![Sample mapping]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_tomcat_mapping_sample_app.png)
+      ![Sample mapping](/images/xl-deploy-trial/xl_deploy_trial_tomcat_mapping_sample_app.png)
 
 5. Click **Analyze** to preview the deployment plan in the Plan Analyzer.
 6. Double-click the WAR file that XL Deploy mapped. Here, you can see properties that you can adjust at deployment time, like placeholder values.
@@ -199,11 +199,11 @@ To deploy PetClinic-war 1.0:
 
 If the deployment succeeds, the state of the deployment plan is **EXECUTED**.
 
-![Successful deployment]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_tomcat_successful_deployment.png)
+![Successful deployment](/images/xl-deploy-trial/xl_deploy_trial_tomcat_successful_deployment.png)
 
 If the deployment fails, click the failed step to see information about the failure. In some cases, you can correct the error and try again. For example, in the deployment shown below, XL Deploy could not stop the Tomcat server because the shutdown script is set to `/opt/apache-tomcat-8.0.1/bin/startup`. You should abort the deployment and correct the **Stop Command** in the Tomcat server configuration in the Repository, then try the deployment again.
 
-![Failed deployment]({{ site.url }}/images/xl-deploy-trial/xl_deploy_trial_tomcat_failed_deployment.png)
+![Failed deployment](/images/xl-deploy-trial/xl_deploy_trial_tomcat_failed_deployment.png)
 
 ## Verify the deployment
 

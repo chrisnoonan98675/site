@@ -49,4 +49,4 @@ Output:
 
     987f383f-36af-452a-a232-3c4bffc12389
 
-The output is the ID of the resulting [task](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#task), which can be started and inspected using the [`TaskService`](http://docs.xebialabs.com/releases/latest/deployit/rest-api/com.xebialabs.deployit.engine.api.TaskService.html). See [this article]({{ site.url }}/start-task-retrieve-task-info-rest-api) for an example of starting a task using the REST API.
+The output is the ID of the resulting [task](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#task), which can be started and inspected using the [`TaskService`](http://docs.xebialabs.com/releases/latest/deployit/rest-api/com.xebialabs.deployit.engine.api.TaskService.html). See [this article](/start-task-retrieve-task-info-rest-api) for an example of starting a task using the REST API.

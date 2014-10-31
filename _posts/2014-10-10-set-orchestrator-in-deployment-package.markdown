@@ -41,7 +41,7 @@ You can configure the orchestrators for an application directly in the deploymen
 3. Rename the DAR file as `SampleApplication-2.0.dar`.
 4. Copy `SampleApplication-2.0.dar` to the `importablePackages` directory of your XL Deploy server.
 5. Return to the XL Deploy interface and go to **Deployment**.
-6. Click ![Import package button]({{ site.url }}/images/button_import_package.png) and select **Import deployment package from server**.
+6. Click ![Import package button](/images/button_import_package.png) and select **Import deployment package from server**.
 7. Select `SampleApplication-2.0.dar` and click **Import**.
 8. Drag the 2.0 version of SampleApplication to the left side of the Deployment Workspace.
 9. Drag any existing environment to the right side of the Deployment Workspace.

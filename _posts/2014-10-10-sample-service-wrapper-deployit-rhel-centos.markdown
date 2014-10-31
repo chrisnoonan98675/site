@@ -6,7 +6,7 @@ tags:
 - service
 ---
 
-[This wrapper shell script]({{ site.url }}/sample-scripts/deployitd) will run the Deployit server as a service in RHEL/CentOS environments, which can be further tweaked according to project need and environments.
+[This wrapper shell script](/sample-scripts/deployitd) will run the Deployit server as a service in RHEL/CentOS environments, which can be further tweaked according to project need and environments.
 
 Note: This script has been tested with [Deployit 3.9.0](http://docs.xebialabs.com/product-version.html#/deployit/3.9.x).
 
