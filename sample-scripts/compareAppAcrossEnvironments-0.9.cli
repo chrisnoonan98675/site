@@ -1,0 +1,227 @@
+#######################################################################
+# NOTICE: This script is provided as a sample only, with no warranty 
+# expressed or implied, and is not supported by XebiaLabs.
+#######################################################################
+from java.util import LinkedHashMap
+
+def nameFromId(id):
+	return id[id.rfind('/')+1:]
+
+def idPrefix(id):
+	return id[0:id.rfind('/')]
+
+def printSectionBreak(header=''):
+	print
+	if len(header) > 0:
+		line = 80 - len(header)
+		lineChars = '-' * (line/2)
+		print lineChars, header, lineChars
+	else:
+		print '-' * 80
+	
+def findDeployedApplications(appName):
+	allDepApps = repository.search("udm.DeployedApplication")
+	depApps = [repository.read(depApp) for depApp in allDepApps if nameFromId(depApp) == appName]
+	return depApps
+
+def findApplicationId(appName):
+	allApps = repository.search("udm.Application")
+	for app in allApps:
+		if nameFromId(app) == appName:
+			return app
+	raise Exception("Cannot find application %s" % appName)		
+
+def setupDeployedApplicationsInPipelineOrder(appName):
+	app = repository.read(findApplicationId(appName))
+	depApps = findDeployedApplications(appName)
+	pipeline = LinkedHashMap()
+	if hasattr(app,"pipeline"):
+		lookup = {}
+		for depApp in depApps:
+			lookup[idPrefix(depApp.id)] = depApp
+		for appPipeline in repository.read(app.pipeline).pipeline:
+			if lookup.get(appPipeline):
+				pipeline.put(appPipeline,lookup[appPipeline])
+			else:
+				pipeline.put(appPipeline, None)
+	else:
+		for depApp in depApps:
+			pipeline.put(depApp.id,depApp)
+	return pipeline	
+	
+def findEnvironmentInArray(environment,deployableBreakDown):
+	for dbd in deployableBreakDown:
+		if dbd["envId"] == environment:
+			return dbd
+	return {"version":"None","envId":environment,"deployed":None}
+
+def createDeployablesToDeployedsBreakDown(appPipeline):
+	deployablesToDeployedBreakDown = LinkedHashMap()
+	for depApp in appPipeline.values():
+		for deployedId in depApp.deployeds:
+			deployed = repository.read(deployedId)
+			deployableName = "%s$%s" % (nameFromId(deployed.deployable),deployed.type)
+			if deployablesToDeployedBreakDown.containsKey(deployableName):
+				deployablesToDeployedBreakDown.get(deployableName).append({"version":depApp.version,"envId":depApp.environment,"deployed":deployed})
+			else:
+				deployablesToDeployedBreakDown.put(deployableName,[])
+				deployablesToDeployedBreakDown.get(deployableName).append({"version":depApp.version,"envId":depApp.environment,"deployed":deployed})
+	return deployablesToDeployedBreakDown
+
+def createPropertyBreakDown(deployedType, deployableBreakDown):
+	descriptor = DescriptorRegistry.getDescriptor(deployedType)
+	propertyBreakDown = LinkedHashMap()
+	for pd in descriptor.propertyDescriptors:
+		if pd.isHidden():
+			continue
+		
+		for dbd in deployableBreakDown:
+			deployed = dbd["deployed"]
+			if propertyBreakDown.containsKey(pd.name):
+				propertyBreakDown.get(pd.name).append(deployed[pd.name])
+			else:
+				propertyBreakDown.put(pd.name,[deployed[pd.name]])
+	return propertyBreakDown
+			
+		
+	
+def compareDeployedPerEnvironment(appPipeline):
+	deployablesToDeployedBreakDown = createDeployablesToDeployedsBreakDown(appPipeline)
+	
+	printSectionBreak("Deployabled per environment")
+
+	for deployable in deployablesToDeployedBreakDown.keySet():
+		deployableName = deployable.split("$")[0]
+		deployedType = deployable.split("$")[1]
+		deployableBreakDown = deployablesToDeployedBreakDown[deployable]
+		descriptor = DescriptorRegistry.getDescriptor(deployedType)
+		print deployableName
+		print "\t\t\t",
+		for env in appPipeline.keySet():
+			print env,"\t",
+		print 
+		propertyBreakDown = createPropertyBreakDown(deployedType, deployableBreakDown)
+		for pbd in propertyBreakDown.keySet():
+			allNone = True
+			for value in propertyBreakDown.get(pbd):
+				if value is not None:
+					allNone = False
+					break
+			if allNone:
+				continue
+			same = True
+			oldValue = propertyBreakDown.get(pbd)[0]
+			for value in propertyBreakDown.get(pbd):
+				if value != oldValue:
+					same = False
+					break
+			if same:
+				continue			
+			if len(pbd) > 23:
+				print pbd,
+			elif len(pbd) > 14:	
+				print pbd, "\t",
+			else:
+				print pbd, "\t\t",
+			for value in propertyBreakDown.get(pbd):
+				print value,"\t",
+			print
+		print "\n"
+	printSectionBreak()
+
+
+def compareDeployedPerEnvironmentF(file,appPipeline):
+	deployablesToDeployedBreakDown = createDeployablesToDeployedsBreakDown(appPipeline)
+
+	file.write("\nComparison of deployables per environment:\n")
+	file.write(",Deployable,Property,")
+	for env in appPipeline.keySet():
+		file.write("%s," % nameFromId(env))
+	file.write("\n") 
+	
+	for deployable in deployablesToDeployedBreakDown.keySet():
+		deployableName = deployable.split("$")[0]
+		deployedType = deployable.split("$")[1]
+		deployableBreakDown = deployablesToDeployedBreakDown[deployable]
+		descriptor = DescriptorRegistry.getDescriptor(deployedType)
+		file.write(",%s," % deployableName)
+		first = True
+		propertyBreakDown = createPropertyBreakDown(deployedType, deployableBreakDown)
+		for pbd in propertyBreakDown.keySet():
+			allNone = True
+			for value in propertyBreakDown.get(pbd):
+				if value is not None:
+					allNone = False
+					break
+			if allNone:
+				continue
+			same = True
+			oldValue = propertyBreakDown.get(pbd)[0]
+			for value in propertyBreakDown.get(pbd):
+				if value != oldValue:
+					same = False
+					break
+			if same:
+				continue			
+				
+			if first:
+				first = False
+				file.write("%s," % pbd)
+			else:
+				file.write(",,%s," % pbd)
+			for value in propertyBreakDown.get(pbd):
+				file.write("%s," % value)
+			file.write("\n")
+		file.write("\n")
+	file.write("\n")
+
+				
+
+def compareAppOnEnvironmentsF(filename, appName):
+	file = open(filename, "w")
+	try:
+		appPipeline = setupDeployedApplicationsInPipelineOrder(appName)
+
+		file.write("Application %s\n\nEnvironment Overview:\n" % (appName))
+		appPipelineKeys = appPipeline.keySet()
+		if appPipelineKeys.size() == 0:
+			file.write(",Not deployed to any environment")
+			return
+		deploymentCount = 0
+		for environment in appPipelineKeys:
+			if appPipeline[environment]: 
+				deploymentCount = deploymentCount + 1
+				file.write(",%s,version %s\n" % (environment, nameFromId(appPipeline.get(environment).version)))
+			else:
+				file.write(",%s,N/A\n" % (environment))
+		if deploymentCount > 1:
+			compareDeployedPerEnvironmentF(file,appPipeline)
+	finally:
+		file.close()
+
+
+def compareAppOnEnvironments(appName):
+	appPipeline = setupDeployedApplicationsInPipelineOrder(appName)
+	printSectionBreak("%s is deployed on" % (appName))
+	found = False
+	count = 0
+	for environment in appPipeline.keySet():
+		if appPipeline[environment]: 
+			count = count + 1
+			found = True
+			print "%s --> version %s" % (environment, nameFromId(appPipeline.get(environment).version))
+	if not found:
+		print "None"
+	printSectionBreak()
+
+	printSectionBreak("%s is still to be deployed on" % (appName))
+	found = False
+	for environment in appPipeline.keySet():
+		if appPipeline[environment] is None: 
+			found = True
+			print environment
+	if not found:
+		print "None"
+	printSectionBreak()
+	if count > 1:
+		compareDeployedPerEnvironment(appPipeline)
