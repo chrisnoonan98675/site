@@ -3,6 +3,16 @@ online-docs-jekyll
 
 ## Setting it up locally (subject to change)
 
+If you *don't* want to pull all of the documentation (so you don't have to clean it up before committing your own doc):
+
+1. Clone this repository.
+1. Install [Jekyll](http://jekyllrb.com/docs/installation/) and its requirements (Ruby, etc.).
+1. Install [Asciidoctor](http://asciidoctor.org/docs/install-toolchain/).
+1. Execute `jekyll serve`.
+1. Go to `http://localhost:4000`.
+
+If you *do* want to pull all of the documentation (so you can preview the whole site):
+
 1. Clone this repository.
 1. Install [Jekyll](http://jekyllrb.com/docs/installation/) and its requirements (Ruby, etc.).
 1. Install [Asciidoctor](http://asciidoctor.org/docs/install-toolchain/).
@@ -91,13 +101,13 @@ Pages can be named however you want.
 
 Posts must be named according to the convention `YYYY-MM-DD-title.markdown`. Do not use underscores in post file names.
 
-### File header
+### File front matter
 
-Every page and post must have a YAML header.
+Every page and post must have YAML front matter.
 
 #### Pages
 
-The only required variable in a page header is `title`. This is the title that will appear on the page, wrapped in `h1` tags. Example:
+The only required variable in the page front matter is `title`. This is the title that will appear on the page, wrapped in `h1` tags. Example:
 
       ---
       title: My sample XL Deploy page
@@ -105,7 +115,7 @@ The only required variable in a page header is `title`. This is the title that w
 
 #### Posts
 
-Post headers need a title, categories, and tags. The title will appear on the page, wrapped in `h1` tags. You can have one or more categories and tags (but the words `categories` and `tags` should always be plural). Example:
+Post front matter needs a title, categories, and tags. The title will appear on the page, wrapped in `h1` tags. You can have one or more categories and tags (but the words `categories` and `tags` should always be plural). Example:
 
       ---
       title: My sample XL Deploy knowledge base article
@@ -167,12 +177,14 @@ Save drafts of pages and posts in the `_drafts` folder.
 * If you combine conditions in a loop, the order of the conditions matters.
 * In gradle, when deploying the content, we use `jekyll build --config "_config.yml,_jekyll.xebialabs.config.yml"` in order to override base URL, which is taken from the second configuration file.
 
+### Troubleshooting
+
 If you add a knowledge base article to the `_posts` folder but it doesn't appear on the website:
 
 * Check the `_site` folder to see if the article was converted to HTML. 
 * Ensure that the file name starts with a date in `YYYY-MM-DD` format.
 * Ensure that words in the file name are separated with hyphens, *not* underscores.
-* Ensure that the YAML header is correct.
+* Ensure that the YAML front matter is correct.
 
 ### Useful links
 
