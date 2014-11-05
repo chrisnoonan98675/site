@@ -1,5 +1,5 @@
 ---
-title: Importing a properties file into a dictionary
+title: Importing a properties file into an XL Deploy dictionary
 categories:
 - xl-deploy
 tags:

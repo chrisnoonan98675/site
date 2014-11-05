@@ -1,5 +1,5 @@
 ---
-title: Using rules to interact with WebSphere cluster members
+title: Using XL Deploy rules to interact with WebSphere cluster members
 categories:
 - xl-deploy
 tags:

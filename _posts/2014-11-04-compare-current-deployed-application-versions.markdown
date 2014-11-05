@@ -1,5 +1,5 @@
 ---
-title: Compare current deployed application versions in a pipeline
+title: Compare deployed application versions in an XL Deploy pipeline
 categories:
 - xl-deploy
 tags:

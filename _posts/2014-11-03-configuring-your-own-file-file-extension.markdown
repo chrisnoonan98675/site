@@ -1,5 +1,5 @@
 ---
-title: Configuring your own file.File extension
+title: Configuring your own XL Deploy file.File extension
 categories:
 - xl-deploy
 tags:

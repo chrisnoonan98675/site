@@ -1,5 +1,5 @@
 ---
-title: Periodically cleaning the repository with a CLI script
+title: Periodically cleaning the XL Deploy repository with a CLI script
 categories:
 - xl-deploy
 tags:

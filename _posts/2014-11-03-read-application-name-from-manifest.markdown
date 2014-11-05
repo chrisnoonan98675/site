@@ -1,5 +1,5 @@
 ---
-title: Read the application name from the manifest file
+title: Read the application name from the deployment package manifest
 categories:
 - xl-deploy
 tags:

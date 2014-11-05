@@ -1,5 +1,5 @@
 ---
-title: Using the CLI to discover WebSphere (WAS) middleware
+title: Using the XL Deploy CLI to discover WebSphere (WAS) middleware
 categories:
 - xl-deploy
 tags:

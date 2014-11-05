@@ -1,5 +1,5 @@
 ---
-title: Dynamically create a package based on files in a directory
+title: Dynamically create a deployment package based on files in a directory
 categories:
 - xl-deploy
 tags:

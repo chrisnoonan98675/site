@@ -1,5 +1,5 @@
 ---
-title: Using Go's XL Deploy's custom commands
+title: Using Go's XL Deploy custom commands
 categories:
 - xl-deploy
 tags:

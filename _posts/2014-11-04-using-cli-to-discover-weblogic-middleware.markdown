@@ -1,5 +1,5 @@
 ---
-title: Using the CLI to discover WebLogic (WLS) middleware
+title: Using the XL Deploy CLI to discover WebLogic (WLS) middleware
 categories:
 - xl-deploy
 tags:

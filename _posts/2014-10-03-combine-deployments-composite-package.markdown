@@ -7,7 +7,7 @@ tags:
 - package
 ---
 
-When deploying multiple deployment packages (DAR files) in a single deployment action, you might want to deploy some groups in parallel, moving on to the next group after all packages are successfully deployed. For example, assume we have applications in two groups:
+When using XL Deploy to deploy multiple deployment packages (DAR files) in a single deployment action, you might want to deploy some groups in parallel, moving on to the next group after all packages are successfully deployed. For example, assume we have applications in two groups:
 
 * Group1
   * AppA

@@ -1,5 +1,5 @@
 ---
-title: Clean up snapshot applications added by Maven
+title: Clean up applications added to XL Deploy by Maven
 categories:
 - xl-deploy
 tags:

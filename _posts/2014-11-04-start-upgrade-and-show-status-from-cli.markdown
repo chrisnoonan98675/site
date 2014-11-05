@@ -1,5 +1,5 @@
 ---
-title: Start upgrade and show status from CLI
+title: Start upgrade and show status from the XL Deploy CLI
 categories:
 - xl-deploy
 tags:
