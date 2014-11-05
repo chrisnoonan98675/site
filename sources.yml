@@ -56,6 +56,8 @@ sources:
         path: vsphere-plugin/src/main/markdown
         target: xl-scale/vsphere-plugin/3.9.x
   -
+    project: xl-test
+  -
     project: xl-release
     branches:
       -
