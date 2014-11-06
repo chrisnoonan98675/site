@@ -174,6 +174,7 @@ Save drafts of pages and posts in the `_drafts` folder.
 * If a folder does not contain an `index.markdown` or `index.html` file, trying to access it will return a 404 error. It's a good idea to always put an index file in each folder or to use `.htaccess` or another method to redirect users to a useful page.
 * If you combine conditions in a loop, the order of the conditions matters.
 * In gradle, when deploying the content, we use `jekyll build --config "_config.yml,_jekyll.xebialabs.config.yml"` in order to override base URL, which is taken from the second configuration file.
+* The `/knowledge-base/full_article_list.html` file lists all knowledge base articles (that is, posts) in descending order of the dates in their file names. No other files link to this file; it is provided for reference purposes.
 
 ### Troubleshooting
 
