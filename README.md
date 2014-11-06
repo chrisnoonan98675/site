@@ -3,25 +3,23 @@ online-docs-jekyll
 
 ## Setting it up locally (subject to change)
 
-If you *don't* want to pull all of the documentation (so you don't have to clean it up before committing your own doc):
-
 1. Clone this repository.
 1. Install [Jekyll](http://jekyllrb.com/docs/installation/) and its requirements (Ruby, etc.).
 1. Install [Asciidoctor](http://asciidoctor.org/docs/install-toolchain/).
-1. Execute `jekyll serve`.
-1. Go to `http://localhost:4000`.
-
-If you *do* want to pull all of the documentation (so you can preview the whole site):
-
-1. Clone this repository.
-1. Install [Jekyll](http://jekyllrb.com/docs/installation/) and its requirements (Ruby, etc.).
-1. Install [Asciidoctor](http://asciidoctor.org/docs/install-toolchain/).
+1. Execute `jekyll serve` or `jekyll serve --watch` (for watch mode)
 1. Add the `jekyll` properties listed [here](https://intranet.xebia.com/confluence/display/Labs/devdoc.xebialabs.com) to your `gradle.properties` file.
 1. Create a folder at `/var/lib/jenkins/jekyll` and set its permissions with `chmod o+w`.
-1. Go to the location where you cloned the repository.
+
+Go to `http://localhost:4000` to see the site running locally.
+
+If you want to pull all documentation from the product and plugin repositories:
+
+1. Go to the location where you cloned the online-docs-jekyll repository.
 1. Execute `gradle jekyllFetchSources` or `gradle jFS`.
 1. Execute `jekyll serve`.
 1. Go to `http://localhost:4000`.
+
+Note that you'll have to clean up this documentation locally; don't commit it to the online-docs-jekyll repository.
 
 ## Logical structure of the site
 
