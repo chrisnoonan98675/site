@@ -17,4 +17,4 @@
 - name: XL Test
   id: xl-test
   versions:
-    - 1.0.x
+    - 1.2.x
