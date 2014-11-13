@@ -1,7 +1,8 @@
 title: XebiaLabs documentation
 tagline: 'Deliver faster'
 description: 'Leading provider of Continuous Delivery tooling with agentless application release & deployment automation solutions for the Enterprise.'
-permalink: /:title
+permalink: /:categories/:year:month:day-:title
+paginate: 10
 
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 

@@ -1,5 +1,6 @@
 ---
 title: Understanding deployables and deployeds
+author: andrew_phillips
 categories:
 - xl-deploy
 tags:

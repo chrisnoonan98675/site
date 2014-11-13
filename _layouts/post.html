@@ -4,16 +4,15 @@ layout: default
 
 <div class="post">
 
-	{% comment %} Breadcrumbs must be created manually in posts because the breadcrumbs plugin only works on pages {% endcomment %}
-
-	<ol class="breadcrumb">
-		<li><a href="{{ site.url }}">XebiaLabs documentation</a></li>
-		<li><a href="{{ site.url }}/knowledge-base">Knowledge base</a></li>
-		<li class="active">{{ page.title }}</li>
-	</ol>
 	<div class="page-header">
-		<h1 class="post-title">{{ page.title }}</h1>
+		<h1 class="post-title">{{ page.title }} <small>Posted {{ page.date }}</small></h1>
 	</div>
+
+	{% assign author = site.data.authors[page.author] %}
+
+	{% if author %}
+		<span><img width=40 src="{{ author.email | to_gravatar }}" alt="A photo of {{ author.name }}" /> Written by {{ author.name }}</a></span>
+	{% endif %}
 
 	{% include kb_article_tag_list.html %}
 		

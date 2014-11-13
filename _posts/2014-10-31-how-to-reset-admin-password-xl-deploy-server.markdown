@@ -1,5 +1,6 @@
 ---
 title: How to reset the admin password for your XL Deploy server
+author: vincent_partington
 categories:
 - xl-deploy
 tags:

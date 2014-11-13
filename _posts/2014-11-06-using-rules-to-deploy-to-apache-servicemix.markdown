@@ -2,6 +2,7 @@
 title: Using rules to deploy to Apache ServiceMix
 categories:
 - xl-deploy
+- tips-and-tricks
 tags:
 - rules
 - middlware

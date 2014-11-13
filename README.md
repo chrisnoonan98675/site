@@ -21,7 +21,7 @@ If you want to pull all documentation from the product and plugin repositories:
 
 Note that you'll have to clean up this documentation locally; don't commit it to the online-docs-jekyll repository.
 
-## Logical structure of the site
+## Logical structure of the site (outdated)
 
 ### Manual-based approach
 
@@ -148,6 +148,14 @@ Save drafts of pages and posts in the `_drafts` folder.
 
 *Post* drafts (identified by the `YYYY-MM-DD-title.markdown` file naming convention) are converted to HTML if you start Jekyll with the `--drafts` switch. *Page* drafts are never converted to HTML.
 
+### Gravatars
+
+If an author is identified in the front matter of a post *and* there is an email address for that person defined in `authors.yml`, Jekyll will automatically look for a [Gravatar](https://en.gravatar.com/) based on that email address.
+
+If there is not a Gravatar for that email address, the default Gravatar image will appear next to the author's name.
+
+If an author is not defined for a post, the author line will not appear at all.
+
 ## Jekyll and Liquid
 
 ### Layout files
@@ -156,16 +164,17 @@ Save drafts of pages and posts in the `_drafts` folder.
 |----------------------|------------------------|---------------------------------|
 | `default.html` | All | Master layout file that calls most of the `includes` that make up the page structure |
 | `list-in-sidebar.html` | Landing page of a product or of the KB | Triggers Jekyll to add a link to the page in the sidebar |
-| `post.html` | All posts | Includes static breadcrumbs and a "Related posts" section |
+| `post.html` | All posts | Includes author, post date, and a "Related posts" section |
 | `page.html` | All pages | Includes dynamically generated breadcrumbs | 
 
 ### Plugins
 
 | Plugin file name | Description | Source | License |
 | ---------------- | ----------- | ------ | ------- |
-| `breadcrumbs.rb` | Creates dynamic breadcrumbs on pages | [Source](http://biosphere.cc/software-engineering/jekyll-breadcrumbs-navigation-plugin/) | None, apparently |
+| `breadcrumbs.rb` | Creates dynamic breadcrumbs on pages | [Source](http://biosphere.cc/software-engineering/jekyll-breadcrumbs-navigation-plugin/) | None |
 | `asciidoc_plugin.rb` | Enables Jekyll to interpret Asciidoc files | [Source](https://github.com/asciidoctor/jekyll-asciidoc) | MIT |
 | `tag_gen.rb` | Generates an index page in the `_site/tag` folder for every tag on a post | [Source](http://charliepark.org/tags-in-jekyll/) | None |
+| `to_gravatar.rb` | Gets a Gravatar based on the email address of the post's author | Sources: [1](http://blog.sorryapp.com/blogging-with-jekyll/2014/02/06/adding-authors-to-your-jekyll-site.html), [2](http://blog.sorryapp.com/blogging-with-jekyll/2014/02/13/add-author-gravatars-to-your-jekyll-site.html) | None |
 
 ### Tips
 

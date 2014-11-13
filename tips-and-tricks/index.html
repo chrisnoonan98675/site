@@ -1,0 +1,9 @@
+---
+layout: list-in-sidebar
+title: Tips & tricks
+weight: 6
+---
+
+{% for post in site.posts %}
+	<a href="{{ post.url }}">{{ post.title }}</a><br />
+{% endfor %}
