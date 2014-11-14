@@ -5,7 +5,9 @@
 			<ul class="nav nav-sidebar">
 				{% assign sidebar_menu_items = (site.pages | where: "layout" , "list-in-sidebar" | sort: 'weight') %}
 				{% for page in sidebar_menu_items %}
-					<li><a {% if page.url == page.url %}class="active"{% endif %} href="{{ page.url }}">{{ page.title }}</a></li>
+					{% unless page.path contains 'page' %}
+						<li><a {% if page.url == page.url %}class="active"{% endif %} href="{{ page.url }}">{{ page.title }}</a></li>
+					{% endunless %}
 				{% endfor %}
 			</ul>
 		</div> <!-- /.col-md-2 sidebar -->
