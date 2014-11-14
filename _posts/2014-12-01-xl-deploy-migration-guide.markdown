@@ -64,3 +64,13 @@ Notice the following differences in the XML format:
 This is just a simple example, there are more differences. You can find the complete reference documentation of the XML format [here](xl-deploy/latest/packagingmanual.html).
 
 
+## Orchestrators
+
+With the release of XL Deploy 5.0 a number of deprecated orchestrators have been removed. The functionality has been replaced by new orchestrators. The following list will help you to choose any of the new orchestrators:
+
+* `container-by-container-serial`: Now use `sequential-by-container` instead.
+* `composite-package`: Now use `sequential-by-composite-package` instead.
+* `group-based`: Now use `sequential-by-deployment-group` instead.
+* `default`: Do not set any orchestrator anymore. This is default behavior.
+
+Note that there is an upgrader that will automatically convert any usages of the old orchestrators to the new ones when XL Deploy 5.0 boots first time, you do not have to do anything. The list above will help you to make the correct choice in the future.
