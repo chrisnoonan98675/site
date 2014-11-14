@@ -1,15 +1,15 @@
 ---
 layout: list-in-sidebar
-title: XL Scale
-product-id: xl-scale
-weight: 3
+title: XL Test
+product-id: xl-test
+weight: 4
 ---
 
 ## Concepts
 
 <ul>
 {% for page in site.pages %}
-	{% if page.path contains 'xl-scale' and page.path contains 'concepts' %}
+	{% if page.path contains 'xl-test' and page.path contains 'concepts' %}
 		{% unless page.path contains "index" %}
 			<li><a href="{{ page.url }}">{{ page.title }}</a></li>
 		{% endunless %}
@@ -21,7 +21,7 @@ weight: 3
 
 <ul>
 {% for page in site.pages %}
-	{% if page.path contains 'xl-scale' and page.path contains 'how-tos' %}
+	{% if page.path contains 'xl-test' and page.path contains 'how-tos' %}
 		{% unless page.path contains "index" %}
 			<li><a href="{{ page.url }}">{{ page.title }}</a></li>
 		{% endunless %}
