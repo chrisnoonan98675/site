@@ -2,12 +2,11 @@
 
 .hidden { display: none; }
 .indented { margin-left: 40px; }
-.tag_list { padding-bottom: 20px; font-size: 125%; }
-.tag_list a:hover { text-decoration: none; }
 .navbar { min-height: 75px; }
 .breadcrumb { background-color: #FFFFFF; padding-left: 0; }
 img { max-width: 650px; }
 .xltopmenu { height: 75px; padding-top: 10px; }
+.post-metadata { margin-bottom: 10px; }
 
 /* Google Custom Search overrides */
 input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gsc-search-button, .gsc-inline-block {

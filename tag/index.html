@@ -23,6 +23,6 @@ title: Knowledge base articles
 		{% endif %}{% endfor %}
 	</ul>
 	{% if site.tags[this_word].size > 5 %}
-		<p class="indented"><a href="{{ this_word }}">Read more ({{ site.tags[this_word].size }}) &#187;</a></p>
+		<p class="indented"><a href="{{ this_word }}">Read more ({{ site.tags[this_word].size }}) &raquo;</a></p>
 	{% endif %}
 {% endunless %}{% endfor %}

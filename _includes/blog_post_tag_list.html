@@ -2,8 +2,8 @@
 
 {% assign sorted_page_tags = page_tags | split:',' | sort %}
 
-<div class="tag_list">
+<span>
 	{% for tag in sorted_page_tags %}
-		<a href="/tag/index.html#{{ tag }}"><span class="label label-default">{{ tag }}</span></a>
+		<a href="/tag/index.html#{{ tag }}">{{ tag }}</a>
 	{% endfor %}
-</div>
+</span>

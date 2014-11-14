@@ -3,6 +3,7 @@ tagline: 'Deliver faster'
 description: 'Leading provider of Continuous Delivery tooling with agentless application release & deployment automation solutions for the Enterprise.'
 permalink: /:categories/:year:month:day-:title
 paginate: 10
+paginate_path: "tips-and-tricks/page:num"
 
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 

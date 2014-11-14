@@ -5,17 +5,18 @@ layout: default
 <div class="post">
 
 	<div class="page-header">
-		<h1 class="post-title">{{ page.title }} <small>Posted {{ page.date }}</small></h1>
+		<h1 class="post-title">{{ page.title }}</h1>
 	</div>
 
 	{% assign author = site.data.authors[page.author] %}
 
-	{% if author %}
-		<span><img width=40 src="{{ author.email | to_gravatar }}" alt="A photo of {{ author.name }}" /> Written by {{ author.name }}</a></span>
-	{% endif %}
+	<div class="post-metadata">
+		{% if author %}
+			<img width="35" src="{{ author.email | to_gravatar }}" alt="A photo of {{ author.name }}" />&nbsp;&nbsp;{{ author.name }}</a> | 
+		{% endif %}
+		<a href="{{ post.url }}">{{ page.date | date: "%-d %B %Y" }}</a> | {% include blog_post_tag_list.html %}
+	</div>
 
-	{% include kb_article_tag_list.html %}
-		
 	{{ content }}
 
 	{% include kb_article_related_articles.html %}

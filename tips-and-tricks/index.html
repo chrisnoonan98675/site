@@ -4,6 +4,28 @@ title: Tips & tricks
 weight: 6
 ---
 
-{% for post in site.posts %}
-	<a href="{{ post.url }}">{{ post.title }}</a><br />
+{% assign author = site.data.authors[page.author] %}
+
+{% for post in paginator.posts %}
+	<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+		<p class="author">{{ post.author }} | {{ post.date | date: "%-d %B %Y" }}</p>
+		<div class="content">
+			{{ post.excerpt | remove: '<p>' | remove: '</p>' }} <a href="{{ post.url }}">Read more  &#187;</a>
+		</div>
 {% endfor %}
+
+<div>
+	<ul class="pager">
+	{% if paginator.previous_page %}
+		{% if paginator.previous_page == 1 %}
+			<li class="previous"><a href="/tips-and-tricks" title="Previous page">&laquo; Previous</a></li>
+		{% else %}
+			<li class="previous"><a href="{{ paginator.previous_page_path }}" title="Previous Page">&laquo; Previous</a></li>
+		{% endif %}
+	{% endif %}
+    
+	{% if paginator.next_page %} 
+		<li class="next"><a href="{{ paginator.next_page_path }}" title="Next page">Next &raquo;</a></a>
+	{% endif %} 
+	</ul>
+</div>
