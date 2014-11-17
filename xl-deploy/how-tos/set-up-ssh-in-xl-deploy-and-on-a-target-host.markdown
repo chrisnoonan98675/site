@@ -2,9 +2,15 @@
 title: Set up SSH in XL Deploy and on a target host
 ---
 
-To connect to a remote host using the SSH protocol, you must to install an SSH server on that remote host. For Unix platforms, [OpenSSH](http://www.openssh.com/) is recommended. It is included in all Linux distributions and most other Unix-based systems. 
+To connect to a remote host using the SSH protocol, you must to install an SSH server on that remote host.
 
-For Windows platforms, XL Deploy supports these SSH servers:
+## Unix remote host
+
+For Unix platforms, [OpenSSH](http://www.openssh.com/) is recommended. It is included in all Linux distributions and most other Unix-based systems.
+
+## Microsoft Windows remote host 
+
+For Microsoft Windows platforms, XL Deploy supports these SSH servers:
 
 * OpenSSH on [Cygwin](http://www.cygwin.com/). [Copssh](http://www.itefix.no/i2/copssh) is recommended as a convenient packaging of OpenSSH and Cygwin. It is a free source download, but since 22 November 2011, the binary installers are a paid solution.
 * [WinSSHD](http://www.bitvise.com/winsshd) is a commercial SSH server.
