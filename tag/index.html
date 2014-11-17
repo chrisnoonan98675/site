@@ -1,11 +1,11 @@
 ---
-title: Knowledge base articles
+title: Tips & Tricks archive
 ---
 
 {% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
-<!-- site_tags: {{ site_tags }} -->
 {% assign tag_words = site_tags | split:',' | sort %}
-<!-- tag_words: {{ tag_words }} -->
+
+<h2>Browse tags</h2>
 
 <ul class="list-inline">
 	{% for item in (0..site.tags.size) %}{% unless forloop.last %}
@@ -13,6 +13,8 @@ title: Knowledge base articles
 		<li><a href="#{{ this_word | cgi_escape }}">{{ this_word }} <span class="badge">{{ site.tags[this_word].size }}</span></a></li>
 	{% endunless %}{% endfor %}
 </ul>
+
+<h2>Archive</h2>
 
 {% for item in (0..site.tags.size) %}{% unless forloop.last %}
 	{% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
