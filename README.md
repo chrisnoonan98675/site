@@ -70,12 +70,12 @@ Note that you'll have to clean up this documentation locally; don't commit it to
 
 ## How the site works
 
-### Product documentation vs. knowledge base
+### Product documentation vs. blog
 
 In Jekyll terminology:
 
-* Product documentation consists of *pages* that are located in `products`
-* Knowledge base articles are *posts* that are located in `_posts`
+* Product documentation consists of *pages* that are located in `xl-deploy`, `xl-release`, etc.
+* Blog posts are *posts* that are located in `_posts`
 
 [This site](http://jekyllbootstrap.com/lessons/jekyll-introduction.html#toc_9) explains more about the difference between pages and posts.
 
@@ -87,10 +87,10 @@ The purpose of some folders might not be clear if you're not familiar with Jekyl
 | ------ | ------- |
 | `_plugins` | Contains Jekyll plugins |
 | `plugins` | Makes Jekyll generate a page at `http://docs.xebialabs.com/plugins/`. This folder does not contain Jekyll plugins nor XebiaLabs plugin documentation. |
-| `_posts` | Contains knowledge base articles |
-| `images` | Contains images for the site itself (like product logos) *and* images for knowledge base articles (subject to change) |
-| `knowledge-base` | Makes Jekyll generate a page at `http://docs.xebialabs.com/knowledge-base/`, as well as pages like `http://docs.xebialabs.com/knowledge-base/xl-deploy/`. This folder does not contain knowledge base articles (those are in `_posts`). |
-| `sample-scripts` | Contains sample files for knowledge base articles. Currently, you would attach these to Tips & Tricks posts (see [here](https://support.xebialabs.com/entries/59035095-Using-rules-to-interact-with-WebSphere-cluster-members) for an example) |
+| `_posts` | Contains blog posts |
+| `images` | Contains images for the site itself (like product logos) *and* images for blog posts (subject to change) |
+| `tips-and-tricks` | Makes Jekyll generate a page at `http://docs.xebialabs.com/tips-and-tricks/`. This folder does not contain blog posts (those are in `_posts`). |
+| `sample-scripts` | Contains sample files for blog posts. Currently, you would attach these to Tips & Tricks posts (see [here](https://support.xebialabs.com/entries/59035095-Using-rules-to-interact-with-WebSphere-cluster-members) for an example) |
 | `_site` | This is where Jekyll puts generated files. Don't store things here. |
 
 ### File names
@@ -150,11 +150,11 @@ Save drafts of pages and posts in the `_drafts` folder.
 
 ### Gravatars
 
-If an author is identified in the front matter of a post *and* there is an email address for that person defined in `authors.yml`, Jekyll will automatically look for a [Gravatar](https://en.gravatar.com/) based on that email address.
+If an author is identified in the front matter of a post *and* there is an email address for that person defined in `_data/authors.yml`, Jekyll will automatically look for a [Gravatar](https://en.gravatar.com/) based on that email address.
 
 If there is not a Gravatar for that email address, the default Gravatar image will appear next to the author's name.
 
-If an author is not defined for a post, the author line will not appear at all.
+If an author is not defined for a post, that part of the post's metadata won't appear.
 
 ## Jekyll and Liquid
 
@@ -175,7 +175,6 @@ If an author is not defined for a post, the author line will not appear at all.
 | `asciidoc_plugin.rb` | Enables Jekyll to interpret Asciidoc files | [Source](https://github.com/asciidoctor/jekyll-asciidoc) | MIT |
 | `tag_gen.rb` | Generates an index page in the `_site/tag` folder for every tag on a post | [Source](http://charliepark.org/tags-in-jekyll/) | None |
 | `to_gravatar.rb` | Gets a Gravatar based on the email address of the post's author | Sources: [1](http://blog.sorryapp.com/blogging-with-jekyll/2014/02/06/adding-authors-to-your-jekyll-site.html), [2](http://blog.sorryapp.com/blogging-with-jekyll/2014/02/13/add-author-gravatars-to-your-jekyll-site.html) | None |
-| Not applicable | Jekyll RSS feed templates | [Source](https://github.com/snaptortoise/jekyll-rss-feeds) | MIT |
 
 ### Tips
 
@@ -184,13 +183,12 @@ If an author is not defined for a post, the author line will not appear at all.
 * If a folder does not contain an `index.markdown` or `index.html` file, trying to access it will return a 404 error. It's a good idea to always put an index file in each folder or to use `.htaccess` or another method to redirect users to a useful page.
 * If you combine conditions in a loop, the order of the conditions matters.
 * In gradle, when deploying the content, we use `jekyll build --config "_config.yml,_jekyll.xebialabs.config.yml"` in order to override base URL, which is taken from the second configuration file.
-* The `/knowledge-base/full_article_list.html` file lists all knowledge base articles (that is, posts) in descending order of the dates in their file names. No other files link to this file; it is provided for reference purposes.
 
 ### Troubleshooting
 
-If you add a knowledge base article to the `_posts` folder but it doesn't appear on the website:
+If you add a post to the `_posts` folder but it doesn't appear on the website:
 
-* Check the `_site` folder to see if the article was converted to HTML. 
+* Check the `_site` folder to see if it was converted to HTML. 
 * Ensure that the file name starts with a date in `YYYY-MM-DD` format.
 * Ensure that words in the file name are separated with hyphens, *not* underscores.
 * Ensure that the YAML front matter is correct.
@@ -223,35 +221,6 @@ There is no TOC generated within each manual (such as `xl-deploy/plugins/command
 
 Possible solution is to copy the code that generates it on the current site. Could float it to the right, like we currently do (to avoid collision with the sidebar).
 
-### Plugins list on product version page assumes versions match
-
-The list of plugins on product version pages (such as `xl-deploy/4.0.x/`):
-
-1. Cycles through every plugin for that product
-2. Lists the ones that have a version that matches the product version
-
-For example, the plugins would be listed on `xl-deploy/4.5.x/` would all be version 4.5.x. The Liquid code (in `includes/xl_deploy_plugins_list_per_version.html`) assumes that a product and a plugin are compatible if their versions match, and are *not* compatible if their versions do not match.
-
-Some workaround ideas:
-
-| Workaround | Pluses | Minuses |
-| ---- | ---- | ---- |
-| Don't list plugins on the version page at all | Easy | Not user-friendly; loss of functionality compared to the current site |
-| Manually list the plugins on the product version page (basically, what we do now) | Total control of which plugin versions are listed for each product version | Manual work must be done for every product release |
-| Create a compatibility matrix behind the scenes and use Liquid or Ruby to select the right plugins for each product version | Theoretically future-proof | Difficult to develop |
-| Create a compatibility matrix that is visible to users and let them choose the plugin version(s) they need | Relatively easy | We would really need to test every plugin+product combination |
-
-### Limit on articles on KB splash page is not intelligent
-
-The number of articles in each category on `knowledge-base/index.html` is limited by the `limit` filter on the `for` loop. This limit isn't "intelligent" because Liquid doesn't know the number of articles in each category beforehand. This means that:
-
-* The "Read more" link at the bottom of each category list will always appear, *even if* the number of articles in a category is *less than or equal to* the limit
-* We can't publish an article count next to each "Read more" link
-
-A Ruby plugin is probably required to improve this functionality (because you need to use a counter for each category).
-
-Side note: The limit on KB articles that are listed on the product splash pages (such as `xl-deploy/index.html`) is intelligent, because Liquid knows that it should only count posts where the category matches the product ID of that index page (so, `xl-deploy`). On these pages, the "Read more" link only appears if the number of articles for the product is greater than the limit, and we can show the total number of articles for the product.
-
 ### Markdown files containing Liquid not converted correctly
 
 When a Markdown file contains some Liquid logic (such as a `for` loop or an `if` statement), Jekyll may not convert it to HTML correctly. This is probably because it interprets indentation of lines of Liquid code as text that should be formatted as a code sample.
@@ -270,11 +239,3 @@ Results in this line appearing in the HTML file (in body text, not as a heading)
       ### Upgrading to XL Deploy 4.5.0 ###
 
 The solution is to **not** create anchors manually. Let Bootstrap create them based on the heading text.
-
-## To do
-
-* Limit the list of KB articles, similar to the way they are limited on the product splash pages:
-     * Per category on the KB splash page (XL Deploy, XL Release, etc.)
-     * Per tag on the KB tags page (API, xl-deploy-4.0.x, etc.)
-* Decide how to handle plugin compatibility (e.g. Plugin A 4.0.x is compatible with both Product B 4.0.x and Product B 4.5.x).
-* See if current KB tag formatting is okay and, if not, figure out how to mask them.
