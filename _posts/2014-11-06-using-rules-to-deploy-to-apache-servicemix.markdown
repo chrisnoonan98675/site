@@ -6,7 +6,7 @@ categories:
 - tips-and-tricks
 tags:
 - rules
-- middlware
+- middleware
 ---
 
 The rules feature, introduced in [XL Deploy 4.5.0](http://docs.xebialabs.com/product-version.html#/xl%20deploy/4.5.x), makes it easy to extend XL Deploy to deploy an [Apache ServiceMix](http://servicemix.apache.org/) feature. Generally, the steps for deploying a ServiceMix feature are:
