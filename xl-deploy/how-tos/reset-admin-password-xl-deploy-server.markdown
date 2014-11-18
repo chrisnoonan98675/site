@@ -1,11 +1,5 @@
 ---
-title: How to reset the admin password for your XL Deploy server
-author: vincent_partington
-categories:
-- xl-deploy
-tags:
-- security
-- system administration
+title: Reset the admin password for your XL Deploy server
 ---
 
 The XL Deploy [System Administration Manual](http://docs.xebialabs.com/releases/latest/xl-deploy/systemadminmanual.html#changing-the-admin-password) describes how to change the password for the built-in admin user.
