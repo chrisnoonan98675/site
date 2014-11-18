@@ -204,3 +204,44 @@ Results in this line appearing in the HTML file (in body text, not as a heading)
       ### Upgrading to XL Deploy 4.5.0 ###
 
 The solution is to **not** create anchors manually. Let Bootstrap create them based on the heading text.
+
+## Writing blog posts in Jekyll (WIP)
+
+This section is a work in progress. Please don't add blog posts to Jekyll yet!
+
+### Add yourself as an author
+
+If you have never written a blog post in Jekyll before, you must first add an entry for yourself in `_data/authors.yml`. Follow the same format that the other entries use; spacing, punctuation, and capitalization are important!
+
+Jekyll will use the email address that you enter to look up your [Gravatar](https://en.gravatar.com/). The email address will not be visible to website visitors.
+
+### Write a blog post
+
+To write a blog post:
+
+1. Copy `_drafts/2014-12-01-blog-post-template.markdown` to `_posts` and rename it with the current date and the title of the post.
+2. Open the Markdown file and update:
+
+    * The title
+    * The author
+    * The category(ies)
+    * The tag(s)
+
+3. Write the content of the post.
+
+    * If you need to add images, store them in `images`.
+    * If you need to add files that people can download (such as a sample Python script), store them in `sample-scripts`.
+
+4. Start Jekyll locally, go to `http://localhost:4000/tips-and-tricks`, and review your post.
+5. If you want to:
+
+    * Publish the post immediately, commit the change to the repository
+    * Save the post without publishing it yet, move it to the `_drafts` folder and commit the change to the repository
+
+### Publish a blog post
+
+To publish a blog post, move the Markdown file from `_drafts` to `_posts` and commit the change to the repository.
+
+### Remove a blog post
+
+To remove a blog post, delete the Markdown file from `_posts` or move it to `_drafts` and commit the change to the repository.
