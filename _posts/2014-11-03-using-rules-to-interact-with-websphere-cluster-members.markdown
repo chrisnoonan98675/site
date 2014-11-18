@@ -7,7 +7,7 @@ categories:
 tags:
 - extension
 - websphere
-- middlware
+- middleware
 - rules
 ---
 
