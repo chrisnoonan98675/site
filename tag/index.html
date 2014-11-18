@@ -1,5 +1,5 @@
 ---
-title: Tips & Tricks archive
+title: Tips & tricks blog archive
 ---
 
 {% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
@@ -14,7 +14,7 @@ title: Tips & Tricks archive
 	{% endunless %}{% endfor %}
 </ul>
 
-<h2>Archive</h2>
+<h2>Blog archive</h2>
 
 {% for item in (0..site.tags.size) %}{% unless forloop.last %}
 	{% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
