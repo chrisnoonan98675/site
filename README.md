@@ -21,52 +21,17 @@ If you want to pull all documentation from the product and plugin repositories:
 
 Note that you'll have to clean up this documentation locally; don't commit it to the online-docs-jekyll repository.
 
-## Logical structure of the site (outdated)
+## Logical structure of the site
 
-### Manual-based approach
-
-* Landing page (index.html)
-    * Product
-        * Version
-            * Manual
-            * Manual
-        * Version
-            * Manual
-            * Manual
-        * List of knowledge base articles related to the product
-            * Article
-            * Article
-    * List of all knowledge base articles (organised by product and/or tag)
-        * Article
-        * Article
-        * Article
-
-### Topic-based approach
-
-* Landing page (index.html)
-    * Product
-        * Version
-            * Category
-                * Topic
-                * Topic
-            * Category
-                * Topic
-                * Topic
-         * Version
-            * Category
-                * Topic
-                * Topic
-            * Category
-                * Topic
-                * Topic
-        * List of knowledge base articles related to the product
-            * Article
-            * Article
-            * Article
-    * List of all knowledge base articles (organised by product and/or tag)
-        * Article
-        * Article
-        * Article
+* Product
+    * Documentation in legacy format
+    * Documentation in topic-based format
+    * Auto-generated documentation
+    * Plugin
+        * Documentation in legacy format
+        * Documentation in topic-based format
+* Tips & Tricks blog
+    * Blog posts
 
 ## How the site works
 
@@ -77,7 +42,7 @@ In Jekyll terminology:
 * Product documentation consists of *pages* that are located in `xl-deploy`, `xl-release`, etc.
 * Blog posts are *posts* that are located in `_posts`
 
-[This site](http://jekyllbootstrap.com/lessons/jekyll-introduction.html#toc_9) explains more about the difference between pages and posts.
+[This site](http://jekyllbootstrap.com/lessons/jekyll-introduction.html#toc_9) explains the difference between pages and posts.
 
 ### Folders
 
