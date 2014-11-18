@@ -2,6 +2,7 @@
 title: Encoding SSL keystore passwords in XL Deploy 4.5.0+
 categories:
 - xl-deploy
+- tips-and-tricks
 tags:
 - password
 - encryption
