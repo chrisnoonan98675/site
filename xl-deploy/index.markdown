@@ -5,6 +5,10 @@ product-id: xl-deploy
 weight: 1
 ---
 
+## Legacy documentation
+
+{% include product_doc_list.html %}
+
 ## Concepts
 
 <ul>
@@ -42,3 +46,4 @@ weight: 1
 </ul>
 
 ## Plugins
+
