@@ -3,7 +3,6 @@ title: Using rules to deploy to Apache ServiceMix
 author: benoit_moussaud
 categories:
 - xl-deploy
-- tips-and-tricks
 tags:
 - rules
 - middleware

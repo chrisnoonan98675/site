@@ -3,7 +3,6 @@ title: Migrating an extended deployable and deployed CI to a new defined deploya
 author: levent_tutar
 categories:
 - xl-deploy
-- tips-and-tricks
 tags:
 - ci
 - python

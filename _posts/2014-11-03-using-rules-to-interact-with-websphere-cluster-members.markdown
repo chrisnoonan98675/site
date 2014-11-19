@@ -3,7 +3,6 @@ title: Using rules to interact with WebSphere cluster members
 author: tom_batchelor
 categories:
 - xl-deploy
-- tips-and-tricks
 tags:
 - extension
 - websphere
