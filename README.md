@@ -7,7 +7,7 @@ online-docs-jekyll
 1. Install [Jekyll](http://jekyllrb.com/docs/installation/) and its requirements (Ruby, etc.).
 1. Install [Asciidoctor](http://asciidoctor.org/docs/install-toolchain/).
 1. Execute `jekyll serve` or `jekyll serve --watch` (for watch mode)
-1. Add the `jekyll` properties listed [here](https://intranet.xebia.com/confluence/display/Labs/devdoc.xebialabs.com) to your `gradle.properties` file.
+1. Add the `jekyll` properties listed [here](https://xebialabs.atlassian.net/wiki/display/Labs/devdoc.xebialabs.com) to your `gradle.properties` file.
 1. Create a folder at `/var/lib/jenkins/jekyll` and set its permissions with `chmod o+w`.
 
 Go to `http://localhost:4000` to see the site running locally.
