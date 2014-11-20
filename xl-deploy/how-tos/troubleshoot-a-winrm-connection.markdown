@@ -1,9 +1,10 @@
 ---
-title: Troubleshoot a WINRM_NATIVE connection
+title: Troubleshoot a WINRM_NATIVE or WINRM_INTERNAL connection
 tags:
 - connectivity
 - remoting
 - winrm
+- kerberos
 - overthere
 ---
 
