@@ -8,6 +8,8 @@ tags:
 - system administration
 ---
 
+There are several options for installing XL Deploy and XL Release as a service.
+
 ## Install XL Deploy using Tanuki Java Service Wrapper
 
 To install XL Deploy as a Windows service using [Tanuki Java Service Wrapper Community Edition](http://wrapper.tanukisoftware.com/doc/english/download.jsp):

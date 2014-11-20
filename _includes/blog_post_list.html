@@ -1,0 +1,11 @@
+<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+{% assign author = site.data.authors[post.author] %}
+<p>
+	{% if author %}
+		{{ author.name }} | 
+	{% endif %}
+	<a href="{{ post.url }}">{{ post.date | date: "%-d %B %Y" }}</a>
+</p>
+<div class="content">
+	{{ post.excerpt | remove: '<p>' | remove: '</p>' }} <a href="{{ post.url }}">Read more  &#187;</a>
+</div>
