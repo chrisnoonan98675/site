@@ -10,6 +10,8 @@ tags:
 
 These are configuration errors that can occur when using XL Deploy with WINRM_NATIVE.
 
+For more troubleshooting tips for Kerberos, please refer to the [Kerberos troubleshooting guide in the Java SE documentation](http://docs.oracle.com/javase/6/docs/technotes/guides/security/jgss/tutorials/Troubleshooting.html).
+
 ## The `winrm` configuration command fails with the message `There are no more endpoints available from the endpoint mapper`
 
 The Windows Firewall has not been started. See [Microsoft Knowledge Base article #2004640](http://support.microsoft.com/kb/2004640) for more information.
