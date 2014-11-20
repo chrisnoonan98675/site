@@ -88,5 +88,18 @@ To use the WINRM_INTERNAL or the WINRM_NATIVE connection type, set up <a href="h
 
 		winrm create winrm/config/Listener?Address=*+Transport=HTTPS @{Hostname="HOSTNAME"; CertificateThumbprint="THUMBPRINT"}
 
-
 For more information about WinRM, refer to <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa384426(v=vs.85).aspx">the online documentation at Microsoft's DevCenter</a>.
+
+## Domain accounts
+
+For the WINRM_INTERNAL connection type, domain accounts must be specified using the new-style domain syntax, e.g. `USER@FULL.DOMAIN`.
+
+For the WINRM_NATIVE connection type, domain accounts may be specified using either the new-style (`USER@FULL.DOMAIN`) or old-style (`DOMAIN\USER`) domain syntax.
+
+For both connection types, local accounts must be specified without an at-sign (`@`) or a backslash (`\`).
+
+**Note:** When using domain accounts with the **WINRM_INTERNAL** connection type, the Kerberos subsystem of the Java Virtual Machine must be configured correctly. Please read the section on how to set up Kerberos [for the source host](#cifs_host_setup_krb5) and [the remote hosts](#cifs_host_setup_spn).
+
+## Password limitations
+
+Due to a limitation of the `winrs` command, passwords containing a single quotation mark (`'`) or a double quotation mark (`"`) cannot be used when using the WINRM_NATIVE connection type.
