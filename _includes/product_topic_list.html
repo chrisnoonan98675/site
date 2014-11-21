@@ -32,8 +32,8 @@
 	{% if page.categories contains product-id-to-search-for %}
 		{% if page.path contains 'how-to' %}
 			{% unless page.path contains "index" %}
-				<span class="hidden">{% increment concept-counter %}</span>
-				{% if concept-counter <=6 %}
+				<span class="hidden">{% increment how-to-counter %}</span>
+				{% if how-to-counter <=6 %}
 					<li><a href="{{ page.url }}">{{ page.title }}</a></li>
 				{% endif %}
 			{% endunless %}
