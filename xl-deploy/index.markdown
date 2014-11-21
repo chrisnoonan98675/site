@@ -13,7 +13,7 @@ weight: 1
 
 <ul>
 {% for page in site.pages %}
-	{% if page.path contains 'xl-deploy' and page.path contains 'concepts' %}
+	{% if page.path contains 'xl-deploy' and page.path contains 'concept' %}
 		{% unless page.path contains "index" %}
 			<li><a href="{{ page.url }}">{{ page.title }}</a></li>
 		{% endunless %}
@@ -25,7 +25,7 @@ weight: 1
 
 <ul>
 {% for page in site.pages %}
-	{% if page.path contains 'xl-deploy' and page.path contains 'how-tos' %}
+	{% if page.path contains 'xl-deploy' and page.path contains 'how-to' %}
 		{% unless page.path contains "index" %}
 			<li><a href="{{ page.url }}">{{ page.title }}</a></li>
 		{% endunless %}
