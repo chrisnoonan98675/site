@@ -1,16 +1,15 @@
 title: XebiaLabs documentation
-name: XebiaLabs Tips and Tricks
-author: XebiaLabs, Inc.
-blogurl: http://localhost:4000/tips-and-tricks
 tagline: 'Deliver faster'
 description: 'Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise.'
-
+name: XebiaLabs Tips and Tricks Blog
+blogurl: http://localhost:4000/tips-and-tricks
+author:
+  name: XebiaLabs, Inc.
+  email: info@xebialabs.com
 permalink: /tips-and-tricks/:categories/:year:month:day-:title
 
 paginate: 10
 paginate_path: "tips-and-tricks/page:num"
-
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 defaults:
     -
@@ -25,6 +24,8 @@ defaults:
             type: "posts"
         values:
             layout: "post"
+
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 asciidoc: asciidoctor
 asciidoc_ext: "asciidoc,adoc,ad"
