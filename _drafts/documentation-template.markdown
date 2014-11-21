@@ -1,5 +1,7 @@
 ---
 title: Documentation template
+categories:
+- 
 tags:
 - 
 ---
