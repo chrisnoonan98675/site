@@ -19,7 +19,7 @@ module Jekyll
     
     def generate(site)
       if site.layouts.key? 'tag_index'
-        dir = 'tag'
+        dir = 'tips-and-tricks/tag'
         site.tags.keys.each do |tag|
           tag_handle = tag.strip.downcase.gsub(/[\s\.\/\\]/, '-').gsub(/[^\w-]/, '').gsub(/[-_]{2,}/, '-').gsub(/^[-_]/, '').gsub(/[-_]$/, '')
           write_tag_index(site, File.join(dir, tag_handle), tag)
