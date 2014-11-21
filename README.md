@@ -132,13 +132,13 @@ If an author is not defined for a post, that part of the post's metadata won't a
 | `post.html` | All posts | Includes author, post date, and a "Related posts" section |
 | `page.html` | All pages | Includes dynamically generated breadcrumbs | 
 
-### Plugins and customizations
+### Plugins
 
 | Plugin file name | Description | Source | License |
 | ---------------- | ----------- | ------ | ------- |
 | `breadcrumbs.rb` | Creates dynamic breadcrumbs on pages | [Source](http://biosphere.cc/software-engineering/jekyll-breadcrumbs-navigation-plugin/) | None |
 | `asciidoc_plugin.rb` | Enables Jekyll to interpret Asciidoc files | [Source](https://github.com/asciidoctor/jekyll-asciidoc) | MIT |
-| `tag_gen.rb` | Generates an index page in the `_site/tag` folder for every tag on a post | [Source](http://charliepark.org/tags-in-jekyll/) | None |
+| `tag_gen.rb` | Generates an index page in the `_site/tag` folder for every tag on a post | Sources: [1](http://charliepark.org/tags-in-jekyll/) (original), [2](https://github.com/polymetis/jekyll-tags-plugin/blob/master/_plugins/tag_gen.rb) (adjustment to replace spaces in tags with hyphens) | None |
 | `to_gravatar.rb` | Gets a Gravatar based on the email address of the post's author | Sources: [1](http://blog.sorryapp.com/blogging-with-jekyll/2014/02/06/adding-authors-to-your-jekyll-site.html), [2](http://blog.sorryapp.com/blogging-with-jekyll/2014/02/13/add-author-gravatars-to-your-jekyll-site.html) | None |
 
 ### Tips
