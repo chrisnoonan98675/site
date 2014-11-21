@@ -4,6 +4,6 @@
 
 <span>
 	{% for tag in sorted_page_tags %}
-		<a href="/tag/index.html#{{ tag }}">{{ tag }}</a>
+		<a href="../../tag/index.html#{{ tag | replace: ' ', '-' }}">{{ tag }}</a>
 	{% endfor %}
 </span>
