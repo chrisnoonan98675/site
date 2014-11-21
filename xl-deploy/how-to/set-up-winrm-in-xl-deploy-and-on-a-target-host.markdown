@@ -1,5 +1,12 @@
 ---
 title: Set up WinRM in XL Deploy and on a target host
+categories:
+- xl-deploy
+tags:
+- connectivity
+- remoting
+- winrm
+- overthere
 ---
 
 To use the WINRM_INTERNAL or the WINRM_NATIVE connection type, set up <a href="http://msdn.microsoft.com/en-us/library/aa384426(v=vs.85).aspx">Microsoft Windows Remote Management (WinRM)</a> on the remote host:

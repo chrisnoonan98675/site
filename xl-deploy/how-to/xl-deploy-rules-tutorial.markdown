@@ -1,6 +1,5 @@
 ---
 title: XL Deploy rules tutorial
-author: amy_johnston
 categories:
 - xl-deploy
 tags:

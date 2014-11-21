@@ -1,5 +1,12 @@
 ---
 title: Set up SSH in XL Deploy and on a target host
+categories:
+- xl-deploy
+tags:
+- remoting
+- connectivity
+- ssh
+- overthere
 ---
 
 To connect to a remote host using the SSH protocol, you must to install an SSH server on that remote host.

@@ -1,5 +1,10 @@
 ---
 title: Understanding archives and folders in XL Deploy
+categories:
+- xl-deploy
+tags:
+- deployable
+- package
 ---
 
 There are several special things about the way that XL Deploy handles archive artifacts (such as ZIP files) and folders. In XL Deploy's [Unified Deployment Model](http://docs.xebialabs.com/releases/4.5/xl-deploy/referencemanual.html#unified-deployment-model-udm) (UDM) type hierarchy, there are two base types for deployable artifacts:

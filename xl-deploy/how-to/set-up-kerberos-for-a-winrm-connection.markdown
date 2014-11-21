@@ -1,5 +1,7 @@
 ---
 title: Set up Kerberos for WINRM_INTERNAL
+categories:
+- xl-deploy
 tags:
 - connectivity
 - remoting

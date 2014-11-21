@@ -1,5 +1,7 @@
 ---
 title: Troubleshoot an SSH connection
+category:
+- xl-deploy
 tags:
 - connectivity
 - remoting

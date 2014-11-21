@@ -1,5 +1,11 @@
 ---
 title: Useful WinRM commands
+category:
+- xl-deploy
+tags:
+- connectivity
+- remoting
+- winrm
 ---
 
 These commands are useful when you are using <a href="http://msdn.microsoft.com/en-us/library/aa384426(v=vs.85).aspx">Microsoft Windows Remote Management (WinRM)</a> to execute commands and manipulate files on a remote host.

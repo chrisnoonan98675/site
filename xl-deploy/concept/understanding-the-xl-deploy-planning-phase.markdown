@@ -2,7 +2,6 @@
 title: Understanding the XL Deploy planning phase
 categories:
 - xl-deploy
-- tips-and-tricks
 tags:
 - planning
 - deployment

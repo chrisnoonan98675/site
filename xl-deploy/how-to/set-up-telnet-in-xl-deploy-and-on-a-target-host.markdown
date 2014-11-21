@@ -1,5 +1,12 @@
 ---
 title: Set up Telnet in XL Deploy and on a target host
+categories:
+- xl-deploy
+tags:
+- remoting
+- connectivity
+- telnet
+- overthere
 ---
 
 To use the TELNET connection type, enable and configure the Telnet Server on the remote host:

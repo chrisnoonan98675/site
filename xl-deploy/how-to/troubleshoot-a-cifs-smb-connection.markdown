@@ -1,5 +1,7 @@
 ---
 title: Troubleshoot a CIFS/SMB connection
+category:
+- xl-deploy
 tags:
 - connectivity
 - remoting

@@ -1,5 +1,7 @@
 ---
 title: Troubleshoot a Telnet connection
+category:
+- xl-deploy
 tags:
 - connectivity
 - remoting

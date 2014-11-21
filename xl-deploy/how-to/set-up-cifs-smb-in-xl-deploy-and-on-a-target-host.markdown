@@ -1,5 +1,13 @@
 ---
 title: Set up CIFS/SMB in XL Deploy and on a target host
+categories:
+- xl-deploy
+tags:
+- remoting
+- connectivity
+- cifs
+- smb
+- overthere
 ---
 
 To connect to a remote host using the [CIFS](http://en.wikipedia.org/wiki/Server_Message_Block) protocol (also known as SMB), ensure the host is reachable on port 445.
