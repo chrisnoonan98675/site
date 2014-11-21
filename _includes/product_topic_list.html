@@ -1,0 +1,47 @@
+{% assign product-id-to-search-for = page.product-id %}
+
+<h2>Concepts</h2>
+
+<span class="hidden">{% increment concept-counter %}</span>
+
+<ul>
+{% for page in site.pages %}
+	{% if page.categories contains product-id-to-search-for %}
+		{% if page.path contains 'concept' %}
+			{% unless page.path contains "index" %}
+				<span class="hidden">{% increment concept-counter %}</span>
+				{% if concept-counter <=6 %}
+					<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+				{% endif %}
+			{% endunless %}
+		{% endif %}
+	{% endif %}
+{% endfor %}
+</ul>
+
+{% if concept-counter > 6 %}
+	<p><a href="concept">Read more ({{ concept-counter | minus: 1 %}}) &#187;</a></p>
+{% endif %}
+
+<h2>How-to</h2>
+
+<span class="hidden">{% increment how-to-counter %}</span>
+
+<ul>
+{% for page in site.pages %}
+	{% if page.categories contains product-id-to-search-for %}
+		{% if page.path contains 'how-to' %}
+			{% unless page.path contains "index" %}
+				<span class="hidden">{% increment concept-counter %}</span>
+				{% if concept-counter <=6 %}
+					<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+				{% endif %}
+			{% endunless %}
+		{% endif %}
+	{% endif %}
+{% endfor %}
+</ul>
+
+{% if how-to-counter > 6 %}
+	<p><a href="how-to">Read more ({{ how-to-counter | minus: 1 %}}) &#187;</a></p>
+{% endif %}
