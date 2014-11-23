@@ -1,5 +1,7 @@
 ---
 title: How password properties and encrypted dictionaries combine to secure sensitive data in XL Deploy
+subject:
+- Dictionaries
 categories:
 - xl-deploy
 tags:

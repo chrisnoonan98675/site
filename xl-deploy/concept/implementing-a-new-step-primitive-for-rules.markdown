@@ -1,5 +1,7 @@
 ---
 title: Authoring a new step primitive for rules
+subject:
+- Rules
 categories:
 - xl-deploy
 tags:
