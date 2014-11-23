@@ -14,6 +14,17 @@ Go to `http://localhost:4000` to see the site running locally.
 
 If you want to pull all documentation from the product and plugin repositories:
 
+setup key based authentication with tech ssh server:
+1. create private/public key (execute ssh-keygen, do not create password, name it tech_id_rsa)
+1. copy your public key to the tech server: ssh-copy-id -i ~/.ssh/tech_id_rsa.pub tech@tech.xebialabs.com
+1. make sure key based auth works (just execute ssh tech@tech.xebialabs.com, it should work without asking you for password)
+
+now you should be able to sync documentation to local folder:
+1. Execute `./sync.sh`.
+1. Execute `jekyll serve`.
+1. Go to `http://localhost:4000`.
+
+the old way to do it:
 1. Go to the location where you cloned the online-docs-jekyll repository.
 1. Execute `gradle jekyllFetchSources` or `gradle jFS`.
 1. Execute `jekyll serve`.
