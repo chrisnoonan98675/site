@@ -1,5 +1,7 @@
 ---
 title: Preparing your application for XL Deploy
+subject:
+- Packaging
 categories:
 - xl-deploy
 tags:

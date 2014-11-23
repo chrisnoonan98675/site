@@ -1,5 +1,7 @@
 ---
 title: Reset the admin password for your XL Deploy server
+subject:
+- System administration
 categories:
 - xl-deploy
 tags:

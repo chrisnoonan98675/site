@@ -1,5 +1,7 @@
 ---
 title: XL Deploy for developers
+subject:
+- Packaging
 categories:
 - xl-deploy
 tags:

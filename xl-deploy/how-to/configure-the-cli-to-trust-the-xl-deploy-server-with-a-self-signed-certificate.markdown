@@ -1,5 +1,7 @@
 ---
 title: Configure the CLI to trust an XL Deploy server with a self-signed certificate
+subject:
+- CLI
 categories:
 - xl-deploy
 tags:

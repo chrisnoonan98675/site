@@ -1,5 +1,7 @@
 ---
 title: The deployment process from package to deployment
+subject:
+- Deployment
 categories:
 - xl-deploy
 tags:

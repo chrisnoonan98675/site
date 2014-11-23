@@ -1,5 +1,7 @@
 ---
 title: XL Deploy migration guide
+subject:
+- Upgrading
 categories:
 - xl-deploy
 tags:

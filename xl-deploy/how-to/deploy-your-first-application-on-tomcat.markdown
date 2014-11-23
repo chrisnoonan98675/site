@@ -1,5 +1,7 @@
 ---
-title: Getting started with XL Deploy&#58; Deploy your first application on Apache Tomcat
+title: Deploy your first application on Apache Tomcat
+subject:
+- Getting started
 categories:
 - xl-deploy
 tags:

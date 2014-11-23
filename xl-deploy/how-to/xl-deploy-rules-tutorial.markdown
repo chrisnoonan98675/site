@@ -1,5 +1,7 @@
 ---
 title: XL Deploy rules tutorial
+subject:
+- Rules
 categories:
 - xl-deploy
 tags:

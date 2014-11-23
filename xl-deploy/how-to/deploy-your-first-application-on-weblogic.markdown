@@ -1,5 +1,7 @@
 ---
-title: Getting started with XL Deploy&#58; Deploy your first application on Oracle WebLogic
+title: Deploy your first application on Oracle WebLogic
+subject:
+- Getting started
 categories:
 - xl-deploy
 tags:

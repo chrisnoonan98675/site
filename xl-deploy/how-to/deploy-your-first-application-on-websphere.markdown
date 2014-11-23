@@ -1,5 +1,7 @@
 ---
-title: Getting started with XL Deploy&#58; Deploy your first application on IBM WebSphere Application Server (WAS)
+title: Deploy your first application on IBM WebSphere Application Server (WAS)
+subject:
+- Getting started
 categories:
 - xl-deploy
 tags:

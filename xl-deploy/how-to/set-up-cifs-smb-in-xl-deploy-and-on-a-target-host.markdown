@@ -1,5 +1,7 @@
 ---
 title: Set up CIFS/SMB in XL Deploy and on a target host
+subject:
+- Remoting plugin
 categories:
 - xl-deploy
 tags:

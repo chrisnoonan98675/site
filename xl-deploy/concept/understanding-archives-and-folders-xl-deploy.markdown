@@ -1,5 +1,7 @@
 ---
 title: Understanding archives and folders in XL Deploy
+subject:
+- Packaging
 categories:
 - xl-deploy
 tags:

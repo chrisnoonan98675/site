@@ -1,5 +1,7 @@
 ---
 title: Set up Kerberos for WINRM_INTERNAL
+subject:
+- Remoting plugin
 categories:
 - xl-deploy
 tags:

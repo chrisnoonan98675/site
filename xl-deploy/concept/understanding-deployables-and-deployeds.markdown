@@ -1,5 +1,7 @@
 ---
 title: Understanding deployables and deployeds
+subject:
+- Packaging
 categories:
 - xl-deploy
 tags:

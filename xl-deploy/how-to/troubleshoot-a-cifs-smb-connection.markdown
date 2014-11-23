@@ -1,5 +1,7 @@
 ---
 title: Troubleshoot a CIFS/SMB connection
+subject:
+- Remoting plugin
 category:
 - xl-deploy
 tags:

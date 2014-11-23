@@ -1,5 +1,7 @@
 ---
 title: Understanding the XL Deploy planning phase
+subject:
+- Deployment
 categories:
 - xl-deploy
 tags:

@@ -1,5 +1,7 @@
 ---
-title: Getting started with XL Deploy&#58; Deploy your first application on Microsoft Internet Information Services (IIS)
+title: Deploy your first application on Microsoft Internet Information Services (IIS)
+subject:
+- Getting started
 categories:
 - xl-deploy
 tags:
