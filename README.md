@@ -205,6 +205,10 @@ Results in this line appearing in the HTML file (in body text, not as a heading)
 
 The solution is to **not** create anchors manually. Let Bootstrap create them based on the heading text.
 
+### Formatting code
+
+In Markdown, you can format a block of code by surrounding the block with three backticks (```) or by indenting each line at least four spaces. Jekyll doesn't consistently convert code that is formatting using the backtick method. To format a block of code, use spaces.
+
 ## Writing blog posts in Jekyll (WIP)
 
 This section is a work in progress. Please don't add blog posts to Jekyll yet!
