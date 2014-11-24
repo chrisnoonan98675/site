@@ -26,18 +26,7 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gs
 	border: none !important;
 }
 
-/* Footer styles */
-
-.footer h2 { font-size: 22px; font-weight: lighter; }
-.footer a { color: #FFF; }
-#copy { color: #FFF; }
-#copy p { font-size: 12px; line-height: 22px; color: #999; }
-#socials { color: #FFF; }
-#socials .fa-stack-1x { color: #444; }
-
-
 /* Sticky footer styles */
-
 html {
   position: relative;
   min-height: 100%;
@@ -54,9 +43,7 @@ body {
   background-color: #333;
 } 
 
-
 /* Scroll-to-top button styles */
-
 .scroll-top-wrapper {
     position: fixed;
     opacity: 0;
@@ -96,9 +83,37 @@ body {
 
 /* IE10 viewport width workaround */
 /* See http://getbootstrap.com/getting-started/#support-ie10-width */
-
 @-webkit-viewport   { width: device-width; }
 @-moz-viewport      { width: device-width; }
 @-ms-viewport       { width: device-width; }
 @-o-viewport        { width: device-width; }
 @viewport           { width: device-width; }
+
+/* Collapsible bulleted list */
+.listContainer {
+  margin-top: 15px;
+  padding-left: -60px;
+}
+ 
+.expList ul, .expList li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+.expList li {
+    text-indent: 0px;
+    background-position: 1px 8px;
+    padding-left: 20px;
+    background-repeat: no-repeat;
+}
+ 
+/* Collapsed state for list element */
+.expList .collapsed {
+    background-image: url(/images/bullet_right_arrow.png);
+}
+/* Expanded state for list element */
+/* NOTE: This class must be located UNDER the collapsed one */
+.expList .expanded {
+	background-image: url(/images/bullet_down_arrow.png);
+}

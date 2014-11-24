@@ -6,28 +6,32 @@
 {% assign tags_used = '' %}
 {% assign counter = 0 %}
 
-<ul>
-	{% for item in sorted_page_tags %}
-		{% capture tag_to_check %},{{ item }},{% endcapture %}
-		{% unless tags_used contains tag_to_check %}
-			{% capture modulus %}{{ counter | mod:10 }}{% endcapture %} 
-			{% if counter != 0 %} 
-				{% if modulus == "0" %} 
-					</ul></li><li><ul> 
+<div class="listContainer">
+
+	<ul class="expList">
+		{% for item in sorted_page_tags %}
+			{% capture tag_to_check %},{{ item }},{% endcapture %}
+			{% unless tags_used contains tag_to_check %}
+				{% capture modulus %}{{ counter | mod:10 }}{% endcapture %} 
+				{% if counter != 0 %} 
+					{% if modulus == "0" %} 
+						</ul></li><li><ul> 
+					{% endif %}
 				{% endif %}
-			{% endif %}
-			{% capture tag_to_search_for %}{{ item }}{% endcapture %}
-			<li>{{ tag_to_search_for }}
-				<ul>
-					{% for page in site.pages %}
-						{% if page.tags contains tag_to_search_for %}
-							<li><a href="{{ page.url }}">{{ page.title }}</a></li>
-						{% endif %}
-					{% endfor %}
-				</ul>	
-			</li>		
-			{% capture tags_used %}{{ tags_used }}{{ tag_to_check }}{% endcapture %}
-			{% capture counter %}{{ counter | plus: 1 }}{% endcapture %}
-		{% endunless %}
-	{% endfor %}
-</ul>
+				{% capture tag_to_search_for %}{{ item }}{% endcapture %}
+				<li>{{ tag_to_search_for }}
+					<ul>
+						{% for page in site.pages %}
+							{% if page.tags contains tag_to_search_for %}
+								<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+							{% endif %}
+						{% endfor %}
+					</ul>	
+				</li>		
+				{% capture tags_used %}{{ tags_used }}{{ tag_to_check }}{% endcapture %}
+				{% capture counter %}{{ counter | plus: 1 }}{% endcapture %}
+			{% endunless %}
+		{% endfor %}
+	</ul>
+
+</div>

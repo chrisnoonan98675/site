@@ -1,18 +1,24 @@
-$(function(){
-    $('li')
-        .css('pointer','default')
-        .css('list-style-image','none');
-    $('li:has(ul)')
-        .click(function(event){
-            if (this == event.target) {
-                $(this).css('list-style-image',
-                    (!$(this).children().is(':hidden')) ? 'url(/images/right-arrow-bullet.png)' : 'url(/images/down-arrow-bullet.png)');
-                $(this).children().toggle();
-            }
-            return false;
-        })
-        .css({cursor:'pointer', 'list-style-image':'url(/images/right-arrow-bullet.png)'})
-        .children().hide();
-    $('li:not(:has(ul))').css({cursor:'default', 'list-style-image':'none'});
+$(function prepareList() {
+	$('.expList').find('li:has(ul)').unbind('click').click(function(event) {
+		if(this == event.target) {
+			$(this).toggleClass('expanded');
+			$(this).children('ul').toggle();
+		}
+		return false;
+	}).addClass('collapsed').removeClass('expanded').children('ul').hide();
  
+	//Hack to add links inside the cv
+	$('.expList a').unbind('click').click(function() {
+		window.open($(this).attr('href'), "_self");
+		return false;
+	});
+	//Create the button functionality
+	$('.expandList').unbind('click').click(function() {
+		$('.collapsed').addClass('expanded');
+		$('.collapsed').children().show();
+	})
+	$('.collapseList').unbind('click').click(function() {
+		$('.collapsed').removeClass('expanded');
+		$('.collapsed').children().hide();
+	})
 });
