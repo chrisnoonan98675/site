@@ -27,7 +27,7 @@ may detect it and refuse authentication via public key.
 
 now you should be able to sync documentation to local folder:
 
-1. Execute `./sync.sh`.
+1. Execute `./_sync.sh`.
 1. Execute `jekyll serve`.
 1. Go to `http://localhost:4000`.
 
