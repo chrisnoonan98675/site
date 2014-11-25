@@ -118,5 +118,98 @@ body {
 /* Expanded state for list element */
 /* NOTE: This class must be located UNDER the collapsed one */
 .expList .expanded {
-	background-image: url(/images/bullet_down_arrow.png);
+    background-image: url(/images/bullet_down_arrow.png);
+}
+
+/* product dashboard page */
+
+input.search-query {
+    padding-left: 26px;
+    width: 100% !important;
+}
+
+form.form-search {
+    position: relative;
+    margin-top: 5px;
+}
+
+form.form-search:before {
+    display: block;
+    width: 12px;
+    height: 12px;
+    content: "\e003";
+    font-family: 'Glyphicons Halflings';
+    background-position: -48px 0;
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    opacity: .5;
+    z-index: 1000;
+}
+
+.dashboard {
+}
+
+.dashboard .logo {
+    height: 60px;
+    padding-bottom: 10px;
+}
+
+.dashboard .filters a {
+    color: #555555;
+    margin-right: 15px;
+    font-size: 90%;
+    text-decoration: underline;
+}
+
+.dashboard .filters a:focus {
+    outline: none;
+}
+
+.dashboard .label {
+    font-weight: 400;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.dashboard .issue-header {
+    margin-top: 5px;
+    display: inline-block;
+    text-decoration: underline;
+}
+
+.text-product {
+    color: #d8543e;
+}
+
+.text-plugin {
+    color: #25a29f;
+}
+
+.text-major {
+    color: #428bca;
+}
+
+.text-maintenance {
+    color: #a62b7c;
+}
+
+.text-all {
+    color: #999999;
+}
+
+.bg-maintenance {
+    background-color: #a62b7c;
+}
+
+.bg-major {
+    background-color: #428bca;
+}
+
+.bg-product {
+    background-color: #d8543e;
+}
+
+.bg-plugin {
+    background-color: #25a29f;
 }
