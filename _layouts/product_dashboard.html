@@ -138,45 +138,47 @@ layout: default
             })
 
             $(this).children(".issue-sublist").each(function () {
-                toggleView($(this), keyword)
+                toggleView($(this), keyword);
             })
 
-            toggleView($(this).parents(".release"), keyword)
+            toggleView($(this).parents(".release"), keyword);
         });
     }
 
     $(document).ready(function () {
         filterIssues($("#issue-filter").val())
         $("#issue-filter").keyup(function () {
-            filterIssues($(this).val())
+            filterIssues($(this).val());
         });
 
         $(".filters a").click(function () {
-            $("#issue-filter").val("")
-            filterIssues("")
+            $("#issue-filter").val("");
+            filterIssues("");
 
-            var text = $(this).text()
-            var attribute
+            var text = $(this).text();
+            var attribute;
             if ($(this).hasClass("filter-target")) {
-                attribute = "release-target"
+                attribute = "release-target";
             }
             else if ($(this).hasClass("filter-type")) {
-                attribute = "release-type"
+                attribute = "release-type";
             }
 
             $(".release").each(function () {
                 if (attribute) {
                     if ($(this).data(attribute) === text) {
-                        $(this).show()
+                        $(this).show();
                     }
                     else {
-                        $(this).hide()
+                        $(this).hide();
                     }
                 }
                 else {
-                    $(this).show()
+                    $(this).show();
                 }
             })
+
+            return false;
         });
     });
 </script>
