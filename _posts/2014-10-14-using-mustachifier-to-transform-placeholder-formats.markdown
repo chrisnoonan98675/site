@@ -154,8 +154,6 @@ These files are required for the importer:
 
 These are the results of the transform.
 
-{% comment %} The 'raw' tags below are required because Jekyll interprets text in double curly brackets as Liquid code {% endcomment %}
-
 `file1.txt`
 
     foo={% raw %}{{bar-transform-1}}{% endraw %}

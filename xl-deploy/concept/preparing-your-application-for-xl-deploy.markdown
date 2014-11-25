@@ -92,7 +92,7 @@ When you import the deployment package or create it in the XL Deploy interface, 
 
 Review the components of your application for values that are environment-specific and replace them with placeholders. A placeholder is surrounded by two sets of curly brackets. For example:
 
-    jdbc.url=jdbc:oracle:thin:{{DB_USERNAME}}/{{DB_PASSWORD}}@dbhost:1521:orcl
+    jdbc.url=jdbc:oracle:thin:{% raw %}{{DB_USERNAME}}{% endraw %}/{% raw %}{{DB_PASSWORD}}{% endraw %}@dbhost:1521:orcl
 
 #### Create a dictionary
 

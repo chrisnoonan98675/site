@@ -13,7 +13,7 @@ In XL Deploy's [type system](http://docs.xebialabs.com/releases/latest/deployit/
 
 In the case of secure properties of [deployable items](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#deployables)—such as the password for a [datasource spec](http://docs.xebialabs.com/releases/latest/tomcat-plugin/tomcatPluginManual.html#tomcatdatasourcespec) or similar piece of configuration—the value is usually _not_ set directly on the deployable, because it varies across target environments.
 
-You can handle a secure property by setting the property on the deployable to a [placeholder](http://docs.xebialabs.com/releases/4.0/deployit/referencemanual.html#placeholders) such as `{{my.datasource.password}}`. When the deployable is mapped to a specific target environment, XL Deploy resolves the placeholder using [dictionaries](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#dictionaries) that are linked to the environment. XL Deploy selects the first value that it finds for the `my.datasource.password` key.
+You can handle a secure property by setting the property on the deployable to a [placeholder](http://docs.xebialabs.com/releases/4.0/deployit/referencemanual.html#placeholders) such as `{% raw %}{{my.datasource.password}}{% endraw %}`. When the deployable is mapped to a specific target environment, XL Deploy resolves the placeholder using [dictionaries](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#dictionaries) that are linked to the environment. XL Deploy selects the first value that it finds for the `my.datasource.password` key.
 
 There are two types of dictionary in XL Deploy. "Regular" dictionaries are straightforward sets of string key/value pairs, and are intended to store non-sensitive values. There is no notion of a "secret" value in a regular dictionary; its values are stored in plain text and are visible anyone with [read access](http://docs.xebialabs.com/releases/latest/deployit/securitymanual.html#permissions) to the dictionary [configuration item](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#configuration-items-cis).
 
@@ -32,25 +32,25 @@ There are four possible combinations of properties and dictionaries. Let's exami
 
 ### Normal property, regular dictionary
 
-The deployable contains `username = {{my.username}}`. XL Deploy resolves this property, resulting in `username = scott` on the corresponding [item to be deployed](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#deployeds).
+The deployable contains `username = {% raw %}{{my.username}}{% endraw %}`. XL Deploy resolves this property, resulting in `username = scott` on the corresponding [item to be deployed](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#deployeds).
 
 ### Secret property, encrypted dictionary
 
-The deployable contains `password = {{my.password}}`. XL Deploy resolves this property, resulting in `password = tiger`. In the UI, the value only appears in encrypted form, so we only see `password = *****`.
+The deployable contains `password = {% raw %}{{my.password}}{% endraw %}`. XL Deploy resolves this property, resulting in `password = tiger`. In the UI, the value only appears in encrypted form, so we only see `password = *****`.
 
-This screenshot shows the resolved properties with `username = {{my.username}}` and `password = {{my.password}}`:
+This screenshot shows the resolved properties with `username = {% raw %}{{my.username}}{% endraw %}` and `password = {% raw %}{{my.password}}{% endraw %}`:
 
 ![Resolved properties](/images/password-properties-encrypted-dictionaries-01.png)
 
 ### Secret property, regular dictionary
 
-The deployable contains `password = {{my.username}}`. XL Deploy resolve this property to `password = scott`, which is not a security problem (`tiger` was _already_ a visible value because it is stored in a regular dictionary). However, it will probably fail, because the password is incorrect.
+The deployable contains `password = {% raw %}{{my.username}}{% endraw %}`. XL Deploy resolve this property to `password = scott`, which is not a security problem (`tiger` was _already_ a visible value because it is stored in a regular dictionary). However, it will probably fail, because the password is incorrect.
 
 ### Normal property, encrypted dictionary
 
-The deployable contains `username = {{my.password}}`. XL Deploy will **not** resolve this property, because that would leak the password. Instead, it will leave the `username` value blank. If `username` is a required property, this will cause an immediate validation error when XL Deploy attempts to generate the deployment plan.
+The deployable contains `username = {% raw %}{{my.password}}{% endraw %}`. XL Deploy will **not** resolve this property, because that would leak the password. Instead, it will leave the `username` value blank. If `username` is a required property, this will cause an immediate validation error when XL Deploy attempts to generate the deployment plan.
 
-This screenshot shows the resolved properties with `password = {{my.username}}` (the value is not visible because passwords are obscured) and `username = {{my.password}}` (blank because it is a normal property attempting to use a value stored in an encrypted dictionary):
+This screenshot shows the resolved properties with `password = {% raw %}{{my.username}}{% endraw %}` (the value is not visible because passwords are obscured) and `username = {% raw %}{{my.password}}{% endraw %}` (blank because it is a normal property attempting to use a value stored in an encrypted dictionary):
 
 ![Resolved properties](/images/password-properties-encrypted-dictionaries-02.png)
 
