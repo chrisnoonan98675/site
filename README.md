@@ -20,9 +20,14 @@ setup key based authentication with tech ssh server:
 1. copy your public key to the tech server: ssh-copy-id -i ~/.ssh/tech_id_rsa.pub tech@tech.xebialabs.com
 1. make sure key based auth works (just execute ssh tech@tech.xebialabs.com, it should work without asking you for password)
 
+WARNING: Sometimes ssh authentication via public key may fail. The reason for
+this can usually be found in /var/log/auth.log For example, if rsync executes
+and in process changes mode of /var/www/docs.xebialabs.com directory ssh server
+may detect it and refuse authentication via public key.
+
 now you should be able to sync documentation to local folder:
 
-1. Execute `./sync.sh`.
+1. Execute `./_sync.sh`.
 1. Execute `jekyll serve`.
 1. Go to `http://localhost:4000`.
 
