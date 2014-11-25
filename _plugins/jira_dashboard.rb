@@ -111,7 +111,7 @@ module Jira
 
   class Server
     VERSIONS_REQ_URL = '%{base_url}/project/%{jira_id}/versions'
-    ISSUES_REQ_URL = '%{base_url}/search/?fields=key,summary,issuetype,fixVersions&maxResults=9999&jql=project=%{jira_project}+and+fixVersion+in+(%{versions})'
+    ISSUES_REQ_URL = '%{base_url}/search/?fields=key,summary,issuetype,fixVersions&maxResults=9999&jql=project=%{jira_project}+and+fixVersion+in+(%{versions})+and+"Public+Issue"=Yes'
 
     def initialize(base_url, username, password)
       @base_url = base_url
@@ -167,7 +167,7 @@ module Jira
     end
 
     def get_json(url)
-      uri = URI(url)
+      uri = URI(URI.escape(url))
       #puts "GET #{url}"
       Net::HTTP.start(uri.host, uri.port,
                       :use_ssl => uri.scheme == 'https',
