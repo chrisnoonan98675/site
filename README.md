@@ -211,60 +211,77 @@ When a Markdown file contains some Liquid logic (such as a `for` loop or an `if`
 
 The solution is to change the file from Markdown to HTML. This is why most of the index files in our setup are called `index.html`, not `index.markdown`.
 
-### Manual anchors prevent correct Markdown parsing
+# Contributing (WIP)
+
+*This section is a work in progress!*
+
+## Contribute to the tips & tricks blog
+
+Follow these instructions to contribute a post to the [tips & tricks blog](http://docs.xebialabs.com/tips-and-tricks).
+
+### 1. Add yourself as an author
+
+If there isn't an entry for you in `_data/authors.yml`, add one, following the format that the other entries use (spacing, punctuation, and capitalization are important).
+
+Jekyll will use the email address that you enter to look up your [Gravatar](https://en.gravatar.com/). The email address will not be visible to website visitors. If you don't have a Gravatar, sign up for one.
+
+### 2. Write the post
+
+To write a blog post:
+
+1. Copy `_drafts/2014-12-01-blog-post-template.markdown` to `_posts` and rename it with the current date and the title of the post.
+2. Open the Markdown file and follow the instructions in the file to update its front matter.
+3. Write the content of the post.
+
+    * If you need to add images, store them in `images`.
+    * If you need to add files that people can download (such as a sample Python script), store them in `sample-scripts`.
+
+### 3. Preview the post
+
+To preview your post, start Jekyll locally and go to `http://localhost:4000/tips-and-tricks`.
+
+### 4. Commit and/or publish the post
+
+To commit the post to this repository without publishing it on the documentation site, move the Markdown file to `_drafts`. 
+
+To publish the post on the doc site immediately, leave the Markdown file in `_posts` and commit it to this repository.
+
+### Remove a blog post
+
+To remove a post from the tips & tricks blog, delete the Markdown file from `_posts` (or move it to `_drafts`) and commit the change to this repository.
+
+# Things to know about formatting
+
+## Placeholders
+
+In [Liquid](https://github.com/Shopify/liquid/wiki) (the template language that Jekyll uses), variables are identified by double curly brackets, just like XebiaLabs-style placeholders. If you want to show a XebiaLabs-style placeholder, you must surround it with [{% raw %} tags](http://docs.shopify.com/themes/liquid-documentation/tags/theme-tags#raw).
+
+**Example #1**
+
+You can handle a secure property by setting the property on the deployable to a placeholder such as `{% raw %}{{my.datasource.password}}{% endraw %}`.
+
+**Example #2**
+
+The deployable contains `username = {% raw %}{{my.password}}{% endraw %}`.
+
+**Example #3**
+
+	transform.2.find=((quux))
+	transform.2.replacement={% raw %}{{quux-transform-2}}{% endraw %}
+
+## Code blocks
+
+In Markdown, you can format a block of code by surrounding the block with [three backticks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) (`). However, Jekyll doesn't consistently convert code blocks that are formatted this way. Instead, you must [indent each line in the block](http://daringfireball.net/projects/markdown/syntax#precode) at least four spaces.
+
+## Manual HTML anchors
 
 Jekyll does not correctly parse Markdown if an anchor is manually placed before a heading, as we have done in a few manuals (upgrade manual, Overthere manual, XLR manuals). For example, this Markdown:
 
       <a name="upgrade_to_450"></a>
       ### Upgrading to XL Deploy 4.5.0 ###
 
-Results in this line appearing in the HTML file (in body text, not as a heading):
+Prevents "Upgrading to XL Deploy 4.5.0" from being rendered as a heading. The solution is to **not** create anchors manually. They will automatically be created based on the heading text.
 
-      ### Upgrading to XL Deploy 4.5.0 ###
+## AsciiDoc
 
-The solution is to **not** create anchors manually. Let Bootstrap create them based on the heading text.
-
-### Formatting code
-
-In Markdown, you can format a block of code by surrounding the block with three backticks (```) or by indenting each line at least four spaces. Jekyll doesn't consistently convert code that is formatting using the backtick method. To format a block of code, use spaces.
-
-## Writing blog posts in Jekyll (WIP)
-
-This section is a work in progress. Please don't add blog posts to Jekyll yet!
-
-### Add yourself as an author
-
-If you have never written a blog post in Jekyll before, you must first add an entry for yourself in `_data/authors.yml`. Follow the same format that the other entries use; spacing, punctuation, and capitalization are important!
-
-Jekyll will use the email address that you enter to look up your [Gravatar](https://en.gravatar.com/). The email address will not be visible to website visitors.
-
-### Write a blog post
-
-To write a blog post:
-
-1. Copy `_drafts/2014-12-01-blog-post-template.markdown` to `_posts` and rename it with the current date and the title of the post.
-2. Open the Markdown file and update:
-
-    * The title
-    * The author
-    * The category(ies)
-    * The tag(s)
-
-3. Write the content of the post.
-
-    * If you need to add images, store them in `images`.
-    * If you need to add files that people can download (such as a sample Python script), store them in `sample-scripts`.
-
-4. Start Jekyll locally, go to `http://localhost:4000/tips-and-tricks`, and review your post.
-5. If you want to:
-
-    * Publish the post immediately, commit the change to the repository
-    * Save the post without publishing it yet, move it to the `_drafts` folder and commit the change to the repository
-
-### Publish a blog post
-
-To publish a blog post, move the Markdown file from `_drafts` to `_posts` and commit the change to the repository.
-
-### Remove a blog post
-
-To remove a blog post, delete the Markdown file from `_posts` or move it to `_drafts` and commit the change to the repository.
+You can use [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/) instead of Markdown to format files. AsciiDoc support is provided by [a Jekyll plugin](https://github.com/asciidoctor/jekyll-asciidoc), so if you use it, please carefully review the way that Jekyll renders the HTML file.
