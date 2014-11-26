@@ -42,7 +42,7 @@ Use an LDAP browser such as [JXplorer](http://jxplorer.org/) to verify that the 
 
 ## Step 3 Update security
 
-Add the following code to `deployit-security.xml` if you are using XL Deploy or to `xl-release-xecurity.xml` if you are using XL Release. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
+Add the following code to `deployit-security.xml` if you are using XL Deploy or to `xl-release-security.xml` if you are using XL Release. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd ">
