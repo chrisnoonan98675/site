@@ -143,7 +143,7 @@ module Jira
         release.issues = all_issues[release.id] || []
         release.issues = release.issues.sort_by(&:key)
       }
-      upcoming_releases = upcoming_releases.sort_by(&:release_date)
+      upcoming_releases = upcoming_releases.select{|x| x.issues.any?}.sort_by(&:release_date)
       return upcoming_releases
     end
 
