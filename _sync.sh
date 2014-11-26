@@ -23,7 +23,7 @@
 
 XLDOC_HOME=$1
 if [ -z $XLDOC_HOME ]; then
-	XLDOC_HOME=_site
+	XLDOC_HOME=_legacy
 fi
 
 RSYNC_CHMOD='Du=rwx,Dg=rx,Do=rx,Fu=rw,Fg=r,Fo=r'
@@ -35,38 +35,42 @@ ONLINE_DOCS_RELEASES=/home/tech/www/xl-online-docs/releases
 mkdir -p "$XLDOC_HOME/xl-deploy/3.9.x"
 mkdir -p "$XLDOC_HOME/xl-deploy/4.0.x"
 mkdir -p "$XLDOC_HOME/xl-deploy/4.5.x"
-rsync -razv --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/3.9/deployit/ $XLDOC_HOME/xl-deploy/3.9.x/
-rsync -razv --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/4.0/deployit/ $XLDOC_HOME/xl-deploy/4.0.x/
-rsync -razv --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/4.5/xl-deploy/ $XLDOC_HOME/xl-deploy/4.5.x/
+rsync -razv --delete --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/3.9/deployit/ $XLDOC_HOME/xl-deploy/3.9.x/
+rsync -razv --delete --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/4.0/deployit/ $XLDOC_HOME/xl-deploy/4.0.x/
+rsync -razv --delete --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/4.5/xl-deploy/ $XLDOC_HOME/xl-deploy/4.5.x/
 
 # XLD plugins
-mkdir -p "$XLDOC_HOME/xl-deploy/4.0.x/plugins"
 for i in bamboo-xl-deploy-plugin bigip-plugin biztalk-plugin glassfish-plugin iis-plugin jbossas-plugin jbossdm-plugin netscaler-plugin osb-plugin tfs-plugin tomcat-plugin was-plugin was-plugin-extensions windows-plugin wls-plugin wmq-plugin wp-plugin wps-plugin; do 
-	rsync -razv --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/4.0/${i} $XLDOC_HOME/xl-deploy/4.0.x/plugins
+	mkdir -p "$XLDOC_HOME/xl-deploy-${i}/4.0.x"
+	rsync -razv --delete --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/4.0/${i}/ $XLDOC_HOME/xl-deploy-${i}/4.0.x
 done
 
-mkdir -p "$XLDOC_HOME/xl-deploy/3.9.x/plugins"
 for i in bamboo-xl-deploy-plugin bigip-plugin biztalk-plugin cloud-plugin ec2-plugin glassfish-plugin iis-plugin jbossas-plugin jbossdm-plugin netscaler-plugin osb-plugin tfs-plugin tomcat-plugini vsphere-plugin was-plugin was-plugin-extensions windows-plugin wls-plugin wmq-plugin wp-plugin wps-plugin; do 
-	rsync -razv --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/3.9/${i} $XLDOC_HOME/xl-deploy/3.9.x/plugins
+	mkdir -p "$XLDOC_HOME/xl-deploy-${i}/3.9.x"
+	rsync -razv --delete --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/3.9/${i}/ $XLDOC_HOME/xl-deploy-${i}/3.9.x
 done
 
-mkdir -p "$XLDOC_HOME/xl-deploy/4.5.x/plugins"
 for i in bamboo-xl-deploy-plugin bigip-plugin jbossdm-plugin netscaler-plugin osb-plugin tfs-plugin tomcat-plugin was-plugin was-plugin-extensions wls-plugin wmq-plugin wps-plugin; do 
-	rsync -razv --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/4.5/${i} $XLDOC_HOME/xl-deploy/4.5.x/plugins
+	mkdir -p "$XLDOC_HOME/xl-deploy-${i}/4.5.x"
+	rsync -razv --delete --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/4.5/${i}/ $XLDOC_HOME/xl-deploy-${i}/4.5.x
 done
 
 # XLR
 mkdir -p "$XLDOC_HOME/xl-release/4.0.x/"
-rsync -razv --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/4.0/xl-release/ $XLDOC_HOME/xl-release/4.0.x/
-rsync -razv --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/4.0/xl-release-server/rest-api $XLDOC_HOME/xl-release/4.0.x/
+rsync -razv --delete --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/4.0/xl-release/ $XLDOC_HOME/xl-release/4.0.x/
+rsync -razv --delete --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/4.0/xl-release-server/rest-api $XLDOC_HOME/xl-release/4.0.x/
 
 # XLR plugins
-mkdir -p "$XLDOC_HOME/xl-release/4.0.x/plugins/"
-rsync -razv --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/4.0/xlr-*-plugin $XLDOC_HOME/xl-release/4.0.x/plugins/
+for i in xlr-git-plugin xlr-jira-plugin xlr-nexus-plugin xlr-remotescript-plugin xlr-svn-plugin xlr-time-plugin; do 
+	mkdir -p "$XLDOC_HOME/${i}/4.0.x"
+	rsync -razv --delete --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/4.0/${i}/ $XLDOC_HOME/${i}/4.0.x
+done
 
 # XL scale
-mkdir -p "$XLDOC_HOME/xl-scale/4.0.x/plugins"
-rsync -razv --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/4.0/xl-scale-*plugin $XLDOC_HOME/xl-scale/4.0.x/plugins/
+for i in xl-scale-ec2-plugin xl-scale-plugin xl-scale-vsphere-plugin; do
+	mkdir -p "$XLDOC_HOME/${i}/4.0.x/plugins"
+	rsync -razv --delete --chmod=$RSYNC_CHMOD $RUSER@$RHOST:$ONLINE_DOCS_RELEASES/4.0/xl-scale-*plugin $XLDOC_HOME/${i}/4.0.x
+done
 
 # XL test
 
