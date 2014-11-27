@@ -1,38 +1,40 @@
 online-docs-jekyll
 ==================
 
-## Setting it up locally (subject to change)
+# Setting it up locally
 
 1. Clone this repository.
 1. Install [Jekyll](http://jekyllrb.com/docs/installation/) and its requirements (Ruby, etc.).
 1. Install [Asciidoctor](http://asciidoctor.org/docs/install-toolchain/).
-1. Execute `jekyll serve` or `jekyll serve --watch` (for watch mode)
-1. Add the `jekyll` properties listed [here](https://xebialabs.atlassian.net/wiki/display/Labs/devdoc.xebialabs.com) to your `gradle.properties` file.
-1. Create a folder at `/var/lib/jenkins/jekyll` and set its permissions with `chmod o+w`.
+1. In the location where you cloned the repository, execute `jekyll serve` or `jekyll serve --watch` (for watch mode).
 
 Go to `http://localhost:4000` to see the site running locally.
 
-If you want to pull all documentation from the product and plugin repositories:
+## Pulling doc from other repositories
 
-setup key based authentication with tech ssh server:
+Follow these instructions to pull all documentation from the product and plugin repositories.
 
-1. create private/public key (execute ssh-keygen, do not create password, name it tech_id_rsa)
-1. copy your public key to the tech server: ssh-copy-id -i ~/.ssh/tech_id_rsa.pub tech@tech.xebialabs.com
-1. make sure key based auth works (just execute ssh tech@tech.xebialabs.com, it should work without asking you for password)
+Set up key-based authentication with tech ssh server:
+
+1. Create private/public key (execute `ssh-keygen`, do not create password, name it `tech_id_rsa`)
+1. Copy your public key to the tech server: `ssh-copy-id -i ~/.ssh/tech_id_rsa.pub tech@tech.xebialabs.com`
+1. Make sure key based auth works (just execute `ssh tech@tech.xebialabs.com`, it should work without asking you for password)
 
 WARNING: Sometimes ssh authentication via public key may fail. The reason for
-this can usually be found in /var/log/auth.log For example, if rsync executes
-and in process changes mode of /var/www/docs.xebialabs.com directory ssh server
+this can usually be found in `/var/log/auth.log`. For example, if rsync executes
+and in process changes mode of `/var/www/docs.xebialabs.com` directory ssh server
 may detect it and refuse authentication via public key.
 
-now you should be able to sync documentation to local folder:
+Now you should be able to sync documentation to local folder:
 
 1. Execute `./_sync.sh`.
 1. Execute `jekyll serve`.
 1. Go to `http://localhost:4000`.
 
-the old way to do it:
+The old way to do it:
 
+1. Add the `jekyll` properties listed [here](https://xebialabs.atlassian.net/wiki/display/Labs/devdoc.xebialabs.com) to your `gradle.properties` file.
+1. Create a folder at `/var/lib/jenkins/jekyll` and set its permissions with `chmod o+w`.
 1. Go to the location where you cloned the online-docs-jekyll repository.
 1. Execute `gradle jekyllFetchSources` or `gradle jFS`.
 1. Execute `jekyll serve`.
