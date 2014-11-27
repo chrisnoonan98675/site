@@ -12,7 +12,7 @@ tags:
 With the release of XL Deploy 5.0 a number of deprecated features will be removed. This document lists those features and will explain how to migrate to the new way of using XL Deploy. You can already start moving to the new functionality because the new features are already released.
 
 ## Dar manifest format
-Support for the non-xml manifest format for Dar files that uses a `MANIFEST.MF` file, has been deprecated. You should now use the XML based format and use `deployit-manifest.xml` in your packages.
+Support for the non-xml manifest format for Dar files that uses a `MANIFEST.MF` file, has been deprecated. You should now use the XML based format and use `deployit-manifest.xml` in your packages. The `deployit-manifest.xml` should be placed in the root folder of the Dar, not in `META-INF`.
 
 ### How to convert deprecated manifest to the XML manifest format
 We do not provide a tool to convert deprecated manifests to the XML format. We do support the XML manifest format in our integration plugins like the maven or the jenkins plugin, so it is possible to generate packages in the XML format with these tools already.
@@ -63,7 +63,7 @@ Notice the following differences in the XML format:
 * References to artifacts are specified with `file` attributes
 * The `settings` property that is of kind `MAP_STRING_STRING` is much easier to define with XML because it allows more structure in the format.
 
-This is just a simple example, there are more differences. You can find the complete reference documentation of the XML format [here](xl-deploy/latest/packagingmanual.html).
+This is just a simple example, there are more differences. You can find the complete reference documentation of the XML format [in the packaging manual](xl-deploy/latest/packagingmanual.html).
 
 
 ## Orchestrators
@@ -76,3 +76,103 @@ With the release of XL Deploy 5.0 a number of deprecated orchestrators have been
 * `default`: Do not set any orchestrator anymore. This is default behavior.
 
 Note that there is an upgrader that will automatically convert any usages of the old orchestrators to the new ones when XL Deploy 5.0 boots first time, you do not have to do anything. The list above will help you to make the correct choice in the future.
+
+
+## The `repository` CLI object
+
+In the CLI `repository` object, two methods have disappeared: `repository.getArchivedTasks()` and `repository.getArchivedTasks(String from, String to)`. Instead there are now the methods `repository.getArchivedTasksList()` and `repository.getArchivedTasksList(String from, String to)`. Since also the `TaskInfo` object disappears, instead each item in the resulting list will be a wrapper implementing the `TaskWithBlock` interface, augmented with the method `get_step_blocks()`. On a `TaskWithBlock` you retrieve the application by calling `t.metadata['application']`.
+
+So, for example, instead of:
+    
+    tasks = repository.getArchivedTasks().getTasks()
+    for task in tasks:
+        steps = task.getSteps()
+        for step in steps:
+            if task.application == 'tinyExportApp':
+                assertEquals(1, steps.size())
+            else:
+                assertEquals(2, steps.size())
+            assertEquals("DONE", step.getState())
+
+you now say:
+
+    taskList = repository.getArchivedTaskList()
+    for t in taskList:
+        step_blocks = t.get_step_blocks()
+        for step_block in step_blocks:
+            if t.metadata['application'] == 'tinyExportApp':
+                assertEquals(1, len(step_block.getSteps()))
+            else:
+                assertEquals(2, len(step_block.getSteps()))
+            assertEquals("DONE", str(step_block.getState()))
+
+Also note that since 4.0 the structure of tasks was changed from a flat list of steps to a tree-like structure of composite blocks containing other blocks, or step blocks containing steps. A step list for a step block can be separately retrieved using the method call `task2.steps(task.getId(), step_block.getId())`
+
+For more details, see the [relevant section of the CLI manual](xl-deploy/latest/climanual.html#retrieving-archived-tasks-from-the-repository)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
