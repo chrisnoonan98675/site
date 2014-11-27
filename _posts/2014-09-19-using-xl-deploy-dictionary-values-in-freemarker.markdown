@@ -1,5 +1,6 @@
 ---
 title: Using XL Deploy dictionary values in a FreeMarker template
+author: rob_vanstone
 categories:
 - xl-deploy
 tags:
