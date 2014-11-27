@@ -85,6 +85,6 @@ Finally, an Overthere host must be defined for the WebSphere nodes. To do so, se
 
 ![WAS node agent](/images/using-rules-to-interact-with-websphere-cluster-members.png)
 
-You can download a compete implementation of this example [here](sample-scripts/using-rules-to-interact-with-websphere-cluster-members.zip). Extract it in the `ext` directory of your XL Deploy installation (ensure that you do not overwrite any existing rules!).
+You can download a compete implementation of this example [here](sample-scripts/using-rules-to-interact-with-websphere-cluster-members/wasCleanup.zip). Extract it in the `ext` directory of your XL Deploy installation (ensure that you do not overwrite any existing rules!).
 
 For more information, refer to the [Rules Manual](http://docs.xebialabs.com/releases/latest/xl-deploy/rulesmanual.html), the [Rules Tutorial](http://docs.xebialabs.com/releases/latest/xl-deploy/rulestutorial.html), and the [WebSphere Plugin Manual](http://docs.xebialabs.com/releases/latest/was-plugin/wasPluginManual.html).

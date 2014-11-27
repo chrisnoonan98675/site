@@ -9,7 +9,7 @@ tags:
 
 When using a continuous integration system like Jenkins to do automatic deployments in XL Deploy, your repository may fill up quickly with build versions of your application. You will need some periodical cleanup to keep the XL Deploy repository at a manageable size.
 
-At XebiaLabs, we use [this command-line interface (CLI) script](/sample-scripts/cleanup-repository.py) to do this job for us. It allows you to delete packages older than a certain number of days and that match a certain text, or that reside in a certain directory. For example, you can tell it to "delete all SNAPSHOT versions older than seven days from Applications/PetClinic".
+At XebiaLabs, we use [this command-line interface (CLI) script](/sample-scripts/periodically-clean-the-repository-with-cli-script/cleanup-repository.py) to do this job for us. It allows you to delete packages older than a certain number of days and that match a certain text, or that reside in a certain directory. For example, you can tell it to "delete all SNAPSHOT versions older than seven days from Applications/PetClinic".
 
 Because deletion is a destructive operation, you may want to revise what is about to be deleted, so we added a dry-run option that serves as a safety cap. With this option enabled, the script simply prints the packages that would be deleted, but doesn't actually delete them.
 

@@ -11,7 +11,7 @@ tags:
 - jboss
 ---
 
-[This Python script](/sample-scripts/migrating-deployable-deployed.py) will loop through the XL Deploy repository and migrate the deployable [`jbossdm.QueueSpec`](http://docs.xebialabs.com/releases/latest/jbossdm-plugin/jbossDomainPluginManual.html#jbossdmqueuespec) and deployed [`jbossdm.Queue`](http://docs.xebialabs.com/releases/latest/jbossdm-plugin/jbossDomainPluginManual.html#jbossdmqueuespec) to the new CI deployable type `jbossdmx.QueueSpec` and new CI deployed type `jbossdmx.Queue`. This migration means that you do not have to support both CIs after introducing new deployable CIs.
+[This Python script](/sample-scripts/migrating-extended-ci-to-new-defined-ci/mig.py) will loop through the XL Deploy repository and migrate the deployable [`jbossdm.QueueSpec`](http://docs.xebialabs.com/releases/latest/jbossdm-plugin/jbossDomainPluginManual.html#jbossdmqueuespec) and deployed [`jbossdm.Queue`](http://docs.xebialabs.com/releases/latest/jbossdm-plugin/jbossDomainPluginManual.html#jbossdmqueuespec) to the new CI deployable type `jbossdmx.QueueSpec` and new CI deployed type `jbossdmx.Queue`. This migration means that you do not have to support both CIs after introducing new deployable CIs.
 
 This `synthetic.xml` example defines the new deployable and deployed:
 

@@ -71,7 +71,7 @@ XL Deploy can also import "plain" ZIP files without metadata and handles simple 
 
 ![Publish to XL Deploy step configuration](/images/integrating_teamcity_publish_to_xl_deploy_step_config.png)
 
-The second step is a command-line step that invokes XL Deploy's CLI using the standard pattern and, in this case, [this `publish-package.py` file](/sample-scripts/publish-package.py) with the path to the generated package as its argument. `publish-package.py` is very straightforward:
+The second step is a command-line step that invokes XL Deploy's CLI using the standard pattern and, in this case, [this `publish-package.py` file](/sample-scripts/integrating-teamcity-with-xl-deploy/publish-package.py) with the path to the generated package as its argument. `publish-package.py` is very straightforward:
 
     import sys
 

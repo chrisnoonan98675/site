@@ -8,7 +8,7 @@ tags:
 - package
 ---
 
-Your build process might not feature a tool like [Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin), which can integrate with XL Deploy. In this case, you can use [this CLI script](/sample-scripts/createDAR.py) to build an XL Deploy deployment package (DAR file) from properties that you can specify in:
+Your build process might not feature a tool like [Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin), which can integrate with XL Deploy. In this case, you can use [this CLI script](/sample-scripts/build-deployment-package-from-properties/createDAR.py) to build an XL Deploy deployment package (DAR file) from properties that you can specify in:
 
 * A file
 * An XL Deploy dictionary

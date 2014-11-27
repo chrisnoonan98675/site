@@ -23,7 +23,7 @@ To set up Crowd with Deployit:
 1. Copy the Crowd client libraries from `CROWD/client/lib` to `${DEPLOYT_HOME}/crowd`.
 1. Copy `CROWD/client/conf/crowd.properties` and `CROWD/client/conf/crowd-ehcache.xml` files to `${DEPLOYT_HOME}/conf`.
 1. Edit the `crowd.properties` files to match your Crowd installation.
-1. Download [this file](/sample-scripts/integrate-with-atlassian-crowd-deployit-security.xml), rename it `deployit-security.xml`, and replace your `${DEPLOYT_HOME}/conf/deployit-security.xml` with it.
+1. Download [this file](/sample-scripts/integrate-crowd-and-deployit/deployit-security.xml), rename it `deployit-security.xml`, and replace your `${DEPLOYT_HOME}/conf/deployit-security.xml` with it.
 1. Add the JAR files from `${DEPLOYIT_HOME}/crowd` in the server classpath.
 
 **Note:** When using Deployit 3.9.4 and Crowd 2.7.1, you may encounter a `java.lang.ClassNotFoundException: org.jdom.Element` error. If this occurs, copy `CROWD/crowd-webapp/WEB-INF/lib/jdom-1.1.3.jar` to `${DEPLOYIT_HOME}/crowd`.

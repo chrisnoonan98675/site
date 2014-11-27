@@ -12,11 +12,11 @@ tags:
 
 ## Requirements
 
-Requires `deployments.py` in `CLI_HOME/ext`.
+Requires `deployments.py` in `CLI_HOME/ext` (available [here](/tips-and-tricks/xl-deploy/20120530-start-upgrade-and-show-status-from-cli/)).
 
 ## Installation
 
-Copy [this file](/sample-scripts/import-and-deploy.py) to `CLI_HOME/ext`.
+Copy [this file](/sample-scripts/import-and-deploy-packages-from-cli/import-and-deploy.py) to `CLI_HOME/ext`.
 
 ## Usage
 

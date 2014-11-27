@@ -10,7 +10,7 @@ tags:
 
 XL Deploy users often want to automate the process of building a deployment package (DAR file) and publishing it to an XL Deploy server. If you're using [Maven](http://tech.xebialabs.com/deployit-maven-plugin), [Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin), [Team Foundation Server](http://docs.xebialabs.com/releases/latest/tfs-plugin/tfsPluginManual.html), or one of the other build and ci tools for which we have plugins, there's not too much you should have to do here. But it's useful to see how easy it is to put together similar functionality using the XL Deploy [command-line interface](http://docs.xebialabs.com/releases/latest/xl-deploy/climanual.html) (CLI).
 
-[This CLI script](/sample-scripts/createAndImportPackage.py):
+[This CLI script](/sample-scripts/build-deployment-package-and-publish/create-and-import-package.py):
 
 1. Takes an XL Deploy manifest and a path to a directory containing the artifacts to be included in the deployment package as arguments
 2. Builds a DAR file based on the manifest

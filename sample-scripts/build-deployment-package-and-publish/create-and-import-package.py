@@ -18,7 +18,7 @@ import time
 #  
 #  ---------------------------------------------------------------------------
 #  For updated information, refer to the article about this script at
-#  http://docs.xebialabs.com/create-deployment-package-and-publish.html 
+#  http://docs.xebialabs.com 
 #  ---------------------------------------------------------------------------
 #
 #################################################################################

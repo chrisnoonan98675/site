@@ -7,7 +7,7 @@ tags:
 - cli
 ---
 
-If you find yourself with a lot of properties files that you would like to load into dictionaries, you can use [this XL Deploy command-line interface (CLI) script](/sample-scripts/import-export-dictionaries.cli). Place it in the `ext` directory of your XL Deploy CLI installation. You can invoke the commands below.
+If you find yourself with a lot of properties files that you would like to load into dictionaries, you can use [this XL Deploy command-line interface (CLI) script](/sample-scripts/importing-a-properties-file-into-a-dictionary/load-into-dict.cli). Place it in the `ext` directory of your XL Deploy CLI installation. You can invoke the commands below.
 
 Import the contents of `DEPLOYIT_CLI_HOME/myprops.properties` into existing dictionary `Environments/myDict`, preserving existing values in the dictionary if there are entries with the same key in the properties file:
 

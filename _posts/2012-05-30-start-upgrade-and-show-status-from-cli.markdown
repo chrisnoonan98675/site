@@ -11,7 +11,7 @@ tags:
 
 ## Installation
 
-Copy [this file](/sample-scripts/deployments.py) to `CLI_HOME/ext`.
+Copy [this file](/sample-scripts/start-upgrade-and-show-status-from-cli/deployments.py) to `CLI_HOME/ext`.
 
 ## Usage
 
