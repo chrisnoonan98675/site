@@ -223,20 +223,29 @@ Follow these instructions to contribute a post to the [tips & tricks blog](http:
 
 ### 1. Add yourself as an author
 
-If there isn't an entry for you in `_data/authors.yml`, add one, following the format that the other entries use (spacing, punctuation, and capitalization are important).
+If there isn't an entry for you in `<jekyll_root>/_data/authors.yml`, add one. Follow the format that the other entries use (spacing, punctuation, and capitalization are important).
 
-Jekyll will use the email address that you enter to look up your [Gravatar](https://en.gravatar.com/). The email address will not be visible to website visitors. If you don't have a Gravatar, sign up for one.
+Jekyll will use the email address that you provide to look up your [Gravatar](https://en.gravatar.com/). The email address will not be visible to website visitors. If you don't have a Gravatar, sign up for one.
 
 ### 2. Write the post
 
 To write a blog post:
 
-1. Copy `_drafts/2014-12-01-blog-post-template.markdown` to `_posts` and rename it with the current date and the title of the post.
-2. Open the Markdown file and follow the instructions in the file to update its front matter.
+1. Copy `<jekyll_root>/_drafts/2014-12-01-blog-post-template.markdown` to `<jekyll_root>/_posts` and rename it with the current date and the title of the post.
+2. Open the file and follow the instructions in it to update its front matter.
 3. Write the content of the post.
 
-    * If you need to add images, store them in `images`.
-    * If you need to add files that people can download (such as a sample Python script), store them in `sample-scripts`.
+#### Use an image in a post
+
+If you want to use an image in a blog post, create a folder under `<jekyll_root>/images` with the same name as the post (without the date).
+
+For example, I would save images for the post `2014-11-28-sample-post-about-xl-deploy.markdown` in `<jekyll_root>/images/sample-post-about-xl-deploy`.
+
+#### Add a sample file to a post
+
+If you want to link to a file that people can download (such as a sample Python script), create a folder under `<jekyll_root>/sample-scripts` with the same name as the post (without the date).
+
+For example, I would save sample scripts for the post `2014-11-28-sample-post-about-xl-deploy.markdown` in `<jekyll_root>/sample-scripts/sample-post-about-xl-deploy`.
 
 ### 3. Preview the post
 
@@ -244,13 +253,17 @@ To preview your post, start Jekyll locally and go to `http://localhost:4000/tips
 
 ### 4. Commit and/or publish the post
 
-To commit the post to this repository without publishing it on the documentation site, move the Markdown file to `_drafts`. 
+To commit the post to this repository without publishing it on the documentation site, move the Markdown file to `<jekyll_root>/_drafts`. 
 
-To publish the post on the doc site immediately, leave the Markdown file in `_posts` and commit it to this repository.
+To publish the post on the doc site immediately, leave the Markdown file in `<jekyll_root>/_posts` and commit it to this repository.
 
 ### Remove a blog post
 
-To remove a post from the tips & tricks blog, delete the Markdown file from `_posts` (or move it to `_drafts`) and commit the change to this repository.
+To remove a post from the tips & tricks blog, delete the Markdown file from `<jekyll_root>/_posts` (or move it to `_drafts`) and commit the change to this repository.
+
+## Contribute to the product documentation
+
+Coming soon!
 
 # Things to know about formatting
 
@@ -271,18 +284,22 @@ The deployable contains `username = {% raw %}{{my.password}}{% endraw %}`.
 	transform.2.find=((quux))
 	transform.2.replacement={% raw %}{{quux-transform-2}}{% endraw %}
 
-## Code blocks
+## Code blocks in Markdown files
 
-In Markdown, you can format a block of code by surrounding the block with [three backticks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) (`). However, Jekyll doesn't consistently convert code blocks that are formatted this way. Instead, you must [indent each line in the block](http://daringfireball.net/projects/markdown/syntax#precode) at least four spaces.
+To format a block of code, indent each line by at least four spaces.
+
+Jekyll does not support formatting a block of code by surrounding it with [three backticks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks).
 
 ## Manual HTML anchors
 
-Jekyll does not correctly parse Markdown if an anchor is manually placed before a heading, as we have done in a few manuals (upgrade manual, Overthere manual, XLR manuals). For example, this Markdown:
+Do not manually insert HTML anchors directly above headings, like this:
 
       <a name="upgrade_to_450"></a>
       ### Upgrading to XL Deploy 4.5.0 ###
 
-Prevents "Upgrading to XL Deploy 4.5.0" from being rendered as a heading. The solution is to **not** create anchors manually. They will automatically be created based on the heading text.
+This prevents "Upgrading to XL Deploy 4.5.0" from being rendered as a heading.
+
+HTML anchors are automatically created for headings (h1, h2, h3, etc.).
 
 ## AsciiDoc
 
