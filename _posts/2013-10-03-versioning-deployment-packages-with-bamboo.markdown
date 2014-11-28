@@ -31,7 +31,7 @@ Your Maven POM can look like this, for example:
 
 You can then use the same reference to specify the package version to be deployed:
 
-![Deployment configuration](/images/versioning-deployment-packages-with-bamboo.png)
+![Deployment configuration](/images/versioning-deployment-packages-with-bamboo/package-version.png)
 
 Of course, you can still run your build outside Bamboo by specifying the appropriate variable; for example, by using `mvn ... -Dbamboo.buildKey=42` if using Maven. See the [Bamboo documentation](https://confluence.atlassian.com/display/BAMBOO/Bamboo+variables#Bamboovariables-Antexamples) for an Ant example.
 

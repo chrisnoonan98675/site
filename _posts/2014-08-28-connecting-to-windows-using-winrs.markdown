@@ -1,5 +1,6 @@
 ---
 title: Connecting to Windows target machines using a winrs proxy with XL Deploy
+author: andrew_phillips
 categories:
 - xl-deploy
 tags:
@@ -19,13 +20,13 @@ Where's the catch? Well, `winrs` is Microsoft's own command-line WinRM client, s
 
 The easiest way to allow XL Deploy to use WINRM_NATIVE is to simply run the XL Deploy server on a Windows operating system. This is the default setup assumed when you select WINRM_NATIVE.
 
-![Running winrs locally](/images/connecting-with-winrs-winrm-native.png)
+![Running winrs locally](/images/connecting-to-windows-using-winrs/winrm-native.png)
 
 ## Using a `winrs` proxy
 
 But what if you can't run your XL Deploy server on a Windows machine? In that case, you can use a `winrs` proxy, which is a Windows server that has the `winrs` command-line utility installed and from which a network path exists to the "real" target system. XL Deploy will first connect to the `winrs` proxy, and then run `winrs` from there to connect to the target system. It is still easy to emulate what XL Deploy is doing: you simply need to invoke `winrs` on the `winrs` proxy machine.
 
-![Running winrs via a proxy](/images/connecting-with-winrs-via-proxy.png)
+![Running winrs via a proxy](/images/connecting-to-windows-using-winrs/connecting-via-proxy.png)
 
 Of course, we're not quite done yet, because you still need to connect from the XL Deploy server to the `winrs` proxy. And because your XL Deploy server is most likely not running on Windows in this scenario (otherwise you could simply use the default setup!), you will probably need to use WINRM_INTERNAL or one of the other supported protocols for that. But you only need to set up that connection for one server, which can be much quicker than setting up WINRM_INTERNAL for *all* servers in a large, multi-domain environment.
 
@@ -33,10 +34,10 @@ Of course, we're not quite done yet, because you still need to connect from the 
 
 Configuring a `winrs` proxy is easy. First, create a host entry for the `winrs` proxy [host](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#host-types), specifying the connection information XL Deploy will use to log in to that machine. Then, select that `winrs` proxy host as the [`winrsProxy`](http://docs.xebialabs.com/releases/latest/deployit/remotingPluginManual.html#overtherecifshost) on your target Windows system. The connection type for the target system needs to be WINRM_NATIVE.
 
-![winrs proxy configuration](/images/connecting-with-winrs-via-proxy-how-to-configure.png)
+![winrs proxy configuration](/images/connecting-to-windows-using-winrs/configuration.png)
 
 ### Multiple `winrs` proxies
 
 If you have a partitioned network setup in which some Windows machines that you want to target from XL Deploy are not visible from one `winrs` proxy, you can create multiple hosts to act as `winrs` proxies. In that case, select the appropriate host when setting the `winrsProxy` value for the target machine.
 
-![Multiple winrs proxies](/images/connecting-with-winrs-via-proxy-multiple-proxies.png)
+![Multiple winrs proxies](/images/connecting-to-windows-using-winrs/connecting-via-multiple-proxies.png)

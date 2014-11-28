@@ -16,7 +16,7 @@ The rules feature, introduced in [XL Deploy 4.5.0](http://docs.xebialabs.com/pro
 
 This is an example of a plan that will deploy a ServiceMix feature:
 
-![Deployment to ServiceMix](/images/xl_deploy_rules_apache_servicemix.png)
+![Deployment to ServiceMix](/images/using-rules-to-deploy-to-apache-servicemix/servicemax-deployment-plan.png)
 
 To generate the plan, we need these rules in the [`xl-rules.xml`](http://docs.xebialabs.com/releases/4.5/xl-deploy/rulesmanual.html#where-to-define-rules) file on the XL Deploy server:
 

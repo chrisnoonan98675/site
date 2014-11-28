@@ -39,11 +39,11 @@ In general:
 * A deployed can have more properties than its "source" deployable
 * Multiple deployeds created from the same deployable can have different property values, even if they are of the same type
 
-![One deployable with different deployed types](/images/deployable-deployed-one-deployable-different-deployed-types.png)
+![One deployable with different deployed types](/images/understanding-deployables-and-deployeds/one-deployable-different-deployed-types.png)
 
 **The same `jee.DataSourceSpec` can become a `jbossas.NonTransactionalDatasource` on JBoss and a `tomcat.DataSource` on Tomcat.**
 
-![One deployable with many deployeds](/images/deployable-deployed-one-deployable-many-deployeds.png)
+![One deployable with many deployeds](/images/understanding-deployables-and-deployeds/one-deployable-many-deployeds.png)
 
 **The value of the `targetPath` attribute can be different for different deployeds from the same deployable**.
 
@@ -54,11 +54,11 @@ In other words:
 * Properties of deployables are copied over to corresponding properties of the deployeds that are created from them
 * Properties of deployeds that have no corresponding property on their source deployable (you can easily [add these properties](http://docs.xebialabs.com/releases/latest/deployit/customizationmanual.html#extending-a-ci) if you need them), or for which no value is set on the source deployable, are given default values that depend on the deployed type
 
-![Deployable and deployed properties](/images/deployable-deployed-props.png)
+![Deployable and deployed properties](/images/understanding-deployables-and-deployeds/deployed-properties.png)
 
 **Values of properties of the deployable are copied to the deployed if the property name matches. Some properties of deployeds have no corresponding properties on a deployable.**
 
-Speaking of specifying the target path for a file to be copied up front: in a realistic scenario, it will often be the case that we don't know the entire path when we package up the deployable. For instance, we may know that the file needs to be copied to `<install-dir>/bin`—we know the `/bin` part, but `<install-dir>` may be different for each environment. We can accomplish this in XL Deploy by using a placeholder for the environment-specific part of the property; for example, `{{INSTALL_DIR}}/bin`.
+Speaking of specifying the target path for a file to be copied up front: in a realistic scenario, it will often be the case that we don't know the entire path when we package up the deployable. For instance, we may know that the file needs to be copied to `<install-dir>/bin`—we know the `/bin` part, but `<install-dir>` may be different for each environment. We can accomplish this in XL Deploy by using a placeholder for the environment-specific part of the property; for example, `{% raw %}{{INSTALL_DIR}}{% endraw %}/bin`.
 
 This means:
 
@@ -73,7 +73,7 @@ You will notice that, in XL Deploy, most properties that are required on deploye
 
 * Deployed properties can have [various kinds](http://docs.xebialabs.com/releases/latest/deployit/customizationmanual.html#modifying-existing-cis) (strings, numbers, and so on), but the corresponding properties on the deployables, where present, are all strings. This is because the value of a numeric property of the deployed may be environment-specific, so we will want to use a placeholder in the deployable. Because placeholders are specified as strings in XL Deploy, the property on the deployable has to be a string property for this to work.
 
-![Deployable vs. deployed property attributes](/images/deployable-deployed-property-attributes.png)
+![Deployable vs. deployed property attributes](/images/understanding-deployables-and-deployeds/deployed-property-attributes.png)
 
 **Properties are required on the deployed, but usually optional on the deployable. Even if a property on the deployed is a number or, as here, a Boolean, the corresponding property on the deployable is a string, so placeholders can be used. Placeholders are replaced with the appropriate values for the environment on the deployed.**
 

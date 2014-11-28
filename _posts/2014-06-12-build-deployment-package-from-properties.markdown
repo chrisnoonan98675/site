@@ -25,9 +25,9 @@ First, let's look at the properties format. This is an example that will build a
 	datasource.type=jbossas.NonTransactionalDatasourceSpec
 	datasource.name=Tom_Datasource
 	datasource.jndiName=jndi/tomsds
-	datasource.userName={{DB_USERNAME}}
-	datasource.password={{DB_PASSWORD}}
-	datasource.connectionUrl={{DB_CONNECTION_URL}}
+	datasource.userName={% raw %}{{DB_USERNAME}}{% endraw %}
+	datasource.password={% raw %}{{DB_PASSWORD}}{% endraw %}
+	datasource.connectionUrl={% raw %}{{DB_CONNECTION_URL}}{% endraw %}
 
 Note that:
 
@@ -39,7 +39,7 @@ Note that:
 
 You can use the format above to specify properties in an XL Deploy dictionary. The dictionary must be stored in `Environments/AppDictionaries/<AppName>` by convention. For example:
 
-    ![Sample dictionary](/images/build-package-files-dictionaries-command-sample-dictionary.png)
+![Sample dictionary](/images/build-deployment-package-from-properties/sample-dictionary.png)
 
 You can also set properties as command-line arguments to the script. When using this approach, you must set these properties using the Python `dict` literal format. For example:
 

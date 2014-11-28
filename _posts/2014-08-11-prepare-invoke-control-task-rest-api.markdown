@@ -1,5 +1,6 @@
 ---
 title: How to prepare and invoke a control task using the XL Deploy REST API
+author: amit_mohleji
 categories:
 - xl-deploy
 tags:

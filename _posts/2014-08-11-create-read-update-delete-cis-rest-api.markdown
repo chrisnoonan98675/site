@@ -1,5 +1,6 @@
 ---
 title: How to create, read, update, and delete configuration items using the XL Deploy REST API
+author: amit_mohleji
 categories:
 - xl-deploy
 tags:

@@ -26,7 +26,7 @@ Now, we need to add two new post steps to the Jenkins build job:
 * Execute shell, calling `/home/jenkins/bin/eval-pom | tee target/pom.properties` to write the environment properties to the desired temporary file
 * Inject environment variables to read them into the environment from that temporary file (`target/pom.properties`)
 
-![Jenkins post steps](/images/use-artifact-id-version-number-from-maven-pom-post-steps.png)
+![Jenkins post steps](/images/use-artifact-id-version-number-from-maven-pom/post-steps.png)
 
 Now we have two environment variables set (`$MAVEN_ARTIFACTID` and `$MAVEN_VERSION`) and can create a Jenkins post-build action **Deploy with Deployit**:
 
@@ -37,4 +37,4 @@ Now we have two environment variables set (`$MAVEN_ARTIFACTID` and `$MAVEN_VERSI
     * Location `target/$MAVEN_ARTIFACTID-$MAVEN_VERSION.ear`
     * Select **Publish package to Deployit**
 
-![Jenkins post-build action](/images/use-artifact-id-version-number-from-maven-pom-post-build-action.png)
+![Jenkins post-build action](/images/use-artifact-id-version-number-from-maven-pom/post-build-action.png)

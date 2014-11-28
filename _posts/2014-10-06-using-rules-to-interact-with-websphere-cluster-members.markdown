@@ -83,7 +83,7 @@ These examples use `${host.name}` in the delete command to identify a target dir
 
 Finally, an Overthere host must be defined for the WebSphere nodes. To do so, set the host for each `was.NodeAgent`. For example, the screenshot below shows that the host has been set to `vagrantNode1`.
 
-![WAS node agent](/images/using-rules-to-interact-with-websphere-cluster-members.png)
+![WAS node agent](/images/using-rules-to-interact-with-websphere-cluster-members/websphere-node-agent-host.png)
 
 You can download a compete implementation of this example [here](sample-scripts/using-rules-to-interact-with-websphere-cluster-members/wasCleanup.zip). Extract it in the `ext` directory of your XL Deploy installation (ensure that you do not overwrite any existing rules!).
 
