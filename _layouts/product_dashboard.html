@@ -2,22 +2,30 @@
 layout: default
 ---
 
-<h1 class="page-header"><img style="vertical-align:middle;" src="/images/logos/{{ page.product.name }}-logo.png" class="logo" alt="{{ page.product.title }}"> Upcoming releases</h1>
 
-<p>This dashboard shows planned major releases and maintenance releases of {{ page.product.title }} and its plugins. 
-	To filter the list, click an icon below or enter a search term (such as an issue number) in the box.</p>
-
-<p>Note that, while this information indicates the planned delivery of features and bug fixes, it does not represent a commitment.</p>
 
 <div id="content" class="dashboard">
     <div class="container-fluid">
-
+        <div class="row">
+            <div class="well">
+                <p>This dashboard shows planned major releases and maintenance releases of {{ page.product.title }} and its plugins.
+                    To filter the list, click an icon below or enter a search term (such as an issue number) in the box.
+                    Note that, while this information indicates the planned delivery of features and bug fixes, it does not represent a
+                    commitment.</p>
+            </div>
+            <div class="text-center">
+                <h2><img src="/images/logos/{{ page.product.name }}-logo.png" class="logo"
+                         alt="{{ page.product.title }}"> Upcoming Releases</h2>
+            </div>
+        </div>
         <div class="row filters">
             <div class="col-xs-12 text-center">
                 <span><i class="icon icon-trophy text-product"></i> <a href="#" class="filter-target">Product</a></span>
                 <span><i class="icon icon-plug text-plugin"></i> <a href="#" class="filter-target">Plugins</a></span>
-                <span><i class="glyphicon glyphicon-flag text-major"></i> <a href="#" class="filter-type">Major</a></span>
-                <span><i class="icon icon-bug text-maintenance"></i> <a href="#" class="filter-type">Maintenance</a></span>
+                <span><i class="glyphicon glyphicon-flag text-major"></i> <a href="#"
+                                                                             class="filter-type">Major</a></span>
+                <span><i class="icon icon-bug text-maintenance"></i> <a href="#"
+                                                                        class="filter-type">Maintenance</a></span>
                 <span><i class="icon icon-sort text-all"></i> <a href="#" class="filter-off">Show all</a></span>
             </div>
         </div>
@@ -27,6 +35,11 @@ layout: default
                     <input id="issue-filter" type="text" class="form-control search-query input-sm"
                            placeholder="Search issue..."/>
                 </form>
+                <br>
+
+                <div id="noresults" class="alert alert-info btn-group-sm text-center" role="alert"
+                     style="display: none; padding: 5px;">No issues found
+                </div>
             </div>
         </div>
 
@@ -115,6 +128,15 @@ layout: default
 </div>
 
 <script type="text/javascript">
+    function toggleNoResultsMsg() {
+        console.log($(".release:visible").length);
+        if ($(".release:visible").length == 0) {
+            $("#noresults").show();
+        }
+        else {
+            $("#noresults").hide();
+        }
+    }
     function toggleView(parent, keyword) {
         var visibleChildren = parent.find("li").filter(function () {
             return $(this).css('display') != 'none';
@@ -144,6 +166,7 @@ layout: default
 
             toggleView($(this).parents(".release"), keyword);
         });
+        toggleNoResultsMsg();
     }
 
     $(document).ready(function () {
@@ -177,8 +200,8 @@ layout: default
                 else {
                     $(this).show();
                 }
-            })
-
+            });
+            toggleNoResultsMsg();
             return false;
         });
     });
