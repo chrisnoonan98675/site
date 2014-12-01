@@ -82,29 +82,22 @@ Note that there is an upgrader that will automatically convert any usages of the
 
 In the CLI `repository` object, two methods have disappeared: `repository.getArchivedTasks()` and `repository.getArchivedTasks(String from, String to)`. Instead there are now the methods `repository.getArchivedTasksList()` and `repository.getArchivedTasksList(String from, String to)`. Since also the `TaskInfo` object disappears, instead each item in the resulting list will be a wrapper implementing the `TaskWithBlock` interface, augmented with the method `get_step_blocks()`. On a `TaskWithBlock` you retrieve the application by calling `t.metadata['application']`.
 
-So, for example, instead of:
+Consider this example which outputs state of each step of the task. Instead of:
     
     tasks = repository.getArchivedTasks().getTasks()
     for task in tasks:
         steps = task.getSteps()
         for step in steps:
-            if task.application == 'tinyExportApp':
-                assertEquals(1, steps.size())
-            else:
-                assertEquals(2, steps.size())
-            assertEquals("DONE", step.getState())
+            print str(step.getState())
 
-you now say:
+now you can write:
 
-    taskList = repository.getArchivedTaskList()
-    for t in taskList:
-        step_blocks = t.get_step_blocks()
+    tasks = repository.getArchivedTaskList()
+    for task in tasks:
+        step_blocks = task.get_step_blocks()
         for step_block in step_blocks:
-            if t.metadata['application'] == 'tinyExportApp':
-                assertEquals(1, len(step_block.getSteps()))
-            else:
-                assertEquals(2, len(step_block.getSteps()))
-            assertEquals("DONE", str(step_block.getState()))
+            for step in step_block.getSteps():
+                print str(step.getState())
 
 Also note that since 4.0 the structure of tasks was changed from a flat list of steps to a tree-like structure of composite blocks containing other blocks, or step blocks containing steps. A step list for a step block can be separately retrieved using the method call `task2.steps(task.getId(), step_block.getId())`
 
