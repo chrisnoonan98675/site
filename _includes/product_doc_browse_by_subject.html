@@ -22,7 +22,7 @@
 				<li>{{ subject_to_search_for }}
 					<ul>
 						{% for page in site.pages %}
-							{% if page.subject contains subject_to_search_for %}
+							{% if page.subject contains subject_to_search_for and page.path contains product-id-to-search-for %}
 								<li><a href="{{ page.url }}">{{ page.title }}</a></li>
 							{% endif %}
 						{% endfor %}
