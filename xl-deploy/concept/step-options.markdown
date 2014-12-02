@@ -1,7 +1,7 @@
 ---
 title: Step options for generic-plugin
 categories: 
-- generic-plugin
+- xl-deploy
 tags:
 - generic-plugin
 ---
@@ -55,4 +55,4 @@ These types provide the hidden `SET_OF_STRING` properties `createOptions`, `modi
 
 ## What are the default step option settings for existing types?
 
-XL Deploy comes with various pre-defined CI types based on the generic-plugin and the powershell-plugin, and several plugins a built upon these as well. The default settings for each `createOptions`, `modifyOptions`, `destroyOptions` and `noopOptions` are specified inside `conf/deployit-defaults.properties`. By default, each of these have all three of `uploadArtifactData`, `uploadClasspathResources` and `uploadTemplateClasspathResources` enabled.
+XL Deploy comes with various pre-defined CI types based on the generic-plugin and the powershell-plugin, and several plugins are built upon these as well. The default settings for each `createOptions`, `modifyOptions`, `destroyOptions` and `noopOptions` are specified inside `conf/deployit-defaults.properties`. By default, each of these have all three of `uploadArtifactData`, `uploadClasspathResources` and `uploadTemplateClasspathResources` enabled.
