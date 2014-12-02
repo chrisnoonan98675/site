@@ -1,0 +1,5 @@
+{% for product in site.data.products %}
+	{% if product.id == page.product-id %}
+		<p>{{ product.blurb }}</p>
+	{% endif %}
+{% endfor %}
