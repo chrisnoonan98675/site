@@ -107,7 +107,7 @@ For the WINRM_NATIVE connection type, domain accounts may be specified using eit
 
 For both connection types, local accounts must be specified without an at-sign (`@`) or a backslash (`\`).
 
-**Note:** When using domain accounts with the **WINRM_INTERNAL** connection type, the Kerberos subsystem of the Java Virtual Machine must be configured correctly. Please read the section on how to set up Kerberos [for the source host](#cifs_host_setup_krb5) and [the remote hosts](#cifs_host_setup_spn).
+**Note:** When using domain accounts with the WINRM_INTERNAL connection type, the Kerberos subsystem of the Java Virtual Machine must be configured correctly. Please refer to [the information on Kerberos](set-up-kerberos-for-a-winrm-connection.html).
 
 ## Password limitations
 

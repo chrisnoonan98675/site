@@ -45,6 +45,6 @@ XL Deploy also generates deployment plans when a deployed application needs to b
 
 When it is time to carry out a deployment, XL Deploy executes the deployment plan steps in the required order. XL Deploy compares the deployed application to the one that you want to deploy and generates a plan that only contains the steps that are required, improving the efficiency of application updates.
 
-XL Deploy includes several features that allow you to configure the deployment plan, so you can be sure your application is deployed the way it should be. [Preparing your application for XL Deploy](preparing_your_application_for_XL_Deploy.html) describes how you can take advantage of these features.
+XL Deploy includes several features that allow you to configure the deployment plan, so you can be sure your application is deployed the way it should be. [Preparing your application for XL Deploy](preparing-your-application-for-xl-deploy.html) describes how you can take advantage of these features.
 
 Finally, XL Deploy offers automated rollback functionality at every stage of the deployment.

@@ -130,7 +130,7 @@ To open the DAR file, change the file extension to ZIP, then open it with a file
 * General information about the package, such as the application name and version
 * References to all artifacts and resource definitions in the deployment package
 
-For more information about the manifest file format, refer to the [Packaging Manual](http://docs.xebialabs.com/releases/4.0/deployit/packagingmanual.html#xml-manifest-format).
+For more information about the manifest file format, refer to the [Packaging Manual](http://docs.xebialabs.com/releases/latest/deployit/packagingmanual.html#xml-manifest-format).
 
 For Windows environments, there is a Manifest Editor that can help you create and edit `deployit-manifest.xml` files. For information about using this tool, refer to the [Manifest Editor Manual](http://docs.xebialabs.com/releases/latest/tfs-plugin/manifestEditorManual.html).
 

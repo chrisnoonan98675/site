@@ -12,12 +12,11 @@ tags:
 
 XL Deploy allows you to deploy your applications using a rule DSL, where the final deployment plan gets composed via a number of pre-packaged or user-defined rules that define which steps should be included in the plan. However, the kinds of steps that you can use may not always provide all the functionality you need. In those cases you may want to write your own step primitives that perform the actions you need.
 
-
 ## What is a step primitive?
 
 A step primitive is a definition of a piece of functionality that XL Deploy may execute as part of the deployment plan. Each rule in `xl-rules.xml` defines a number of steps to add to the plan, and the available step primitives determine what kind of steps can be used. In this document, whenever we mention XML rules or the `xl-rules.xml`, Jython rules are also implied.
 
-The following example shows the use of two step primitives: the 'noop' step primitive and the 'os-script' step primitive.
+The following example shows the use of two step primitives: the `noop` step primitive and the `os-script` step primitive.
 
     <?xml version="1.0" encoding="UTF-8"?>
     <rules xmlns="http://www.xebialabs.com/xl-deploy/xl-rules">
@@ -51,19 +50,16 @@ The following example shows the use of two step primitives: the 'noop' step prim
 
 Refer to the [Step Reference](stepreference.html) for all predefined step primitives. You can define your own step primitives by writing Java classes of your own, using the proper annotations and interfaces.
 
-
 ## Referencing step library code
 
-In order to compile your own step primitives, you depend on the following jars, to be found in XL Deploy's `lib/` folder:
+In order to compile your own step primitives, you depend on the following JARs, to be found in XL Deploy's `lib/` folder:
 
-* base-plugin-x.y.z.jar
-* udm-plugin-api-x.y.z.jar
-
+* `base-plugin-x.y.z.jar`
+* `udm-plugin-api-x.y.z.jar`
 
 ## Making step primitives available to XL Deploy
 
 After writing the code for your step primitive(s), you make them available to XL Deploy by compiling them into a jar file and putting the jar in XL Deploy's `plugins/` folder.
-
 
 ## Authoring a step primitive
 
@@ -98,7 +94,6 @@ Your XML would then look as follows:
 
 You can make your step primitives parameterized, with parameters that are required, optional and/or auto-calculated. [See below](#Defining-step-parameters-in-a-step-primitive) for details.
     
-
 ## Using the `Step` interface
 
 XL Deploy uses the `com.xebialabs.deployit.plugin.api.flow.Step` interface to find out
@@ -117,14 +112,13 @@ The `execute` method is where you define the business logic for your step primit
 
 The Javadocs have the full details on [the `Step` interface](javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/flow/Step.html).
 
-
 ## Defining step parameters in a step primitive
 
 XL Deploy has a dependency injection mechanism that allows values from the `xl-rules.xml` to be injected into your class. This is how you can set e.g. the step description or other parameters using XML. To receive values from a rule, define a field in your class and annotate it with the [`@com.xebialabs.deployit.plugin.api.rules.StepParameter`](javadocs.html) annotation. This annotation has the following attributes:
 
 * `name` defines the XML tag name of the parameter. By default, the field name will be used, but capitals will be replaced with a dash and a lowercase character. E.g. `targetPath` will become `target-path`.
 * `required` controls whether XL Deploy verifies that the parameter contains a value after the post-construct logic has run.
-* `calculated` *documents* the fact that a value can be automatically calculated in the Step's post-construct logic; [see below](#Implementing-post-construct-logic). The setting does not in any way influence the behavior of the step parameter or the step itself.
+* `calculated` *documents* the fact that a value can be automatically calculated in the Step's post-construct logic; [see below](#implementing-post-construct-logic). The setting does not in any way influence the behavior of the step parameter or the step itself.
 * `description` allows you to provide a description of the step parameter, to be used e.g. to auto-generate documentation. It does not in any way influence the behavior of the step parameter or the step itself.
 
 Note that setting `required=true` does not necessarily imply that the parameter must be set from within the rule XML: you can use the post-construct logic to provide a default value.
@@ -150,8 +144,7 @@ The following XML then sets the value of the `vars` field:
         </rule>
     </rules>
 
-
-## Implementing Post-Construct logic
+## Implementing post-construct logic
 
 You can add additional logic to your step that will be executed after all field values have been injected into your step. This logic may include defining or calculating default parameters of your step, applying complex validations, etc. 
 
@@ -177,4 +170,3 @@ For example, the following step will try to find a value for `defaultUrl` in the
             defaultUrl = findDefaultUrl(delta, repo);      // to be implemented yourself
         }
     }
-    

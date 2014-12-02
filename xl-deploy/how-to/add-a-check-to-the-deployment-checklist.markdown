@@ -12,13 +12,11 @@ tags:
 
 This Cookbook entry describes how to add a single check to the Deployment Checklist in the Release Dashboard. We will take an existing pipeline that has Dev, Test, Acceptance and Production environments. We will show how to add a single condition 'Signed off by Release Manager' that will be put on the Production environment.
 
-See the **Release Dashboard Manual** for more extensive coverage on the subject.
-
 ## Adding the check to synthetic.xml
 
 First, we will have to tell XL Deploy that the new condition exists. We do this by adding properties to existing XL Deploy types. Deployment conditions in XL Deploy are defined by pairs of properties, one on the Environment and one on a DeploymentPackage (a version of an application).
 
-To introduce the property into the XL Deploy's type system, we have to edit the `synthetic.xml` file on the XL Deploy Server. The synthetic.xml file can be located in `$XLDEPLOY_HOME/conf`. For more information about the XL Deploy type system, please refer to the **Reference Manual** and the **Customization Manual**
+To introduce the property into the XL Deploy's type system, we have to edit the `synthetic.xml` file on the XL Deploy Server. The synthetic.xml file can be located in `$XLDEPLOY_HOME/conf`.
 
 First we add the property to the Environment type. Locate the definition of `udm.Environment` and add the property:
 

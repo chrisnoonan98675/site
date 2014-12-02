@@ -16,7 +16,7 @@ If you are going to use Windows domain accounts to access the remote host with t
 
 ## Kerberos configuration for XL Deploy
 
-In addition to the setup described in [the WINRM section](#cifs_host_setup_winrm), using Kerberos authentication requires that you follow the [Kerberos Requirements for Java](http://docs.oracle.com/javase/6/docs/technotes/guides/security/jgss/tutorials/KerberosReq.html) on the host that runs the XL Deploy server.
+Using Kerberos authentication requires that you follow the [Kerberos Requirements for Java](http://docs.oracle.com/javase/6/docs/technotes/guides/security/jgss/tutorials/KerberosReq.html) on the host that runs the XL Deploy server.
 
 Create a file called `krb5.conf` (Unix) or `krb5.ini` (Windows) with at least the following content: 
 
@@ -37,7 +37,7 @@ See [the Kerberos V5 System Administrator's Guide at MIT](http://web.mit.edu/ker
 
 ## Kerberos configuration for the remote host
 
-By default, XL Deploy will request access to a Kerberos <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms677949(v=vs.85).aspx">service principal name</a> of the form `WSMAN/HOST`, for which an SPN should be configured automatically when you [configure WinRM for a remote host](#cifs_host_setup_winrm).
+By default, XL Deploy will request access to a Kerberos <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms677949(v=vs.85).aspx">service principal name</a> of the form `WSMAN/HOST`, for which an SPN should be configured automatically when you configure WinRM for a remote host.
 
 If that was not configured correctly, e.g. if you have overridden the default SPN for which a ticket is requested through the `winrmKerberosAddPortToSpn` or the `winrmKerberosUseHttpSpn` properties, you will have configure the service principal names manually.
 

@@ -9,7 +9,7 @@ tags:
 - application
 ---
 
-Deployment Packages are usually created outside of XL Deploy. For example, packages are built by tools like Maven or Jenkins and then imported using the a XL Deploy plugin. (See documentation for the [Maven XL Deploy Plugin](http://tech.xebialabs.com/deployit-maven-plugin/) or Jenkins XL Deploy Plugin). Or you manually write a Manifest.MF file for the XL Deploy Archive format (DAR format) and import the package using the XL Deploy UI.
+Deployment Packages are usually created outside of XL Deploy. For example, packages are built by tools like Maven or Jenkins and then imported using the a XL Deploy plugin. Or you manually write a Manifest.MF file for the XL Deploy Archive format (DAR format) and import the package using the XL Deploy UI.
 
 But, while designing a Deployment Package this may be a cumbersome process. To quickly assemble a package, it is more convenient to edit it in the XL Deploy UI.
 

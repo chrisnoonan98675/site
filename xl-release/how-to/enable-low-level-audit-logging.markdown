@@ -8,7 +8,7 @@ tags:
 - logging
 ---
 
-XL Release, like our app deployment tool [XL Deploy](http://xebialabs.com/products/xl-deploy), provides a low-level audit stream that tracks all activity in the system: login events, creating, modifying and deleting configuration items etc. This information complements the audit stream already provided by XL Release's [Activity Log](http://docs.xebialabs.com/releases/4.0/xl-release/reference_manual.html#activity-logs) (which tracks activity for each release, at a more domain-specific level of granularity) and is made available as a log stream.
+XL Release, like our app deployment tool [XL Deploy](http://xebialabs.com/products/xl-deploy), provides a low-level audit stream that tracks all activity in the system: login events, creating, modifying and deleting configuration items etc. This information complements the audit stream already provided by XL Release's [Activity Log](http://docs.xebialabs.com/releases/latest/xl-release/reference_manual.html#activity-logs) (which tracks activity for each release, at a more domain-specific level of granularity) and is made available as a log stream.
 
 You can enable low-level audit logging by changing the log level of the `audit` logger in `SERVER_HOME/conf/logback.xml`:
 

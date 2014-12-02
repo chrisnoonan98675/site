@@ -11,7 +11,7 @@ tags:
 - deployment
 ---
 
-After you have installed your version of [XL Deploy](http://go.xebialabs.com/XL-Deploy-Trial.html) and logged in for the first time, follow these instructions to:
+After you have installed your version of [XL Deploy](http://xebialabs.com/products/xl-deploy) and logged in for the first time, follow these instructions to:
 
 1. Connect XL Deploy to a JBoss Enterprise Application Platform (EAP) 6 and JBoss Application Server (AS)/WildFly 7.1+ installation
 1. Add JBoss/WildFly middleware containers to the XL Deploy Repository
@@ -164,7 +164,7 @@ To create an environment where you can deploy a sample application:
 
 Your trial version of XL Deploy includes two versions of a sample application called *PetClinic-ear*, already packaged in XL Deploy's deployment package format (DAR).
 
-**Tip:** To learn more about application packages, read *[Preparing your application for XL Deploy](http://docs.xebialabs.com/general/preparing_your_application_for_XL_Deploy.html)*.
+**Tip:** To learn more about application packages, read *[Preparing your application for XL Deploy](../concept/preparing-your-application-for-xl-deploy.html)*.
 
 To add the application to XL Deploy's Repository, you need to import it:
 
@@ -217,11 +217,11 @@ After you've connected XL Deploy to your middleware and deployed a sample applic
 
 * [JBoss Application Server 7+ Plugin Manual](http://docs.xebialabs.com/releases/latest/jbossdm-plugin/jbossDomainPluginManual.html)
 * [JBoss Application Server 5 and 6 Plugin Manual](http://docs.xebialabs.com/releases/latest/jbossas-plugin/jbossPluginManual.html)
-* [XL Deploy for developers, in 5 minutes](http://docs.xebialabs.com/general/xl_deploy_for_developers.html)
+* [XL Deploy for developers, in 5 minutes](../concept/xl-deploy-for-developers.html)
 * [Getting started with XL Deploy: Understanding packages](http://vimeo.com/99837504)
-* [Preparing your application for XL Deploy](http://docs.xebialabs.com/general/preparing_your_application_for_XL_Deploy.html)
-* [Understanding deployables and deployeds](https://support.xebialabs.com/entries/30905535-Understanding-Deployables-and-Deployeds)
+* [Preparing your application for XL Deploy](../concept/preparing-your-application-for-xl-deploy.html)
+* [Understanding deployables and deployeds](../concept/understanding-deployables-and-deployeds.html)
 
 ## Get help
 
-You can always ask questions and connect with other users at [our forums](https://support.xebialabs.com/forums/21189855-XL-Trials-Workshops).
+You can always ask questions and connect with other users at [our forums](https://support.xebialabs.com/forums).
