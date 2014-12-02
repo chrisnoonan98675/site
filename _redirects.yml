@@ -1,1 +1,3 @@
 /initial-page/index.html : /destination-page/index.html
+/xl-deploy/tips-and-tricks/index.html : /tips-and-tricks/xl-deploy/index.html
+/xl-release/tips-and-tricks/index.html : /tips-and-tricks/xl-release/index.html
