@@ -5,38 +5,38 @@ product-id: xl-deploy
 
 ## Product documentation
 
-* Start Here
+* [Start Here](starthere.html)
 * [Release Notes](releasenotes.html)
-* Upgrade Manual
-* Reference Manual
-* System Administration Manual
-* Security Manual
-* Graphical User Interface (GUI) Manual
-* Command Line Interface (CLI) Manual
-* Packaging Manual
-* Customization Manual
-* Release Dashboard Manual
-* Rules Manual
-* Rules Tutorial
-* Steps Reference
-* UDM CI Reference
-* REST API Reference
-* Java API Manual
+* [Upgrade Manual](upgrademanual.html)
+* [Reference Manual](referencemanual.html)
+* [System Administration Manual](systemadminmanual.html)
+* [Security Manual](securitymanual.html)
+* [Graphical User Interface (GUI) Manual](guimanual.html)
+* [Command Line Interface (CLI) Manual](climanual.html)
+* [Packaging Manual](packagingmanual.html)
+* [Customization Manual](customizationmanual.html)
+* [Release Dashboard Manual](releasedashboardmanual.html)
+* [Rules Manual](rulesmanual.html)
+* [Rules Tutorial](rulestutorial.html)
+* [Steps Reference](referencesteps.html)
+* [UDM CI Reference](udmcireference.html)
+* [REST API Reference](rest-api)
+* [Java API Manual](xldeployjavaapimanual.html)
 * Jython API Manual
 
 ### Standard plugins
 
-* Command Plugin Manual
-* Database Plugin Manual
-* Deployment Group Orchestrator Plugin Manual
-* File Plugin Manual
-* Generic Model Plugin Manual
-* JEE Plugin Manual
-* PowerShell Plugin Manual
-* Python Plugin Manual
-* Remoting Plugin Manual
-* Webserver Plugin Manual
-* Trigger Plugin Manual
+* [Command Plugin Manual](commandPluginManual.html)
+* [Database Plugin Manual](databasePluginManual.html)
+* [Deployment Group Orchestrator Plugin Manual](groupOrchestratorPluginManual.html)
+* [File Plugin Manual](filePluginManual.html)
+* [Generic Model Plugin Manual](genericPluginManual.html)
+* [JEE Plugin Manual](jeePluginManual.html)
+* [PowerShell Plugin Manual](powershellPluginManual.html)
+* [Python Plugin Manual](pythonPluginManual.html)
+* [Remoting Plugin Manual](remotingPluginManual.html)
+* [Webserver Plugin Manual](webserverPluginManual.html)
+* [Trigger Plugin Manual](triggerPluginManual.html)
 
 ## Plugins
 
