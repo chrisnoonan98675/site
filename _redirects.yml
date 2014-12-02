@@ -1,3 +1,1 @@
-/xl-deploy/3.9.x/index.html : /xl-deploy/3.9.x/starthere.html
-/xl-deploy/4.0.x/index.html : /xl-deploy/4.0.x/starthere.html
-/xl-deploy/4.5.x/index.html : /xl-deploy/4.5.x/starthere.html
+/initial-page/index.html : /destination-page/index.html
