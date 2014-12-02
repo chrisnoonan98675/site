@@ -1,7 +1,7 @@
 ---
 layout: list-in-sidebar
 title: Getting started
-weight: 4
+weight: 15
 ---
 
 ## Getting started with XL Deploy

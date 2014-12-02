@@ -5,8 +5,11 @@ layout: default
 <div id="content">
 
     {% if page.breadcrumbs != false %}
-	{% include breadcrumbs.html %}
+		{% include breadcrumbs.html %}
     {% endif %}
+
 	<h1 class="page-header">{{ page.title }}</h1>
+
 	{{ content }}
+
 </div>

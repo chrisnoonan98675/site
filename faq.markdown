@@ -1,7 +1,7 @@
 ---
 layout: list-in-sidebar
 title: Frequently asked questions
-weight: 5
+weight: 20
 ---
 
 ## XebiaLabs support
