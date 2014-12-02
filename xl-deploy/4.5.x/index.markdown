@@ -44,31 +44,31 @@ product-id: xl-deploy
 
 * [JBoss Application Server 5 and 6 plugin](../../xl-deploy-jbossas-plugin/4.0.x/jbossPluginManual.html)
 * [JBoss Application Server 7 and up plugin](../../xl-deploy-jbossdm-plugin/4.5.x/jbossDomainPluginManual.html)
-* Oracle Service Bus plugin
-* WebLogic Application Server plugin
-* WebSphere Application Server plugin
-* WebSphere Process Server plugin
-* Tomcat plugin
-* GlassFish plugin
+* [Oracle Service Bus plugin](../../xl-deploy-osb-plugin/4.5.x/osbPluginManual.html)
+* [WebLogic Application Server plugin](../../xl-deploy-wls-plugin/4.5.x/wlsPluginManual.html)
+* [WebSphere Application Server plugin](../../xl-deploy-was-plugin/4.5.x/wasPluginManual.html)
+* [WebSphere Process Server plugin](../../xl-deploy-wps-plugin/4.5.x/wpsPluginManual.html)
+* [Tomcat plugin](../../xl-deploy-tomcat-plugin/4.5.x/tomcatPluginManual.html)
+* [GlassFish plugin](../../xl-deploy-glassfish-plugin/4.0.x/glassfishPluginManual.html)
 
 ### .NET Middleware
 
-* BizTalk plugin
-* IIS plugin
-* Windows plugin
+* [BizTalk plugin](../../xl-deploy-biztalk-plugin/4.0.x/biztalkPluginManual.html)
+* [IIS plugin](../../xl-deploy-iis-plugin/4.0.x/iisPluginManual.html)
+* [Windows plugin](../../xl-deploy-windows-plugin/4.0.x/windowsPluginManual.html)
 
 ### Other Middleware
 
-* F5 BIG-IP plugin
-* Database plugin (DB2, MS SQL, MySQL, Oracle)
-* Webserver plugin (Apache HTTP server)
-* WebSphere MQ plugin
-* NetScaler plugin
+* [F5 BIG-IP plugin](../../xl-deploy-bigip-plugin/4.5.x/bigipPluginManual.html)
+* [Database plugin (DB2, MS SQL, MySQL, Oracle)](databasePluginManual.html)
+* [Webserver plugin (Apache HTTP server)](webserverPluginManual.html)
+* [WebSphere MQ plugin](../../xl-deploy-wmq-plugin/4.5.x/wmqPluginManual.html)
+* [NetScaler plugin](../../xl-deploy-netscaler-plugin/4.5.x/netscalerPluginManual.html)
 
 ### Tools
 
 * XL Deploy Maven plugin
-* XL Deploy Jenkins plugin
+* [XL Deploy Jenkins plugin](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
 * XL Deploy Bamboo plugin
 * XL Deploy Team Foundation Server plugin
 * XL Deploy Manifest Editor (Windows only)
