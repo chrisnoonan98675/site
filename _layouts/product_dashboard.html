@@ -85,9 +85,9 @@ layout: default
                     </ul>
 
                     <ul class="list-unstyled issue-sublist">
-                        {% for issue in release.enhancements %}
+                        {% for issue in release.improvements %}
                         {% if forloop.length and forloop.first %}
-                        <span class="issue-header">Enhancements</span>
+                        <span class="issue-header">Improvements</span>
                         {% endif %}
                         <li>{{ issue.key }} - {{ issue.summary }}</li>
                         {% endfor %}

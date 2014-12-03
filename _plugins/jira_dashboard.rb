@@ -78,8 +78,8 @@ module Jira
       (@release_date.mjd - DateTime.now.mjd).abs < 60
     end
 
-    def get_issues_by_type(type)
-      return @issues.select { |x| x.issue_type == type }
+    def get_issues_by_type(type, *types)
+      return @issues.select { |x| x.issue_type == type or types.include?(x.issue_type) }
     end
 
     def to_liquid
@@ -88,8 +88,8 @@ module Jira
       hash['release_target'] = release_target
       hash['title'] = title
       hash['precise_date'] = precise_date?
-      hash['stories'] = get_issues_by_type 'Story'
-      hash['enhancements'] = get_issues_by_type 'Enhancement'
+      hash['stories'] = get_issues_by_type 'Story', 'Epic'
+      hash['improvements'] = get_issues_by_type 'Improvement'
       hash['bugs'] = get_issues_by_type 'Bug'
       return hash
     end
