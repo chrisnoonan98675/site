@@ -7,7 +7,6 @@ img { max-width: 650px; }
 .xltopmenu { height: 75px; padding-top: 10px; }
 .post-metadata { margin-bottom: 10px; }
 #copyright { margin-top: 20px; }
-h1 { font-family: effra, Helvetica, Arial, sans-serif; }
 
 /* Google Custom Search overrides */
 input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gsc-search-button, .gsc-inline-block {
