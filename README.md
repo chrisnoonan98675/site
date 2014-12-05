@@ -20,6 +20,10 @@ Go to `http://localhost:4000` to see the site running locally.
 
 # Things to know about formatting
 
+## Headings
+
+Use heading 2 (`##` in Markdown) and lower. Don't use heading 1.
+
 ## Placeholders
 
 In [Liquid](https://github.com/Shopify/liquid/wiki) (the template language that Jekyll uses), variables are identified by double curly brackets, just like XebiaLabs-style placeholders. If you want to show a XebiaLabs-style placeholder, you must surround it with [`{% raw %}` tags](http://docs.shopify.com/themes/liquid-documentation/tags/theme-tags#raw).

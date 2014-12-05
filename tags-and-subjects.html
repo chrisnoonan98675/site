@@ -1,40 +1,8 @@
 ---
-title: Utilities
+title: Tags and subjects
 ---
 
-<div class="col-md-3">
-
-	<h4>All blog post tags</h4>
-
-	{% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
-	{% assign tag_words = site_tags | split:',' | sort %}
-
-	<ul>
-		{% for item in (0..site.tags.size) %}{% unless forloop.last %}
-			{% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
-			<li>{{ this_word }}</li>
-		{% endunless %}{% endfor %}
-	</ul>
-
-</div>
-
-<div class="col-md-3">
-
-	<h4>All blog post categories</h4>
-
-	{% capture site_categories %}{% for category in site.categories %}{{ category | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
-	{% assign category_words = site_categories | split:',' | sort %}
-
-	<ul>
-		{% for item in (0..site.categories.size) %}{% unless forloop.last %}
-			{% capture this_category_word %}{{ category_words[item] | strip_newlines }}{% endcapture %}
-			<li>{{ this_category_word }}</li>
-		{% endunless %}{% endfor %}
-	</ul>
-
-</div>	
-
-<div class="col-md-3">
+<div class="col-md-6">
 
 	<h4>All page tags</h4>
 
@@ -64,7 +32,7 @@ title: Utilities
 
 </div>
 
-<div class="col-md-3">
+<div class="col-md-6">
 
 	<h4>All page subjects</h4>
 
