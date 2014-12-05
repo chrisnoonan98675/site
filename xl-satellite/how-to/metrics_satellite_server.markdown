@@ -49,6 +49,23 @@ Once configured, you can access to XL-Satellite metrics given the configured hos
             }
             task.started: {...}
         }
+
+	histograms: {
+	    streaming.upload-speed: {
+		count: 0
+		max: 0
+		mean: 0
+		min: 0
+		p50: 0
+		p75: 0
+		p95: 0
+		p98: 0
+		p99: 0
+		p999: 0
+		stddev: 0
+	    }
+
+	}
         
         counters: {
             task.done: {

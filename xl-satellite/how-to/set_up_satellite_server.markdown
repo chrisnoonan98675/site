@@ -87,6 +87,17 @@ You can change the following settings in the `conf/application.conf` file:
 
 Note that you can also use values 'true/false' instead of 'on/off'.
 
+## Activating streaming bandwidth limitation
+
+You can limit the bandwidth used by the streaming connections between XL-Deploy and XL-Satellite. The limit is intended for each connection. You can switch on/off this feature in the file located `conf/application.conf` file:
+
+    satellite{
+      streaming {
+        throttle = on // off
+        throttle-speed = 10000 // given in kB/sec. Must be at least 100kB/sec
+      }
+    }
+
 ## Configuring files location on satellite
 
 You can change the directory where the files will be transfered on XL Satellite server.
