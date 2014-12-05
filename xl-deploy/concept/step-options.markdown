@@ -6,7 +6,7 @@ tags:
 - generic-plugin
 ---
 
-Plugin writers that write a plugin based on the generic-plugin or the powershell-plugin have the option of specifying so-called *step options*. These control what data is sent along when performing a `CREATE`, `MODIFY`, `DESTROY` or `NOOP` deployment step defined by a CI type.
+Plugin writers that write a plugin based on the generic-plugin or the powershell-plugin have the option of specifying so-called *step options*. These control what data is sent along when performing a `CREATE`, `MODIFY`, `DESTROY` or `NOOP` deployment step defined by a CI type. Also they control which variables are available in templates.
 
 
 ## What is a step option?
@@ -14,8 +14,9 @@ Plugin writers that write a plugin based on the generic-plugin or the powershell
 A step option specifies what extra resources are uploaded as part of performing a deployment step. Usually this is used whenever the step executes a script on a remote host. This script (or, more generally, the action to be performed) may need to have access to zero or more of the following additional resources:
  
 * the artifact associated with this step, 
-* external file(s), or
-* resolved template(s).
+* external file(s),
+* resolved template(s) or
+* details of previously deployed artifact.
 
 Your type definition needs to specify the external files and templates involved by setting its `classpathResources` and `templateClasspathResources` properties. By default all classpath resources are uploaded and all templates are resolved and uploaded, irrespective of whether the deployment step is a `CREATE` step, a `MODIFY` step, a `DESTROY` step, or even a `NOOP` step.
 
@@ -26,29 +27,38 @@ Step options allow you to specify what resources to upload before executing the 
 
 ## What step options are available?
 
-You can use the following step options:
+Depending on whether you use generic-plugin or powershell-plugin different step options are available. Following options are available for both:
 
-* `none` - do not upload anything extra as part of this step
-* `uploadArtifactData` - upload the artifact associated with this deployed into the working directory before executing this step
-* `uploadClasspathResources` - upload the classpath resources, as specified by the deployed type, into the working directory when executing this step
+* `none` - do not upload anything extra as part of this step.
+* `uploadArtifactData` - upload the artifact associated with this deployed into the working directory before executing this step.
+* `uploadClasspathResources` - upload the classpath resources, as specified by the deployed type, into the working directory when executing this step.
+
+Following additional step options are only available in generic-plugin:
+
 * `uploadTemplateClasspathResources` - resolve the template classpath resources, as specified by the deployed type; and upload the result into the working directory when executing this step.
+
+And following step options are only available for powershell-plugin:
+
+* `exposePreviousDeployed` - add `previousDeployed` variable into Freemarker context. This variable points to the previous version of the deployed configuration item.
+* `exposeDeployedApplication` - add `deployedApplication` variable into Freemarker context, which describes the version, environment and deployeds of currently deployed application. You can check [udm.DeployedApplication](http://testdocs.xebialabs.com/xl-deploy/latest/udmcireference.html#udmdeployedapplication) for more details.
 
 
 ## When can my plugin CI types use step options?
 
 Your plugin CI types can use step options whenever they inherit from one of the following generic-plugin or powershell-plugin deployed types:
 
-* [generic.AbstractDeployed](xl-deploy/genericPluginManual.html#generic.AbstractDeployed)
-* [generic.AbstractDeployedArtifact](xl-deploy/genericPluginManual.html#generic.AbstractDeployedArtifact)
-* [generic.CopiedArtifact](xl-deploy/genericPluginManual.html#generic.CopiedArtifact)
-* [generic.ExecutedFolder](xl-deploy/genericPluginManual.html#generic.ExecutedFolder)
-* [generic.ExecutedScript](xl-deploy/genericPluginManual.html#generic.ExecutedScript)
-* [generic.ExecutedScriptWithDerivedArtifact](xl-deploy/genericPluginManual.html#generic.ExecutedScriptWithDerivedArtifact)
-* [generic.ManualProcess](xl-deploy/genericPluginManual.html#generic.ManualProcess)
-* [generic.ProcessedTemplate](xl-deploy/genericPluginManual.html#generic.ProcessedTemplate)
-* [powershell.BaseExtensiblePowerShellDeployed](xl-deploy/genericPluginManual.html#powershell.BaseExtensiblePowerShellDeployed)
-* [powershell.ExtensiblePowerShellDeployed](xl-deploy/genericPluginManual.html#powershell.ExtensiblePowerShellDeployed)
-* [powershell.ExtensiblePowerShellDeployedArtifact](xl-deploy/genericPluginManual.html#powershell.ExtensiblePowerShellDeployedArtifact)
+* [generic.AbstractDeployed](/xl-deploy/latest/genericPluginManual.html#generic.AbstractDeployed)
+* [generic.AbstractDeployedArtifact](/xl-deploy/latest/genericPluginManual.html#generic.AbstractDeployedArtifact)
+* [generic.CopiedArtifact](/xl-deploy/latest/genericPluginManual.html#generic.CopiedArtifact)
+* [generic.ExecutedFolder](/xl-deploy/latest/genericPluginManual.html#generic.ExecutedFolder)
+* [generic.ExecutedScript](/xl-deploy/latest/genericPluginManual.html#generic.ExecutedScript)
+* [generic.ExecutedScriptWithDerivedArtifact](/xl-deploy/latest/genericPluginManual.html#generic.ExecutedScriptWithDerivedArtifact)
+* [generic.ManualProcess](/xl-deploy/latest/genericPluginManual.html#generic.ManualProcess)
+* [generic.ProcessedTemplate](/xl-deploy/latest/genericPluginManual.html#generic.ProcessedTemplate)
+* [powershell.BasePowerShellDeployed](/xl-deploy/latest/powershellPluginManual.html#powershell.BasePowerShellDeployed)
+* [powershell.BaseExtensiblePowerShellDeployed](/xl-deploy/latest/genericPluginManual.html#powershell.BaseExtensiblePowerShellDeployed)
+* [powershell.ExtensiblePowerShellDeployed](/xl-deploy/latest/genericPluginManual.html#powershell.ExtensiblePowerShellDeployed)
+* [powershell.ExtensiblePowerShellDeployedArtifact](/xl-deploy/latest/genericPluginManual.html#powershell.ExtensiblePowerShellDeployedArtifact)
 
 These types provide the hidden `SET_OF_STRING` properties `createOptions`, `modifyOptions`, `destroyOptions` and `noopOptions` that your type then inherits.
 
@@ -56,3 +66,12 @@ These types provide the hidden `SET_OF_STRING` properties `createOptions`, `modi
 ## What are the default step option settings for existing types?
 
 XL Deploy comes with various pre-defined CI types based on the generic-plugin and the powershell-plugin, and several plugins are built upon these as well. The default settings for each `createOptions`, `modifyOptions`, `destroyOptions` and `noopOptions` are specified inside `conf/deployit-defaults.properties`. By default, each of these have all three of `uploadArtifactData`, `uploadClasspathResources` and `uploadTemplateClasspathResources` enabled.
+
+
+## What about Python plugin?
+
+In python-plugin there is no notion of step options. There is however a property of [python.PythonManagedDeployed](/xl-deploy/latest/pythonPluginManual.html#pythonpythonmanageddeployed) similar to one of step options of powershell-plugin:
+
+* `exposeDeployedApplication` - add `deployedApplication` object to the python context ([udm.DeployedApplication](http://testdocs.xebialabs.com/xl-deploy/latest/udmcireference.html#udmdeployedapplication)).
+
+There are no additional classpath resources in python-plugin, so only the current deployed is uploaded into a working directory before executing the python script.
