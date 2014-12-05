@@ -12,6 +12,8 @@ online-docs-jekyll
 
 Go to `http://localhost:4000` to see the site running locally.
 
+**Note:** If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
+
 # Contributing
 
 *Coming soon!*
