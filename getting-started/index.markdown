@@ -12,13 +12,13 @@ Follow [these instructions](http://xebialabs.com/products/xl-deploy/#install) to
 
 ### Learn
 
-1. [Watch XebiaLabs videos](https://www.youtube.com/watch?v=gVNEnSr-YQs&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1):
-2. Read:
+* [Watch XebiaLabs videos about XL Deploy](https://www.youtube.com/watch?v=gVNEnSr-YQs&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1)
+* Read about:
     * [Defining infrastructure](http://docs.xebialabs.com/general/getting_started_with_xl_deploy_defining_infrastructure.html)
     * [Defining environments](http://docs.xebialabs.com/general/getting_started_with_xl_deploy_defining_environments.html)
     * [Performing an initial deployment](http://docs.xebialabs.com/general/getting_started_with_xl_deploy_performing_an_initial_deployment.html)
     * [Performing an update](http://docs.xebialabs.com/general/getting_started_with_xl_deploy_performing_an_update.html)
-3. Follow the instructions to connect to your own middleware and deploy sample application:
+* Follow the instructions to connect to your own middleware and deploy sample application:
     * [Deploy your first application on IBM WebSphere Application Server (WAS)](/xl-deploy/how-to/deploy-your-first-application-on-websphere.html)
     * [Deploy your first application on JBoss Enterprise Application Platform (EAP) 6 and JBoss Application Server (AS)/WildFly 7.1+](/xl-deploy/how-to/deploy-your-first-application-on-wildfly.html)
     * [Deploy your first application on Apache Tomcat](/xl-deploy/how-to/deploy-your-first-application-on-tomcat.html)
@@ -36,7 +36,7 @@ Follow [these instructions](http://xebialabs.com/products/xl-deploy/#install) to
 ### Connect
 
 * [Join the XebiaLabs support forums](https://support.xebialabs.com/forums)
-* Join the [weekly Q&A with experts](http://xebialabs.com/community/live-q-and-a/)
+* Join the [weekly XebiaLabs Q&A with experts](http://xebialabs.com/community/live-q-and-a/)
 
 ## Getting started with XL Release
 
@@ -56,4 +56,4 @@ Follow [these instructions](http://xebialabs.com/products/xl-release/#install) t
 ### Connect
 
 * [Join the XebiaLabs support forums](https://support.xebialabs.com/forums)
-* Join the [weekly Q&A with experts](http://xebialabs.com/community/live-q-and-a/)
+* Join the [weekly XebiaLabs Q&A with experts](http://xebialabs.com/community/live-q-and-a/)
