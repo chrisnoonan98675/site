@@ -1,9 +1,0 @@
-<ul>
-{% for plugin in site.data.xl-deploy-plugins %}
-	{% if page.path contains plugin.id %}
-		{% for version in plugin.versions %}
-			<li><a href="/{{ plugin.id }}/{{ version }}">{{ plugin.name }} plugin {{ version }}</a></li>
-		{% endfor %}
-	{% endif %}
-{% endfor %}
-</ul>
