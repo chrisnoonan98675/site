@@ -88,7 +88,7 @@ You must have `java` available on your PATH.
 1. Install the Windows 200x Resource Kit.
 1. Create the service entry (named XL-Deploy in this example).
 
-      ![Service entry](../../images/install-xl-deploy-as-a-service/windows_srvany_1.png)
+      ![Service entry](images/windows_srvany_1.png)
 
 1. Click the **Start** menu, type `regedit`, and press ENTER to start the Registry Editor.
 1. Find the `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XL-Deploy` registry key.
@@ -104,11 +104,11 @@ You must have `java` available on your PATH.
 1. Set the string to `<xl-deploy path>\bin`.
 1. Click **OK**.
 
-      ![Windows registry](../../images/install-xl-deploy-as-a-service/windows_srvany_2.png)
+      ![Windows registry](images/windows_srvany_2.png)
 
 1. Go to Windows services and start the XL Deploy service.
 
-      ![Windows services](../../images/install-xl-deploy-as-a-service/windows_srvany_3.png)
+      ![Windows services](images/windows_srvany_3.png)
       
       
 ## Windows approach 3: `nssm`
@@ -130,7 +130,7 @@ You must have `java` available on your PATH.
 		
 1. Now you can go to the `Services` application and start/stop your new `XL-Deploy` service
 
-	![Service entry](../../images/install-xl-deploy-as-a-service/windows_nssm_1.png)
+	![Service entry](images/windows_nssm_1.png)
 		
 1. It is possible to also edit service parameters from a GUI using the command as follows:
 
@@ -138,5 +138,5 @@ You must have `java` available on your PATH.
 		
 1. A widonw will open with all of the configurable options for the `XL-Deploy` service as follows:
 
-	![NSSM service editor](../../images/install-xl-deploy-as-a-service/windows_nssm_2.png)
+	![NSSM service editor](images/windows_nssm_2.png)
 

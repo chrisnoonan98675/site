@@ -40,7 +40,7 @@ The deployable contains `password = {% raw %}{{my.password}}{% endraw %}`. XL De
 
 This screenshot shows the resolved properties with `username = {% raw %}{{my.username}}{% endraw %}` and `password = {% raw %}{{my.password}}{% endraw %}`:
 
-![Resolved properties](/images/how-password-properties-and-encrypted-dictionaries-combine/resolved-secret-property.png)
+![Resolved properties](images/resolved-secret-property.png)
 
 ### Secret property, regular dictionary
 
@@ -52,7 +52,7 @@ The deployable contains `username = {% raw %}{{my.password}}{% endraw %}`. XL De
 
 This screenshot shows the resolved properties with `password = {% raw %}{{my.username}}{% endraw %}` (the value is not visible because passwords are obscured) and `username = {% raw %}{{my.password}}{% endraw %}` (blank because it is a normal property attempting to use a value stored in an encrypted dictionary):
 
-![Resolved properties](/images/how-password-properties-and-encrypted-dictionaries-combine/resolved-normal-property.png)
+![Resolved properties](images/resolved-normal-property.png)
 
 ## Why don't the values that I entered in an encrypted dictionary appear in normal properties?
 

@@ -59,7 +59,7 @@ Before you create a deployment package, you should explore the CI types that are
 9. Expand **Applications** and right-click a deployment package.
 10. Select a CI type to see the properties that are available for it.
 
-![CI type menu](/images/preparing-your-application-for-xl-deploy/ci_type_menu.png)
+![CI type menu](images/ci_type_menu.png)
 
 Alternatively, you can use the XL Deploy command line to explore configuration item types and properties, as described in the [Command Line Interface Manual](http://docs.xebialabs.com/releases/latest/deployit/climanual.html). Or you can read about CI types in the [XL Deploy documentation](http://docs.xebialabs.com/). 
 
