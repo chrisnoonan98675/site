@@ -45,11 +45,7 @@ The subject is like a high-level tag. It helps users who are used to reading doc
 
 You can only add one subject.
 
-#### See the subjects that are in use
-
-* For a complete list of subjects that are in use for a particular product, see the *Browse documentation by subject* list on that product's splash page.
-* For a complete list of subjects that are in use across all products, start Jekyll locally and go to `http://localhost:4000/tags-and-subjects.html`.
-* To see the subject of a particular topic without looking at its Markdown file, view the source of the HTML file and scroll to the bottom.
+To see the subjects that are in use, go to [http://testdocs.xebialabs.com/tags-and-subjects.html](http://testdocs.xebialabs.com/tags-and-subjects.html).
 
 #### Formatting the subject
 
@@ -61,11 +57,7 @@ Tags help users browse posts and improve search results. Try to use tags that ar
 
 You can add multiple tags.
 
-#### See the tags that are in use
-
-* For a complete list of tags that are in use for a particular product, see the *Browse documentation by tag* list on that product's splash page.
-* For a complete list of tags that are in use across all products, start Jekyll locally and go to `http://localhost:4000/tags-and-subjects.html`.
-* To see the tags of a particular topic without looking at its Markdown file, view the source of the HTML file and scroll to the bottom.
+To see the tags that are in use, go to [http://testdocs.xebialabs.com/tags-and-subjects.html](http://testdocs.xebialabs.com/tags-and-subjects.html).
 
 #### Formatting tags
 
