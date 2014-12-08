@@ -1,8 +1,0 @@
-{% capture post_tags %}{% for tag in page.tags %}{{ tag }},{% endfor %}{% endcapture %}
-{% assign sorted_post_tags = post_tags | split:',' | sort %}
-
-<span>
-	{% for tag in sorted_post_tags %}
-		<a href="../../tag/index.html#{{ tag | replace: ' ', '-' }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
-	{% endfor %}
-</span>
