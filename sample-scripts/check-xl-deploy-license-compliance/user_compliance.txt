@@ -1,2 +1,0 @@
-#!/bin/sh
-cat audit.* | grep -e '^[0-9-]' | awk '{ month = substr($1,1,7); user = $4; if (index(users[month], user) == 0) users[month] = users[month] " " user; } END { for(u in users) { print u ":" users[u] } }'

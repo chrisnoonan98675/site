@@ -13,7 +13,7 @@ You want to install XL Deploy as a service, so that it is always up and running,
 
 ## Linux approach 1: LSB `init` scripts
 
-1. Download [the LSB init script `xl-deploy.init`](/sample-scripts/install-xl-deploy-as-a-service/xl-deploy.init).
+1. Download [the LSB init script `xl-deploy.init`](sample-scripts/xl-deploy.init).
 1. Ensure that the LSB libraries have been installed; for example, by using `yum install readhat-lsb`.
 1. Edit the `xl-deploy.init` script to set the following:
     * `JAVA_HOME`: Java home path; for example, `/opt/java7`
@@ -29,7 +29,7 @@ You want to install XL Deploy as a service, so that it is always up and running,
 
         # systemctl enable xl-deploy.init
 
-1. Download [the custom XL Deploy server script `xl-deploy.sh`](/sample-scripts/install-xl-deploy-as-a-service/xl-deploy.sh) and install it in the `XLD_SRV_HOME` directory.
+1. Download [the custom XL Deploy server script `xl-deploy.sh`](sample-scripts/xl-deploy.sh) and install it in the `XLD_SRV_HOME` directory.
 1. Ensure there are execute permissions on the server start script.
 
         chmod +x xl-deploy.sh
@@ -50,7 +50,7 @@ You must have `java` available on your PATH.
 
 1. Download YAJSW from [http://sourceforge.net/projects/yajsw/](http://sourceforge.net/projects/yajsw/).
 1. Extract the downloaded ZIP file to a directory of your choice. We'll refer to this directory as `$YAJSW`.
-1. Download [this `wrapper.conf` file](/sample-scripts/install-xl-deploy-as-a-service/wrapper.conf) and store it in `$YAJSW/yajsw-stable-$VERSION/conf`.
+1. Download [this `wrapper.conf` file](sample-scripts/wrapper.conf) and store it in `$YAJSW/yajsw-stable-$VERSION/conf`.
 1. In the downloaded `wrapper.conf` file, update the `wrapper.working.dir` property with the location of your XL Deploy server.
 1. Go to `$YAJSW/yajsw-stable-$VERSION/bin` and execute `chmod +x *.sh`.
 1. Ensure the XL Deploy server is not running.
@@ -69,7 +69,7 @@ You must have `java` available on your PATH.
 
 1. Download YAJSW from [http://sourceforge.net/projects/yajsw/](http://sourceforge.net/projects/yajsw/).
 1. Extract the downloaded ZIP file to a directory of your choice. We'll refer to this directory as `$YAJSW`.
-1. Download [this `wrapper.conf` file](/sample-scripts/install-xl-deploy-as-a-service/wrapper.conf) and store it in `$YAJSW\yajsw-stable-$VERSION\conf`.
+1. Download [this `wrapper.conf` file](sample-scripts/wrapper.conf) and store it in `$YAJSW\yajsw-stable-$VERSION\conf`.
 1. In the downloaded `wrapper.conf` file, update the `wrapper.working.dir` property with the location of your XL Deploy server.
 1. Go to `$YAJSW/yajsw-stable-$VERSION/bat`.
 1. Ensure that the XL Deploy server is not running.

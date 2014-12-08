@@ -18,7 +18,7 @@ Please follow the instructions below to reset the password for the admin user in
 
 1. Stop the XL Deploy server.
 1. Back up your XL Deploy configuration and repository.
-1. Copy [this JAR file](/sample-scripts/hotfix-disable-password-check.jar) to the `hotfix` directory of the XL Deploy server.
+1. Copy [this JAR file](sample-scripts/hotfix-disable-password-check.jar) to the `hotfix` directory of the XL Deploy server.
 1. Start the XL Deploy server.
 1. Log in to the XL Deploy interface as the admin user with any password.
 1. Follow [the standard procedure](http://docs.xebialabs.com/releases/latest/xl-deploy/systemadminmanual.html#changing-the-admin-password) to change the password for the admin user.
