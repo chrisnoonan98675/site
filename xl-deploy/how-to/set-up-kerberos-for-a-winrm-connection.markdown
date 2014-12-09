@@ -18,12 +18,15 @@ If you are going to use Windows domain accounts to access the remote host with t
 
 Using Kerberos authentication requires that you follow the [Kerberos Requirements for Java](http://docs.oracle.com/javase/6/docs/technotes/guides/security/jgss/tutorials/KerberosReq.html) on the host that runs the XL Deploy server.
 
-Create a file called `krb5.conf` (Unix) or `krb5.ini` (Windows) with at least the following content: 
+Create a file called `krb5.conf` (Unix) or `krb5.ini` (Windows) with at least the following content:
+
+    [libdefaults]
+        default_realm = EXAMPLE.COM
 
     [realms]
-    EXAMPLE.COM = {
-        kdc = KDC.EXAMPLE.COM
-    }
+        EXAMPLE.COM = {
+            kdc = KDC.EXAMPLE.COM
+        }
 
 Replace the values with the name of your domain/realm and the hostname of your domain controller (multiple entries can be added to allow the XL Deploy server host to connect to multiple domains) and place the file in the default location for your operating system:
 
@@ -31,9 +34,15 @@ Replace the values with the name of your domain/realm and the hostname of your d
 * Solaris: `/etc/krb5/krb5.conf`
 * Windows: `C:\Windows\krb5.ini`
 
-Alternatively, place the file somewhere else and edit the `server.sh` or `server.cmd` startup script and add the following Java system property to the command line: `-Djava.security.krb5.conf=/path/to/krb5.conf`. Replace the path with the location of the file you just created. 
+Alternatively, place the file somewhere else and edit the `server.sh` or `server.cmd` startup script and add the following Java system property to the command line: `-Djava.security.krb5.conf=/path/to/krb5.conf`. Replace the path with the location of the file you just created.
 
 See [the Kerberos V5 System Administrator's Guide at MIT](http://web.mit.edu/kerberos/krb5-1.10/krb5-1.10.6/doc/krb5-admin.html#krb5_002econf) for more information on the `krb5.conf` format.
+
+### Generating the Kerberos configuration file
+
+It's not always easy to determine the right Windows domain name and the hostnames of all domain controllers. You can generate the configuration by copying the PowerShell script [generate-krb5-conf.ps1](sample-scripts/generate-krb5-conf.ps1) to a Windows machine in the target domain and then running it with the following command:
+
+    powershell -f generate-krb5-conf.ps1
 
 ## Kerberos configuration for the remote host
 
@@ -54,5 +63,5 @@ Where:
 
 Some other useful commands:
 
-* List all service principal names configured for the domain: `setspn -Q */*` 
+* List all service principal names configured for the domain: `setspn -Q */*`
 * List all service principal names configured for a specific host in the domain: `setspn -L _WINDOWS-HOST_`
