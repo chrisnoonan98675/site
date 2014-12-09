@@ -111,7 +111,6 @@ Save drafts of pages in `_drafts`. Drafts are never converted to HTML.
 |----------------------|------------------------|---------------------------------|
 | `default.html` | All | Master layout file that calls most of the `includes` that make up the page structure |
 | `list-in-sidebar.html` | Landing page of a product | Triggers Jekyll to add a link to the page in the sidebar |
-| `post.html` | All posts | Includes author, post date, and a "Related posts" section [DEPRECATED] |
 | `page.html` | All pages | Includes dynamically generated breadcrumbs | 
 
 ## Plugins
@@ -121,8 +120,6 @@ Save drafts of pages in `_drafts`. Drafts are never converted to HTML.
 | `breadcrumbs.rb` | Creates dynamic breadcrumbs on pages | [Source](http://biosphere.cc/software-engineering/jekyll-breadcrumbs-navigation-plugin/) | None |
 | `asciidoc_plugin.rb` | Enables Jekyll to interpret Asciidoc files | [Source](https://github.com/asciidoctor/jekyll-asciidoc) | MIT |
 | `pageless_redirects.rb` | Allows you to create redirects in `_redirects.yml` | [Source](https://github.com/nquinlan/jekyll-pageless-redirects/pull/7) | MIT |
-| `tag_gen.rb` | Generates an index page in the `_site/tag` folder for every tag on a post [DEPRECATED] | Sources: [1](http://charliepark.org/tags-in-jekyll/) (original), [2](https://github.com/polymetis/jekyll-tags-plugin/blob/master/_plugins/tag_gen.rb) (adjustment to replace spaces in tags with hyphens) | None |
-| `to_gravatar.rb` | Gets a Gravatar based on the email address of the post's author [DEPRECATED] | Sources: [1](http://blog.sorryapp.com/blogging-with-jekyll/2014/02/06/adding-authors-to-your-jekyll-site.html), [2](http://blog.sorryapp.com/blogging-with-jekyll/2014/02/13/add-author-gravatars-to-your-jekyll-site.html) | None |
 
 # Tips
 
