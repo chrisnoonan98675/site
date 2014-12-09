@@ -2,11 +2,12 @@
 title: Support legacy use of XLRequest using HttpRequest
 categories:
 - xl-release
-subject: Release
+subject: Connectivity
 tags:
 - webhook
 - script
 - custom task
+- http
 ---
 
 Prior to XL Release 4.0.10, HTTP requests from XL Release to target systems—whether via webhooks, scripts or custom tasks—were executed via Jython's [`httplib`](http://www.jython.org/docs/library/httplib.html) implementation and thus ultimately by the standard Java networking stack. This was fine in most situations, but made it hard or impossible to handle certain advanced use cases such as complex proxy setups in a user-accessible way: the configuration that would have to be changed was part of Jython's internals.
