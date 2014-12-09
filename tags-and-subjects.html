@@ -4,7 +4,7 @@ title: Tags and subjects
 
 <div class="col-md-2">
 
-	<h4>All page tags</h4>
+	<h4>All tags</h4>
 
 	{% capture all_page_tags %}{% for page in site.pages %}{% for tag in page.tags %}{{ tag }},{% endfor %}{% endfor %}{% endcapture %}
 	{% assign sorted_page_tags = all_page_tags | split:',' | sort %}
@@ -92,9 +92,9 @@ title: Tags and subjects
 
 </div>
 
-<div class="col-md-2">
+<div class="col-md-2" style="border-left: 1px solid #EEE;">
 
-	<h4>All page subjects</h4>
+	<h4>All subjects</h4>
 
 	{% capture all_page_subjects %}{% for page in site.pages %}{% for subject in page.subject %}{{ subject }},{% endfor %}{% endfor %}{% endcapture %}
 	{% assign sorted_page_subjects = all_page_subjects | split:',' | sort %}
