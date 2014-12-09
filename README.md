@@ -62,6 +62,19 @@ HTML anchors are automatically created for headings (h1, h2, h3, etc.).
 
 You can use [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/) instead of Markdown to format files. AsciiDoc support is provided by [a Jekyll plugin](https://github.com/asciidoctor/jekyll-asciidoc). If you use it, please carefully review the way that Jekyll renders the HTML file.
 
+# "Latest" links
+
+You can use "latest" links to point to the latest versioned documentation for each product. For example:
+
+| Link | Points to... |
+| ------- | ------- |
+| `/xl-deploy/latest` | `/xl-deploy/4.5.x/index.html` |
+| `/xl-deploy/latest/rulesmanual.html` | `/xl-deploy/4.5.x/rulesmanual.html` |
+| `/xl-deploy/latest/genericPluginManual.html` | `/xl-deploy/4.5.x/genericPluginManual.html` |
+| `/xl-deploy/latest/glassfishPluginManual.html` | `xl-deploy-glassfish-plugin/4.0.x/glassfishPluginManual.html` |
+   
+See `_redirects.yml` for a complete list of the redirects that are available.
+
 # Logical structure of the site
 
 * Product
