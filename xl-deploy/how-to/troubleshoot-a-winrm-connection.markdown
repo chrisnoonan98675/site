@@ -48,28 +48,28 @@ Multiple causes can lead to this error message:
 
 1. Multiple domains are in use and they are not mapped in the `[domain_realm]` section of the Kerberos `krb5.conf` file. For example:
 
-        [realms] 
-        EXAMPLE.COM = { 
-        kdc = HILVERSUM.EXAMPLE.COM 
-        kdc = AMSTERDAM.EXAMPLE.COM 
-        kdc = ROTTERDAM.EXAMPLE.COM 
-        default_domain = EXAMPLE.COM 
+        [realms]
+        EXAMPLE.COM = {
+        kdc = HILVERSUM.EXAMPLE.COM
+        kdc = AMSTERDAM.EXAMPLE.COM
+        kdc = ROTTERDAM.EXAMPLE.COM
+        default_domain = EXAMPLE.COM
         }
 
-        EXAMPLEDMZ.COM = { 
-        kdc = localhost:2088 
-        default_domain = EXAMPLEDMZ.COM 
+        EXAMPLEDMZ.COM = {
+        kdc = localhost:2088
+        default_domain = EXAMPLEDMZ.COM
         }
 
-        [domain_realm] 
-        example.com = example.COM 
-        .example.com = example.COM 
-        exampledmz.com = EXAMPLEDMZ.COM 
+        [domain_realm]
+        example.com = example.COM
+        .example.com = example.COM
+        exampledmz.com = EXAMPLEDMZ.COM
         .exampledmz.com = EXAMPLEDMZ.COM
 
-        [libdefaults] 
-        default_realm = EXAMPLE.COM 
-        rdns = false 
+        [libdefaults]
+        default_realm = EXAMPLE.COM
+        rdns = false
         udp_preference_limit = 1
 
 Refer to the [Kerberos documentation](http://web.mit.edu/kerberos/krb5-current/doc/admin/conf_files/krb5_conf.html) for more information about `krb5.conf`.
@@ -97,9 +97,14 @@ If you see an unknown WinRM error code in the logging, you can use the `winrm he
 
 Courtesy of [this PowerShell Magazine blog post by Shay Levy](http://www.powershellmagazine.com/2013/03/06/pstip-decoding-winrm-error-messages/).
 
-## WinRS command fails with `out of memory` error
+## WinRM command fails with an "out of memory" error
 
-After customizing the value of `MaxMemoryPerShellMB`, you may receive an "Out of memory" error when executing a WinRS command. This is caused by an error in WinRM. A hot fix is available from [Microsoft](http://support.microsoft.com/kb/2842230).
+After increasing the value of `MaxMemoryPerShellMB`, you may still receive "out of memory" errors when executing a WinRM command. Check the version of WinRM you are running by executing the following command and checking the number behind `Stack`:
+
+    winrm id
+
+If you running WinRM 3.0, you will need to install the hotfix described in [Microsoft Knowledge Base article #2842230](http://support.microsoft.com/kb/2842230). In fact, Windows Management Framework 3.0, of which WinRM 3.0 is a part, [has been temporarily removed from Windows Update](http://blogs.msdn.com/b/powershell/archive/2012/12/20/windows-management-framework-3-0-compatibility-update.aspx) because of numerous incompatibility issues with other Microsoft products.
+
 
 ## Kerberos authentication fails with the message `Unable to load realm info from SCDynamicStore`
 
