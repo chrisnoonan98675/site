@@ -1,7 +1,18 @@
 /* XebiaLabs-specific styles */
 .hidden { display: none; }
 .indented { margin-left: 40px; }
-.navbar { min-height: 75px; }
+.navbar { 
+	min-height: 75px; 
+}
+.navbar-default { 
+	background:#003366 !important;
+	border-radius:0px !important;
+	-webkit-border-radius: 0px !important;
+	border:none;
+}
+.navbar-default a { 
+	color:#fff !important;
+}
 .breadcrumb { background-color: #FFFFFF; padding-left: 0; }
 img { max-width: 650px; }
 .xltopmenu { height: 75px; padding-top: 10px; }
