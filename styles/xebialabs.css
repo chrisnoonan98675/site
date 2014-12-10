@@ -43,9 +43,18 @@ html {
   min-height: 100%;
 }
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  	/* Margin bottom by footer height */
+  	margin-bottom: 60px;
+	font-family:'effra', 'Helvetica', Arial, sans-serif;
+	font-weight:100;
+	font-size:14px;
+	color:#001D3B;
 }
+h1,h2,h3,h4,h5,h6 {
+	font-weight:100
+}
+
+
 .footer {
   position: absolute;
   bottom: 0;
