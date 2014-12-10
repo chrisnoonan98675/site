@@ -64,15 +64,21 @@ You can use [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-referen
 
 # "Latest" links
 
-You can use "latest" links to point to the latest versioned documentation for each product. For example:
+"Latest" links point to the latest version of the *versioned* documentation for each product. There are two formats; the new format is preferred, but the legacy format is also supported.
 
-| Link | Points to... |
-| ------- | ------- |
-| `/xl-deploy/latest` | `/xl-deploy/4.5.x/index.html` |
-| `/xl-deploy/latest/rulesmanual.html` | `/xl-deploy/4.5.x/rulesmanual.html` |
-| `/xl-deploy/latest/genericPluginManual.html` | `/xl-deploy/4.5.x/genericPluginManual.html` |
-| `/xl-deploy/latest/glassfishPluginManual.html` | `xl-deploy-glassfish-plugin/4.0.x/glassfishPluginManual.html` |
-   
+**New format:** `/<product-id>/latest/<doc-file-name.html>`
+
+**Legacy formats:**
+
+| Documentation | Pattern |
+| --------------| ------- |
+| XL Deploy and bundled plugins | `/releases/latest/deployit/<doc-file-name.html>` |
+| XL Deploy non-bundled plugins | `/releases/latest/<plugin-name>/<doc-file-name.html>` |
+| XL Release | `/releases/latest/xl-release/<doc-file-name.html>` |
+| XL Release plugins | `/releases/latest/<plugin-name>/<doc-file-name.html>` |
+| XL Scale | `/releases/latest/xl-scale-plugin/<doc-file-name.html>` |
+| XL Scale plugins | `/releases/latest/<plugin-name>/<doc-file-name.html>` |
+
 See `_redirects.yml` for a complete list of the redirects that are available.
 
 # Logical structure of the site
