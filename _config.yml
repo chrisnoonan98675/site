@@ -1,15 +1,11 @@
 title: XebiaLabs documentation
 tagline: 'Deliver faster'
 description: 'Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise.'
-name: XebiaLabs Tips and Tricks Blog
-blogurl: http://localhost:4000/tips-and-tricks
-author:
-  name: XebiaLabs, Inc.
-  email: info@xebialabs.com
-permalink: /tips-and-tricks/:categories/:year:month:day-:title
+url: http://testdocs.xebialabs.com
 
-paginate: 10
-paginate_path: "tips-and-tricks/page:num"
+sitemap:
+    exclude:
+        - "/tips-and-tricks.html"
 
 defaults:
     -
@@ -18,12 +14,6 @@ defaults:
             type: "pages"
         values:
             layout: "page"
-    -
-        scope:
-            path: ""
-            type: "posts"
-        values:
-            layout: "post"
 
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
