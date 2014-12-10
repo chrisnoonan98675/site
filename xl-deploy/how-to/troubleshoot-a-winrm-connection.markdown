@@ -105,13 +105,15 @@ After increasing the value of `MaxMemoryPerShellMB`, you may still receive "out 
 
 If you running WinRM 3.0, you will need to install the hotfix described in [Microsoft Knowledge Base article #2842230](http://support.microsoft.com/kb/2842230). In fact, Windows Management Framework 3.0, of which WinRM 3.0 is a part, [has been temporarily removed from Windows Update](http://blogs.msdn.com/b/powershell/archive/2012/12/20/windows-management-framework-3-0-compatibility-update.aspx) because of numerous incompatibility issues with other Microsoft products.
 
-# WinRM command unexpectedly fails with an "Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'" error
+<a name="winrm_fails_with_nt_authority_anonymous_logon_error"></a>
 
-If a script can be executed successfully when executed directly on the target machine, but fails with this error when run through WinRM, you will need to [enable multi-hop support in WinRM](set-up-credssp-for-a-winrm-connection.html).
+## WinRM command fails with a "Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'" error
 
-# WinRM command unexpectedly fails with an "The local farm is not accessible" error
+If a script can be executed successfully when executed directly on the target machine, but fails with this error when executed through WinRM, you will need to [enable multi-hop support in WinRM](set-up-credssp-for-a-winrm-connection.html).
 
-See the previous entry.
+## WinRM command fails with a "The local farm is not accessible" error
+
+See [the previous entry](#winrm_fails_with_nt_authority_anonymous_logon_error)
 
 ## Kerberos authentication fails with the message `Unable to load realm info from SCDynamicStore`
 
