@@ -1,6 +1,6 @@
 ---
 layout: list-in-sidebar
-title: Frequently asked questions
+title: FAQ
 weight: 20
 ---
 
