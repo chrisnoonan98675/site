@@ -1,6 +1,6 @@
 ---
 layout: list-in-sidebar
-title: Getting started
+title: Getting Started
 weight: 15
 ---
 

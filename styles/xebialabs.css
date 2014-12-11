@@ -1,18 +1,36 @@
 /* XebiaLabs-specific styles */
-.hidden { display: none; }
-.indented { margin-left: 40px; }
+.hidden { 
+	display: none; 
+}
+.indented { 
+	margin-left: 40px; 
+}
+
+
+/*--------------- NAVBAR ---------------*/
 .navbar { 
-	min-height: 75px; 
+	min-height: 75px;
 }
 .navbar-default { 
 	background:#003366 !important;
 	border-radius:0px !important;
 	-webkit-border-radius: 0px !important;
 	border:none;
+	margin-bottom:0px !important;
 }
 .navbar-default a { 
 	color:#fff !important;
 }
+#top-ribbon {
+	 background:#fff;
+     font-size:12px;
+     color:#fff;
+     background:url('./images/lines-blue.png');
+     padding:10px 0px 0px;
+     font-weight:300;
+ }
+
+
 .breadcrumb { background-color: #FFFFFF; padding-left: 0; }
 img { max-width: 650px; }
 .xltopmenu { height: 75px; padding-top: 10px; }
