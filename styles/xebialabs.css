@@ -37,7 +37,6 @@
 img { max-width: 650px; }
 .xltopmenu { height: 75px; padding-top: 10px; }
 .post-metadata { margin-bottom: 10px; }
-#copyright { margin-top: 20px; }
 
 /* Google Custom Search overrides */
 input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gsc-search-button, .gsc-inline-block {
@@ -79,7 +78,9 @@ h1,h2,h3,h4,h5,h6 {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 60px;
+  padding:10px;
+  background:#001D3B;
+  color:#fff;
 } 
 
 /* Scroll-to-top button styles */
