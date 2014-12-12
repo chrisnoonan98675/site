@@ -1,18 +1,20 @@
 ---
-title: Configuring metrics to an XL Satellite server
+title: Configure XL Deploy satellite metrics
+categories:
+- xl-deploy
 subject:
 - Satellite
-categories:
-- xl-satellite
 tags:
-- metrics
+- satellite
+- system administration
+- configuration
 ---
 
-## Configuring the hostname and port for metrics interface
+## Configure host name and port for metrics
 
-XL-Satellite server binds an HTTP server to serves as JSON useful metrics. You can check streaming activities, number of tasks running and JVM technical metrics. 
+An XL Deploy satellite server binds to an HTTP server to provide metrics in JSON format. This enables you to check streaming activities, the number of tasks that are running, and Java virtual machine (JVM) technical metrics.
 
-By default, server binds to every interface, that is to say '0.0.0.0'. You can change this property to specify a hostname or an IP which will be bound by this HTTP server. 
+By default, the HTTP server binds to `0.0.0.0`. To specify a different host name or IP address for the server to bind to, modify the following setting:
 
     satellite {
         metrics {
@@ -20,7 +22,7 @@ By default, server binds to every interface, that is to say '0.0.0.0'. You can c
         }
     }
 
-You can also change the default port, which is '8080' by default.
+You can also change the default port, which is `8080` by default.
   
     satellite {
         metrics {
@@ -29,15 +31,16 @@ You can also change the default port, which is '8080' by default.
     }
     
 ## Metrics
-Once configured, you can access to XL-Satellite metrics given the configured hostname and ip. 
 
-###Registered plugins
+Access the metrics using the host name or IP address and port that you specified in the configuration.
+
+### Registered plugins
 
     http://${satellite.metrics.hostname}:${satellite.metrics.port}/application
     
     {"plugins": [{"webserver-plugin" : "5.0.0"}]}
 
-###Technical metrics
+### Technical metrics
 
     http://${satellite.metrics.hostname}:${satellite.metrics.port}/metrics
     
@@ -108,7 +111,7 @@ Once configured, you can access to XL-Satellite metrics given the configured hos
         }
     }
 
-###Configuration
+### Configuration
 
     http://${satellite.metrics.hostname}:${satellite.metrics.port}/configuration
     

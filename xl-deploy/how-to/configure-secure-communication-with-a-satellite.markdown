@@ -1,18 +1,17 @@
 ---
-title: Configuring security to an XL Satellite server
+title: Configure secure communication with a satellite server
+categories:
+- xl-deploy
 subject:
 - Satellite
-categories:
-- xl-satellite
 tags:
 - security
+- satellite
 ---
 
-## Using secured communication
-  
-XL-Satellite can communicate over a secured communication channel. XL-Satellite can use TLS/SSL technology to encrypt data. This algorithm relies on certificate checking and data encryption using asymmetric keys.
+XL Deploy can communicate with satellite servers over a secure communication channel, using [TLS/SSL technology](http://en.wikipedia.org/wiki/Transport_Layer_Security) to encrypt data. This algorithm relies on certificate checking and data encryption using asymmetric keys.
    
-Depending on your security policy, you can use self-signed certificates using the standard tool from Java, `keytool`. 
+Depending on your security policy, you can use self-signed certificates using [the `keytool` utility](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html). For example:
    
     # Generate a keystore and a self-signed certificate for xl-satellite
     # storepass is the password for the keystore
@@ -26,14 +25,15 @@ Depending on your security policy, you can use self-signed certificates using th
     # Importing into the truststore for xld
     keytool -import -alias satellite -file satellite.cer -keystore xld-truststore.jks
 
-
-Once in possession of a keystore for XL-Satellite and a shared truststore with XL-Deploy, you can enable this feature by modifying file `conf/application.conf`
+After you have a keystore for the satellite and a shared truststore with XL Deploy, you can enable secure communication by modifying `conf/application.conf` as follows:
  
     satellite {
         tls = on
     }
-    
-This add the security configuration to the current satellite configuration. This configuration is located in another file, `conf/security.conf`:
+
+## Security configuration
+
+The satellite security configuration is located in `conf/security.conf`:
     
     akka.remote.netty.ssl.security{
         # Protocol to use for SSL encryption, choose from:
@@ -78,8 +78,12 @@ This add the security configuration to the current satellite configuration. This
         random-number-generator = "AES128CounterSecureRNG"
     }
 
-Default configuration is set to `TLSv1.2`, `TLS_RSA_WITH_AES_128_CBC_SHA` and `AES128CounterSecureRNG`. Feel free to change those values depending on your security policy and requirements.
+The default configuration uses `TLSv1.2`, `TLS_RSA_WITH_AES_128_CBC_SHA` and `AES128CounterSecureRNG`. You can change these values depending on your security policy and requirements.
 
-NOTE: Those configuration value must be symetric with XL-Deploy values to enable handshake. You can enable logging secured communication with environment variable before starting XL-Satellite:
+**Important:** These configuration values must match the XL Deploy values, to enable handshake.
+
+## Logging
+
+To enabled logging of secure communications, set the `SATELLITE_OPTS` environment variable before starting the satellite:
 
     export SATELLITE_OPTS="$SATELLITE_OPTS -Djavax.net.debug=all"
