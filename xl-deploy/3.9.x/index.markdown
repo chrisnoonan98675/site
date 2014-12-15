@@ -22,7 +22,6 @@ product-id: xl-deploy
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
 * [Java API Manual](xldeployjavaapimanual.html)
-* Jython API Manual
 
 ### Standard plugins
 
@@ -70,5 +69,5 @@ product-id: xl-deploy
 * XL Deploy Maven plugin
 * [XL Deploy Jenkins plugin](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
 * XL Deploy Bamboo plugin
-* XL Deploy Team Foundation Server plugin
-* XL Deploy Manifest Editor (Windows only)
+* [XL Deploy Team Foundation Server plugin](../../xl-deploy-tfs-plugin/3.9.x/tfsPluginManual.html)
+* [XL Deploy Manifest Editor (Windows only)](../../xl-deploy-tfs-plugin/3.9.x/manifestEditorManual.html)
