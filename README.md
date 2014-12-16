@@ -16,7 +16,9 @@ Go to `http://localhost:4000` to see the site running locally.
 
 # Contributing
 
-*Coming soon!*
+* When you commit a change to the master branch of this repository, a [Jenkins job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/Jekyll%20docs/) is triggered. This job generates the change in HTML and immediately publishes it to [testdocs.xebialabs.com](http://testdocs.xebialabs.com).
+* To commit a change to GitHub without triggering the Jenkins job, [create a pull request](https://help.github.com/articles/creating-a-pull-request/). This allows others to review your work.
+* You can store drafts, images, samples, etc. in `_drafts`. Markdown files stored in `_drafts` are not be converted to HTML.
 
 # Things to know about formatting
 
@@ -99,17 +101,6 @@ See `_redirects.yml` for a complete list of the redirects that are available.
 
 In Jekyll terminology, topics are *pages* that are located in directories such as `xl-deploy`, `xl-release`, and so on.
 
-## Folders
-
-The purpose of some folders might not be clear if you're not familiar with Jekyll, so here are some explanations:
-
-| Folder | Purpose |
-| ------ | ------- |
-| `_plugins` | Contains Jekyll plugins |
-| `images` | Contains images for the site itself (like product logos) *and* images for topics |
-| `sample-scripts` | Contains sample files for topics (such as downloadable Python scripts) |
-| `_site` | This is where Jekyll puts generated files |
-
 ## File names
 
 Refer to the template in `_drafts` for file naming guidelines.
@@ -162,12 +153,6 @@ Save drafts of pages in `_drafts`. Drafts are never converted to HTML.
 * [Markdown-Writer for Atom](https://atom.io/packages/markdown-writer): Might be useful for tag management/consistency
 * [Sort and filter in Jekyll](http://www.leveluplunch.com/blog/2014/04/03/sort-pages-by-title-filter-array-by-layout-jekyllrb/): Describes how to sort pages by weight and filter them by layout (this is the method used to generate the sidebar menu)
 * [Advanced Jekyll features](http://www.divshot.com/blog/web-development/advanced-jekyll-features/)
-
-# Workflow
-
-* Editors can commit directly on master of the online docs repository. 
-* Content can be reviewed and approved on the [testdocs.xebialabs.com](http://testdocs.xebialabs.com) site which refreshes automatically (via [Documentation/Jekyll docs](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/Jekyll%20docs/) job).
-* On demand, content can be pushed out to the production site (e.g. via Jenkins) _not implemented yet_.
 
 # Pulling doc from other repositories
 
