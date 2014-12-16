@@ -14,7 +14,7 @@ The file name format is `your-file-name-here.markdown`. Do not use underscores, 
 
 ## Front matter
 
-Do not change the words *title*, *categories*, *subject*, or *tags* in the font matter (for example, don't change *categories* to *category*).
+Do not change the words `title`, `categories`, `subject`, or `tags` in the font matter (for example, don't change `categories` to `category`).
 
 ### Title
 
@@ -26,18 +26,13 @@ Write the title in sentence case.
 
 ### Categories
 
-Categories identity product(s) that the page applies to. They should be written as product IDs:
-
-* xl-deploy
-* xl-release
-* xl-scale
-* xl-test
+Categories identity product(s) that the page applies to. They should be written as product IDs.
 
 You can add multiple categories.
 
 #### Formatting categories
 
-Write categories in lowercase.
+Write categories in lowercase. Spaces are not allowed. For example: *xl-deploy*.
 
 ### Subject
 
@@ -45,24 +40,24 @@ The subject is like a high-level tag. It helps users who are used to reading doc
 
 You can only add one subject.
 
-To see the subjects that are in use, go to [http://testdocs.xebialabs.com/tags-and-subjects.html](http://testdocs.xebialabs.com/tags-and-subjects.html).
+**Tip:** To see the subjects that are in use, go to [http://testdocs.xebialabs.com/tags-and-subjects.html](http://testdocs.xebialabs.com/tags-and-subjects.html).
 
 #### Formatting the subject
 
-Write the subject in sentence case.
+Write the subject in sentence case. For example: *System administration*.
 
 ### Tags
 
-Tags help users browse posts and improve search results. Try to use tags that are already in use (see below for the lists). You can add new tags, but do so with caution.
+Tags help users browse posts and improve search results. Try to use tags that are already in use. You can add new tags, but do so with caution.
 
 You can add multiple tags.
 
-To see the tags that are in use, go to [http://testdocs.xebialabs.com/tags-and-subjects.html](http://testdocs.xebialabs.com/tags-and-subjects.html).
+**Tip:** To see the tags that are in use, go to [http://testdocs.xebialabs.com/tags-and-subjects.html](http://testdocs.xebialabs.com/tags-and-subjects.html).
 
 #### Formatting tags
 
-Tags must be written in lowercase. Spaces are allowed.
+Write tags must in lowercase. Spaces are allowed. For example: *active directory*.
 
 ## Formatting the file
 
-Refer to the readme of the online-docs-jekyll repository to see guidelines for formatting within the file.
+Refer to the `readme` of the `online-docs-jekyll` repository to see guidelines for formatting within the file.
