@@ -82,7 +82,7 @@ You can override the default settings in the type definitions in the `synthetic.
 
 ## Step options in the Python plugin
 
-The Python plugin does not have step options. However, the [`python.PythonManagedDeployed`](/xl-deploy/latest/pythonPluginManual.html#python.PythonManagedDeployed) CI has a property that is similar to one of the PowerShell step options:
+The [Python](/xl-deploy/latest/pythonPluginManual.html) plugin does not have step options. However, the [`python.PythonManagedDeployed`](/xl-deploy/latest/pythonPluginManual.html#python.PythonManagedDeployed) CI has a property that is similar to one of the PowerShell step options:
 
 * `exposeDeployedApplication`: Add the `deployedApplication` object to the Python context ([`udm.DeployedApplication`](/xl-deploy/latest/udmcireference.html#udm.DeployedApplication)).
 
