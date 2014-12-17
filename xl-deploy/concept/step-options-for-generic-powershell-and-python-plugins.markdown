@@ -34,9 +34,7 @@ Step options allow you to use the `createOptions`, `modifyOptions`, `destroyOpti
 
 Also, you might have a deployment script that needs to refer to the previous deployed, or needs to have information about the deployed application. You can make this information available by setting the proper step options.
 
-## What step options are available?
-
-### Generic plugin and PowerShell plugin options
+## Generic plugin and PowerShell plugin options
 
 The following step options are available for the Generic plugin and PowerShell plugin:
 
@@ -82,7 +80,7 @@ XL Deploy comes with various predefined CI types based on the Generic plugin and
 
 You can override the default settings in the type definitions in the `synthetic.xml` file. Also, you can change the defaults in the `conf/deployit-defaults.properties` file.
 
-## Step options in the Python plugin?
+## Step options in the Python plugin
 
 The Python plugin does not have step options. However, the [`python.PythonManagedDeployed`](/xl-deploy/latest/pythonPluginManual.html#python.PythonManagedDeployed) CI has a property that is similar to one of the PowerShell step options:
 
