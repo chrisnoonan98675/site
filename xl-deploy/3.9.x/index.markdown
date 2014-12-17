@@ -59,6 +59,9 @@ product-id: xl-deploy
 ### Other Middleware
 
 * [F5 BIG-IP plugin](../../xl-deploy-bigip-plugin/3.9.x/bigipPluginManual.html)
+* [Cloud plugin](/xl-scale-cloud-plugin/3.9.x/cloudPluginManual.html)
+* [EC2 plugin](/xl-scale-ec2-plugin/3.9.x/ec2PluginManual.html)
+* [vSphere plugin](/xl-scale-vsphere-plugin/3.9.x/vspherePluginManual.html)
 * [Database plugin (DB2, MS SQL, MySQL, Oracle)](databasePluginManual.html)
 * [Webserver plugin (Apache HTTP server)](webserverPluginManual.html)
 * [WebSphere MQ plugin](../../xl-deploy-wmq-plugin/3.9.x/wmqPluginManual.html)
