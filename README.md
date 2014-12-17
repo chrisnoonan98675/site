@@ -14,6 +14,8 @@ Go to `http://localhost:4000` to see the site running locally.
 
 **Note:** If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
 
+**Tip:** To disable updating of the Development Dashboard while you run Jekyll in watch mode, change the `jira_dashboard` `generate` setting in `_config.yml` to `false`. **Do not commit this change to the repository!**
+
 # Contributing
 
 * When you commit a change to the master branch of this repository, a [Jenkins job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/Jekyll%20docs/) is triggered. This job generates the change in HTML and immediately publishes it to [testdocs.xebialabs.com](http://testdocs.xebialabs.com).
