@@ -32,3 +32,14 @@ You can use an HTTP reference in the `fileUri` property. Note that:
 
 * XL Deploy tries to get the file name from the `Content-Disposition` header of the `HEAD` request, then of the `GET` request. If neither is available, it falls back to the last segment of the URI.
 * You can specify basic HTTP credentials in the URI; for example, `http://admin:admin@example.com/artifact.jar`.
+
+## CLI example
+
+This is how you can create a deployment package using XL Deploy CLI:
+
+    admin > myApp = factory.configurationItem('Applications/myApp', 'udm.Application')
+    admin > repository.create(myApp)
+    admin > myApp1_0 = factory.configurationItem('Applications/myApp/1.0', 'udm.DeploymentPackage')
+    admin > repository.create(myApp1_0)
+    admin > myFile = factory.configurationItem('Applications/myApp/1.0/myFile', 'file.File', {'fileUri': 'http://example.com.com/artifact.war'})
+    admin > repository.create(myFile)
