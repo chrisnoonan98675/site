@@ -17,8 +17,10 @@ By default, XL Deploy supports Maven repositories and HTTP/HTTPS locations.
 
 When creating a deployable artifact, you can choose to either:
 
-* Upload a file that will be stored in JCR
-* Specify the `fileUri` property, which XL Deploy will use to resolve the artifact at runtime, using the URI with one of available artifact resolvers
+* Upload a file that will be stored in JCR.
+* Specify the `fileUri` property, which XL Deploy will use to resolve the artifact at runtime, using the URI with one of available artifact resolvers.
+
+Note that the checksum and placeholders are calculated only once when using the `fileUri` property. So the artifact content at the remote URI should not change after it was created in XL Deploy.
 
 ## Using Maven repository URI
 
@@ -32,6 +34,7 @@ You can use an HTTP reference in the `fileUri` property. Note that:
 
 * XL Deploy tries to get the file name from the `Content-Disposition` header of the `HEAD` request, then of the `GET` request. If neither is available, it falls back to the last segment of the URI.
 * You can specify basic HTTP credentials in the URI; for example, `http://admin:admin@example.com/artifact.jar`.
+* To connect using HTTPS with a self-signed SSL certificate you need to configure JVM parameters of XL Deploy to trust your certificate.
 
 ## CLI example
 

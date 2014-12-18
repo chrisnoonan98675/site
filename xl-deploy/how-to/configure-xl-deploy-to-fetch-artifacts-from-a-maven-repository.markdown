@@ -8,7 +8,7 @@ tags:
 - maven
 ---
 
-If you store artifacts in a Maven repository and use XL Deploy to deploy them, you may want to avoid storing them twice. As of XL Deploy 5.0.0, you can access artifacts stored in a Maven repository using the [`artifactUri`](/xl-deploy/latest/udmcireference.html#udmbasedeployableartifact) property of an XL Deploy artifact. To use this feature, you must configure the Maven repositories where XL Deploy will search for artifacts.
+If you store artifacts in a Maven repository and use XL Deploy to deploy them, you may want to avoid storing them twice. As of XL Deploy 5.0.0, you can access artifacts stored in a Maven repository using the [`fileUri` property](/xl-deploy/how-to/add-an-externally-stored-artifact-to-a-package.html) of XL Deploy artifacts. To use this feature, you must configure the Maven repositories where XL Deploy will search for artifacts.
 
 ## Step 1 Get your Maven repository details
 
