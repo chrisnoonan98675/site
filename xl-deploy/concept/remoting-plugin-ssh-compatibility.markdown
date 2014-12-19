@@ -17,5 +17,5 @@ The XL Deploy Remoting plugin uses the [sshj](https://github.com/shikhar/sshj) l
 * Key Exchange methods: `diffie-hellman-group1-sha1`, `diffie-hellman-group14-sha1`
 * Signature formats: `ssh-rsa`, `ssh-dss`
 * MAC algorithms: `hmac-md5`, `hmac-md5-96`, `hmac-sha1`, `hmac-sha1-96`
-* Compression algorithms: `zlib` and `zlib@openssh.com` (delayed zlib)
+* Compression algorithms: `zlib` and `zlib@openssh.com` (delayed `zlib`)
 * Private Key file formats: `pkcs8` encoded (the format used by [OpenSSH](http://www.openssh.com/))
