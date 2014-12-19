@@ -16,6 +16,12 @@ img {
 	height: 75px;
 	padding-top: 10px;
 }
+.blogpostlist li {
+	margin-bottom: 20px;
+}
+.latestnews {
+	margin-top: 35px;
+}
 
 /*--------------- NAVBAR ---------------*/
 .navbar { 
