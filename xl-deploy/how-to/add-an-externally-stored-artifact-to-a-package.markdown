@@ -20,11 +20,11 @@ When creating a deployable artifact, you can choose to either:
 * Upload a file that will be stored in JCR.
 * Specify the `fileUri` property, which XL Deploy will use to resolve the artifact at runtime, using the URI with one of available artifact resolvers.
 
-Note that the checksum and placeholders are calculated only once when using the `fileUri` property. So the artifact content at the remote URI should not change after it was created in XL Deploy.
+Note that URI validation, checksum calculation and placeholders scanning are happens only once, after the creation of the CI, and those are not re-calculated and scanned when you change `fileUri` property. So it is not recommended to change `fileUri` after it was created in XL Deploy.
 
 ## Using Maven repository URI
 
-The URI of a Maven artifact start with `maven:`, followed by Maven coordinates. For example: `maven:com.acme.applications:PetClinic:1.0`.
+The URI of a Maven artifact start with `maven:`, followed by [Maven coordinates](http://maven.apache.org/pom.html#Maven_Coordinates). For example: `maven:com.acme.applications:PetClinic:1.0`.
 
 **Note:** For information about configuring the Maven repositories that will be used, refer to [Configure XL Deploy to fetch artifacts from a Maven repository](configure-xl-deploy-to-fetch-artifacts-from-a-maven-repository.html).
 
