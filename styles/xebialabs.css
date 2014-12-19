@@ -5,7 +5,17 @@
 .indented { 
 	margin-left: 40px; 
 }
-
+.breadcrumb {
+	background-color: #FFFFFF;
+	padding-left: 0;
+}
+img {
+	max-width: 650px;
+}
+.xltopmenu {
+	height: 75px;
+	padding-top: 10px;
+}
 
 /*--------------- NAVBAR ---------------*/
 .navbar { 
@@ -31,12 +41,6 @@
      height:20px;
      margin-bottom:20px;
  }
-
-
-.breadcrumb { background-color: #FFFFFF; padding-left: 0; }
-img { max-width: 650px; }
-.xltopmenu { height: 75px; padding-top: 10px; }
-.post-metadata { margin-bottom: 10px; }
 
 /* Google Custom Search overrides */
 input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gsc-search-button, .gsc-inline-block {
@@ -64,23 +68,21 @@ html {
 body {
   	/* Margin bottom by footer height */
   	margin-bottom: 60px;
-	font-family:'effra', 'Helvetica', Arial, sans-serif;
-	font-weight:100;
-	font-size:14px;
-	color:#001D3B;
+	font-family: 'effra', 'Helvetica', Arial, sans-serif;
+	font-weight: 100;
+	font-size: 14px;
+	color: #001D3B;
 }
 h1,h2,h3,h4,h5,h6 {
-	font-weight:100
+	font-weight: 100;
 }
-
-
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding:10px;
-  background:#001D3B;
-  color:#fff;
+  padding: 10px;
+  background: #001D3B;
+  color: #fff;
 } 
 
 /* Scroll-to-top button styles */
@@ -161,7 +163,7 @@ h1,h2,h3,h4,h5,h6 {
     background-image: url(/images/bullet_down_arrow.png);
 }
 
-/* product dashboard page */
+/* Product dashboard page */
 
 input.search-query {
     padding-left: 26px;
