@@ -14,8 +14,8 @@ product-id: xl-release
 
 ## Plugins
 
-* [Remote Script Plugin Manual](xlr-remotescript-plugin/remoteScriptPluginManual.html)
-* [JIRA Pugin Manual](xlr-jira-plugin/jiraPluginManual.html)
-* [Git Plugin Manual](xlr-git-plugin/gitPluginManual.html)
-* [Nexus Plugin Manual](xlr-nexus-plugin/nexusPluginManual.html)
-* [Time Plugin Manual](xlr-time-plugin/timePluginManual.html)
+* [Remote Script Plugin Manual](../../xl-release-remotescript-plugin/4.0.x/remoteScriptPluginManual.html)
+* [JIRA Pugin Manual](../../xl-release-jira-plugin/4.0.x/jiraPluginManual.html)
+* [Git Plugin Manual](../../xl-release-git-plugin/4.0.x/gitPluginManual.html)
+* [Nexus Plugin Manual](../../xl-release-nexus-plugin/4.0.x/nexusPluginManual.html)
+* [Time Plugin Manual](../../xl-release-time-plugin/4.0.x/timePluginManual.html)
