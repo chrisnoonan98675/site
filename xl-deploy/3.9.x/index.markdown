@@ -69,7 +69,7 @@ product-id: xl-deploy
 
 ### Tools
 
-* XL Deploy Maven plugin
+* [XL Deploy Maven plugin](../../deployit-maven-plugin/3.9.5/)
 * [XL Deploy Jenkins plugin](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
 * XL Deploy Bamboo plugin
 * [XL Deploy Team Foundation Server plugin](../../xl-deploy-tfs-plugin/3.9.x/tfsPluginManual.html)

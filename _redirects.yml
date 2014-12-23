@@ -85,6 +85,7 @@
 /xl-deploy/latest/bigipPluginManual.html : /xl-deploy-bigip-plugin/4.5.x/bigipPluginManual.html
 /xl-deploy/latest/wmqPluginManual.html : /xl-deploy-wmq-plugin/4.5.x/wmqPluginManual.html
 /xl-deploy/latest/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/4.5.x/netscalerPluginManual.html
+/xl-deploy/latest/maven-plugin/index.html : /deployit-maven-plugin/4.5.2/index.html
 /xl-deploy/latest/jenkins-plugin/index.html : https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin
 
 # XL Deploy non-bundled plugin doc, legacy format
@@ -102,6 +103,7 @@
 /releases/latest/bigip-plugin/bigipPluginManual.html : /xl-deploy-bigip-plugin/4.5.x/bigipPluginManual.html
 /releases/latest/wmq-plugin/webserverPluginManual.html : /xl-deploy-wmq-plugin/4.5.x/wmqPluginManual.html
 /releases/latest/netscaler-plugin/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/4.5.x/netscalerPluginManual.html
+/deployit-maven-plugin/index.html : /deployit-maven-plugin/4.5.2/index.html
 
 # XL Release product doc, new format
 /xl-release/latest/index.html : /xl-release/4.0.x/index.html
