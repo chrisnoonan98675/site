@@ -47,12 +47,15 @@ a img {
 	 background:#fff;
      font-size:12px;
      color:#fff;
-     background:url('../images/lines-blue.png');
+     background:url('/images/lines-blue.png');
      padding:10px 0px 0px;
      font-weight:300;
      height:20px;
      margin-bottom:20px;
- }
+}
+.navbar-collapse {
+	border: none;
+}
 
 /* Google Custom Search overrides */
 input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gsc-search-button, .gsc-inline-block {
