@@ -72,3 +72,9 @@ product-id: xl-deploy
 * XL Deploy Bamboo plugin
 * [XL Deploy Team Foundation Server plugin](../../xl-deploy-tfs-plugin/4.5.x/tfsPluginManual.html)
 * [XL Deploy Manifest Editor (Windows only)](../../xl-deploy-tfs-plugin/4.5.x/manifestEditorManual.html)
+
+### XL Scale
+
+* [XL Scale plugin](../../xl-scale-plugin/4.0.x/xlScaleManual.html)
+* [XL Scale EC2 plugin](../../xl-scale-ec2-plugin/4.0.x/ec2PluginManual.html)
+* [XL Scale vSphere plugin](../../xl-scale-vsphere-plugin/4.0.x/vspherePluginManual.html)

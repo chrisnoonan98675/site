@@ -137,7 +137,7 @@
 /releases/latest/xlr-time-plugin/timePluginManual.html : /xl-release/4.0.x/xlr-time-plugin/timePluginManual.html
 
 # XL Scale product doc, new format
-/xl-scale/latest/index.html : /xl-scale/4.0.x/index.html
+/xl-scale/latest/index.html : /xl-deploy/4.5.x/index.html#xl-scale
 /xl-scale/latest/xlScaleManual.html : /xl-scale/4.0.x/xl-scale-plugin/xlScaleManual.html
 
 # XL Scale product doc, legacy format
