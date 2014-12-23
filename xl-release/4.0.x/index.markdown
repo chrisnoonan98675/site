@@ -12,7 +12,7 @@ product-id: xl-release
 * [Markdown Syntax Guide](markdownsyntax.html)
 * [REST API Reference](xl-release-server/rest-api/)
 
-## Plugins
+## Plugin documentation
 
 * [Remote Script Plugin Manual](../../xl-release-remotescript-plugin/4.0.x/remoteScriptPluginManual.html)
 * [JIRA Pugin Manual](../../xl-release-jira-plugin/4.0.x/jiraPluginManual.html)

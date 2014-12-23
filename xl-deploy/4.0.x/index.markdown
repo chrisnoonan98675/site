@@ -33,7 +33,7 @@ product-id: xl-deploy
 * [Webserver Plugin Manual](webserverPluginManual.html)
 * [Trigger Plugin Manual](triggerPluginManual.html)
 
-## Plugins
+## Plugin documentation
 
 ### Java Middleware
 
