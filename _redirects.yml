@@ -87,6 +87,7 @@
 /xl-deploy/latest/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/4.5.x/netscalerPluginManual.html
 /xl-deploy/latest/maven-plugin/index.html : /deployit-maven-plugin/4.5.2/index.html
 /xl-deploy/latest/jenkins-plugin/index.html : https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin
+/xl-deploy/latest/bamboo-plugin/index.html : /bamboo-xl-deploy-plugin/4.5.x/bambooPluginManual.html
 
 # XL Deploy non-bundled plugin doc, legacy format
 /releases/latest/jbossas-plugin/jbossPluginManual.html : /xl-deploy-jbossas-plugin/4.0.x/jbossPluginManual.html
@@ -104,6 +105,7 @@
 /releases/latest/wmq-plugin/webserverPluginManual.html : /xl-deploy-wmq-plugin/4.5.x/wmqPluginManual.html
 /releases/latest/netscaler-plugin/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/4.5.x/netscalerPluginManual.html
 /deployit-maven-plugin/index.html : /deployit-maven-plugin/4.5.2/index.html
+/releases/latest/bamboo-xl-deploy-plugin/bambooPluginManual.html : /bamboo-xl-deploy-plugin/4.5.x/bambooPluginManual.html
 
 # XL Release product doc, new format
 /xl-release/latest/index.html : /xl-release/4.0.x/index.html
