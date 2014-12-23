@@ -149,5 +149,6 @@
 /releases/latest/xl-scale-ec2-plugin/ec2PluginManual.html : /xl-scale/4.0.x/xl-scale-ec2-plugin/ec2PluginManual.html
 /releases/latest/xl-scale-vsphere-plugin/vspherePluginManual.html : /xl-scale/4.0.x/xl-scale-vsphere-plugin/vspherePluginManual.html
 
-# Redirect so that legacy XLR index file is not used
+# Redirect so that legacy XLR index files are not used
 /generated/xl-release/4.0.x/index.html : /xl-release/4.0.x/index.html
+/generated/xl-release/3.0.x/index.html : /xl-release/3.0.x/index.html
