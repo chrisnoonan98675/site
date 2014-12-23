@@ -1,44 +1,48 @@
 ---
 title: Add an externally stored artifact to a package
 subject:
-- Configuration
+- Packaging
 categories:
 - xl-deploy
 tags:
 - artifacts
 - packaging
+- maven
+- application
 ---
 
-Normally, XL Deploy stores artifacts in its internal JCR repository. As of XL Deploy 5.0.0, you can also set a remote uniform resource identifier (URI) that is resolved when XL Deploy needs to access the file; for example, when it needs to perform a deployment.
+Artifacts are the physical files that make up a specific version of an application; for example, an application binary, configuration files, or web content. When adding an artifact to a deployment package, you can:
 
-By default, XL Deploy supports Maven repositories and HTTP/HTTPS locations.
+* Upload an artifact that will be stored in XL Deploy's internal JCR repository
+* Specify the uniform resource identifier (URI) of an externally stored artifact, which XL Deploy will resolve when it needs to access the file (supported in XL Deploy 5.0.0 and later)
 
-## Setting `fileUri` of deployable artifacts
+## Set the URI of a deployable artifact
 
-When creating a deployable artifact, you can choose to either:
+If you set the `fileUri` property of an artifact to a URI, XL Deploy uses an artifact resolver to resolve the URI at runtime. By default, XL Deploy supports Maven repositories and HTTP/HTTPS locations. You can also add your own [add a custom artifact resolver](extend-the-external-artifact-storage-feature.html).
 
-* Upload a file that will be stored in JCR.
-* Specify the `fileUri` property, which XL Deploy will use to resolve the artifact at runtime, using the URI with one of available artifact resolvers.
+**Important:** XL Deploy performs URI validation, checksum calculation, and placeholder scanning once, after the creation of the artifact configuration item (CI). It does not perform these actions again if the `fileUri` property is changed. Therefore, it is recommended that you do not change the `fileUri` property after you save the CI.
 
-Note that URI validation, checksum calculation and placeholders scanning are happens only once, after the creation of the CI, and those are not re-calculated and scanned when you change `fileUri` property. So it is not recommended to change `fileUri` after it was created in XL Deploy.
+## Use a Maven repository URI
 
-## Using Maven repository URI
+The URI of a Maven artifact must start with `maven:`, followed by [Maven coordinates](http://maven.apache.org/pom.html#Maven_Coordinates). For example:
 
-The URI of a Maven artifact start with `maven:`, followed by [Maven coordinates](http://maven.apache.org/pom.html#Maven_Coordinates). For example: `maven:com.acme.applications:PetClinic:1.0`.
+    maven:com.acme.applications:PetClinic:1.0
 
-**Note:** For information about configuring the Maven repositories that will be used, refer to [Configure XL Deploy to fetch artifacts from a Maven repository](configure-xl-deploy-to-fetch-artifacts-from-a-maven-repository.html).
+For information about configuring your Maven repository, refer to [Configure XL Deploy to fetch artifacts from a Maven repository](configure-xl-deploy-to-fetch-artifacts-from-a-maven-repository.html).
 
-## Using HTTP URI
+## Use an HTTP or HTTPS URI
 
-You can use an HTTP reference in the `fileUri` property. Note that:
+You can use an HTTP or HTTPS reference in the `fileUri` property. XL Deploy tries to get the file name from the `Content-Disposition` header of the `HEAD` request, then from the `Content-Disposition` header of the `GET` request. If neither is available, XL Deploy gets the file name from the last segment of the URI.
 
-* XL Deploy tries to get the file name from the `Content-Disposition` header of the `HEAD` request, then of the `GET` request. If neither is available, it falls back to the last segment of the URI.
-* You can specify basic HTTP credentials in the URI; for example, `http://admin:admin@example.com/artifact.jar`.
-* To connect using HTTPS with a self-signed SSL certificate you need to configure JVM parameters of XL Deploy to trust your certificate.
+You can specify basic HTTP credentials in the URI. For example:
 
-## CLI example
+    http://admin:admin@example.com/artifact.jar
 
-This is how you can create a deployment package using XL Deploy CLI:
+To connect using HTTPS with a self-signed SSL certificate, you must configure the JVM parameters of XL Deploy to trust your certificate.
+
+## Create a deployment package using the CLI
+
+This example shows how you can create a deployment package with an externally stored artifact using the XL Deploy command-line interface (CLI):
 
     admin > myApp = factory.configurationItem('Applications/myApp', 'udm.Application')
     admin > repository.create(myApp)
