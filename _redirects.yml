@@ -156,3 +156,14 @@
 # Redirect so that legacy XLR index files are not used
 /generated/xl-release/4.0.x/index.html : /xl-release/4.0.x/index.html
 /generated/xl-release/3.0.x/index.html : /xl-release/3.0.x/index.html
+
+# Redirect old pages that are no longer used
+/product-version.html#/deployit/3.9.x/index.html : /xl-deploy/3.9.x/index.html
+/product-version.html#/xl%20deploy/4.0.x/index.html : /xl-deploy/4.0.x/index.html
+/product-version.html#/xl%20deploy/4.5.x/index.html : /xl-deploy/4.5.x/index.html
+/product-version.html#/xl%20release/3.0.x/index.html : /xl-release/3.0.x/index.html
+/product-version.html#/xl%20release/4.0.x/index.html : /xl-release/4.0.x/index.html
+/product-version.html#/xl%20scale/4.0.x : /xl-deploy/4.0.x/index.html#xl-scale
+/general/cookbook.html : /index.html
+/general/faq.html : /faq/index.html
+/general/community.html : http://xebialabs-community.github.io/
