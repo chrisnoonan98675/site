@@ -22,6 +22,12 @@ img {
 .indexpagerow {
 	margin-top: 35px;
 }
+a img { 
+	border: none;  
+}
+.logo {
+	margin-bottom: 20px;
+}
 
 /*--------------- NAVBAR ---------------*/
 .navbar { 
