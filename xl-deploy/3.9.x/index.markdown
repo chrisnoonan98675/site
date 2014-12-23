@@ -21,7 +21,6 @@ product-id: xl-deploy
 * [Steps Reference](referencesteps.html)
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
-* [Java API Manual](xldeployjavaapimanual.html)
 
 ### Standard plugins
 
