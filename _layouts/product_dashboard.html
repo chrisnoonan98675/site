@@ -2,8 +2,6 @@
 layout: default
 ---
 
-
-
 <div id="content" class="dashboard">
     <div class="container-fluid">
         <div class="row">
@@ -47,7 +45,7 @@ layout: default
         <div class="row release" data-release-type="{{ release.release_type }}"
              data-release-target="{{ release.release_target }}">
             <hr>
-            <div class="col-md-offset-1 col-md-1">
+            <div class="col-md-offset-1 col-md-2">
                 {% if release.release_target == "Product" %}
                     <span class="label bg-product">
                         <i class="icon icon-trophy"></i>
@@ -71,7 +69,7 @@ layout: default
                     </span>
                 {% endif %}
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <b>{{ release.title }} Release</b>
 
                 <ul class="list-unstyled issue-list">
