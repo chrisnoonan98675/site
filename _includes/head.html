@@ -1,13 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+
 	<link href="http://gmpg.org/xfn/11" rel="profile">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-	
 	<meta name="author" content="XebiaLabs Inc.">
-	<meta name="keywords" content="{% include page_tag_list.html %}">
+	<meta name="keywords" content="
+	{% if page.title == "XebiaLabs documentation" %}XL Deploy, Deployit, XL Release, XL Scale, XL Test, XebiaLabs
+	{% else %}{% include page_tag_list.html %}{% endif %}">
 	
 	<link rel="icon" type="image/ico" href="/images/favicon.ico"/>
 
@@ -23,7 +25,8 @@
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/styles/xebialabs.css" type="text/css">
     <link rel="stylesheet" href="/fonts/online-doc-icons/styles.css" type="text/css">
-
+    
+    <!-- Javascript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/js/ie10-viewport-bug-workaround.js"></script>
@@ -38,7 +41,7 @@
 	<!-- Retrieve latest posts from blog.xebialabs.com -->
 	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
 	<script type="text/javascript">google.load("feeds", "1")</script>
-	
+
 </head>
 
 <body>
