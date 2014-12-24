@@ -1,0 +1,3 @@
+<h2>Development Dashboard</h2>
+
+<p>To see the planned major releases and maintenance releases of {% for product in site.data.products %}{% if product.id == page.product-id %}{{ product.name }}{% endif %}{% endfor %} and its plugins, visit the <a href="/development-dashboard/{{ page.product-id }}-dashboard.html">Development Dashboard</a>.</p>
