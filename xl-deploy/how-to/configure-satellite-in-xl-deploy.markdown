@@ -1,5 +1,5 @@
 ---
-title: Configure satellite in XL Deploy
+title: Configure satellite feature in XL Deploy
 categories:
 - xl-deploy
 subject:
@@ -11,35 +11,9 @@ tags:
 - satellite
 ---
 
-## Configure the host name of a satellite
+## Configure the ping timeout
 
-To enable XL Deploy to start a satellite server and connect to it, you must add its host name to the `conf/satellite.conf` as follows:
-
-    akka {
-      remote {
-        netty.tcp {
-          hostname = <external ip / hostname>
-        }
-      }
-    }
-
-If you do not add the host name to the configuration file, XL Deploy will try to get the first host name, which typically resolves to `127.0.0.1`.
-
-## Configure the port of a satellite
-
-To configure the port of a satellite server, adjust the following settings in `conf/satellite.conf`:
-
-    akka {
-      remote {
-        netty.tcp {
-          port = <command port>
-        }
-      }
-    }
-
-## Configure the ping timeout on a satellite
-
-To configure the ping timeout of a satellite server, adjust the following settings in `conf/satellite.conf`:
+To configure the ping timeout while reaching a satellite, adjust the setting `satellite.timeout.ping` in `conf/satellite.conf`:
 
     satellite {
       timeout {
@@ -49,9 +23,9 @@ To configure the ping timeout of a satellite server, adjust the following settin
 
 You can specify the ping timeout in milliseconds, seconds, or minutes. For example, `100 ms` or `10 seconds`.
 
-## Configure the upload timeout on a satellite
+## Configure the upload idle timeout
 
-The upload timeout occurs when the XL Deploy satellite plugin cannot successfully connect to a satellite server for streaming. To configure the upload idle timeout, adjust the following settings in `conf/satellite.conf`:
+The upload idle timeout occurs when a satellite has accepted an incoming streaming connection but does not seed to accept the upload ed file. To prevent having some useless TCP connections opened. configure the upload idle timeout, adjust the setting `satellite.timeout.upload.idle` in the file `conf/satellite.conf`:
 
     satellite {
       timeout {
