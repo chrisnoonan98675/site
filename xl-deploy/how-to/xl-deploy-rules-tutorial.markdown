@@ -10,6 +10,8 @@ tags:
 - tutorial
 ---
 
+The *rules* system, introduced in XL Deploy 4.5.0, works with the XL Deploy's planning phase and allows you to use XML or Jython to specify the steps that belong in a deployment plan and how the steps are configured.
+
 This tutorial will guide you through the process of using rules to create an XL Deploy plugin from scratch. The plugin will:
 
 * Wait a specific interval to start the deployment
@@ -18,12 +20,12 @@ This tutorial will guide you through the process of using rules to create an XL 
 
 This tutorial assumes that you:
 
-* Know how to create CI types, as described in [Customizing the XL Deploy Type System](customizationmanual.html#customizing-the-xl-deploy-type-system)
-* Understand the concepts of XL Deploy planning, as described in [Deployments and Plugins](customizationmanual.html#deployments-and-plugins)
+* Know how to create CI types, as described in [Customizing the XL Deploy Type System](/xl-deploy/4.5.x/customizationmanual.html#customizing-the-xl-deploy-type-system)
+* Understand the concepts of XL Deploy planning, as described in [Deployments and Plugins](/xl-deploy/4.5.x/customizationmanual.html#deployments-and-plugins)
 
 For reference, you can download the code provided in this tutorial from the XebiaLabs [GitHub](https://github.com/xebialabs/xl-deploy-samples/tree/master/rules-demo-plugin).
 
-For more information about the concepts discussed in this tutorial, see the [Rules Manual](rulesmanual.html). 
+For more information about the concepts discussed in this tutorial, see the [Rules Manual](/xl-deploy/4.5.x/rulesmanual.html). 
 
 ## How to run the examples
 
@@ -367,7 +369,7 @@ Notice that steps to start and stop server are added even when application is un
 
 The plugin that you create when following this tutorial does not require any extra work to support rollbacks. This is because XL Deploy automatically generates checkpoints for the last step of each deployed. Therefore, when a user decides to roll back a deployment that has only been partially executed, the rollback plan will contain the steps for the opposite deltas of the deployeds for which all steps have been executed.
 
-If you have more advanced rollback requirements, refer to [Using checkpoints](rulesmanual.html#using-checkpoints).
+If you have more advanced rollback requirements, refer to [Using checkpoints](/xl-deploy/4.5.x/rulesmanual.html#using-checkpoints).
 
 ## What's next
 
@@ -375,11 +377,11 @@ You made it through the entire tutorial, congratulations! You should now have a 
 
 The most important sources for information about rules and deployment planning are:
 
-* [Rules Manual](rulesmanual.html)
-* [Customization Manual](customizationmanual.html)
-* [Reference Manual](referencemanual.html)
-* [API documentation](javadoc/udm-plugin-api/index.html)
+* [Rules Manual](/xl-deploy/4.5.x/rulesmanual.html)
+* [Customization Manual](/xl-deploy/4.5.x/customizationmanual.html)
+* [Reference Manual](/xl-deploy/4.5.x/referencemanual.html)
+* [API documentation](/xl-deploy/4.5.x/javadoc/udm-plugin-api/)
 
 The code discussed in this tutorial is available in the rules demo plugin, which you can download from [GitHub](https://github.com/xebialabs/xl-deploy-samples/tree/master/rules-demo-plugin). Also, the demo plugin contains additional examples.
 
-If you would like to change the behavior of an existing plugin, you can disable predefined rules and redefine the behavior with new rules. For more information about this, refer to the [Rules Manual](rulesmanual.html).
+If you would like to change the behavior of an existing plugin, you can disable predefined rules and redefine the behavior with new rules. For more information about this, refer to the [Rules Manual](/xl-deploy/4.5.x/rulesmanual.html).
