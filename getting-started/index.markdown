@@ -37,7 +37,7 @@ Follow [these instructions](http://xebialabs.com/products/xl-deploy/#install) to
 
 ### Connect
 
-* [Join the XebiaLabs support forums](https://support.xebialabs.com/forums)
+* Join the [XebiaLabs support forums](https://support.xebialabs.com/forums)
 * Join the [weekly XebiaLabs Q&A with experts](http://xebialabs.com/community/live-q-and-a/)
 
 ## Getting started with XL Release
@@ -57,5 +57,5 @@ Follow [these instructions](http://xebialabs.com/products/xl-release/#install) t
 
 ## Connect
 
-* [Join the XebiaLabs support forums](https://support.xebialabs.com/forums)
+* Join the [XebiaLabs support forums](https://support.xebialabs.com/forums)
 * Join the [weekly XebiaLabs Q&A with experts](http://xebialabs.com/community/live-q-and-a/)
