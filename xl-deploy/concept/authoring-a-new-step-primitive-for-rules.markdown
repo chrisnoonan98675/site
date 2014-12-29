@@ -48,7 +48,7 @@ The following example shows the use of two step primitives: the `noop` step prim
         </rule>
     </rules>
 
-Refer to the [Step Reference](stepreference.html) for all predefined step primitives. You can define your own step primitives by writing Java classes of your own, using the proper annotations and interfaces.
+Refer to the [Step Reference](/xl-deploy/4.5.x/referencesteps.html) for all predefined step primitives. You can define your own step primitives by writing Java classes of your own, using the proper annotations and interfaces.
 
 ## Referencing step library code
 
@@ -92,7 +92,7 @@ Your XML would then look as follows:
         </rule>
     </rules>
 
-You can make your step primitives parameterized, with parameters that are required, optional and/or auto-calculated. [See below](#Defining-step-parameters-in-a-step-primitive) for details.
+You can make your step primitives parameterized, with parameters that are required, optional and/or auto-calculated. [See below](#defining-step-parameters-in-a-step-primitive) for details.
     
 ## Using the `Step` interface
 
@@ -108,13 +108,13 @@ For this, the `Step` interface declares these methods:
     String getDescription();
     StepExitCode execute(ExecutionContext ctx) throws Exception;
 
-The `execute` method is where you define the business logic for your step primitive. The `ExecutionContext` that gets passed in allows you to access the Repository using the credentials of the user executing the deployment plan. [See the javadocs](javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/flow/ExecutionContext.html) for full details. Your implementation should return a [`StepExitCode`](javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/flow/StepExitCode.html) to indicate whether execution of the step was successful.
+The `execute` method is where you define the business logic for your step primitive. The `ExecutionContext` that gets passed in allows you to access the Repository using the credentials of the user executing the deployment plan. [See the javadocs](/xl-deploy/4.5.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/flow/ExecutionContext.html) for full details. Your implementation should return a [`StepExitCode`](/xl-deploy/4.5.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/flow/StepExitCode.html) to indicate whether execution of the step was successful.
 
-The Javadocs have the full details on [the `Step` interface](javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/flow/Step.html).
+The Javadocs have the full details on [the `Step` interface](/xl-deploy/4.5.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/flow/Step.html).
 
 ## Defining step parameters in a step primitive
 
-XL Deploy has a dependency injection mechanism that allows values from the `xl-rules.xml` to be injected into your class. This is how you can set e.g. the step description or other parameters using XML. To receive values from a rule, define a field in your class and annotate it with the [`@com.xebialabs.deployit.plugin.api.rules.StepParameter`](javadocs.html) annotation. This annotation has the following attributes:
+XL Deploy has a dependency injection mechanism that allows values from the `xl-rules.xml` to be injected into your class. This is how you can set e.g. the step description or other parameters using XML. To receive values from a rule, define a field in your class and annotate it with the [`@com.xebialabs.deployit.plugin.api.rules.StepParameter`](/xl-deploy/4.5.x/javadoc/udm-plugin-api/) annotation. This annotation has the following attributes:
 
 * `name` defines the XML tag name of the parameter. By default, the field name will be used, but capitals will be replaced with a dash and a lowercase character. E.g. `targetPath` will become `target-path`.
 * `required` controls whether XL Deploy verifies that the parameter contains a value after the post-construct logic has run.
@@ -151,11 +151,11 @@ You can add additional logic to your step that will be executed after all field 
 To define such post-construct logic:
 
 * Define a method with signature `void myMethod(com.xebialabs.deployit.plugin.api.rules.StepPostConstructContext ctx)`
-* Annotate your method with [`@com.xebialabs.deployit.plugin.api.rules.RulePostConstruct`](javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/rules/RulePostConstruct.html)
+* Annotate your method with [`@com.xebialabs.deployit.plugin.api.rules.RulePostConstruct`](/xl-deploy/4.5.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/rules/RulePostConstruct.html)
 
 There can be multiple post-construct methods in your class chain; each of these will be invoked in alphabetical order by name.
 
-The `StepPostConstructContext` contains references to the `DeployedApplication`, the `Scope`, the scoped object (`Delta`, `Deltas`, or `Specification`), and the repository; see the [Rules manual](rulesmanual.html) and the [Javadocs for StepPostConstructContext](javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/flow/StepPostConstructContext.html) for details.
+The `StepPostConstructContext` contains references to the `DeployedApplication`, the `Scope`, the scoped object (`Delta`, `Deltas`, or `Specification`), and the repository; see the [Rules Manual](/xl-deploy/4.5.x/rulesmanual.html) and the [Javadocs for StepPostConstructContext](/xl-deploy/4.5.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/rules/StepPostConstructContext.html) for details.
 
 For example, the following step will try to find a value for `defaultUrl` in the repository if it is not specified in the rules XML, and the planning will fail if it is not found.
 
