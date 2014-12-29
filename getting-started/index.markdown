@@ -33,7 +33,7 @@ Follow [these instructions](http://xebialabs.com/products/xl-deploy/#install) to
 * Read [XL Deploy for developers, in 5 minutes](../xl-deploy/concept/xl-deploy-for-developers.html)
 * Read [Preparing your application for XL Deploy](../xl-deploy/concept/preparing-your-application-for-xl-deploy.html)
 * Browse the [XL Deploy documentation](../xl-deploy)
-* Read [Getting started with satellites](/xl-deploy/how-to/getting-started-satellite.html)
+{% comment %} * Read [Getting started with satellites](/xl-deploy/how-to/getting-started-satellite.html) {% endcomment %}
 
 ### Connect
 
