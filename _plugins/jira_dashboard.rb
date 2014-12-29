@@ -45,7 +45,7 @@ module Jira
   end
 
   class Release < Base
-    attr_accessor :id, :name, :archived, :released, :start_date, :release_date, :issues
+    attr_accessor :id, :name, :description, :archived, :released, :start_date, :release_date, :issues
 
     def initialize
       @issues = []
@@ -55,6 +55,7 @@ module Jira
       release = Release.new
       release.id = json['id'].to_s
       release.name = json['name'].to_s
+      release.description = json['description']
       release.archived = json['archived']
       release.released = json['released']
       release.start_date = json['startDate'] ? Date.strptime(json['startDate'].to_s, '%Y-%m-%d') : nil
@@ -71,7 +72,7 @@ module Jira
     end
 
     def title
-      @name.split(/[^a-z0-9\.]/i).map(&:capitalize).join(" ")
+      @description ? @description.to_s : @name.split(/[^a-z0-9\.]/i).map(&:capitalize).join(" ")
     end
 
     def precise_date?
