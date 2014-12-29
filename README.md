@@ -18,7 +18,7 @@ Go to `http://localhost:4000` to see the site running locally.
 
 # Contributing
 
-* When you commit a change to the master branch of this repository, a [Jenkins job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/Jekyll%20docs/) is triggered. This job generates the change in HTML and immediately publishes it to [testdocs.xebialabs.com](http://testdocs.xebialabs.com).
+* When you commit a change to the master branch of this repository, a [Jenkins job]https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/app1/job/Jekyll%20docs/) is triggered. This job generates the change in HTML and immediately publishes it to [docs.xebialabs.com](https://docs.xebialabs.com).
 * To commit a change to GitHub without triggering the Jenkins job, [create a pull request](https://help.github.com/articles/creating-a-pull-request/). This allows others to review your work.
 * You can store drafts, images, samples, etc. in `_drafts`. Markdown files stored in `_drafts` are not be converted to HTML.
 
@@ -85,6 +85,8 @@ You can use [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-referen
 
 See `_redirects.yml` for a complete list of the redirects that are available.
 
+**Note:** At this time, there is no "latest" link for the Jython API documentation.
+
 # Logical structure of the site
 
 * Product
@@ -99,7 +101,7 @@ See `_redirects.yml` for a complete list of the redirects that are available.
             * Concept
             * How-to
 
-# How the site works
+# Jekyll and Liquid
 
 In Jekyll terminology, topics are *pages* that are located in directories such as `xl-deploy`, `xl-release`, and so on.
 
@@ -114,8 +116,6 @@ Every page must have YAML front matter. Refer to the template in `_drafts` for i
 ## Drafts
 
 Save drafts of pages in `_drafts`. Drafts are never converted to HTML.
-
-# Jekyll and Liquid
 
 ## Layout files
 
