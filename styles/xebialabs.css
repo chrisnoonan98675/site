@@ -75,7 +75,7 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gs
 	border: none !important;
 }
 .gs-title a {
-	color: #15C;
+	color: #15C !important;
 }
 
 /* Sticky footer styles */
