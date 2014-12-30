@@ -13,8 +13,7 @@ tags:
 
 If you create or are working on a plugin based on the [Generic](/xl-deploy/latest/genericPluginManual.html), [PowerShell](/xl-deploy/latest/powershellPluginManual.html), or [Python](/xl-deploy/latest/pythonPluginManual.html) plugin the following table should give you a useful insight into what the plugins actually do.
 
-Keywords highlighted in **bold** are references to actual classes in the plugin and framework source.  At present unless linked these are not documented in the reference sections of our manuals.  If you are missing information that could help you creating your own customisation please don't hesitate to contact us through the [community forum](https://support.xebialabs.com/forums/20273366-deployit-users).
-
+Keywords highlighted in **bold** are references to actual classes in the plugin and framework source.
 
 ## Python, PowerShell, and Generic Plugin Cheat Sheet
 
