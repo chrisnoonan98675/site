@@ -45,6 +45,26 @@ The deployable contains `username = {% raw %}{{my.password}}{% endraw %}`.
 	transform.2.find=((quux))
 	transform.2.replacement={% raw %}{{quux-transform-2}}{% endraw %}
 
+## Table styles in Markdown files
+
+Table styles are defined by Bootstrap CSS; see [this documentation](http://getbootstrap.com/css/#tables) for class names and examples. Use the following notation immediately before a table:
+
+    {:.class}
+
+For a [normal](http://getbootstrap.com/css/#tables-example) table:
+
+    {:.table}
+    | Column 1 | Column 2 | Column 3 |
+    | -------- | -------- | -------- |
+    | Content  | Content  | Content  |
+
+For a [zebra-striped](http://getbootstrap.com/css/#tables-striped) table:
+
+    {:.table .table-striped}
+    | Column 1 | Column 2 | Column 3 |
+    | -------- | -------- | -------- |
+    | Content  | Content  | Content  |
+
 ## Code blocks in Markdown files
 
 To format a block of code, indent each line by at least four spaces.
