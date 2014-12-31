@@ -9,18 +9,21 @@ tags:
 - satellite
 ---
 
-XL Deploy can communicate with satellite servers over a secure communication channel, using [TLS/SSL technology](http://en.wikipedia.org/wiki/Transport_Layer_Security) to encrypt data. This algorithm relies on certificate checking and data encryption using asymmetric keys.
+XL Deploy can communicate with satellite servers over a secure communication channel using [TLS/SSL technology](http://en.wikipedia.org/wiki/Transport_Layer_Security) to encrypt data. This algorithm relies on certificate checking and data encryption using asymmetric keys.
 
 ## TLS in a nutshell
 
-This technology is based on the notion of public/private keys. The server contains a private key and a public certificate. In Java world, they are stored in a **key store**. The private key must be hidden and can be protected with a passphrase. This key must not be given outside or communicated. 
+TLS is based on the notion of public and private keys. The server contains a private key and a public certificate. In the Java world, they are stored in a *key store*. The private key must be hidden and can be protected with a passphrase. This key must not be given out or communicated. 
 
-When a client try to reach a server, it authenticate the destination. The server has to prove its identity. To achieve this, the client get a list of trusted certificates. This is the **trust store**. I contains public certificates that are verified by a trusted authority. When a client tries to reach a server, there is a negotiation phase. During this phase, the client challenge the server to authentify it. Once identified, every bit of data transfered between each side of the communicated is encrypted.
+When a client tries to reach a server, it authenticates the destination. The server must prove its identity. To achieve this, the client gets a list of trusted certificates. This is the *trust store*. It contains public certificates that are verified by a trusted authority.
+
+When a client tries to reach a server, there is a negotiation phase. During this phase, the client challenge the server to authenticate it. Once identified, every bit of data transferred between each side of the communication is encrypted.
 
 With this technology, no external process you don't manage can pretend to be a satellite of yours nor no external process can listen to the secure communication.
 
-## How create self-signed certificates   
-Depending on your security policy, you can use self-signed certificates using [the `keytool` utility](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html). For example:
+## How create self-signed certificates
+  
+Depending on your security policy, you can create self-signed certificates using [the `keytool` utility](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html). For example:
    
     # Generate a keystore and a self-signed certificate for xl-satellite
     # storepass is the password for the keystore
@@ -87,9 +90,9 @@ The satellite security configuration is located in `conf/security.conf`:
         random-number-generator = "AES128CounterSecureRNG"
     }
 
-The default configuration uses `TLSv1.2`, `TLS_RSA_WITH_AES_128_CBC_SHA` and `AES128CounterSecureRNG`. You can change these values depending on your security policy and requirements.
+The default configuration uses `TLSv1.2`, `TLS_RSA_WITH_AES_128_CBC_SHA`, and `AES128CounterSecureRNG`. You can change these values depending on your security policy and requirements.
 
-**Important:** These configuration values must match the XL Deploy values, to enable handshake.
+**Important:** These configuration values must match the values that XL Deploy uses.
 
 ## Logging
 
@@ -97,7 +100,7 @@ To enabled logging of secure communications, set the `SATELLITE_OPTS` environmen
 
     export SATELLITE_OPTS="$SATELLITE_OPTS -Djavax.net.debug=all"
 
-The same can be applied on XL-Deploy side with the following variable:
+To enable logging on XL Deploy, set the `DEPLOYIT_SERVER_OPTS` variable:
 
     export DEPLOYIT_SERVER_OPTS="$DEPLOYIT_SERVER_OPTS -Djavax.net.debug=all"
 
