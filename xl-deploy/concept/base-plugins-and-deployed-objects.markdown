@@ -13,7 +13,6 @@ tags:
 
 If you create or are working on a plugin based on the [Generic](/xl-deploy/latest/genericPluginManual.html), [PowerShell](/xl-deploy/latest/powershellPluginManual.html), or [Python](/xl-deploy/latest/pythonPluginManual.html) plugin the following table should give you a useful insight into what the plugins actually do.
 
-Keywords highlighted in **bold** are references to actual classes in the plugin and framework source.
 
 ## Python, PowerShell, and Generic Plugin Cheat Sheet
 
@@ -95,7 +94,7 @@ Keywords highlighted in **bold** are references to actual classes in the plugin 
     </tr>
 
     <tr>
-      <td colspan="1" ><em>"Magic" variables</em></td>
+      <td colspan="1" ><em>"Special" variables</em></td>
 
       <td colspan="1" >
         <ul>
@@ -133,7 +132,7 @@ Keywords highlighted in **bold** are references to actual classes in the plugin 
 
           <li>(optionally) previousDeployed</li>
 
-          <li>step (a <strong>BaseStep</strong>)</li>
+          <li>step</li>
 
           <li>statics (<a href=
           "http://freemarker.org/docs/pgui_misc_beanwrapper.html#autoid_55" class=
@@ -150,7 +149,7 @@ Keywords highlighted in **bold** are references to actual classes in the plugin 
         <ul>
           <li>any which are defined on the type of deployed/deployedApplication</li>
 
-          <li>a magic "deployed.file" property if the deployed has an artifact</li>
+          <li>a  "deployed.file" property if the deployed has an artifact</li>
         </ul>
       </td>
 
@@ -159,7 +158,7 @@ Keywords highlighted in **bold** are references to actual classes in the plugin 
           <li>any which are defined on the type of
           deployed/previousDeployed/deployedApplication</li>
 
-          <li>plus a magic "deployed.file"/"previousDeployed.file" property if the
+          <li>plus a  "deployed.file"/"previousDeployed.file" property if the
           deployed/previousDeployed has an artifact</li>
         </ul>
       </td>
@@ -168,50 +167,13 @@ Keywords highlighted in **bold** are references to actual classes in the plugin 
         <ul>
           <li>any which are defined on the type of deployed</li>
 
-          <li>plus a magic "deployed.file" property if the deployed has an
+          <li>plus a  "deployed.file" property if the deployed has an
           artifact</li>
 
           <li>plus "deployed.deployedApplication" (of type <a href=
           "http://docs.xebialabs.com/releases/4.5/xl-deploy/udmcireference.html#udmdeployedapplication"
           class="external-link" rel="nofollow">udm.DeployedApplication</a>)</li>
 
-          <li>plus "deployed.planOperation" (an <strong>Operation</strong>)</li>
-        </ul>
-      </td>
-    </tr>
-
-    <tr>
-      <td colspan="1" ><em>Where does the magic happen?</em></td>
-
-      <td colspan="1" >
-        <ul>
-          <li><strong>PythonManagedDeployed</strong></li>
-
-          <li><strong>PythonVarsConverter</strong></li>
-
-          <li><strong>VarsConverter</strong></li>
-        </ul>
-      </td>
-
-      <td colspan="1" >
-        <ul>
-          <li><strong>BasePowerShellDeployed</strong></li>
-
-          <li><strong>PowerShellVarsConverter</strong></li>
-
-          <li><strong>VarsConverter</strong></li>
-        </ul>
-      </td>
-
-      <td colspan="1" >
-        <ul>
-          <li><a href="https://docs.xebialabs.com/xl-deploy/4.5.x/genericPluginManual.html#generic.ExecutedScript">ExecutedScript</a></li>
-
-          <li><strong>BaseStep</strong></li>
-
-          <li><strong>DeployedInjector</strong></li>
-
-          <li><strong>CiTemplateModel</strong></li>
         </ul>
       </td>
     </tr>
