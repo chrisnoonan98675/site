@@ -12,17 +12,22 @@ tags:
 - deployed
 ---
 
-You can use the XL Deploy rules system (introduced in XL Deploy 4.5.0) to find and update 
+You can use the XL Deploy rules system (introduced in XL Deploy 4.5.0) and a PowerShell script to find and update the value of a previously deployed property with a new deployed property value.
 
-Use Case: You want to find and update the previously deployed property value with the new deployed property value (example: as part of your deployment you copy a property value that changes with each deployment eg BUILD_VERSION into a file, the next time you run the deployment you need to search the file for the previous value and replace with the current value)
+For example, as a part of your deployment, you might copy a property value that changes with each deployment (such as a build version) into a file. The next time that you run the deployment, you would need to search the file for the previous value and replace it with the new value.
 
-If you want to retrieve the previously deployed property value from your current deployment using xl-rules and powershell script please follow these instructions.
+This example shows how you can retrieve the previously deployed property value from the current deployment.
 
-1. Create a xl-rule with condition MODIFY
-2. Within <powershell-context>, create <previousDeployed expression="true">delta.previous</previousDeployed>
-3. Within powershell script refer to previously deployed properties value using $previousDeployed and suffix .propertyname example: $previousDeployed.processModelIdleTimeout
+1. Create a rule in `xl-rules.xml` with the condition `MODIFY`.
+1. In the `powershell-context` tag, add:
 
-xl-rule example:
+        <previousDeployed expression="true">delta.previous</previousDeployed>
+
+1. In the PowerShell script, refer to the previously deployed properties value using `$previousDeployed` and the suffix `.propertyname`. For example: 
+
+        $previousDeployed.processModelIdleTimeout
+
+The complete entry in `xl-rules.xml` would look like:
 
     <rule name="AppPoolSpec.CREATE.MODIFY" scope="deployed">
         <conditions>
@@ -43,9 +48,9 @@ xl-rule example:
         </steps>    
     </rule>
 
-*NOTE: For the initial deployment ie CREATE, the previousDeployed property will be null
+**Note:** For the initial deployment (that is, the `CREATE` operation), the `previousDeployed` property will be null.
 
-powershell example:
+The PowerShell script would look like:
 
     # Update file
     # Replace previous processModelIdleTimeout with new value in file
