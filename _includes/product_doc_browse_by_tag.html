@@ -1,4 +1,4 @@
-<h2>Browse documentation by tag</h2>
+<h2 id="browse-documentation-by-tag">Browse documentation by tag</h2>
 
 {% capture all_page_tags %}{% for page in site.pages %}{% if page.path contains product-id-to-search-for %}{% for tag in page.tags %}{{ tag }},{% endfor %}{% endif %}{% endfor %}{% endcapture %}
 {% assign sorted_page_tags = all_page_tags | split:',' | sort %}

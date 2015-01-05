@@ -1,4 +1,4 @@
-<h2>Browse documentation by subject</h2>
+<h2 id="browse-documentation-by-subject">Browse documentation by subject</h2>
 
 {% capture all_page_subjects %}{% for page in site.pages %}{% if page.path contains product-id-to-search-for %}{% for subject in page.subject %}{{ subject }},{% endfor %}{% endif %}{% endfor %}{% endcapture %}
 {% assign sorted_page_subjects = all_page_subjects | split:',' | sort %}
