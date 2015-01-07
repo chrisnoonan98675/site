@@ -78,7 +78,7 @@
 /xl-deploy/latest/wasPluginManual.html : /xl-deploy-was-plugin/4.5.x/wasPluginManual.html
 /xl-deploy/latest/wpsPluginManual.html : /xl-deploy-wps-plugin/4.0.x/wpsPluginManual.html
 /xl-deploy/latest/tomcatPluginManual.html : /xl-deploy-tomcat-plugin/4.5.x/tomcatPluginManual.html
-/xl-deploy/latest/glassfishPluginManual.html : /xl-deploy-glassfish-plugin/4.0.x/glassfishPluginManual.html
+/xl-deploy/latest/glassfishPluginManual.html : /xl-deploy-glassfish-plugin/4.5.x/glassfishPluginManual.html
 /xl-deploy/latest/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/4.0.x/biztalkPluginManual.html
 /xl-deploy/latest/iisPluginManual.html : /xl-deploy-iis-plugin/4.5.x/iisPluginManual.html
 /xl-deploy/latest/windowsPluginManual.html : /xl-deploy-windows-plugin/4.0.x/windowsPluginManual.html

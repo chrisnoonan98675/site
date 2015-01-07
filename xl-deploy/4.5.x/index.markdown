@@ -49,7 +49,7 @@ product-id: xl-deploy
 * [WebSphere Application Server plugin](../../xl-deploy-was-plugin/4.5.x/wasPluginManual.html)
 * [WebSphere Process Server plugin](../../xl-deploy-wps-plugin/4.5.x/wpsPluginManual.html)
 * [Tomcat plugin](../../xl-deploy-tomcat-plugin/4.5.x/tomcatPluginManual.html)
-* [GlassFish plugin](../../xl-deploy-glassfish-plugin/4.0.x/glassfishPluginManual.html)
+* [GlassFish plugin](../../xl-deploy-glassfish-plugin/4.5.x/glassfishPluginManual.html)
 
 ### .NET Middleware
 
