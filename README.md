@@ -12,15 +12,15 @@ online-docs-jekyll
 
 Go to `http://localhost:4000` to see the site running locally.
 
-**Note:** If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
-
 **Tip:** To disable updating of the Development Dashboard while you run Jekyll in watch mode, change the `jira_dashboard` `generate` setting in `_config.yml` to `false`. **Do not commit this change to the repository!**
+
+**Note:** If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
 
 # Contributing
 
-* When you commit a change to the master branch of this repository, a [Jenkins job]https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/app1/job/Jekyll%20docs/) is triggered. This job generates the change in HTML and immediately publishes it to [docs.xebialabs.com](https://docs.xebialabs.com).
+* When you commit a change to the master branch of this repository, a [Jenkins job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/app1/job/Jekyll%20docs/) is triggered. This job generates the change in HTML and immediately publishes it to [docs.xebialabs.com](https://docs.xebialabs.com).
 * To commit a change to GitHub without triggering the Jenkins job, [create a pull request](https://help.github.com/articles/creating-a-pull-request/). This allows others to review your work.
-* You can store drafts, images, samples, etc. in `_drafts`. Markdown files stored in `_drafts` are not be converted to HTML.
+* You can store drafts, images, samples, etc. in `_drafts`. Markdown and AsciiDoc files stored in `_drafts` are not be converted to HTML.
 
 # Things to know about formatting
 
@@ -85,6 +85,10 @@ HTML anchors are automatically created for headings (h1, h2, h3, etc.).
 ## AsciiDoc
 
 You can use [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/) instead of Markdown to format files. AsciiDoc support is provided by [a Jekyll plugin](https://github.com/asciidoctor/jekyll-asciidoc). If you use it, please carefully review the way that Jekyll renders the HTML file.
+
+# Tags and subjects
+
+To see the tags and subjects that are already in use, visit [https://docs.xebialabs.com/tags-and-subjects.html](https://docs.xebialabs.com/tags-and-subjects.html).
 
 # "Latest" links
 
@@ -180,6 +184,8 @@ Save drafts of pages in `_drafts`. Drafts are never converted to HTML.
 
 Follow these instructions to pull all documentation from the product and plugin repositories.
 
+**Important:** Note that you'll have to clean up this documentation locally; don't commit it to the `online-docs-jekyll` repository.
+
 Set up key-based authentication with tech ssh server:
 
 1. Create private/public key (execute `ssh-keygen`, do not create password, name it `tech_id_rsa`)
@@ -205,5 +211,3 @@ The old way to do it:
 1. Execute `gradle jekyllFetchSources` or `gradle jFS`.
 1. Execute `jekyll serve`.
 1. Go to `http://localhost:4000`.
-
-Note that you'll have to clean up this documentation locally; don't commit it to the online-docs-jekyll repository.
