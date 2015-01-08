@@ -18,6 +18,7 @@ For example, if you have the following files in a `file.Folder` artifact:
 
 You can set the following values in the `fileEncodings` property to ensure the Chinese files are interpreted as UTF-16:
 
-| key |  | value |
-| --- |  | ----- |
-| `h-CN.*` |  | `UTF-16BE` |
+{:.table}
+| key | value |
+| --- | ----- |
+| `h-CN.*` | `UTF-16BE` |
