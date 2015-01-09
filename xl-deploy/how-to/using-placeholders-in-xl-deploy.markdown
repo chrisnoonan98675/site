@@ -17,7 +17,7 @@ Placeholders are configurable entries in your application that will be set to an
 
 XL Deploy recognizes placeholders using the following format:
 
-	{{ PLACEHOLDER_KEY }}
+	{% raw %}{{ PLACEHOLDER_KEY }}{% endraw %}
 
 Values for placeholders can be provided manually or filled in from a _dictionary_.
 
