@@ -2,6 +2,6 @@
 
 {% for product in site.data.products %}
 	{% if product.id == page.product-id %}
-		<p>Click <a href="http://xebialabs.com/download/{{ product.id }}/">here</a> to download the free {{ product.name }} Community Edition today!</p>
+		<p>Click <a href="http://xebialabs.com/download/{{ product.id }}/">here</a> to download the free Community Edition of {{ product.name }} today!</p>
 	{% endif %}
 {% endfor %}
