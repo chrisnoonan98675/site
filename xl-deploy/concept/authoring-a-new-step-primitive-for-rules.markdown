@@ -6,7 +6,7 @@ categories:
 - xl-deploy
 tags:
 - rules
-- steps
+- step
 - deployment
 ---
 
