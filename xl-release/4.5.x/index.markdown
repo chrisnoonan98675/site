@@ -10,7 +10,7 @@ product-id: xl-release
 * [Reference Manual](reference_manual.html)
 * [Plugin Manual](plugin_manual.html)
 * [Markdown Syntax Guide](markdownsyntax.html)
-* [REST API Reference](xl-release-server/rest-api/)
+* [REST API Reference](rest-api/)
 * [Jython API Manual](/jython-docs/#!/xl-release/4.5.x/)
 
 ## Plugin documentation
