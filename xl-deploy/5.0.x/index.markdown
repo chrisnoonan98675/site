@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: XL Deploy 5.0.x documentation
 product-id: xl-deploy
 ---
