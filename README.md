@@ -24,7 +24,7 @@ Go to `http://localhost:4000` to see the site running locally.
 
 # Beta documentation
 
-To add a "beta" label to a topic, add `layout: beta` to its front matter. For example:
+To add a "beta" label to a topic, add `layout: beta` to its front matter. Note that `layout` and `beta` must appear on the same line. For example:
 
     ---
     layout: beta
