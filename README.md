@@ -22,6 +22,23 @@ Go to `http://localhost:4000` to see the site running locally.
 * To commit a change to GitHub without triggering the Jenkins job, [create a pull request](https://help.github.com/articles/creating-a-pull-request/). This allows others to review your work.
 * You can store drafts, images, samples, etc. in `_drafts`. Markdown and AsciiDoc files stored in `_drafts` are not be converted to HTML.
 
+# Beta documentation
+
+To add a "beta" label to a topic, add `layout: beta` to its front matter. For example:
+
+    ---
+    layout: beta
+    title: Sample beta topic
+    categories:
+    - xl-release
+    subject:
+    - Tasks
+    tags:
+    - task
+    - custom task
+    - script
+    ---
+
 # Things to know about formatting
 
 ## Headings
