@@ -23,7 +23,7 @@ product-id: xl-deploy
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
 * [Java API Manual](xldeployjavaapimanual.html)
-* Jython API Manual
+* [Jython API Manual](example.html)
 
 ### Standard plugins
 
