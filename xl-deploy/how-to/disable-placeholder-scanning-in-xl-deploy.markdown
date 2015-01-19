@@ -8,7 +8,7 @@ tags:
 - package
 - dictionary
 - placeholder
-- artifact
+- artifacts
 ---
 
 When importing a package, XL Deploy by default scans the artifacts it contains for placeholders that need to be resolved during a deployment. If you want to turn off placeholder scanning, there are various ways to do this.
