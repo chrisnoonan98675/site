@@ -167,3 +167,4 @@
 /general/cookbook.html : /index.html
 /general/faq.html : /faq/index.html
 /general/community.html : http://xebialabs-community.github.io/
+/faq/index.html : /index.html
