@@ -34,27 +34,65 @@ a img {
 	min-height: 75px;
 }
 .navbar-default { 
-	background:#003366 !important;
-	border-radius:0px !important;
+	background: #003366 !important;
+	border-radius: 0px !important;
 	-webkit-border-radius: 0px !important;
-	border:none;
-	margin-bottom:0px !important;
+	border: none !important;
+	margin-bottom: 0px !important;
 }
 .navbar-default a { 
-	color:#fff !important;
+	color: #fff !important;
 }
 #top-ribbon {
-	 background:#fff;
-     font-size:12px;
-     color:#fff;
-     background:url('/images/lines-blue.png');
-     padding:10px 0px 0px;
-     font-weight:300;
-     height:20px;
-     margin-bottom:20px;
+     background: url('/images/lines-blue.png');
+     padding: 10px 0px 0px;
+     height: 20px;
+     margin-bottom: 20px;
 }
 .navbar-collapse {
 	border: none;
+}
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #DDD;
+}
+.navbar-default .navbar-toggle {
+    border-color: #DDD;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #999;
+}
+
+/* Collapsed sidebar styles */
+@media screen and (max-width: 767px) {
+	.row-offcanvas {
+		position: relative;
+		-webkit-transition: all 0.25s ease-out;
+		-moz-transition: all 0.25s ease-out;
+		transition: all 0.25s ease-out;
+	}
+	.row-offcanvas-right
+	.sidebar-offcanvas {
+		right: -25%;
+	}
+  	.row-offcanvas-left
+  	.sidebar-offcanvas {
+		left: -25%;
+	}
+	.row-offcanvas-right.active {
+		right: 25%;
+	}
+	.row-offcanvas-left.active {
+		left: 25%;
+	}
+	.sidebar-offcanvas {
+		position: absolute;
+		top: 0;
+		width: 25%;
+	}
+	#sidebar {
+		padding-top:0;
+	}
 }
 
 /* Google Custom Search overrides */
@@ -67,15 +105,17 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gs
 .gsc-tabsArea div {
 	overflow: visible !important; 
 }
-.googlecse {
-	width: 25%;
-}
 .cse .gsc-control-cse, .gsc-control-cse {
 	background: none !important;
 	border: none !important;
 }
 .gs-title a {
 	color: #15C !important;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+	border: none !important;
+	box-shadow: none !important;
+	-webkit-box-shadow: none !important;
 }
 
 /* Sticky footer styles */

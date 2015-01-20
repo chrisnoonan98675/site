@@ -1,47 +1,48 @@
-<!-- Start top_bar -->
-<div class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
-	
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="/"><img height="50" src="/images/logos/xebialabs-white.png" alt="XebiaLabs"></a>
-		</div>
-		
-    	<div class="collapse navbar-collapse">
-			<form class="navbar-form navbar-right googlecse" role="search">
-					<script>
-					  (function() {
-						var cx = '001962156878164368335:2zdytqwe4ms';
-						var gcse = document.createElement('script');
-						gcse.type = 'text/javascript';
-						gcse.async = true;
-						gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-							'//www.google.com/cse/cse.js?cx=' + cx;
-						var s = document.getElementsByTagName('script')[0];
-						s.parentNode.insertBefore(gcse, s);
-					  })();
-					</script>
-					<gcse:search></gcse:search>
-			</form>
-		
-			<ul class="nav navbar-nav navbar-right xltopmenu">
-				<li><a href="http://blog.xebialabs.com" target="_blank">Blog</a></li>
-				<li><a href="/support.html">Support</a></li>
-				<li><a href="http://xebialabs.com/contact/" target="_blank">Contact</a></li>
-			</ul>
-		</div> <!-- /.navbar-collapse -->
-	</div> <!-- /.container-fluid -->
-</div> <!-- /.navbar -->
-<!-- End top_bar -->
+<div class="page-container">
 
-<div id="top-ribbon">
-	<div class="container-fluid">
-		<div class="row">
+<!-- Start top_bar -->
+	<div class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header"> <!-- Menu button and logo -->
+				<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/"><img height="50" src="/images/logos/xebialabs-white.png" alt="XebiaLabs"></a>
+			</div> <!-- / Menu button and logo -->
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 pull-right"> <!-- Google Custom Search -->
+				<form class="navbar-form navbar-right" role="search">
+						<script>
+						  (function() {
+							var cx = '001962156878164368335:2zdytqwe4ms';
+							var gcse = document.createElement('script');
+							gcse.type = 'text/javascript';
+							gcse.async = true;
+							gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+								'//www.google.com/cse/cse.js?cx=' + cx;
+							var s = document.getElementsByTagName('script')[0];
+							s.parentNode.insertBefore(gcse, s);
+						  })();
+						</script>
+						<gcse:search></gcse:search>
+				</form>
+			</div> <!-- / Google Custom Search -->
+			<div class="col-lg-4 col-md-4 pull-right"> <!-- Top menu -->
+				<ul class="nav navbar-nav navbar-right xltopmenu hidden-sm hidden-xs">
+					<li><a href="http://blog.xebialabs.com" target="_blank">Blog</a></li>
+					<li><a href="/support.html">Support</a></li>
+					<li><a href="http://xebialabs.com/contact/" target="_blank">Contact</a></li>
+				</ul>
+			</div> <!-- / Top menu -->
+			
+		</div> <!-- /.container-fluid -->
+	</div> <!-- /.navbar -->
+
+	<div id="top-ribbon">
+		<div class="container-fluid">
+			<div class="row">
+			</div>
 		</div>
 	</div>
-</div>
+<!-- End top_bar -->

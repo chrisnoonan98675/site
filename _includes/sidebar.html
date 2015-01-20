@@ -1,14 +1,14 @@
-<!-- Start sidebar -->
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-2 sidebar hidden-print">
-			<ul class="nav nav-sidebar">
-				{% assign sidebar_menu_items = (site.pages | where: "layout" , "list-in-sidebar" | sort: 'weight') %}
-				{% for page in sidebar_menu_items %}
-					{% unless page.path contains 'page' %}
-						<li><a {% if page.url == page.url %}class="active"{% endif %} href="{{ page.url }}">{{ page.title }}</a></li>
-					{% endunless %}
-				{% endfor %}
-			</ul>
-		</div> <!-- /.col-md-2 sidebar -->
-<!-- End sidebar -->
+  <div class="row row-offcanvas row-offcanvas-left">
+  	<!-- Begin sidebar -->
+	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-2 sidebar-offcanvas hidden-print" id="sidebar" role="navigation">
+		<ul class="nav">
+			{% assign sidebar_menu_items = (site.pages | where: "layout" , "list-in-sidebar" | sort: 'weight') %}
+			{% for page in sidebar_menu_items %}
+				{% unless page.path contains 'page' %}
+					<li><a {% if page.url == page.url %}class="active"{% endif %} href="{{ page.url }}">{{ page.title }}</a></li>
+				{% endunless %}
+			{% endfor %}
+		</ul>
+	</div>
+	<!-- End sidebar -->
