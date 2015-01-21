@@ -6,7 +6,7 @@ categories:
 - xl-deploy
 tags:
 - artifacts
-- packaging
+- package
 - maven
 - application
 ---
