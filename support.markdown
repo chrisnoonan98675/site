@@ -6,13 +6,13 @@ You can contact XebiaLabs technical support at [http://support.xebialabs.com](ht
 
 We classify incoming support issues as follows:
 
-* **Urgent**: Application or major part of the application freezes, crashes, or fails to start, or data is corrupted.
+* **Urgent**: Issues preventing deployments to production environments
 
-* **High**: Key feature does not work, cannot be used, or returns incorrect results. No workaround is available.
+* **High**: A failure for which a workaround exists
 
-* **Normal**: Key feature is difficult to use or looks terrible. A secondary feature does not work, cannot be used, or returns incorrect results. A High issue for which there is a workaround.
+* **Normal**: Non-critical problems for which a workaround exists
 
-* **Low**: Secondary feature has a cosmetic issue. Minor feature is difficult to use or looks terrible. Minor glitches in images, spelling mistakes, and so on.
+* **Low**: Minor issues or cosmetic problems
 
 Depending on the priority of the issue, XebiaLabs will assign a specialist to work on the issue:
 
