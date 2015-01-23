@@ -13,6 +13,7 @@ product-id: xl-release
 * [Markdown Syntax Guide](markdownsyntax.html)
 * [REST API Reference](rest-api/)
 * [Jython API Manual](/jython-docs/#!/xl-release/4.5.x/)
+* [Release Notes](release_notes/release-4.5.0.html)
 
 ## Plugin documentation
 
