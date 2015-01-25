@@ -6,6 +6,7 @@ product-id: xl-release
 
 ## Product documentation
 
+* [Release Notes](release_notes.html)
 * [Upgrade Manual](upgrademanual.html)
 * [System Administration Manual](systemadminmanual.html)
 * [Reference Manual](reference_manual.html)
@@ -13,7 +14,6 @@ product-id: xl-release
 * [Markdown Syntax Guide](markdownsyntax.html)
 * [REST API Reference](rest-api/)
 * [Jython API Manual](/jython-docs/#!/xl-release/4.5.x/)
-* [Release Notes](release_notes.html)
 
 ## Plugin documentation
 
