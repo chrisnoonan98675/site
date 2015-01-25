@@ -12,10 +12,6 @@
 img {
 	max-width: 650px;
 }
-.xltopmenu {
-	height: 75px;
-	padding-top: 10px;
-}
 .blogpostlist li {
 	margin-bottom: 20px;
 }
@@ -29,71 +25,64 @@ a img {
 	margin-bottom: 20px;
 }
 
-/*--------------- NAVBAR ---------------*/
-.navbar { 
-	min-height: 75px;
+/* Top bar */
+#top-bar {
+	background-color: #003366;
+	min-height: 70px;
+	margin-bottom: 0px;
 }
-.navbar-default { 
-	background: #003366 !important;
-	border-radius: 0px !important;
-	-webkit-border-radius: 0px !important;
-	border: none !important;
-	margin-bottom: 0px !important;
-}
-.navbar-default a { 
-	color: #fff !important;
+#top-bar a {
+	color: #FFF;
 }
 #top-ribbon {
      background: url('/images/lines-blue.png');
-     padding: 10px 0px 0px;
+     padding: 0px;
      height: 20px;
+     margin-top: 0px;
      margin-bottom: 20px;
 }
-.navbar-collapse {
-	border: none;
+.xebialabs-logo {
+	padding-top: 15px;
+	padding-left: 20px; 
 }
-.navbar-default .navbar-toggle .icon-bar {
-	background-color: #DDD;
-}
-.navbar-default .navbar-toggle {
-    border-color: #DDD;
-}
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-    background-color: #999;
+.xltopmenu {
+	height: 75px;
+	padding-top: 25px;
 }
 
-/* Collapsed sidebar styles */
-@media screen and (max-width: 767px) {
-	.row-offcanvas {
-		position: relative;
-		-webkit-transition: all 0.25s ease-out;
-		-moz-transition: all 0.25s ease-out;
-		transition: all 0.25s ease-out;
-	}
-	.row-offcanvas-right
-	.sidebar-offcanvas {
-		right: -25%;
-	}
-  	.row-offcanvas-left
-  	.sidebar-offcanvas {
-		left: -25%;
-	}
-	.row-offcanvas-right.active {
-		right: 25%;
-	}
-	.row-offcanvas-left.active {
-		left: 25%;
-	}
-	.sidebar-offcanvas {
-		position: absolute;
-		top: 0;
-		width: 25%;
-	}
-	#sidebar {
-		padding-top:0;
-	}
+/* Vertical sidebar navigation */ 
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+	padding: 0;
+	max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+	float: none;
+  }
+  .sidebar-nav .navbar ul:not {
+	display: block;
+
+  }
+  .sidebar-nav .navbar li {
+	float: none;
+	display: block;
+  }
+  .sidebar-nav .navbar li a {
+	padding-top: 12px;
+	padding-bottom: 12px;
+  }
 }
+@media (min-width: 992px) {
+  .navbar {
+	  width: 212px;
+  }
+}
+@media (min-width: 1200px) {
+  .navbar {
+	  width: 262px;
+  }
+}
+.sidebar-nav .navbar-header { float: none; }
 
 /* Google Custom Search overrides */
 input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gsc-search-button, .gsc-inline-block {
@@ -112,7 +101,7 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gs
 .gs-title a {
 	color: #15C !important;
 }
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+#top-bar, .navbar-form, .navbar-right {
 	border: none !important;
 	box-shadow: none !important;
 	-webkit-box-shadow: none !important;
