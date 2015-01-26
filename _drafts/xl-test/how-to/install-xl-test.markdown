@@ -1,5 +1,11 @@
 ---
 title: Install XL Test
+categories:
+- xl-test
+subject:
+- System administration
+tags:
+- system administration
 ---
 
 ## Prerequisites

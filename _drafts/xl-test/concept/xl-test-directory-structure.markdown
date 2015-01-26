@@ -1,5 +1,11 @@
 ---
 title: XL Test directory structure
+categories:
+- xl-test
+subject:
+- System administration
+tags:
+- system administration
 ---
 
 After you install the XL Test server, this directory structure exists in the installation directory (`XL_TEST_SERVER_HOME`):
