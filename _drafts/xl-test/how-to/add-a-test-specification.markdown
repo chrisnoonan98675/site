@@ -40,5 +40,5 @@ To create a set of test specifications:
 
 1. Select **Test specification set**.
 1. Enter a unique name in the **Test specification name** box.
-1. Select a test specification in the **Available test tpecifications** list and click the arrow to move it to the **To be added to super set** list. Do this for each specification that you want to add to the set.
+1. Select a test specification in the **Available test specifications** list and click the arrow to move it to the **To be added to super set** list. Do this for each specification that you want to add to the set.
 1. Click **Add test specification** to save the set.
