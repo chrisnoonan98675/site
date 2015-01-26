@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: XL Release 4.5.x documentation
 product-id: xl-release
 ---
