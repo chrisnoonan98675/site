@@ -6,114 +6,113 @@ subject:
 - Security
 tags:
 - security
+- system administration
 ---
 
-XL Deploy provides fine-grained security settings based on roles and permissions and allows them to be configured through the CLI and in the GUI.
+XL Deploy provides fine-grained security settings based on roles and permissions that you can configure through the command-line interface (CLI) and in the GUI. To configure security in the GUI, click the **Admin** tab.
 
-In this example, we'll be setting up security roles using the GUI. The example environment has two applications, **OnlineOrders** and **SiteSearch** that are both deployed to a test server before going to production. There are two different teams developing and deploying the applications. One team can't see the other's team application. Moreover, **developers** can only deploy to the test environment. **Deployers** can deploy both to the test environment and to production.
+In XL Deploy, you can only set security permissions on *directories*. You cannot set permissions on individual configuration item (CI) nodes such as Applications or Environments.
+
+The security settings on a lower level overwrite all permissions from a higher level. There is no inheritance from higher levels, combining settings from various directories.
+
+If there are no permissions set on a directory, the permission settings from the parent are taken (recursively). So if you have a deep hierarchy of nested directories, but you do not set any permissions on them, XL Deploy will take the permissions set on the root node.
+
+All directories higher up in a hierarchy must provide read permission for the roles defined in the lowest directory. Otherwise the permissions themselves cannot be read. This analogous to file permissions on Unix directories.
+
+## Assign global permissions to roles
+
+Use the **Global permissions** tab to assign global permissions to *roles* in XL Deploy. To add global permissions to a role:
+
+1. Select the role from the **Select to add role** list.
+2. Select the permissions that you want to assign to the role.
+3. Click **Save** to save the permissions.
+
+## Assign principals to roles
+
+Use the **Roles** tab to create and maintain roles in XL Deploy. To add a role, click ![Add role](/images/button_add_security_role.png). To delete a role, click ![Remove role](/images/button_remove_security_role.png).
+
+*Principals* are assigned to roles. To assign a principal to the role, double-click the **Principals** column and type the principal name. Separate principals with commas. To delete a principal, double-click the column and delete the principal name.
+
+Be sure to click **Save** to save the roles and principals.
+
+## Sample security set up
+
+This example shows how you can set up security roles using the XL Deploy GUI. The example environment has two applications, OnlineOrders and SiteSearch. They are both deployed to a test server before going to production.
+
+There are two teams developing and deploying the applications. One team can't see the other's team application. Also, developers can only deploy to the test environment, while deployers can deploy to the test environment and to production.
 
 We'll set up different security roles for the different users in the organization.
 
-This example assumes that there are already users and groups present in the system, for example by way of LDAP integration. For more detailed information on XL Deploy Security (including LDAP integration), please refer to the [XL Deploy Security Manual](http://docs.xebialabs.com/releases/latest/deployit/securitymanual.html)
+This example assumes that there are already users and groups present in the system, for example, by way of LDAP integration.
 
-## Overview ##
-
-Here's an overview of the environment for this example.
+This is an overview of the environment for this example:
 
 ![image](images/security-setup-overview.png)
 
-We have two applications: **OnlineOrders** and **SiteSearch**. They're maintained by two different teams and deployed independently.
+### Create roles
 
-Both applications are deployed to the same environments: The Test Environment, containing one server called **testserver** and the Production Environment, that contains two physical servers, **server1** and **server2**.
+The list of roles we want to have in the system are:
 
-## Roles ##
-
-At the current state, no roles have been implemented.
-
-This is the list of roles we want to have in the system.
-
-* **OnlineOrders developer** - May update the OnlineOrders application.
-* **SiteSearch developer** - May update the SiteSearch application.
-* **Lead developer** - May update and install any application on the Test Environment
-* **OnlineOrders Deployer** - May update OnlineOrders application in Test and Production
-* **SiteSearch Deployer** - May update SiteSearch application in Test and Production
-* **Lead Deployer** - May install any application on any environment
-
-To add roles, log in as the a user with admin rights and got the Admin tab. Under the Admin tab, click on the Roles tab. This is the screen where you add, modify and delete roles. To add a role, click on the green plus on the right-hand side of the screen.
+* OnlineOrders developer: May update the OnlineOrders application
+* SiteSearch developer: May update the SiteSearch application
+* Lead developer: May update and install any application on the test environment
+* OnlineOrders deployer: May update OnlineOrders application in test and production
+* SiteSearch deployer: May update SiteSearch application in test and production
+* Lead deployer: May install any application on any environment
 
 ![image](images/security-setup-roles.png)
 
-Enter the name of the role in the first column. The role is used within XL Deploy only. In the second column, 'Principals', you can specify a list of users and groups. If you have configured XL Deploy to point to your LDAP directory, you can add users and groups from LDAP here. To enter more than one principal, use a comma-separated list.
+### Create directories
 
-Hit Save to persist the changes. Note that the UI will display the roles in alphabetical order. 
+Now let's add some directories. In **Repository**:
 
-## Directories ##
-
-The following is important enough to put in italics:
-
-*In XL Deploy, you can only set security permissions on directories.*
-
-That means it's not possible to set permissions on individual CI nodes, like Packages or Environments.  In practice you will need to impose a folder structure on your repository in order to set fine-grained permissions. The advantage here is that security will be explicit and localized in one place. Note that the root nodes in the repository ('Applications', 'Environments', etc.) are a special kind of folder and also allow setting of permissions.
-
-Now let's add some directories. Go to the Repository browser, right-click on Applications and choose New > core > core.Directory. Name the new directory "Order". Now move the OnlineOrder package into the newly created Order directory by way of drag-and-drop. Following this procedure we create the following structure:
+1. Right-click **Applications** and select **New** > **Directory**.
+2. Name the new directory "Orders".
+3. Drag-and-drop the OnlineOrder package into the Order directory.
+4. Repeat this procedure to create a directory for the SiteSearch application and for the Production and Test environments.
 
 ![image](images/security-setup-directories.png)
 
-## Assigning Roles ##
+### Assign roles for applications
 
-To assign roles, right-click on a Directory and choose Permissions.
-Let's start by assigning roles to the Applications/Orders directory.
+To assign roles, right-click a directory and select **Permissions**.
 
 ![image](images/security-setup-click-permissions.png)
 
-In the resulting screen, we add roles for Lead Developer, Lead Deployer, OnlineOrders Developer and OnlineOrders Deployer.
-
-We assign the roles as follows.
+Assign roles to the **Orders** directory:
 
 ![image](images/security-setup-permissions-app.png)
 
-This means that both the Lead Developer and the Lead Deployer are allowed to add and remove applications in the Orders directory, but regular developers and deployers assigned to the project may only upgrade an existing deployment, say from OnlineOrders 1.0 to 2.0.
+This means that the lead developer and the lead deployer are allowed to add and remove applications in the Orders directory, but regular developers and deployers assigned to the project may only upgrade an existing deployment, say from OnlineOrders 1.0 to 2.0.
 
-We can do a similar setup for the Search directory, substituting the OnlineOrders Developer and Deployer roles with the corresponding SiteSearch roles.
+You can do a similar setup for the **Search** directory, substituting the OnlineOrders developer and deployer roles with the corresponding SiteSearch roles.
 
-Note that if a role is not added to this screen, it effectively has no permissions. To remove a role, simply untick all its permissions and hit Save.
+Note that if a role is not added to this screen, it effectively has no permissions. To remove a role, simply deselect all of its permissions and click **Save**.
 
-Now we'll set permissions to the Test environment. This environment is can be accessed by both development and ops teams. Simply add all roles and grant all permissions to the Lead Developers and Deployers. Regular developers / deployers have more restricted access.
+### Assign roles for environments
+
+Now, set permissions for the test environment. This environment is can be accessed by both development and operations teams. Simply add all roles and grant all permissions to the lead developers and deployers. Regular developers and deployers have more restricted access.
 
 ![image](images/security-setup-permissions-test.png)
 
-For production, we only want deployers to have access. Only the lead deployer may alter the environment from XL Deploy.
+For production, only deployers should have access. Only the lead deployer may alter the environment from XL Deploy.
 
 ![image](images/security-setup-permissions-prod.png)
 
-## Refining Security Levels ##
+### Refine security levels
 
-In our current setup, the Test and Production environments are shared for the OnlineOrders and SiteSearch applications. That means that the OnlineOrders deployers can see the SiteSearch application and vice versa. To avoid this, we need to split the environments into application-specific environments. So the Production environment will be split into an 'Online Order Production environment' and 'SiteSearch Production environment'. Note that they will still refer to the same physical servers. But, by splitting them up, you can effectively hide them from different sets of users in XL Deploy. To do so, we will also need another Directory layer, that splits the applications under the Environment node.
+In the current setup, the test and production environments are shared for the OnlineOrders and SiteSearch applications. That means that the OnlineOrders deployers can see the SiteSearch application and vice versa.
 
-Here's the new setup:
+To avoid this, you must split the environments into application-specific environments. So the production environment will be split into an "Online Order Production environment" and "SiteSearch Production environment". Note that they will still refer to the same physical servers. But, by splitting them up, you can effectively hide them from different sets of users in XL Deploy.
+
+This is the new setup:
 
 ![image](images/security-setup-environment-refined.png)
 
-The permissions for Environment/Orders/Production look like:
+The permissions for **Environment** > **Orders** > **Production** look like:
 
 ![image](images/security-setup-permissions-prod-orders.png)
 
-There are several important issues to note here.
-
-**NOTE 1** - Security setting on a lower level overwrite *all* permissions from a higher level. So the settings on the Orders/Production directory is all there is for the OrderSearch Production Environment. There is no inheritance from higher levels, combining settings from various directories.
-
-**NOTE 2** - If there are no permissions set on a directory, the permission settings from the parent are taken (recursively). So if you have a deep hierarchy of nested directories, but you don't set any permissions on them, XL Deploy will take the permissions set on the root node, Environments for example.
-
-**NOTE 3** - All directories higher up in a hierarchy need to provide read permission for the roles defined in the lowest directory. Otherwise the permissions itself can't be read! This analogous to file permissions on unix directories. On unix, you also need read permissions on (all) parent directories, in order to list its contents. For example, here's the permissions table of Environment/Orders
+And the permissions for **Environments** > **Orders** look like:
 
 ![image](images/security-setup-read-permissions-in-parent.png)
-
-## Restricted access in the UI ##
-
-After setting up the security roles, users will have restricted access to the UI. For example, this is what an OnlineOrder developer will see when logging in:
-
-Note that the SiteSearch application and environments are missing, as well as the Production environment for OnlineOrders. The Admin tab is also inaccessible.
-
-![image](images/security-setup-developer.png)
-
-This concludes our Security Setup example. For more information, please refer to the [XL Deploy Security Manual](http://docs.xebialabs.com/releases/latest/deployit/securitymanual.html).

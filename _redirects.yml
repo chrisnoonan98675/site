@@ -168,3 +168,7 @@
 /general/faq.html : /faq/index.html
 /general/community.html : http://xebialabs-community.github.io/
 /faq/index.html : /index.html
+
+# Redirect topics that have been renamed
+
+/xl-deploy/how-to/perform-an-update.html : /xl-deploy/how-to/update-a-deployed-application.markdown
