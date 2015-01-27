@@ -12,7 +12,6 @@ product-id: xl-deploy
 * [Reference Manual](referencemanual.html)
 * [System Administration Manual](systemadminmanual.html)
 * [Security Manual](securitymanual.html)
-* [Graphical User Interface (GUI) Manual](guimanual.html)
 * [Command Line Interface (CLI) Manual](climanual.html)
 * [Packaging Manual](packagingmanual.html)
 * [Customization Manual](customizationmanual.html)
@@ -35,7 +34,6 @@ product-id: xl-deploy
 * [JEE Plugin Manual](jeePluginManual.html)
 * [PowerShell Plugin Manual](powershellPluginManual.html)
 * [Python Plugin Manual](pythonPluginManual.html)
-* [Remoting Plugin Manual](remotingPluginManual.html)
 * [Webserver Plugin Manual](webserverPluginManual.html)
 * [Trigger Plugin Manual](triggerPluginManual.html)
 
