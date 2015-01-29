@@ -20,7 +20,7 @@ To create a new CI in the repository, do the following:
 2. **Create a new CI**. The selected CI type will be opened in the CI Editor Tab so you can fill out its properties to create a new CI. **Note**: the **Id** field of the CI is a special non-editable property that determines the place of the CI in the repository. For more information about the **Id** property, see the **XL Deploy Reference Manual**.
 3. **Save the new CI**. Click on the **Save** button to save the new CI in the repository. XL Deploy will perform validation on the CI to ensure that all properties have appropriate values. An error message is shown if not.
 
-If the CI is an _artifact_ CI representing a binary file, you can upload the file from your local machine into XL Deploy.
+If the CI is an _artifact_ CI representing a binary file, you can upload the file from your local machine into XL Deploy. If the CI contains a directory structure then you must first add it to a ZIP file, then upload it. 
 
 ## Duplicate a CI
 
