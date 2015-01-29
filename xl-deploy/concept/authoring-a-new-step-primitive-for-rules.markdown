@@ -8,6 +8,8 @@ tags:
 - rules
 - step
 - deployment
+since:
+- 4.5.0
 ---
 
 XL Deploy allows you to deploy your applications using a rule DSL, where the final deployment plan gets composed via a number of pre-packaged or user-defined rules that define which steps should be included in the plan. However, the kinds of steps that you can use may not always provide all the functionality you need. In those cases you may want to write your own step primitives that perform the actions you need.

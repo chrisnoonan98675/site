@@ -5,7 +5,9 @@ categories:
 subject:
 - 
 tags:
--  
+-
+since:
+-   
 ---
 
 ## File name
@@ -14,49 +16,20 @@ The file name format is `your-file-name-here.markdown`. Do not use underscores, 
 
 ## Front matter
 
-Do not change the words `title`, `categories`, `subject`, or `tags` in the font matter (for example, don't change `categories` to `category`).
+The front matter consists of keys and values. You can specify them in any order. Do not change the keys.
 
-### Title
-
-Set `title` to the title of the page. Don't retype the title in the body of the post.
-
-#### Formatting titles
-
-Write the title in sentence case.
-
-### Categories
-
-Categories identity product(s) that the page applies to. They should be written as product IDs.
-
-You can add multiple categories.
-
-#### Formatting categories
-
-Write categories in lowercase. Spaces are not allowed. For example: *xl-deploy*.
-
-### Subject
-
-The subject is like a high-level tag. It helps users who are used to reading documentation in manuals. For example, you could create a topic that has the subject *Security* and the tags *password*, *ldap*, and *user management*.
-
-You can only add one subject.
+| Key | Required? | More than one value allowed? | Description | Capitalization | Spaces allowed? | Example |
+| --- | --------- | ---------------------------- | ----------- | -------------- | --------------- | ------- |
+| title | Yes | No | The title of the page. | Sentence case | Yes | Create a new role |
+| categories | Yes | Yes | The product(s) that the page applies to. | Lowercase | No | xl-deploy, xl-release |
+| subject | Yes | No | The subject is like a high-level tag. It helps users who are used to reading documentation in manuals. | Sentence case | Yes | Security |
+| tags | Yes | Yes | Tags help users browse posts and improve search results. Try to use tags that are already in use. You can add new tags, but do so with caution. | Lowercase | Yes | role, permissions, user management |
+| layout | No | No | If this is beta documentation, set the layout to beta. Otherwise, don't use this key. | Lowercase | No | beta |
+| since | No | No | This is the version in which the functionality described in the page was introduced. It isn't required, but it is recommended. | Not applicable | Not applicable | 3.9.0 |
+| deprecated | No | No | This is the version in which the functionality described in the page was deprecated. | Not applicable | Not applicable | 4.0.0 |
+| removed | No | No | This is the version in which the functionality described in the page was removed. | Not applicable | Not applicable | 4.5.0 |
 
 **Tip:** To see the subjects that are in use, go to [http://testdocs.xebialabs.com/tags-and-subjects.html](http://testdocs.xebialabs.com/tags-and-subjects.html).
-
-#### Formatting the subject
-
-Write the subject in sentence case. For example: *System administration*.
-
-### Tags
-
-Tags help users browse posts and improve search results. Try to use tags that are already in use. You can add new tags, but do so with caution.
-
-You can add multiple tags.
-
-**Tip:** To see the tags that are in use, go to [http://testdocs.xebialabs.com/tags-and-subjects.html](http://testdocs.xebialabs.com/tags-and-subjects.html).
-
-#### Formatting tags
-
-Write tags must in lowercase. Spaces are allowed. For example: *active directory*.
 
 ## Formatting the file
 
