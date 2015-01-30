@@ -1,5 +1,5 @@
 ---
-title: Use XL Deploy garbage collection
+title: Reclaim disk space on an XL Deploy server
 categories:
 - xl-deploy
 subject:

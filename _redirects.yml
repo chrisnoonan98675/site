@@ -170,5 +170,5 @@
 /faq/index.html : /index.html
 
 # Redirect topics that have been renamed
-
-/xl-deploy/how-to/perform-an-update.html : /xl-deploy/how-to/update-a-deployed-application.markdown
+/xl-deploy/how-to/perform-an-update.html : /xl-deploy/how-to/update-a-deployed-application.html
+/xl-deploy/how-to/use-xl-deploy-garbage-collection.html : /xl-deploy/how-to/reclaim-disk-space-on-an-xl-deploy-server.html
