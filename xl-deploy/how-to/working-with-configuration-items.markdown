@@ -7,7 +7,7 @@ subject:
 tags:
 - ci
 - gui
-- artifact
+- artifacts
 ---
 
 XL Deploy stores all of its information in the repository. The **Repository** screen gives you access to the configuration items (CIs) in the repository and allows you to edit them manually.
