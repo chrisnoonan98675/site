@@ -45,7 +45,7 @@ To create an environment:
 1. To add a new dictionary:
     1. Select **Add new dictionary**.
     1. In the **Dictionary name** box, enter a unique name for the dictionary.
-    1. In the **New key** and **New value** boxes, enter a key and its corresponding value. Click **Add** to add the key-value pair to the dictionary. Repeat this for all key-value pairs that you want to add.
+    1. In the **New key** and **New value** boxes, enter a key and its corresponding value. Click **Add** to add the key-value pair to the dictionary. Repeat this process for all key-value pairs that you want to add.
     1. Click **Add to environment** to add the dictionary to the environment.
 
         To add another new dictionary to the environment, repeat the same steps. 
