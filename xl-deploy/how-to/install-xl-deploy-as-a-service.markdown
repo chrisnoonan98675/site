@@ -7,6 +7,8 @@ categories:
 tags:
 - system administration
 - service
+since:
+- 4.5.x
 ---
 
 You want to install XL Deploy as a service, so that it is always up and running, even after a server reboot? Follow these steps to get it working.
