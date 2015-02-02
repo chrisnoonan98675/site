@@ -7,7 +7,7 @@ categories:
 tags:
 - plugin
 - deployment
-- steps
+- step
 - freemarker
 - rules
 ---
