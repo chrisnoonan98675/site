@@ -24,20 +24,11 @@ Go to `http://localhost:4000` to see the site running locally.
 
 # Beta documentation
 
-To add a "beta" label to a topic, add `layout: beta` to its front matter. Note that `layout` and `beta` must appear on the same line. For example:
+To mark an entire topic as "beta", add `layout: beta` to its front matter. Note that `layout` and `beta` must appear on the same line.
 
-    ---
-    layout: beta
-    title: Sample beta topic
-    categories:
-    - xl-release
-    subject:
-    - Tasks
-    tags:
-    - task
-    - custom task
-    - script
-    ---
+To mark a section of a topic as "beta", add the following line just after the section's heading:
+
+    <div class="alert alert-danger" role="alert">The information in this section is in beta and is subject to change.</div>
 
 # Things to know about formatting
 
