@@ -7,14 +7,14 @@ categories:
 tags:
 - package
 - application
+- gui
+since:
+- 3.8.x
 ---
 
 Deployment Packages are usually created outside of XL Deploy. For example, packages are built by tools like Maven or Jenkins and then imported using the a XL Deploy plugin. Or you manually write a Manifest.MF file for the XL Deploy Archive format (DAR format) and import the package using the XL Deploy UI.
 
 But, while designing a Deployment Package this may be a cumbersome process. To quickly assemble a package, it is more convenient to edit it in the XL Deploy UI.
-
-_Note: You should be running Deployit/XL Deploy 3.8 or higher._
-
 
 ## Creating an application
 
@@ -23,7 +23,7 @@ In XL Deploy, all deployable content is stored in a Deployment Package. The Depl
 Deployment Packages are versions of an Application. An application will contain one or more Deployment Packages. So before we can create a Deployment Package, we need to create an Application.
 
 To create an application, login to the XL Deploy UI and go to the **Repository** tab.
-Right-click on **Applications** and choose **New > udm > udm.Application**
+Right-click on **Applications** and choose **New** > **Application**
 
 ![image](images/package-create-application.png) 
 
@@ -31,9 +31,9 @@ Give it the name 'MyApp' and press save.
 
 ## Creating a Deployment Package
 
-Now let's create a Deployment Package that has all the content of version 1.0 of Myapp.
+Now let's create a Deployment Package that has all the content of version 1.0 of MyApp.
 
-Right-click on **MyApp** and choose  **New > udm.DeploymentPackage**
+Right-click on **MyApp** and choose  **New** > **DeploymentPackage**
 
 ![image](images/package-create-deployment-package.png) 
 
@@ -47,11 +47,11 @@ We're now ready to add actual deployable content to the package. Remember that i
 
 First we'll add a simple deployable without file content. Let's create a deployable DataSource in the package. 
 
-Right-click on **MyApp** and choose  **New > jee > jee.DataSourceSpec**
+Right-click on **MyApp** and choose  **New** > **jee** > **DataSourceSpec**
 
 ![image](images/package-create-datasource.png) 
 
-Give it the name 'MyDataSource' and JNDI-name 'jdbc/my-data-source'. Press Save. 
+Give it the name 'MyDataSource' and JNDI-name 'jdbc/my-data-source'. Press **Save**. 
 
 That's it! We've just created a functional Deployment Package that will create a DataSource when deployed to a JEE Application Server like JBoss or WebSphere.
 
@@ -63,7 +63,7 @@ Let's add an EAR file to our MyApp/1.0 deployment package. It will be of type `j
 
 Note that if you're using specific middleware like WebSphere or WebLogic, you also have the option to add and EAR of type `was.Ear`or `wls.Ear`. Only use this if you really need WebSphere or WebLogic-specific features. The `jee.Ear`type will deploy just fine too.
 
-Right-click on **MyApp** and choose  **New > jee > jee.Ear**
+Right-click on **MyApp** and choose  **New** > **jee** > **Ear**
 
 ![image](images/package-create-ear.png) 
 
