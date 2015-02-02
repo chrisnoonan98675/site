@@ -134,16 +134,16 @@ XL Deploy supports the use of _placeholders_ to customize a package for deployme
 
     <was.OracleDatasourceSpec name="petclinicDS">
       <url>jdbc:mysql://localhost/petclinic</url>
-      <username>{{DB_USERNAME}}</username>
-      <password>{{DB_PASSWORD}}</password>
+      <username>{% raw %}{{DB_USERNAME}}{% endraw %}</username>
+      <password>{% raw %}{{DB_PASSWORD}}{% endraw %}</password>
     </was.OracleDatasourceSpec>
 
 Please note that placeholders can also be used in the _name_ of a CI:
 
-    <was.OracleDatasourceSpec name="{{PETCLINIC_DS_NAME}}">
+    <was.OracleDatasourceSpec name="{% raw %}{{PETCLINIC_DS_NAME}}{% endraw %}">
       <url>jdbc:mysql://localhost/petclinic</url>
-      <username>{{DB_USERNAME}}</username>
-      <password>{{DB_PASSWORD}}</password>
+      <username>{% raw %}{{DB_USERNAME}}{% endraw %}</username>
+      <password>{% raw %}{{DB_PASSWORD}}{% endraw %}</password>
     </was.OracleDatasourceSpec>
 
 XL Deploy also supports an alternative way of using dictionary values for CI properties. If the dictionary contains keys of the form `deployedtype.property`, these properties are automatically filled with values from the dictionary (provided they are not specified in the deployable). This makes it possible to use dictionaries without specifying placeholders. For example, the above could also have been achieved by specifying the following keys in the dictionary:
