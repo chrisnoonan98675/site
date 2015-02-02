@@ -1,5 +1,5 @@
 ---
-title: Old-style manifest format
+title: Deprecated XL Deploy manifest format
 categories:
 - xl-deploy
 subject:
