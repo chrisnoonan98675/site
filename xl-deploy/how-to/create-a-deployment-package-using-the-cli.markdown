@@ -41,8 +41,8 @@ Add the datasource to the manifest as follows:
     <was.OracleDatasourceSpec name="PetClinic-ds">
       <driver>com.mysql.jdbc.Driver</driver>
       <url>jdbc:mysql://localhost/petclinic</url>
-      <username>{{DB_USERNAME}}</username>
-      <password>{{DB_PASSWORD}}</password>
+      <username>{% raw %}{{DB_USERNAME}}{% endraw %}</username>
+      <password>{% raw %}{{DB_PASSWORD}}{% endraw %}</password>
     </was.OracleDatasourceSpec>
 
 Note how the datasource uses placeholders for username and password.
@@ -57,8 +57,8 @@ The complete manifest looks like this:
         <was.OracleDatasourceSpec name="PetClinic-ds">
           <driver>com.mysql.jdbc.Driver</driver>
           <url>jdbc:mysql://localhost/petclinic</url>
-          <username>{{DB_USERNAME}}</username>
-          <password>{{DB_PASSWORD}}</password>
+          <username>{% raw %}{{DB_USERNAME}}{% endraw %}</username>
+          <password>{% raw %}{{DB_PASSWORD}}{% endraw %}</password>
         </was.OracleDatasourceSpec>
       </deployables>
     </udm.DeploymentPackage>

@@ -138,15 +138,15 @@ Similar to the XML format, you can use placeholders to fill values from Dictiona
     CI-Type: was.OracleDatasourceSpec
     CI-driver: com.mysql.jdbc.Driver
     CI-url: jdbc:mysql://localhost/petclinic
-    CI-username: {{DB_USERNAME}}
-    CI-password: {{DB_PASSWORD}}
+    CI-username: {% raw %}{{DB_USERNAME}}{% endraw %}
+    CI-password: {% raw %}{{DB_PASSWORD}}{% endraw %}
 
 Please note that placeholders can also be used in the _name_ of a CI but they cannot be specified in the _Name_ field in the `MANIFEST.MF` format. Use the _CI-Name_ format instead, e.g.:
 
     Name: petclinicDS
-    CI-Name: {{PETCLINIC_DS_NAME}}
+    CI-Name: {% raw %}{{PETCLINIC_DS_NAME}}{% endraw %}
     CI-Type: was.OracleDatasourceSpec
     CI-driver: com.mysql.jdbc.Driver
     CI-url: jdbc:mysql://localhost/petclinic
-    CI-username: {{DB_USERNAME}}
-    CI-password: {{DB_PASSWORD}}
+    CI-username: {% raw %}{{DB_USERNAME}}{% endraw %}
+    CI-password: {% raw %}{{DB_PASSWORD}}{% endraw %}
