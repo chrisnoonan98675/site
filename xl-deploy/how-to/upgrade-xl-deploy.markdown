@@ -61,7 +61,7 @@ To upgrade an XL Deploy server installation:
 1. Copy the content of the `ext` directory from the previous installation to the new installation directory.
 1. *Do not* copy the content of the hotfix directory (unless instructed) because hotfixes are version-specific.
 1. If you added libraries to XL Deploy's `lib` directory (such as database drivers), copy the additional libraries from the previous installation to the new installation directory.
-1. If you have made any changes to the XL Deploy server startup scripts (`server.sh` or `server.cmd`), manually re-do these changes in the new installation directory.
+1. If you have made any changes to the XL Deploy server startup scripts, manually re-do these changes in the new installation directory. In XL Deploy 4.5.x and earlier, the startup scripts are `server.sh` and `server.cmd`. In XL Deploy 5.0.0 and later, startup scripts are located in `bin` directory.
 1. Verify that libraries in the `lib` directory do not also appear in the `plugins` directory, even if their versions are different.
 
     For example, if `lib` contains a `guava-16.0.1.jar`, then the `plugins` directory should not contain any `guava-x.x.x.jar` file (such as `guava-13.0.jar`). In this case, you must remove the library from the plugins directory. For example: 
