@@ -7,6 +7,7 @@ subject:
 tags:
 - system administration
 - security
+- configuration
 ---
 
 ## XL Deploy properties file
