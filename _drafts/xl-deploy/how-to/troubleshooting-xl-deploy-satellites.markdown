@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Troubleshooting XL Deploy satellites
 categories:
 - xl-deploy
@@ -9,6 +10,8 @@ tags:
 - satellite
 - configuration
 - troubleshooting
+since:
+- 5.0.0
 ---
 
 ## I configured a satellite in XL Deploy and started it, but I cannot ping it

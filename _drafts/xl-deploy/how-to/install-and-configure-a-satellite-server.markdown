@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Install and configure a satellite server
 categories:
 - xl-deploy
@@ -9,6 +10,8 @@ tags:
 - satellite
 - configuration
 - system administration
+since:
+- 5.0.0
 ---
 
 ## Install the satellite

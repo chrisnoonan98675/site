@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Getting started with the satellite feature
 categories:
 - xl-deploy
@@ -7,6 +8,8 @@ subject:
 tags:
 - remoting
 - satellite
+since:
+- 5.0.0
 ---
 
 The XL Deploy satellite feature lets you to execute deployments on remote data centers. It includes:

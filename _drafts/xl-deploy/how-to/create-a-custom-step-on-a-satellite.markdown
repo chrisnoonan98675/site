@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Create a custom step on a satellite
 categories:
 - xl-deploy
@@ -7,11 +8,13 @@ subject:
 tags:
 - remoting
 - satellite
-- steps
+- step
 - rules
+since:
+- 5.0.x
 ---
 
-Normally, when you want to create a custom deployment step, you use Java to [extend the `Step` interface](/xl-deploy/4.5.x/xldeployjavaapimanual.html#define-a-custom-step-for-rules). To create a custom step that is run by a satellite, you extend the `com.xebialabs.xlplatform.satellite.SatelliteAware` interface instead.
+Normally, when you want to create a custom deployment step, you use Java to [extend the `Step` interface](/xl-deploy/5.0.x/xldeployjavaapimanual.html#define-a-custom-step-for-rules). To create a custom step that is run by a satellite, you extend the `com.xebialabs.xlplatform.satellite.SatelliteAware` interface instead.
 
 `com.xebialabs.xlplatform.satellite.SatelliteAware` has one method:
 

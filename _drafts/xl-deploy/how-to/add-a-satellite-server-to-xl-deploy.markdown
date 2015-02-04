@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Add a satellite server to XL Deploy
 categories:
 - xl-deploy
@@ -7,6 +8,8 @@ subject:
 tags:
 - configuration
 - satellite
+since:
+- 5.0.0
 ---
 
 To add a satellite server to XL Deploy:

@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Configure XL Deploy satellite metrics
 categories:
 - xl-deploy
@@ -8,6 +9,8 @@ tags:
 - satellite
 - system administration
 - configuration
+since:
+- 5.0.x
 ---
 
 ## Configure host name and port for metrics

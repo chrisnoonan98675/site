@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Synchronize plugins with a satellite server
 categories:
 - xl-deploy
@@ -8,6 +9,8 @@ tags:
 - plugin
 - remoting
 - satellite
+since:
+- 5.0.0
 ---
 
 If you add, remove, or update an XL Deploy plugin, you must synchronize XL Deploy with satellite servers before performing a deployment.
