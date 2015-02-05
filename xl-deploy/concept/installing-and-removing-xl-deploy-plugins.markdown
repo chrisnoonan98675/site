@@ -5,7 +5,7 @@ categories:
 subject:
 - System administration
 tags:
-- system administation
+- system administration
 - plugin
 ---
 
