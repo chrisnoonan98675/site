@@ -12,15 +12,17 @@ since:
 - 3.8.x
 ---
 
-Deployment Packages are usually created outside of XL Deploy. For example, packages are built by tools like Maven or Jenkins and then imported using the a XL Deploy plugin. Or you manually write a Manifest.MF file for the XL Deploy Archive format (DAR format) and import the package using the XL Deploy UI.
+**Tip:** For information about creating a deployment package in XL Deploy 5.0.0 and later, refer to [Add a package to XL Deploy](/xl-deploy/how-to/add-a-package-to-xl-deploy.html).
 
-But, while designing a Deployment Package this may be a cumbersome process. To quickly assemble a package, it is more convenient to edit it in the XL Deploy UI.
+Deployment packages are usually created outside of XL Deploy. For example, packages are built by tools like Maven or Jenkins and then imported using the a XL Deploy plugin. Or you manually write a Manifest.MF file for the XL Deploy Archive format (DAR format) and import the package using the XL Deploy UI.
+
+But, while designing a deployment package this may be a cumbersome process. To quickly assemble a package, it is more convenient to edit it in the XL Deploy UI.
 
 ## Creating an application
 
-In XL Deploy, all deployable content is stored in a Deployment Package. The Deployment Package will contain the EAR files, HTML files, SQL scripts, DataSource definitions, etc. 
+In XL Deploy, all deployable content is stored in a deployment package. The deployment package will contain the EAR files, HTML files, SQL scripts, DataSource definitions, etc. 
 
-Deployment Packages are versions of an Application. An application will contain one or more Deployment Packages. So before we can create a Deployment Package, we need to create an Application.
+Deployment packages are versions of an application. An application will contain one or more deployment packages. So before we can create a deployment package, we need to create an application.
 
 To create an application, login to the XL Deploy UI and go to the **Repository** tab.
 Right-click on **Applications** and choose **New** > **Application**
@@ -29,9 +31,9 @@ Right-click on **Applications** and choose **New** > **Application**
 
 Give it the name 'MyApp' and press save.
 
-## Creating a Deployment Package
+## Creating a deployment package
 
-Now let's create a Deployment Package that has all the content of version 1.0 of MyApp.
+Now let's create a deployment package that has all the content of version 1.0 of MyApp.
 
 Right-click on **MyApp** and choose  **New** > **DeploymentPackage**
 
@@ -53,7 +55,7 @@ Right-click on **MyApp** and choose  **New** > **jee** > **DataSourceSpec**
 
 Give it the name 'MyDataSource' and JNDI-name 'jdbc/my-data-source'. Press **Save**. 
 
-That's it! We've just created a functional Deployment Package that will create a DataSource when deployed to a JEE Application Server like JBoss or WebSphere.
+That's it! We've just created a functional deployment package that will create a DataSource when deployed to a JEE Application Server like JBoss or WebSphere.
 
 ## Adding artifacts
 
@@ -69,7 +71,7 @@ Right-click on **MyApp** and choose  **New** > **jee** > **Ear**
 
 Give it the name 'PetClinic.ear'. We can now upload the actual EAR file. Hit 'Browse file' and select an EAR file from your local workstation. If you're running the XL Deploy Server locally, you can  find an example EAR file in `xldeploy-server/importablePackages/PetClinic-ear/1.0/PetClinic-1.0.ear`.
 
-When creating artifacts (configuration items with file content), there are some things to take into account. First, you can only upload files when creating the configuration item. It's not possible to change the content afterwards. The reason for this is that Deployment Packages should effectively be read-only. If you change the contents, you may create inconsistencies between what has deployed onto the middleware and what is in the XL Deploy repository. This may lead to surprising errors.
+When creating artifacts (configuration items with file content), there are some things to take into account. First, you can only upload files when creating the configuration item. It's not possible to change the content afterwards. The reason for this is that deployment packages should effectively be read-only. If you change the contents, you may create inconsistencies between what has deployed onto the middleware and what is in the XL Deploy repository. This may lead to surprising errors.
 
 Placeholder scanning of files is only done when they're uploaded. Use the 'Scan Placeholder' checkbox to enable or disable placeholder scanning of files. 
 

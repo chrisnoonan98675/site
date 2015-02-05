@@ -36,7 +36,11 @@ The data that is available for a planning script to use depends on the scope of 
         <td>delta</td> <td><a href="/xl-deploy/4.5.x/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/Delta.html">Delta</a></td> <td>deployed</td> <td>Whether the deployed should be created, modified, destroyed, or left unchanged (noop)</td>
     </tr>
     <tr>
-        <td>deployed</td> <td><a href="/xl-deploy/4.5.x/udm-plugin-api/com/xebialabs/deployit/plugin/api/udm/Deployed.html">Deployed</a></td> <td>deployed</td> <td>In the case of create, modify, or noop, this is the "current" deployed that the <code>delta</code> variable refers to; in the case of destroy, this is the "old" deployed</td>
+        <td>deployed</td> <td><a href="/xl-deploy/5.0.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/udm/Deployed.html">Deployed</a></td> <td>deployed</td> <td>In the case of create, modify, or noop, this is the "current" deployed that the <code>delta</code> variable refers to; in the case of destroy, this is the "old" deployed<br /><br />
+        <span class="label label-danger">beta</span> In the case of create, modify, or noop, this is the "current" deployed that the <code>delta</code> variable refers to; in the case of destroy, it is not provided (as of XL Deploy 5.0.0)</td>
+    </tr>
+    <tr>
+    	 <td>previousDeployed</td> <td><a href="/xl-deploy/5.0.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/udm/Deployed.html">previousDeployed</a></td> <td>deployed</td> <td><span class="label label-danger">beta</span> In the case of modify, destroy, or noop, this is the "previous" deployed that the <code>delta</code> variable refers to; in the case of create, this is not provided (as of XL Deploy 5.0.0)</td>
     </tr>
     <tr>
         <td>deltas</td> <td><a href="/xl-deploy/4.5.x/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/Deltas.html">Deltas</a></td> <td>plan</td> <td>Collection of all <code>Delta</code>s in the current <code>InterleavedPlan</code></td>

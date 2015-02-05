@@ -9,15 +9,11 @@ tags:
 - plugin
 ---
 
-To install a new plugin, stop the XL Deploy server and copy the plugin XLDP or JAR archive into the `plugins` directory, then restart the XL Deploy server.
+XL Deploy runs on the JVM and has two classloaders: one for the server itself, and one for the plugins and extensions. A plugin can have a `.jar` extension or, as of XL Deploy 5.0.0, an `.xldp` extension. The XLDP format is a ZIP archive that bundles the plugin with all its dependencies.
 
-To uninstall a plugin, stop the XL Deploy server and remove the plugin XLDP or jar archive from the `plugins` directory, then restart the XL Deploy server.
+Any plugin that is added or removed when the XL Deploy server is running will not take effect until the server is restarted. To install a new plugin, stop the XL Deploy server and copy the plugin XLDP or JAR file to the `plugins` directory, then restart the XL Deploy server.
 
-Plugins can have `.jar` and `.xldp` extensions. Any plugins added or removed when XL Deploy server is running will not take effect until the server is restarted.
-
-## Installing extensions and hotfixes
-
-XL Deploy runs on the JVM and has two classloaders. One for the server itself, and one for the plugins and extensions. The plugin classloader has support for our XLDP plugin format. The XLDP format is a ZIP archive that bundles the plugin with all its dependencies.
+To remove a plugin, stop the XL Deploy server and remove the plugin XLDP or JAR file from the `plugins` directory, then restart the XL Deploy server.
 
 The default XL Deploy server classloader will use the following classpath:
 
@@ -27,7 +23,7 @@ The default XL Deploy server classloader will use the following classpath:
 
 These folders can be configured by changing `xld-wrapper.conf`. The XL Deploy server classpath typically contains resources, configuration files and libraries needed by the server itself to work.
 
-Additionally to the server classloader, there is also the XL Deploy plugin class loader. The plugin includes the classpath of the server classloader. Additionally it includes the following directories:
+Additionally to the server classloader, there is also the XL Deploy plugin classloader. The plugin includes the classpath of the server classloader. Additionally it includes the following directories:
 
 * `ext`: This folder is directly added to the classpath and can contain classes and resources without putting them in a `jar` file.
 

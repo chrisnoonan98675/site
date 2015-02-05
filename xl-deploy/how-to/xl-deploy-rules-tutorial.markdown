@@ -8,6 +8,8 @@ tags:
 - rules
 - deployment
 - tutorial
+since:
+- 4.5.0
 ---
 
 The *rules* system, introduced in XL Deploy 4.5.0, works with the XL Deploy's planning phase and allows you to use XML or Jython to specify the steps that belong in a deployment plan and how the steps are configured.
@@ -24,8 +26,6 @@ This tutorial assumes that you:
 * Understand the concepts of XL Deploy planning, as described in [Deployments and Plugins](/xl-deploy/4.5.x/customizationmanual.html#deployments-and-plugins)
 
 For reference, you can download the code provided in this tutorial from the XebiaLabs [GitHub](https://github.com/xebialabs/xl-deploy-samples/tree/master/rules-demo-plugin).
-
-For more information about the concepts discussed in this tutorial, see the [Rules Manual](/xl-deploy/4.5.x/rulesmanual.html). 
 
 ## How to run the examples
 
@@ -61,11 +61,11 @@ After you finish this tutorial, the `ext` folder will look like:
 
 After you change `synthetic.xml`, you must restart the XL Deploy server.
 
-By default, you must also restart the XL Deploy server after you change `xl-rules.xml` and scripts in the `ext` folder. However, you can configure XL Deploy to periodically rescan `xl-rules.xml` and the `ext` folder and apply any changes that it finds. This is useful when you are developing a plugin. Refer to [Rescan the rules file](rulesmanual.html#rescan-the-rules-file) in the Rules Manual for information on how to do this.
+By default, you must also restart the XL Deploy server after you change `xl-rules.xml` and scripts in the `ext` folder. However, you can configure XL Deploy to periodically rescan `xl-rules.xml` and the `ext` folder and apply any changes that it finds. This is useful when you are developing a plugin. Refer to [Rescan the rules file](/xl-deploy/concept/understanding-xl-deploy-rules.html#rescan-the-rules-file) for information on how to do this.
 
 ### Error handling
 
-If you make a mistake in the definition of `synthetic.xml` or `xl-rules.xml`, the server will return an error and may fail to start. Mistakes in the definition of scripts or expressions usually appear in the server log when you execute a deployment. For more information about troubleshooting the rules configuration, refer to the [troubleshooting tips](rulesmanual.html#troubleshooting-and-best-practices) in the Rules Manual.
+If you make a mistake in the definition of `synthetic.xml` or `xl-rules.xml`, the server will return an error and may fail to start. Mistakes in the definition of scripts or expressions usually appear in the server log when you execute a deployment. For more information about troubleshooting the rules configuration, refer to the [troubleshooting tips](/xl-deploy/concept/troubleshooting-and-best-practices-for-rules.html).
 
 ## Deploy an artifact
 
@@ -128,6 +128,25 @@ The following `os-script` parameters are defined automatically:
 
 ### Script
 
+<div class="alert alert-danger" role="alert">The information in this section is in beta and is subject to change.</div>
+
+The FreeMarker variable for the `deployed` object is automatically added to the `freemarker-context`. This allows the script to refer to properties of the `deployed` object such as file location.
+     
+The `script` parameter refers to scripts for Unix (`deploy-artifact.sh.ftl`) and Windows (`deploy-artifact.bat.ftl`). The step will select the correct script for the operating system that XL Deploy runs on. The scripts are actually script templates processed by FreeMarker. The template can access the variables passed in by the `freemarker-context` parameter of the step.
+
+The Unix script `deploy-artifact.sh.ftl` contains:
+
+    echo "Deploying file on Unix"
+    mkdir -p ${deployed.container.home + "/context"}
+    cp ${deployed.file.path} ${deployed.container.home + "/context"}
+    echo "Done"
+
+The script accesses the variable `deployed` and uses it to find the location of the server installation and copy the file to the `context` folder. The script also prints progress information in the step log.
+
+### Script
+
+<div class="alert alert-danger" role="alert">The information in this section is deprecated and is subject to change.</div>
+
 The FreeMarker variable for the `deployed` object is automatically added to the `freemarker-context`. This allows the script to refer to properties of the `deployed` object such as file location.
      
 The `script` parameter refers to scripts for Unix (`deploy-artifact.sh.ftl`) and Windows (`deploy-artifact.bat.ftl`). The step will select the correct script for the operating system that XL Deploy runs on. The scripts are actually script templates processed by FreeMarker. The template can access the variables passed in by the `freemarker-context` parameter of the step.
@@ -140,13 +159,6 @@ The Unix script `deploy-artifact.sh.ftl` contains:
     echo "Done"
 
 The script accesses the variable `deployed` and uses it to find the location of the server installation and copy the file to the `context` folder. The script also prints progress information in the step log.
-
-For more information about:
-
-* The OS script step, see [os-script](referencesteps.html#os-script) in the Step Reference
-* Parameters that are defined automatically, see the [Rules Manual](rulesmanual.html#calculated-step-parameters)
-* The default step order, see the [Customization Manual](customizationmanual.html#the-planning-stage)
-* FreeMarker, see the [FreeMarker Manual](http://freemarker.org/docs/index.html)
 
 ## Add a wait step
 
@@ -194,10 +206,7 @@ Notice that:
             * `expression="true"` means that the definition will be evaluated by Jython and the resulting value will be passed to the step. This is required because the definition contains a dynamically constructed string.
     * The `waitTime` value is retrieved from the `DeployedApplication` and passed to the step. You can access the `DeployedApplication` through the `specification` and `deployedOrPreviousApplication`. This automatically selects the correct deployed, which means that this step will work for a `CREATE` or `DESTROY` operation.
 
-For more information about:
-
-* The wait step, see [wait](referencesteps.html#wait) in the Step Reference
-* How to use Jython expressions, see the [Rules Manual](rulesmanual.html)
+For more information about the wait step, see [wait](referencesteps.html#wait).
 
 ### Test the deployment rules
 
@@ -252,6 +261,20 @@ Notice that:
 * The step is an `os-script` step. The script behind the step is responsible for deleting the file on the server.
 
 ### Script
+
+<div class="alert alert-danger" role="alert">The information in this section is in beta and is subject to change.</div>
+
+The FreeMarker variable for the `previousDeployed` object is automatically added to the `freemarker-context`. This allows the script to refer to the properties of the previous deployed object such as file name.
+
+The Unix script `undeploy-artifact.sh.ftl` contains:
+
+    echo "Undeploying file on Unix"
+    rm ${previousDeployed.container.home + "/context/" + previousDeployed.file.name}
+    echo "Done"
+
+### Script
+
+<div class="alert alert-danger" role="alert">The information in this section is deprecated and is subject to change.</div>
 
 The Unix script `undeploy-artifact.sh.ftl` contains:
 
@@ -369,19 +392,19 @@ Notice that steps to start and stop server are added even when application is un
 
 The plugin that you create when following this tutorial does not require any extra work to support rollbacks. This is because XL Deploy automatically generates checkpoints for the last step of each deployed. Therefore, when a user decides to roll back a deployment that has only been partially executed, the rollback plan will contain the steps for the opposite deltas of the deployeds for which all steps have been executed.
 
-If you have more advanced rollback requirements, refer to [Using checkpoints](/xl-deploy/4.5.x/rulesmanual.html#using-checkpoints).
+If you have more advanced rollback requirements, refer to [Using checkpoints](/xl-deploy/how-to/writing-xml-rules.html#using-checkpoints).
 
 ## What's next
 
 You made it through the entire tutorial, congratulations! You should now have a good understanding of rules-based planning, and you should be able to find the information you need to continue creating deployment rules.
 
-The most important sources for information about rules and deployment planning are:
+{% comment %}The most important sources for information about rules and deployment planning are:
 
 * [Rules Manual](/xl-deploy/4.5.x/rulesmanual.html)
 * [Customization Manual](/xl-deploy/4.5.x/customizationmanual.html)
 * [Reference Manual](/xl-deploy/4.5.x/referencemanual.html)
-* [API documentation](/xl-deploy/4.5.x/javadoc/udm-plugin-api/)
+* [API documentation](/xl-deploy/4.5.x/javadoc/udm-plugin-api/){% endcomment %}
 
 The code discussed in this tutorial is available in the rules demo plugin, which you can download from [GitHub](https://github.com/xebialabs/xl-deploy-samples/tree/master/rules-demo-plugin). Also, the demo plugin contains additional examples.
 
-If you would like to change the behavior of an existing plugin, you can disable predefined rules and redefine the behavior with new rules. For more information about this, refer to the [Rules Manual](/xl-deploy/4.5.x/rulesmanual.html).
+If you would like to change the behavior of an existing plugin, you can disable predefined rules and redefine the behavior with new rules. For more information about this, refer to [Disable a rule](/xl-deploy/how-to/disable-a-rule.html).

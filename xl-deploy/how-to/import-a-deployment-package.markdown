@@ -11,6 +11,8 @@ tags:
 - repository
 ---
 
+**Tip:** For information about creating a deployment package in XL Deploy 5.0.0 and later, refer to [Add a package to XL Deploy](/xl-deploy/how-to/add-a-package-to-xl-deploy.html).
+
 The XL Deploy Repository is the database that contains all packages, environments and other CIs. The repository keeps track of this data and all its revisions.
 
 The first step to performing a deployment with XL Deploy is to import your package into the repository. These are the steps you need to follow:
