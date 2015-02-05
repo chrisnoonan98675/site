@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Extend the external artifact storage feature
 subject:
 - Packaging
