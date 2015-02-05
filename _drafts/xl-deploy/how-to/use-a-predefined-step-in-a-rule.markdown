@@ -54,12 +54,25 @@ The `target-host` parameter of a step is calculated as follows:
 
 ### Artifact
 
+<div class="alert alert-danger" role="alert">The information in this section is in beta and is subject to change.</div>
+
 The `artifact` parameter of a step is calculated as follows:
 
-* If the scope is `deployed` and `deployed` is of type [udm.Artifact](/xl-deploy/latest/udmcireference.html), the `artifact` is set to `deployed`.
+* If the scope is `deployed` and `deployed` is of type `udm.Artifact`, the `artifact` is set to `deployed`.
 * In other cases, `artifact` cannot be calculated automatically and must be specified manually.
 
+### Source artifact
+
+<div class="alert alert-danger" role="alert">The information in this section is deprecated and is subject to change.</div>
+
+The `source-artifact` parameter of a step is calculated as follows:
+
+* If the scope is `deployed` and `deployed` is of type `udm.Artifact`, the `source-artifact` is set to `deployed`.
+* In other cases, `source-artifact` cannot be calculated automatically and must be specified manually.
+
 ### Contexts
+
+<div class="alert alert-danger" role="alert">The information in this section is in beta and is subject to change.</div>
 
 Some steps have contexts such as `freemarker-context`, `jython-context` or `powershell-context`.
 
@@ -70,6 +83,24 @@ The context of a step is enriched with calculated variables as follows:
 * In other cases, the context is not calculated automatically.
 
 Note that depending on the operation, the `deployed` or `previousDeployed` might not be initialized. For example, if the operation is `CREATE`, the `deployed` is set, but `previousDeployed` is not set.
+
+### FreeMarker context
+
+<div class="alert alert-danger" role="alert">The information in this section is deprecated and is subject to change.</div>
+
+The `freemarker-context` parameter of a step is calculated as follows:
+
+* If the scope is `deployed`, the `freemarker-context` is enriched with a deployed instance that is accessible in a FreeMarker template by name deployed.
+* In other cases, `freemarker-context` is not calculated automatically.
+
+### Jython context
+
+<div class="alert alert-danger" role="alert">The information in this section is deprecated and is subject to change.</div>
+
+The `jython-context` parameter of a step is calculated as follows:
+
+* If the scope is `deployed`, the `jython-context` is enriched with a deployed instance that is accessible in a python script by binding deployed.
+* In other cases, `jython-context` is not automatically calculated.
 
 ## Define a custom step
 
