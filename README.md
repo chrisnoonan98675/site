@@ -24,11 +24,17 @@ Go to `http://localhost:4000` to see the site running locally.
 
 # Beta documentation
 
-To mark an entire topic as "beta", add `layout: beta` to its front matter. Note that `layout` and `beta` must appear on the same line.
+To mark an entire topic as "beta", add the following line to its front matter:
+
+    layout: beta
 
 To mark a section of a topic as "beta", add the following line just after the section's heading:
 
     <div class="alert alert-danger" role="alert">The information in this section is in beta and is subject to change.</div>
+
+To mark a paragraph, sentence, or table cell as "beta", add the following inline label to it:
+
+    <span class="label label-danger">beta</span>
 
 # Things to know about formatting
 
