@@ -28,7 +28,7 @@ The data that is available for a planning script to use depends on the scope of 
         <td>deployedApplication</td> <td><a href="/xl-deploy/4.5.x/udm-plugin-api/com/xebialabs/deployit/plugin/api/udm/DeployedApplication.html">DeployedApplication</a></td> <td>all</td> <td>Specifies which application version will be deployed to which environment</td>
     </tr>
     <tr>
-        <td>steps</td> <td> </td> <td>all</td> <td>Allows you to create steps from the <a href="#use-a-predefined-step">step registry</a></td>
+        <td>steps</td> <td> </td> <td>all</td> <td>Allows you to create steps from the <a href="/xl-deploy/how-to/use-a-predefined-step-in-a-rule.html">step registry</a></td>
     <tr>
         <td>specification</td> <td><a href="/xl-deploy/4.5.x/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/DeltaSpecification.html">DeltaSpecification</a></td> <td>pre-plan<br/>post-plan</td> <td>Contains the delta specification for the current deployment</td>
     </tr>
