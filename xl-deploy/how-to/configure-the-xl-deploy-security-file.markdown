@@ -1,5 +1,5 @@
 ---
-title: Configure security in XL Deploy
+title: Configure the XL Deploy security file
 categories:
 - xl-deploy
 subject:
@@ -16,7 +16,7 @@ XL Deploy treats the LDAP repository as **read-only**. This means that XL Deploy
 
 To configure XL Deploy to use an LDAP repository, the security configuration file `deployit-security.xml` must be modified. For a step-by-step procedure, refer to [How to connect to your LDAP or Active Directory](/xl-deploy/how-to/connect-ldap-or-active-directory.html).
 
-## Sample XL Deploy security file
+### Sample XL Deploy security file
 
 This is an example of a working `deployit-security.xml` file that uses LDAP:
 
@@ -88,7 +88,7 @@ The XML fragment above contains placeholders for the following values:
 * `GROUP_SEARCH_FILTER`: The LDAP filter to determine the group memberships for the user, `{0}` will be replaced with the DN of the user (example: `"(memberUid={0})"`)
 * `GROUP_SEARCH_BASE`: The LDAP filter that is the base for searching for groups (example: `"ou=groups,dc=example,dc=com"`)
 
-## Assigning a default role to all authenticated users
+## Assign a default role to all authenticated users
 
 When your LDAP is not setup to contain a group that all XL Deploy users are assigned to, or you want to use such a group in the default `JcrAuthenticationProvider`, it is possible to configure this in your `deployit-security.xml` file. The following snippet will setup an 'everyone' group (The name is arbitrary, choose a different one if you wish) that is assigned to each user who is authenticated. You could then link this group up to an XL Deploy role, and assign 'login' privileges to it for instance.
 
@@ -116,20 +116,3 @@ When your LDAP is not setup to contain a group that all XL Deploy users are assi
         </bean>
 
     </beans>
-
-## Hiding internal server errors
-
-By default XL Deploy will not hide any internal server errors due to incorrect user input. This allows clients to more easily determine what went wrong and report problems with the XL Deploy Support team. However this behaviour can be turned off by editing the `conf/deployit.conf` file in the XL Deploy server directory and edit the following setting:
-
-    hide.internals=true
-
-Enabling this setting will cause the server to return a response such as the following:
-
-	Status Code: 400
-	Content-Length: 133
-	Server: Jetty(6.1.11)
-	Content-Type: text/plain
-
-	An internal error has occurred, please notify your system administrator with the following code: a3bb4df3-1ea1-40c6-a94d-33a922497134
-
-The code shown in the response can be used to track down the problem in the server logging.

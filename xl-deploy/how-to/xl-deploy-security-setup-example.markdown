@@ -1,5 +1,5 @@
 ---
-title: Set up security roles in XL Deploy
+title: XL Deploy security setup example
 categories:
 - xl-deploy
 subject:
@@ -7,6 +7,7 @@ subject:
 tags:
 - security
 - system administration
+- gui
 ---
 
 XL Deploy provides fine-grained security settings based on roles and permissions that you can configure through the command-line interface (CLI) and in the GUI. To configure security in the GUI, click the **Admin** tab.
