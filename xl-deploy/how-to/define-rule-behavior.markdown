@@ -17,75 +17,30 @@ When you define an XML or script rule, you use expressions or scripts to define 
 
 The data that is available for a planning script to use depends on the scope of the rule. This table shows when each object is available:
 
-<table class="table table-striped">
-    <tr>
-        <th>Object name</th> <th>Type</th> <th>Scope</th> <th>Description</th>
-    </tr>
-    <tr>
-        <td>context</td> <td><a href="/xl-deploy/4.5.x/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/planning/DeploymentPlanningContext.html">DeploymentPlanningContext</a></td> <td>all</td> <td>Use this to add steps and checkpoints to the plan</td>
-    </tr>
-    <tr>
-        <td>deployedApplication</td> <td><a href="/xl-deploy/4.5.x/udm-plugin-api/com/xebialabs/deployit/plugin/api/udm/DeployedApplication.html">DeployedApplication</a></td> <td>all</td> <td>Specifies which application version will be deployed to which environment</td>
-    </tr>
-    <tr>
-        <td>steps</td> <td> </td> <td>all</td> <td>Allows you to create steps from the <a href="/xl-deploy/how-to/use-a-predefined-step-in-a-rule.html">step registry</a></td>
-    <tr>
-        <td>specification</td> <td><a href="/xl-deploy/4.5.x/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/DeltaSpecification.html">DeltaSpecification</a></td> <td>pre-plan<br/>post-plan</td> <td>Contains the delta specification for the current deployment</td>
-    </tr>
-    <tr>
-        <td>delta</td> <td><a href="/xl-deploy/4.5.x/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/Delta.html">Delta</a></td> <td>deployed</td> <td>Whether the deployed should be created, modified, destroyed, or left unchanged (noop)</td>
-    </tr>
-    <tr>
-        <td>deployed</td> <td><a href="/xl-deploy/5.0.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/udm/Deployed.html">Deployed</a></td> <td>deployed</td> <td><span class="label label-danger">beta</span> In XL Deploy 4.5.3, 5.0.0, and later, in the case of create, modify, or noop, this is the "current" deployed that the <code>delta</code> variable refers to; in the case of destroy, it is not provided<br /><br />
-        In XL Deploy 4.5.2 and earlier, in the case of create, modify, or noop, this is the "current" deployed that the <code>delta</code> variable refers to; in the case of destroy, this is the "old" deployed</td>
-    </tr>
-    <tr>
-    	 <td>previousDeployed</td> <td><a href="/xl-deploy/5.0.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/udm/Deployed.html">previousDeployed</a></td> <td>deployed</td> <td><span class="label label-danger">beta</span> In XL Deploy 5.0.0 and later, in the case of modify, destroy, or noop, this is the "previous" deployed that the <code>delta</code> variable refers to; in the case of create, this is not provided</td>
-    </tr>
-    <tr>
-        <td>deltas</td> <td><a href="/xl-deploy/4.5.x/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/Deltas.html">Deltas</a></td> <td>plan</td> <td>Collection of all <code>Delta</code>s in the current <code>InterleavedPlan</code></td>
-    </tr>
-    <tr>
-        <td>controlService</td> <td><a href="/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.ControlService">ControlService</a></td> <td>all</td> <td>Gives you access to the ControlService</td>
-    </tr>
-    <tr>
-        <td>deploymentService</td> <td><a href="/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.DeploymentService">DeploymentService</a></td> <td>all</td> <td>Gives you access to the DeploymentService</td>
-    </tr>
-    <tr>
-        <td>inspectionService</td> <td><a href="/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.InspectionService">InspectionService</a></td> <td>all</td> <td>Gives you access to the InspectionService</td>
-    </tr>
-    <tr>
-        <td>metadataService</td> <td><a href="/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.MetadataService">MetadataService</a></td> <td>all</td> <td>Gives you access to the MetadataService</td>
-    </tr>
-    <tr>
-        <td>packageService</td> <td><a href="/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.PackageService">PackageService</a></td> <td>all</td> <td>Gives you access to the PackageService</td>
-    </tr>
-    <tr>
-        <td>permissionService</td> <td><a href="/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.PermissionService">PermissionService</a></td> <td>all</td> <td>Gives you access to the PermissionService</td>
-    </tr>
-    <tr>
-        <td>repositoryService</td> <td><a href="/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.RepositoryService">RepositoryService</a></td> <td>all</td> <td>Gives you access to the RepositoryService</td>
-    </tr>
-    <tr>
-        <td>roleService</td> <td><a href="/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.RoleService">RoleService</a></td> <td>all</td> <td>Gives you access to the RoleService</td>
-    </tr>
-    <tr>
-        <td>serverService</td> <td><a href="/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.ServerService">ServerService</a></td> <td>all</td> <td>Gives you access to the ServerService</td>
-    </tr>
-    <tr>
-        <td>taskService</td> <td><a href="/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.TaskService">TaskService</a></td> <td>all</td> <td>Gives you access to the TaskService</td>
-    </tr>
-    <tr>
-        <td>taskBlockService</td> <td><a href="/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.TaskBlockService">TaskBlockService</a></td> <td>all</td> <td>Gives you access to the TaskBlockService</td>
-    </tr>
-    <tr>
-        <td>userService</td> <td><a href="/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.UserService">UserService</a></td> <td>all</td> <td>Gives you access to the UserService</td>
-    </tr>
-    </tr>
-        <tr>
-        <td>logger</td> <td><a href="http://www.slf4j.org/api/org/slf4j/Logger.html">Logger</a></td> <td>all</td> <td>Allows you to access the XL Deploy logs. Prints logs to namespace <code>com.xebialabs.platform.script.Logging</code></td>
-    </tr>
-</table>
+{:.table .table-striped}
+| Object name | Type | Scope | Description |
+| ----------- | ---- | ----- | ----------- |
+| context | [DeploymentPlanningContext](/xl-deploy/4.5.x/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/planning/DeploymentPlanningContext.html) | all | Use this to add steps and checkpoints to the plan |
+| deployedApplication | [DeployedApplication](/xl-deploy/4.5.x/udm-plugin-api/com/xebialabs/deployit/plugin/api/udm/DeployedApplication.html) | all | Specifies which application version will be deployed to which environment |
+| steps | | all |  Allows you to create steps from the [step registry](/xl-deploy/how-to/use-a-predefined-step-in-a-rule.html) |
+| specification | [DeltaSpecification](/xl-deploy/4.5.x/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/DeltaSpecification.html) | pre-plan<br/>post-plan | Contains the delta specification for the current deployment |
+| delta | [Delta](/xl-deploy/4.5.x/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/Delta.html) | deployed | Whether the deployed should be created, modified, destroyed, or left unchanged (`NOOP`) |
+| deployed | [Deployed](/xl-deploy/5.0.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/udm/Deployed.html) | deployed | <span class="label label-danger">beta</span> In XL Deploy 4.5.3, 5.0.0, and later, in the case of create, modify, or noop, this is the "current" deployed that the `delta` variable refers to; in the case of destroy, it is not provided<br /><br />In XL Deploy 4.5.2 and earlier, in the case of create, modify, or noop, this is the "current" deployed that the <code>delta</code> variable refers to; in the case of destroy, this is the "old" deployed |
+| previousDeployed | [previousDeployed](/xl-deploy/5.0.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/udm/Deployed.html) | deployed | <span class="label label-danger">beta</span> In XL Deploy 5.0.0 and later, in the case of `MODIFY`, `DESTROY`, or `NOOP`, this is the "previous" deployed that the `delta` variable refers to; in the case of create, this is not provided |
+| deltas | [Deltas](/xl-deploy/4.5.x/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/Deltas.html) | plan | Collection of all `Delta`s in the current `InterleavedPlan` |
+| controlService | [ControlService](/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.ControlService) | all | Gives you access to the ControlService |
+| deploymentService | [DeploymentService](/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.DeploymentService) | all | Gives you access to the DeploymentService |
+| inspectionService | [InspectionService](/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.InspectionService) | all | Gives you access to the InspectionService |
+| metadataService | [MetadataService](/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.MetadataService) | all | Gives you access to the MetadataService |
+| packageService | [PackageService](/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.PackageService) | all | Gives you access to the PackageService |
+| permissionService | [PermissionService](/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.PermissionService) | all | Gives you access to the PermissionService |
+| repositoryService | [RepositoryService](/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.RepositoryService) | all | Gives you access to the RepositoryService |
+| roleService | [RoleService](/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.RoleService) | all | Gives you access to the RoleService |
+| serverService | [ServerService](/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.ServerService) | all | Gives you access to the ServerService |
+| taskService | [TaskService](/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.TaskService) | all | Gives you access to the TaskService |
+| taskBlockService | [TaskBlockService](/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.TaskBlockService) | all | Gives you access to the TaskBlockService |
+| userService | [UserService](/jython-docs/#!/xl-deploy/4.5.x//service/com.xebialabs.deployit.engine.api.UserService) | all | Gives you access to the UserService |
+| logger | [Logger](http://www.slf4j.org/api/org/slf4j/Logger.html) | all | Allows you to access the XL Deploy logs. Prints logs to namespace `com.xebialabs.platform.script.Logging` |
 
 **Note:** These objects are not automatically available for *execution* scripts, such as in the `jython` or `os-script` step. If you need an object in such a step, the planning script must make the object available explicitly; for example, by adding it to the `jython-context` map parameter in the case of a `jython` step.
 
