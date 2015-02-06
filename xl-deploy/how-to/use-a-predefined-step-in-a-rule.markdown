@@ -27,11 +27,11 @@ The `order` parameter of a step is calculated as follows:
 * If the scope is `pre-plan`, `post-plan`, or `plan`, the `order` is 50
 * If the scope is `deployed` and:
     * The operation is `CREATE`, `MODIFY`, or `NOOP` and:
-        * The deployed is an [udm.Artifact](/xl-deploy/latest/udmcireference.html), the `order` is 70
-        * The deployed is **not** an [udm.Artifact](/xl-deploy/latest/udmcireference.html), the `order` is 60
+        * The deployed is an [`udm.Artifact`](/xl-deploy/latest/udmcireference.html), the `order` is 70
+        * The deployed is **not** an `udm.Artifact`, the `order` is 60
     * The operation is `DESTROY` and:
-        * The deployed is an [udm.Artifact](/xl-deploy/latest/udmcireference.html), the `order` is 30
-        * The deployed is **not** an [udm.Artifact](/xl-deploy/latest/udmcireference.html), the `order` is 40
+        * The deployed is an `udm.Artifact`, the `order` is 30
+        * The deployed is **not** an `udm.Artifact`, the `order` is 40
 
 The XL Deploy order convention is described in the [Customization Manual](/xl-deploy/latest/customizationmanual.html#deployed-ci-processing).
 
@@ -47,25 +47,23 @@ The `description` parameter of a step is calculated as follows:
 The `target-host` parameter of a step is calculated as follows:
 
 * If the scope is `deployed` and:
-    * `deployed.container` is of type [overthere.Host](/xl-deploy/latest/remotingPluginManual.html#overthere.Host), the `target-host` is set to `deployed.container`.
-    * `deployed.container` is of type [overthere.HostContainer](/xl-deploy/latest/remotingPluginManual.html), the `target-host` is set to `deployed.container.host`.
-    * `deployed.container` has a property called `host`, the value of which is of type [overthere.Host](/xl-deploy/latest/remotingPluginManual.html#overthere.Host); then `target-host` is set to this value.
+    * `deployed.container` is of type [`overthere.Host`](/xl-deploy/latest/remotingPluginManual.html#overthere.Host), the `target-host` is set to `deployed.container`.
+    * `deployed.container` is of type [`overthere.HostContainer`](/xl-deploy/latest/remotingPluginManual.html), the `target-host` is set to `deployed.container.host`.
+    * `deployed.container` has a property called `host`, the value of which is of type `overthere.Host`; then `target-host` is set to this value.
 * In other cases, `target-host` cannot be calculated automatically and must be specified manually.
 
 ### Artifact
 
 <div class="alert alert-danger" role="alert">The information in this section is in beta and is subject to change.</div>
 
-The `artifact` parameter of a step is calculated as follows:
+In XL Deploy 4.5.3, 5.0.0, and later, the `artifact` parameter of a step is calculated as follows:
 
 * If the scope is `deployed` and `deployed` is of type `udm.Artifact`, the `artifact` is set to `deployed`.
 * In other cases, `artifact` cannot be calculated automatically and must be specified manually.
 
 ### Source artifact
 
-<div class="alert alert-danger" role="alert">The information in this section is deprecated and is subject to change.</div>
-
-The `source-artifact` parameter of a step is calculated as follows:
+In XL Deploy 4.5.2 and earlier, the `source-artifact` parameter of a step is calculated as follows:
 
 * If the scope is `deployed` and `deployed` is of type `udm.Artifact`, the `source-artifact` is set to `deployed`.
 * In other cases, `source-artifact` cannot be calculated automatically and must be specified manually.
@@ -76,7 +74,7 @@ The `source-artifact` parameter of a step is calculated as follows:
 
 Some steps have contexts such as `freemarker-context`, `jython-context` or `powershell-context`.
 
-The context of a step is enriched with calculated variables as follows:
+In XL Deploy 4.5.3, 5.0.0, and later, the context of a step is enriched with calculated variables as follows:
 
 * If the scope is `deployed`, the context is enriched with a <a href="/xl-deploy/4.5.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/Delta.html#getDeployed%28%29">deployed</a> instance that is accessible in a FreeMarker template by name `deployed`.
 * If the scope is `deployed`, the context is enriched with a <a href="/xl-deploy/4.5.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/Delta.html#getPrevious%28%29">previousDeployed</a> instance that is accessible in a FreeMarker template by name `previousDeployed`.
@@ -86,18 +84,14 @@ Note that depending on the operation, the `deployed` or `previousDeployed` might
 
 ### FreeMarker context
 
-<div class="alert alert-danger" role="alert">The information in this section is deprecated and is subject to change.</div>
-
-The `freemarker-context` parameter of a step is calculated as follows:
+In XL Deploy 4.5.2 and earlier, the `freemarker-context` parameter of a step is calculated as follows:
 
 * If the scope is `deployed`, the `freemarker-context` is enriched with a deployed instance that is accessible in a FreeMarker template by name deployed.
 * In other cases, `freemarker-context` is not calculated automatically.
 
 ### Jython context
 
-<div class="alert alert-danger" role="alert">The information in this section is deprecated and is subject to change.</div>
-
-The `jython-context` parameter of a step is calculated as follows:
+In XL Deploy 4.5.2 and earlier, the `jython-context` parameter of a step is calculated as follows:
 
 * If the scope is `deployed`, the `jython-context` is enriched with a deployed instance that is accessible in a python script by binding deployed.
 * In other cases, `jython-context` is not automatically calculated.
