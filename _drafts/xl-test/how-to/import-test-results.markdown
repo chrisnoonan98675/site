@@ -14,11 +14,8 @@ To import results into XL Test, click **Get started** on the welcome screen or c
 
 ## Step 1 Select the test tool
 
-1. Select the tool that was used to generate the results you want to import:
-    * [FitNesse](http://www.fitnesse.org/) (only supported if the suites were executed by FitNesse itself, not through its jUnit runner)
-    * [Gatling](http://gatling.io/)
-    * [xUnit](https://xunit.codeplex.com/)
-    * [Cucumber](http://cukes.info/)
+1. Select the tool that was used to generate the results you want to import. Please refer to [the list of supported tools and output formats](test-tools.html).
+
 1. Click **Next**.
 
 **Tip:** If you want to import results from a tool that is not listed, click **I can't find my tool** to send XebiaLabs an email about the tool that you would like XL Test to support.
