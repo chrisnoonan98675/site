@@ -1,5 +1,5 @@
 ---
-title: Hooking XL Test up to existing Jenkins jobs
+title: Hook up XL Test to an existing Jenkins job
 categories:
 - xl-test
 subject:
@@ -22,10 +22,7 @@ To install the plugin via the Jenkins user interface:
 3. Look for the XL Test Plugin.
 4. Select the checkbox for the plugin and click **Install without restart**.
 
-TODO: should we point to the Jenkins wiki page?
-
-To install the plugin by hand:
-1. TODO
+You can find more information on installing plugins in Jenkins on the [Jenkins wiki](https://wiki.jenkins-ci.org/display/JENKINS/Plugins).
 
 ## Step 2 Configure the plugin
 
@@ -50,20 +47,20 @@ Now that the XL Test Plugin is installed and properly configured it's time to ho
 5. In the **Tool** box, select the tool or output format.
 6. In the **Pattern** box, provide the file pattern used to find the required test results. Those files will be sent to XL Test for processing. Note that the pattern is dependent on the tool you've selected.
 
-   **tip**: You can use [quite sophisticated file search patterns](file-name-patterns.html).
+   **Tip**: You can use [quite sophisticated file search patterns](file-name-patterns.html).
 
 7. **Save** your updated configuration.
 
 
 ## Step 4 Build
 
-Start a new build of your job, press **Build**.
+Start a new build of your job, click **Build**.
 
 ## Step 5 View in XL Test
 
 Once the build completes, a new test specification will be created in XL Test. This test specification can be added to dashboards or viewed directly. You can also make custom reports.
 
 
-As an advanced feature it's also possible to execute a test specification that builds on Jenkins.
+As an advanced feature it's also possible to let XL Test execute test specifications that builds on Jenkins.
 
 
