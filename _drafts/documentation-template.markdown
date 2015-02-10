@@ -24,7 +24,7 @@ The front matter consists of keys and values. You can specify them in any order.
 | categories | Yes | Yes | The product(s) that the page applies to. | Lowercase | No | xl-deploy, xl-release |
 | subject | Yes | No | The subject is like a high-level tag. It helps users who are used to reading documentation in manuals. | Sentence case | Yes | Security |
 | tags | Yes | Yes | Tags help users browse posts and improve search results. Try to use tags that are already in use. You can add new tags, but do so with caution. | Lowercase | Yes | role, permissions, user management |
-| layout | No | No | If this is beta documentation, set the layout to beta. Otherwise, don't use this key. | Lowercase | No | beta |
+| layout | No | No | If this is beta documentation, set the layout to <code>beta</code>. If the topic concerns pre-rules customization (that is, via Java-based plugins), set the layout to <code>pre-rules</code>. | Lowercase | No | beta |
 | since | No | No | This is the version in which the functionality described in the page was introduced. It isn't required, but it is recommended. | Not applicable | Not applicable | 3.9.0 |
 | deprecated | No | No | This is the version in which the functionality described in the page was deprecated. | Not applicable | Not applicable | 4.0.0 |
 | removed | No | No | This is the version in which the functionality described in the page was removed. | Not applicable | Not applicable | 4.5.0 |
