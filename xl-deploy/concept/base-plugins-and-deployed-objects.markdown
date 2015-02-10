@@ -1,5 +1,6 @@
 ---
-title: Base Plugins and The Deployed Object
+layout: pre-rules
+title: Base plugins and the deployed object
 categories: 
 - xl-deploy
 subject:
@@ -11,189 +12,100 @@ tags:
 - python
 ---
 
-If you create or are working on a plugin based on the [Generic](/xl-deploy/latest/genericPluginManual.html), [PowerShell](/xl-deploy/latest/powershellPluginManual.html), or [Python](/xl-deploy/latest/pythonPluginManual.html) plugin the following table should give you a useful insight into what the plugins actually do.
+You can write plugins for XL Deploy that customize deployment plans and behavior. Plugins are usually created by copying the built-in [Generic](/xl-deploy/latest/genericPluginManual.html), [PowerShell](/xl-deploy/latest/powershellPluginManual.html), or [Python](/xl-deploy/latest/pythonPluginManual.html) plugin. This table provides information about what each plugin does and how it works.
 
-
-## Python, PowerShell, and Generic Plugin Cheat Sheet
-
-<table border="1" class="table table-striped table-bordered table-hover table-condensed">
+<table class="table table-striped">
   <thead>
-    <tr class="sortableHeader">
-      <th data-column="0">
-        <div class="tablesorter-header-inner">
-          &nbsp;
-        </div>
-      </th>
-
-      <th data-column="1">
-        <div class="tablesorter-header-inner">
-          Python
-        </div>
-      </th>
-
-      <th data-column="2">
-        <div class="tablesorter-header-inner">
-          PowerShell
-        </div>
-      </th>
-
-      <th data-column="3">
-        <div class="tablesorter-header-inner">
-          Generic
-        </div>
-      </th>
+    <tr>
+      <th>&nbsp;</th>
+      <th>Python</th>
+      <th>PowerShell</th>
+      <th>Generic</th>
     </tr>
   </thead>
-
   <tbody>
     <tr>
-      <td ><em>What does the plugin work with?</em></td>
-
-      <td >valid Python files</td>
-
-      <td >valid PowerShell files</td>
-
-      <td ><a href="http://freemarker.org/docs/" class=
-      "external-link" rel="nofollow">FreeMarker</a> templates</td>
+      <td>What does the plugin work with?</td>
+      <td>Valid Python files</td>
+      <td>Valid PowerShell files</td>
+      <td><a href="http://freemarker.org/docs/">FreeMarker</a> templates</td>
     </tr>
-
     <tr>
-      <td colspan="1" ><em>How does the plugin use them?</em></td>
-
-      <td colspan="1" >
+      <td>How does the plugin use them?</td>
+      <td>
         <ol>
-          <li>prefixes a generated header</li>
-
-          <li>copies to target (possibly along with artifacts)</li>
-
-          <li>invokes the file</li>
+          <li>Prefixes a generated header</li>
+          <li>Copies to target (possibly along with artifacts)</li>
+          <li>Invokes the file</li>
         </ol>
       </td>
-
-      <td colspan="1" >
+      <td>
         <ol>
-          <li>prefixes a generated header</li>
-
-          <li>copies to target (possibly along with artifacts)</li>
-
-          <li>invokes the file</li>
+          <li>Prefixes a generated header</li>
+          <li>Copies to target (possibly along with artifacts)</li>
+          <li>Invokes the file</li>
         </ol>
       </td>
-
-      <td colspan="1" >
+      <td>
         <ol>
-          <li>resolves the template on the XLD server using FreeMarker</li>
-
-          <li>copies to target (possibly along with artifacts)</li>
-
-          <li>if necessary, makes the file executable</li>
-
-          <li>invokes the file</li>
+          <li>Resolves the template on the XL Deploy server using FreeMarker</li>
+          <li>Copies to target (possibly along with artifacts)</li>
+          <li>If necessary, makes the file executable</li>
+          <li>Invokes the file</li>
         </ol>
       </td>
     </tr>
-
     <tr>
-      <td colspan="1" ><em>"Special" variables</em></td>
-
-      <td colspan="1" >
+      <td>Special variables</td>
+      <td>
         <ul>
-          <li>
-            <p>deployed</p>
-          </li>
-
-          <li>
-            <p>(optionally) deployedApplication</p>
-          </li>
+          <li><code>Deployed</code></li>
+          <li>(Optionally) <code>deployedApplication</code></li>
         </ul>
       </td>
-
-      <td colspan="1" >
+      <td>
         <ul>
-          <li>
-            <p>deployed</p>
-          </li>
-
-          <li>
-            <p>(optionally) previousDeployed</p>
-          </li>
-
-          <li>
-            <p>(optionally) deployedApplication</p>
-          </li>
+          <li><code>deployed</code></li>
+          <li>(Optionally) <code>previousDeployed</code></li>
+          <li>(Optionally) <code>deployedApplication</code></li>
         </ul>
       </td>
-
-      <td colspan="1" >
+      <td>
         <ul>
-          <li>
-            <p>deployed</p>
-          </li>
-
-          <li>(optionally) previousDeployed</li>
-
-          <li>step</li>
-
-          <li>statics (<a href=
-          "http://freemarker.org/docs/pgui_misc_beanwrapper.html#autoid_55" class=
-          "external-link" rel="nofollow">FreeMarker static models</a>)</li>
+          <li><code>deployed</code></li>
+          <li>(Optionally) <code>previousDeployed</code></li>
+          <li><code>step</code></li>
+          <li><code>statics</code> (<a href="http://freemarker.org/docs/pgui_misc_beanwrapper.html#autoid_55">FreeMarker static models</a>)</li>
         </ul>
       </td>
     </tr>
-
     <tr>
-      <td colspan="1" ><em>Which properties can be accessed on
-      these variables?</em></td>
-
-      <td colspan="1" >
+      <td>Which properties can be accessed on these variables?</td>
+      <td>
         <ul>
-          <li>any which are defined on the type of deployed/deployedApplication</li>
-
-          <li>a  "deployed.file" property if the deployed has an artifact</li>
+          <li>Any that are defined on the type of <code>deployed</code>/<code>deployedApplication</code></li>
+          <li>A <code>deployed.file</code> property if the deployed has an artifact</li>
         </ul>
       </td>
-
-      <td colspan="1" >
+      <td>
         <ul>
-          <li>any which are defined on the type of
-          deployed/previousDeployed/deployedApplication</li>
-
-          <li>plus a  "deployed.file"/"previousDeployed.file" property if the
-          deployed/previousDeployed has an artifact</li>
+          <li>Any that are defined on the type of <code>deployed</code>/<code>previousDeployed</code>/<code>deployedApplication</code></li>
+          <li>Plus a <code>deployed.file</code>/<code>previousDeployed.file</code> property if the <code>deployed</code>/<code>previousDeployed</code> has an artifact</li>
         </ul>
       </td>
-
-      <td colspan="1" >
+      <td>
         <ul>
-          <li>any which are defined on the type of deployed</li>
-
-          <li>plus a  "deployed.file" property if the deployed has an
-          artifact</li>
-
-          <li>plus "deployed.deployedApplication" (of type <a href=
-          "http://docs.xebialabs.com/releases/4.5/xl-deploy/udmcireference.html#udmdeployedapplication"
-          class="external-link" rel="nofollow">udm.DeployedApplication</a>)</li>
-
+          <li>Any that are defined on the type of <code>deployed</code></li>
+          <li>Plus a <code>deployed.file</code> property if the deployed has an artifact</li>
+          <li>Plus <code>deployed.deployedApplication</code> (of type <code><a href="http://docs.xebialabs.com/releases/4.5/xl-deploy/udmcireference.html#udmdeployedapplication">udm.DeployedApplication</a></code>)</li>
         </ul>
       </td>
     </tr>
-
     <tr>
-      <td colspan="1" ><em>Expression language to work with
-      variables</em></td>
-
-      <td colspan="1" >Python - variables are regular Python
-      vars</td>
-
-      <td colspan="1" >PowerShell - variables are regular
-      PowerShell vars</td>
-
-      <td colspan="1" >FreeMarker - supports the usual "." syntax
-      for property access (as in ${deployed.name}) as well as other expressions such as
-      "[n]" to access the n-th element of a list or set property and "["foo"]" to
-      access the value for key "foo" of a map property. More <a href=
-      "http://freemarker.org/docs/dgui_template_exp.html#dgui_template_exp_var" class=
-      "external-link" rel="nofollow">here</a>.</td>
+      <td>Expression language to work with variables</td>
+      <td>Python - variables are regular Python vars</td>
+      <td>PowerShell - variables are regular PowerShell vars</td>
+      <td>FreeMarker - supports the usual <code>.</code> syntax for property access (as in <code>${deployed.name}</code>) as well as other expressions such as <code>[n]</code> to access the n-th element of a list or set property and <code>["foo"]</code> to access the value for key "foo" of a map property. More <a href="http://freemarker.org/docs/dgui_template_exp.html#dgui_template_exp_var">here</a>.</td>
     </tr>
   </tbody>
 </table>
