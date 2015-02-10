@@ -29,7 +29,7 @@ The front matter consists of keys and values. You can specify them in any order.
 | deprecated | No | No | This is the version in which the functionality described in the page was deprecated. | Not applicable | Not applicable | 4.0.0 |
 | removed | No | No | This is the version in which the functionality described in the page was removed. | Not applicable | Not applicable | 4.5.0 |
 
-**Tip:** To see the subjects that are in use, go to [http://testdocs.xebialabs.com/tags-and-subjects.html](http://testdocs.xebialabs.com/tags-and-subjects.html).
+**Tip:** To see the subjects that are in use, go to [https://docs.xebialabs.com/tags-and-subjects.html](https://docs.xebialabs.com/tags-and-subjects.html).
 
 ## Formatting the file
 
