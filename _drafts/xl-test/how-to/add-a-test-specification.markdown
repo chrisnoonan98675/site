@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Add a test specification
 categories:
 - xl-test

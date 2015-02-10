@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Create a custom report in XL Test
 categories:
 - xl-test
@@ -8,6 +9,7 @@ tags:
 - report
 - script
 - python
+- json
 - freemarker
 ---
 
@@ -21,9 +23,9 @@ XL Test generates reports using:
 Creating a custom report involves two steps:
 
 1. Configuring the report in `synthetic.xml`
-2. Writing a script for the report
+1. Writing a script for the report
 
-This example shows how to create a custom Highcharts report, based on the built-in bar chart report.
+The easiest way to start creating a custom report is to copy a built-in report. This example shows how to create a custom Highcharts report based on the built-in bar chart report.
 
 ### Configure the report in `synthetic.xml`
 

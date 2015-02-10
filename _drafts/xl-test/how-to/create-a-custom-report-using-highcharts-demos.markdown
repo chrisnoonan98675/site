@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Create a custom report using Highcharts demos
 categories:
 - xl-test

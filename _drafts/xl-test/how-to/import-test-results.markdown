@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Import test results into XL Test
 categories:
 - xl-test
@@ -6,6 +7,7 @@ subject:
 - Test specification
 tags:
 - test
+- specification
 ---
 
 You can import results from past test executions into XL Test. This will automatically create a test specification that you can use to execute future tests.
