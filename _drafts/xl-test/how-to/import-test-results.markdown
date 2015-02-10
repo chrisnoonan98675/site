@@ -16,7 +16,7 @@ To import results into XL Test, click **Get started** on the welcome screen or c
 
 ## Step 1 Select the test tool
 
-1. Select the tool that was used to generate the results you want to import. Please refer to [the list of supported tools and output formats](test-tools.html).
+1. Select the tool that was used to generate the results you want to import. Please refer to [the list of supported tools and output formats](/xl-test/concept/supported-test-tools-and-output-formats.html).
 
 1. Click **Next**.
 
