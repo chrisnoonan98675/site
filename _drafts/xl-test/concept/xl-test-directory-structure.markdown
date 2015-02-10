@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: XL Test directory structure
 categories:
 - xl-test
@@ -8,7 +9,7 @@ tags:
 - system administration
 ---
 
-After you install the XL Test server, this directory structure exists in the installation directory (`XL_TEST_SERVER_HOME`):
+After you install the XL Test server, this directory structure exists in the installation directory (`XLTEST_HOME`):
 
 * `bin`: Contains server startup scripts
 * `conf`: Contains server configuration files 

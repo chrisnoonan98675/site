@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: XL Test file selection patterns
 categories:
 - xl-test

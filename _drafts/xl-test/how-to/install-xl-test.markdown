@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Install XL Test
 categories:
 - xl-test

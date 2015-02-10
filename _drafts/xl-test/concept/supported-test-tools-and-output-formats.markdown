@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Supported test tools and output formats
 categories:
 - xl-test

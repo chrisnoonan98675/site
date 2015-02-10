@@ -1,11 +1,12 @@
 ---
+layout: beta
 title: Key XL Test concepts
 categories:
 - xl-test
 subject:
 - Getting started
 tags:
-- tests
+- test
 - test result
 - test tool
 - specification
@@ -19,9 +20,9 @@ XL Test integrates with a plethora of test tools. It does so by supporting well-
 
 ## Test specifications
 
-Jobs or tasks that include automated tests are shown in XL Test by means of test specifications. Results of test specifications can be shown via dashboards, reports, and qualifications. XL Tests supports creating a test specification through the [user interface](/xl-test/howto/add-a-test-specification.html), by [importing  existing test results](/xl-test/import-test-results.html), or by push results to XL Test via [Jenkins](/xl-test/howto/bla).
+Jobs or tasks that include automated tests are shown in XL Test by means of test specifications. Results of test specifications can be shown via dashboards, reports, and qualifications. XL Tests supports creating a test specification through the [user interface](/xl-test/how-to/add-a-test-specification.html), by [importing  existing test results](/xl-test/how-to/import-test-results.html), or by pushing results to XL Test via [Jenkins](/xl-test/how-to/connect-xl-test-to-a-jenkins-job).
 
-## Dashboarding
+## Dashboards
 
 XL Test allows you to create a custom dashboard that contains all relevant test results on a single screen.
 
@@ -29,13 +30,13 @@ XL Test allows you to create a custom dashboard that contains all relevant test 
 
 XL Test provides numerous out-of-the-box reports that visualize test results. XL Test supports the following graphs and tables:
 
-* Bar chart.
-* Pie chart.
-* Durations chart. Shows the trend in the time required to execute the tests.
-* Details table. Shows a list of failed and passed tests.
-* Flakiness Overview. Identifies the tests with the most inconsistent results over time.
-* General statistics. Compares the given run with the previous run on a number of aspects.
-* Health barometer. Shows clickable placeholders to the flakiness overview, durations chart, and details table.
+* Bar chart
+* Pie chart
+* Durations chart that shows the trend in the time required to execute the tests
+* Details table that shows a list of failed and passed tests
+* Flakiness overview that identifies the tests with the most inconsistent results over time
+* General statistics that compare the given run to the previous run on a number of aspects
+* Health barometer that shows clickable placeholders to the flakiness overview, durations chart, and details table
 
 ## Qualification
 
