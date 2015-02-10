@@ -3,12 +3,9 @@ title: Create a test tool plugin
 categories:
 - xl-test
 subject:
-- Extensibility
+- Plugin
 tags:
 - test tool
-- plugin
-- extensibility
-
 ---
 
 **Disclaimer:** As of now the xl-test-server library is required to create a new test tool!
