@@ -12,7 +12,6 @@ product-id: xl-deploy
 * [Security Manual](securitymanual.html)
 * [Command Line Interface (CLI) Manual](climanual.html)
 * [Customization Manual](customizationmanual.html)
-* [Release Dashboard Manual](releasedashboardmanual.html)
 * [Steps Reference](referencesteps.html)
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
