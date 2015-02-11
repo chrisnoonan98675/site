@@ -29,7 +29,7 @@ asciidoctor:
     - linkattrs
 
 jira_dashboard:
-  generate: false
+  generate: true
   data_file: '' # '_data/development_status.yaml' # use for testing purposes
   dir: 'development-dashboard'
   jira_url: 'https://xebialabs.atlassian.net/rest/api/2'
