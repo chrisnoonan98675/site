@@ -171,6 +171,7 @@ Save drafts of pages in `_drafts`. Drafts are never converted to HTML.
 | `asciidoc_plugin.rb` | Enables Jekyll to interpret Asciidoc files | [Source](https://github.com/asciidoctor/jekyll-asciidoc) | MIT |
 | `pageless_redirects.rb` | Allows you to create redirects in `_redirects.yml` | [Source](https://github.com/nquinlan/jekyll-pageless-redirects/pull/7) | MIT |
 | `sitemap_generator.rb` | Generates `sitemap.xml` | [Source](https://github.com/kinnetica/jekyll-plugins) | Creative Commons |
+| `remove_whitespace.rb` | Adds the `{% strip %}` tag, which you can use to remove the empty lines that Liquid loops produce | [Source](https://github.com/aucor/jekyll-plugins/blob/master/strip.rb) | MIT |
 
 # Tips
 
