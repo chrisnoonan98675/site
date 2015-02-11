@@ -35,6 +35,14 @@ a img {
 ol > li > ol {
 	list-style-type: lower-alpha;
 }
+.two-col-list {
+	-moz-column-count: 2;
+	-moz-column-gap: 20px;
+	-webkit-column-count: 2;
+	-webkit-column-gap: 20px;
+    column-count: 2;
+    column-gap: 20px;
+}
 
 /* Top bar */
 #top-bar {

@@ -8,7 +8,7 @@
 
 <div class="listContainer">
 
-	<ul class="expList">
+	<ul class="expList two-col-list">
 		{% for item in sorted_page_subjects %}
 			{% capture subject_to_check %},{{ item }},{% endcapture %}
 			{% unless subjects_used contains subject_to_check %}
