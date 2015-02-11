@@ -108,10 +108,10 @@ It is also possible to copy default values from the deployed type definition to 
             <generate-deployable type="tomcat.DataSourceSpec" extends="jee.DataSourceSpec" copy-default-values="true"/>
             <property name="driverClassName"
                       description="The fully qualified Java class name of the JDBC driver to be used."
-                      default="{{DATASOURCE_DRIVER}}/">
+                      default="{% raw %}{{DATASOURCE_DRIVER}}{% endraw %}/">
             <property name="url"
                       description="The connection URL to be passed to our JDBC driver to establish a connection."
-                      default="{{DATASOURCE_URL}}/">
+                      default="{% raw %}{{DATASOURCE_URL}}{% endraw %}/">
     </type>
 
 **Note:** Properties that are either hidden, or of kind `ci`, `list_of_ci`, or `set_of_ci`, will not be copied to the deployable.
