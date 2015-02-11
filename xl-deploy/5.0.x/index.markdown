@@ -12,7 +12,6 @@ product-id: xl-deploy
 * [Security Manual](securitymanual.html)
 * [Command Line Interface (CLI) Manual](climanual.html)
 * [Customization Manual](customizationmanual.html)
-* [Release Dashboard Manual](releasedashboardmanual.html)
 * [Steps Reference](referencesteps.html)
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
@@ -36,7 +35,7 @@ product-id: xl-deploy
 
 ### Java Middleware
 
-* [JBoss Application Server 5 and 6 plugin](../../xl-deploy-jbossas-plugin/4.5.x/jbossPluginManual.html)
+* [JBoss Application Server 5 and 6 plugin](../../xl-deploy-jbossas-plugin/4.0.x/jbossPluginManual.html)
 * [JBoss Application Server 7 and up plugin](../../xl-deploy-jbossdm-plugin/4.5.x/jbossDomainPluginManual.html)
 * [Oracle Service Bus plugin](../../xl-deploy-osb-plugin/4.5.x/osbPluginManual.html)
 * [WebLogic Application Server plugin](../../xl-deploy-wls-plugin/4.5.x/wlsPluginManual.html)
