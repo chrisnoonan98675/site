@@ -10,7 +10,23 @@ tags:
 - ci
 ---
 
-You can define XL Deploy validation rules in Java. These can then be used to annotate configuration items (CIs) or their properties so that XL Deploy can perform validations.
+You can add validation rules to properties and configuration items (CIs) in the `synthetic.xml`. Out of the box, XL Deploy comes with the `regex` validation rule, which can be used to define naming conventions using regular expressions.
+
+This XML snippet shows how to add a validation rule:
+
+    <type type="tc.WarModule" extends="ud.BaseDeployedArtifact" deployable-type="jee.War"
+           container-type="tc.Server">
+        <property name="changeTicketNumber" required="true">
+            <rule type="regex" pattern="^JIRA-[0-9]+$"
+               message="Ticket number should be of the form JIRA-[number]"/>
+        </property>
+    </type>
+
+The validation will throw an error, when the `tc.WarModule` is being saved in XL Deploy with a value that is not of the form `JIRA-[number]`.
+
+## Define a validation rule in Java
+
+You can define XL Deploy validation rules in Java. These can then be used to annotate CIs or their properties so that XL Deploy can perform validations.
 
 This is an example of a property validation rule called `static-content` that validates that a string kind field has a specific fixed value:
 

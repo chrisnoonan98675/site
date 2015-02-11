@@ -9,13 +9,14 @@ tags:
 - plugin
 - java
 - generic
+- udm
 ---
 
 XL Deploy allows customization using the Java programming language. By implementing a server _plugpoint_, certain XL Deploy server functionality can be changed to adapt the product to your needs. And if you want to use XL Deploy with new middleware, you can implement a custom _plugin_. 
 
 Before you customize XL Deploy functionality, you should understand the XL Deploy architecture. Refer to the [Customization Manual](/xl-deploy/5.0.x/customizationmanual.html#understanding-xl-deploy-architecture) for more information.
 
-Writing a custom plugin is the most powerful way to extend XL Deploy. It uses XL Deploy's Java plugin API which is also used by all of the plugins provided by XebiaLabs. The plugin API specifies a contract between XL Deploy core and a plugin that ensures that a plugin can safely contribute to the calculated deployment plan. To understand the plugin API, it is helpful to learn about the XL Deploy system architecture and how the plugins are involved in performing a deployment. The following sections assume the read has this background information.
+Using the Generic plugin as a basis to create a new plugin, or writing a custom plugin from scratch, is a powerful way to extend XL Deploy. It uses XL Deploy's Java plugin API which is also used by all of the plugins provided by XebiaLabs. The plugin API specifies a contract between XL Deploy core and a plugin that ensures that a plugin can safely contribute to the calculated deployment plan.
 
 ## UDM and Java
 
@@ -25,9 +26,9 @@ The UDM concepts are represented in Java by interfaces:
 - _Container_ classes represent container CIs
 - _Deployed_ classes represent deployed CIs
 
-In addition to these types, plugins also specify the behavior required to perform the deployment. That is, which actions (steps) are needed to ensure that a deployable ends up in the container as a deployed. In good OO-fashion, this behavior is part of the Deployed class.
+In addition to these types, plugins also specify the behavior required to perform the deployment. That is, which actions (steps) are needed to ensure that a deployable ends up in the container as a deployed. In good OO-fashion, this behavior is part of the deployed class.
 
-Let's look at the mechanisms available to plugin writers in each of the two deployment phases, Specification and Planning.
+Let's look at the mechanisms available to plugin writers in each of the two deployment phases, specification and planning.
 
 ## Specifying a namespace
 
@@ -44,7 +45,7 @@ This is an example package-info file:
 
 ## Specification
 
-This section describes Java classes used in defining CIs that are used in the Specification stage.
+This section describes Java classes used in defining CIs that are used in the specification stage.
 
 {:.table .table-striped}
 | Classes | Description |
@@ -77,7 +78,7 @@ When you drag a deployable that contains embedded-deployables to a container, XL
 
 ## Deployment-level properties
 
-It is also possible to set properties on the deployment (or undeployment) operation itself rather than on the individual deployed. The properties are specified by modifying `udm.DeployedApplication` in the synthetic.xml.
+It is also possible to set properties on the deployment (or undeployment) operation itself rather than on the individual deployed. The properties are specified by modifying `udm.DeployedApplication` in the `synthetic.xml`.
 
 Here's an example:
 
@@ -194,7 +195,7 @@ When XL Deploy boots, it scans for upgrades to run. If it detects any, the boot 
 
 ## Packaging your plugin
 
-Plugins are distributed as standard Java archives (JAR files). Plugin JARs are put in the XL Deploy server `plugins` directory, which is added to the XL Deploy server classpath when it boots. XL Deploy will scan its classpath for plugin CIs and plugpoint classes and load these into its registry. These classes **must** be in the `com.xebialabs` or `ext.deployit` packages. The CIs are used and invoked during a deployment when appropriate.
+Plugins are distributed as standard Java archives (JAR files). Plugin JARs are put in the XL Deploy server `plugins` directory, which is added to the XL Deploy server classpath when it boots. XL Deploy will scan its classpath for plugin CIs and plugpoint classes and load these into its registry. These classes *must* be in the `com.xebialabs` or `ext.deployit` packages. The CIs are used and invoked during a deployment when appropriate.
 
 Synthetic extension files packaged in the JAR file will be found and read. If there are multiple extension files present, they will be combined and the changes from all files will be combined.
 
@@ -208,3 +209,9 @@ For example:
     version=3.7.0
 
 This declares the plugin to be the `sample-plugin`, version `3.7.0`.
+
+## Load order of plugins
+
+If you create a custom plugin based on another plugin, and your custom plugin includes a CI type modification, you must name the custom plugin so that XL Deploy will load it before the original plugin.
+
+For example, if you create a plugin called `mycustom-jbossas-plugin-1.4.0.jar` that is based on the JBoss Application Server Plugin (`jbossas-plugin`), you should change its name to `1-mycustom-jbossas-plugin-1.4.0.jar` so it will be loaded before `jbossas-plugin`.
