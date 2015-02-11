@@ -1,12 +1,15 @@
 ---
-title: Create your own XL Deploy plugin, part 1
+layout: pre-rules
+title: XL Deploy plugin tutorial
 subject:
-- Configuration
+- Customization
 categories:
 - xl-deploy
 tags:
 - plugin
 - java
+- synthetic
+- tutorial
 ---
 
 This tutorial will explain the basic case of deploying a file to a target Container and doing something on the target Container with that file. 
