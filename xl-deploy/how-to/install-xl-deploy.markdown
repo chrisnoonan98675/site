@@ -42,7 +42,7 @@ To install the XL Deploy server, go to a command line or terminal window and exe
 | ---------------- | ----------------- | ------- |
 | Microsoft Windows | XL Deploy 4.5.x and earlier | `server.cmd -setup` |
 | Microsoft Windows | XL Deploy 5.0.0 and later <span class="label label-danger">beta</span> | `run.cmd -setup` |
-| Unix-based systems | XL Deploy 4.5.x and earlier | `server.sh - setup` |
+| Unix-based systems | XL Deploy 4.5.x and earlier | `server.sh -setup` |
 | Unix-based systems | XL Deploy 5.0.0 and later <span class="label label-danger">beta</span> | `run.sh -setup ` |
 
 **Tip:** To stop the setup wizard at any time, enter `exitsetup`. All changes to the configuration will be discarded.

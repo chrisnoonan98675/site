@@ -43,6 +43,10 @@ ol > li > ol {
     column-count: 2;
     column-gap: 20px;
 }
+h4, .h4 {
+	font-size: 20px !important;
+	margin-top: 20px !important;
+}
 
 /* Top bar */
 #top-bar {
