@@ -1,19 +1,31 @@
 ---
 title: Install XL Deploy as a service
 subject:
-- System administration
+- Getting started
 categories:
 - xl-deploy
 tags:
 - system administration
+- getting started
 - service
 since:
 - 4.5.x
 ---
 
-You want to install XL Deploy as a service, so that it is always up and running, even after a server reboot? Follow these steps to get it working.
+## Install XL Deploy 5.0.0 and later as a daemon or service
 
-## Linux approach 1: LSB `init` scripts
+<div class="alert alert-danger" role="alert">The information in this section is in beta and is subject to change.</div>
+
+Before installing the server as a service, first follow the installation procedure documented above. This includes as a step executing `bin/run.sh` or `bin/run.cmd` script in order to configure and initialize the server. On Linux, you should do this as the user under which you want XL Deploy to run. Also, please make sure the server is configured so that it can start without input from the user (e.g. if a repository keystore password is required then it should be provided in `deployit.conf`).
+
+The next step is to execute `bin/install.sh` on Linux or `bin/install.cmd` on Windows. These scripts will do the actual installation of the service. They require the current user to be root on Linux or an Administrator on Windows.
+On Linux you will be asked for the user name under which XL Deploy server was previously installed using `run.sh`.
+
+To remove the installed service from the system, use the `bin/uninstall.sh` or `bin/uninstall.cmd` script.
+
+## Install XL Deploy 4.5.x and earlier as a daemon or service
+
+### Linux approach 1: LSB `init` scripts
 
 1. Download [the LSB init script `xl-deploy.init`](sample-scripts/xl-deploy.init).
 1. Ensure that the LSB libraries have been installed; for example, by using `yum install readhat-lsb`.
@@ -42,13 +54,13 @@ You want to install XL Deploy as a service, so that it is always up and running,
         systemctl status xl-deploy.init
         systemctl stop xl-deploy.init
 
-## Linux approach 2: YAJSW `init` script
+### Linux approach 2: YAJSW `init` script
 
-### Prerequisite
+#### Prerequisite
 
 You must have `java` available on your PATH.
 
-### Installation
+#### Installation
 
 1. Download YAJSW from [http://sourceforge.net/projects/yajsw/](http://sourceforge.net/projects/yajsw/).
 1. Extract the downloaded ZIP file to a directory of your choice. We'll refer to this directory as `$YAJSW`.
@@ -61,13 +73,13 @@ You must have `java` available on your PATH.
 
 **Note:** If you encounter a `There is an incompatible JNA native library installed on this system` error, verify that the `libjna-java` package is not installed. This package is installed when Jenkins is running on the same machine, and it prevents YAJSW from working properly. After the package is removed, YAJSW will work and the error message will disappear.
 
-## Windows approach 1: YAJSW
+### Microsoft Windows approach 1: YAJSW
 
-### Prerequisite
+#### Prerequisite
 
 You must have `java` available on your PATH.
 
-### Installation
+#### Installation
 
 1. Download YAJSW from [http://sourceforge.net/projects/yajsw/](http://sourceforge.net/projects/yajsw/).
 1. Extract the downloaded ZIP file to a directory of your choice. We'll refer to this directory as `$YAJSW`.
@@ -78,13 +90,13 @@ You must have `java` available on your PATH.
 1. Run `$YAJSW/yajsw-stable-$VERSION/bat/installService.bat`.
 1. You can now start the XL Deploy service from the Windows services screen.
 
-## Windows approach 2: `srvany.exe`
+### Microsoft Windows approach 2: `srvany.exe`
 
-### Prerequisite
+#### Prerequisite
 
 You must have `java` available on your PATH.
 
-### Installation
+#### Installation
 
 1. Download the [Windows 200x Resource Kit](http://www.microsoft.com/downloads/details.aspx?FamilyID=9D467A69-57FF-4AE7-96EE-B18C4790CFFD) for Windows 2003.
 1. Install the Windows 200x Resource Kit.
@@ -112,17 +124,16 @@ You must have `java` available on your PATH.
 
       ![Windows services](images/windows_srvany_3.png)
       
-      
-## Windows approach 3: `nssm`
+### Microsoft Windows approach 3: `nssm`
 
-### Prerequisite
+#### Prerequisite
 
 You must have `java` available on your PATH.
 
-### Installation
+#### Installation
 
-1. Download the [NSSM](http://nssm.cc/) Applications.
-1. Install XL-Deploy service as follows:
+1. Download the [NSSM](http://nssm.cc/) application.
+1. Install the XL Deploy service as follows:
 
 		nssm.exe install XL_Deploy F:\xebialabs\xld451\xl-deploy-4.5.1-server\bin\server.cmd
 	
@@ -130,7 +141,7 @@ You must have `java` available on your PATH.
 		
 		Service "XL_Deploy" installed successfully!
 		
-1. Now you can go to the `Services` application and start/stop your new `XL-Deploy` service
+1. Now you can go to the `Services` application and start/stop your new `XL_Deploy` service
 
 	![Service entry](images/windows_nssm_1.png)
 		
@@ -138,7 +149,6 @@ You must have `java` available on your PATH.
 
 		nssm.exe edit XL_Deploy
 		
-1. A widonw will open with all of the configurable options for the `XL-Deploy` service as follows:
+1. A window will open with all of the configurable options for the `XL_Deploy` service as follows:
 
 	![NSSM service editor](images/windows_nssm_2.png)
-
