@@ -9,13 +9,10 @@ product-id: xl-deploy
 * [Start Here](starthere.html)
 * [Release Notes](releasenotes.html)
 * [Upgrade Manual](upgrademanual.html)
-* [Security Manual](securitymanual.html)
 * [Command Line Interface (CLI) Manual](climanual.html)
-* [Customization Manual](customizationmanual.html)
 * [Steps Reference](referencesteps.html)
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
-* [Java API Manual](xldeployjavaapimanual.html)
 * [Jython API Manual](/jython-docs/#!/xl-deploy/5.0.x/)
 
 ### Standard plugins
