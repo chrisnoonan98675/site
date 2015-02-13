@@ -22,9 +22,9 @@ When a client tries to reach a server, it authenticates the destination. The ser
 
 When a client tries to reach a server, there is a negotiation phase. During this phase, the client challenge the server to authenticate it. Once identified, every bit of data transferred between each side of the communication is encrypted.
 
-With this technology, no external process you don't manage can pretend to be a satellite of yours nor no external process can listen to the secure communication.
+With this technology, an external process that you do not manage cannot pretend to be a satellite of yours, and external processes cannot listen to the secure communication.
 
-## How create self-signed certificates
+## How to create self-signed certificates
   
 Depending on your security policy, you can create self-signed certificates using [the `keytool` utility](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html). For example:
    
