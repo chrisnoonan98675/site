@@ -1,6 +1,6 @@
 ---
 layout: beta
-title: Supported test tools and output formats
+title: Supported test tools and test result formats
 categories:
 - xl-test
 subject:
@@ -9,7 +9,7 @@ tags:
 - test tool
 ---
 
-XL Test supports the following test tools and output formats:
+XL Test supports the following test tools and test result formats:
 
 * [FitNesse](http://www.fitnesse.org/) (only supported if the suites were executed by FitNesse itself, not through its jUnit runner)
 * [Gatling](http://gatling.io/)

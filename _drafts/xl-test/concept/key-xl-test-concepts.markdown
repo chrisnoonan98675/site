@@ -16,11 +16,11 @@ XL Test lets you define, manage, execute, visualize, and analyze tests across al
 
 ## Test tools
 
-XL Test integrates with a plethora of test tools. It does so by supporting well-known output formats produced by these test tools. XL Test translates these output formats into its uniform event structure allowing unified, cross-tool reporting. A list of supported test tools can be found [here](test-tools.html).
+XL Test integrates with a plethora of test tools. It does so by supporting well-known output formats produced by these test tools. XL Test translates these output formats into its uniform event structure allowing unified, cross-tool reporting. A list of supported test tools can be found [here](supported-test-tools-and-test-result-formats.html).
 
 ## Test specifications
 
-Jobs or tasks that include automated tests are shown in XL Test by means of test specifications. Results of test specifications can be shown via dashboards, reports, and qualifications. XL Tests supports creating a test specification through the [user interface](/xl-test/how-to/add-a-test-specification.html), by [importing  existing test results](/xl-test/how-to/import-test-results.html), or by pushing results to XL Test via [Jenkins](/xl-test/how-to/connect-xl-test-to-a-jenkins-job).
+Jobs or tasks that include automated tests are shown in XL Test by means of test specifications. Results of test specifications can be shown via dashboards, reports, and qualifications. XL Tests supports creating a test specification through the [user interface](/xl-test/how-to/add-a-test-specification.html), by [importing  existing test results](/xl-test/how-to/import-test-results.html), or by [pushing results to XL Test via Jenkins](/xl-test/how-to/connect-xl-test-to-a-jenkins-job.html).
 
 ## Dashboards
 
@@ -38,10 +38,13 @@ XL Test provides numerous out-of-the-box reports that visualize test results. XL
 * General statistics that compare the given run to the previous run on a number of aspects
 * Health barometer that shows clickable placeholders to the flakiness overview, durations chart, and details table
 
+It is possible to [create customized reports](/xl-test/how-to/create-a-custom-report-in-xl-test.html).
+
+
 ## Qualification
 
-XL Test's qualification function allows for seamless integration with a continuous delivery pipeline. It allows for automatic analysis of the by test results that are available within XL Test. In this way, XL Test supports automated go/no go decision-making.
+XL Test's configurable qualification possibilities allow for seamless integration with a continuous delivery pipeline. XL Test automatically analyzes the test results that are available within XL Test using the specified configuration algorithm. In this way, XL Test supports tailored automated go/no go decision-making.
 
-## Test job execution
+## Test specification execution
 
-XL Test also enables you to execute tests.
+XL Test also enables you to [execute test specifications](/xl-test/how-to/execute-tests-from-xl-test.html). XL Test orchestrates the process and delegates execution to the appropriate automated test tools.

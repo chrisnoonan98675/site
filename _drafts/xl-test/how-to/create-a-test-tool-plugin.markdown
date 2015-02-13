@@ -32,13 +32,12 @@ Plugins use the [Overthere library](https://github.com/xebialabs/overthere) to i
 Each plugin must have:
 
 * A name: This is the name of the test tool, as it will appear in XL Test.
-* A category: This indicates whether the tool is a *functional* or *performance* tool. The category relates the test specifications that use this tool to the set of reports that are available for the test results.
+* A category: This indicates the quality attribute on which the tool focuses. Examples include  *functional* and *performance*. The category relates the test specifications that use this tool to the set of reports that are available for the test results.
 * A default search pattern: This is used in the import wizard and in the Jenkins plugin to identify and collect test result files.
 
 ## Identify test result files
 
 A test tool plugin must identify the files that it will import. This is done with the `findTestResultPaths` method:
-
 
     Collection<OverthereFile> findTestResultPaths(OverthereFile searchRoot,
                                               FileMatcher fileMatcher);
@@ -55,7 +54,7 @@ The default behavior of this method is a file search:
 
 ## Identify the results to import
 
-Some tools keep a history of test executions. A plugin must identify which test results have already been imported, and which results to import. 
+Some tools keep a history of test executions. A plugin must identify which test results have already been imported, and which results to import.
 
 The `findImportables` method provides a list of importable test results. Each importable is treated as a separate test run.
 
