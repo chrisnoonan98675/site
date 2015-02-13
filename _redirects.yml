@@ -173,3 +173,4 @@
 /xl-deploy/how-to/perform-an-update.html : /xl-deploy/how-to/update-a-deployed-application.html
 /xl-deploy/how-to/use-xl-deploy-garbage-collection.html : /xl-deploy/how-to/reclaim-disk-space-on-an-xl-deploy-server.html
 /xl-deploy/how-to/reset-admin-password-xl-deploy-server.html : /xl-deploy/how-to/changing-passwords-in-xl-deploy.html
+/xl-deploy/concept/xl-deploy-remoting-plugin.html : /xl-deploy/concept/introduction-to-the-xl-deploy-remoting-plugin.html
