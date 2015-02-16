@@ -18,17 +18,17 @@ To start XL Deploy, open a command line and go to the `XLDEPLOY_SERVER_HOME` dir
     * On Unix: `bin/run.sh`
     * On Windows: `bin/run.cmd`
 
-Start the server with the `-h` flag to see the options it supports.
+Start the server with the `-help` flag to see the options it supports. They are:
 
-The command line options are:
-
-* `-repository-keystore-password VAL` tells XL Deploy which password to use to access the repository keystore. As an alternative, this password can be specified in the `deployit.conf` configuration file using `repository.keystore.password` as a key. If not specified and the repository keystore does require a password, XL Deploy will prompt you for it.
-* `-reinitialize` tells XL Deploy to reinitialize the repository. Used only in conjunction with `-setup`.
-
-    **Note:** This flag only works if XL Deploy is running on the filesystem repository, not when you've configured XL Deploy to run against a database.
-
-* `-setup` runs the XL Deploy Setup Wizard.
-* `-setup-defaults VAL` specifies a file that contains default values for configuration properties set in the Setup Wizard.
+{:.table .table-striped}
+| Option | Description |
+| ------ | ----------- |
+| `-force-upgrades` | Forces the execution of upgrades at XL Deploy startup. This option is supported in XL Deploy 4.5.x and later. |
+| `-recovery` | Attempts to recover a corrupted repository.
+| `-repository-keystore-password VAL` | Specifies the password that XL Deploy should use to access the repository keystore. Alternatively, you can specify the password in the `deployit.conf` file with the `repository.keystore.password` key. If you do not specify the password and the keystore requires one, XL Deploy will prompt you for it. |
+| `-reinitialize` | Reinitialize the repository. This option is only available for use with the `-setup` option, and it is only supported when XL Deploy is using a filesystem repository. It cannot be used when you have configured XL Deploy to run against a database. |
+| `-setup` | Runs the XL Deploy setup wizard. |
+| `-setup-defaults VAL` | Specifies a file that contains default values for configuration properties in the setup wizard. |
 
 ### Server options
 
