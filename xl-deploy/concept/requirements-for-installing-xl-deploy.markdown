@@ -95,6 +95,7 @@ To use the XL Deploy GUI, you must meet the following requirements:
 * **Flash player**: A Flash player is required, versions 9.0 and up are supported.
 
 XL Deploy UI Extensions have additional restrictions on browser compatibility:
+
 * **Compare functionality**: Internet Explorer 10.0 or later
 
 ### CLI clients
