@@ -7,11 +7,16 @@ categories:
 tags:
 - middleware
 - environment
+- container
+since:
+- 3.9.0
+deprecated:
+- 5.0.0
 ---
 
 An environment is a grouping of infrastructure and middleware items such as hosts, servers, clusters, and so on. An environment is used as the target of a deployment, allowing you to map deployables to members of the environment.
 
-**Tip:** To see a sample environment being created, watch the *[Defining environments](http://vimeo.com/97815292)* video.
+**Note:** For information about creating an environment in XL Deploy 5.0.0 and later, refer to [Create an environment in XL Deploy](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html).
 
 To create an environment where you can deploy an application:
 
@@ -22,3 +27,5 @@ To create an environment where you can deploy an application:
       ![Sample environment](images/xl-deploy-trial/xl_deploy_trial_glassfish_environment.png)
 
 4. Click **Save**. XL Deploy saves the environment in the Repository.
+
+**Tip:** To see a sample environment being created, watch the *[Defining environments](http://vimeo.com/97815292)* video.
