@@ -10,6 +10,7 @@ tags:
 - winrm
 - kerberos
 - overthere
+- troubleshooting
 ---
 
 These are configuration errors that can occur when using XL Deploy with WINRM_NATIVE.
@@ -78,9 +79,13 @@ Refer to the [Kerberos documentation](http://web.mit.edu/kerberos/krb5-current/d
 
 Multiple causes can lead to this error message:
 
-1. If the command was executing for a long time, this might have been caused by a timeout. You can increase the WinRM timeout specified by the `winrmTimeout` property to increase the request timeout. Don't forget to increase the `MaxTimeoutms` setting on the remote host as well. For example, to set the maximum timeout on the server to five minutes, enter the following command:
+1. If the command was executing for a long time, this might have been caused by a timeout. To increase the request timeout value:
 
-        winrm set winrm/config @{MaxTimeoutms="300000"}
+    1. Increase the WinRM request timeout specified by the `winrmTimeout` property
+    1. Increase the `MaxTimeoutms` setting on the remote host. For example, to set the maximum timeout on the remote host to five minutes, enter the following command:
+
+            winrm set winrm/config @{MaxTimeoutms="300000"}
+    1. Set the `overthere.CifsHost.winrmTimeout` property in the `deployit-default.properties` on the XL Deploy server equal to the `MaxTimeoutms` value.
 
 1. If a lot of commands are being executed concurrently, increase the `MaxConcurrentOperationsPerUser` setting on the server. For example, to set the maximum number of concurrent operations per user to 100, enter the following command:
 
