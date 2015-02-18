@@ -17,7 +17,6 @@ There are various ways to automate functionality in XL Release.
 * Remote shell scripting 
 * Script tasks in releases
 * Reusable plugin tasks
-* Custom trigger plugins
 
 
 ## REST API
@@ -74,6 +73,3 @@ As Script tasks, Plugin tasks are written in Jython and have access to the XL Re
 
 See the [Plugin Manual](/xl-release/4.5.x/plugin_manual.html) on how to create them.
 
-## Trigger plugins
-
-XL Release has a set of release triggers, that allow you to schedule a release when an external event happens. For example, you can start a release when an artifact is published in Nexus or at a certain time. Using the plugin mechanism, it is also possible to write a custom plugin.
