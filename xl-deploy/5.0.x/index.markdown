@@ -16,16 +16,16 @@ product-id: xl-deploy
 
 ### Standard plugins
 
-* [Command Plugin Manual](commandPluginManual.html)
-* [Database Plugin Manual](databasePluginManual.html)
+* [Command Plugin Reference](commandPluginManual.html)
+* [Database Plugin Reference](databasePluginManual.html)
 * [Deployment Group Orchestrator Plugin Manual](groupOrchestratorPluginManual.html)
-* [File Plugin Manual](filePluginManual.html)
-* [Generic Model Plugin Manual](genericPluginManual.html)
-* [JEE Plugin Manual](jeePluginManual.html)
-* [PowerShell Plugin Manual](powershellPluginManual.html)
-* [Python Plugin Manual](pythonPluginManual.html)
-* [Webserver Plugin Manual](webserverPluginManual.html)
-* [Trigger Plugin Manual](triggerPluginManual.html)
+* [File Plugin Reference](filePluginManual.html)
+* [Generic Model Plugin Reference](genericPluginManual.html)
+* [JEE Plugin Reference](jeePluginManual.html)
+* [PowerShell Plugin Reference](powershellPluginManual.html)
+* [Python Plugin Reference](pythonPluginManual.html)
+* [Webserver Plugin Reference](webserverPluginManual.html)
+* [Trigger Plugin Reference](triggerPluginManual.html)
 
 ## Plugin documentation
 
