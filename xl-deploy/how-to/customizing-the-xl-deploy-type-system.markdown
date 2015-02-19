@@ -39,7 +39,6 @@ Additionally, any property that is modified is listed as a nested `property` ele
 | `category` | No | Categorizes the property. Each category is shown in a separate tab in the XL Deploy GUI. |
 | `label` | No | Sets the property's label. If set, the label is shown in the XL Deploy GUI instead of the name. |
 | `required` | No | Indicates whether the property is required or not. Note that you cannot modify the required attribute of existing CIs. |
-| `password` | No | Indicates whether the property stores a password. If so, the property value is masked in the XL Deploy GUI and CLI. |
 | `size` | No | Specifies the property size. Possible values are: `default`, `small`, `medium`, and `large`. Large text fields will be shown as a text area in the XL Deploy GUI. *Only relevant for properties of kind `string`.* |
 | `default` | No | Specifies the default value of the property. |
 | `enum-class` | No | The enumeration class that contains the possible values for this property. *Only relevant for properties of kind `enum`.* |
@@ -49,7 +48,7 @@ Additionally, any property that is modified is listed as a nested `property` ele
 | `transient` | No | Indicates whether the property is persisted in the repository or not. |
 | `inspectionProperty` | No | Indicates that this property is used for inspection (discovery). |
 
-Here are some examples of modifying a CI.
+**Note:** For security reasons, the `password` property of a CI cannot be modified.
 
 ### Hiding a CI property
 
