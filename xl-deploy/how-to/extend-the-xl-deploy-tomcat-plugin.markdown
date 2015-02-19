@@ -1,5 +1,5 @@
 ---
-title: Extend the Tomcat plugin
+title: Extend the XL Deploy Tomcat plugin
 categories:
 - xl-deploy
 subject:
@@ -9,6 +9,8 @@ tags:
 - middleware
 - plugin
 - extension
+- api
+- type
 ---
 
 The Tomcat plugin is designed to be extended through XL Deploy's plugin API type system.
