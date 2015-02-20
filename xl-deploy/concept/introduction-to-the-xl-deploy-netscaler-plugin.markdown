@@ -36,7 +36,7 @@ The plugin will add the following 4 properties to every deployable and deployed 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `netscalerServiceGroup` | STRING | The name of the service group that the service running on the targeted container is registered under. (default: {% raw %}`{{NETSCALER_SERVICE_GROUP}}`{% endraw %}) |
-| `netscalerServiceGroupName` | STRING | The name of the service in the service group. (default: {% raw %}{{NETSCALER_SERVICE_GROUP_NAME}}{% endraw %}) |
+| `netscalerServiceGroupName` | STRING | The name of the service in the service group. (default: {% raw %}`{{NETSCALER_SERVICE_GROUP_NAME}}`{% endraw %}) |
 | `netscalerServiceGroupPort` | STRING | The port the service in the service group runs on. Note: This is a string on the deployable to support placeholder replacement. (default: {% raw %}`{{NETSCALER_SERVICE_GROUP_PORT}}`{% endraw %}) |
 
 ### Server/Service-based
