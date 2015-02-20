@@ -24,6 +24,7 @@ product-id: xl-deploy
 * [JEE Plugin Reference](jeePluginManual.html)
 * [PowerShell Plugin Reference](powershellPluginManual.html)
 * [Python Plugin Reference](pythonPluginManual.html)
+* [Remoting Plugin Reference](remotingPluginManual.html)
 * [Webserver Plugin Reference](webserverPluginManual.html)
 * [Trigger Plugin Reference](triggerPluginManual.html)
 
@@ -42,9 +43,9 @@ product-id: xl-deploy
 
 ### .NET Middleware
 
-* [BizTalk plugin](../../xl-deploy-biztalk-plugin/4.5.x/biztalkPluginManual.html)
+* [BizTalk plugin](../../xl-deploy-biztalk-plugin/4.0.x/biztalkPluginManual.html)
 * [IIS plugin](../../xl-deploy-iis-plugin/4.5.x/iisPluginManual.html)
-* [Windows plugin](../../xl-deploy-windows-plugin/4.5.x/windowsPluginManual.html)
+* [Windows plugin](../../xl-deploy-windows-plugin/4.0.x/windowsPluginManual.html)
 
 ### Other Middleware
 
