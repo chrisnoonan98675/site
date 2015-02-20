@@ -3,12 +3,11 @@ title: Using the XL Deploy Manifest Editor
 categories:
 - xl-deploy
 subject:
-- Manifest Editor
+- Packaging
 tags:
-- tfs
 - manifest
 - windows
-- packaging
+- package
 - application
 ---
 
