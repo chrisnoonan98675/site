@@ -3,7 +3,7 @@ title: Extend the XL Deploy WebSphere Application Server plugin
 categories:
 - xl-deploy
 subject:
-- WebSphere Application Server
+- WebSphere Application Server plugin
 tags:
 - websphere
 - middleware
