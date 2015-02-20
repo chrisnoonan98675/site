@@ -93,8 +93,8 @@ The plugin works with the standard deployment package (DAR) format. The followin
             <was.OracleDatasourceSpec name="sampleOracleDatasource">
                 <jndiName>jdbc/sampleOracleDatasource</jndiName>
                 <jdbcProvider>Oracle JDBC Driver</jdbcProvider>
-                <username>{{DATABASE_USERNAME}}</username>
-                <password>{{DATABASE_PASSWORD}}</password>
+                <username>{% raw %}{{DATABASE_USERNAME}}{% endraw %}</username>
+                <password>{% raw %}{{DATABASE_PASSWORD}}{% endraw %}</password>
                 <datasourceHelperClassname>com.ibm.websphere.rsadapter.Oracle10gDataStoreHelper</datasourceHelperClassname>
             </was.OracleDatasourceSpec>
             <was.SibQueueDestinationSpec name="sampleSibQueueDestination">
