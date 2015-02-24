@@ -112,3 +112,23 @@ These XL Deploy-related settings have the following meanings:
 * **XL Deploy Server URL**: Where XL Deploy can be found.
 
 The settings you enter here will be used by all builds of the project, except the XL Deploy credentials, which can be overridden when queuing a build manually.
+
+## Hide XL Deploy user credentials
+
+The build agent must have the credentials to connect to XL Deploy. Security dictates that these credentials must not be exposed on casual inspection; therefore, they must not be hard-coded in the build template (this would also lead to inflexibility). However, setting them as `string`s in build parameters exposes the default values to anyone viewing the build definition, which may not be desirable.
+
+The XL Deploy-enabled build template that is included with the TFS plugin solves this issue by using a build process parameter of custom type `DeployitCredentials` that holds the credentials, and by using a custom editor called `DeployitCredentialsEditor`. The editor uses a password text box for the password, so the value is never exposed.
+
+This is achieved by setting an attribute on the process parameter metadata. On TFS 2010:
+
+    Editor="XebiaLabs.Deployit.Workflow40.DeployitCredentialsEditor, XebiaLabs.Deployit.Workflow40"
+
+On TFS 2012:
+
+    Editor="XebiaLabs.Deployit.Workflow45.DeployitCredentialsEditor, XebiaLabs.Deployit.Workflow45"
+    
+And TFS 2013:
+
+    Editor="XebiaLabs.Deployit.Workflow.DeployitCredentialsEditor, XebiaLabs.XLDeploy.Workflow"
+
+If you do not set the editor, the password remains hidden, but you cannot change the value.
