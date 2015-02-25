@@ -54,15 +54,15 @@ The plugin works with the standard deployment package of DAR format. The followi
                 <jndiNames>jdbc/sampleDatasource</jndiNames>
                 <url>jdbc:mysql://localhost/test</url>
                 <driverName>com.mysql.jdbc.Driver</driverName>
-                <username>{{DATABASE_USERNAME}}</username>
-                <password>{{DATABASE_PASSWORD}}</password>
+                <username>{% raw %}{{DATABASE_USERNAME}}{% endraw %}</username>
+                <password>{% raw %}{{DATABASE_PASSWORD}}{% endraw %}</password>
             </wls.DataSourceSpec>
             <wls.QueueSpec name="sampleQueue">
-                <jmsModuleName>{{JMS_MODULE_NAME}}</jmsModuleName>
+                <jmsModuleName>{% raw %}{{JMS_MODULE_NAME}}{% endraw %}</jmsModuleName>
                 <jndiName>jms/testQueue</jndiName>
             </wls.QueueSpec>
             <wls.ConnectionFactorySpec name="sampleCf">
-                <jmsModuleName>{{JMS_MODULE_NAME}}</jmsModuleName>
+                <jmsModuleName>{% raw %}{{JMS_MODULE_NAME}}{% endraw %}</jmsModuleName>
                 <jndiName>jms/sampleCf</jndiName>
             </wls.ConnectionFactorySpec>
         </deployables>
