@@ -53,14 +53,14 @@ The plugin works with the standard deployment package DAR format. The following 
         <biztalk.BizTalkSchemaAssemblyFile name="BizTalkApp1.Schemas.dll" file="BizTalkApp1/BizTalkApp1.Schemas.dll">
           <scanPlaceholders>true</scanPlaceholders>
           <applicationName>BizTalkApp1</applicationName>
-          <sourcePath>{{ASSEMBLY_SOURCE_DIR}}\BizTalkApp1.Schemas.dll</sourcePath>
-          <destinationPath>{{ASSEMBLY_DESTINATION_DIR}}\BizTalkApp1.Schemas.dll</destinationPath>
+          <sourcePath>{% raw %}{{ASSEMBLY_SOURCE_DIR}}{% endraw %}\BizTalkApp1.Schemas.dll</sourcePath>
+          <destinationPath>{% raw %}{{ASSEMBLY_DESTINATION_DIR}}{% endraw %}\BizTalkApp1.Schemas.dll</destinationPath>
         </biztalk.BizTalkSchemaAssemblyFile>
         <biztalk.BizTalkAssemblyFile name="BizTalkApp1.dll" file="BizTalkApp1/BizTalkApp1.dll">
           <scanPlaceholders>true</scanPlaceholders>
           <applicationName>BizTalkApp1</applicationName>
-          <sourcePath>{{ASSEMBLY_SOURCE_DIR}}\BizTalkApp1.dll</sourcePath>
-          <destinationPath>{{ASSEMBLY_DESTINATION_DIR}}\BizTalkApp1.dll</destinationPath>
+          <sourcePath>{% raw %}{{ASSEMBLY_SOURCE_DIR}}{% endraw %}\BizTalkApp1.dll</sourcePath>
+          <destinationPath>{% raw %}{{ASSEMBLY_DESTINATION_DIR}}{% endraw %}\BizTalkApp1.dll</destinationPath>
         </biztalk.BizTalkAssemblyFile>
       </deployables>
     </udm.DeploymentPackage>
