@@ -1,0 +1,50 @@
+---
+title: Introduction to the XL Deploy WebSphere MQ plugin
+categories:
+- xl-deploy
+subject:
+- WebSphere MQ plugin
+tags:
+- websphere
+- middleware
+- plugin
+---
+
+The XL Deploy IBM WebSphere MQ (WMQ) plugin adds the capability to manage MQ resources on WebSphere MQ environment. It works out of the box for deploying/undeploying local queues and alias queues on a queue manager and can easily be extended to support management of other possible resources on a WebSphere MQ environment.
+
+## Features
+
+* Resources
+	* Local queue
+	* Alias queue
+* Control tasks
+	* Start/Stop queue manager
+
+## Use in deployment packages
+
+The plugin works with the standard deployment package DAR format. The following is a sample `deployit-manifest.xml` file that can be used to create a WMQ specific deployment package. It contain declarations for a local queue(`wmq.LocalQueueSpec`) and an alias queue (`wmq.AliasQueueSpec`).
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <udm.DeploymentPackage version="1.0" application="WebsphereMQApp">
+      <orchestrator>default</orchestrator>
+      <parallelByContainer>false</parallelByContainer>
+      <deployables>
+       <wmq.AliasQueueSpec name="testAliasQueue">
+          <target>testTargetQueue</target>
+          <cluster>QUEUE_CLUSTER</cluster>
+        </wmq.AliasQueueSpec>
+        <wmq.LocalQueueSpec name="testLocalQueue">
+          <maxDepth>3</maxDepth>
+          <boqname>testBackoutQueue</boqname>
+          <bothresh>10</bothresh>
+        </wmq.LocalQueueSpec>
+      </deployables>
+    </udm.DeploymentPackage>
+
+## Queue manager
+
+`wmq.QueueManager` is a container type which represents an existing queue manager running in the MQ environment, and the MQ resources such as local queue or alias queue can be targeted to it. It has a containment relationship with host, which means that it can only be created under a host. 
+
+Also, because a `wmq.QueueManager` is meant to represent an existing queue manager, the name of the CI should reflect the existing queue manager name. For example, if the existing queue manager running in the MQ environment is called `VENUS`, the `wmq.QueueManager` CI should be called `VENUS`.
+
+`wmq.QueueManager` also supports control tasks for starting and stopping the queue manager.
