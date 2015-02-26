@@ -16,6 +16,8 @@ The XL Deploy JBoss Domain plugin adds the capability to manage deployments and 
 
 The plugin has the capability of managing application artifacts, datasource and other JMS resources via the JBoss Cli, and can easily be extended to support more deployment options or management of new artifacts/resources on JBoss AS.
 
+For information about JBoss/WildFly requirements and the configuration items (CIs) that the plugin supports, refer to the [JBoss Application Server 7+ Plugin Reference](/xl-deploy/latest/jbossDomainPluginManual.html).
+
 ## Features
 
 * Domain and stand-alone mode support
