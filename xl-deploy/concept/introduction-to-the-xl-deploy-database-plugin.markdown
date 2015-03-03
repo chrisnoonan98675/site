@@ -29,9 +29,17 @@ A rollback script **must** have the same name as the installation script it is a
 
 **Note:** If a script fails and you perform a rollback, XL Deploy executes **all** rollback scripts, not only the rollback scripts that correspond to the installation scripts that were successfully executed.
 
+## Naming SQL scripts
+
+XL Deploy uses a regular expression to identify SQL scripts. The regular expression is defined by the `scriptRecognitionRegex` and `rollbackScriptRecognitionRegex` properties of the `sql.ExecutedSqlScripts` CI.
+
+The default regular expression is configured such that XL Deploy expects each script to start with a number; for example, `1-create-user-table.sql`. Even if there is only one script, it should start with a number.
+
+You can change the regular expression in `deployit-defaults.properties` or by creating a type modification in the `synthetic.xml` file.
+
 ## Order of SQL scripts
 
-SQL scripts are ordered lexicographically based on their filename. This is a sample ordering of several installation scripts:
+SQL scripts are ordered lexicographically based on their file names. This is a sample ordering of several installation scripts:
 
 * `1-create-user-table.sql`
 * `1-create-user-table-rollback.sql`
