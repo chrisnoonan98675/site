@@ -7,6 +7,7 @@ subject:
 tags:
 - plugin
 - database
+- sql
 ---
 
 The XL Deploy Database plugin supports deployment of SQL files and folders to a database client.
@@ -55,11 +56,11 @@ Note that in this example, the tenth script, `10-drop-user-index.sql` would be i
 
 ## Upgrading SQL scripts
 
-When upgrading a SqlScripts CI, only the scripts that were not present in the previous package version are executed. For example, if the previous SqlScripts folder contained `script1.sql` and `script2.sql` and the new version of SqlScripts folder contains `script2.sql` and `script3.sql`, then only `script3.sql` will be executed as part of the upgrade.
+When upgrading a `SqlScripts` CI, only the scripts that were not present in the previous package version are executed. For example, if the previous `SqlScripts` folder contained `script1.sql` and `script2.sql` and the new version of SqlScripts folder contains `script2.sql` and `script3.sql`, then only `script3.sql` will be executed as part of the upgrade.
 
 ## Undeploying SQL scripts
 
-When you undeploy an SqlScripts CI, all rollback scripts are executed in reverse lexicographical order.
+When you undeploy an `SqlScripts` CI, all rollback scripts are executed in reverse lexicographical order.
 
 Additionally, since Deployit 3.9.3, scripts with content that has been modified are also executed. To re-enable the old behavior, in which only the names of the scripts were taken into consideration, set the hidden property `sql.ExecutedSqlScripts.executeModifiedScripts` to `false`. If a rollback script is provided for that script, it will be run before the new script is run. To disable this behavior, set the hidden property `sql.ExecutedSqlScripts.executeRollbackForModifiedScripts` to `false`.
 
@@ -104,11 +105,11 @@ The `02-CreateUser.sql` script can use its dependencies or common dependencies a
 	@02-CreateUser/create_power_users.sql
 	COMMIT;
 	
-*Note:* The syntax for including the dependant scripts varies between databases. For example, MS SQL databases use `include <script file name>`.
+**Note:** The syntax for including the dependant scripts varies between databases. For example, Microsoft SQL databases use `include <script file name>`.
 
 ## SQL client
 
-`sql.SqlClient` CIs are containers to which `sql.SqlScripts` can be deployed. The plugin ships with SqlClient for the following databases:
+`sql.SqlClient` CIs are containers to which `sql.SqlScripts` can be deployed. The plugin ships with `SqlClient` for the following databases:
 
 * MySQL
 * PostgreSQL
