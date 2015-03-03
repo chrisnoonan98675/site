@@ -16,11 +16,33 @@ Go to `http://localhost:4000` to see the site running locally.
 
 **Note:** If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
 
-# Contributing
+# Branches
 
-* When you commit a change to the master branch of this repository, a [Jenkins job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/app1/job/Jekyll%20docs/) is triggered. This job generates the change in HTML and immediately publishes it to [docs.xebialabs.com](https://docs.xebialabs.com).
-* To commit a change to GitHub without triggering the Jenkins job, [create a pull request](https://help.github.com/articles/creating-a-pull-request/). This allows others to review your work.
-* You can store drafts, images, samples, etc. in `_drafts`. Markdown and AsciiDoc files stored in `_drafts` are not be converted to HTML.
+## Master branch
+
+When you commit a change to the master branch of this repository, a [Jenkins job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/app1/job/Jekyll%20docs/) is triggered. This job generates the HTML and immediately publishes it to [docs.xebialabs.com](https://docs.xebialabs.com).
+
+If you want to make a documentation change that should *not* be published immediately, create a branch.
+
+## Release branches
+
+A branch should be created for each product or plugin release; for example, `xl-release-4.6.0` or `xl-deploy-5.0.0-beta-2`. The release branch contains all changes that should be published for that release. The branch must be merged into the master branch when it's time to release that product/plugin version.
+
+## Feature branches
+
+You can create branches for a feature—for example, `DEPL-1234` or `REL-5678`—but feature branches are only for short-term use. They should eventually be merged into the appropriate release branch when the feature is ready.
+
+## Pull requests
+
+If you want to submit changes for review without immediately publishing them, [create a branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/#creating-a-branch) and then [create a pull request](https://help.github.com/articles/creating-a-pull-request/).
+
+The pull request should be merged into the master branch, a release branch, or a feature branch, depending on what changes it implements.
+
+# Drafts
+
+You can store drafts, images, samples, etc. in `_drafts`. Markdown and AsciiDoc files stored in `_drafts` are never converted to HTML.
+
+The `_drafts` folder also contains the *documentation template*.
 
 # Beta documentation
 
