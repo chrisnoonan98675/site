@@ -14,9 +14,9 @@ By default, XL Deploy authenticates users and retrieves authorization informatio
 
 XL Deploy treats the LDAP repository as **read-only**. This means that XL Deploy will use the information from the LDAP repository, but can not make changes to that information.
 
-To configure XL Deploy to use an LDAP repository, the security configuration file `deployit-security.xml` must be modified. For a step-by-step procedure, refer to [How to connect to your LDAP or Active Directory](/xl-deploy/how-to/connect-ldap-or-active-directory.html).
+To configure XL Deploy to use an LDAP repository, you must change the security configuration file (`deployit-security.xml`). For a step-by-step procedure, refer to [How to connect to your LDAP or Active Directory](/xl-deploy/how-to/connect-ldap-or-active-directory.html).
 
-### Sample XL Deploy security file
+## Sample XL Deploy security file
 
 This is an example of a working `deployit-security.xml` file that uses LDAP:
 
@@ -80,13 +80,16 @@ This is an example of a working `deployit-security.xml` file that uses LDAP:
 
 The XML fragment above contains placeholders for the following values:
 
-* `LDAP_SERVER_URL`: The LDAP url to connect to (example: `"ldap://localhost:389/"`)
-* `MANAGER_DN`: The principal to perform the initial bind to the LDAP server (example: `"cn=admin,dc=example,dc=com"`)
-* `MANAGER_PASSWORD`: The credentials to perform the initial bind to the LDAP server. (example: "secret")
-* `USER_SEARCH_FILTER`: The LDAP filter to determine the LDAP dn for the user that's logging in, `{0}` will be replaced with the username that is logging in (example: `"(&(uid={0})(objectClass=inetOrgPerson))"`)
-* `USER_SEARCH_BASE`: The LDAP filter that is the base for searching for users (example: `"dc=example,dc=com"`)
-* `GROUP_SEARCH_FILTER`: The LDAP filter to determine the group memberships for the user, `{0}` will be replaced with the DN of the user (example: `"(memberUid={0})"`)
-* `GROUP_SEARCH_BASE`: The LDAP filter that is the base for searching for groups (example: `"ou=groups,dc=example,dc=com"`)
+{:.table .table-striped}
+| Placeholder | Description | Example |
+| ----------- | ----------- | ------- |
+| `LDAP_SERVER_URL` | The LDAP URL to connect to | `"ldap://localhost:389/"` |
+| `MANAGER_DN` | The principal to perform the initial bind to the LDAP server | `"cn=admin,dc=example,dc=com"` |
+| `MANAGER_PASSWORD` | The credentials to perform the initial bind to the LDAP server | `"secret"` |
+| `USER_SEARCH_FILTER` | The LDAP filter to determine the LDAP DN for the user that is logging in; `{0}` will be replaced with the user name | `"(&(uid={0})(objectClass=inetOrgPerson))"` |
+| `USER_SEARCH_BASE` | The LDAP filter that is the base for searching for users | `"dc=example,dc=com"` |
+| `GROUP_SEARCH_FILTER` | The LDAP filter to determine the group memberships for the user; `{0}` will be replaced with the DN of the user | `"(memberUid={0})"` |
+| `GROUP_SEARCH_BASE` | The LDAP filter that is the base for searching for groups | `"ou=groups,dc=example,dc=com"` |
 
 ## Assign a default role to all authenticated users
 
