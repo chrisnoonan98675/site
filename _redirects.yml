@@ -157,6 +157,11 @@
 /generated/xl-release/4.0.x/index.html : /xl-release/4.0.x/index.html
 /generated/xl-release/3.0.x/index.html : /xl-release/3.0.x/index.html
 
+# Redirects for XL Release in-product help links
+/releases/3.0/xl-release/index.html : /xl-release/3.0.x/index.html
+/releases/4.0/xl-release/index.html : /xl-release/4.0.x/index.html
+/releases/4.5/xl-release/index.html : /xl-release/4.5.x/index.html
+
 # Redirect old pages that are no longer used
 /product-version.html#/deployit/3.9.x/index.html : /xl-deploy/3.9.x/index.html
 /product-version.html#/xl%20deploy/4.0.x/index.html : /xl-deploy/4.0.x/index.html
