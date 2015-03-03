@@ -86,10 +86,23 @@ The XML fragment above contains placeholders for the following values:
 | `LDAP_SERVER_URL` | The LDAP URL to connect to | `"ldap://localhost:389/"` |
 | `MANAGER_DN` | The principal to perform the initial bind to the LDAP server | `"cn=admin,dc=example,dc=com"` |
 | `MANAGER_PASSWORD` | The credentials to perform the initial bind to the LDAP server | `"secret"` |
-| `USER_SEARCH_FILTER` | The LDAP filter to determine the LDAP DN for the user that is logging in; `{0}` will be replaced with the user name | `"(&(uid={0})(objectClass=inetOrgPerson))"` |
+| `USER_SEARCH_FILTER` | The LDAP filter to determine the LDAP DN for the user that is logging in; `{0}` will be replaced with the user name | `"(&amp;(uid={0})(objectClass=inetOrgPerson))"` |
 | `USER_SEARCH_BASE` | The LDAP filter that is the base for searching for users | `"dc=example,dc=com"` |
 | `GROUP_SEARCH_FILTER` | The LDAP filter to determine the group memberships for the user; `{0}` will be replaced with the DN of the user | `"(memberUid={0})"` |
 | `GROUP_SEARCH_BASE` | The LDAP filter that is the base for searching for groups | `"ou=groups,dc=example,dc=com"` |
+
+## Escaping special characters
+
+Because `deployit-security.xml` is an XML file, you must escape certain characters in the values that will replace placeholders.
+
+{:.table .table-striped}
+| Character | Escape with |
+| --------- | ----------- |
+| `&` | `&amp;` |
+| `"` | `&quot;` |
+| `'` | `&apos;` |
+| `<` | `&lt;` |
+| `>` | `&gt;` |
 
 ## Assign a default role to all authenticated users
 
