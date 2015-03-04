@@ -140,7 +140,7 @@
 
 # XL Scale product doc, new format
 /xl-scale/latest/index.html : /xl-deploy/4.5.x/index.html#xl-scale
-/xl-scale/latest/xlScaleManual.html : /xl-scale/4.0.x/xl-scale-plugin/xlScaleManual.html
+/xl-scale/latest/xlScaleManual.html : /xl-scale-plugin/4.0.x/xlScaleManual.html
 
 # XL Scale product doc, legacy format
 /releases/latest/xl-scale-plugin/xlScaleManual.html : /xl-scale/4.0.x/xl-scale-plugin/xlScaleManual.html
