@@ -67,11 +67,13 @@ If a release introduces a new feature that isn't big enough to warrant its own t
 For example:
 
 > **Using the foo feature**
+> 
 > In XL Deploy 5.0.0 and later, you use the foo feature to...
 
 Or:
 
 > **Using the foo feature in XL Deploy 5.0.0 and later**
+> 
 > In XL Deploy 5.0.0 and later, you use the foo feature to...
 
 ## Major change to an existing feature
@@ -97,9 +99,11 @@ If a release introduces a minor change to an existing feature:
 For example:
 
 > **Using the foo feature in XL Deploy 4.5.x and earlier**
+> 
 > In XL Deploy 4.5.x and earlier, you use the foo feature to...
 >
 > **Using the foo feature in XL Deploy 5.0.0 and later**
+> 
 > In XL Deploy 5.0.0 and later, you use the foo feature to...
 
 ## Deprecated feature
