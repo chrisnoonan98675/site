@@ -38,13 +38,93 @@ If you want to submit changes for review without immediately publishing them, [c
 
 The pull request should be merged into the master branch, a release branch, or a feature branch, depending on what changes it implements.
 
-# Drafts
+# Versioning content
 
-You can store drafts, images, samples, etc. in `_drafts`. Markdown and AsciiDoc files stored in `_drafts` are never converted to HTML.
+You can add version information to a topic as a whole or to a section of a topic.
 
-The `_drafts` folder also contains the *documentation template*.
+To add version information to a topic as a whole, use the `since`, `deprecated`, and `removed` front matter keys. Refer to the `_drafts/documentation-template.markdown` file for information about setting values for these keys.
 
-# Beta documentation
+When adding version information to a section of a topic, include the major, minor, and patch version (`4.5.3`) or use an `x` for the patch number (`4.5.x`). Use the words *earlier* and *later* to refer to other versions. For example:
+
+* In XL Deploy 5.0.0 and later...
+* In XL Deploy 4.5.2 and earlier...
+* In XL Deploy 4.5.3, XL Deploy 5.0.0, and later...
+
+## Major new feature
+
+If a release introduces a major new feature:
+
+1. Write a new topic
+2. Use the `since` front matter key to identify a version
+
+## Minor new feature
+
+If a release introduces a new feature that isn't big enough to warrant its own topic:
+
+1. Add a new section to an existing topic
+2. Use a sentence and, optionally, the section heading to identify a version
+
+For example:
+
+> **Using the foo feature**
+> In XL Deploy 5.0.0 and later, you use the foo feature to...
+
+Or:
+
+> **Using the foo feature in XL Deploy 5.0.0 and later**
+> In XL Deploy 5.0.0 and later, you use the foo feature to...
+
+## Major change to an existing feature
+
+If a release introduces a major change to an existing feature:
+
+1. Copy the relevant existing topic and change its title and file name to include the version
+2. Update the original topic to reflect the new release
+3. Use the `since` front matter key to identify a version in the original topic
+
+For example, if XL Deploy 5.0.0 introduced a major change to the "foo" feature:
+
+* **Using the foo feature** (`using-the-foo-feature.html`): This would contain the XL Deploy 5.0.0 version of the foo feature
+* **Using the foo feature in XL Deploy 4.5.x and earlier** (`using-the-foo-feature-in-xl-deploy-45x-and-earlier.html`)
+
+## Minor change to an existing feature
+
+If a release introduces a minor change to an existing feature:
+
+1. Add a new section to an existing topic
+2. Use a sentence and the section heading to identify a version
+
+For example:
+
+> **Using the foo feature in XL Deploy 4.5.x and earlier**
+> In XL Deploy 4.5.x and earlier, you use the foo feature to...
+>
+> **Using the foo feature in XL Deploy 5.0.0 and later**
+> In XL Deploy 5.0.0 and later, you use the foo feature to...
+
+## Deprecated feature
+
+If a release deprecates a feature, either:
+
+* Use the `deprecated` front matter key to mark the relevant topic(s) as deprecated
+* Add a note that the relevant part of a topic(s) is deprecated
+
+For example:
+
+> **Note:** The foo feature is deprecated as of XL Deploy 5.0.0.
+
+## Removed feature
+
+If a release removes a feature that was previously marked as deprecated, either:
+
+* Use the `removed` front matter key to mark the relevant topic(s) as removed
+* Add a note that the relevant part of a topic(s) has been removed
+
+For example:
+
+> **Note:** The foo feature was removed in XL Deploy 5.0.0.
+
+## Beta documentation
 
 To mark an entire topic as "beta", add the following line to its front matter:
 
@@ -57,6 +137,12 @@ To mark a section of a topic as "beta", add the following line just after the se
 To mark a paragraph, sentence, or table cell as "beta", add the following inline label to it:
 
     <span class="label label-danger">beta</span>
+
+# Drafts
+
+You can store drafts, images, samples, etc. in `_drafts`. Markdown and AsciiDoc files stored in `_drafts` are never converted to HTML.
+
+The `_drafts` folder also contains the *documentation template*.
 
 # Things to know about formatting
 
