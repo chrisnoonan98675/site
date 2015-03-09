@@ -22,6 +22,7 @@
 /xl-deploy/latest/udmcireference.html : /xl-deploy/4.5.x/udmcireference.html
 /xl-deploy/latest/rest-api/index.html : /xl-deploy/4.5.x/rest-api/index.html
 /xl-deploy/latest/xldeployjavaapimanual.html : /xl-deploy/4.5.x/xldeployjavaapimanual.html
+/xl-deploy/latest/javadoc/udm-plugin-api/index.html : /xl-deploy/4.5.x/javadoc/udm-plugin-api/index.html
 
 # XL Deploy product doc, legacy format
 /releases/latest/deployit/starthere.html : /xl-deploy/4.5.x/starthere.html
@@ -43,6 +44,7 @@
 /releases/latest/deployit/udmcireference.html : /xl-deploy/4.5.x/udmcireference.html
 /releases/latest/deployit/rest-api/index.html : /xl-deploy/4.5.x/rest-api/index.html
 /releases/latest/deployit/xldeployjavaapimanual.html : /xl-deploy/4.5.x/xldeployjavaapimanual.html
+/releases/latest/deployit/javadoc/udm-plugin-api/index.html : /xl-deploy/4.5.x/javadoc/udm-plugin-api/index.html
 
 # XL Deploy bundled plugin doc, new format
 /xl-deploy/latest/commandPluginManual.html : /xl-deploy/4.5.x/commandPluginManual.html

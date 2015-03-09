@@ -18,6 +18,8 @@ Before you customize XL Deploy functionality, you should understand the XL Deplo
 
 Using the Generic plugin as a basis to create a new plugin, or writing a custom plugin from scratch, is a powerful way to extend XL Deploy. It uses XL Deploy's Java plugin API which is also used by all of the plugins provided by XebiaLabs. The plugin API specifies a contract between XL Deploy core and a plugin that ensures that a plugin can safely contribute to the calculated deployment plan.
 
+Refer to the [Javadoc](https://docs.xebialabs.com/xl-deploy/latest/javadoc/udm-plugin-api/) for detailed information about the Java API.
+
 ## UDM and Java
 
 The UDM concepts are represented in Java by interfaces:
