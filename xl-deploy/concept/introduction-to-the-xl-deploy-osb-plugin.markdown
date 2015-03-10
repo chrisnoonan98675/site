@@ -15,6 +15,13 @@ The XL Deploy Oracle Service Bus (OSB) plugin supports importing and deleting OS
 
 For information about the configuration items (CIs) that the OSB plugin provides, refer to the [OSB Plugin Reference](/xl-deploy/latest/osbPluginManual.html).
 
+The `osb.Configuration` CI is a folder that contains:
+
+* One JAR file containing the projects
+* One or more XML customization files
+
+When you use the XL Deploy user interface to upload an `osb.Configuration` artifact, you must ensure that the JAR and XML files are at the root of the ZIP file.
+
 ## Features
 
 * OSB configuration (import and delete)
@@ -35,5 +42,3 @@ This is a sample deployment package (DAR) manifest file (`deployit-manifest.xml`
             </osb.Configuration>
         </deployables>
     </udm.DeploymentPackage>
-
-`osb.Configuration` is a folder that contains one JAR file containing the projects and one or more customization files in XML.
