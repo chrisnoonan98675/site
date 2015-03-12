@@ -16,7 +16,7 @@ XL Test lets you define, manage, execute, visualize, and analyze tests across al
 
 ## Test tools
 
-XL Test integrates with a plethora of test tools. It does so by supporting well-known output formats produced by these test tools. XL Test translates these output formats into its uniform event structure allowing unified, cross-tool reporting. A list of supported test tools can be found [here](supported-test-tools-and-test-result-formats.html).
+XL Test integrates with a plethora of test tools. It does so by supporting well-known output formats produced by these test tools. XL Test translates these output formats into its uniform event structure allowing unified, cross-tool reporting. A list of supported test tools can be found [here](supported-test-tools-and-test-result-formats.html). XL Test's main focus is on the extensibility of test tools
 
 ## Test specifications
 
