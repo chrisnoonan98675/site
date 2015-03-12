@@ -28,7 +28,7 @@ First, extract the XL Deploy server archive:
 
 To install the XL Deploy license:
 
-1. Download license file (`deployit-license.lic`) from [https://dist.xebialabs.com/licenses/download/](https://dist.xebialabs.com/licenses/download/).
+1. If you do not already have a license file (`deployit-license.lic`), download it from [https://dist.xebialabs.com/licenses/download/](https://dist.xebialabs.com/licenses/download/).
 1. Copy the downloaded file to the `conf` directory. Be sure that you do not modify the license file in any way.
 
 Refer to [Licensing in XL Deploy](/xl-deploy/concept/licensing-in-xl-deploy.html) for information about how the XL Deploy license works.
@@ -47,12 +47,12 @@ To install the XL Deploy server, go to a command line or terminal window and exe
 
 **Tip:** To stop the setup wizard at any time, enter `exitsetup`. All changes to the configuration will be discarded.
 
-The setup wizard shows the welcome message:
+The setup wizard shows the welcome message. You can:
 
-* Answer `yes` (or press ENTER) to use the simple setup. This makes it easy to quickly get started with XL Deploy and to use the default configuration. See [Simple setup](#simple-setup) for more information.
-* Answer `no` to use the manual setup. This provides explicit control over all XL Deploy settings. See [Manual setup](#manual-setup) for more information.
+* Answer `yes` (or press ENTER) to install XL Deploy with a default configuration. This method makes it easy for you to quickly get started with XL Deploy. See [Simple setup](#simple-setup) for more information.
+* Answer `no` to install XL Deploy manually. This method gives you explicit control over all XL Deploy settings. See [Manual setup](#manual-setup) for more information.
 
-**Note**: If you installed XL Deploy in the same location before, the setup wizard will ask you whether you want to edit the existing configuration or create a new one. Answer `yes` (or press ENTER) to edit the existing configuration. The setup wizard will load all settings from the existing configuration and allow you to choose simple or manual setup. Answer `no` to start over with an empty configuration.
+**Note**: If you have installed XL Deploy in the same location before, the setup wizard will ask you whether you want to edit the existing configuration or create a new one. Answer `yes` (or press ENTER) to edit the existing configuration. The setup wizard will load all settings from the existing configuration and allow you to choose simple or manual setup. Answer `no` to start over with an empty configuration.
 
 ### Simple setup
 
@@ -167,17 +167,7 @@ By default, you can import deployment packages from the `importablePackages` dir
 
 After you have configured all options, the setup wizard shows a summary of the configuration that you have selected. Answer `yes` to finish the setup process. Answer `no` to exit setup.
 
-## Start XL Deploy
-
-To start the XL Deploy server, execute the appropriate command:
-
-{:.table .table-striped}
-| Operating system | XL Deploy version | Command |
-| ---------------- | ----------------- | ------- |
-| Microsoft Windows | XL Deploy 4.5.x and earlier | `server.cmd` |
-| Microsoft Windows | XL Deploy 5.0.0 and later <span class="label label-danger">beta</span> | `run.cmd` |
-| Unix-based systems | XL Deploy 4.5.x and earlier | `server.sh` |
-| Unix-based systems | XL Deploy 5.0.0 and later <span class="label label-danger">beta</span> | `run.sh` |
+The setup wizard automatically starts XL Deploy.
 
 ## High availability setup
 

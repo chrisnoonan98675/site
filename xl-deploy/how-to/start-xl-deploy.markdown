@@ -9,14 +9,28 @@ tags:
 - cli
 ---
 
-To start XL Deploy, open a command line and go to the `XLDEPLOY_SERVER_HOME` directory. Start the XL Deploy server with the command:
+To start the XL Deploy server, open a command line, go to the `XLDEPLOY_SERVER_HOME/bin` directory, and execute the appropriate command:
+
+{:.table .table-striped}
+| Operating system | XL Deploy version | Command |
+| ---------------- | ----------------- | ------- |
+| Microsoft Windows | XL Deploy 4.5.x and earlier | `server.cmd` |
+| Microsoft Windows | XL Deploy 5.0.0 and later <span class="label label-danger">beta</span> | `run.cmd` |
+| Unix-based systems | XL Deploy 4.5.x and earlier | `server.sh` |
+| Unix-based systems | XL Deploy 5.0.0 and later <span class="label label-danger">beta</span> | `run.sh` |
+
+## Start XL Deploy in the background
+
+To run the XL Deploy server as a background process:
 
 * In XL Deploy 4.5.0 and earlier:
-    * On Unix: `bin/server.sh`
-    * On Windows: `bin/run.cmd`
+    * On Unix, use `nohup bin/server.sh &`
+    * On Windows, run XL Deploy [as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html)
 * In XL Deploy 5.0.0 and later:
-    * On Unix: `bin/run.sh`
-    * On Windows: `bin/run.cmd`
+    * On Unix, use `nohup bin/run.sh &`
+    * On Windows, run XL Deploy [as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html)
+
+## Server options
 
 Start the server with the `-help` flag to see the options it supports. They are:
 
@@ -30,17 +44,4 @@ Start the server with the `-help` flag to see the options it supports. They are:
 | `-setup` | Runs the XL Deploy setup wizard. |
 | `-setup-defaults VAL` | Specifies a file that contains default values for configuration properties in the setup wizard. |
 
-## Server options
-
 Any options you want to give the XL Deploy server when it starts can be specified in the `XLDEPLOY_SERVER_OPTS` environment variable.
-
-## Start XL Deploy in the background
-
-To run the server as a background process:
-
-* In XL Deploy 4.5.0 and earlier:
-    * On Unix, use `nohup bin/server.sh &`
-    * On Windows, run XL Deploy [as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html)
-* In XL Deploy 5.0.0 and later:
-    * On Unix, use `nohup bin/run.sh &`
-    * On Windows, run XL Deploy [as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html)
