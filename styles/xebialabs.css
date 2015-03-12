@@ -22,6 +22,9 @@ img {
 .indexpagerow {
 	margin-top: 35px;
 }
+code {
+	color: #001D3B;
+}
 a img { 
 	border: none;  
 }
