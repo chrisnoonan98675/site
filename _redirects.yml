@@ -182,3 +182,4 @@
 /xl-deploy/how-to/reset-admin-password-xl-deploy-server.html : /xl-deploy/how-to/changing-passwords-in-xl-deploy.html
 /xl-deploy/concept/xl-deploy-remoting-plugin.html : /xl-deploy/concept/introduction-to-the-xl-deploy-remoting-plugin.html
 /xl-deploy/how-to/perform-an-initial-deployment.html : /xl-deploy/how-to/deploy-an-application.html
+/xl-deploy/concept/advanced-xl-deploy-configuration.html : /xl-deploy/how-to/advanced-xl-deploy-configuration.html
