@@ -179,15 +179,6 @@ To start the XL Deploy server, execute the appropriate command:
 | Unix-based systems | XL Deploy 4.5.x and earlier | `server.sh` |
 | Unix-based systems | XL Deploy 5.0.0 and later <span class="label label-danger">beta</span> | `run.sh` |
 
-## Install the XL Deploy CLI
-
-To install the XL Deploy command-line interface (CLI):
-
-1. Log in to the computer where you want to install the XL Deploy CLI.
-2. Create an installation directory such as `/opt/xebialabs/xl-deploy-cli` or `C:\Program Files\XL Deploy\CLI`.
-3. Copy the XL Deploy CLI archive to the directory.
-3. Extract the archive in the directory.
-
 ## High availability setup
 
 XL Deploy can be configured to ensure maximum uptime of the application. In such a high availability setup, two instances of XL Deploy are running in an active/passive configuration. At any one time, only one XL Deploy instance is active but as soon as a failure is detected, the passive XL Deploy instance is activated and the failed instance is taken down for repair.

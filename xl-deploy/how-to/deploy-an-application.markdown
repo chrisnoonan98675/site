@@ -1,5 +1,5 @@
 ---
-title: Perform an initial deployment
+title: Deploy an application
 categories:
 - xl-deploy
 subject:
