@@ -3,9 +3,10 @@ title: Undeploy an application
 categories:
 - xl-deploy
 subject:
-- Getting started
+- Deployment
 tags:
 - deployment
+- deployed
 - application
 - package
 ---

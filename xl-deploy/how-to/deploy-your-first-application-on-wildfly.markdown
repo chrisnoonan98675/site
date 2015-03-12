@@ -1,7 +1,7 @@
 ---
 title: Deploy your first application on JBoss Enterprise Application Platform (EAP) 6 and JBoss Application Server (AS)/WildFly 7.1+
 subject:
-- Getting started
+- Deployment
 categories:
 - xl-deploy
 tags:

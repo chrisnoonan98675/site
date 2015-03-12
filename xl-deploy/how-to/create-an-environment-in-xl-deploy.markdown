@@ -4,7 +4,7 @@ title: Create an environment in XL Deploy
 categories:
 - xl-deploy
 subject:
-- Getting started
+- Environment
 tags:
 - middleware
 - environment

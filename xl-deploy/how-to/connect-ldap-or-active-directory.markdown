@@ -1,5 +1,5 @@
 ---
-title: Connect to your LDAP or Active Directory to XL Deploy or XL Release
+title: Connect XL Deploy or XL Release to your LDAP or Active Directory
 subject:
 - System administration
 categories:

@@ -3,10 +3,10 @@ title: Start XL Deploy
 categories:
 - xl-deploy
 subject:
-- Getting started
+- Installation
 tags:
 - system administration
-- getting started
+- cli
 ---
 
 To start XL Deploy, open a command line and go to the `XLDEPLOY_SERVER_HOME` directory. Start the XL Deploy server with the command:
@@ -30,17 +30,17 @@ Start the server with the `-help` flag to see the options it supports. They are:
 | `-setup` | Runs the XL Deploy setup wizard. |
 | `-setup-defaults VAL` | Specifies a file that contains default values for configuration properties in the setup wizard. |
 
-### Server options
+## Server options
 
-Any options you want to give the XL Deploy server when it starts can be specified in the `XLDEPLOY\_SERVER\_OPTS` environment variable.
+Any options you want to give the XL Deploy server when it starts can be specified in the `XLDEPLOY_SERVER_OPTS` environment variable.
 
-### Starting XL Deploy in the background
+## Start XL Deploy in the background
 
-By running the `run.sh` or `run.cmd` command, the XL Deploy server is started in the foreground. To run the server as a background process:
+To run the server as a background process:
 
 * In XL Deploy 4.5.0 and earlier:
     * On Unix, use `nohup bin/server.sh &`
     * On Windows, run XL Deploy [as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html)
-* In XL Deploy 4.5.0 and earlier:
+* In XL Deploy 5.0.0 and later:
     * On Unix, use `nohup bin/run.sh &`
-    * On Windows, run XL Deploy [as a service](/xl-deploy/how-to/install-xl-deploy.html#install-the-server-as-a-daemon-or-service)
+    * On Windows, run XL Deploy [as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html)

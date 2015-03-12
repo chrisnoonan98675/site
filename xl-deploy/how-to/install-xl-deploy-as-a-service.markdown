@@ -1,18 +1,19 @@
 ---
 title: Install XL Deploy as a service
 subject:
-- Getting started
+- Installation
 categories:
 - xl-deploy
 tags:
 - system administration
-- getting started
+- installation
 - service
+- daemon
 since:
 - 4.5.x
 ---
 
-## Install XL Deploy 5.0.0 and later as a daemon or service
+## Install XL Deploy 5.0.0 or later as a daemon or service
 
 <div class="alert alert-danger" role="alert">The information in this section is in beta and is subject to change.</div>
 
@@ -23,7 +24,7 @@ On Linux you will be asked for the user name under which XL Deploy server was pr
 
 To remove the installed service from the system, use the `bin/uninstall.sh` or `bin/uninstall.cmd` script.
 
-## Install XL Deploy 4.5.x and earlier as a daemon or service
+## Install XL Deploy 4.5.x or earlier as a daemon or service
 
 ### Linux approach 1: LSB `init` scripts
 

@@ -22,6 +22,9 @@ img {
 .indexpagerow {
 	margin-top: 35px;
 }
+code {
+	color: #001D3B;
+}
 a img { 
 	border: none;  
 }
@@ -45,6 +48,10 @@ ol > li > ol {
 }
 h4, .h4 {
 	font-size: 20px !important;
+	margin-top: 20px !important;
+}
+h5, .h5 {
+	font-size: 18px !important;
 	margin-top: 20px !important;
 }
 

@@ -99,3 +99,5 @@ If you need to update the digital certificate:
         keystore.keypassword=yourpassword
 
 **Tip:** If you require a more complex digital certificate, generate it with [OpenSSL](https://www.openssl.org/) and import it using `keytool` with the alias `jetty`.
+
+For more information about SSL and Jetty, refer to the [Jetty documentation](http://www.eclipse.org/jetty/documentation/current/configuring-ssl.html).

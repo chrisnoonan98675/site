@@ -43,14 +43,14 @@ You can override the property as follows:
     akka {
       remote {
         netty.tcp {
-          hostname = <external ip / hostname>
+          hostname = <external IP / hostname>
         }
       }
     }
 
 You can then configure the port that is opened in the `akka.remote.netty.tcp.port` property. By default, it is `8380`. 
 
-**Note**: This is the port that you must set when you add the satellite configuration item (CI) to XL Deploy's repository.
+**Important:** The `hostname` and `akka.remote.netty.tcp.port` values must *exactly* match the values that you set when you [add the satellite configuration item (CI) to XL Deploy](/xl-deploy/how-to/add-a-satellite-server-to-xl-deploy.html).
 
 ### Configure the file streaming
 

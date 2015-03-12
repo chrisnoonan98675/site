@@ -24,6 +24,8 @@ The XL Deploy Server supports the following plugpoints:
 * _orchestrator_: control the way XL Deploy combines plans to generate the overall deployment workflow
 * _event listener_: specify a listener for XL Deploy notifications and commands
 
+Refer to the [Javadoc](https://docs.xebialabs.com/xl-deploy/latest/javadoc/udm-plugin-api/) for detailed information about the Java API.
+
 ## Defining Protocols
 
 A protocol in XL Deploy is a method for making a connection to a host. Overthere, XL Deploy's remote execution framework, uses protocols to build a connection with a target machine. Protocol implementations are read by Overthere when XL Deploy starts.

@@ -1,7 +1,7 @@
 ---
 title: Key XL Deploy concepts
 subject:
-- Getting started
+- Architecture
 categories:
 - xl-deploy
 tags:

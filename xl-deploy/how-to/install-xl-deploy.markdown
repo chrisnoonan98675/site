@@ -3,10 +3,10 @@ title: Install XL Deploy
 categories:
 - xl-deploy
 subject:
-- Getting started
+- Installation
 tags:
 - system administration
-- getting started
+- installation
 ---
 
 Before you install XL Deploy, ensure that you meet the [prerequisites](/xl-deploy/concept/requirements-for-installing-xl-deploy.html).
@@ -178,15 +178,6 @@ To start the XL Deploy server, execute the appropriate command:
 | Microsoft Windows | XL Deploy 5.0.0 and later <span class="label label-danger">beta</span> | `run.cmd` |
 | Unix-based systems | XL Deploy 4.5.x and earlier | `server.sh` |
 | Unix-based systems | XL Deploy 5.0.0 and later <span class="label label-danger">beta</span> | `run.sh` |
-
-## Install the XL Deploy CLI
-
-To install the XL Deploy command-line interface (CLI):
-
-1. Log in to the computer where you want to install the XL Deploy CLI.
-2. Create an installation directory such as `/opt/xebialabs/xl-deploy-cli` or `C:\Program Files\XL Deploy\CLI`.
-3. Copy the XL Deploy CLI archive to the directory.
-3. Extract the archive in the directory.
 
 ## High availability setup
 
