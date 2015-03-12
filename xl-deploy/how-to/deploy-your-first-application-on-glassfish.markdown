@@ -1,7 +1,7 @@
 ---
 title: Deploy your first application on GlassFish
 subject:
-- Getting started
+- Deployment
 categories:
 - xl-deploy
 tags:

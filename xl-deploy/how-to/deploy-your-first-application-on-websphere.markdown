@@ -1,7 +1,7 @@
 ---
 title: Deploy your first application on IBM WebSphere Application Server (WAS)
 subject:
-- Getting started
+- Deployment
 categories:
 - xl-deploy
 tags:

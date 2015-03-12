@@ -1,7 +1,7 @@
 ---
 title: Create an environment in XL Deploy (deprecated method)
 subject:
-- Getting started
+- Environment
 categories:
 - xl-deploy
 tags:

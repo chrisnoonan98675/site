@@ -4,7 +4,7 @@ title: Add a package to XL Deploy
 categories:
 - xl-deploy
 subject:
-- Getting started
+- Packaging
 tags:
 - application
 - package

@@ -3,7 +3,7 @@ title: Deploy an application
 categories:
 - xl-deploy
 subject:
-- Getting started
+- Deployment
 tags:
 - deployment
 - application

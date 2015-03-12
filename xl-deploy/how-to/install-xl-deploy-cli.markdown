@@ -3,11 +3,10 @@ title: Install the XL Deploy CLI
 categories:
 - xl-deploy
 subject:
-- Getting started
+- CLI
 tags:
 - installation
 - system administration
-- getting started
 - cli
 ---
 

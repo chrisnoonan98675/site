@@ -3,10 +3,10 @@ title: Install XL Deploy
 categories:
 - xl-deploy
 subject:
-- Getting started
+- Installation
 tags:
 - system administration
-- getting started
+- installation
 ---
 
 Before you install XL Deploy, ensure that you meet the [prerequisites](/xl-deploy/concept/requirements-for-installing-xl-deploy.html).

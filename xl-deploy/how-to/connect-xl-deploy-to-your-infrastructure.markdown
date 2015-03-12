@@ -1,7 +1,7 @@
 ---
 title: Connect XL Deploy to your infrastructure
 subject:
-- Getting started
+- Host
 categories:
 - xl-deploy
 tags:
