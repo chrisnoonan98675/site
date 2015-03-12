@@ -3,7 +3,7 @@ title: Types of orchestrators in XL Deploy
 categories:
 - xl-deploy
 subject:
-- Deployment
+- Orchestration
 tags:
 - planning
 - deployment

@@ -3,7 +3,7 @@ title: Understanding orchestrators
 categories:
 - xl-deploy
 subject:
-- Deployment
+- Orchestration
 tags:
 - planning
 - deployment

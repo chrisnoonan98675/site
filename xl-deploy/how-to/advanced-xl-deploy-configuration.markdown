@@ -3,7 +3,7 @@ title: Advanced XL Deploy configuration
 categories:
 - xl-deploy
 subject:
-- System administration
+- Installation
 tags:
 - system administration
 - security
