@@ -6,7 +6,7 @@ subject:
 - Installation
 tags:
 - system administration
-- getting started
+- installation
 ---
 
 ## Server requirements

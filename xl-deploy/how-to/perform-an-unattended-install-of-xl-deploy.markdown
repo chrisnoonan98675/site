@@ -6,7 +6,7 @@ categories:
 - xl-deploy
 tags:
 - system administration
-- getting started
+- installation
 ---
 
 It is possible to do an unattended install of XL Deploy, for example, using Puppet. The server and command line interface (CLI) are distributed as separate ZIP archives. Installation for the CLI is as simple as extracting the ZIP file.
