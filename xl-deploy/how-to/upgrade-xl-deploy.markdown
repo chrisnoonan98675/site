@@ -9,38 +9,46 @@ tags:
 - upgrade
 ---
 
-## Upgrade process overview
-
-The process of upgrading XL Deploy is:
+Briefly, the process of upgrading XL Deploy is:
 
 1. Obtain a new version of the XL Deploy software (the main product and/or plugins) from XebiaLabs.
-1. Read the new version's release notes so you are aware of the new functionality and possible upgrade considerations.
-1. Read the new version's upgrade manual so you are aware of possible upgrade considerations.
+1. Read the **release notes** so you are aware of the new functionality and possible upgrade considerations.
+1. Read the **version-specific upgrade notes** so you are aware of all special upgrade considerations.
 1. Stop the current version of XL Deploy if it is running and ensure that there are no running tasks active.
-1. Create a new installation directory for the new version of XL Deploy, so the current version is still available in case of problems.
+1. Create a new installation directory for the new version of XL Deploy (so the previous version will still be available in case of problems).
 1. Extract the new XL Deploy release into the new installation directory.
 1. Copy the data from the previous XL Deploy installation directory to the new installation directory.
 1. Start the new version of XL Deploy.
 
-## Upgrade notes
+You can find release notes and version-specific upgrade notes on the page for each version; for example, [XL Deploy 4.5.x](/xl-deploy/4.5.x/).
 
-* You can skip XL Deploy versions when upgrading. XL Deploy will sequentially apply any upgrades for the intermediate (skipped) versions. Please read the specific upgrade notes for each version carefully.
+## Skipping versions
 
-* If a repository upgrade is required, XL Deploy will detect that it is running against an old repository and will automatically execute an upgrade when it is first started. The server log will contain extensive logging of the repository upgrade process. You may want to save this log for future reference.
+When upgrading, you can skip XL Deploy versions when upgrading. XL Deploy will sequentially apply upgrades for the intermediate versions. 
 
-* The new version of XL Deploy may not be compatible with the current version of your plugins. If this is the case, you must download an updated version of your plugins as well. Please read the specific upgrade notes for each version carefully.
+**Important:** Read the version-specific upgrade notes for each version. There may be manual actions required for the intermediate versions.
 
-* Plugin versions are related to the version of XL Deploy (or Deployit) that they are compatible with. For example, WAS plugin version 3.6.0 requires at least Deployit server version 3.6.0. This version of the WAS plugin should also work in Deployit 3.7.0 unless stated otherwise in the specific upgrade notes or release notes.
+## Upgrading the repository
+
+If a repository upgrade is required, XL Deploy will detect that it is running against an old repository and will automatically execute an upgrade when it is first started. The server log will contain extensive logging of the repository upgrade process. Save this log for future reference.
+
+## Upgrading plugins
+
+Plugin versions are related to the version of XL Deploy (or Deployit) that they are compatible with. For example, WAS plugin version 3.6.0 requires at least Deployit server version 3.6.0. This version of the WAS plugin should also work in Deployit 3.7.0 unless stated otherwise in the version-specific upgrade notes or release notes.
+
+The new version of XL Deploy may not be compatible with the current version of your plugins. If this is the case, you must download an updated version of your plugins as well.
+
+**Important:** Read the version-specific upgrade notes for each plugin version. There may be manual actions required for the intermediate versions.
 
 ## Deprecations
 
 Each new version may deprecate some old functionality or features in favor of newer ways of working. If functionality is marked as deprecated for a specific version, the old functionality is still available (so you can still upgrade hassle-free), but it will be removed in the next version.
 
-Every deprecation is accompanied by a description of how to migrate to the new way of working. This gives you the time and opportunity to migrate to the new situation before upgrading to a still newer version that will no longer have the old functionality. Be sure to read the deprecation information for each release you're upgrading to, so you know what will change in upcoming versions.
+In the version-specific upgrade notes, there is information about how to migrate to the new way of working. This gives you the time and opportunity to migrate to the new situation before upgrading to a still newer version that will no longer have the old functionality. Be sure to read the deprecation information for each release you're upgrading to, so you know what will change in upcoming versions.
 
 ## Performing the upgrade
 
-Before upgrading, carefully read the release notes and note anything that may apply to your situation.
+Before upgrading, carefully read the release notes and version-specific upgrade notes. Note anything that may apply to your situation.
 
 To begin upgrading XL Deploy, first unpack the distribution archive, which contains:
 
@@ -83,7 +91,3 @@ To upgrade an existing XL Deploy CLI installation:
 1. Copy the content of the `ext` directory from the previous installation to the new installation directory.
 1. *Do not* copy the content of the hotfix directory (unless instructed) because hotfixes are version-specific.
 1. If you have made any changes to the XL Deploy CLI startup scripts (`cli.sh` or `cli.cmd`), copy these from the `bin` directory in the previous installation to the new installation directory.
-
-## Specific upgrade notes
-
-For information that is specific to each version of XL Deploy, refer to the upgrade notes in that version.
