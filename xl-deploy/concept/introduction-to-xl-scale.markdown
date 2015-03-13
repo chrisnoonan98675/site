@@ -12,6 +12,8 @@ tags:
 
 XL Scale provides functionality to create and destroy environments on virtualized infrastructure that can be used as deployment targets. It supports several different virtualization vendors. XL Scale functionality is accessible from within the XL Deploy GUI and ties in to XL Deploy's security system and reporting.
 
+For information about the configuration items (CIs) that XL Scale supports, refer to the [XL Scale Reference](/xl-scale/latest/xlScaleManual.html).
+
 ## Concepts
 
 XL Scale introduces two concepts:
