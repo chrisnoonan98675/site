@@ -1,7 +1,7 @@
 ---
 title: Enable additional logging for the XL Deploy server
 subject:
-- System administration
+- Logging
 category:
 - xl-deploy
 tags:

@@ -3,7 +3,7 @@ title: XL Deploy directory structure
 categories:
 - xl-deploy
 subject:
-- System administration
+- Installation
 tags:
 - system administration
 - cli

@@ -3,7 +3,7 @@ title: Installing and removing XL Deploy plugins
 categories:
 - xl-deploy
 subject:
-- System administration
+- Installation
 tags:
 - system administration
 - plugin

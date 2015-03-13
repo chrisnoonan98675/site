@@ -3,7 +3,7 @@ title: The XL Deploy repository
 categories:
 - xl-deploy
 subject:
-- System administration
+- Repository
 tags:
 - infrastructure
 - package

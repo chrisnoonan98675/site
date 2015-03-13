@@ -3,7 +3,7 @@ title: Using XL Deploy logging
 categories:
 - xl-deploy
 subject:
-- System administration
+- Logging
 tags:
 - logging
 - system administration

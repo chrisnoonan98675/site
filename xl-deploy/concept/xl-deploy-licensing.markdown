@@ -3,7 +3,7 @@ title: XL Deploy licensing
 categories:
 - xl-deploy
 subject:
-- System administration
+- Installation
 tags:
 - system administration
 - licensing

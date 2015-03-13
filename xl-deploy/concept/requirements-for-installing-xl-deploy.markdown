@@ -3,7 +3,7 @@ title: Requirements for installing XL Deploy
 categories:
 - xl-deploy
 subject:
-- System administration
+- Installation
 tags:
 - system administration
 - getting started

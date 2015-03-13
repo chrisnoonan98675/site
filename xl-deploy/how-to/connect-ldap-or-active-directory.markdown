@@ -1,7 +1,7 @@
 ---
 title: Connect XL Deploy or XL Release to your LDAP or Active Directory
 subject:
-- System administration
+- Security
 categories:
 - xl-deploy
 - xl-release
@@ -9,6 +9,7 @@ tags:
 - ldap
 - active directory
 - security
+- user management
 ---
 
 This tutorial describes how to connect XL Deploy or XL Release to your LDAP or Active Directory.

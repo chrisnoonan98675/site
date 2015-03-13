@@ -3,7 +3,7 @@ title: Configure the XL Deploy repository
 categories:
 - xl-deploy
 subject:
-- System administration
+- Repository
 tags:
 - system administration
 - repository

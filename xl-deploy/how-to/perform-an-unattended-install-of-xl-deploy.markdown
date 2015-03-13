@@ -1,7 +1,7 @@
 ---
 title: Perform an unattended install of XL Deploy
 subject:
-- System administration
+- Installation
 categories:
 - xl-deploy
 tags:
