@@ -13,9 +13,9 @@ tags:
 
 To select files from a file system, XL Test uses the selection pattern that is also used by the [Apache Ant](https://ant.apache.org/manual/dirtasks.html) build system. The following special characters are used:
  
-* `?` means one character
-* `*` means one or more characters
-* `**` means one or more directories
+* `?`: one character
+* `*`: one or more characters
+* `**`: zero or more directories
 
 The patterns are:
 
