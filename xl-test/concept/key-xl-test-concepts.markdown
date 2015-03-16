@@ -25,7 +25,7 @@ A coherent set of tests is represented in XL Test by a test specification. These
 
 ## Dashboards
 
-XL Test allows you to create a [custom dashboard](/xl-test/how-to/add-a-dashboard.html) that contains all relevant test results on a single screen. 
+XL Test allows you to create a [custom dashboard](/xl-test/how-to/create-a-dashboard.html) that contains all relevant test results on a single screen. 
 
 ## Reporting
 
