@@ -64,7 +64,7 @@ First, add a custom report type to `<XLTEST_HOME>\plugins\demo\synthetic.xml`:
 
 Next, copy `<XLTEST_HOME>\plugins\demo\reports\BarChart.py` to `MyBarChart.py`. Changes to the script do not require you to restart XL Test.
 
-The Python script ends with `resultHolder.setResult( <json> )`. This is because Highcharts expects a JSON structure, so that is the output of the report script. 
+The Python script ends with `resultHolder.setResult( <json> )`. This is because Highcharts expects a JSON structure, so that is the output of the report script. The JSON structure is created as a Python dictionary.
 
 Refer to the [Highcharts API](http://api.highcharts.com/highcharts) to see the options that are available for configuration.
 

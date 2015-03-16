@@ -14,7 +14,7 @@ If you import test results from Jenkins, XL Test will automatically create a tes
 
 To connect them so that Jenkins will send test results to XL Test, you must install and configure the XL Test plugin for Jenkins.
 
-## Step 1 Install the XL Test plugin
+## Step 1. Install the XL Test plugin
 
 To use the Jenkins interface to install the plugin:
 
@@ -23,9 +23,9 @@ To use the Jenkins interface to install the plugin:
 1. Look for the XL Test plugin.
 1. Select the plugin and click **Install without restart**.
 
-You can find more information about installing plugins in Jenkins in the [Jenkins wiki](https://wiki.jenkins-ci.org/display/JENKINS/Plugins).
+More information about installing plugins in Jenkins can be found in the [Jenkins wiki](https://wiki.jenkins-ci.org/display/JENKINS/Plugins).
 
-## Step 2 Configure the plugin
+## Step 2. Configure the plugin
 
 To configure the XL Test plugin:
 
@@ -36,7 +36,7 @@ To configure the XL Test plugin:
 
 **Tip**: If you have multiple XL Test servers, you can select the **Use non-default XL Test Server** option. You can then enter a **Server Url** and **Proxy Url** to override the defaults.
 
-## Step 3 Add a post-build step to your job
+## Step 3. Add a post-build step to your job
 
 To connect the XL Test plugin to a build job:
 
@@ -47,11 +47,11 @@ To connect the XL Test plugin to a build job:
 1. In the **Pattern** box, provide the [file selection pattern](xl-test-file-selection-patterns.html) to use to locate the test results. These files will be sent to XL Test for processing. Note that the pattern depends on the tool that you selected.
 1. **Save** the updated configuration.
 
-## Step 4 Build
+## Step 4. Build
 
 To start a new build of the job, click **Build**.
 
-## Step 5 View in XL Test
+## Step 5. View in XL Test
 
 After the build is complete, click **Test specifications** in the XL Test top menu to see the newly created specification.
 

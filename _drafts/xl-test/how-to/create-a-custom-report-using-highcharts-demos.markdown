@@ -117,7 +117,7 @@ First, copy the JSON from the `.highcharts()` method (line 2):
         }]
     }
 
-Then:
+Then change the JSON to Python syntax:
 
 * Place single quotation marks around all keys
 * Replace any double forward slashes (`//`) with a number sign (`#`)
