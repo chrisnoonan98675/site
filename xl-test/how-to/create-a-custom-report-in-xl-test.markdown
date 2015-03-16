@@ -82,7 +82,7 @@ This example shows how you can change the color of the bars in the bar chart. To
         'text': title
     },
 
-**Note:** This structure looks similar to JSON, but because this is a Python script, it is actually a `Dictionary` (or `Map` in other languages). This means that the keys should be surrounded by single quotation marks (`'`). If you copy examples from a Highcharts demo, you must adjust the keys accordingly. For an extended example, refer to [Create a custom report using Highcharts demos](create-a-custom-report-using-highcharts-demos).
+**Note:** This structure looks similar to JSON, but because this is a Python script, it is actually a `Dictionary` (or `Map` in other languages). This means that the keys should be surrounded by single quotation marks (`'`). If you copy examples from a Highcharts demo, you must adjust the keys accordingly. For an extended example, refer to [Create a custom report using Highcharts demos](create-a-custom-report-using-highcharts-demos.html).
 
 To see your changes in effect, open the `My Bar Chart` report for `demoFitnesse`.
 
