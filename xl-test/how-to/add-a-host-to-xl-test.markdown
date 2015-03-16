@@ -4,7 +4,7 @@ title: Add a host to XL Test
 categories:
 - xl-test
 subject:
-- Host
+- Test specification
 tags:
 - host
 - ssh

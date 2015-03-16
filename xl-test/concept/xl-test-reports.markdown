@@ -3,9 +3,10 @@ title: XL Test reports
 categories:
 - xl-test
 subject:
-- Reports
+- Report
 tags:
 - report
+- dashboard
 ---
 
 A report is a representation of a set of test results in a graph or table. XL Test supports *functional test results* and *performance test results*. These are the types of reports that XL Test supports by default.

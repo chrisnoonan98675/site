@@ -4,7 +4,7 @@ title: Install XL Test
 categories:
 - xl-test
 subject:
-- System administration
+- Installation
 tags:
 - system administration
 - installation

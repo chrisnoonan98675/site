@@ -4,12 +4,13 @@ title: Key XL Test concepts
 categories:
 - xl-test
 subject:
-- Getting started
+- Architecture
 tags:
-- test
-- test result
+- test results
 - test tool
 - test specification
+- dashboard
+- report
 ---
 
 XL Test lets you define, manage, execute, visualize, and analyze tests across all your test tools to give you a single source of quality truth. XL Test acts as the Fitbit of your software.
@@ -39,7 +40,6 @@ XL Test provides numerous out-of-the-box reports that visualize test results. XL
 * Health barometer - shows clickable placeholders to the flakiness overview, durations chart, and details table.
 
 It is possible to [create customized reports](/xl-test/how-to/create-a-custom-report-in-xl-test.html).
-
 
 ## Qualification
 

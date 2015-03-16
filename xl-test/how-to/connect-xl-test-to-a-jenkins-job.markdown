@@ -7,7 +7,7 @@ subject:
 - Plugin
 tags:
 - jenkins
-- test result
+- test results
 - import
 ---
 

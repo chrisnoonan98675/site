@@ -6,12 +6,11 @@ categories:
 subject:
 - Test specification
 tags:
-- test
-- specification
+- test specification
 - test execution
 ---
 
-If you have [imported](import-test-results.html) a set of test results, you can run the tests again. This will execute the tests on the local or a remote system and import the new test results.
+If you have imported a set of test results, you can run the tests again. This will execute the tests on the local or a remote system and import the new test results.
 
 1. Click **Test specifications** in the menu bar.
 1. Next to the test specification that you want to execute, click **Execute**.

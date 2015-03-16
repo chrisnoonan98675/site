@@ -6,9 +6,9 @@ categories:
 subject:
 - Test specification
 tags:
-- test
-- specification
-- results
+- test specification
+- test results
+- import
 ---
 
 You can import results from past test executions into XL Test. This will automatically create a test specification that you can use to execute future tests.
@@ -18,7 +18,6 @@ To import results into XL Test, click **Get started** on the welcome screen or c
 ## Step 1 Select the test tool
 
 1. Select the tool that was used to generate the results you want to import. Please refer to [the list of supported tools and test result formats](/xl-test/concept/supported-test-tools-and-test-result-formats.html).
-
 1. Click **Next**.
 
 **Tip:** If you want to import results from a tool that is not listed, click **I can't find my tool** to send XebiaLabs an email about the tool that you would like XL Test to support.

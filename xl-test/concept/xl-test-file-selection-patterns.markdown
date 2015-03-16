@@ -6,8 +6,8 @@ categories:
 subject:
 - Test specification
 tags:
-- test
-- specification
+- test specification
+- test results
 - import
 ---
 

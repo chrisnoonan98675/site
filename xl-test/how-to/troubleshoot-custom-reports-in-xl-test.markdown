@@ -1,6 +1,6 @@
 ---
 layout: beta
-title: Troubleshoot a custom report in XL Test
+title: Troubleshoot custom reports in XL Test
 categories:
 - xl-test
 subject:

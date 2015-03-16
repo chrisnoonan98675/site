@@ -6,9 +6,7 @@ categories:
 subject:
 - Test specification
 tags:
-- test
 - test specification
-- test specification set
 ---
 
 To add a test specification or a set of test specifications to XL Test:
