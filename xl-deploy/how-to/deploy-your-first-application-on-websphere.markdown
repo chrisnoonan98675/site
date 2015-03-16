@@ -100,21 +100,7 @@ Follow [these instructions](/xl-deploy/how-to/add-a-package-to-xl-deploy.html#im
 
 Now you can deploy the sample application to the environment that you created.
 
-**Tip:** To see an application being deployed for the first time, watch the *[Performing an initial deployment](http://vimeo.com/97815293)* video.
-
-To deploy PetClinic-ear 1.0:
-
-1. Under **Packages**, expand **PetClinic-ear**.
-2. Select the **1.0** package and drag it to the left side of the Deployment Workspace.
-3. Under **Deployed Applications**, select the environment and drag it to the right side of the Deployment Workspace.
-4. Click ![Auto-map button](/images/button_auto-map.png) to automatically map the deployable in the package (which is an EAR file) in the package to the appropriate container in the environment.
-
-      ![Sample mapping](images/xl-deploy-trial/xl_deploy_trial_websphere_nd_mapping_sample_app.png)
-
-5. Click **Analyze** to preview the deployment plan in the Plan Analyzer.
-6. Double-click the EAR file that XL Deploy mapped. Here, you can see various WebSphere properties that you can adjust at deployment time, like the application edition, rollout strategy, and restart strategy.
-5. Click **Next**. The deployment plan appears.
-6. Click **Execute**. XL Deploy deploys the application. As each step is executed, you can click it to see real-time information about the deployment.
+Follow [these instructions](/xl-deploy/how-to/deploy-an-application.html) to deploy the application.
 
 **Note:** If the deployment appears to hang on a step, XL Deploy may have encountered an issue with the SSL certificate. See [Accept WebSphere trusted certificate](#accept-websphere-trusted-certificate) for more information. If this is the case, click **Abort** to abort the operation and stop the deployment.
 

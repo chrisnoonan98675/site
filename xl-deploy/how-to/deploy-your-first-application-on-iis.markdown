@@ -72,21 +72,7 @@ Follow [these instructions](/xl-deploy/how-to/add-a-package-to-xl-deploy.html#im
 
 Now you can deploy the sample application to the environment that you created.
 
-**Tip:** To see an application being deployed for the first time, watch the *[Performing an initial deployment](http://vimeo.com/97815293)* video.
-
-To deploy NerdDinner 2.0:
-
-1. Under **Packages**, expand **NerdDinner**.
-2. Select the **2.0** package and drag it to the left side of the Deployment Workspace.
-3. Under **Deployed Applications**, select the environment and drag it to the right side of the Deployment Workspace.
-4. Click ![Auto-map button](/images/button_auto-map.png) to automatically map the deployables in the package to the appropriate container in the environment.
-
-      ![Sample mapping](images/xl-deploy-trial/xl_deploy_trial_iis_mapping_sample_app.png)
-
-5. Click **Analyze** to preview the deployment plan in the Plan Analyzer.
-6. Double-click the deployables that XL Deploy mapped. Here, you can see various properties that you can adjust at deployment time, like the website name.
-5. Click **Next**. The deployment plan appears.
-6. Click **Execute**. XL Deploy deploys the application. As each step is executed, you can click it to see real-time information about the deployment.
+Follow [these instructions](/xl-deploy/how-to/deploy-an-application.html) to deploy the application.
 
 If the deployment succeeds, the state of the deployment plan is **EXECUTED**.
 
