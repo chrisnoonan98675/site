@@ -1,7 +1,7 @@
 ---
 title: Deploy your first application on Oracle WebLogic
 subject:
-- Deployment
+- Getting started
 categories:
 - xl-deploy
 tags:
@@ -67,18 +67,7 @@ Follow [these instructions](create-an-environment-in-xl-deploy.html) to create a
 
 XL Deploy includes two versions of a sample application called *PetClinic-ear*, already packaged in XL Deploy's deployment package format (DAR).
 
-**Tip:** To learn more about application packages, read *[Preparing your application for XL Deploy](../concept/preparing-your-application-for-xl-deploy.html)*.
-
-To add the application to XL Deploy's Repository, you need to import it:
-
-1. Click **Deployment** in XL Deploy.
-2. Under **Packages**, click ![Import package button](/images/button_import_package.png). A new tab appears in the Deployment Workspace.
-3. Select **Import deployment package from server**.
-4. Next to **Select package**, select **PetClinic-ear/1.0**. This package contains version 1.0 of the PetClinic-ear application.
-
-      ![Sample environment](images/xl-deploy-trial/xl_deploy_trial_import_sample_app.png)
-
-5. Click **Import**. XL Deploy imports the application.
+Follow [these instructions](/xl-deploy/how-to/add-a-package-to-xl-deploy.html#import-a-package) to import **PetClinic-ear/1.0**.
 
 ## Deploy the sample application
 
