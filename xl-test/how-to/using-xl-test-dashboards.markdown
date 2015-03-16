@@ -19,7 +19,7 @@ XL Test includes a sample dashboard called *Demo Dashboard*.
 
 To see all available dashboards, click **Dashboards** in the top navigation bar.
 
-For information about creating a new dashboard, refer to [link](/xl-test/how-to/create-a-dashboard.html).
+For information about creating a new dashboard, refer to [Create a dashboard in XL Test](/xl-test/how-to/create-a-dashboard.html).
 
 ## Working with view mode
 
@@ -43,4 +43,4 @@ The date setting affects all tiles on the dashboard. Note that some reports only
 
 In edit mode, you can modify a dashboard, change its settings, and add and remove tiles. 
 
-For information about editing a new dashboard, refer to [link](/xl-test/how-to/create-a-dashboard.html).
+For information about editing a new dashboard, refer to [Edit an existing dashboard](/xl-test/how-to/create-a-dashboard.html#edit-an-existing-dashboard).

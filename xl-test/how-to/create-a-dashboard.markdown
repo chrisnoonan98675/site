@@ -1,5 +1,5 @@
 ---
-title: Create dashboard in XL Test
+title: Create a dashboard in XL Test
 categories:
 - xl-test
 subject:
