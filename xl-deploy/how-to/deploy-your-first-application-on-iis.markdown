@@ -18,11 +18,11 @@ After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) an
 1. Import a sample application into XL Deploy
 1. Deploy the sample application to the environment that you created
 
-If you haven't set up XL Deploy yet, visit our [Getting Started page](http://xebialabs.com/products/xl-deploy/#getting-started) to install the software and watch video tutorials about key XL Deploy concepts.
+If you haven't set up XL Deploy yet, refer to [Install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) to install the software.
 
 ## Connect to your infrastructure
 
-First, follow [these instructions](connect-xl-deploy-to-your-infrastructure.html#connect-to-a-windows-host-using-winrm) to use WinRM to connect XL Deploy to the host on which IIS is running.
+First, follow [these instructions](/xl-deploy/how-to/connect-xl-deploy-to-your-infrastructure.html#connect-to-a-windows-host-using-winrm) to use WinRM to connect XL Deploy to the host on which IIS is running.
 
 ## Add your middleware
 
@@ -58,7 +58,7 @@ To add an IIS 6.0 server:
 
 An environment is a grouping of infrastructure and middleware items such as hosts, servers, clusters, and so on. An environment is used as the target of a deployment, allowing you to map deployables to members of the environment.
 
-Follow [these instructions](create-an-environment-in-xl-deploy.html) to create an environment where you can deploy a sample application.
+Follow [these instructions](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html) to create an environment where you can deploy a sample application.
 
 To deploy to IIS, select the IIS server from the **Containers** list when creating the environment.
 
@@ -92,12 +92,12 @@ To verify the deployment, use the <a href="http://msdn.microsoft.com/en-us/libra
 
 After you've connected XL Deploy to your middleware and deployed a sample application, you can start thinking about how to package and deploy your own applications with XL Deploy. To learn more, see:
 
-* [IIS Plugin Manual](http://docs.xebialabs.com/releases/latest/iis-plugin/iisPluginManual.html)
-* [XL Deploy for developers, in 5 minutes](../concept/xl-deploy-for-developers.html)
-* [Getting started with XL Deploy: Understanding packages](http://vimeo.com/99837504)
-* [Preparing your application for XL Deploy](../concept/preparing-your-application-for-xl-deploy.html)
-* [Understanding deployables and deployeds](../concept/understanding-deployables-and-deployeds.html)
+* [Introduction to the IIS plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-iis-plugin.html)
+* [XL Deploy for developers](/xl-deploy/concept/xl-deploy-for-developers.html)
+* [Getting started with XL Deploy: Understanding packages](https://www.youtube.com/watch?v=dqeL45WGcKU)
+* [Preparing your application for XL Deploy](/xl-deploy/concept/preparing-your-application-for-xl-deploy.html)
+* [Understanding deployables and deployeds](/xl-deploy/concept/understanding-deployables-and-deployeds.html)
 
 ## Get help
 
-You can always ask questions and connect with other users at [our forums](https://support.xebialabs.com/forums).
+You can always ask questions and connect with other users at [our forums](https://support.xebialabs.com/).

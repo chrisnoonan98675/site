@@ -19,14 +19,14 @@ After you have installed your version of [XL Deploy](http://xebialabs.com/produc
 1. Import a sample application into XL Deploy
 1. Deploy the sample application to the environment that you created
 
-If you haven't set up XL Deploy yet, visit our [Getting Started page](http://xebialabs.com/products/xl-deploy/#getting-started) to install the software and watch video tutorials about key XL Deploy concepts.
+If you haven't set up XL Deploy yet, refer to [Install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) to install the software.
 
 ## Connect to your infrastructure
 
 First, you need to connect XL Deploy to the host on which JBoss is running. Follow the instructions for the host's operating system and the connection protocol that you want XL Deploy to use:
 
-* [Unix and SSH](connect-xl-deploy-to-your-infrastructure.html#connect-to-a-unix-host-using-ssh)
-* [Windows and WinRM](connect-xl-deploy-to-your-infrastructure.html#connect-to-a-windows-host-using-winrm)
+* [Unix and SSH](/xl-deploy/how-to/connect-xl-deploy-to-your-infrastructure.html#connect-to-a-unix-host-using-ssh)
+* [Windows and WinRM](/xl-deploy/how-to/connect-xl-deploy-to-your-infrastructure.html#connect-to-a-windows-host-using-winrm)
 
 ## Add your middleware
 
@@ -77,7 +77,7 @@ To add a stand-alone JBoss server:
 
 An environment is a grouping of infrastructure and middleware items such as hosts, servers, clusters, and so on. An environment is used as the target of a deployment, allowing you to map deployables to members of the environment.
 
-Follow [these instructions](create-an-environment-in-xl-deploy.html) to create an environment where you can deploy a sample application.
+Follow [these instructions](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html) to create an environment where you can deploy a sample application.
 
 To deploy to a JBoss Domain, you must add a *server group* to the environment. To deploy to a stand-alone JBoss server, you must add the *server* to the environment.
 
@@ -111,13 +111,13 @@ To verify the deployment, go to `http://IP:PORT/petclinic`, where `IP` and `PORT
 
 After you've connected XL Deploy to your middleware and deployed a sample application, you can start thinking about how to package and deploy your own applications with XL Deploy. To learn more, see:
 
-* [JBoss Application Server 7+ Plugin Manual](http://docs.xebialabs.com/releases/latest/jbossdm-plugin/jbossDomainPluginManual.html)
-* [JBoss Application Server 5 and 6 Plugin Manual](http://docs.xebialabs.com/releases/latest/jbossas-plugin/jbossPluginManual.html)
-* [XL Deploy for developers, in 5 minutes](../concept/xl-deploy-for-developers.html)
-* [Getting started with XL Deploy: Understanding packages](http://vimeo.com/99837504)
-* [Preparing your application for XL Deploy](../concept/preparing-your-application-for-xl-deploy.html)
-* [Understanding deployables and deployeds](../concept/understanding-deployables-and-deployeds.html)
+* [Introduction to the JBoss Application Server 7+ plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-jboss-domain-plugin.html)
+* [Introduction to the JBoss Application Server 5 and 6 plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-jboss-application-server-plugin.html)
+* [XL Deploy for developers](/xl-deploy/concept/xl-deploy-for-developers.html)
+* [Getting started with XL Deploy: Understanding packages](https://www.youtube.com/watch?v=dqeL45WGcKU)
+* [Preparing your application for XL Deploy](/xl-deploy/concept/preparing-your-application-for-xl-deploy.html)
+* [Understanding deployables and deployeds](/xl-deploy/concept/understanding-deployables-and-deployeds.html)
 
 ## Get help
 
-You can always ask questions and connect with other users at [our forums](https://support.xebialabs.com/forums).
+You can always ask questions and connect with other users at [our forums](https://support.xebialabs.com/).
