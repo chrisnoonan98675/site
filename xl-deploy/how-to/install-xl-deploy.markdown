@@ -17,7 +17,7 @@ Before you install XL Deploy, ensure that you meet the [prerequisites](/xl-deplo
 
 ## Install XL Deploy using the installer
 
-You can use the installer to install XL Deploy on Microsoft Windows. The installer includes an optional demo environment that you can use to get started with XL Deploy.
+You can use the installer to install XL Deploy on Microsoft Windows or Mac OS X. The installer includes an optional demo environment that you can use to get started with XL Deploy.
 
 To install XL Deploy:
 
@@ -31,7 +31,7 @@ To install the command-line interface, refer to [Install the XL Deploy CLI](#ins
 
 ## Install XL Deploy using the command line
 
-You can use the command-line server setup wizard to install XL Deploy on Microsoft Windows or on a Unix-based operating system. The setup wizard allows you to specify advanced configuration options related to security.
+You can use the command-line server setup wizard to install XL Deploy on Microsoft Windows, Mac OS X, or any other Unix-based operating system. The setup wizard allows you to specify advanced configuration options related to security.
 
 To install XL Deploy:
 
