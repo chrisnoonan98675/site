@@ -9,7 +9,7 @@ tags:
 - test
 - test result
 - test tool
-- specification
+- test specification
 ---
 
 XL Test lets you define, manage, execute, visualize, and analyze tests across all your test tools to give you a single source of quality truth. XL Test acts as the Fitbit of your software.

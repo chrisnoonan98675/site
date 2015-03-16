@@ -20,7 +20,7 @@ If you have [imported](import-test-results.html) a set of test results, you can 
     * Gradle: `gradle clean check`
    * Maven: `mvn clean test`
 
-1. If this is the first time that XL Test is executing this specification, you must identify the host where XL Test should run the command. See [Create a host in XL Test](create-a-host-in-xl-test.html) for more information.
+1. If this is the first time that XL Test is executing this specification, you must identify the host where XL Test should run the command. See [Add a host to XL Test](/xl-test/how-to/add-a-host-to-xl-test.html) for more information.
 1. XL Test executes the command and shows the progress in a progress bar. 
 
     **Note:** The first time you execute the specification, the progress bar will not be accurate because XL Test does not have the necessary historical data about the run time.

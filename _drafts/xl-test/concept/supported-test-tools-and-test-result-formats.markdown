@@ -4,9 +4,11 @@ title: Supported test tools and test result formats
 categories:
 - xl-test
 subject:
-- Getting started
+- Test tool
 tags:
 - test tool
+- plugin
+- test results
 ---
 
 XL Test supports the following test tools and test result formats:

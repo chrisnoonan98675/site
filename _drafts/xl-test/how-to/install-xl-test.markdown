@@ -7,6 +7,7 @@ subject:
 - System administration
 tags:
 - system administration
+- installation
 ---
 
 ## Prerequisites
@@ -42,3 +43,14 @@ To install XL Test:
 5. After XL Test has started, the message `Starting XL Test ... done.` appears.
 
 To access the XL Test user interface, open [http://localhost:6516](http://localhost:6516) in a browser.
+
+### Directory structure
+
+After you install the XL Test server, this directory structure exists in the installation directory (`XLTEST_HOME`):
+
+* `bin`: Contains server startup scripts
+* `conf`: Contains server configuration files 
+* `ext`: Contains server Java extensions
+* `plugins`: Contains modules for extending XL Test's functionality
+* `lib`: Contains libraries that the server needs
+* `log`: Contains server log files
