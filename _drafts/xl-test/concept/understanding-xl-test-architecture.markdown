@@ -13,11 +13,13 @@ tags:
 
 Before customizing XL Test functionality, some knowledge of the XL Test architecture is required. XL Test features a modular architecture that allows extension and modification of various components while maintaining a consistent system.
 
+<!---
 This diagram provides a high-level overview of the system architecture:
 
 ![XL Test Architecture](images/xl-test-architecture.png)
+--->
 
-The XL Test core is accessed using REST services. The product ships with one client of the REST service, a graphical user interface (GUI) that runs in browsers. Furthermore, the REST service can be accessed using various plugins, such as the @@Jenkins-import plugin.
+The XL Test core is accessed using REST services. The product ships with one client of the REST service, a graphical user interface (GUI) that runs in browsers. Furthermore, the REST service can be accessed using various plugins and other tools that want to interact with XL Test.
 
 Plugins add capabilities to XL Test and may be delivered by XebiaLabs or custom-built by users of XL Test. These capabilities include supporting test tools, integration with ALM tools, or custom reports.
 
@@ -29,7 +31,7 @@ XL Test uses a central, scalable data storage solution as a repository to store 
 
 ### Event repository interface
 
-The events in the repository can be accessed through a uniform interface. This interface is described in an @@API.
+The events in the repository can be accessed through a uniform interface. This interface is described in an API.
 
 ## XL Test and plugins
 
@@ -41,8 +43,8 @@ At runtime, multiple plugins will be active at the same time. It is up to the XL
 
 Plugins can define the following items:
 
-- _Report_: Configuration Items (CIs) that represent a report.
-- _Test Tool_: CIs that represent a test tool or family of test tools representing the same test result format.
+- _Report_: Configuration Items (CIs) that represent a report. See [create a custom report in XL Test](/xl-test/how-to/create-a-custom-report-in-xl-test.html).
+- _Test Tool_: CIs that represent a test tool or family of test tools representing the same test result format. See [create a test tool plugin](/xl-test/how-to/create-a-test-tool-plugin.html).
 
 To enhance the extensibility of XL Test, the product provides three APIs (Application Programming Interface):
 
