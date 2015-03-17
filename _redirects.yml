@@ -185,3 +185,7 @@
 /xl-deploy/concept/xl-deploy-remoting-plugin.html : /xl-deploy/concept/introduction-to-the-xl-deploy-remoting-plugin.html
 /xl-deploy/how-to/perform-an-initial-deployment.html : /xl-deploy/how-to/deploy-an-application.html
 /xl-deploy/concept/advanced-xl-deploy-configuration.html : /xl-deploy/how-to/advanced-xl-deploy-configuration.html
+
+# Links used in products
+https://docs.xebialabs.com/xl-test/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new?community_id=public
+https://docs.xebialabs.com/xl-test/suggest-feature.html : https://support.xebialabs.com/hc/communities/public/questions/new?question%5Btopic_id%5D=200258619
