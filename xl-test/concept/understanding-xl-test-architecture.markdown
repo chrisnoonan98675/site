@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Understanding XL Test architecture
 categories:
 - xl-test
