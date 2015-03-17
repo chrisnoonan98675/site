@@ -44,7 +44,4 @@ Enter a unique name for the test specification based on these results. Click **N
 
 ## Step 5 Finish
 
-XL Test imports the test results. After it is finished, click:
-
-* **Go to my Dashboard** to see a dashboard with the test results
-* **Finish** to go to the list of test specifications
+XL Test imports the test results. After it is finished, click **Finish and go to specifications** to go to the list of test specifications.
