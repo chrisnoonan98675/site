@@ -1,6 +1,6 @@
 ---
 layout: beta
-title: Understanding XL Test architecture
+title: Understanding XL Test's architecture
 categories:
 - xl-test
 subject:
