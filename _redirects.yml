@@ -1,6 +1,46 @@
 # Format for redirects is as follows
 # /initial-page/index.html : /destination-page/index.html
 
+##### IN-PRODUCT LINKS
+
+# XL Deploy in-product links
+/xl-deploy/help.html : /xl-deploy/index.html
+
+# XL Release in-product links
+/releases/3.0/xl-release/index.html : /xl-release/3.0.x/index.html
+/releases/4.0/xl-release/index.html : /xl-release/4.0.x/index.html
+/releases/4.5/xl-release/index.html : /xl-release/4.5.x/index.html
+
+# XL Test in-product links
+/xl-test/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new?community_id=public
+/xl-test/suggest-feature.html : https://support.xebialabs.com/hc/communities/public/questions/new?question%5Btopic_id%5D=200258619
+
+##### TOPICS THAT HAVE BEEN RENAMED
+
+/xl-deploy/how-to/perform-an-update.html : /xl-deploy/how-to/update-a-deployed-application.html
+/xl-deploy/how-to/use-xl-deploy-garbage-collection.html : /xl-deploy/how-to/reclaim-disk-space-on-an-xl-deploy-server.html
+/xl-deploy/how-to/reset-admin-password-xl-deploy-server.html : /xl-deploy/how-to/changing-passwords-in-xl-deploy.html
+/xl-deploy/concept/xl-deploy-remoting-plugin.html : /xl-deploy/concept/introduction-to-the-xl-deploy-remoting-plugin.html
+/xl-deploy/how-to/perform-an-initial-deployment.html : /xl-deploy/how-to/deploy-an-application.html
+/xl-deploy/concept/advanced-xl-deploy-configuration.html : /xl-deploy/how-to/advanced-xl-deploy-configuration.html
+
+##### LEGACY PAGES THAT ARE NO LONGER USED
+
+/product-version.html#/deployit/3.9.x/index.html : /xl-deploy/3.9.x/index.html
+/product-version.html#/xl%20deploy/4.0.x/index.html : /xl-deploy/4.0.x/index.html
+/product-version.html#/xl%20deploy/4.5.x/index.html : /xl-deploy/4.5.x/index.html
+/product-version.html#/xl%20release/3.0.x/index.html : /xl-release/3.0.x/index.html
+/product-version.html#/xl%20release/4.0.x/index.html : /xl-release/4.0.x/index.html
+/product-version.html#/xl%20scale/4.0.x : /xl-deploy/4.0.x/index.html#xl-scale
+/general/cookbook.html : /index.html
+/general/faq.html : /faq/index.html
+/general/community.html : http://xebialabs-community.github.io/
+/faq/index.html : /index.html
+/generated/xl-release/4.0.x/index.html : /xl-release/4.0.x/index.html
+/generated/xl-release/3.0.x/index.html : /xl-release/3.0.x/index.html
+
+##### "LATEST" LINKS
+
 # XL Deploy product doc, new format
 /xl-deploy/latest/index.html : /xl-deploy/4.5.x/index.html
 /xl-deploy/latest/starthere.html : /xl-deploy/4.5.x/starthere.html
@@ -109,6 +149,23 @@
 /deployit-maven-plugin/index.html : /deployit-maven-plugin/4.5.2/index.html
 /releases/latest/bamboo-xl-deploy-plugin/bambooPluginManual.html : /bamboo-xl-deploy-plugin/4.5.x/bambooPluginManual.html
 
+# XL Scale product and plugin doc, new format
+/xl-scale/latest/index.html : /xl-deploy/4.5.x/index.html#xl-scale
+/xl-scale/latest/xlScaleManual.html : /xl-scale-plugin/4.0.x/xlScaleManual.html
+/xl-scale/latest/ec2PluginManual.html : /xl-scale-ec2-plugin/4.0.x/ec2PluginManual.html
+/xl-scale/latest/vspherePluginManual.html : /xl-scale-vsphere-plugin/4.0.x/vspherePluginManual.html
+
+# XL Scale product doc, legacy format
+/releases/latest/xl-scale-plugin/xlScaleManual.html : /xl-scale/4.0.x/xl-scale-plugin/xlScaleManual.html
+
+# XL Scale plugin doc, new format
+/xl-scale/latest/ec2PluginManual.html : /xl-scale/4.0.x/xl-scale-ec2-plugin/ec2PluginManual.html
+/xl-scale/latest/vspherePluginManual.html : /xl-scale/4.0.x/xl-scale-vsphere-plugin/vspherePluginManual.html
+
+# XL Scale plugin doc, legacy format
+/releases/latest/xl-scale-ec2-plugin/ec2PluginManual.html : /xl-scale/4.0.x/xl-scale-ec2-plugin/ec2PluginManual.html
+/releases/latest/xl-scale-vsphere-plugin/vspherePluginManual.html : /xl-scale/4.0.x/xl-scale-vsphere-plugin/vspherePluginManual.html
+
 # XL Release product doc, new format
 /xl-release/latest/index.html : /xl-release/4.5.x/index.html
 /xl-release/latest/upgrademanual.html : /xl-release/4.5.x/upgrademanual.html
@@ -139,54 +196,3 @@
 /releases/latest/xlr-git-plugin/gitPluginManual.html : /xl-release/4.5.x/xlr-git-plugin/gitPluginManual.html
 /releases/latest/xlr-nexus-plugin/nexusPluginManual.html : /xl-release/4.5.x/xlr-nexus-plugin/nexusPluginManual.html
 /releases/latest/xlr-time-plugin/timePluginManual.html : /xl-release/4.5.x/xlr-time-plugin/timePluginManual.html
-
-# XL Scale product and plugin doc, new format
-/xl-scale/latest/index.html : /xl-deploy/4.5.x/index.html#xl-scale
-/xl-scale/latest/xlScaleManual.html : /xl-scale-plugin/4.0.x/xlScaleManual.html
-/xl-scale/latest/ec2PluginManual.html : /xl-scale-ec2-plugin/4.0.x/ec2PluginManual.html
-/xl-scale/latest/vspherePluginManual.html : /xl-scale-vsphere-plugin/4.0.x/vspherePluginManual.html
-
-# XL Scale product doc, legacy format
-/releases/latest/xl-scale-plugin/xlScaleManual.html : /xl-scale/4.0.x/xl-scale-plugin/xlScaleManual.html
-
-# XL Scale plugin doc, new format
-/xl-scale/latest/ec2PluginManual.html : /xl-scale/4.0.x/xl-scale-ec2-plugin/ec2PluginManual.html
-/xl-scale/latest/vspherePluginManual.html : /xl-scale/4.0.x/xl-scale-vsphere-plugin/vspherePluginManual.html
-
-# XL Scale plugin doc, legacy format
-/releases/latest/xl-scale-ec2-plugin/ec2PluginManual.html : /xl-scale/4.0.x/xl-scale-ec2-plugin/ec2PluginManual.html
-/releases/latest/xl-scale-vsphere-plugin/vspherePluginManual.html : /xl-scale/4.0.x/xl-scale-vsphere-plugin/vspherePluginManual.html
-
-# Redirect so that legacy XLR index files are not used
-/generated/xl-release/4.0.x/index.html : /xl-release/4.0.x/index.html
-/generated/xl-release/3.0.x/index.html : /xl-release/3.0.x/index.html
-
-# Redirects for XL Release in-product help links
-/releases/3.0/xl-release/index.html : /xl-release/3.0.x/index.html
-/releases/4.0/xl-release/index.html : /xl-release/4.0.x/index.html
-/releases/4.5/xl-release/index.html : /xl-release/4.5.x/index.html
-
-# Redirect old pages that are no longer used
-/product-version.html#/deployit/3.9.x/index.html : /xl-deploy/3.9.x/index.html
-/product-version.html#/xl%20deploy/4.0.x/index.html : /xl-deploy/4.0.x/index.html
-/product-version.html#/xl%20deploy/4.5.x/index.html : /xl-deploy/4.5.x/index.html
-/product-version.html#/xl%20release/3.0.x/index.html : /xl-release/3.0.x/index.html
-/product-version.html#/xl%20release/4.0.x/index.html : /xl-release/4.0.x/index.html
-/product-version.html#/xl%20scale/4.0.x : /xl-deploy/4.0.x/index.html#xl-scale
-/general/cookbook.html : /index.html
-/general/faq.html : /faq/index.html
-/general/community.html : http://xebialabs-community.github.io/
-/faq/index.html : /index.html
-
-# Redirect topics that have been renamed
-/xl-deploy/how-to/perform-an-update.html : /xl-deploy/how-to/update-a-deployed-application.html
-/xl-deploy/how-to/use-xl-deploy-garbage-collection.html : /xl-deploy/how-to/reclaim-disk-space-on-an-xl-deploy-server.html
-/xl-deploy/how-to/reset-admin-password-xl-deploy-server.html : /xl-deploy/how-to/changing-passwords-in-xl-deploy.html
-/xl-deploy/concept/xl-deploy-remoting-plugin.html : /xl-deploy/concept/introduction-to-the-xl-deploy-remoting-plugin.html
-/xl-deploy/how-to/perform-an-initial-deployment.html : /xl-deploy/how-to/deploy-an-application.html
-/xl-deploy/concept/advanced-xl-deploy-configuration.html : /xl-deploy/how-to/advanced-xl-deploy-configuration.html
-
-# Links used in products
-/xl-test/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new?community_id=public
-/xl-test/suggest-feature.html : https://support.xebialabs.com/hc/communities/public/questions/new?question%5Btopic_id%5D=200258619
-/xl-deploy/help.html : /xl-deploy/index.html
