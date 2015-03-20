@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Edit a dashboard in XL Test
 categories:
 - xl-test

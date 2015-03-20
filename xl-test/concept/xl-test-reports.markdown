@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: XL Test reports
 categories:
 - xl-test

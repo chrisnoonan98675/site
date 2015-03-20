@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Using XL Test dashboards
 categories:
 - xl-test
