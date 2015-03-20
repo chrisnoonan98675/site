@@ -21,7 +21,7 @@
 /xl-test/help/0005.html : /xl-test/how-to/create-a-custom-report-in-xl-test.html
 /xl-test/help/0006.html : /xl-test/how-to/add-a-host-to-xl-test.html
 /xl-test/help/0007.html : /xl-test/how-to/create-a-dashboard.html
-/xl-test/help/0008.html : /xl-test/index.html # Copy a dashboard
+/xl-test/help/0008.html : /xl-test/how-to/duplicate-a-dashboard.html
 /xl-test/help/0009.html : /xl-test/how-to/import-test-results.html
 /xl-test/help/0010.html : /xl-test/concept/supported-test-tools-and-test-result-formats.html
 /xl-test/help/0011.html : /xl-test/concept/xl-test-file-selection-patterns.html
