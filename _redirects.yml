@@ -26,6 +26,7 @@
 /xl-test/help/0010.html : /xl-test/concept/supported-test-tools-and-test-result-formats.html
 /xl-test/help/0011.html : /xl-test/concept/xl-test-file-selection-patterns.html
 /xl-test/help/0012.html : /xl-test/index.html # Overthere host options
+/xl-test/help/0013.html : /xl-test/how-to/using-xl-test-dashboards.html
 
 ##### TOPICS THAT HAVE BEEN RENAMED
 
