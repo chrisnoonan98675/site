@@ -4,7 +4,7 @@ title: XL Test reports
 categories:
 - xl-test
 subject:
-- Report
+- Reports
 tags:
 - report
 - dashboard
