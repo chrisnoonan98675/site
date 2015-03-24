@@ -19,6 +19,9 @@ To create a new dashboard:
 2. Enter a unique and descriptive name for the dashboard in the **Name** box.
 3. The dashboard will periodically reload to show new test results. Enter the number of seconds that XL Test should wait between reloads in the **Reload interval** box.
 4. If the dashboard should be based on an existing dashboard, select the dashboard to use from the **Duplicate** list.
+
+    ![Add a new dashboard](images/add-a-dashboard.png)
+
 5. Click **Add dashboard** to create the dashboard. The new dashboard appears in edit mode and you can add tiles to it.
 
 For information about customizing the dashboard, refer to [Edit a dashboard](/xl-test/how-to/edit-a-dashboard.html).

@@ -32,6 +32,9 @@ To add a single test specification:
 1. If you are creating an executable test specification:
     a. Enter the command to execute the tests in the **Command Line** box.
     b. In the **Timeout** box, enter the maximum number of minutes that the tests should be allowed to run.
+
+    ![New test specification](images/create-a-test-specification.png)
+
 1. Click **Add Test Specification** to save the specification.
 
 ## Create a test specification set
@@ -41,4 +44,7 @@ To create a set of test specifications:
 1. Select **Test specification set**.
 1. Enter a unique name in the **Test specification name** box.
 1. Select a test specification in the **Available test specifications** list and click the arrow to move it to the **To be added to super set** list. Do this for each specification that you want to add to the set.
+
+    ![New test specification set](images/create-a-test-specification-set.png)
+
 1. Click **Add test specification** to save the set.
