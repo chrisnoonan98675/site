@@ -7,6 +7,7 @@ subject:
 tags:
 - system administration
 - installation
+- license
 ---
 
 Before you install XL Deploy, ensure that you meet the [prerequisites](/xl-deploy/concept/requirements-for-installing-xl-deploy.html).
@@ -28,7 +29,7 @@ First, extract the XL Deploy server archive:
 
 To install the XL Deploy license:
 
-1. If you do not already have a license file (`deployit-license.lic`), download it from [https://dist.xebialabs.com/licenses/download/](https://dist.xebialabs.com/licenses/download/).
+1. If you do not already have a license file (`deployit-license.lic`), download it from [https://dist.xebialabs.com/customer/licenses/](https://dist.xebialabs.com/customer/licenses/).
 1. Copy the downloaded file to the `conf` directory. Be sure that you do not modify the license file in any way.
 
 Refer to [Licensing in XL Deploy](/xl-deploy/concept/licensing-in-xl-deploy.html) for information about how the XL Deploy license works.
