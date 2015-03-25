@@ -45,7 +45,7 @@ To connect the XL Test plugin to a build job:
 1. In the **Post-build Actions** section, click **Add post-build action** and select **Send test results to XL Test**.
 1. In the **Credential** box, select the credentials to use.
 1. Select the tool or output format from the **Tool** list.
-1. In the **Pattern** box, provide the [file selection pattern](xl-test-file-selection-patterns.html) to use to locate the test results. These files will be sent to XL Test for processing. Note that the pattern depends on the tool that you selected.
+1. In the **Pattern** box, provide the [file selection pattern](/xl-test/concept/xl-test-file-selection-patterns.html) to use to locate the test results. These files will be sent to XL Test for processing. Note that the pattern depends on the tool that you selected.
 1. **Save** the updated configuration.
 
 ## Step 4 Build
