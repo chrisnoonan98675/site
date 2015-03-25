@@ -56,10 +56,38 @@ In this case, XL Deploy will copy the referred artifact to the target container 
 
 	cp ${deployed.file} /install/path
 
-## File-related placeholders
+### File-related placeholders
 
 {:.table .table-striped}
 | Placeholder | Description |
 | ----------- | ----------- |
 | `${deployed.file}` | Complete path of the uploaded file, e.g. `/tmp/ot-12345/generic_plugin.tmp/PetClinic-1.0.ear` |
 | `${deployed.deployable.file}` | Complete path of the uploaded deployable file (no placeholder replacement), e.g. `/tmp/ot-12345/generic_plugin.tmp/PetClinic-1.0.ear` |
+
+## Accessing the ExecutionContext
+
+In XL Deploy 4.5.3 and later, the Generic plugin can access the [ExecutionContext](/xl-deploy/4.5.x/javadoc/udm-plugin-api/index.html?com/xebialabs/deployit/plugin/api/flow/ExecutionContext.html) and use it in a FreeMarker template. For example:
+
+    <type type="demo.DeployedStuff" extends="generic.ExecutedScript" deployable-type="demo.Stuff" container-type="overthere.SshHost">
+      <generate-deployable type="demo.Stuff" extends="generic.Resource"/>
+      <property name="P1" default="X"/>
+      <property name="P2" default="Y"/>
+      <property name="P3" default="Z"/>
+      <property name="createScript" default="stuff/create" hidden="true"/>
+    </type>
+
+Sample FreeMarker template:
+
+    echo "${deployed.P1}"
+    echo "${deployed.P2}"
+    echo "${deployed.P3}"
+    echo "${context}"
+    echo "${context.getClass()}"
+    echo "${context.getTask().getId()}"
+    echo "${context.getTask().getUsername()}"
+
+    echo "display metadata"
+    <#list context.getTask().getMetadata()?keys as k>
+    echo "${k} = ${context.getTask().getMetadata()[k]}"
+    </#list>
+    echo "/display metadata"
