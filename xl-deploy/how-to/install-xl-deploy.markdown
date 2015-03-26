@@ -71,7 +71,11 @@ To install the XL Deploy server, go to a command line or terminal window and exe
 | Unix-based systems | XL Deploy 4.5.x and earlier | `server.sh -setup` |
 | Unix-based systems | XL Deploy 5.0.0 and later <span class="label label-danger">beta</span> | `run.sh -setup ` |
 
-**Tip:** To stop the setup wizard at any time, enter `exitsetup`. All changes to the configuration will be discarded.
+To stop the setup wizard at any time, enter `exitsetup`. All changes to the configuration will be discarded.
+
+**Tip:** To quickly install XL Deploy, replace the `-setup` option with the `-setup-defaults VAL` option. Replace `VAL` with the location of a file that contains default values for configuration properties.
+
+#### Select a setup method
 
 The setup wizard shows the welcome message:
 
