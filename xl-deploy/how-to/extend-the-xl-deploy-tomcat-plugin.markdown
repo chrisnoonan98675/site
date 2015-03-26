@@ -56,10 +56,9 @@ Add to `synthetic.xml`:
         <property name="override" kind="boolean" required="false" default="false"/>
 
         <!--inherited hidden -->
-        <property name="elementTag" default="Parameter" hidden="true"/>
-        <property name="elementName" default="paramName" hidden="true"/>
-        <property name="elementPropertyMapping" kind="map_string_string" hidden="true"
-                  default="paramName:name, value:, override:"/>
+        <property name="targetDirectory" default="${deployed.container.contextDirectory}" hidden="true"/> 
+        <property name="targetFile" default="${deployed.context}.xml" hidden="true"/> 
+        <property name="template" default="tc/context/context-element.ftl" hidden="true"/> 
     </type>
 
 For more information about the Tomcat plugin, refer to [Introduction to the XL Deploy Tomcat plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-tomcat-plugin.html).
