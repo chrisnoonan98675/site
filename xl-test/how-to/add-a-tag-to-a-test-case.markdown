@@ -11,7 +11,7 @@ tags:
 - filter
 ---
 
-On the flakiness report and on the [test case details screen](/xl-test/how-to/view-test-case-details.html), you can add tags to or remove tags from specific runs of test cases.
+On the [flakiness report](/xl-test/concept/xl-test-reports.html#flakiness-overview) and on the [test case details screen](/xl-test/how-to/view-test-case-details.html), you can add tags to or remove tags from specific runs of test cases.
 
 On the flakiness report:
 
