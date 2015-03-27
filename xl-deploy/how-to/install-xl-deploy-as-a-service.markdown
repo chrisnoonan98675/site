@@ -15,8 +15,6 @@ since:
 
 ## Install XL Deploy 5.0.0 or later as a daemon or service
 
-<div class="alert alert-danger" role="alert">The information in this section is in beta and is subject to change.</div>
-
 Before installing the server as a service, first follow the installation procedure documented above. This includes as a step executing `bin/run.sh` or `bin/run.cmd` script in order to configure and initialize the server. On Linux, you should do this as the user under which you want XL Deploy to run. Also, please make sure the server is configured so that it can start without input from the user (e.g. if a repository keystore password is required then it should be provided in `deployit.conf`).
 
 The next step is to execute `bin/install.sh` on Linux or `bin/install.cmd` on Windows. These scripts will do the actual installation of the service. They require the current user to be root on Linux or an Administrator on Windows.
