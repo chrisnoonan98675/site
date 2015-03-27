@@ -37,37 +37,6 @@ The leaf nodes of the full deployment plan are always interleaved plans, and it 
 
 Planning provides steps for an interleaved plan, and this is done by invoking rules. Some rules will trigger depending on the delta under planning, while others may trigger independent of any delta. When a rule is triggered, it may or may not add one or more steps to the interleaved plan under consideration.
 
-## Where to define rules
-
-You define and disable rules in `xl-rules.xml`, which is stored in the `<XLDEPLOY_HOME>/ext` directory. XL Deploy plugin JARs can also contain `xl-rules.xml`. When the XL Deploy server starts, it scans all `xl-rules.xml` files and registers their rules.
-
-## How to define rules
-
-Each rule:
- 
-* Must have a name that is unique across the whole system
-* Must have a scope
-* Must define the conditions under which it will run
-* Can use the planning context to influence the resulting plan
- 
-The `xl-rules.xml` file has the default namespace `xmlns="http://www.xebialabs.com/deployit/xl-rules"`. The root element must be `rules`, under which `rule` and `disable-rule` elements are located.
-
-## Rescan the rules file
-
-You can configure XL Deploy to rescan all rules on the server whenever you change the `<XLDEPLOY_HOME>/ext/xl-rules.xml` file. To do so, edit the `file-watch` setting in the `<XLDEPLOY_HOME>/conf/planner.conf` file. For example, to check every 5 seconds if `xl-rules.xml` has been modified:
-    
-    xl {
-        file-watch {
-            interval = 5 seconds
-        }
-    }
-
-By default, the interval is set to 0 seconds. This means that XL Deploy will not automatically rescan the rules when `<XLDEPLOY_HOME>/ext/xl-rules.xml` changes.
-
-If XL Deploy is configured to automatically rescan the rules and it finds that `xl-rules.xml` has been modified, it will rescan all rules in the system. By auto-reloading the rules, it is easy to do some experimenting until you are satisfied with your set of rules.
-
-**Note:** If you modify `planner.conf`, you must restart the XL Deploy server.
-
 ## Rules and steps
 
 A step is a concrete action that XL Deploy performs to accomplish a task, such as *delete a file* or *execute a PowerShell script*. The plugins that are installed on the XL Deploy server define several step types and may also define rules that contribute steps to the plan. If you define your own rules, you can reuse the step types defined by the plugins.
@@ -91,35 +60,7 @@ Typically, a rule only contributes steps to the plan in a few specific situation
 
 ## How rules affect one another
 
-Rules are applied one after another, depending on the scope. Rules operate in isolation, although they can share information through the planning context. Rules can not affect one another, but you can disable rules. Every rule must have a name that is unique across the system.
-
-## Rule scope
-
-The input that a rule receives depends on the planning context and on the rule's scope. The scope determines when and how often the rule is applied, as well as what data is available for the rule.
-
-For example, a rule with the `deployed` scope is applied for every delta in the interleaved plan and has access to delta information such as the current operation (`CREATE`, `MODIFY`, `DESTROY`, or `NOOP`) and the current and previous instances of the deployed. The rule can use this information to determine whether it needs to add a step to the deployment plan.
-
-**Important:** Be aware of the plan that steps are contributed to. Deployed rules and plan rules contribute to the same plan; therefore, the order of steps is important.
-
-### Pre-plan scope
-
-A rule with the `pre-plan` scope is applied exactly once, at the start of the planning stage. The steps that the rule contributes are added to a single plan that XL Deploy pre-pends to the final deployment plan. A pre-plan-scoped rule is independent of deltas; however, it receives a reference to the complete delta specification of the plan, which it can use to determine whether it should add steps to the plan.
-
-### Deployed scope
-
-A rule with the `deployed` scope is applied for each deployed in this interleaved plan; that is, for each delta. The steps that the rule contributes are added to the interleaved plan.
-
-You must define a `type` and an `operation` in the `conditions` for each deployed-scoped rule. If a delta matches the type and operation, XL Deploy adds the steps to the plan for the deployed.
-
-### Plan scope
-
-A rule with the `plan` scope is applied once for every interleaved orchestration. It is independent of any single delta; however, it receives information about the deltas that are involved in the interleaved plan, which it can use to determine whether it should add steps to the plan.
-
-The steps that the rule contributes are added to the interleaved plan related to the orchestration, along with the steps that are contributed by the deployeds in the orchestration.
-
-### Post-plan scope
-
-A rule with the `post-plan` scope is applied exactly once, at the end of the planning stage. The steps that the rule contributes are added to a single plan that XL Deploy appends to the final deployment plan. A post-plan-scoped rule is independent of deltas, however, it receives a reference to the complete delta specification of the plan, which it can use to determine whether it should add steps to the plan.
+Rules are applied one after another, depending on the [scope](/xl-deploy/concept/understanding-xl-deploy-rule-scope.html). Rules operate in isolation, although they can share information through the planning context. Rules can not affect one another, but you can disable rules. Every rule must have a name that is unique across the system.
 
 ## Types of rules
 
@@ -131,3 +72,5 @@ There are two types of rules:
 The rule types are comparable in functionality. XML rules are more convenient because they define frequently used concepts in a simple way. Script steps are more powerful because they can include additional logic.
  
 If you do not know which type of rule to use, try an XML rule first. If the XML rule is too restrictive, try a script rule.
+
+For information about defining rules, refer to [How to define rules](/xl-deploy/how-to/how-to-define-rules.html).
