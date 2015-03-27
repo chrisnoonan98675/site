@@ -14,7 +14,7 @@ tags:
 
 XL Deploy allows customization using the Java programming language. By implementing a server _plugpoint_, certain XL Deploy server functionality can be changed to adapt the product to your needs. And if you want to use XL Deploy with new middleware, you can implement a custom _plugin_. 
 
-Before you customize XL Deploy functionality, you should understand the XL Deploy architecture. Refer to the [Customization Manual](/xl-deploy/5.0.x/customizationmanual.html#understanding-xl-deploy-architecture) for more information.
+Before you customize XL Deploy functionality, you should understand the XL Deploy architecture. Refer to the [Understanding XL Deploy's architecture](/xl-deploy/concept/understanding-xl-deploy-architecture.html) for more information.
 
 Using the Generic plugin as a basis to create a new plugin, or writing a custom plugin from scratch, is a powerful way to extend XL Deploy. It uses XL Deploy's Java plugin API which is also used by all of the plugins provided by XebiaLabs. The plugin API specifies a contract between XL Deploy core and a plugin that ensures that a plugin can safely contribute to the calculated deployment plan.
 
