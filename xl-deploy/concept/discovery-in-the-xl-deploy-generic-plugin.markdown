@@ -11,12 +11,20 @@ tags:
 - middleware
 ---
 
-The Generic Model plugin supports discovery in any subtype of `generic.Container`, `generic.NestedContainer`, and `generic.AbstractDeployed`. Extenders of the plugin provide shell scripts that interact with the discovery mechanism, via the standard out, with specially formatted output representing the inspected property or discovered configuration item.
+The Generic plugin supports discovery in any subtype of `generic.Container`, `generic.NestedContainer`, or `generic.AbstractDeployed`. To implement custom discovery tasks, you provide shell scripts that interact with the discovery mechanism, via the standard out, with specially formatted output representing the inspected property or discovered configuration item.
+
+To extend the Generic plugin for custom discovery tasks, you must set attributes in `synthetic.xml` as follows:
+
+* The `inspectable` attribute must be set to `true` on the container
+* You must define one or more properties with the `inspectionProperty` attribute set to `true`
+
+This is a sample extension for Tomcat:
 
     <!-- Sample of extending Generic Mode plugin -->
-    <type type="sample.TomcatServer" extends="generic.Container">
+    <type type="sample.TomcatServer" extends="generic.Container" inspectable="true">
         ...
         <property name="inspectScript" default="inspect/inspect-server" hidden="true"/>
+        <property name="example" inspectionProperty="true"/>
     </type>
 
     <type type="sample.VirtualHost" extends="sample.NestedContainer">
