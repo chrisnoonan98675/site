@@ -21,3 +21,4 @@ product-id: xl-release
 * [Git Plugin Manual](../../xl-release-git-plugin/4.5.x/gitPluginManual.html)
 * [Nexus Plugin Manual](../../xl-release-nexus-plugin/4.5.x/nexusPluginManual.html)
 * [Time Plugin Manual](../../xl-release-time-plugin/4.5.x/timePluginManual.html)
+* [SVN Plugin Manual](/xl-release-svn-plugin/4.5.x/svnPluginManual.html)
