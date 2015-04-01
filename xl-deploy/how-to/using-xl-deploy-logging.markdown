@@ -7,11 +7,23 @@ subject:
 tags:
 - logging
 - system administration
+- script
+- security
 ---
 
-Out of the box, XL Deploy server writes informational, warning, and error log messages to standard output as well as `log/deployit.log` when running. In addition, XL Deploy writes an audit trail to the file `log/audit.log`. It is possible to change XL Deploys logging behavior (for instance to write log output to a file or to log output from a specific source). Aside from these application logs a HTTP log is written to `log/access.log`.
+By default, the XL Deploy server writes informational, warning, and error log messages to standard output and `log/deployit.log` when running. In addition, XL Deploy:
 
-XL Deploy uses the [Logback](http://logback.qos.ch/) logging framework for logging. To change its behavior, edit the file `logback.xml` in the `conf` directory of the XL Deploy server installation directory.
+* Writes an audit trail to the `log/audit.log` file
+* Writes an HTTP log to the `log/access.log` file
+* Can optionally log scripts in the `log/scripts.log` file
+
+You can configure XL Deploy's logging behavior; for example, you can write log output to a file or log output from a specific source).
+
+## Configure logging
+
+XL Deploy uses the [Logback](http://logback.qos.ch/) logging framework for logging. To change its behavior, edit the `conf/logback.xml` file.
+
+### Sample `logback.xml` file
 
 The following is an example `logback.xml` file:
 
@@ -49,9 +61,11 @@ The following is an example `logback.xml` file:
 
     </configuration>
 
-## HTTP access log
+## Configure HTTP access logging
 
-The HTTP access log is configured with the `conf/logback-access.xml` configuration file. The format is slightly different from the `logback.xml` format. Per default the access log is done in the so called combined format, but you can fully customize it. The log file is rolled per day on the first log statement in the new day.
+The HTTP access log is configured with the `conf/logback-access.xml` configuration file. The format is slightly different from the `logback.xml` format.
+
+By default, the access log is done in the so-called combined format, but you can fully customize it. The log file is rolled per day on the first log statement in the new day.
 
     <configuration>
       <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -68,12 +82,14 @@ The HTTP access log is configured with the `conf/logback-access.xml` configurati
       <appender-ref ref="FILE" />
     </configuration>
 
-For additional details on the configuration and possible patterns see:
+For information about the configuration and possible patterns, refer to:
 
 * [http://logback.qos.ch/access.html](http://logback.qos.ch/access.html)
 * [http://logback.qos.ch/manual/layouts.html#AccessPatternLayout](http://logback.qos.ch/manual/layouts.html#AccessPatternLayout)
 
-To disable the access log create a `logback-access.xml` with an empty `configuration` element:
+### Disable the HTTP access log
+
+To disable the HTTP access log, create a `logback-access.xml` file with an empty `configuration` element:
 
     <configuration>
     </configuration>
@@ -82,25 +98,25 @@ To disable the access log create a `logback-access.xml` with an empty `configura
 
 XL Deploy writes an audit log for each human-initiated event on the server. For each event, the following information is recorded:
 
-* the user making the request
-* the event timestamp
-* the component producing the event
-* an informational message describing the event
+* The user making the request
+* The event timestamp
+* The component producing the event
+* An informational message describing the event
 
 For events involving CIs, the CI data submitted as part of the event is logged in XML format.
 
 These are some of the events that are logged in the audit trail:
 
-* the system is started or stopped
-* a user logs into or out of the system
-* an application is imported
-* a CI is created, updated, moved or deleted
-* a security role is created, updated or deleted
-* a task (deployment, undeployment, control task or discovery) is started, cancelled or aborted
+* The system is started or stopped
+* A user logs into or out of the system
+* An application is imported
+* A CI is created, updated, moved, or deleted
+* A security role is created, updated, or deleted
+* A task (deployment, undeployment, control task, or discovery) is started, cancelled, or aborted
 
 By default, the audit log is stored in `log/audit.log`. The audit log is rolled over daily.
 
-## Script log
+## Enable the script log
 
 The `logback.xml` file also contains a section that allows you to enable logging of all XL Deploy scripts to a separate log file called `log/scripts.log`. By default, this section is commented out.
 
