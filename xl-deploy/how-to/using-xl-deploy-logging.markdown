@@ -102,4 +102,6 @@ By default, the audit log is stored in `log/audit.log`. The audit log is rolled 
 
 ## Script log
 
-The default logging configuration file also contains a commented-out section that enables logging of all XL Deploy scripts to a separate log file.
+The `logback.xml` file also contains a section that allows you to enable logging of all XL Deploy scripts to a separate log file called `log/scripts.log`. By default, this section is commented out.
+
+**Important:** The scripts contain base64-encoded passwords. Therefore, if script logging is enabled, anyone with access to the server can read those passwords.
