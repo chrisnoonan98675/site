@@ -31,6 +31,10 @@ a img {
 .splash-page-logo {
 	margin-bottom: 20px;
 }
+.help-page-logo {
+	float: right;
+	padding-right: 100px;
+}
 .no-para-spacing {
 	padding: 0;
 	margin: 0;
