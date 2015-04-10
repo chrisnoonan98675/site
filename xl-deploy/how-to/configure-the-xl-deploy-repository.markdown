@@ -20,10 +20,6 @@ By default, the repository is located in `XLDEPLOY_SERVER_HOME/repository`. To c
 
       jcr.repository.path=file://opt/xldeploy/repository
 
-## Location of the work directory
-
-By default, the XL Deploy work directory is located at `XLDEPLOY_SERVER_HOME/work`. To change the location, change the value of `recovery-dir` in `XLDEPLOY_SERVER_HOME/conf/tasker.conf`.
-
 ## Using a database
 
 XL Deploy can also use a database to store its repository. The built-in Jackrabbit JCR implementation must be configured to make this possible.
