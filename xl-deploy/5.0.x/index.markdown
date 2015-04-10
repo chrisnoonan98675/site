@@ -8,7 +8,7 @@ product-id: xl-deploy
 
 * [Start Here](starthere.html)
 * [Release Notes](releasenotes.html)
-* [Upgrade Manual](upgrademanual.html)
+* [Version-specific upgrade notes](upgrademanual.html)
 * [Steps Reference](referencesteps.html)
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
