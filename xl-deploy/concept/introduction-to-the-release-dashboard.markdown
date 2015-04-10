@@ -5,9 +5,8 @@ subject:
 categories:
 - xl-deploy
 tags:
-- package
-- application
 - gui
+- deployment pipeline
 - checklist
 - security
 ---
