@@ -9,19 +9,21 @@ tags:
 - artifacts
 - package
 - maven
+- artifactory
+- nexus
 - application
 since:
 - 5.0.0
 ---
 
-Artifacts are the physical files that make up a specific version of an application; for example, an application binary, configuration files, or web content. When adding an artifact to a deployment package, you can:
+Artifacts are the physical files that make up a specific version of an application; for example, an application binary, configuration files, or web content. When adding an artifact to a deployment package, you can either:
 
-* Upload an artifact that will be stored in XL Deploy's internal JCR repository
+* Upload an artifact that will be stored in XL Deploy's internal JCR repository, or
 * Specify the uniform resource identifier (URI) of an externally stored artifact, which XL Deploy will resolve when it needs to access the file (supported in XL Deploy 5.0.0 and later)
 
 ## Set the URI of a deployable artifact
 
-If you set the `fileUri` property of an artifact to a URI, XL Deploy uses an artifact resolver to resolve the URI at runtime. By default, XL Deploy supports Maven repositories and HTTP/HTTPS locations. You can also add your own [add a custom artifact resolver](extend-the-external-artifact-storage-feature.html).
+If you set the `fileUri` property of an artifact to a URI, XL Deploy uses an artifact resolver to resolve the URI at runtime. By default, XL Deploy supports Maven repositories (including Artifactory and Nexus) and HTTP/HTTPS locations. You can also add your own [add a custom artifact resolver](/xl-deploy/how-to/extend-the-external-artifact-storage-feature.html).
 
 **Important:** XL Deploy performs URI validation, checksum calculation, and placeholder scanning once, after the creation of the artifact configuration item (CI). It does not perform these actions again if the `fileUri` property is changed. Therefore, it is recommended that you do not change the `fileUri` property after you save the CI.
 

@@ -14,12 +14,12 @@ since:
 - 5.0.0
 ---
 
-Artifacts are the physical files that make up a specific version of an application; for example, an application binary, configuration files, or web content. When adding an artifact to a deployment package, you can:
+Artifacts are the physical files that make up a specific version of an application; for example, an application binary, configuration files, or web content. When adding an artifact to a deployment package, you can either:
 
-* Upload an artifact that will be stored in XL Deploy’s internal JCR repository
+* Upload an artifact that will be stored in XL Deploy’s internal JCR repository, or
 * Specify the uniform resource identifier (URI) of an externally stored artifact, which XL Deploy will resolve when it needs to access the file (supported in XL Deploy 5.0.0 and later)
 
-By default, XL Deploy supports externally stored artifacts in Maven repositories and HTTP/HTTPS locations. You can also implement support for any store that can be accessed with Java.
+By default, XL Deploy supports externally stored artifacts in Maven repositories (including Artifactory and Nexus) and HTTP/HTTPS locations. You can also implement support for any store that can be accessed with Java.
 
 For example, there is an service called "Acme Cloud" that can store artifacts. It uses the following schema to identify artifacts:
 
