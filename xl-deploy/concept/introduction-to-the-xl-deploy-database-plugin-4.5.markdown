@@ -1,5 +1,5 @@
 ---
-title: Introduction to the XL Deploy Database plugin (XLD 5.0 and later)
+title: Introduction to the XL Deploy Database plugin (XLD 4.5 and earlier)
 categories:
 - xl-deploy
 subject:
@@ -14,7 +14,7 @@ The XL Deploy Database plugin supports deployment of SQL files and folders to a 
 
 ## Features
 
-* Runs on XL Deploy 5.0 and up.
+* Runs on XL Deploy 4.0 and up.
 * Supports deployment to MySQL, PostgreSQL, Oracle, MS SQL and DB/2.
 * Deploys and undeploys SQL files and folders.
 
@@ -28,7 +28,7 @@ Executing an installation script, followed by the accompanying rollback script, 
 
 A rollback script **must** have the same name as the installation script it is associated with, and must have the moniker `-rollback` attached to it.
 
-**Note:** If a script fails and you perform a rollback, XL Deploy has kept track of whihc installation scripts were executed successfully and **only** executes the associated rollback scripts for those.
+**Note:** If a script fails and you perform a rollback, XL Deploy executes **all** rollback scripts, not only the rollback scripts that correspond to the installation scripts that were successfully executed.
 
 ## Naming SQL scripts
 
@@ -68,7 +68,7 @@ Additionally, since Deployit 3.9.3, scripts with content that has been modified 
 
 You can include dependencies with SQL scripts. Dependencies are included in the package using sub-folders. Sub-folders that have the same name as the script (without the file extension) are uploaded to the target machine with the scripts in the sub-folder. The main script can then execute the dependent scripts in the same connection.
 
-Common dependencies that are placed in a sub-folder called `common` are available to all scripts. The name of the folder can be changed by changing the `sql.SqlScripts.commonScriptFolderName` setting in the `deployit-defaults.properties` file, or by using a type modification.
+Common dependencies that are placed in a sub-folder called `common` are available to all scripts.
 
 For example, this is a ZIP file containing Oracle scripts:
 
@@ -127,39 +127,3 @@ The following is a manifest snippet that shows how SQL file and folder CIs can b
     	<jee.Ear name="PetClinic" file="PetClinic-2.0.ear"/>
     	<sql.SqlScripts name="sql" file="sql" />
     </udm.DeploymentPackage>
-
-## Extending the database plugin
-
-Because the database plugin is now fully built with our rules API, it is no longer dependent on the behaviour inherited from the Generic Model plugin. This means that if you want to extend the behaviour of the database plugin, you will also have to define the rules if you want to make use of the improved rollback support introduced in XL Deploy 5.0.
-
-Suppose you've extended the `sql.SqlScripts` CI with your own `custom.SqlScripts` type. You should then add the following rules to the `xl-rules.xml` file:
-
-    <rules>
-      <disable-rule name="custom.SqlScripts.executeCreate_CREATE" />
-      <disable-rule name="custom.SqlScripts.executeDestroy_DESTROY" />
-      <disable-rule name="custom.SqlScripts.executeModify_MODIFY" />
-
-      <rule name="rules_custom.SqlScripts.CREATE">
-        <conditions>
-            <type>custom.SqlScripts</type>
-            <operation>CREATE</operation>
-        </conditions>
-        <planning-script-path>rules/sql_create.py</planning-script-path>
-      </rule>
-      <rule name="rules_custom.SqlScripts.MODIFY">
-        <conditions>
-            <type>custom.SqlScripts</type>
-            <operation>MODIFY</operation>
-        </conditions>
-        <planning-script-path>rules/sql_modify.py</planning-script-path>
-      </rule>
-      <rule name="rules_custom.SqlScripts.DESTROY">
-        <conditions>
-            <type>custom.SqlScripts</type>
-            <operation>DESTROY</operation>
-        </conditions>
-        <planning-script-path>rules/sql_destroy.py</planning-script-path>
-      </rule>
-    </rules>
-
-This ensures that the automatically inherited rules from the Generic Model plugin are disabled for your extended type, and that it uses the new rules.
