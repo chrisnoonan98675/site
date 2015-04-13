@@ -28,7 +28,7 @@ Executing an installation script, followed by the accompanying rollback script, 
 
 A rollback script **must** have the same name as the installation script it is associated with, and must have the moniker `-rollback` attached to it.
 
-**Note:** If a script fails and you perform a rollback, XL Deploy has kept track of whihc installation scripts were executed successfully and **only** executes the associated rollback scripts for those.
+**Note:** If a script fails and you perform a rollback, XL Deploy has kept track of which installation scripts were executed successfully and **only** executes the associated rollback scripts for those.
 
 ## Naming SQL scripts
 
