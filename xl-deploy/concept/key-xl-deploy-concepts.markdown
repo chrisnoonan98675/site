@@ -141,6 +141,8 @@ Dictionaries are evaluated in the order in which they appear in the GUI. The fir
 
 ### Encrypted dictionaries
 
+**Note:** Encrypted dictionaries are deprecated as of XL Deploy 5.0.0. In XL Deploy 5.0.0 and later, encrypted key-value pairs are stored in normal dictionaries.
+
 An encrypted dictionary is a dictionary that stores sensitive information and for which all contained values are encrypted by XL Deploy. Encrypted dictionaries store key-value pairs and are associated with environments just like regular dictionaries. When a value from an encrypted dictionary is used in a CI property or placeholder, the XL Deploy CLI and GUI will only show the encrypted values. Once the value is used in a deployment, the value is decrypted and can be used by XL Deploy and the plugins. For security reasons the value of an encrypted dictionary will be blank when used in a CI property that is not password enabled.
 
 ## Containers
