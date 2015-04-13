@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Install and configure a satellite server
 categories:
 - xl-deploy
@@ -8,55 +9,68 @@ tags:
 - remoting
 - satellite
 - configuration
+- system administration
+since:
+- 5.0.0
 ---
 
-## Install the satellite server
+## Install the satellite
 
-Before you install the XL Deploy satellite software, Java SE Development Kit 7 (JDK 7) must be installed.
+To install the XL Deploy satellite software:
 
-To install the satellite software, extract the ZIP file in the desired installation location.
+1. Ensure that Java SE Development Kit 7 (JDK 7) is installed on the satellite server.
+2. Extract the satellite distribution ZIP file in location on the server where you want to install the software.
 
-## Configure the server host name
+## Start the satellite
 
-To enable XL Deploy to start a satellite server and connect to it, you must add the satellite's host name to the `conf/satellite.conf` as follows:
+To start the satellite software, execute the appropriate script in the `bin` directory of the installation:
+
+* Unix: `xl-satellite-server`
+* Microsoft Windows: `xl-satellite-server.cmd`
+
+## Configure the satellite
+
+Satellite servers communicate with XL Deploy through TCP connections. The satellite side of the connection is considered to be the server side. The satellite must open two ports and wait for XL Deploy to connect. One port is required for command handling, and the other is required for file (artifact) upload. You may need to configure satellite communication ports and ensure that firewalls are opened for outgoing traffic from XL Deploy to satellites. 
+
+**Note:** If you change the satellite configuration, you must restart the satellite process. You do not have to restart XL Deploy.
+
+### Configure the command handling channel
+
+The `akka.remote.netty.tcp.hostname` property in the `conf/application.conf` file defines the command handling channel. If it is blank, the satellite will bind to the first host name that is resolved.
+
+You can override the property as follows:
 
     akka {
       remote {
         netty.tcp {
-          hostname = <external ip / hostname>
+          hostname = <external IP / hostname>
         }
       }
     }
 
-If you do not add the host name to the configuration file, XL Deploy will try to get the first host name, which typically resolves to `127.0.0.1`.
+You can then configure the port that is opened in the `akka.remote.netty.tcp.port` property. By default, it is `8380`. 
 
-When connecting to the satellite, you must specify the exact host name or IP address specified here.
+**Important:** The `hostname` and `akka.remote.netty.tcp.port` values must *exactly* match the values that you set when you [add the satellite configuration item (CI) to XL Deploy](/xl-deploy/how-to/add-a-satellite-server-to-xl-deploy.html).
 
-## Configure the server ports
+### Configure the file streaming
 
-To configure the ports where the satellite server process listens, modify the following settings in `conf/application.conf`:
+In addition to the command handling, a satellite needs a port to act as a streaming server for incoming files that are needed for a deployment.
 
-    akka {
-      remote {
-        netty.tcp {
-          port = <command port>
+This port is automatically exchanged between XL Deploy and the satellite. You do not need to configure it manually.
+
+The port is defined by the `satellite.streaming.port` property in `conf/application.conf`:
+
+      satellite {
+        streaming {
+          port = <streaming port>
         }
       }
-    }
 
-    satellite {
-      streaming {
-        port = <streaming port>
-      }
-    }
+### Configure the upload timeout
 
-The remote program only requires the command port. Upon connecting to it, the satellite will notify the connecting process of the port that is configured for streaming.
+You can configure a file upload idle timeout on a satellite server. The timeout corresponds to an idle TCP connection on the streaming server without an associated command. This will prevent unnecessary connections from being kept open on the satellite.
 
-## Configure the upload timeout
-
-You can configure a file upload idle timeout on a satellite server. The timeout corresponds to an idle TCP connection on the streaming server without an associated command. This will prevent some TCP connections from keeping necessary connections open on the satellite.
-
-To configure the file upload idle timeout on a satellite server, modify the following settings in `conf/application.conf`:
+To configure the file upload idle timeout on a satellite server, change `satellite.timeout.upload.idle` in `conf/application.conf`:
 
     satellite {
       timeout {
@@ -66,9 +80,9 @@ To configure the file upload idle timeout on a satellite server, modify the foll
 
 You can specify the ping timeout in milliseconds, seconds, or minutes. For example, `100 ms` or `10 seconds`.
 
-## Configure the streaming chunk size
+### Configure the streaming chunk size
 
-You can modify the chunk size of the files that will be exchanged between XL Deploy and a satellite server. To enable this feature, modify the following settings in `conf/application.conf`:
+To ensure efficient file transfer without saturating the network, files are uploaded by chunk. You can adjust the chunk size to adapt it to the topology of your infrastructure. Set the chunk size (in bytes) with `satellite.streaming.chunk-size` in `conf/application.conf`:
 
     satellite {
       streaming {
@@ -76,23 +90,11 @@ You can modify the chunk size of the files that will be exchanged between XL Dep
       }
     }
 
-**Note:** The chunk size is in octets.
+### Enable a streaming bandwidth limitation
 
-## Enable file compression
+To ensure efficient file transfer without saturating the network, you might need to limit the bandwidth that the streaming connection between XL Deploy and a satellite uses. The limit is intended per connection.
 
-You can enable compression for files that are streamed between XL Deploy and a satellite server. To enable this feature, modify the following settings in `conf/application.conf` file:
-
-    satellite {
-      streaming {
-        compression = on // off
-      }
-    }
-
-**Tip:** You can use the values `true` and `false` instead of `on` and `off`.
-
-## Enable streaming bandwidth limitation
-
-You can limit the bandwidth used by the streaming connection between XL Deploy and a satellite server. The limit is intended for each connection to a satellite server. To enable this feature, modify the following settings in `conf/application.conf`:
+To enable this feature, change the following properties in `conf/application.conf`:
 
     satellite{
       streaming {
@@ -101,19 +103,12 @@ You can limit the bandwidth used by the streaming connection between XL Deploy a
       }
     }
 
-## Configure file location
+### Configure file transfer location
 
-To change the directory where files are transferred on the satellite server, modify the following settings in `conf/application.conf`:
+To change the directory where XL Deploy transfers files to the satellite server, change the `satellite.workdir`property in `conf/application.conf`:
 
     satellite {
       workdir = "<your directory>"
     }
 
-In that directory, XL Satellite server will look for files to execute deployments.
-
-## Launch satellite server
-
-To launch the satellite server, execute the appropriate script in the `bin` directory:
-
-* Unix: `xl-satellite-server`
-* Windows: `xl-satellite-server.cmd`
+Files are stored in this directory by task.

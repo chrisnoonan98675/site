@@ -1,4 +1,5 @@
 ---
+layout: beta
 title: Configure secure communication with a satellite server
 categories:
 - xl-deploy
@@ -7,11 +8,25 @@ subject:
 tags:
 - security
 - satellite
+since:
+- 5.0.0
 ---
 
-XL Deploy can communicate with satellite servers over a secure communication channel, using [TLS/SSL technology](http://en.wikipedia.org/wiki/Transport_Layer_Security) to encrypt data. This algorithm relies on certificate checking and data encryption using asymmetric keys.
-   
-Depending on your security policy, you can use self-signed certificates using [the `keytool` utility](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html). For example:
+XL Deploy can communicate with satellite servers over a secure communication channel using [TLS/SSL technology](http://en.wikipedia.org/wiki/Transport_Layer_Security) to encrypt data. This algorithm relies on certificate checking and data encryption using asymmetric keys.
+
+## TLS in a nutshell
+
+TLS is based on the notion of public and private keys. The server contains a private key and a public certificate. In the Java world, they are stored in a *key store*. The private key must be hidden and can be protected with a passphrase. This key must not be given out or communicated. 
+
+When a client tries to reach a server, it authenticates the destination. The server must prove its identity. To achieve this, the client gets a list of trusted certificates. This is the *trust store*. It contains public certificates that are verified by a trusted authority.
+
+When a client tries to reach a server, there is a negotiation phase. During this phase, the client challenge the server to authenticate it. Once identified, every bit of data transferred between each side of the communication is encrypted.
+
+With this technology, an external process that you do not manage cannot pretend to be a satellite of yours, and external processes cannot listen to the secure communication.
+
+## How to create self-signed certificates
+  
+Depending on your security policy, you can create self-signed certificates using [the `keytool` utility](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html). For example:
    
     # Generate a keystore and a self-signed certificate for xl-satellite
     # storepass is the password for the keystore
@@ -78,12 +93,17 @@ The satellite security configuration is located in `conf/security.conf`:
         random-number-generator = "AES128CounterSecureRNG"
     }
 
-The default configuration uses `TLSv1.2`, `TLS_RSA_WITH_AES_128_CBC_SHA` and `AES128CounterSecureRNG`. You can change these values depending on your security policy and requirements.
+The default configuration uses `TLSv1.2`, `TLS_RSA_WITH_AES_128_CBC_SHA`, and `AES128CounterSecureRNG`. You can change these values depending on your security policy and requirements.
 
-**Important:** These configuration values must match the XL Deploy values, to enable handshake.
+**Important:** These configuration values must match the values that XL Deploy uses.
 
 ## Logging
 
 To enabled logging of secure communications, set the `SATELLITE_OPTS` environment variable before starting the satellite:
 
     export SATELLITE_OPTS="$SATELLITE_OPTS -Djavax.net.debug=all"
+
+To enable logging on XL Deploy, set the `DEPLOYIT_SERVER_OPTS` variable:
+
+    export DEPLOYIT_SERVER_OPTS="$DEPLOYIT_SERVER_OPTS -Djavax.net.debug=all"
+

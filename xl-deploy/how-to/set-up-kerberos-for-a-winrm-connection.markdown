@@ -34,7 +34,11 @@ Replace the values with the name of your domain/realm and the hostname of your d
 * Solaris: `/etc/krb5/krb5.conf`
 * Windows: `C:\Windows\krb5.ini`
 
-Alternatively, place the file somewhere else and edit the `server.sh` or `server.cmd` startup script and add the following Java system property to the command line: `-Djava.security.krb5.conf=/path/to/krb5.conf`. Replace the path with the location of the file you just created.
+Alternatively, place the file somewhere else and edit:
+
+* In XL Deploy 4.5.x and earlier: Add the following Java system property to the command line in the `server.sh` or `server.cmd` startup script: `-Djava.security.krb5.conf=/path/to/krb5.conf`. Replace the path with the location of the file you just created.
+
+* In XL Deploy 5.0.0 and later: Add the following line to the `conf/xld-wrapper.conf` file: `wrapper.java.additional.5=-Djava.security.krb5.conf=/path/to/krb5.conf`. Replace the path with the location of the file you just created.
 
 See [the Kerberos V5 System Administrator's Guide at MIT](http://web.mit.edu/kerberos/krb5-1.10/krb5-1.10.6/doc/krb5-admin.html#krb5_002econf) for more information on the `krb5.conf` format.
 

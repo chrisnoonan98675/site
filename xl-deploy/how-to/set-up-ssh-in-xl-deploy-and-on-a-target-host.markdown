@@ -38,7 +38,7 @@ To use the SFTP_CYGWIN connection type, install [Copssh](http://www.itefix.no/i2
 1. Select **Linux shell and Sftp** from the **shell** list
 1. Select **Password authentication** and/or **Public key authentication**, depending on the authentication method you want to use
 
-**Note:** XL Deploy will take care of the translation from Windows style paths (such as `C:\Program Files\IBM\WebSphere\AppServer`) to Cygwin-style paths (such as `/cygdrive/C/Program Files/IBM/WebSphere/AppServer`), so that your code can use Windows-style paths.
+**Note:** XL Deploy will take care of the translation from Windows style paths (such as `C:\Program Files\IBM\WebSphere\AppServer`) to Cygwin-style paths (such as `/cygdrive/C/Program Files/IBM/WebSphere/AppServer`), so that you can use Windows-style paths.
 
 ## SFTP_WINSSHD connection type
 
@@ -50,7 +50,7 @@ To use the SFTP_WINSSHD connection type, install WinSSHD on the Windows host. In
 
     Alternatively, you can select **Allow login to any Windows account** to allow access to all Windows accounts.
 
-**Note:** XL Deploy will take care of the translation from Windows style paths (such as `C:\Program Files\IBM\WebSphere\AppServer`) to WinSSHD-style paths (such as `/C/Program Files/IBM/WebSphere/AppServer`), so that your code can use Windows-style paths.
+**Note:** XL Deploy will take care of the translation from Windows style paths (such as `C:\Program Files\IBM\WebSphere\AppServer`) to WinSSHD-style paths (such as `/C/Program Files/IBM/WebSphere/AppServer`), so that you can use Windows-style paths.
 
 ## SUDO and INTERACTIVE_SUDO connection types
 

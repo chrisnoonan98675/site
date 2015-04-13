@@ -1,4 +1,4 @@
-<h2>Browse documentation by tag</h2>
+<h2 id="browse-documentation-by-tag">Browse documentation by tag</h2>
 
 {% capture all_page_tags %}{% for page in site.pages %}{% if page.path contains product-id-to-search-for %}{% for tag in page.tags %}{{ tag }},{% endfor %}{% endif %}{% endfor %}{% endcapture %}
 {% assign sorted_page_tags = all_page_tags | split:',' | sort %}
@@ -8,7 +8,7 @@
 
 <div class="listContainer">
 
-	<ul class="expList">
+	<ul class="expList two-col-list">
 		{% for item in sorted_page_tags %}
 			{% capture tag_to_check %},{{ item }},{% endcapture %}
 			{% unless tags_used contains tag_to_check %}

@@ -12,13 +12,141 @@ online-docs-jekyll
 
 Go to `http://localhost:4000` to see the site running locally.
 
+**Tip:** To disable updating of the Development Dashboard while you run Jekyll in watch mode, change the `jira_dashboard` `generate` setting in `_config.yml` to `false`. **Do not commit this change to the repository!**
+
 **Note:** If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
 
-# Contributing
+# Branches
 
-* When you commit a change to the master branch of this repository, a [Jenkins job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/Jekyll%20docs/) is triggered. This job generates the change in HTML and immediately publishes it to [testdocs.xebialabs.com](http://testdocs.xebialabs.com).
-* To commit a change to GitHub without triggering the Jenkins job, [create a pull request](https://help.github.com/articles/creating-a-pull-request/). This allows others to review your work.
-* You can store drafts, images, samples, etc. in `_drafts`. Markdown files stored in `_drafts` are not be converted to HTML.
+## Master branch
+
+When you commit a change to the master branch of this repository, a [Jenkins job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/app1/job/Jekyll%20docs/) is triggered. This job generates the HTML and immediately publishes it to [docs.xebialabs.com](https://docs.xebialabs.com).
+
+If you want to make a documentation change that should *not* be published immediately, create a branch.
+
+## Release branches
+
+A branch should be created for each product or plugin release; for example, `xl-release-4.6.0` or `xl-deploy-5.0.0-beta-2`. The release branch contains all changes that should be published for that release. The branch must be merged into the master branch when it's time to release that product/plugin version.
+
+## Feature branches
+
+You can create branches for a feature—for example, `DEPL-1234` or `REL-5678`—but feature branches are only for short-term use. They should eventually be merged into the appropriate release branch when the feature is ready.
+
+## Pull requests
+
+If you want to submit changes for review without immediately publishing them, [create a branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/#creating-a-branch) and then [create a pull request](https://help.github.com/articles/creating-a-pull-request/).
+
+The pull request should be merged into the master branch, a release branch, or a feature branch, depending on what changes it implements.
+
+# Versioning content
+
+You can add version information to a topic as a whole or to a section of a topic.
+
+To add version information to a topic as a whole, use the `since`, `deprecated`, and `removed` front matter keys. Refer to the `_drafts/documentation-template.markdown` file for information about setting values for these keys.
+
+When adding version information to a section of a topic, include the major, minor, and patch version (`4.5.3`) or use an `x` for the patch number (`4.5.x`). Use the words *earlier* and *later* to refer to other versions. For example:
+
+* In XL Deploy 5.0.0 and later...
+* In XL Deploy 4.5.2 and earlier...
+* In XL Deploy 4.5.3, XL Deploy 5.0.0, and later...
+
+## Major new feature
+
+If a release introduces a major new feature:
+
+1. Write a new topic
+2. Use the `since` front matter key to identify a version
+
+## Minor new feature
+
+If a release introduces a new feature that isn't big enough to warrant its own topic:
+
+1. Add a new section to an existing topic
+2. Use a sentence and, optionally, the section heading to identify a version
+
+For example:
+
+> **Using the foo feature**
+> 
+> In XL Deploy 5.0.0 and later, you use the foo feature to...
+
+Or:
+
+> **Using the foo feature in XL Deploy 5.0.0 and later**
+> 
+> In XL Deploy 5.0.0 and later, you use the foo feature to...
+
+## Major change to an existing feature
+
+If a release introduces a major change to an existing feature:
+
+1. Copy the relevant existing topic and change its title and file name to include the version
+2. Update the original topic to reflect the new release
+3. Use the `since` front matter key to identify a version in the original topic
+
+For example, if XL Deploy 5.0.0 introduced a major change to the "foo" feature:
+
+* **Using the foo feature** (`using-the-foo-feature.html`): This would contain the XL Deploy 5.0.0 version of the foo feature
+* **Using the foo feature in XL Deploy 4.5.x and earlier** (`using-the-foo-feature-in-xl-deploy-45x-and-earlier.html`)
+
+## Minor change to an existing feature
+
+If a release introduces a minor change to an existing feature:
+
+1. Add a new section to an existing topic
+2. Use a sentence and the section heading to identify a version
+
+For example:
+
+> **Using the foo feature in XL Deploy 4.5.x and earlier**
+> 
+> In XL Deploy 4.5.x and earlier, you use the foo feature to...
+>
+> **Using the foo feature in XL Deploy 5.0.0 and later**
+> 
+> In XL Deploy 5.0.0 and later, you use the foo feature to...
+
+## Deprecated feature
+
+If a release deprecates a feature, either:
+
+* Use the `deprecated` front matter key to mark the relevant topic(s) as deprecated
+* Add a note that the relevant part of a topic(s) is deprecated
+
+For example:
+
+> **Note:** The foo feature is deprecated as of XL Deploy 5.0.0.
+
+## Removed feature
+
+If a release removes a feature that was previously marked as deprecated, either:
+
+* Use the `removed` front matter key to mark the relevant topic(s) as removed
+* Add a note that the relevant part of a topic(s) has been removed
+
+For example:
+
+> **Note:** The foo feature was removed in XL Deploy 5.0.0.
+
+## Beta documentation
+
+To mark an entire topic as "beta", add the following line to its front matter:
+
+    layout: beta
+
+To mark a section of a topic as "beta", add the following line just after the section's heading:
+
+    <div class="alert alert-danger" role="alert">The information in this section is in beta and is subject to change.</div>
+
+To mark a paragraph, sentence, or table cell as "beta", add the following inline label to it:
+
+    <span class="label label-danger">beta</span>
+
+# Drafts
+
+You can store drafts, images, samples, etc. in `_drafts`. Markdown and AsciiDoc files stored in `_drafts` are never converted to HTML.
+
+The `_drafts` folder also contains the *documentation template*.
 
 # Things to know about formatting
 
@@ -43,6 +171,26 @@ The deployable contains `username = {% raw %}{{my.password}}{% endraw %}`.
 	transform.2.find=((quux))
 	transform.2.replacement={% raw %}{{quux-transform-2}}{% endraw %}
 
+## Table styles in Markdown files
+
+Table styles are defined by Bootstrap CSS; see [this documentation](http://getbootstrap.com/css/#tables) for class names and examples. Use the following notation immediately before a table:
+
+    {:.class}
+
+For a [normal](http://getbootstrap.com/css/#tables-example) table:
+
+    {:.table}
+    | Column 1 | Column 2 | Column 3 |
+    | -------- | -------- | -------- |
+    | Content  | Content  | Content  |
+
+For a [zebra-striped](http://getbootstrap.com/css/#tables-striped) table:
+
+    {:.table .table-striped}
+    | Column 1 | Column 2 | Column 3 |
+    | -------- | -------- | -------- |
+    | Content  | Content  | Content  |
+
 ## Code blocks in Markdown files
 
 To format a block of code, indent each line by at least four spaces.
@@ -64,6 +212,10 @@ HTML anchors are automatically created for headings (h1, h2, h3, etc.).
 
 You can use [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/) instead of Markdown to format files. AsciiDoc support is provided by [a Jekyll plugin](https://github.com/asciidoctor/jekyll-asciidoc). If you use it, please carefully review the way that Jekyll renders the HTML file.
 
+# Tags and subjects
+
+To see the tags and subjects that are already in use, visit [https://docs.xebialabs.com/tags-and-subjects.html](https://docs.xebialabs.com/tags-and-subjects.html).
+
 # "Latest" links
 
 "Latest" links point to the latest version of the *versioned* documentation for each product. There are two formats; the new format is preferred, but the legacy format is also supported.
@@ -83,6 +235,8 @@ You can use [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-referen
 
 See `_redirects.yml` for a complete list of the redirects that are available.
 
+**Note:** At this time, there is no "latest" link for the Jython API documentation.
+
 # Logical structure of the site
 
 * Product
@@ -97,7 +251,7 @@ See `_redirects.yml` for a complete list of the redirects that are available.
             * Concept
             * How-to
 
-# How the site works
+# Jekyll and Liquid
 
 In Jekyll terminology, topics are *pages* that are located in directories such as `xl-deploy`, `xl-release`, and so on.
 
@@ -112,8 +266,6 @@ Every page must have YAML front matter. Refer to the template in `_drafts` for i
 ## Drafts
 
 Save drafts of pages in `_drafts`. Drafts are never converted to HTML.
-
-# Jekyll and Liquid
 
 ## Layout files
 
@@ -131,6 +283,7 @@ Save drafts of pages in `_drafts`. Drafts are never converted to HTML.
 | `asciidoc_plugin.rb` | Enables Jekyll to interpret Asciidoc files | [Source](https://github.com/asciidoctor/jekyll-asciidoc) | MIT |
 | `pageless_redirects.rb` | Allows you to create redirects in `_redirects.yml` | [Source](https://github.com/nquinlan/jekyll-pageless-redirects/pull/7) | MIT |
 | `sitemap_generator.rb` | Generates `sitemap.xml` | [Source](https://github.com/kinnetica/jekyll-plugins) | Creative Commons |
+| `remove_whitespace.rb` | Adds the `{% strip %}` tag, which you can use to remove the empty lines that Liquid loops produce | [Source](https://github.com/aucor/jekyll-plugins/blob/master/strip.rb) | MIT |
 
 # Tips
 
@@ -158,6 +311,8 @@ Save drafts of pages in `_drafts`. Drafts are never converted to HTML.
 
 Follow these instructions to pull all documentation from the product and plugin repositories.
 
+**Important:** Note that you'll have to clean up this documentation locally; don't commit it to the `online-docs-jekyll` repository.
+
 Set up key-based authentication with tech ssh server:
 
 1. Create private/public key (execute `ssh-keygen`, do not create password, name it `tech_id_rsa`)
@@ -183,5 +338,3 @@ The old way to do it:
 1. Execute `gradle jekyllFetchSources` or `gradle jFS`.
 1. Execute `jekyll serve`.
 1. Go to `http://localhost:4000`.
-
-Note that you'll have to clean up this documentation locally; don't commit it to the online-docs-jekyll repository.

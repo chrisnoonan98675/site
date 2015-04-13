@@ -10,7 +10,11 @@ tags:
 - deployment
 ---
 
-To deploy an application with XL Deploy, you supply a file called a *deployment package*, or a DAR. A DAR package is a ZIP file that contains application files and a manifest file that describes the package content.
+XL Deploy uses the Unified Deployment Model (UDM) to structure deployments. In this model, deployment packages are containers for complete application distribution. They include application artifacts (EAR files, static content) as well as resource specifications (datasources, topics, queues, and so on) that the application needs to run. 
+
+A Deployment ARchive, or DAR file, is a ZIP file that contains application files and a manifest file that describes the package content. In addition to packages in a compressed archive format, XL Deploy can also import _exploded DARs_ or archives that have been extracted.
+
+Packages should be independent of the target environment and contain customization points (for example, placeholders in configuration files) that supply environment-specific values to the deployed application. This enables a single artifact to make the entire journey from development to production.
 
 ## What's in an application deployment package?
 

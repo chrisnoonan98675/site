@@ -12,11 +12,7 @@
   versions:
     - 3.0.x
     - 4.0.x
-- name: XL Scale
-  id: xl-scale
-  blurb: XL Scale is an XL Deploy plugin that lets you create and destroy environments on virtualized infrastructure and use them as deployment targets. It supports several virtualization vendors.
-  versions:
-    - 4.0.x
+    - 4.5.x
 - name: XL Test
   id: xl-test
   blurb: XL Test lets you define, execute, and analyze all of the tests relevant to an application's quality. You can easily manage complex test sets and execute tests across a wide spectrum of tools.

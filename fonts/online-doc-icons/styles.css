@@ -50,3 +50,6 @@
 .icon-bug:before {
   content: "d";
 }
+.icon-link:before {
+  content: "e";
+}
