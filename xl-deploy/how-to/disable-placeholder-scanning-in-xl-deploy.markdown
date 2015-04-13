@@ -52,5 +52,3 @@ Edit the `deployit-defaults.properties` file and set the following property:
 	udm.BaseDeployableArtifact.scanPlaceholders=false
 
 Restart the XL Deploy server for the change to take effect.
-
-For more information, see the [Packaging Manual](http://docs.xebialabs.com/releases/latest/deployit/packagingmanual.html#scanning-for-placeholders-in-artifacts).
