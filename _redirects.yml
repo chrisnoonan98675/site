@@ -36,6 +36,7 @@
 /xl-deploy/how-to/perform-an-initial-deployment.html : /xl-deploy/how-to/deploy-an-application.html
 /xl-deploy/concept/advanced-xl-deploy-configuration.html : /xl-deploy/how-to/advanced-xl-deploy-configuration.html
 /xl-deploy/how-to/common-xl-deploy-cli-tasks.html : /xl-deploy/how-to/using-the-xl-deploy-cli.html
+/xl-deploy/concept/installing-and-removing-xl-deploy-plugins.html : /xl-deploy/how-to/install-or-remove-xl-deploy-plugins.html
 
 ##### LEGACY PAGES THAT ARE NO LONGER USED
 
