@@ -35,6 +35,7 @@
 /xl-deploy/concept/xl-deploy-remoting-plugin.html : /xl-deploy/concept/introduction-to-the-xl-deploy-remoting-plugin.html
 /xl-deploy/how-to/perform-an-initial-deployment.html : /xl-deploy/how-to/deploy-an-application.html
 /xl-deploy/concept/advanced-xl-deploy-configuration.html : /xl-deploy/how-to/advanced-xl-deploy-configuration.html
+/xl-deploy/how-to/common-xl-deploy-cli-tasks.html : /xl-deploy/how-to/using-the-xl-deploy-cli.html
 
 ##### LEGACY PAGES THAT ARE NO LONGER USED
 
