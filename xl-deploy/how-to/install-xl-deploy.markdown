@@ -13,11 +13,16 @@ tags:
 
 Before you install XL Deploy, ensure that you meet the [prerequisites](/xl-deploy/concept/requirements-for-installing-xl-deploy.html).
 
-**Tip:** If you want to install XL Deploy as a daemon or service, refer to [Install XL Deploy as a service](install-xl-deploy-as-a-service.html). If you are upgrading a previously installed version of XL Deploy, refer to [Upgrade XL Deploy](upgrade-xl-deploy.html).
+**Tip:** If you want to install XL Deploy as a daemon or service, refer to [Install XL Deploy as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html). If you are upgrading a previously installed version of XL Deploy, refer to [Upgrade XL Deploy](/xl-deploy/how-to/upgrade-xl-deploy.html).
 
 ## Install XL Deploy using the installer
 
-You can use the installer to install XL Deploy on Microsoft Windows or Mac OS X. The installer includes an optional demo environment that you can use to get started with XL Deploy.
+You can use the installer to install XL Deploy on:
+
+* Microsoft Windows
+* Mac OS X
+
+The installer includes an optional demo environment that you can use to get started with XL Deploy.
 
 To install XL Deploy:
 
@@ -31,7 +36,13 @@ To install the command-line interface, refer to [Install the XL Deploy CLI](#ins
 
 ## Install XL Deploy using the command line
 
-You can use the command-line server setup wizard to install XL Deploy on Microsoft Windows, Mac OS X, or any other Unix-based operating system. The setup wizard allows you to specify advanced configuration options related to security.
+You can use the command-line server setup wizard to install XL Deploy on:
+
+* Microsoft Windows
+* Mac OS X
+* Any other Unix-based operating system.
+
+The setup wizard allows you to specify advanced configuration options related to security.
 
 To install XL Deploy:
 

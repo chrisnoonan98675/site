@@ -7,26 +7,28 @@ subject:
 tags:
 - system administration
 - getting started
+- installation
+- setup
 ---
 
 ## Server requirements
 
 To install the XL Deploy server, the following prerequisites must be met:
 
-* **XL Deploy license**: You can download your license from [https://dist.xebialabs.com/licenses/download/](https://dist.xebialabs.com/licenses/download/).
-* **Operating system**: Windows or Unix-family operating system running Java.
-* **Java Runtime Environment**: JDK 7 (Oracle, IBM or Apple)
-* **RAM**: At least 2GB of RAM available for XL Deploy.
-* **Hard disk space**: Sufficient hard disk space to store the XL Deploy repository. This depends on your usage of XL Deploy. See [Determining hard disk space requirements](#determining-hard-disk-space-requirements).
+* **XL Deploy license**: Download from [https://dist.xebialabs.com](https://dist.xebialabs.com)
+* **Operating system**: Microsoft Windows or a Unix-family operating system running Java
+* **Java Runtime Environment**: Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
+* **RAM**: At least 2 GB of RAM available for XL Deploy
+* **Hard disk space**: Sufficient hard disk space to store the XL Deploy repository; see [Determining hard disk space requirements](#determining-hard-disk-space-requirements)
 
 Depending on the environment, the following may also be required: 
 
-* **Database**: XL Deploy's Jackrabbit repository supports a number of different databases. For more information, see [Configuring the repository](#configuring-the-repository).
-* **LDAP**: To enable group-based security, an LDAP x.509 compliant registry is needed. For more information, see [Configuring LDAP security](#configuring-ldap-security).
+* **Database**: XL Deploy's Jackrabbit repository supports a number of different databases; for more information, see [Configuring the repository](#configuring-the-repository)
+* **LDAP**: To enable group-based security, an LDAP x.509 compliant registry is needed; for more information, see [Configuring LDAP security](#configuring-ldap-security)
 
 ### Determining hard disk space requirements
 
-The XL Deploy server itself only uses about 70MB of disk space. The main hard disk space usage comes from the repository which stores your deployment packages and deployment history. The size of the repository will vary from installation to installation but depends mainly on the:
+The XL Deploy server itself only uses about 70 MB of disk space. The main hard disk space usage comes from the repository which stores your deployment packages and deployment history. The size of the repository will vary from installation to installation but depends mainly on the:
 
 * Size and storage mechanism used for artifacts
 * Number of packages in the system
@@ -54,11 +56,11 @@ If `NumPackages` and `NumDeployments` are expressed per time unit (that is, the 
 
 Unix-based middleware servers that XL Deploy interacts with must meet the following requirements:
 
-* **SSH access**: The target systems should be accessible by SSH from the XL Deploy server, i.e. they should run an SSH2 server. It is also possible to handle key-based authorization. Notes:
+* **SSH access**: The target systems should be accessible by SSH from the XL Deploy server; that is, they should run an SSH2 server. It is also possible to handle key-based authorization. Note that:
     * The SSH daemon on AIX is known to hang with certain types of SSH traffic.
     * For security, the SSH account that is used to access a host should have limited rights.
     * A variety of Linux distributions have made SSH require a TTY by default. This setting is incompatible with XL Deploy and is controlled by the `Defaults requiretty` setting in the `sudoers` file.
-* **Credentials**: XL Deploy should be able to log in to the target systems using a login/password combination that allows it to perform at least the following Unix commands:
+* **Credentials**: XL Deploy should be able to log in to the target systems using a usr name and password combination that allows it to perform at least the following Unix commands:
     * `cp`
     * `ls`
     * `mv`
@@ -79,7 +81,7 @@ Windows-based middleware servers that XL Deploy interacts with must meet the fol
 
 ### Extending middleware support
 
-It is possible to connect XL Deploy to middleware servers that do not support SSH, Telnet or WinRM. Using the Overthere remote execution framework, a custom _access method_ can be created that connects to the server. See the [Customization Manual](customizationmanual.html) for more information.
+It is possible to connect XL Deploy to middleware servers that do not support SSH, Telnet, or WinRM. This requires you to use the [Overthere](https://github.com/xebialabs/overthere) remote execution framework to create a custom _access method_ that connects to the server.
 
 ## Client requirements
 
@@ -87,20 +89,18 @@ It is possible to connect XL Deploy to middleware servers that do not support SS
 
 To use the XL Deploy GUI, you must meet the following requirements:
 
-* **Web browser**: The following web browsers are supported:
+* **Web browser**:
 	* Internet Explorer 8.0 or later
 	* Firefox
 	* Chrome
 	* Safari
-* **Flash player**: A Flash player is required, versions 9.0 and up are supported.
+* **Flash player**: Versions 9.0 or later
 
-XL Deploy UI Extensions have additional restrictions on browser compatibility:
-
-* **Compare functionality**: Internet Explorer 10.0 or later
+The XL Deploy [user interface extension feature](/xl-deploy/how-to/extend-the-xl-deploy-user-interface.html) requires Internet Explorer 10.0 or later.
 
 ### CLI clients
 
 To use the XL Deploy CLI, you must meet the following requirements:
 
-* **Operating system**: Windows or Unix-family operating system running Java.
-* **Java Runtime Environment**: JDK 7 (Oracle, IBM or Apple)
+* **Operating system**: Microsoft Windows or Unix-family operating system running Java
+* **Java Runtime Environment**: Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
