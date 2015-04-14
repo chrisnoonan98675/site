@@ -21,7 +21,7 @@ For the simple template that we're using in this example, the cURL command to cr
 
     curl -u 'admin:secret'  -v -H "Content-Type: application/json" http://localhost:5516/api/v1/templates/Applications/Release2994650/start -i -X POST -d '{"title": "My Automated Release"}'
 
-**Tip:** Note that the release template ID is always prepended with `Applications/`.
+**Tip:** Note that the release template ID is always prepended with `Applications/`. For more information about IDs, refer to [How to find IDs](how-to-find-ids.html)
 
 The ID of the release we have created is contained in the response. For example:
 

@@ -27,7 +27,9 @@ The public REST API of XL Release exposes its core functionality over HTTP, allo
 
 With the API, you can start releases, complete tasks, add comments to tasks and much more.
 
-Take a look at the [XL Release REST API documentation](/xl-release/4.5.x/rest-api/) to see what functionality can be used.
+To get started, take a look on how to [create a new release using the REST API](create-a-new-release-via-rest-api-using-curl.html).
+
+Browse the [XL Release REST API documentation](/xl-release/4.5.x/rest-api/) to see what functionality can be used.
 
 
 ## Automation within XL Release
