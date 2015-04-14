@@ -29,9 +29,9 @@ The easiest way to start creating a custom report is to copy a built-in report. 
 
 ### Configure the report in `synthetic.xml`
 
-First, add a custom report type to `<XLTEST_HOME>\plugins\demo\synthetic.xml`:
+First, add a custom report type to `<XLTEST_HOME>\ext\synthetic.xml`:
 
-1. Copy a `type` element with attribute `type="xltest.Barchart"`:
+1. Copy a `type` element with attribute `type="xltest.Barchart"` from `<XLTEST_HOME>\plugins\demo\synthetic.xml`:
 
         <type type="xltest.BarChart" extends="generic.Report">
             <property name="title" default="Bar chart"/>
@@ -62,7 +62,7 @@ First, add a custom report type to `<XLTEST_HOME>\plugins\demo\synthetic.xml`:
 
 ## Write the report script
 
-Next, copy `<XLTEST_HOME>\plugins\demo\reports\BarChart.py` to `MyBarChart.py`. Changes to the script do not require you to restart XL Test.
+Next, copy `<XLTEST_HOME>\plugins\demo\reports\BarChart.py` to `reports/MyBarChart.py` in `ext`. Changes to the script do not require you to restart XL Test.
 
 The Python script ends with `resultHolder.setResult( <json> )`. This is because Highcharts expects a JSON structure, so that is the output of the report script. The JSON structure is created as a Python dictionary.
 
