@@ -9,6 +9,8 @@ tags:
 - application
 - gui
 - repository
+removed:
+- 5.0.0
 ---
 
 **Tip:** For information about creating a deployment package in XL Deploy 5.0.0 and later, refer to [Add a package to XL Deploy](/xl-deploy/how-to/add-a-package-to-xl-deploy.html).

@@ -14,18 +14,18 @@ since:
 
 To deploy an application with XL Deploy, you supply a deployment package. It contains the files (artifacts) and middleware resources that XL Deploy can deploy to a target environment.
 
-You can add a deployment package to XL Deploy by creating it in the XL Deploy interface or by importing a Deployment Archive (DAR) file. A DAR file is a ZIP file with the `dar` file extension. It contains the files and resources that make up a version of the application, as well as a manifest file (`deployit-manifest.xml`) that describes the package content.
+You can add a deployment package to XL Deploy by creating it in the XL Deploy interface or by importing a Deployment Archive (DAR) file. A DAR file is a ZIP file with the `.dar` file extension. It contains the files and resources that make up a version of the application, as well as a manifest file (`deployit-manifest.xml`) that describes the package content.
 
 To add a deployment package:
 
 1. In the top menu, click **Deployment**.
-1. Click ![Packages](/images/button_import_package.png) under **Packages**.
+1. Click ![Packages](/images/button_add_package_deployment_workspace.png) under **Packages**.
 
 ## Create a package in the interface
 
 To create a package in the XL Deploy interface:
 
-1. Click ![Add package](/images/button_add_package.png). The New deployment package screen appears.
+1. Click **Add package**. The New deployment package screen appears.
 1. In the **Name** box, enter the name of the application. If you want to create the package in a new or existing directory, include it in the name.
 1. In the **Version** box, enter the version of the deployment package.
 
@@ -60,7 +60,7 @@ To create a package in the XL Deploy interface:
 
 You can import a deployment package from an external storage location, your computer, or the XL Deploy server. To import a package:
 
-1. Click ![Import package](/images/button_import_package_new.png).
+1. Click **Import package**.
 1. To import a package from a location that is accessible via a URL:
     1. Expand **Import a deployment package from url**.
     1. Enter the URL in the box.
