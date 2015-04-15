@@ -2,7 +2,7 @@
 title: Create a new release via the XL Release REST API using cURL (XL Release 4.0 and earlier)
 categories:
 - xl-release
-subject: Release
+subject: Releases
 tags:
 - api
 ---
