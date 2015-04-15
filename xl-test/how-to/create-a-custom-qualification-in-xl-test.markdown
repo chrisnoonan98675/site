@@ -62,7 +62,7 @@ This requires changing the `result` dictionary:
 
     result = {}
 
-The `success` key must be generated in your qualifier. It can have a value of `True` (for passing/successful qualifications) or `False` (for failing qualifications). You can optionally add a `reason` with text that describes why the test run qualified as passed or failed.
+The `success` key must be generated in your qualifier. It can have a value of `True` (for passing/successful qualifications) or `False` (for failing qualifications). You can optionally add a `reason` with text that describes why the test run qualified as passed or failed. Once this is populated we will call `resultHolder.setResult(result)` at the end of the script to submit the qualification result.
 
 The sample qualifier below:
 
@@ -88,17 +88,16 @@ The complete `myFunctionalQualifier.py` script is now:
 	return p.get('result') is None and p.get('wrong') == 0 and p.get('exceptions') == 0
 
 	if events:
-		result = {'success': True}
-		success = True
-		for ev in events:
-			if ev.type == 'functionalResult':
-			p = ev.getProperties()
-			# print 'looking at functionalResult event with these props:', p
-				if 'CRITICAL' in p.get('name').upper():
-					if not (successCounters(p) or (p.get('result') == 'PASSED')):
-						result['success'] = False
-						result['reason'] = 'There is at least one failure with a CRITICAL test'
-						break
+	    result = {'success': True}
+	    success = True
+	    for ev in events:
+	        if ev.type == 'functionalResult':
+	        p = ev.getProperties()
+	            if 'CRITICAL' in p.get('name').upper():
+	                if not (successCounters(p) or (p.get('result') == 'PASSED')):
+	                    result['success'] = False
+                        result['reason'] = 'There is at least one failure with a CRITICAL test'
+	                    break
 
 	resultHolder.setResult(result)
 
