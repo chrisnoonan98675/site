@@ -89,7 +89,6 @@ The complete `myFunctionalQualifier.py` script is now:
 
 	if events:
 	    result = {'success': True}
-	    success = True
 	    for ev in events:
 	        if ev.type == 'functionalResult':
 	        p = ev.getProperties()
