@@ -27,20 +27,20 @@ The easiest way to start creating a custom qualifier is to copy a built-in quali
 
 ### Configure the report in `synthetic.xml`
 
-First, add a custom qualification type to `<XLTEST_HOME>\ext\synthetic.xml`:
+First, add a custom qualification type to `<XLTEST_HOME>/ext/synthetic.xml`:
 
-1. Copy a `type` element with attribute `type="xltest.Barchart"` from `<XLTEST_HOME>\plugins\demo\synthetic.xml`:
+1. Copy a `type` element with attribute `type="xltest.DefaultFunctionalTestsQualifier"` from `<XLTEST_HOME>/plugins/demo/synthetic.xml`:
 
         <type type="xltest.DefaultFunctionalTestsQualifier" extends="generic.Qualification">
             <property name="scriptLocation" default="functional/qualification.py"/>
         </type> 
 
-1. Change the `type` attribute to use your desired prefix and name; for example, `type="myCompany.myFuncationalQualifier"`.
+1. Change the `type` attribute to use your desired prefix and name; for example, `type="myCompany.myFunctionalQualifier"`.
 1. Change the `scriptLocation` to the report script that you will create; for example, `myFunctionalQualifier.py`.
 
     The result will look like:
 
-        <type type="myCompany.myFuncationalQualifier" extends="generic.Qualification">
+        <type type="myCompany.myFunctionalQualifier" extends="generic.Qualification">
             <property name="scriptLocation" default="functional/myFunctionalQualifier.py"/>
         </type>
 
