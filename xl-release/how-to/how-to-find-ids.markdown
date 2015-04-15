@@ -2,9 +2,10 @@
 title: How to find identifiers for use in the REST API
 categories:
 - xl-release
-subject: Release
+subject: XL Release API
 tags:
 - api
+
 ---
 
 To use the REST API successfully, you need to know the unique identifier of templates, releases, phases and tasks. This article explains where you can find them.

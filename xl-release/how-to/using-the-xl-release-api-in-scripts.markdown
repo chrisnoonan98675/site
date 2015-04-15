@@ -2,10 +2,12 @@
 title: Using the XL Release API in scripts
 categories:
 - xl-release
-subject: Scripting
+subject: XL Release API
 tags:
 - api
 - script
+since:
+- 4.5.0
 ---
 
 XL Release exposes an API that developers can use to manipulate releases and tasks.

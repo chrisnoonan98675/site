@@ -1,8 +1,8 @@
 ---
-title: XL Release APIs & scripting
+title: XL Release APIs & scripting overview
 categories:
 - xl-release
-subject: Scripting
+subject: XL Release API
 tags:
 - api
 - script
