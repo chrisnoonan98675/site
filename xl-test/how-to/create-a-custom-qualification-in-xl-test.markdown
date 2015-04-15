@@ -1,6 +1,6 @@
 ---
 layout: beta
-title: Create a custom qualifier in XL Test
+title: Create a custom qualification in XL Test
 categories:
 - xl-test
 subject:
@@ -14,28 +14,28 @@ tags:
 - qualification
 ---
 
-XL Test generates qualifications using Python scripts using the same basic framework as graphical report creation. 
+XL Test can evaluate test results and qualify them to determine whether a test run as a whole passed or failed. You can use this qualification to make an automated go/no-go decision in a continuous integration tool such as Jenkins or in a pipeline orchestrator such as Go or XL Release.
 
-## Create a new custom qualifier
+XL Test also supports custom qualifications. To create a custom qualification, you:
 
-Creating a custom qualifier involves two steps:
+1. Configure the qualification in `synthetic.xml`. This file defines [configuration item (CI) types](/xl-deploy/concept/key-xl-deploy-concepts.html#type-system) such as qualifiers and reports. 
+1. Write a script for the qualification. This is done in Python.
 
-1. Configuring the report in `synthetic.xml`
-1. Writing a script for the report
+The easiest way to start creating a custom qualifier is to copy a default qualifier. This example shows how to create a custom qualifier based on the default functional qualifier.
 
-The easiest way to start creating a custom qualifier is to copy a built-in qualifier. This example shows how to create a custom qualifier based on the built-in Default Functional Qualifier.
+For more information about features such as qualification, refer to [Key XL Test concepts](/xl-test/concept/key-xl-test-concepts.html).
 
-### Configure the report in `synthetic.xml`
+## Configure the qualifier in `synthetic.xml`
 
-First, add a custom qualification type to `<XLTEST_HOME>/ext/synthetic.xml`:
+First, add a custom qualifier type to `<XLTEST_HOME>/ext/synthetic.xml`:
 
-1. Copy a `type` element with attribute `type="xltest.DefaultFunctionalTestsQualifier"` from `<XLTEST_HOME>/plugins/demo/synthetic.xml`:
+1. Copy a `type` element with attribute `type="xltest.DefaultFunctionalTestsQualifier"` from `<XLTEST_HOME>/plugins/demo/synthetic.xml` and add it to `<XLTEST_HOME>/ext/synthetic.xml`. For example:
 
         <type type="xltest.DefaultFunctionalTestsQualifier" extends="generic.Qualification">
             <property name="scriptLocation" default="functional/qualification.py"/>
         </type> 
 
-1. Change the `type` attribute to use your desired prefix and name; for example, `type="myCompany.myFunctionalQualifier"`.
+1. Change the `type` attribute to your desired prefix and name; for example, `type="myCompany.myFunctionalQualifier"`.
 1. Change the `scriptLocation` to the report script that you will create; for example, `myFunctionalQualifier.py`.
 
     The result will look like:
@@ -44,57 +44,62 @@ First, add a custom qualification type to `<XLTEST_HOME>/ext/synthetic.xml`:
             <property name="scriptLocation" default="functional/myFunctionalQualifier.py"/>
         </type>
 
-1. Save `synthetic.xml` and restart XL Test. All changes made to `synthetic.xml` require a restart.
-1. To verify that your changes took effect, click `Test specifications` in the top menu, then click `edit` for a Functional Test Specification. It should show your qualification in the `Qualification Type` dropdown:
+1. Save `synthetic.xml` and restart XL Test. (All changes made to `synthetic.xml` require you to restart XL Test.)
+1. To verify that your changes took effect:
+    1. Click **Test specifications** in the navigation bar.
+    1. Locate a functional test specification and click **Edit**.
+    1. Look at the options for the **Qualification Type**. Your custom qualifier should appear here.
 
-    ![Qualification Type with new Qualification](images/sample-qualification-dropdown.png)
+        ![Qualification Type with new Qualification](images/sample-qualification-dropdown.png)
 
 ## Write the script
 
-Next, copy `<XLTEST_HOME>\plugins\demo\functional/qualification.py` to `functional/myFunctionalQualifier.py` in `ext`. Changes to the script do not require you to restart XL Test.
+Next, copy `<XLTEST_HOME>/plugins/demo/functional/qualification.py` to `ext/functional/myFunctionalQualifier.py`. You can implement the logic that you want to use for qualification in this script. (You do not have to restart XL Test after changing scripts.)
 
-We can now begin to implement the logic we want in the qalification. The Default Functional Qualifier currently requires all test to pass in order for qualification to pass. In this example we will change this so that only tests which have the word "Critical" in their test name have to pass. If it does not have the word "Critical" in the test name then a failure of that test will not cause qualification to fail.
+The default functional qualifier requires all tests to pass for the test run to qualify as passed. This example changes the logic so that only tests with a name that includes the word "Critical" must pass for the test run to qualify as passed. If a test name does not contain the word "Critical", then a failure of that test will not cause the test run to qualify as failed.
 
-The output we are going to adjust here is the `result` dictionary, we can see where this is instanciated in line 2:
+This requires changing the `result` dictionary:
 
-        result = {}
+    result = {}
 
-There is a mandatory entry we need to generate in our qualification, that is the `success` key, which can have a value of `True` or `False`. We can also optionally add a `reason` which we can set to text to describe why the qualification is true or false.
+The `success` key must be generated in your qualifier. It can have a value of `True` (for passing/successful qualifications) or `False` (for failing qualifications). You can optionally add a `reason` with text that describes why the test run qualified as passed or failed.
 
-Before we start to edit this qualifier, let's take a look at what it does.
+The sample qualifier below:
 
-1. It sets the `success` to True
+1. Sets `success` to `True`
 1. Loops over events
     1. If an event is a functional result
-        1. Check if it's a failure
-            1. If it is set the qualification to false
+        1. Check if it is a failure
+            1. If it is a failure, set the qualification to `False`
             1. Set the reason
-1. Return the result.
+1. Return the result
 
-We are going to check the name of the test as part of this flow, right before we check if the test is a failure. The line to do this is as follows:
+First, to check if the test name includes "Critical":
 
-        if 'CRITICAL' in p.get('name').upper():
+    if 'CRITICAL' in p.get('name').upper():
 
-This new if statement retrieves the `name` property of the test, `p.get('name')`. Then uses the String method to make this upper case `.upper()`. Once this is done we check to see if the text `'CRITICAL'` is in the name. Our whole file now looks as follows, notice the new if statement:
+This code retrieves the `name` property of the test, `p.get('name')`. It then uses the `String` method to make the name uppercase (`.upper()`). After this is done, it checks if the text `'CRITICAL'` is in the name. 
 
-        result = {}
+The complete `myFunctionalQualifier.py` script is now:
 
-        def successCounters(p):
-        return p.get('result') is None and p.get('wrong') == 0 and p.get('exceptions') == 0
+	result = {}
 
-        if events:
-            result = {'success': True}
-            success = True
-            for ev in events:
-                if ev.type == 'functionalResult':
-                p = ev.getProperties()
-                # print 'looking at functionalResult event with these props:', p
-                    if 'CRITICAL' in p.get('name').upper():
-                        if not (successCounters(p) or (p.get('result') == 'PASSED')):
-                            result['success'] = False
-                            result['reason'] = 'There is at least one failure with a CRITICAL test'
-                            break
+	def successCounters(p):
+	return p.get('result') is None and p.get('wrong') == 0 and p.get('exceptions') == 0
 
-        resultHolder.setResult(result)
+	if events:
+		result = {'success': True}
+		success = True
+		for ev in events:
+			if ev.type == 'functionalResult':
+			p = ev.getProperties()
+			# print 'looking at functionalResult event with these props:', p
+				if 'CRITICAL' in p.get('name').upper():
+					if not (successCounters(p) or (p.get('result') == 'PASSED')):
+						result['success'] = False
+						result['reason'] = 'There is at least one failure with a CRITICAL test'
+						break
 
-I also changed the value of the `reason` field. This is a basic example but you can perform more complex logic in here to fit your requirements.
+	resultHolder.setResult(result)
+
+This example also includes a new value for the `reason` field.
