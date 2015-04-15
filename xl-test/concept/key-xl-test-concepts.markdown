@@ -45,7 +45,7 @@ It is possible to [create customized reports](/xl-test/how-to/create-a-custom-re
 
 ## Qualification
 
-XL Test's configurable qualification possibilities allow for seamless integration with a continuous delivery pipeline. XL Test automatically analyzes the test results that are available within XL Test using the specified configuration algorithm. In this way, XL Test supports tailored automated go/no go decision-making.
+XL Test's configurable qualification possibilities allow for seamless integration with a continuous delivery pipeline. XL Test automatically analyzes the test results that are available within XL Test using the specified configuration algorithm. In this way, XL Test supports tailored automated go/no go decision-making. It is possible to [create customized qualifications](/xl-test/how-to/create-a-custom-qualification-in-xl-test.html)
 
 ## Test specification execution
 
