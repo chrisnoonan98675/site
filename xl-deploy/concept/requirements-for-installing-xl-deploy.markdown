@@ -14,7 +14,7 @@ tags:
 
 To install the XL Deploy server, the following prerequisites must be met:
 
-* **XL Deploy license**: You can download your license from [https://dist.xebialabs.com/customer/licenses/](https://dist.xebialabs.com/customer/licenses/).
+* **XL Deploy license**: You can download your license from [https://dist.xebialabs.com/](https://dist.xebialabs.com/).
 * **Operating system**: Windows or Unix-family operating system running Java.
 * **Java Runtime Environment**: JDK 7 (Oracle, IBM or Apple)
 * **RAM**: At least 2GB of RAM available for XL Deploy.
@@ -22,8 +22,8 @@ To install the XL Deploy server, the following prerequisites must be met:
 
 Depending on the environment, the following may also be required: 
 
-* **Database**: XL Deploy's Jackrabbit repository supports a number of different databases. For more information, see [Configuring the repository](#configuring-the-repository).
-* **LDAP**: To enable group-based security, an LDAP x.509 compliant registry is needed. For more information, see [Configuring LDAP security](#configuring-ldap-security).
+* **Database**: XL Deploy's Jackrabbit repository supports a number of different databases. For more information, see [Configure the XL Deploy repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html).
+* **LDAP**: To enable group-based security, an LDAP x.509 compliant registry is needed. For more information, see [Configure the XL Deploy security file](/xl-deploy/how-to/configure-the-xl-deploy-security-file.html).
 
 ### Determining hard disk space requirements
 
@@ -80,7 +80,7 @@ Windows-based middleware servers that XL Deploy interacts with must meet the fol
 
 ### Extending middleware support
 
-It is possible to connect XL Deploy to middleware servers that do not support SSH, Telnet or WinRM. Using the Overthere remote execution framework, a custom _access method_ can be created that connects to the server. See the [Customization Manual](customizationmanual.html) for more information.
+It is possible to connect XL Deploy to middleware servers that do not support SSH, Telnet or WinRM. Using the Overthere remote execution framework, a custom _access method_ can be created that connects to the server. See the [Overthere documentation](https://github.com/xebialabs/overthere) for more information.
 
 ## Client requirements
 
