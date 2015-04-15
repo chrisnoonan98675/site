@@ -42,7 +42,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 
 <div class="row">
 <div class="col-md-2">
-<img src="images/xl-test-icon-barchart.svg" alt="XL Test diff bar chart report icon" width="100">
+<img src="images/xl-test-icon-report-bar-chart.svg" alt="XL Test diff bar chart report icon" width="100">
 </div>
 <div class="col-md-10">
 <p>Type: Functional</p>
