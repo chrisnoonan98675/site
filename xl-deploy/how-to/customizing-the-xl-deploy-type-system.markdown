@@ -11,13 +11,13 @@ tags:
 
 Today's middleware products are complicated and support lots of configuration options. XL Deploy plugins represent this middleware to the XL Deploy system. If a plugin wants to be a direct representation of the options in the middleware, it will quickly grow very large and unwieldy. XL Deploy provides a better way.
 
-Customizing XL Deploy is possible by providing new _state_ (modifying existing CIs or defining new CIs) and by providing new _behavior_ (by modifying existing scripts or adding new scripts). This section describes how to modify XL Deploy state. To learn how to add new behavior to the product, take a look at the manual for the plugin to be modified or the [Generic Model Plugin Manual](genericPluginManual.html) to define a new plugin.
+Customizing XL Deploy is possible by providing new _state_ (modifying existing CIs or defining new CIs) and by providing new _behavior_ (by modifying existing scripts or adding new scripts). This topic describes how to modify XL Deploy state. To learn how to add new behavior to the product, refer to [Understanding XL Deploy rules](/xl-deploy/concept/understanding-xl-deploy-rules.html).
 
-## Synthetic Properties
+## Synthetic properties
 
 XL Deploy's type system allows an extender to customize any CI by changing its definition. Properties can be added, hidden or changed. These new properties are called _synthetic properties_ since they are not defined in a Java class. The properties and changes are defined in an XML file called `synthetic.xml` which is added to the XL Deploy classpath. Changes to the types are loaded when the XL Deploy server starts and can be used to perform deployments.
 
-## Modifying Existing CIs
+## Modifying existing CIs
 
 Types existing in XL Deploy can be modified to contain additional synthetic properties. These properties become a part of the CI type and can be specified in the deployment package and shown in the XL Deploy GUI.
 
@@ -26,7 +26,7 @@ There are several reasons to modify a CI:
 * A CI property is always given the same value in your environment. Using synthetic properties, the property can be given a default value and hidden from the user in the GUI.
 * There are additional properties of an existing CI that you want to specify. For example, suppose there is a CI representing a deployed datasource for a specific middleware platform. The middleware platform allows the user to specify a connection pool size and connection timeout and XL Deploy supports the connection pool size out of the box. In this case, modifying the CI to add a synthetic property allows the user to specify the connection timeout.
 
-**Note**: to use the newly defined property in a deployment, XL Deploy's behavior must be modified. To learn how to add new behavior to the product, take a look at the manual for the plugin to be modified or the [Generic Model Plugin Manual](genericPluginManual.html) to define a new plugin.
+**Note**: to use the newly defined property in a deployment, XL Deploy's behavior must be modified. To learn how to add new behavior to the product, refer to [Understanding XL Deploy rules](/xl-deploy/concept/understanding-xl-deploy-rules.html).
 
 Additionally, any property that is modified is listed as a nested `property` element. For each property, the following information can be specified:
 
