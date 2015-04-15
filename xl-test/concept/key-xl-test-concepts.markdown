@@ -38,6 +38,8 @@ XL Test provides numerous out-of-the-box reports that visualize test results. XL
 * Flakiness overview - identifies the tests with the most inconsistent results over time.
 * General statistics - compare the given run to the previous run on a number of aspects.
 * Health barometer - shows clickable placeholders to the flakiness overview, durations chart, and details table.
+* Diff bar chart - shows differences between the current test run and the previous test run.
+* Historical comparison details table - shows detailed information about test which changed state since the previous execution
 
 It is possible to [create customized reports](/xl-test/how-to/create-a-custom-report-in-xl-test.html).
 
