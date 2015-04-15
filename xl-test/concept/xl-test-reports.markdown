@@ -38,16 +38,29 @@ A report is a representation of a set of test results in a graph or table. XL Te
 </div>
 </div>
 
-## Duration
+## Diff bar chart 
 
 <div class="row">
 <div class="col-md-2">
-<img src="images/xl-test-icon-report-duration.svg" alt="XL Test duration report icon" width="100">
+<img src="images/xl-test-icon-barchart.svg" alt="XL Test diff bar chart report icon" width="100">
+</div>
+<div class="col-md-10">
+<p>Type: Functional</p>
+<p>Span: Two test runs</p>
+<p>A bar chart report that shows the tests that changed state since the last execution. E.g. passing tests shown failed during the previous execution and the failing tests shown passed during the previous execution. Click a bar to see the results in that section of the test results.</p>
+</div>
+</div>
+
+## Durations
+
+<div class="row">
+<div class="col-md-2">
+<img src="images/xl-test-icon-report-duration.svg" alt="XL Test durations report icon" width="100">
 </div>
 <div class="col-md-10">
 <p>Type: Functional</p>
 <p>Span: Multiple test runs</p>
-<p>A duration report plots a graph of the test run durations over a specific time span.</p>
+<p>A durationsnreport plots a graph of the test run durations over a specific time span. Clicking an individual line of the duration reports drills down into the durations of its constituents.</p>
 </div>
 </div>
 
@@ -86,9 +99,23 @@ A report is a representation of a set of test results in a graph or table. XL Te
 <div class="col-md-10">
 <p>Type: Functional</p>
 <p>Span: Mixed</p>
-<p>The health barometer report combines a flakiness overview report, a duration report, and a pie chart report.</p>
+<p>The health barometer report combines a flakiness overview report, a duration report, and a pie chart report. Clicking the flakiness overview opens the detailed flakiness report. Clicking the duration opens the detailed durations report.</p>
 </div>
 </div>
+
+## Historical comparison details
+
+<div class="row">
+<div class="col-md-2">
+<img src="images/xl-test-icon-report-historical-comparison-details.svg" alt="XL Test historical comparison details report icon" width="100">
+</div>
+<div class="col-md-10">
+<p>Type: Functional</p>
+<p>Span: Two test runs</p>
+<p>A details report shows test runs that changed state between the last two executions in a tabular format.</p>
+</div>
+</div>
+
 
 ## Load test trends
 
@@ -115,3 +142,17 @@ A report is a representation of a set of test results in a graph or table. XL Te
 <p>A pie chart report shows passed and failed test runs as a pie chart.</p>
 </div>
 </div>
+
+## Test run overview
+
+<div class="row">
+<div class="col-md-2">
+<img src="images/xl-test-icon-report-testruns-report.svg" alt="XL Test pie chart report icon" width="100">
+</div>
+<div class="col-md-10">
+<p>Type: Generic</p>
+<p>Span: Multiple test runs</p>
+<p>An overview showing the available test runs over a period of time. Clicking a test run provides a detailed overview of the test results in XL Test's event structure.
+</div>
+</div>
+
