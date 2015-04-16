@@ -1,5 +1,5 @@
 ---
-title: Automatically purge packages according to a user defined policy
+title: Automatically purge packages according to a user-defined policy
 categories:
 - xl-deploy
 subject:
@@ -11,47 +11,60 @@ tags:
 - package
 - repository
 - schedule
+since:
+- 5.0.0
 ---
 
-To automatically purge old deployment packages according to a policy create a new `policy.PackageRetentionPolicy`:
+In XL Deploy 5.0.0 and later, you can create a package retention policy (`policy.PackageRetentionPolicy`) removes all deployment packages except the last N packages that match a regular expression that you define. Packages are sorted in lexicographical order.
 
-1. Click **Repository** in XL Deploy
-2. Right-click on the **Configuration** root and select `policy.PackageRetentionPolicy`
-3. Populate the required unique identifier and specify a regular expression which matches all packages to which the policy should apply
-4. Define the number of packages to retain per application
-5. (Optional) By default automatic policy execution is enabled and will run according to the Crontab schedule defined under the Schedule tab
+Deployed packages are never removed by the package retention policy. If a deployed package is part of the packages identified for removal, then it will be skipped (with no impact on the other packages).
 
-![Package retention policy](images/system-admin-package-retention-policy.png)
+**Note**: Executing a package retention policy does not automatically reclaim disk space freed up by removing the packages. Please see [Reclaim disk space on an XL Deploy server](/xl-deploy/how-to-reclaim-disk-space-on-an-xl-deploy-server.html) for more information.
 
-We can create multiple package retention policies here, e.g.:
+## Automatically purge deployment packages
+
+To automatically purge old deployment packages according to a policy:
+
+1. Click **Repository** in XL Deploy.
+2. Right-click **Configuration** and select `policy.PackageRetentionPolicy`.
+3. Enter a unique name in the **Name** box.
+4. In the **Regex pattern** box, specify a regular expression that matches the packages to which the policy should apply.
+5. Enter the number of deployment packages to retain per application in the **Packages to retain** box.
+6. By default, automatic policy execution is enabled and will run according to the crontab scheduled defined on the **Schedule** tab. You can optionally change the crontab schedule or disable execution.
+
+    ![Package retention policy](images/system-admin-package-retention-policy.png)
+
+**Tip**: You can manually execute a package retention policy by right-clicking it and selecting **Execute job now**.
+
+## Creating multiple package retention policies
+
+You can create multiple package retention policies. For example:
 
 **ReleasePackagePolicy**
 
-* `pattern` - ^Applications/.*/\d{1,8}(?:\.\d{1,6})?(?:\.\d{1,6})?(?:-\d+)?$
-* `packageRetention` - 30
-* `schedule` - 0 0 18 * * *
+* Regex pattern: `^Applications/.*/\d{1,8}(?:\.\d{1,6})?(?:\.\d{1,6})?(?:-\d+)?$`
+* Packages to retain: 30
+* Schedule: `0 0 18 * * *`
 
 **SnapshotPackagePolicy**
 
-* `pattern` - ^Applications/.*/\d{1,8}(?:\.\d{1,6})?(?:\.\d{1,6})?(?:-\d+)?-SNAPSHOT$
-* `packageRetention` - 10
-* `schedule` - 0 0 18 30 * *
+* Regex pattern: `^Applications/.*/\d{1,8}(?:\.\d{1,6})?(?:\.\d{1,6})?(?:-\d+)?-SNAPSHOT$`
+* Packages to retain: 10
+* Schedule: `0 0 18 30 * *`
 
-Please notice that these policies execute independently, so take care to define a regex expression to exclude packages covered by other policies.
-
-The `policy.PackageRetentionPolicy` removes all packages except the last N packages matching the regular expression. Packages are sorted using lexicographical ordering and all deployed packages are automatically excluded from removal.
-If a deployed package is also one of the last N package, it will occupy the slot with no difference to other packages.
+**Important:** Package retention policies are executed independently, so ensure that you define a regular expression that excludes packages that are covered by other policies.
 
 ### Example
 
-An application has the following packages defined: **1.0, 2.0, 3.0, 3.0-SNAPSHOT, 4.0, 5.0**.
+An application has the following deployment packages:
 
-Package **1.0** is deployed to PROD environment and **4.0** to DEV environment.
+* **1.0**
+* **2.0**
+* **3.0**
+* **3.0-SNAPSHOT**
+* **4.0**
+* **5.0**
 
-Assuming a `policy.PackageRetentionPolicy` with a retention of last 3 packages and a release regex, the packages to be removed will be: **2.0**.
+Package **1.0** is deployed to the PROD environment and **4.0** is deployed to the DEV environment.
 
-
-
-**Note**: Running a policy doesn't automatically reclaim disk space freed up by removing the packages. Please see [Reclaim disk space on an XL Deploy server](reclaim-disk-space-on-an-xl-deploy-server.html) for more details on that topic.
-
-**Tip**: The policy can also be executed manually by right-clicking the policy CI and selecting **Execute job now**.
+Assuming a package retention policy that retains the last 3 packages and uses the ReleasePackagePolicy regular expression pattern defined above, the packages to be removed will be: **2.0**.
