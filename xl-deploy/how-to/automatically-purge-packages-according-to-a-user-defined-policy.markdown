@@ -23,7 +23,19 @@ To automatically purge old deployment packages according to a policy create a ne
 
 ![Package retention policy](images/system-admin-package-retention-policy.png)
 
-Usually, you would create at least two retention policies, one for release packages, e.g. `^Applications/.*/([0-9]{0,8})(.([0-9]{0,6})){0,1}(.([0-9]{0,6})){0,1}(-([0-9]+)){0,1}$` and a second one for snapshot packages, e.g. `^Applications/.*/([0-9]{0,8})(.([0-9]{0,6})){0,1}(.([0-9]{0,6})){0,1}(-([0-9]+)){0,1}(-SNAPSHOT){1}$`.
+We can create multiple package retention policies here, e.g.:
+
+**ReleasePackagePolicy**
+
+* `pattern` - ^Applications/.*/\d{1,8}(?:\.\d{1,6})?(?:\.\d{1,6})?(?:-\d+)?$
+* `packageRetention` - 30
+* `schedule` - 0 0 18 * * *
+
+**SnapshotPackagePolicy**
+
+* `pattern` - ^Applications/.*/\d{1,8}(?:\.\d{1,6})?(?:\.\d{1,6})?(?:-\d+)?-SNAPSHOT$
+* `packageRetention` - 10
+* `schedule` - 0 0 18 30 * *
 
 Please notice that these policies execute independently, so take care to define a regex expression to exclude packages covered by other policies.
 
