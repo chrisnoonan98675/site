@@ -1,5 +1,5 @@
 ---
-title: Deploy your first application on GlassFish (XL Deploy 5.0.0 or later)
+title: Deploy your first application on GlassFish (XL Deploy 4.5.x or earlier)
 subject:
 - Getting started
 categories:
@@ -8,15 +8,17 @@ tags:
 - glassfish
 - middleware
 - deployment
-since:
-- 5.0.0
+deprecated:
+- 4.5.x
 ---
 
 After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) and logged in for the first time, follow these instructions to:
 
-1. Create an environment and connect XL Deploy to a GlassFish installation running on Unix
-2. Import a sample application into XL Deploy
-3. Deploy the sample application to the environment that you created
+1. Connect XL Deploy to a GlassFish installation running on Unix
+1. Add GlassFish middleware containers to the XL Deploy Repository
+1. Create an environment where you can deploy applications
+1. Import a sample application into XL Deploy
+1. Deploy the sample application to the environment that you created
 
 If you haven't set up XL Deploy yet, refer to [Install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) to install the software.
 

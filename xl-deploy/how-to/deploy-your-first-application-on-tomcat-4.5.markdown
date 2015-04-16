@@ -1,5 +1,5 @@
 ---
-title: Deploy your first application on Apache Tomcat (XL Deploy 5.0.0 or later)
+title: Deploy your first application on Apache Tomcat (XL Deploy 4.5.x or earlier)
 subject:
 - Getting started
 categories:
@@ -8,13 +8,13 @@ tags:
 - tomcat
 - middleware
 - deployment
-since:
-- 5.0.0
+deprecated:
+- 4.5.x
 ---
 
 After you have installed your version of [XL Deploy](http://xebialabs.com/products/xl-deploy) and logged in for the first time, follow these instructions to:
 
-1. Connect XL Deploy to an Apache Tomcat 6.x, 7.x, or 8.x installation running on Unix or Windows
+1. Connect XL Deploy to an Apache Tomcat 5.5.x, 6.x, 7.x, or 8.x installation running on Unix or Windows
 1. Add the Tomcat server to the XL Deploy Repository
 1. Create an environment where you can deploy applications
 1. Import a sample application into XL Deploy
