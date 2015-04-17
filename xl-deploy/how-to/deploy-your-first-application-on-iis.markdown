@@ -12,63 +12,51 @@ since:
 - 5.0.0
 ---
 
-After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) and logged in for the first time, follow these instructions to:
+After you have [installed XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) and logged in for the first time, follow these instructions to:
 
-1. Connect XL Deploy to your Microsoft Internet Information Services (IIS) installation
-1. Add IIS middleware containers to the XL Deploy Repository
-1. Create an environment where you can deploy applications
+1. Create an environment and add Microsoft Internet Information Services (IIS) middleware containers to it
 1. Import a sample application into XL Deploy
 1. Deploy the sample application to the environment that you created
-
-If you haven't set up XL Deploy yet, refer to [Install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) to install the software.
-
-## Connect to your infrastructure
-
-First, follow [these instructions](/xl-deploy/how-to/connect-xl-deploy-to-your-infrastructure.html#connect-to-a-windows-host-using-winrm) to use WinRM to connect XL Deploy to the host on which IIS is running.
-
-## Add your middleware
-
-Once XL Deploy can communicate with your host, you can add the IIS server:
-
-* [Add an IIS 7.0+ server](#add-an-iis-7-0-server)
-* [Add an IIS 6.0 server](#add-an-iis-6-0-server)
-
-### Add an IIS server
-
-To add an IIS 7.0+ server:
-
-1. Right-click the host that you created and select **New** > **iis** > **Server**.
-2. In the **Name** box, enter a name for the server.
-
-      ![Sample IIS 7.0+ server configuration](images/xl-deploy-trial/xl_deploy_trial_iis_server.png)
-
-3. Click **Save**. XL Deploy saves the server in the Repository.
-
-### Add an IIS 6.0 server
-
-To add an IIS 6.0 server:
-
-1. Right-click the host that you created and select **New** > **iis6** > **Server**.
-2. In the **Name** box, enter a name for the server.
-3. Optionally set the path to the .NET Framework installation in **.NET Framework Installation Path** (defaults to `C:\WINDOWS\Microsoft.NET\Framework64`).
-
-      ![Sample IIS 6.0 server configuration](images/xl-deploy-trial/xl_deploy_trial_iis6_server.png)
-
-3. Click **Save**. XL Deploy saves the server in the Repository.
 
 ## Create an environment
 
 An environment is a grouping of infrastructure and middleware items such as hosts, servers, clusters, and so on. An environment is used as the target of a deployment, allowing you to map deployables to members of the environment.
 
-Follow [these instructions](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html) to create an environment where you can deploy a sample application.
+To create an environment:
 
-To deploy to IIS, select the IIS server from the **Containers** list when creating the environment.
+1. Click **Deployment** in the top navigation bar.
+2. Click **New environment**. The XL Deploy Environments window appears.
+3. Click **Create environment**.
+4. Enter a unique name for the environment in the **Environment name** box.
+5. Click **Next**.
+6. From the **Container type** list, select:
+    * **iis.Server** for IIS 7.0 or later
+    * **iis6.Server** for IIS 6.0
+7. The first item that you need to create is a connection to the host on which IIS is running. To do so, click **Create new** next to **connection (overthere.Host)**. A new window appears.
+8. Enter a unique name for the connection in the **Container name** box.
+9. From the **Container type** list, select the type of connection that XL Deploy should use. If the host is:
+
+    * The same computer on which XL Deploy is running, choose **overthere.LocalHost**
+    * Running a Unix-based operating system, choose **overthere.SshHost**
+    * Running Microsoft Windows, choose **overthere.CifsHost**
+
+    For detailed information about the information that is required for each connection type, refer to [Choose an Overthere host type and connection type](/xl-deploy/how-to/choose-an-overthere-host-type-and-connection-type.html).
+
+10. Click **Create** to create the connection.
+11. To add your IIS server, click **Create new** next to **iis.Server**. A new window appears.
+12. Enter a unique name for the connection in the **Container name** box.
+13. Fill in the required fields (marked with a red asterisk).
+14. Click **Create** to create the server.
+15. Click **Add to environment**.
+16. Click **Next**.
+17. Click **Next**.
+18. Click **Save**. XL Deploy saves the environment and the middleware containers.
 
 ## Import the sample application
 
 XL Deploy includes two versions of a sample application called *NerdDinner*, already packaged in XL Deploy's deployment package format (DAR).
 
-Follow [these instructions](/xl-deploy/how-to/add-a-package-to-xl-deploy.html#import-a-package) to import **NerdDinner/2.0**.
+Follow [these instructions](/xl-deploy/how-to/add-a-package-to-xl-deploy.html#import-a-package) to import **NerdDinner/2.0** from the XL Deploy server.
 
 ## Deploy the sample application
 
@@ -86,7 +74,7 @@ If the deployment fails, click the failed step to see information about the fail
 
 ## Verify the deployment
 
-To verify the deployment, use the <a href="http://msdn.microsoft.com/en-us/library/vstudio/bb763170(v=vs.100).aspx" target="_blank">IIS Manager</a> to connect to the IP address that you provided in [Connect to your infrastructure](#connect-to-your-infrastructure). NerdDinner will appear as a new site on the server. Click the link under **Browse Website** to visit the site.
+To verify the deployment, use the <a href="http://msdn.microsoft.com/en-us/library/vstudio/bb763170(v=vs.100).aspx" target="_blank">IIS Manager</a> to connect to the IP address that you provided when you created the connection. NerdDinner will appear as a new site on the server. Click the link under **Browse Website** to visit the site.
 
 ![Deployed application in IIS 8](images/xl-deploy-trial/xl_deploy_trial_iis_deployed_website.png)
 
