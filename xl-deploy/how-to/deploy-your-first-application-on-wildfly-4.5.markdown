@@ -1,5 +1,5 @@
 ---
-title: Deploy your first application on JBoss Enterprise Application Platform (EAP) 6 and JBoss Application Server (AS)/WildFly 7.1+ (XL Deploy 4.5.x or earlier)
+title: Deploy your first application on JBoss EAP 6 or JBoss AS/WildFly 7.1+ (XL Deploy 4.5.x or earlier)
 subject:
 - Getting started
 categories:
@@ -15,7 +15,7 @@ deprecated:
 
 After you have installed your version of [XL Deploy](http://xebialabs.com/products/xl-deploy) and logged in for the first time, follow these instructions to:
 
-1. Connect XL Deploy to a JBoss Enterprise Application Platform (EAP) 6 and JBoss Application Server (AS)/WildFly 7.1+ installation
+1. Connect XL Deploy to a JBoss Enterprise Application Platform (EAP) 6 or JBoss Application Server (AS)/WildFly 7.1+ installation
 1. Add JBoss/WildFly middleware containers to the XL Deploy Repository
 1. Create an environment where you can deploy applications
 1. Import a sample application into XL Deploy

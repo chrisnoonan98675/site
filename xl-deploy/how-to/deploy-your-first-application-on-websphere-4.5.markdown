@@ -1,5 +1,5 @@
 ---
-title: Deploy your first application on IBM WebSphere Application Server (WAS) (XL Deploy 4.5.x or earlier)
+title: Deploy your first application on IBM WebSphere Application Server (XL Deploy 4.5.x or earlier)
 subject:
 - Getting started
 categories:

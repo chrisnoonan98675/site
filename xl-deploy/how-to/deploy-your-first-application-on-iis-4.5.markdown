@@ -1,5 +1,5 @@
 ---
-title: Deploy your first application on Microsoft Internet Information Services (IIS)  (XL Deploy 4.5.x or earlier)
+title: Deploy your first application on Microsoft IIS (XL Deploy 4.5.x or earlier)
 subject:
 - Getting started
 categories:
