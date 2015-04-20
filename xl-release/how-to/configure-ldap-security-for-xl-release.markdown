@@ -9,6 +9,7 @@ tags:
 - ldap
 - active directory
 - system administration
+- user management
 ---
 
 XL Release cookies store security information that is provided by the [Spring Security](http://projects.spring.io/spring-security/) framework. XL Release does not store any additional information in cookies.

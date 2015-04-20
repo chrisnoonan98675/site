@@ -4,7 +4,9 @@ categories:
 - xl-release
 subject: System administration
 tags:
+- system administration
 - user management
+- security
 ---
 
 If you have installed XL Release recently, you will know that it ships with a default `admin` user whose password is set as part of the installation process. This is an internal user with special characteristics (for example, the password cannot be changed) that is not intended to be used for day-to-day administration of XL Release.
