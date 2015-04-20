@@ -12,13 +12,13 @@ since:
 - 5.0.0
 ---
 
-After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) and logged in for the first time, follow these instructions to:
+After you have [installed XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) and logged in for the first time, follow these instructions to:
 
-1. Create an environment and connect XL Deploy to a GlassFish installation running on Unix
+1. Connect XL Deploy to a GlassFish installation running on Unix
+1. Discover your GlassFish middleware containers
+1. Create an environment where you can deploy applications
 2. Import a sample application into XL Deploy
 3. Deploy the sample application to the environment that you created
-
-If you haven't set up XL Deploy yet, refer to [Install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) to install the software.
 
 ## Connect to your infrastructure
 
@@ -58,7 +58,7 @@ An environment is a grouping of infrastructure and middleware items such as host
 
 Follow [these instructions](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html) to create an environment where you can deploy a sample application.
 
-To deploy to GlassFish, select a GlassFish domain from the **Containers** list when creating the environment.
+To deploy to GlassFish, select **glassfish.Domain** when creating the environment.
 
 ## Import the sample application
 

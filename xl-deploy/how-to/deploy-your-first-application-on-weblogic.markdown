@@ -12,15 +12,13 @@ since:
 - 5.0.0
 ---
 
-After you have installed your version of [XL Deploy](http://xebialabs.com/products/xl-deploy) and logged in for the first time, follow these instructions to:
+After you have [installed XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) and logged in for the first time, follow these instructions to:
 
 1. Connect XL Deploy to your Oracle WebLogic installation
-1. Add WebLogic middleware containers to the XL Deploy Repository
+1. Discover your WebLogic middleware containers
 1. Create an environment where you can deploy applications
 1. Import a sample application into XL Deploy
 1. Deploy the sample application to the environment that you created
-
-If you haven't set up XL Deploy yet, refer to [Install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) to install the software.
 
 ## Connect to your infrastructure
 

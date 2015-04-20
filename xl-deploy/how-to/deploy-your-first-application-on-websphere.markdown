@@ -12,15 +12,13 @@ since:
 - 5.0.0
 ---
 
-After you have installed your version of [XL Deploy](http://xebialabs.com/products/xl-deploy) and logged in for the first time, follow these instructions to:
+After you have [installed XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) and logged in for the first time, follow these instructions to:
 
 1. Connect XL Deploy to your IBM WebSphere Application Server (WAS) Network Deployment (ND) or Base installation
-1. Add WAS middleware containers to the XL Deploy Repository
+1. Discover your WAS middleware containers
 1. Create an environment where you can deploy applications
 1. Import a sample application into XL Deploy
 1. Deploy the sample application to the environment that you created
-
-If you haven't set up XL Deploy yet, refer to [Install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) to install the software.
 
 ## Connect to your infrastructure
 
@@ -90,7 +88,7 @@ An environment is a grouping of infrastructure and middleware items such as host
 
 Follow [these instructions](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html) to create an environment where you can deploy a sample application.
 
-To deploy to WebSphere ND, you must add a *cluster* and a *node agent* to the environment. To deploy to WebSphere Base, you must add a *server* to the environment.
+To deploy to WebSphere ND, you must add a **was.Cluster** and a **was.NodeAgent** to the environment. To deploy to WebSphere Base, you must add a **was.UnmanagedServer** to the environment.
 
 ## Import the sample application
 
