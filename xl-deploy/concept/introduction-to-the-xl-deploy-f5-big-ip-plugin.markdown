@@ -28,9 +28,9 @@ Install Python 2.7.x and the additional [pycontrol](https://pypi.python.org/pypi
 
 ## Using the plugin
 
-The plugin works in conjunction with the "group-based" orchestrator to disable and enable containers that are part of a single deployment group at once.
+The plugin works in conjunction with the group based orchestrator to disable and enable containers that are part of a single deployment group at once.
 
-The group-based orchestrator divides the deployment into multiple phases, based on the `deploymentGroup` property of the containers being targeted. Each group will be disabled in BIG-IP just before they are deployed to, and will be re-enabled right after the deployment to that group. This ensures that there is no downtime during the deployment.
+The group based orchestrator divides the deployment into multiple phases, based on the `deploymentGroup` property of the containers being targeted. Each group will be disabled in BIG-IP just before they are deployed to, and will be re-enabled right after the deployment to that group. This ensures that there is no downtime during the deployment.
 
 The plugin add the following properties to every container to control how the server is known in the BIG-IP load balancer and whether it should take part in the load balancing deployment:
 
