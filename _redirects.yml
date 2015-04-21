@@ -15,7 +15,7 @@
 /xl-test/suggest-feature.html : https://support.xebialabs.com/hc/communities/public/questions/new?question%5Btopic_id%5D=200258619
 /xl-test/help/0001.html : /xl-test/how-to/add-a-test-specification.html
 /xl-test/help/0002.html : /xl-test/how-to/execute-tests-from-xl-test.html
-/xl-test/help/0003.html : /xl-test/index.html # Qualification
+/xl-test/help/0003.html : /xl-test/concept/working-with-qualifications.html
 /xl-test/help/0004.html : /xl-test/concept/xl-test-reports.html
 /xl-test/help/0005.html : /xl-test/how-to/create-a-custom-report-in-xl-test.html
 /xl-test/help/0006.html : /xl-test/how-to/add-a-host-to-xl-test.html
@@ -24,7 +24,7 @@
 /xl-test/help/0009.html : /xl-test/how-to/import-test-results.html
 /xl-test/help/0010.html : /xl-test/concept/supported-test-tools-and-test-result-formats.html
 /xl-test/help/0011.html : /xl-test/concept/xl-test-file-selection-patterns.html
-/xl-test/help/0012.html : /xl-test/index.html # Overthere host options
+/xl-test/help/0012.html : /xl-deploy/how-to/choose-an-overthere-host-type-and-connection-type.html
 /xl-test/help/0013.html : /xl-test/how-to/using-xl-test-dashboards.html
 
 ##### TOPICS THAT HAVE BEEN RENAMED
