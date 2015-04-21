@@ -29,6 +29,9 @@ To install XL Deploy:
 1. Ensure that you meet the [prerequisites](/xl-deploy/concept/requirements-for-installing-xl-deploy.html).
 1. Download the [Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files](http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html) and install them in the `<JRE_HOME>\lib\security` directory. `<JRE_HOME>` is the location where the Java SE Runtime Environment (JRE) is installed.
 1. Double-click the installer to run it.
+
+    **Note:** In some versions of Windows, you may receive a warning that the publisher is unknown. This is caused by a missing root certificate in the operating system. You can safely proceed with the installation.
+
 1. Follow the steps in the installer to set up and start the XL Deploy server. If you chose to install the demo environment, the installer will also start the demo server.
 1. Go to [http://localhost:4516/](http://localhost:4516/) to access XL Deploy.
 
