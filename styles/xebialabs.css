@@ -401,3 +401,25 @@ form.form-search:before {
     display: inline-block;
     height: 45px;
 }
+
+/* In-product help popup styles */
+
+#popup-container {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: OpenSans, Helvetica, Arial, sans-serif;
+}
+
+#popup-container h1 {
+	text-align: center;
+}
+
+.img-valign {
+  vertical-align: middle;
+  box-shadow: none;
+}
+
+.in-product-help-list li {
+	padding-bottom: 15px;
+}

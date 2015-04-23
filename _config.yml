@@ -6,6 +6,7 @@ url: https://docs.xebialabs.com
 sitemap:
     exclude:
         - "/tags-and-subjects.html"
+        - "/xl-deploy/in-product-help.html"
 
 defaults:
     -

@@ -7,7 +7,6 @@ subject:
 tags:
 - system administration
 - plugin
-- getting started
 - installation
 - setup
 ---
