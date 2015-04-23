@@ -39,7 +39,7 @@ To install XL Test:
 3. Open a command prompt and navigate to `xl-test-server-<version>/bin`.
 4. Execute one of the following commands to start the setup wizard:
       * On Unix: `server.sh`
-      * On Windows: `server.bat`
+      * On Windows: `server.cmd`
 5. After XL Test has started, the message `Starting XL Test ... done.` appears and the URL to open XL Test is displayed.
 
 
