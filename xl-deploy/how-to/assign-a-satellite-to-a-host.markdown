@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Assign a satellite to a host
 categories:
 - xl-deploy
@@ -10,7 +9,7 @@ tags:
 - satellite
 - host
 since:
-- 5.0.x
+- 5.0.0
 ---
 
 To assign a satellite to a host in XL Deploy:

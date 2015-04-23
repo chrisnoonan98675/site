@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Enable XL Deploy maintenance mode
 categories:
 - xl-deploy

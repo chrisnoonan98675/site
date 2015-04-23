@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Add a package to XL Deploy
 categories:
 - xl-deploy

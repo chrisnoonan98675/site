@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: How satellites affect the deployment plan
 categories:
 - xl-deploy

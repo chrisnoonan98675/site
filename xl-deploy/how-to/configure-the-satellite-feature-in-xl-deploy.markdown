@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Configure the satellite feature in XL Deploy
 categories:
 - xl-deploy
@@ -11,7 +10,7 @@ tags:
 - remoting
 - satellite
 since:
-- 5.0.x
+- 5.0.0
 ---
 
 ## Configure the ping timeout

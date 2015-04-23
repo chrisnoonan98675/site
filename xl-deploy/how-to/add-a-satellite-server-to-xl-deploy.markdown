@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Add a satellite server to XL Deploy
 categories:
 - xl-deploy

@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Configure XL Deploy to fetch artifacts from a Maven repository
 subject:
 - System administration

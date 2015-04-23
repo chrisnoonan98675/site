@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Add an externally stored artifact to a package
 subject:
 - Packaging

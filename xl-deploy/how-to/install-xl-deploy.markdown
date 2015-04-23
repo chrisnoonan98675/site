@@ -80,10 +80,10 @@ To install the XL Deploy server, go to a command line or terminal window and exe
 {:.table .table-striped}
 | Operating system | XL Deploy version | Command |
 | ---------------- | ----------------- | ------- |
-| Microsoft Windows | XL Deploy 4.5.x and earlier | `server.cmd -setup` |
-| Microsoft Windows | XL Deploy 5.0.0 and later <span class="label label-danger">beta</span> | `run.cmd -setup` |
-| Unix-based systems | XL Deploy 4.5.x and earlier | `server.sh -setup` |
-| Unix-based systems | XL Deploy 5.0.0 and later <span class="label label-danger">beta</span> | `run.sh -setup ` |
+| Microsoft Windows | XL Deploy 4.5.x or earlier | `server.cmd -setup` |
+| Microsoft Windows | XL Deploy 5.0.0 or later | `run.cmd -setup` |
+| Unix-based systems | XL Deploy 4.5.x or earlier | `server.sh -setup` |
+| Unix-based systems | XL Deploy 5.0.0 or later | `run.sh -setup ` |
 
 To stop the setup wizard at any time, enter `exitsetup`. All changes to the configuration will be discarded.
 
@@ -218,10 +218,10 @@ To start the XL Deploy server, execute the appropriate command:
 {:.table .table-striped}
 | Operating system | XL Deploy version | Command |
 | ---------------- | ----------------- | ------- |
-| Microsoft Windows | XL Deploy 4.5.x and earlier | `server.cmd` |
-| Microsoft Windows | XL Deploy 5.0.0 and later <span class="label label-danger">beta</span> | `run.cmd` |
-| Unix-based systems | XL Deploy 4.5.x and earlier | `server.sh` |
-| Unix-based systems | XL Deploy 5.0.0 and later <span class="label label-danger">beta</span> | `run.sh` |
+| Microsoft Windows | XL Deploy 4.5.x or earlier | `server.cmd` |
+| Microsoft Windows | XL Deploy 5.0.0 or later | `run.cmd` |
+| Unix-based systems | XL Deploy 4.5.x or earlier | `server.sh` |
+| Unix-based systems | XL Deploy 5.0.0 or later | `run.sh` |
 
 If you chose the simple setup, you can access XL Deploy at [http://localhost:4516/](http://localhost:4516/). 
 

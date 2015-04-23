@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Ping a satellite from XL Deploy
 categories:
 - xl-deploy

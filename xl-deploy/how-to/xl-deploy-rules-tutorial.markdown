@@ -22,8 +22,8 @@ This tutorial will guide you through the process of using rules to create an XL 
 
 This tutorial assumes that you:
 
-* Know how to create CI types, as described in [Customizing the XL Deploy Type System](/xl-deploy/4.5.x/customizationmanual.html#customizing-the-xl-deploy-type-system)
-* Understand the concepts of XL Deploy planning, as described in [Deployments and Plugins](/xl-deploy/4.5.x/customizationmanual.html#deployments-and-plugins)
+* Know how to create CI types, as described in [Customizing the XL Deploy type system](/xl-deploy/how-to/customizing-the-xl-deploy-type-system.html)
+* Understand the concepts of XL Deploy planning, as described in [Understanding XL Deploy architecture](/xl-deploy/concept/understanding-xl-deploy-architecture.html#deployments-and-plugins)
 
 For reference, you can download the code provided in this tutorial from the XebiaLabs [GitHub](https://github.com/xebialabs/xl-deploy-samples/tree/master/rules-demo-plugin).
 
@@ -128,9 +128,7 @@ The following `os-script` parameters are defined automatically:
 
 ### Script
 
-<div class="alert alert-danger" role="alert">The information in this section is in beta and is subject to change.</div>
-
-The FreeMarker variable for the `deployed` object is automatically added to the `freemarker-context`. This allows the script to refer to properties of the `deployed` object such as file location.
+In XL Deploy 4.5.3, 5.0.0, and later, the FreeMarker variable for the `deployed` object is automatically added to the `freemarker-context`. This allows the script to refer to properties of the `deployed` object such as file location.
      
 The `script` parameter refers to scripts for Unix (`deploy-artifact.sh.ftl`) and Windows (`deploy-artifact.bat.ftl`). The step will select the correct script for the operating system that XL Deploy runs on. The scripts are actually script templates processed by FreeMarker. The template can access the variables passed in by the `freemarker-context` parameter of the step.
 
@@ -145,9 +143,7 @@ The script accesses the variable `deployed` and uses it to find the location of 
 
 ### Script
 
-<div class="alert alert-danger" role="alert">The information in this section is deprecated and is subject to change.</div>
-
-The FreeMarker variable for the `deployed` object is automatically added to the `freemarker-context`. This allows the script to refer to properties of the `deployed` object such as file location.
+In XL Deploy 4.5.3, 5.0.0, and later, the FreeMarker variable for the `deployed` object is automatically added to the `freemarker-context`. This allows the script to refer to properties of the `deployed` object such as file location.
      
 The `script` parameter refers to scripts for Unix (`deploy-artifact.sh.ftl`) and Windows (`deploy-artifact.bat.ftl`). The step will select the correct script for the operating system that XL Deploy runs on. The scripts are actually script templates processed by FreeMarker. The template can access the variables passed in by the `freemarker-context` parameter of the step.
 
@@ -262,9 +258,7 @@ Notice that:
 
 ### Script
 
-<div class="alert alert-danger" role="alert">The information in this section is in beta and is subject to change.</div>
-
-The FreeMarker variable for the `previousDeployed` object is automatically added to the `freemarker-context`. This allows the script to refer to the properties of the previous deployed object such as file name.
+In XL Deploy 4.5.3, 5.0.0, and later, the FreeMarker variable for the `previousDeployed` object is automatically added to the `freemarker-context`. This allows the script to refer to the properties of the previous deployed object such as file name.
 
 The Unix script `undeploy-artifact.sh.ftl` contains:
 
@@ -274,9 +268,7 @@ The Unix script `undeploy-artifact.sh.ftl` contains:
 
 ### Script
 
-<div class="alert alert-danger" role="alert">The information in this section is deprecated and is subject to change.</div>
-
-The Unix script `undeploy-artifact.sh.ftl` contains:
+If you are using XL Deploy 4.5.2 or earlier, the Unix script `undeploy-artifact.sh.ftl` contains:
 
     echo "Undeploying file on Unix"
     rm ${deployed.container.home + "/context/" + deployed.file.name}

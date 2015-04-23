@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Getting started with the satellite feature
 categories:
 - xl-deploy
