@@ -40,9 +40,16 @@ To install XL Test:
 4. Execute one of the following commands to start the setup wizard:
       * On Unix: `server.sh`
       * On Windows: `server.bat`
-5. After XL Test has started, the message `Starting XL Test ... done.` appears.
+5. After XL Test has started, the message `Starting XL Test ... done.` appears and the URL to open XL Test is displayed.
 
-To access the XL Test user interface, open [http://localhost:6516](http://localhost:6516) in a browser.
+
+Should you want to run XL Test on a different port, then perform the following procedure after step 3: 
+
+* Edit the respective files `server.sh` or `server.cmd` and look for the definition of `XLTEST_SERVER_OPTS`.
+* Add the parameter xltest.host to the definition of `XLTEST_SERVER_OPTS` as follows:
+`XLTEST_SERVER_OPTS="-Xmx1024m -XX:MaxPermSize=128m -Dxltest.port=<port number>"`.
+
+To access the XL Test user interface, open the provided URL in a browser.
 
 ### Directory structure
 
