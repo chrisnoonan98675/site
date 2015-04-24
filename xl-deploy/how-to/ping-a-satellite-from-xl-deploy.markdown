@@ -20,8 +20,6 @@ To ping a satellite server:
 1. Click **Repository** in XL Deploy.
 2. Right-click the satellite and select **Ping the satellite**.
 
-    ![Ping a satellite](images/ping-a-satellite.png)
-
 If the connection check succeeds, XL Deploy will return five ping values and the uptime of the satellite. The first ping value may be higher than the others if this is the first time XL Deploy is trying to connect to the satellite.
 
 ![Ping results](images/ping-a-satellite-result.png)
