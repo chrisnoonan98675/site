@@ -88,6 +88,7 @@
 /xl-deploy/latest/maven-plugin/index.html : /deployit-maven-plugin/4.5.2/index.html
 /xl-deploy/latest/jenkins-plugin/index.html : https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin
 /xl-deploy/latest/bamboo-plugin/index.html : /bamboo-xl-deploy-plugin/4.5.x/bambooPluginManual.html
+/xl-deploy/latest/tfs-plugin/index.html : /xl-deploy-tfs-plugin/4.5.x/tfsPluginManual.html
 
 # XL Deploy non-bundled plugin doc, legacy format
 /releases/latest/jbossas-plugin/jbossPluginManual.html : /xl-deploy-jbossas-plugin/4.0.x/jbossPluginManual.html
