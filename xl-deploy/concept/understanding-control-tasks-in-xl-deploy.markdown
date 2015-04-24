@@ -10,10 +10,12 @@ tags:
 - task
 ---
 
-Control tasks are actions that can be performed on middleware or middleware resources. When a control task is invoked, XL Deploy starts a task that executes the steps associated with the control task. To trigger a control task on a CI in the repository, do the following:
+Control tasks are actions that can be performed on middleware or middleware resources; for example, checking the connection to a host is a control task.
 
-1. **List the Control Tasks for a CI**. In the Repository Browser navigate the repository to find the CI for which you want to trigger a control task. Right-click on the item and select **Tasks**. A submenu will show a list of possible control tasks.
-2. **Execute the Control Task on a CI**. Select the control task from the list you want to trigger. This will invoke the selected action on the CI.
-3. **Fill in parameters**. If the control task has parameters, you can to fill them in before you can start the control task.
+When a control task is invoked, XL Deploy starts a task that executes the steps associated with the control task.
 
-![Selecting a control task](images/control-task.png)
+To trigger a control task on a CI in the repository, do the following:
+
+1. **List the control tasks for a CI**. In the Repository, locate the CI for which you want to trigger a control task. Right-click the item to see the control tasks.
+2. **Execute the control task on a CI**. Select the control task you want to trigger. This will invoke the selected action on the CI.
+3. **Provide parameters**. If the control task has parameters, you must provide them before you start the control task.
