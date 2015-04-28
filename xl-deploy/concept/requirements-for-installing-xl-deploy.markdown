@@ -90,13 +90,11 @@ It is possible to connect XL Deploy to middleware servers that do not support SS
 To use the XL Deploy GUI, you must meet the following requirements:
 
 * **Web browser**:
-	* Internet Explorer 8.0 or later
+	* Internet Explorer 10 or later
 	* Firefox
 	* Chrome
 	* Safari
-* **Flash player**: Versions 9.0 or later
-
-The XL Deploy [user interface extension feature](/xl-deploy/how-to/extend-the-xl-deploy-user-interface.html) requires Internet Explorer 10.0 or later.
+* **Flash player**: Version 9 or later
 
 ### CLI clients
 
