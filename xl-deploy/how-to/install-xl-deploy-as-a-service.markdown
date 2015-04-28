@@ -24,11 +24,11 @@ To install XL Deploy 5.0.0 or later as a daemon or service:
 
     Also, you must ensure that the server is configured so that it can start without input from the user; for example, if a repository keystore password is required, then it should be provided in `deployit.conf`.
 
-1. As root (on Unix) or an administrator (on Windows), execute `bin/install.sh` (on Unix) or `bin/install.cmd` (on Windows). This command will install the service.
+1. As root (on Unix) or an administrator (on Windows), execute `bin/install-service.sh` (on Unix) or `bin/install-service.cmd` (on Windows). This command will install the service.
 
     On a Unix-based system, you will be asked for the user name under which you installed the XL Deploy server when you executed `run.sh`.
 
-**Tip:** To remove the installed service from the system, use the `bin/uninstall.sh` or `bin/uninstall.cmd` command.
+**Tip:** To remove the installed service from the system, use the `bin/uninstall-service.sh` or `bin/uninstall-service.cmd` command.
 
 ## Install XL Deploy 4.5.x or earlier as a daemon or service
 
