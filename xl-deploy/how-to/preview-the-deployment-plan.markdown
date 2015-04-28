@@ -1,5 +1,5 @@
 ---
-title: Using the Plan Analyzer
+title: Preview the deployment plan
 categories:
 - xl-deploy
 subject:
@@ -8,11 +8,15 @@ tags:
 - deployment
 - planning
 - gui
+- preview
 ---
 
 When you set up an initial deployment, an upgrade, or an undeployment, you can use the Plan Analyzer to preview the deployment plan that XL Deploy generated based on the deployment configuration. As you map deployables to containers in the deployment configuration, the Plan Analyzer will update and show changes to the plan.
 
-To open the Plan Analyzer in XL Deploy 4.5.x or earlier, click **Analyze** at the bottom of the Deployment Workspace. In XL Deploy 5.0.0 or later, click **Preview**.
+To open the Plan Analyzer from the Deployment Workspace:
+
+* In XL Deploy 4.5.x or earlier, click **Analyze**
+* In XL Deploy 5.0.0 or later, click **Preview**
 
 The Plan Analyzer is read-only, so you cannot use it to skip steps or insert pause steps in the plan.
 
