@@ -17,10 +17,10 @@ since:
 
 Before installing the server as a service, first follow the installation procedure documented above. This includes as a step executing `bin/run.sh` or `bin/run.cmd` script in order to configure and initialize the server. On Linux, you should do this as the user under which you want XL Deploy to run. Also, please make sure the server is configured so that it can start without input from the user (e.g. if a repository keystore password is required then it should be provided in `deployit.conf`).
 
-The next step is to execute `bin/install.sh` on Linux or `bin/install.cmd` on Windows. These scripts will do the actual installation of the service. They require the current user to be root on Linux or an Administrator on Windows.
+The next step is to execute `bin/install-service.sh` on Linux or `bin/install-service.cmd` on Windows. These scripts will do the actual installation of the service. They require the current user to be root on Linux or an Administrator on Windows.
 On Linux you will be asked for the user name under which XL Deploy server was previously installed using `run.sh`.
 
-To remove the installed service from the system, use the `bin/uninstall.sh` or `bin/uninstall.cmd` script.
+To remove the installed service from the system, use the `bin/uninstall-service.sh` or `bin/uninstall-service.cmd` script.
 
 ## Install XL Deploy 4.5.x or earlier as a daemon or service
 
@@ -122,7 +122,7 @@ You must have `java` available on your PATH.
 1. Go to Windows services and start the XL Deploy service.
 
       ![Windows services](images/windows_srvany_3.png)
-      
+
 ### Microsoft Windows approach 3: `nssm`
 
 #### Prerequisite
@@ -135,19 +135,19 @@ You must have `java` available on your PATH.
 1. Install the XL Deploy service as follows:
 
 		nssm.exe install XL_Deploy F:\xebialabs\xld451\xl-deploy-4.5.1-server\bin\server.cmd
-	
+
 1. You should get a notification back that the service was installed as follows:
-		
+
 		Service "XL_Deploy" installed successfully!
-		
+
 1. Now you can go to the `Services` application and start/stop your new `XL_Deploy` service
 
 	![Service entry](images/windows_nssm_1.png)
-		
+
 1. It is possible to also edit service parameters from a GUI using the command as follows:
 
 		nssm.exe edit XL_Deploy
-		
+
 1. A window will open with all of the configurable options for the `XL_Deploy` service as follows:
 
 	![NSSM service editor](images/windows_nssm_2.png)
