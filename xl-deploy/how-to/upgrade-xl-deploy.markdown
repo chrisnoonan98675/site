@@ -59,7 +59,10 @@ To upgrade an XL Deploy server installation:
 1. Extract the server archive. It creates an installation directory that contains the version number (for example, `xl-deploy-4.0.0-server`).
 1. [Shut down the XL Deploy server.](/xl-deploy/how-to/shut-down-xl-deploy.html)
 1. Copy the contents of the `conf` directory from the previous installation to the new installation directory.
-1. If necessary, update the product license (`conf/deployit-license.lic`). You can download your current licenses from [https://dist.xebialabs.com/](https://dist.xebialabs.com/).
+1. If necessary, update the product license (`conf/deployit-license.lic`). You can download your current license from [https://dist.xebialabs.com/](https://dist.xebialabs.com/).
+
+    **Important:** To upgrade to XL Deploy 5.0.0, you must download and install a new license.
+
 1. Copy the `repository` directory from the previous installation to the new installation directory.
 1. Copy the contents of the `importablePackages` directory from the previous installation to the new installation directory.
 1. Copy the contents of the `plugins` directory from the previous installation to the new installation directory (unless new versions of your plugins were provided with the new XL Deploy version). 
