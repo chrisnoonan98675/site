@@ -40,7 +40,9 @@ XL Test shows the test result files that it found. Verify that they are correct,
 
 ## Step 4 Import the results
 
-Enter a unique name for the test specification based on these results. Click **Next** to import the results and save the specification.
+1. Select an existing project, or create a new one.
+2. Enter an unique name for the test specification based on these results. 
+3. Click **Next** to import the results and save the specification.
 
 ## Step 5 Finish
 
