@@ -18,7 +18,7 @@ To remove a plugin, stop the XL Deploy server and remove the plugin XLDP or JAR 
 The default XL Deploy server classloader will use the following classpath:
 
 * `conf`: For configuration files.
-* `hotfix/*`: For server hotfixes, `jar` files only.
+* `hotfix/lib/*`: For server hotfixes, `jar` files only.
 * `lib/*`: For server libraries, `jar` files only.
 
 These folders can be configured by changing `xld-wrapper.conf`. The XL Deploy server classpath typically contains resources, configuration files and libraries needed by the server itself to work.
