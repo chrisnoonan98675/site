@@ -38,7 +38,7 @@ XL Deploy runs on the Java virtual machine (JVM) and has classloaders for the se
 The XL Deploy server classpath typically contains resources, configuration files, and libraries that the server needs to work. The default XL Deploy server classloader will use the following classpath:
 
 * `conf`: For configuration files
-* `hotfix/lib/*`: For server hotfixes (JAR files only)
+* `hotfix/*`: For server hotfixes (JAR files only)
 * `lib/*`: For server libraries (JAR files only)
 
 You can configure these folders in `xld-wrapper.conf`.

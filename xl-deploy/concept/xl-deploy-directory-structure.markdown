@@ -17,7 +17,7 @@ When you extract the XL Deploy server archive, the following directory structure
 * `conf`: Contains server configuration files and the XL Deploy license
 * `doc`: Contains the XL Deploy product documentation
 * `ext`: Contains server extensions
-* `hotfix/lib`: Contains hotfixes that fix issues with the server software
+* `hotfix`: Contains hotfixes that fix issues with the server software
 * `hotfix/plugins`: Contains hotfixes that fix issues with the plugin software
 * `importablePackages`: Default location for importable deployment packages
 * `lib`: Contains libraries that the Server needs
