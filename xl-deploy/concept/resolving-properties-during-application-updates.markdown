@@ -28,7 +28,9 @@ In XL Deploy 4.5.x and earlier, XL Deploy uses a fallback mechanism when it cann
 
 In XL Deploy 5.0.0 and later, XL Deploy does not use the fallback mechanism when you update a deployed application. Instead, it resolves properties in the same way that it does for the initial deployment of the application.
 
-This means that if you manually set a value for a deployed property during a deployment, that value will not be preserved when you update the deployed application. However, XL Deploy includes several features to help you avoid manually setting deployed values:
+This means that if you manually set a value for a deployed property during a deployment, that value will not be preserved when you update the deployed application. This also means that if the property has a default value, the default value will be used when you update the deployed application, even if you overrode the default during the previous deployment.
+
+XL Deploy includes several features to help you avoid manually setting property values on deployeds:
 
 * Store the values in dictionaries and use [placeholders](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) in deployed properties
 * Design your deployment packages so that deployed properties are automatically provided
@@ -50,4 +52,3 @@ In detail, this is the logic XL Deploy uses to resolve properties in XL Deploy 5
     2. If the previous step does not set a value on the deployed (that is, it is null or empty collection)
         2. Set the value from the previous deployed
 3. Else use the default value for the deployed's property
-
