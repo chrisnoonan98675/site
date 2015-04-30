@@ -1,10 +1,9 @@
 ---
-layout: beta
 title: Export items from or import items into the repository
 categories:
 - xl-deploy
 subject:
-- Command-line interface
+- Repository
 tags:
 - cli
 - ci
