@@ -18,7 +18,7 @@ To enable multi-hop support (also known as CredSSP) for WinRM when using the `WI
 
 1. Execute the following command:
 
-        winrm set winrm/config/client/auth '@{CredSSP="true"}'
+        winrm set winrm/config/client/auth @{CredSSP="true"}
 
 1. Open the Group Policy Editor (`gpedit.msc`).
 1. Go to **Computer Configuration** > **Administrative Templates** > **System** > **Credentials Delegation**.
@@ -41,7 +41,7 @@ If the XL Deploy server is not in the same Windows domain as at least one of the
 
 Execute the following command:
 
-    winrm set winrm/config/service/auth '@{CredSSP="true"}'
+    winrm set winrm/config/service/auth @{CredSSP="true"}
 
 ### In XL Deploy
 
