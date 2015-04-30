@@ -37,6 +37,7 @@
 /xl-deploy/concept/advanced-xl-deploy-configuration.html : /xl-deploy/how-to/advanced-xl-deploy-configuration.html
 /xl-deploy/how-to/common-xl-deploy-cli-tasks.html : /xl-deploy/how-to/using-the-xl-deploy-cli.html
 /xl-deploy/concept/installing-and-removing-xl-deploy-plugins.html : /xl-deploy/how-to/install-or-remove-xl-deploy-plugins.html
+/xl-deploy/how-to/using-the-plan-analyzer.html : /xl-deploy/how-to/preview-the-deployment-plan.html
 
 ##### LEGACY PAGES THAT ARE NO LONGER USED
 
@@ -209,10 +210,3 @@
 /releases/latest/xlr-git-plugin/gitPluginManual.html : /xl-release/4.6.x/xlr-git-plugin/gitPluginManual.html
 /releases/latest/xlr-nexus-plugin/nexusPluginManual.html : /xl-release/4.6.x/xlr-nexus-plugin/nexusPluginManual.html
 /releases/latest/xlr-time-plugin/timePluginManual.html : /xl-release/4.6.x/xlr-time-plugin/timePluginManual.html
-
-# Redirect topics that have been renamed
-/xl-deploy/how-to/perform-an-update.html : /xl-deploy/how-to/update-a-deployed-application.html
-/xl-deploy/how-to/use-xl-deploy-garbage-collection.html : /xl-deploy/how-to/reclaim-disk-space-on-an-xl-deploy-server.html
-/xl-deploy/how-to/reset-admin-password-xl-deploy-server.html : /xl-deploy/how-to/changing-passwords-in-xl-deploy.html
-/xl-deploy/concept/xl-deploy-remoting-plugin.html : /xl-deploy/concept/introduction-to-the-xl-deploy-remoting-plugin.html
-/xl-deploy/how-to/using-the-plan-analyzer.html : /xl-deploy/how-to/preview-the-deployment-plan.html
