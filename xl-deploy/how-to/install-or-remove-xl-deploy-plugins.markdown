@@ -8,7 +8,6 @@ tags:
 - system administration
 - plugin
 - installation
-- setup
 ---
 
 An XL Deploy plugin can have a `.jar` extension or, as of XL Deploy 5.0.0, an `.xldp` extension. The XLDP format is a ZIP archive that bundles the plugin with its dependencies.
