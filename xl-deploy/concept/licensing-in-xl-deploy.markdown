@@ -8,7 +8,19 @@ tags:
 - system administration
 - license
 - ci
+- installation
+- upgrade
 ---
+
+## License types
+
+When you log in to the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/), you will see all of your current licenses. There are three versions of the XL Deploy license:
+
+* V1: Required for XL Deploy 4.0.x and earlier
+* V2: Required for XL Deploy 4.5.x
+* V3: Required for XL Deploy 5.0.0 and later
+
+To check the version of a license, open it in a text editor. The version is identified in the license file.
 
 ## License validation
 
@@ -31,4 +43,4 @@ If your license limits the number of CIs that you can create, XL Deploy validate
 * If a CI is a subtype of another type (its *supertype*), the instances of the subtype CI count toward the limit on the supertype. 
 * You can always create instances of CI types that are not limited by your license.
 
-To see how many CI types you have created, go to **Help** > **About** > **License** in the XL Deploy user interface.
+To see how many CI types you have created, go to **Administration** > **About** > **License** in the XL Deploy user interface.
