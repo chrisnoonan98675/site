@@ -21,7 +21,7 @@ To create a package in the XL Deploy interface:
 
 1. In the top menu, click **Deployment**.
 1. Click ![Packages](/images/button_add_package_deployment_workspace.png) under **Packages**.
-1. Click **Add package**. The New deployment package screen appears.
+1. Click **Create package**. The New deployment package screen appears.
 1. In the **Name** box, enter the name of the application. If you want to create the package in a new or existing directory, include it in the name.
 1. In the **Version** box, enter the version of the deployment package.
 
