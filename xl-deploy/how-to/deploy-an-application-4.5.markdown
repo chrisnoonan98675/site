@@ -1,5 +1,5 @@
 ---
-title: Deploy an application (XL Deploy 5.0.0 or later)
+title: Deploy an application (XL Deploy 4.5.x or earlier)
 categories:
 - xl-deploy
 subject:
@@ -8,8 +8,8 @@ tags:
 - deployment
 - application
 - package
-since:
-- 5.0.0
+deprecated:
+- 4.5.x
 ---
 
 After you have [defined your infrastructure](connect-xl-deploy-to-your-infrastructure.html), [defined an environment](create-an-environment-in-xl-deploy.html), and added an application to XL Deploy, you can perform the initial deployment of an application to an environment.
@@ -20,27 +20,21 @@ To deploy an application to an environment:
 
 1. Click **Deployment** in the top bar.
 1. Locate the application under **Packages** and expand it to see the versions (deployment packages).
-1. Locate the environment under **Environments**.
-1. Drag the version of the application that you want to deploy and drop it on the environment where you want to deploy it. The application and environment appear in the Workspace.
-
-    XL Deploy automatically maps the deployables in the application to the appropriate containers in the environment.
-
-1. Click **Execute** to immediately start the deployment.
-
-You can also optionally:
-
-* View or edit the properties of a mapped deployable by double-clicking it or by selecting it and clicking ![Edit deployed](/images/button_edit_deployed.png).
-* Click **Deployment Properties** to select the [orchestrators](/xl-deploy/concept/understanding-orchestrators.html) that XL Deploy should use when generating the deployment plan.
-* Click **Preview** to preview the deployment plan that XL Deploy generates. You can double-click each step to see the script that XL Deploy will use to execute the step.
-* Click **Advanced** if you want to adjust the deployment plan by skipping steps or inserting pauses.
-
-If the server does not have the capacity to immediately start executing the plan, the plan will be in a `QUEUED` state until the server has sufficient capacity. 
+1. Locate the environment under **Deployed Applications**.
+1. Drag the version of the application that you want to deploy to the left side of the Workspace.
+1. Drag the environment where you want to deploy the application to the right side of the Workspace.
+2. Click ![Auto-map button](/images/button_auto-map.png) to map the deployables in the deployment package to the containers in the environment.
+1. Optionally view or edit the properties of a mapped deployable by double-clicking it or by selecting it and clicking ![Edit deployed](/images/button_edit_deployed.png).
+1. Optionally click **Deployment Properties** to select the [orchestrators](/xl-deploy/concept/understanding-orchestrators.html) that XL Deploy should use when generating the deployment plan.
+1. Optionally click **Analyze** to preview the deployment plan that XL Deploy generates. You can double-click each step to see the script that XL Deploy will use to execute the step.
+1. Click **Next**. The deployment plan appears.
+1. Click **Execute** to start the deployment. If the server does not have the capacity to immediately start executing the plan, the plan will be in a `QUEUED` state until the server has sufficient capacity. 
 
 If a step in the deployment fails, XL Deploy stops executing the deployment and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
 
 ## Mapping tips
 
-* Instead of dragging-and-dropping a deployment package on the environment, you can right-click the deployment package and select **Deploy**, then right-click the environment and select **Deploy to**.
+* Instead of dragging-and-dropping the application version on the environment, you can right-click the application version and select **Deploy** and right-click the environment and select **Deploy to**.
 * You can manually map deployables by dragging and dropping them on containers in the Workspace. The cursor will indicate whether the deployable type can be mapped to the container type.
 * To remove a deployable from all containers where it is mapped, select it in the left side of the Workspace and click ![Remove deployed from all containers](/images/remove_deployed.png).
 * To remove one mapped deployable from a container, select it in the right side of the Workspace and click ![Remove deployed](/images/button_remove_deployed.png).
