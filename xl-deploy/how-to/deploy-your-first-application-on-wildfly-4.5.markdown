@@ -1,5 +1,5 @@
 ---
-title: Deploy your first application on JBoss EAP 6 or JBoss AS/WildFly 7.1+ (XL Deploy 5.0.0 or later)
+title: Deploy your first application on JBoss EAP 6 or JBoss AS/WildFly 7.1+ (XL Deploy 4.5.x or earlier)
 subject:
 - Getting started
 categories:
@@ -9,17 +9,19 @@ tags:
 - wildfly
 - middleware
 - deployment
-since:
-- 5.0.0
+deprecated:
+- 4.5.x
 ---
 
-After you have [installed XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) and logged in for the first time, follow these instructions to:
+After you have installed your version of [XL Deploy](http://xebialabs.com/products/xl-deploy) and logged in for the first time, follow these instructions to:
 
 1. Connect XL Deploy to a JBoss Enterprise Application Platform (EAP) 6 or JBoss Application Server (AS)/WildFly 7.1+ installation
-1. Discover your JBoss/WildFly middleware containers
+1. Add JBoss/WildFly middleware containers to the XL Deploy Repository
 1. Create an environment where you can deploy applications
 1. Import a sample application into XL Deploy
 1. Deploy the sample application to the environment that you created
+
+If you haven't set up XL Deploy yet, refer to [Install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) to install the software.
 
 ## Connect to your infrastructure
 
@@ -79,7 +81,7 @@ An environment is a grouping of infrastructure and middleware items such as host
 
 Follow [these instructions](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html) to create an environment where you can deploy a sample application.
 
-To deploy to a JBoss Domain, you must add a **jbossdm.ServerGroup** to the environment. To deploy to a stand-alone JBoss server, you must add the **jbossdm.StandaloneServer** to the environment.
+To deploy to a JBoss Domain, you must add a *server group* to the environment. To deploy to a stand-alone JBoss server, you must add the *server* to the environment.
 
 ## Import the sample application
 

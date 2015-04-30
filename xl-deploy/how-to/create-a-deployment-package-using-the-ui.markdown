@@ -10,6 +10,8 @@ tags:
 - gui
 since:
 - 3.8.x
+deprecated:
+- 5.0.0
 ---
 
 **Tip:** For information about creating a deployment package in XL Deploy 5.0.0 and later, refer to [Add a package to XL Deploy](/xl-deploy/how-to/add-a-package-to-xl-deploy.html).
@@ -27,8 +29,6 @@ Deployment packages are versions of an application. An application will contain 
 To create an application, login to the XL Deploy UI and go to the **Repository** tab.
 Right-click on **Applications** and choose **New** > **Application**
 
-![image](images/package-create-application.png) 
-
 Give it the name 'MyApp' and press save.
 
 ## Creating a deployment package
@@ -36,8 +36,6 @@ Give it the name 'MyApp' and press save.
 Now let's create a deployment package that has all the content of version 1.0 of MyApp.
 
 Right-click on **MyApp** and choose  **New** > **DeploymentPackage**
-
-![image](images/package-create-deployment-package.png) 
 
 Give it the name '1.0' and press save.
 
@@ -50,8 +48,6 @@ We're now ready to add actual deployable content to the package. Remember that i
 First we'll add a simple deployable without file content. Let's create a deployable DataSource in the package. 
 
 Right-click on **MyApp** and choose  **New** > **jee** > **DataSourceSpec**
-
-![image](images/package-create-datasource.png) 
 
 Give it the name 'MyDataSource' and JNDI-name 'jdbc/my-data-source'. Press **Save**. 
 
@@ -66,8 +62,6 @@ Let's add an EAR file to our MyApp/1.0 deployment package. It will be of type `j
 Note that if you're using specific middleware like WebSphere or WebLogic, you also have the option to add and EAR of type `was.Ear`or `wls.Ear`. Only use this if you really need WebSphere or WebLogic-specific features. The `jee.Ear`type will deploy just fine too.
 
 Right-click on **MyApp** and choose  **New** > **jee** > **Ear**
-
-![image](images/package-create-ear.png) 
 
 Give it the name 'PetClinic.ear'. We can now upload the actual EAR file. Hit 'Browse file' and select an EAR file from your local workstation. If you're running the XL Deploy Server locally, you can  find an example EAR file in `xldeploy-server/importablePackages/PetClinic-ear/1.0/PetClinic-1.0.ear`.
 
@@ -91,6 +85,4 @@ The value for Jndi Name will be looked up form the dictionary associated with en
 
 When you're finished modeling the application, you can export it as a DAR file. Once downloaded, you can unzip it and inspect its contents. For example, the generated manifest file can server as a basis for automatic generation of the DAR.
 
-To export as DAR, right-click on '1.0' and choose 'Export'
-
-![image](images/package-export.png) 
+To export as DAR, right-click **1.0** and select **Export**.

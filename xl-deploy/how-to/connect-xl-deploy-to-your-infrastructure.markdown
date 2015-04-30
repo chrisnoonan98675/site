@@ -11,9 +11,13 @@ tags:
 - ssh
 - winrm
 - cifs
+deprecated:
+- 5.0.0
 ---
 
-After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy/) and logged in for the first time, follow these instructions to connect XL Deploy to the host on which your middleware is running.
+**Tip:** In XL Deploy 5.0.0 and later, you can [connect to your infrastructure and create an environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html) in a single step.
+
+After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy/#getting-started) and logged in for the first time, follow these instructions to connect XL Deploy to the host on which your middleware is running.
 
 Follow the instructions for the host's operating system and the connection protocol that you want XL Deploy to use:
 

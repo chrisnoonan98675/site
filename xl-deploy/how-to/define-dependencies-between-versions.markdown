@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Define dependencies between application versions
 categories:
 - xl-deploy

@@ -56,10 +56,10 @@
 ##### "LATEST" LINKS
 
 # XL Deploy product doc, new format
-/xl-deploy/latest/index.html : /xl-deploy/4.5.x/index.html
+/xl-deploy/latest/index.html : /xl-deploy/5.0.x/index.html
 /xl-deploy/latest/starthere.html : /xl-deploy/4.5.x/starthere.html
-/xl-deploy/latest/releasenotes.html : /xl-deploy/4.5.x/releasenotes.html
-/xl-deploy/latest/upgrademanual.html : /xl-deploy/4.5.x/upgrademanual.html
+/xl-deploy/latest/releasenotes.html : /xl-deploy/5.0.x/releasenotes.html
+/xl-deploy/latest/upgrademanual.html : /xl-deploy/5.0.x/upgrademanual.html
 /xl-deploy/latest/referencemanual.html : /xl-deploy/4.5.x/referencemanual.html
 /xl-deploy/latest/systemadminmanual.html : /xl-deploy/4.5.x/systemadminmanual.html
 /xl-deploy/latest/securitymanual.html : /xl-deploy/4.5.x/securitymanual.html
@@ -72,16 +72,16 @@
 /xl-deploy/latest/releasedashboardmanual.html : /xl-deploy/4.5.x/releasedashboardmanual.html
 /xl-deploy/latest/rulesmanual.html : /xl-deploy/4.5.x/rulesmanual.html
 /xl-deploy/latest/rulestutorial.html : /xl-deploy/4.5.x/rulestutorial.html
-/xl-deploy/latest/referencesteps.html : /xl-deploy/4.5.x/referencesteps.html
-/xl-deploy/latest/udmcireference.html : /xl-deploy/4.5.x/udmcireference.html
-/xl-deploy/latest/rest-api/index.html : /xl-deploy/4.5.x/rest-api/index.html
+/xl-deploy/latest/referencesteps.html : /xl-deploy/5.0.x/referencesteps.html
+/xl-deploy/latest/udmcireference.html : /xl-deploy/5.0.x/udmcireference.html
+/xl-deploy/latest/rest-api/index.html : /xl-deploy/5.0.x/rest-api/index.html
 /xl-deploy/latest/xldeployjavaapimanual.html : /xl-deploy/4.5.x/xldeployjavaapimanual.html
 /xl-deploy/latest/javadoc/udm-plugin-api/index.html : /xl-deploy/4.5.x/javadoc/udm-plugin-api/index.html
 
 # XL Deploy product doc, legacy format
 /releases/latest/deployit/starthere.html : /xl-deploy/4.5.x/starthere.html
-/releases/latest/deployit/releasenotes.html : /xl-deploy/4.5.x/releasenotes.html
-/releases/latest/deployit/upgrademanual.html : /xl-deploy/4.5.x/upgrademanual.html
+/releases/latest/deployit/releasenotes.html : /xl-deploy/5.0.x/releasenotes.html
+/releases/latest/deployit/upgrademanual.html : /xl-deploy/5.0.x/upgrademanual.html
 /releases/latest/deployit/referencemanual.html : /xl-deploy/4.5.x/referencemanual.html
 /releases/latest/deployit/systemadminmanual.html : /xl-deploy/4.5.x/systemadminmanual.html
 /releases/latest/deployit/securitymanual.html : /xl-deploy/4.5.x/securitymanual.html
@@ -94,80 +94,79 @@
 /releases/latest/deployit/releasedashboardmanual.html : /xl-deploy/4.5.x/releasedashboardmanual.html
 /releases/latest/deployit/rulesmanual.html : /xl-deploy/4.5.x/rulesmanual.html
 /releases/latest/deployit/rulestutorial.html : /xl-deploy/4.5.x/rulestutorial.html
-/releases/latest/deployit/referencesteps.html : /xl-deploy/4.5.x/referencesteps.html
-/releases/latest/deployit/udmcireference.html : /xl-deploy/4.5.x/udmcireference.html
-/releases/latest/deployit/rest-api/index.html : /xl-deploy/4.5.x/rest-api/index.html
+/releases/latest/deployit/referencesteps.html : /xl-deploy/5.0.x/referencesteps.html
+/releases/latest/deployit/udmcireference.html : /xl-deploy/5.0.x/udmcireference.html
+/releases/latest/deployit/rest-api/index.html : /xl-deploy/5.0.x/rest-api/index.html
 /releases/latest/deployit/xldeployjavaapimanual.html : /xl-deploy/4.5.x/xldeployjavaapimanual.html
 /releases/latest/deployit/javadoc/udm-plugin-api/index.html : /xl-deploy/4.5.x/javadoc/udm-plugin-api/index.html
 
 # XL Deploy bundled plugin doc, new format
-/xl-deploy/latest/commandPluginManual.html : /xl-deploy/4.5.x/commandPluginManual.html
-/xl-deploy/latest/databasePluginManual.html : /xl-deploy/4.5.x/databasePluginManual.html
-/xl-deploy/latest/groupOrchestratorPluginManual.html : /xl-deploy/4.5.x/groupOrchestratorPluginManual.html
-/xl-deploy/latest/filePluginManual.html : /xl-deploy/4.5.x/filePluginManual.html
-/xl-deploy/latest/genericPluginManual.html : /xl-deploy/4.5.x/genericPluginManual.html
-/xl-deploy/latest/jeePluginManual.html : /xl-deploy/4.5.x/jeePluginManual.html
-/xl-deploy/latest/powershellPluginManual.html : /xl-deploy/4.5.x/powershellPluginManual.html
-/xl-deploy/latest/pythonPluginManual.html : /xl-deploy/4.5.x/pythonPluginManual.html
-/xl-deploy/latest/remotingPluginManual.html : /xl-deploy/4.5.x/remotingPluginManual.html
-/xl-deploy/latest/webserverPluginManual.html : /xl-deploy/4.5.x/webserverPluginManual.html
-/xl-deploy/latest/triggerPluginManual.html : /xl-deploy/4.5.x/triggerPluginManual.html
+/xl-deploy/latest/commandPluginManual.html : /xl-deploy/5.0.x/commandPluginManual.html
+/xl-deploy/latest/databasePluginManual.html : /xl-deploy/5.0.x/databasePluginManual.html
+/xl-deploy/latest/groupOrchestratorPluginManual.html : /xl-deploy/5.0.x/groupOrchestratorPluginManual.html
+/xl-deploy/latest/filePluginManual.html : /xl-deploy/5.0.x/filePluginManual.html
+/xl-deploy/latest/genericPluginManual.html : /xl-deploy/5.0.x/genericPluginManual.html
+/xl-deploy/latest/jeePluginManual.html : /xl-deploy/5.0.x/jeePluginManual.html
+/xl-deploy/latest/powershellPluginManual.html : /xl-deploy/5.0.x/powershellPluginManual.html
+/xl-deploy/latest/pythonPluginManual.html : /xl-deploy/5.0.x/pythonPluginManual.html
+/xl-deploy/latest/remotingPluginManual.html : /xl-deploy/5.0.x/remotingPluginManual.html
+/xl-deploy/latest/webserverPluginManual.html : /xl-deploy/5.0.x/webserverPluginManual.html
+/xl-deploy/latest/triggerPluginManual.html : /xl-deploy/5.0.x/triggerPluginManual.html
 
 # XL Deploy bundled plugin doc, legacy format
-/releases/latest/deployit/commandPluginManual.html : /xl-deploy/4.5.x/commandPluginManual.html
-/releases/latest/deployit/databasePluginManual.html : /xl-deploy/4.5.x/databasePluginManual.html
-/releases/latest/deployit/groupOrchestratorPluginManual.html : /xl-deploy/4.5.x/groupOrchestratorPluginManual.html
-/releases/latest/deployit/filePluginManual.html : /xl-deploy/4.5.x/filePluginManual.html
-/releases/latest/deployit/genericPluginManual.html : /xl-deploy/4.5.x/genericPluginManual.html
-/releases/latest/deployit/jeePluginManual.html : /xl-deploy/4.5.x/jeePluginManual.html
-/releases/latest/deployit/powershellPluginManual.html : /xl-deploy/4.5.x/powershellPluginManual.html
-/releases/latest/deployit/pythonPluginManual.html : /xl-deploy/4.5.x/pythonPluginManual.html
-/releases/latest/deployit/remotingPluginManual.html : /xl-deploy/4.5.x/remotingPluginManual.html
-/releases/latest/deployit/webserverPluginManual.html : /xl-deploy/4.5.x/webserverPluginManual.html
-/releases/latest/deployit/triggerPluginManual.html : /xl-deploy/4.5.x/triggerPluginManual.html
+/releases/latest/deployit/commandPluginManual.html : /xl-deploy/5.0.x/commandPluginManual.html
+/releases/latest/deployit/databasePluginManual.html : /xl-deploy/5.0.x/databasePluginManual.html
+/releases/latest/deployit/groupOrchestratorPluginManual.html : /xl-deploy/5.0.x/groupOrchestratorPluginManual.html
+/releases/latest/deployit/filePluginManual.html : /xl-deploy/5.0.x/filePluginManual.html
+/releases/latest/deployit/genericPluginManual.html : /xl-deploy/5.0.x/genericPluginManual.html
+/releases/latest/deployit/jeePluginManual.html : /xl-deploy/5.0.x/jeePluginManual.html
+/releases/latest/deployit/powershellPluginManual.html : /xl-deploy/5.0.x/powershellPluginManual.html
+/releases/latest/deployit/pythonPluginManual.html : /xl-deploy/5.0.x/pythonPluginManual.html
+/releases/latest/deployit/remotingPluginManual.html : /xl-deploy/5.0.x/remotingPluginManual.html
+/releases/latest/deployit/webserverPluginManual.html : /xl-deploy/5.0.x/webserverPluginManual.html
+/releases/latest/deployit/triggerPluginManual.html : /xl-deploy/5.0.x/triggerPluginManual.html
 
 # XL Deploy non-bundled plugin doc, new format
-/xl-deploy/latest/jbossPluginManual.html : /xl-deploy-jbossas-plugin/4.0.x/jbossPluginManual.html
-/xl-deploy/latest/jbossDomainPluginManual.html : /xl-deploy-jbossdm-plugin/4.5.x/jbossDomainPluginManual.html
-/xl-deploy/latest/osbPluginManual.html : /xl-deploy-osb-plugin/4.5.x/osbPluginManual.html
-/xl-deploy/latest/wlsPluginManual.html : /xl-deploy-wls-plugin/4.5.x/wlsPluginManual.html
-/xl-deploy/latest/wasPluginManual.html : /xl-deploy-was-plugin/4.5.x/wasPluginManual.html
-/xl-deploy/latest/wpsPluginManual.html : /xl-deploy-wps-plugin/4.0.x/wpsPluginManual.html
-/xl-deploy/latest/tomcatPluginManual.html : /xl-deploy-tomcat-plugin/4.5.x/tomcatPluginManual.html
-/xl-deploy/latest/glassfishPluginManual.html : /xl-deploy-glassfish-plugin/4.5.x/glassfishPluginManual.html
-/xl-deploy/latest/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/4.0.x/biztalkPluginManual.html
-/xl-deploy/latest/iisPluginManual.html : /xl-deploy-iis-plugin/4.5.x/iisPluginManual.html
-/xl-deploy/latest/windowsPluginManual.html : /xl-deploy-windows-plugin/4.0.x/windowsPluginManual.html
-/xl-deploy/latest/bigipPluginManual.html : /xl-deploy-bigip-plugin/4.5.x/bigipPluginManual.html
-/xl-deploy/latest/wmqPluginManual.html : /xl-deploy-wmq-plugin/4.5.x/wmqPluginManual.html
-/xl-deploy/latest/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/4.5.x/netscalerPluginManual.html
-/xl-deploy/latest/maven-plugin/index.html : /deployit-maven-plugin/4.5.2/index.html
+/xl-deploy/latest/jbossPluginManual.html : /xl-deploy-jbossas-plugin/5.0.x/jbossPluginManual.html
+/xl-deploy/latest/jbossDomainPluginManual.html : /xl-deploy-jbossdm-plugin/5.0.x/jbossDomainPluginManual.html
+/xl-deploy/latest/osbPluginManual.html : /xl-deploy-osb-plugin/5.0.x/osbPluginManual.html
+/xl-deploy/latest/wlsPluginManual.html : /xl-deploy-wls-plugin/5.0.x/wlsPluginManual.html
+/xl-deploy/latest/wasPluginManual.html : /xl-deploy-was-plugin/5.0.x/wasPluginManual.html
+/xl-deploy/latest/wpsPluginManual.html : /xl-deploy-wps-plugin/5.0.x/wpsPluginManual.html
+/xl-deploy/latest/tomcatPluginManual.html : /xl-deploy-tomcat-plugin/5.0.x/tomcatPluginManual.html
+/xl-deploy/latest/glassfishPluginManual.html : /xl-deploy-glassfish-plugin/5.0.x/glassfishPluginManual.html
+/xl-deploy/latest/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/5.0.x/biztalkPluginManual.html
+/xl-deploy/latest/iisPluginManual.html : /xl-deploy-iis-plugin/5.0.x/iisPluginManual.html
+/xl-deploy/latest/windowsPluginManual.html : /xl-deploy-windows-plugin/5.0.x/windowsPluginManual.html
+/xl-deploy/latest/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.0.x/bigipPluginManual.html
+/xl-deploy/latest/wmqPluginManual.html : /xl-deploy-wmq-plugin/5.0.x/wmqPluginManual.html
+/xl-deploy/latest/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/5.0.x/netscalerPluginManual.html
+/xl-deploy/latest/maven-plugin/index.html : /deployit-maven-plugin/5.0.x/index.html
 /xl-deploy/latest/jenkins-plugin/index.html : https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin
-/xl-deploy/latest/bamboo-plugin/index.html : /bamboo-xl-deploy-plugin/4.5.x/bambooPluginManual.html
+/xl-deploy/latest/bamboo-plugin/index.html : /bamboo-xl-deploy-plugin/5.0.x/bambooPluginManual.html
+/xl-deploy/latest/tfs-plugin/index.html : /xl-deploy-tfs-plugin/5.0.x/tfsPluginManual.html
 
 # XL Deploy non-bundled plugin doc, legacy format
-/releases/latest/jbossas-plugin/jbossPluginManual.html : /xl-deploy-jbossas-plugin/4.0.x/jbossPluginManual.html
-/releases/latest/jbossdm-plugin/jbossDomainPluginManual.html : /xl-deploy-jbossdm-plugin/4.5.x/jbossDomainPluginManual.html
-/releases/latest/osb-plugin/osbPluginManual.html : /xl-deploy-osb-plugin/4.5.x/osbPluginManual.html
-/releases/latest/wls-plugin/wlsPluginManual.html : /xl-deploy-wls-plugin/4.5.x/wlsPluginManual.html
-/releases/latest/was-plugin/wasPluginManual.html : /xl-deploy-was-plugin/4.5.x/wasPluginManual.html
-/releases/latest/wps-plugin/wpsPluginManual.html : /xl-deploy-wps-plugin/4.0.x/wpsPluginManual.html
-/releases/latest/tomcat-plugin/tomcatPluginManual.html : /xl-deploy-tomcat-plugin/4.5.x/tomcatPluginManual.html
-/releases/latest/glassfish-plugin/glassfishPluginManual.html : /xl-deploy-glassfish-plugin/4.0.x/glassfishPluginManual.html
-/releases/latest/biztalk-plugin/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/4.0.x/biztalkPluginManual.html
-/releases/latest/iis-plugin/iisPluginManual.html : /xl-deploy-iis-plugin/4.0.x/iisPluginManual.html
-/releases/latest/windows-plugin/windowsPluginManual.html : /xl-deploy-windows-plugin/4.0.x/windowsPluginManual.html
-/releases/latest/bigip-plugin/bigipPluginManual.html : /xl-deploy-bigip-plugin/4.5.x/bigipPluginManual.html
-/releases/latest/wmq-plugin/webserverPluginManual.html : /xl-deploy-wmq-plugin/4.5.x/wmqPluginManual.html
-/releases/latest/netscaler-plugin/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/4.5.x/netscalerPluginManual.html
-/deployit-maven-plugin/index.html : /deployit-maven-plugin/4.5.2/index.html
-/releases/latest/bamboo-xl-deploy-plugin/bambooPluginManual.html : /bamboo-xl-deploy-plugin/4.5.x/bambooPluginManual.html
+/releases/latest/jbossas-plugin/jbossPluginManual.html : /xl-deploy-jbossas-plugin/5.0.x/jbossPluginManual.html
+/releases/latest/jbossdm-plugin/jbossDomainPluginManual.html : /xl-deploy-jbossdm-plugin/5.0.x/jbossDomainPluginManual.html
+/releases/latest/osb-plugin/osbPluginManual.html : /xl-deploy-osb-plugin/5.0.x/osbPluginManual.html
+/releases/latest/wls-plugin/wlsPluginManual.html : /xl-deploy-wls-plugin/5.0.x/wlsPluginManual.html
+/releases/latest/was-plugin/wasPluginManual.html : /xl-deploy-was-plugin/5.0.x/wasPluginManual.html
+/releases/latest/wps-plugin/wpsPluginManual.html : /xl-deploy-wps-plugin/5.0.x/wpsPluginManual.html
+/releases/latest/tomcat-plugin/tomcatPluginManual.html : /xl-deploy-tomcat-plugin/5.0.x/tomcatPluginManual.html
+/releases/latest/glassfish-plugin/glassfishPluginManual.html : /xl-deploy-glassfish-plugin/5.0.x/glassfishPluginManual.html
+/releases/latest/biztalk-plugin/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/5.0.x/biztalkPluginManual.html
+/releases/latest/iis-plugin/iisPluginManual.html : /xl-deploy-iis-plugin/5.0.x/iisPluginManual.html
+/releases/latest/windows-plugin/windowsPluginManual.html : /xl-deploy-windows-plugin/5.0.x/windowsPluginManual.html
+/releases/latest/bigip-plugin/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.0.x/bigipPluginManual.html
+/releases/latest/wmq-plugin/webserverPluginManual.html : /xl-deploy-wmq-plugin/5.0.x/wmqPluginManual.html
+/releases/latest/netscaler-plugin/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/5.0.x/netscalerPluginManual.html
+/deployit-maven-plugin/index.html : /deployit-maven-plugin/5.0.x/index.html
+/releases/latest/bamboo-xl-deploy-plugin/bambooPluginManual.html : /bamboo-xl-deploy-plugin/5.0.x/bambooPluginManual.html
 
-# XL Scale product and plugin doc, new format
-/xl-scale/latest/index.html : /xl-deploy/4.5.x/index.html#xl-scale
-/xl-scale/latest/xlScaleManual.html : /xl-scale-plugin/4.0.x/xlScaleManual.html
-/xl-scale/latest/ec2PluginManual.html : /xl-scale-ec2-plugin/4.0.x/ec2PluginManual.html
-/xl-scale/latest/vspherePluginManual.html : /xl-scale-vsphere-plugin/4.0.x/vspherePluginManual.html
+# XL Scale product doc, new format
+/xl-scale/latest/index.html : /xl-deploy/5.0.x/index.html#xl-scale
+/xl-scale/latest/xlScaleManual.html : /xl-scale/4.0.x/xl-scale-plugin/xlScaleManual.html
 
 # XL Scale product doc, legacy format
 /releases/latest/xl-scale-plugin/xlScaleManual.html : /xl-scale/4.0.x/xl-scale-plugin/xlScaleManual.html
@@ -210,3 +209,10 @@
 /releases/latest/xlr-git-plugin/gitPluginManual.html : /xl-release/4.6.x/xlr-git-plugin/gitPluginManual.html
 /releases/latest/xlr-nexus-plugin/nexusPluginManual.html : /xl-release/4.6.x/xlr-nexus-plugin/nexusPluginManual.html
 /releases/latest/xlr-time-plugin/timePluginManual.html : /xl-release/4.6.x/xlr-time-plugin/timePluginManual.html
+
+# Redirect topics that have been renamed
+/xl-deploy/how-to/perform-an-update.html : /xl-deploy/how-to/update-a-deployed-application.html
+/xl-deploy/how-to/use-xl-deploy-garbage-collection.html : /xl-deploy/how-to/reclaim-disk-space-on-an-xl-deploy-server.html
+/xl-deploy/how-to/reset-admin-password-xl-deploy-server.html : /xl-deploy/how-to/changing-passwords-in-xl-deploy.html
+/xl-deploy/concept/xl-deploy-remoting-plugin.html : /xl-deploy/concept/introduction-to-the-xl-deploy-remoting-plugin.html
+/xl-deploy/how-to/using-the-plan-analyzer.html : /xl-deploy/how-to/preview-the-deployment-plan.html

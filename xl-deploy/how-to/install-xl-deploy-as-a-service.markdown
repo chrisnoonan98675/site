@@ -9,18 +9,26 @@ tags:
 - installation
 - service
 - daemon
+- setup
 since:
 - 4.5.x
 ---
 
 ## Install XL Deploy 5.0.0 or later as a daemon or service
 
-Before installing the server as a service, first follow the installation procedure documented above. This includes as a step executing `bin/run.sh` or `bin/run.cmd` script in order to configure and initialize the server. On Linux, you should do this as the user under which you want XL Deploy to run. Also, please make sure the server is configured so that it can start without input from the user (e.g. if a repository keystore password is required then it should be provided in `deployit.conf`).
+To install XL Deploy 5.0.0 or later as a daemon or service:
 
-The next step is to execute `bin/install-service.sh` on Linux or `bin/install-service.cmd` on Windows. These scripts will do the actual installation of the service. They require the current user to be root on Linux or an Administrator on Windows.
-On Linux you will be asked for the user name under which XL Deploy server was previously installed using `run.sh`.
+1. Follow the installation procedure described in [Install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html).
 
-To remove the installed service from the system, use the `bin/uninstall-service.sh` or `bin/uninstall-service.cmd` script.
+    This procedure requires you to execute `bin/run.sh` (on a Unix-based system) or `bin/run.cmd` (on a Windows-based system) to configure and initialize the server. On Unix, you should do this as the user under which you want XL Deploy to run. 
+
+    Also, you must ensure that the server is configured so that it can start without input from the user; for example, if a repository keystore password is required, then it should be provided in `deployit.conf`.
+
+1. As root (on Unix) or an administrator (on Windows), execute `bin/install-service.sh` (on Unix) or `bin/install-service.cmd` (on Windows). This command will install the service.
+
+    On a Unix-based system, you will be asked for the user name under which you installed the XL Deploy server when you executed `run.sh`.
+
+**Tip:** To remove the installed service from the system, use the `bin/uninstall-service.sh` or `bin/uninstall-service.cmd` command.
 
 ## Install XL Deploy 4.5.x or earlier as a daemon or service
 

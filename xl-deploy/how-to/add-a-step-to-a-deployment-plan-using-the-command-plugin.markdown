@@ -12,25 +12,25 @@ tags:
 
 For a deployment, XL Deploy calculates the step list based on your model. But what if you want to add an extra step? There are several ways to do this. This cookbook entry will explain a simple case: executing a remote shell command on a server. 
 
-In this example we will show how to add a step to log the disk usage using the `df` command. We will do this using the [Command Plugin](http://docs.xebialabs.com/releases/latest/deployit/commandPluginManual.html).
+In this example we will show how to add a step to log the disk usage using the `df` command. We will do this using the [Command plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-command-plugin.html).
 
-## When to use the Command Plugin
+## When to use the Command plugin
 
 As said, you can add a step to the step list in several ways. Choosing the command plugin has the following implications:
 
  * The command is part of a deployment, so the command must be mapped to the particular hosts you want to run it on. 
  * The command must be independent of the environment, since the same package (and command) may be deployed to multiple environments.
- * This approach automatically scales to environments with one or more hosts (i.e. using the Automap button, you get the disk usage of every host in the environment)
+ * This approach automatically scales to environments with one or more hosts (i.e. using the auto-map button, you get the disk usage of every host in the environment)
 
 ## Setup
 
-We will assume a simple setup for the PetClinic war, that will be deployed to a Tomcat server. When doing a deployment, we have the following steps.
+We will assume a simple setup for the PetClinic WAR, that will be deployed to a Tomcat server. When doing a deployment, we have the following steps.
 
 ![image](images/simple-command-steplist-original.png) 
 
 To monitor the target server's disk, we want to add a step that displays the output of the `df` command at the end of the step list.
 
-We will add this step in three stages
+We will add this step in three stages:
 
 1. Use to UI to add a command to the application
 2. Test and refine the command
@@ -40,15 +40,11 @@ We will be adding the command using the Command Plugin. Make sure the `command-p
 
 ## Adding the command in the UI
 
-Go to the Repository tab, find the PetClinic-war under Applications, and right click a *version* to add a new command.
+Go to the Repository tab, find the PetClinic-war under Applications, and right-click a *version* to add a new command. Select **New** > **cmd** > **cmd.Command**.
 
-![image](images/simple-command-add.png)
+Name the command 'Log Disk Usage' and set the command line to `df -H`.
 
-We will name the command 'Log Disk Usage' and issue `df -H`.
-
-![image](images/simple-command-edit.png)
-
-After saving, the command is ready to be used in a deployment!
+Save the command.
 
 ## Testing and refining the command
 

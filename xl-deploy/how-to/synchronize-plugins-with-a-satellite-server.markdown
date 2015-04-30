@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Synchronize plugins with a satellite server
 categories:
 - xl-deploy
@@ -19,8 +18,6 @@ To synchronize a satellite server:
 
 1. Click **Repository** in XL Deploy.
 2. Right-click the satellite and select **Synchronize plugins satellite**.
-
-    ![Synchronize plugins satellite](images/synchronize-a-satellite.png)
 
     Before synchronizing, the satellite will wait for all executing tasks to complete. It will then synchronize and restart.
 

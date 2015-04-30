@@ -14,8 +14,6 @@ The discovery feature allows you to import an existing infrastructure topology i
 
 **Select the type of CI to discover**. In the Repository Browser navigate the repository to find the CI you want to inspect. Right-click on the CI and select **Discover**. A list will appear that will allow you to choose one or more CIs. Select the CI type you want to discover. Note that CIs of a certain type need to support discovery in order to show up in this menu.
 
-![Select a discoverable CI](images/discovery-select-inspect-ci.png)
-
 **Fill in the required properties**. The selected CI type will be opened in a CI Editor Tab so you can enter the properties that are required for discovery. Click on the **Next** button to generate the Discovery step list.
 
 ![Enter required properties for discovery](images/discovery-input-inspection-values.png )

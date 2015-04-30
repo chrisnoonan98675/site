@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Add a satellite server to XL Deploy
 categories:
 - xl-deploy
@@ -16,9 +15,6 @@ To add a satellite server to XL Deploy:
 
 1. Click **Repository** in XL Deploy.
 2. Right-click **Infrastructure** and select **New** > **xl** > **satellite**. A new tab appears.
-
-    ![image](images/add-a-satellite-ci.png)
-
 3. In the **Address** box, enter the IP address of the satellite in the **Address** box.
 4. Enter the port number in the **Port** box.
 

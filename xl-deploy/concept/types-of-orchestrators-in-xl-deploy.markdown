@@ -52,8 +52,6 @@ The following *by deployment group* orchestrators are supported in XL Deploy 5.0
 * `sequential-by-deployment-sub-sub-group` will enforce a sequential deployment order based on the container's *deployment sub-sub-group* property.
 * `parallel-by-deployment-sub-sub-group` will enforce a parallel deployment order based on the container's *deployment sub-sub-group* property.
 
-**Note:** The `group-based` orchestrator is the as `sequential-by-deployment-group`. It is kept for backward compatibility.
-
 ## Combining multiple orchestrators
 
 You can specify multiple orchestrators per deployment to achieve complex use cases. When using multiple orchestrators:

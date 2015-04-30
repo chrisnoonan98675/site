@@ -14,7 +14,7 @@ The XL Deploy Database plugin supports deployment of SQL files and folders to a 
 
 ## Features
 
-* Runs on XL Deploy 4.0 and up.
+* Runs on XL Deploy 5.0 and up.
 * Supports deployment to MySQL, PostgreSQL, Oracle, MS SQL and DB/2.
 * Deploys and undeploys SQL files and folders.
 
@@ -28,7 +28,7 @@ Executing an installation script, followed by the accompanying rollback script, 
 
 A rollback script **must** have the same name as the installation script it is associated with, and must have the moniker `-rollback` attached to it.
 
-**Note:** If a script fails and you perform a rollback, XL Deploy executes **all** rollback scripts, not only the rollback scripts that correspond to the installation scripts that were successfully executed.
+**Important:** In XL Deploy 4.5.x and earlier, if a script fails and you perform a rollback, XL Deploy executes *all* rollback scripts, not only the rollback scripts that correspond to the installation scripts that were successfully executed. In XL Deploy 5.0.0 and later, XL Deploy tracks which installation scripts were executed successfully and *only* executes their associated rollback scripts. Refer to [Extend the XL Deploy Database plugin](/xl-deploy/how-to/extend-the-xl-deploy-database-plugin.html) for information about rollback behavior for custom CI types that are based on `sql.SqlScripts`.
 
 ## Naming SQL scripts
 
@@ -105,7 +105,7 @@ The `02-CreateUser.sql` script can use its dependencies or common dependencies a
 	@02-CreateUser/create_power_users.sql
 	COMMIT;
 	
-**Note:** The syntax for including the dependant scripts varies between databases. For example, Microsoft SQL databases use `include <script file name>`.
+**Note:** The syntax for including the dependent scripts varies between databases. For example, Microsoft SQL databases use `include <script file name>`.
 
 ## SQL client
 

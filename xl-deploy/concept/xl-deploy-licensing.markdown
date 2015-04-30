@@ -6,8 +6,12 @@ subject:
 - Installation
 tags:
 - system administration
-- licensing
+- license
 ---
+
+If you are using XL Deploy Enterprise Edition, you can download your license at [https://dist.xebialabs.com](https://dist.xebialabs.com/).
+
+**Important:** XL Deploy 5.0.0 or later requires a new license. If you are upgrading from an earlier version of XL Deploy, be sure to download and install your new license.
 
 XL Deploy checks the validity of your license when you start the XL Deploy server and at certain times while the server is running.
 

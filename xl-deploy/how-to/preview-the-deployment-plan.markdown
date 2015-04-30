@@ -1,5 +1,5 @@
 ---
-title: Using the Plan Analyzer
+title: Preview the deployment plan
 categories:
 - xl-deploy
 subject:
@@ -8,13 +8,19 @@ tags:
 - deployment
 - planning
 - gui
+- preview
 ---
 
-While putting together an initial deployment, an upgrade, or an undeployment, it is possible to gain insight into the generated steps. By clicking the **Analyze** button, or equivalently by maximizing the deployment workspace so it covers the full screen width, the Plan Analyzer will appear. The Plan Analyzer shows the deployment plan XL Deploy generated based on the deployment configuration. It can be hidden again by clicking the same button (**Close analyzer**).
+When you set up an initial deployment, an upgrade, or an undeployment, you can use the Plan Analyzer to preview the deployment plan that XL Deploy generated based on the deployment configuration. As you map deployables to containers in the deployment configuration, the Plan Analyzer will update and show changes to the plan.
 
-As you map deployables to containers in the deployment configuration, the Plan Analyzer will update its contents and thus show changes to the generated deployment plan, providing insight into how it is put together. Note that the Plan Analyzer (as opposed to the deployment plan itself, on the screen after clicking the **Next** button) is read-only in that you cannot yet change the order of the steps, have steps skipped, and so on.
+To open the Plan Analyzer from the Deployment Workspace:
 
-By hovering your mouse over one of the steps, a tooltip will appear mentioning the priority of the step. Clicking the step will highlight the relevant deployed(s) that caused this step to appear. Vice versa, clicking a deployed causes the steps it generates to be highlighted. Double-clicking a step will show you the script that will be executed for this step, if you have permission to view these.
+* In XL Deploy 4.5.x or earlier, click **Analyze**
+* In XL Deploy 5.0.0 or later, click **Preview**
+
+The Plan Analyzer is read-only, so you cannot use it to skip steps or insert pause steps in the plan.
+
+When using the Plan Analyzer, you can double-click a step to see the script that will be executed for the step (if you have permission to view it).
 
 ## Example
 
@@ -31,8 +37,6 @@ We start the deployment by dragging the **1.0** package from the Packages window
 ### Analyzing the plan
 
 To inspect the deployment plan while it is being created, click the Analyze button on the bottom of the screen.
-
-![image](images/planalyzer-analyze.png)
 
 We now see our deployment specification on the left-hand side and the generated plan on the right. Currently it contains only one step, called "Update the repository with your Deployment". This is the default step that XL Deploy creates when there is an empty plan in order to do its housekeeping.
 
@@ -83,8 +87,6 @@ When we deploy to an environment with two JBoss servers, the plan will look like
 
 In this plan, both servers go down simultaneously. This happens because the default orchestrator treats all target middleware as one big "pool", so everything will be stopped, started, updated etc. together.  We can change this by picking another orchestrator. We do this by clicking on the Deployment Properties button and selecting the container-by-container-serial orchestrator. This orchestrator treats each target server as its own "deployment group", handling all changes to a server in one block and then moving on to the next server.
 
-![image](images/planalyzer-orchestrator.png)
-
 The plan is immediately updated, and now the servers are stopped one by one.
 
 ![image](images/planalyzer-onebyone.png)
@@ -97,7 +99,10 @@ Vice-versa, when clicking on a step, the relevant deployed is highlighted.
 
 ## Starting the deployment
 
-When you are satisfied with the generated plan, simply click **Next** to start the deployment. 
+When you are satisfied with the generated plan, start the deployment by clicking:
+
+* **Next** in XL Deploy 4.5.x or earlier
+* **Execute** in XL Deploy 5.0.0 or later
 
 ![image](images/planalyzer-deploy.png)
 

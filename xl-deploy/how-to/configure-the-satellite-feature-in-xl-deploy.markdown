@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Configure the satellite feature in XL Deploy
 categories:
 - xl-deploy
@@ -11,12 +10,12 @@ tags:
 - remoting
 - satellite
 since:
-- 5.0.x
+- 5.0.0
 ---
 
 ## Configure the ping timeout
 
-To configure the ping timeout while reaching a satellite, change the `satellite.timeout.ping` property in `conf/satellite.conf`:
+To configure the ping timeout while reaching a satellite, change the `satellite.timeout.ping` property in `conf/system.conf`:
 
     satellite {
       timeout {
@@ -28,7 +27,7 @@ You can specify the ping timeout in milliseconds, seconds, or minutes. For examp
 
 ## Configure the upload idle timeout
 
-The upload idle timeout occurs when a satellite has accepted an incoming streaming connection but does not seed to accept the uploaded file. This prevents unused TCP connections from remaining open. To configure the upload idle timeout, change the `satellite.timeout.upload.idle` property in the file `conf/satellite.conf`:
+The upload idle timeout occurs when a satellite has accepted an incoming streaming connection but does not seed to accept the uploaded file. This prevents unused TCP connections from remaining open. To configure the upload idle timeout, change the `satellite.timeout.upload.idle` property in the file `conf/system.conf`:
 
     satellite {
       timeout {

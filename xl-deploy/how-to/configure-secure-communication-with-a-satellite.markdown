@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Configure secure communication with a satellite server
 categories:
 - xl-deploy
