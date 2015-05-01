@@ -21,7 +21,7 @@ From the Release Overview screen, select **New Release**. Set **Script example**
 
 In the newly created release, call the first phase **Test**, add a script task called **Add a comment** and a gate task called **Check result**.
 
-![Script test tasks](images/script-test/phase.png)
+![Script test tasks](../images/script-test/phase.png)
 
 Now open the script task and add the following snippet:
 
@@ -33,7 +33,7 @@ Now open the script task and add the following snippet:
 Close the task and start the release. 
 The script task will fail! Open the task and the reason for failure is displayed as log output in the comment section:
 
-![Script test tasks](images/script-test/no-run-as-user.png)
+![Script test tasks](../images/script-test/no-run-as-user.png)
 
 There is message there: "A Release User account has to be set in order to use XL Release's API". This tells us that we have to explicitly say under which user name the script will be run. Because the API gives access to releases and tasks, XL Release needs to check someone's credentials in order to check if certain operations are allowed. To set such a user, go to the **Release Properties** page and find the properties **Run scripts as user** and **Password**
 
@@ -43,15 +43,15 @@ _Tip: for a more serious set up than testing we recommend to set up a global "Sc
 
 Go back to the **Release Flow** and retry the failed script task.
 
-![Script test tasks](images/script-test/retry.png)
+![Script test tasks](../images/script-test/retry.png)
 
 The task should succeed now, and the release will stop at the gate in order to give us some time to inspect the results.
 
-![Script test tasks](images/script-test/check-result.png)
+![Script test tasks](../images/script-test/check-result.png)
 
 Click on the **Add a comment task** and scroll down to the comments section. We can see that the "Hello World!" comment has been added:
 
-![Script test tasks](images/script-test/hello-world.png)
+![Script test tasks](../images/script-test/hello-world.png)
 
 
 ## Looking at the code

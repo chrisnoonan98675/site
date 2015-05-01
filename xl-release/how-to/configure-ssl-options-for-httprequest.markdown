@@ -24,11 +24,11 @@ First, create a directory `SERVER_HOME/ext/pythonutil` if it does not already ex
 
 Create a simple "sandbox" release template with a single script task to test the various settings:
 
-!["Sandbox" release template](images/test-script-task.png)
+!["Sandbox" release template](../images/test-script-task.png)
 
 This fails on two counts, as expected: first, it's a self-signed certificate and, secondly, the certificate is for `localhost`, not `nb-aphillips` (the machine's hostname):
 
-![SSL handshake error](images/ssl-handshake-error.png)
+![SSL handshake error](../images/ssl-handshake-error.png)
 
 ## Configure `HttpRequest` to trust self-signed certificates
 
@@ -57,7 +57,7 @@ Note that an additional import statement for the required classes to the initial
 
 Now, there is only a hostname mismatch:
 
-![Hostname mismatch](images/handshake-error.png)
+![Hostname mismatch](../images/handshake-error.png)
 
 ## Configure `HttpRequest` to ignore hostname mismatches
 
@@ -82,7 +82,7 @@ In this case, you can also remove `TrustSelfSignedStrategy` from the `org.apache
 
 With this change, the test task can call the server successfully:
 
-![Successful server call](images/https-call-200.png)
+![Successful server call](../images/https-call-200.png)
 
 Code samples are based on [this useful Stack Overflow post](https://stackoverflow.com/questions/19517538/ignoring-ssl-certificate-in-apache-httpclient-4-3). Thanks, [mavroprovato](https://stackoverflow.com/users/89435/mavroprovato)!
 

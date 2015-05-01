@@ -13,7 +13,7 @@ If you're looking to automate XL Release, e.g. to trigger a release/pipeline run
 
 First, we need to know the release template ID. One easy way to find this is in the URL for the template itself.
 
-![URL for template](images/template-release-id.png)
+![URL for template](../images/template-release-id.png)
 
 There is a single API call to start a release from a template, which is documented [here](/xl-release/4.5.x/rest-api/#!/templates/start).
 

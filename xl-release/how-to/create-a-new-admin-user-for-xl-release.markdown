@@ -21,20 +21,20 @@ Log in to XL Release using the built-in `admin` (lowercase) user and the passwor
 
 If you haven't connected XL Release to an external authentication source such as LDAP, add an internal user account. If you already have an external user account or group you use for administration, you can skip this step.
 
-![Add new user](images/create-day2day-admin-user.png)
+![Add new user](../images/create-day2day-admin-user.png)
 
 ## 3. Create an XL Release role for administration
 
 Create a new role called `Administrators` (or whatever) for your admins. Add the user account you created in the previous step, or your external user account or group, to the role. Don't forget to click **Save** to apply the changes!
 
-![Add new user](images/create-admins-role.png)
+![Add new user](../images/create-admins-role.png)
 
 ## 4. Grant all permissions to the new admin role
 
 Once you've created the new admin role, you can assign it all rights on the permissions screen. Again, click **Save** to apply the changes.
 
-![Assign rights to new admin user](images/grant-all-rights.png)
+![Assign rights to new admin user](../images/grant-all-rights.png)
 
 You can now log out of the `admin` account and log back in with the user account you've just assigned to the admin role and use it for day-to-day administration of XL Release.
 
-![Log in as new admin](images/login-as-day2day-admin.png)
+![Log in as new admin](../images/login-as-day2day-admin.png)

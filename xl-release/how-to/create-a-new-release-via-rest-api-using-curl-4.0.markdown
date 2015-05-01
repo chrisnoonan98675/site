@@ -12,7 +12,7 @@ If you're looking to automate XL Release, e.g. to trigger a release/pipeline run
 
 First, we need to know the release template ID. One easy way to find this is in the URL for the template itself.
 
-![URL for template](images/template-release-id.png)
+![URL for template](../images/template-release-id.png)
 
 In order to achieve what we're trying to do, we first need to create a new release, then start it. For the simple template that we're using in this example, the cURL command to create the release would be:
 

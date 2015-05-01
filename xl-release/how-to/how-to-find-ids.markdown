@@ -14,7 +14,7 @@ To use the REST API successfully, you need to know the unique identifier of temp
 
 Both releases and templates have an ID of the form `Applications/ReleaseXXXXXXX`, where `XXXXXXX` is a seven-digit number. The fastest way to find it is to open it in the browser and look at the URL in the location bar. 
 
-![URL for template](images/template-release-id.png)
+![URL for template](../images/template-release-id.png)
 
 Just take the last part of the URL and put `Applications` in front of it. In this case, the identifier of the template is `Applications/Release29994650`.
 

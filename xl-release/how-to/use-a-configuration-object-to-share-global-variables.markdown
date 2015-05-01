@@ -30,9 +30,9 @@ Here, we've defined a very simple configuration type with two properties, foo an
 
 Once we have defined our configuration type, we create a configuration object of that type under **Settings** > **Configuration** in the XL Release UI:
 
-![Add global config](images/settings-new-global-config.png)
+![Add global config](../images/settings-new-global-config.png)
 
-![Global settings](images/settings-globals1.png)
+![Global settings](../images/settings-globals1.png)
 
 We could create multiple configuration objects, but since we're here looking to define global variables, a single instance is presumably what we want:
 
@@ -64,13 +64,13 @@ The script is saved as `SERVER_HOME/ext/my/SampleTask.py`, as per the standard X
 
 When a user creates a task of our custom task type in the UI, they can link the task to a configuration object. If there is only one of these, as in our case, it is automatically set as the default:
 
-![New custom task](images/new-custom-task.png)
+![New custom task](../images/new-custom-task.png)
 
 ## Running the custom task
 
 Executing the custom task as part of a release gives the expected result:
 
-![Task output](images/log-output.png)
+![Task output](../images/log-output.png)
 
 ## Linking the configuration to standard task types
 
@@ -82,6 +82,6 @@ You can also add a reference to a configuration object to existing task types th
 
 This will then allow users to select a configuration object for those tasks too, just as for our custom tasks above:
 
-![JIRA task with global variables](images/jira-task-with-global-vars.png)
+![JIRA task with global variables](../images/jira-task-with-global-vars.png)
 
 Of course, you will need to override the default script for the task to make use of the configuration object. You can find out which task types extend from `xlrelease.PythonScript` by checking out their type definitions in the appropriate `synthetic.xml` type definition file.

@@ -47,21 +47,21 @@ Once we've restarted the server to pick up the new trigger definition, you can c
 
 Here, we'll define a trivial template with one task, which simply displays the value of triggerValueForUse set by the trigger. We will do this by defining a regular template variable `${valFromTrigger}`, and by setting its value automatically whenever the trigger kicks off a new release from the template.
 
-![Template variable](images/task-to-showcase-value.png)
+![Template variable](../images/task-to-showcase-value.png)
 
 We'll configure the trigger by using the dropdown on the template to switch from the Release Flow view to the Triggers view.
 
-![Triggers view](images/create-trigger.png)
+![Triggers view](../images/create-trigger.png)
 
 We can now define our new custom trigger. Note how we assign the `${triggerValueForUse}` value set by the trigger to the template variable `${valFromTrigger}`. We could also use `${triggerValueForUse}` in the Release Title field, of course:
 
-![Trigger definition](images/trigger-definition.png)
+![Trigger definition](../images/trigger-definition.png)
 
 To activate the trigger, we need to create one release from the template via the XL Release UI. Then the trigger will be running in the background (unless we disable it, of course), and will set the value of `triggerState` each time it is run.
 
 Whenever that value is different from the previous trigger invocation (which in the case of our example should be every time), a new release using our template will be created and started, with the `${valFromTrigger}` template variable set to the value returned from the trigger. In our simple example, the release will finish almost immediately, showing the value set by the trigger:
 
-![Value set by target](images/values-from-trigger-executing.png)
+![Value set by target](../images/values-from-trigger-executing.png)
 
 Points to remember:
 
