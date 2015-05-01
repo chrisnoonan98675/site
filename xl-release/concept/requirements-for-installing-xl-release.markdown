@@ -21,8 +21,8 @@ To install the XL Release server, the following prerequisites must be met:
 
 Depending on the environment, the following may also be required:
 
-* **Database**: XL Release's repository may be stored in a database; for more information, see [Configure the repository](#configure-the-repository)
-* **LDAP**: To enable group-based security, an LDAP x.509 compliant registry is required; for more information, see [Configuring LDAP security](#configuring-ldap-security)
+* **Database**: XL Release's repository may be stored in a database; for more information, see [Configure the XL Release repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html)
+* **LDAP**: To enable group-based security, an LDAP x.509 compliant registry is required; for more information, see [Configure LDAP security for XL Release](/xl-release/how-to/configure-ldap-security-for-xl-release.html)
 
 ## Client requirements
 
