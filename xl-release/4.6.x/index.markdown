@@ -8,7 +8,6 @@ product-id: xl-release
 * [Release Notes](release_notes.html)
 * [Upgrade Manual](upgrademanual.html)
 * [Reference Manual](reference_manual.html)
-* [Plugin Manual](plugin_manual.html)
 * [REST API Reference](rest-api/)
 * [Jython API Manual](/jython-docs/#!/xl-release/4.6.x/)
 
