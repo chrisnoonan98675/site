@@ -27,7 +27,7 @@ Here are some examples of configuring XL Release to use a database for various d
 
 For more information about using a database with Jackrabbit, see its [PersistenceManager FAQ](http://wiki.apache.org/jackrabbit/PersistenceManagerFAQ) and [DataStore FAQ](http://wiki.apache.org/jackrabbit/DataStore).
 
-### Using XL Release with [MySQL](http://www.mysql.com/)
+## Using XL Release with [MySQL](http://www.mysql.com/)
 
     <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
         <param name="driver" value="com.mysql.jdbc.Driver"/>
@@ -91,7 +91,7 @@ For more information about using a database with Jackrabbit, see its [Persistenc
 
 **Note:** The MySQL database is not suited for storage of large binary objects; see [the MySQL bug tracker](http://bugs.mysql.com/bug.php?id=10859).
 
-### Using XL Release with [DB2](http://www-01.ibm.com/software/data/db2/)
+## Using XL Release with [DB2](http://www-01.ibm.com/software/data/db2/)
 
     <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
         <param name="driver" value="com.ibm.db2.jcc.DB2Driver"/>
@@ -154,7 +154,7 @@ For more information about using a database with Jackrabbit, see its [Persistenc
         </PersistenceManager>
     </Versioning>
 
-### Using XL Release with [Oracle](http://www.oracle.com/us/products/database/index.html)
+## Using XL Release with [Oracle](http://www.oracle.com/us/products/database/index.html)
 
     <FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
         <param name="driver" value="oracle.jdbc.OracleDriver"/>
