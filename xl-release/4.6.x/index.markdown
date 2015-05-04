@@ -14,7 +14,7 @@ product-id: xl-release
 
 * [Remote Script Plugin Manual](/xl-release/concept/introduction-to-the-xl-release-remote-script-plugin.html)
 * [JIRA Plugin Manual](/xl-release/concept/introduction-to-the-xl-release-jira-plugin.html)
-* [Git Plugin Manual](../../xl-release-git-plugin/4.6.x/gitPluginManual.html)
+* [Git Plugin Manual](/xl-release/concept/introduction-to-the-xl-release-git-trigger-plugin.html)
 * [Nexus Plugin Manual](../../xl-release-nexus-plugin/4.6.x/nexusPluginManual.html)
 * [Time Plugin Manual](/xl-release/concept/introduction-to-the-xl-release-time-plugin.html)
 * [SVN Plugin Manual](/xl-release/concept/introduction-to-the-xl-release-svn-plugin.html)
