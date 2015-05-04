@@ -3,7 +3,7 @@ title: Create a gate task
 categories:
 - xl-release
 subject:
-- Task
+- Tasks
 tags:
 - task
 - gate

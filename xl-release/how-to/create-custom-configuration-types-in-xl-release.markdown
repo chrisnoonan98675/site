@@ -8,6 +8,7 @@ tags:
 - configuration
 - python
 - plugin
+- customization
 ---
 
 XL Release allows you to add custom configuration types in XML. Custom configuration types appear in the configuration screens, and custom tasks can reference configuration instances. You can use custom configuration type tasks to reference third-party component settings.

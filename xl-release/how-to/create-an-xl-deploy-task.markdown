@@ -3,7 +3,7 @@ title: Create an XL Deploy task
 categories:
 - xl-release
 subject:
-- Task
+- Tasks
 tags:
 - task
 - xl deploy

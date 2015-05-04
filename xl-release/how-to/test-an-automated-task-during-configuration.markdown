@@ -2,12 +2,14 @@
 title: Test an automated task during configuration
 categories:
 - xl-release
-subject: Tasks
+subject:
+- Tasks
 tags:
 - task
 - webhook
 - script
 - custom task
+- customization
 ---
 
 When you're configuring an automated task such as a webhook, script, or custom task, for the first time while creating a release template in XL Release, you usually need to test and tweak it a few times before the configuration is correct.

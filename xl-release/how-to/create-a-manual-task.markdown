@@ -3,7 +3,7 @@ title: Create a manual task
 categories:
 - xl-release
 subject:
-- Task
+- Tasks
 tags:
 - task
 - manual

@@ -7,7 +7,7 @@ subject:
 tags:
 - release
 - template
-- permissions
+- permission
 ---
 
 Templates are like blueprints for releases. You use them to model the ideal process of a release flow. A template can describe a procedure that is used to deliver different applications, or it can describe a procedure that is used to release a particular application and that will be reused for different versions of it.

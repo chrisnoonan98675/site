@@ -2,7 +2,8 @@
 title: Execute tasks sequentially within parallel groups
 categories:
 - xl-release
-subject: Tasks
+subject:
+- Tasks
 tags:
 - task
 - parallel group

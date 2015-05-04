@@ -9,6 +9,7 @@ tags:
 - custom task
 - python
 - plugin
+- customization
 ---
 
 XL Release allows you to add custom task types that appear in the user interface and integrate seamlessly with other tasks in the release flow. You can use custom tasks to integrate with third-party components. For example, XL Release includes JIRA integration tasks, which are a set of custom tasks.

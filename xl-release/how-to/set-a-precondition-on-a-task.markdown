@@ -3,7 +3,7 @@ title: Set a precondition on a task
 categories:
 - xl-release
 subject:
-- Task
+- Tasks
 tags:
 - task
 - script

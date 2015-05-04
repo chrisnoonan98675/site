@@ -3,7 +3,7 @@ title: Create a notification task
 categories:
 - xl-release
 subject:
-- Task
+- Tasks
 tags:
 - task
 - notification

@@ -3,7 +3,7 @@ title: Create a parallel group
 categories:
 - xl-release
 subject:
-- Task
+- Tasks
 tags:
 - task
 - parallel group
