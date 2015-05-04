@@ -8,6 +8,7 @@ tags:
 - release
 - template
 - release summary
+- release flow
 ---
 
 The **Release Flow** editor in the release summary shows the phases and tasks in the release and allows you to add, move, edit, and delete them.

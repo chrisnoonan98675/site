@@ -7,6 +7,7 @@ subject:
 tags:
 - release
 - user interface
+- release summary
 ---
 
 The Release Summary shows an overview of the current release.
