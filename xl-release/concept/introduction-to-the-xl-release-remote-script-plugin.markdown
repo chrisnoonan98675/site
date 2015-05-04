@@ -3,10 +3,11 @@ title: Introduction to the XL Release Remote Script plugin
 categories:
 - xl-release
 subject:
-- Remote Script plugin
+- Task types
 tags:
 - plugin
 - script
+- task
 ---
 
 The XL Release Remote Script plugin allows XL Release to execute commands on remote hosts. It does so by using the **Overthere** framework. Overthere is a Java library to manipulate files and execute processes on remote hosts, i.e. do stuff "over there". See the [Overthere Github repository](https://github.com/xebialabs/overthere) for more information.

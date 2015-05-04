@@ -1,12 +1,13 @@
 ---
-title: Introduction to the XL Release SVN plugin
+title: Introduction to the XL Release SVN trigger plugin
 categories:
 - xl-release
 subject:
-- SVN plugin
+- Triggers
 tags:
 - plugin
 - svn
+- trigger
 since:
 - 4.5.x
 ---

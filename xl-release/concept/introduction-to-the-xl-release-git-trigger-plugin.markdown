@@ -3,14 +3,14 @@ title: Introduction to the XL Release Git trigger plugin
 categories:
 - xl-release
 subject:
-- Git trigger plugin
+- Triggers
 tags:
 - plugin
 - git
 - trigger
 ---
 
-In order to use Git trigger plugin, you need to create a **Git Repository**. Git repositories could be managed from the configuration screen.
+To use the XL Release Git trigger plugin, you need to create a **Git Repository**. Git repositories could be managed from the configuration screen.
 
 A Git Repository has the following properties:
 

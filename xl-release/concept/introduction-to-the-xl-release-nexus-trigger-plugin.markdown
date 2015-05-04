@@ -1,12 +1,13 @@
 ---
-title: Introduction to the XL Release Nexus plugin
+title: Introduction to the XL Release Nexus trigger plugin
 categories:
 - xl-release
 subject:
-- Nexus plugin
+- Triggers
 tags:
 - plugin
 - nexus
+- trigger
 ---
 
 The Nexus plugin is an XL Release plugin that allows XL Release to interact with Sonatype Nexus repositories. 

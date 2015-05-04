@@ -1,12 +1,14 @@
 ---
-title: Introduction to the XL Release Time plugin
+title: Introduction to the XL Release Time trigger plugin
 categories:
 - xl-release
 subject:
-- Time plugin
+- Triggers
 tags:
 - plugin
 - schedule
+- time
+- trigger
 ---
 
 Time plugin is an XL Release plugin that allows XL Release to trigger releases based on a user defined time schedule. 
