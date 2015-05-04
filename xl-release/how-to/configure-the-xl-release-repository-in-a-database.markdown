@@ -9,6 +9,7 @@ tags:
 - installation
 - setup
 - database
+- repository
 ---
 
 XL Release uses a repository to store all of its data. XL Release can use the filesystem or a database to maintain the repository. By default, XL Release uses the filesystem to store all data in the repository. To use a database, the built-in Jackrabbit JCR implementation must be configured

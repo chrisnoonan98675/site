@@ -6,7 +6,9 @@ subject:
 - Tasks
 tags:
 - task
+- custom task
 - python
+- plugin
 ---
 
 XL Release allows you to add custom task types that appear in the user interface and integrate seamlessly with other tasks in the release flow. You can use custom tasks to integrate with third-party components. For example, XL Release includes JIRA integration tasks, which are a set of custom tasks.
@@ -267,7 +269,6 @@ For example, this is a possible implementation of the `jira.CreateIssue` task in
                 Dumps the whole response
                 """
 
-
 ### Examples
 
 #### Posting JSON
@@ -299,7 +300,7 @@ For example, this is a possible implementation of the `jira.CreateIssue` task in
 
 #### Getting results using a configuration object
 
-If your task definition has a [configuration object](#reference-configuration-type-from-custom-task-definition) defined using:
+If your task definition has a [configuration object](/xl-release/how-to/create-custom-configuration-types-in-xl-release.html#reference-a-configuration-instance-from-a-custom-task) defined using:
 
         <property name="jiraServer" category="input" label="Server" referenced-type="jira.Server" kind="ci"/>
 

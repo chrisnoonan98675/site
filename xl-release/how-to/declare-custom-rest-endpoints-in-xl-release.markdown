@@ -8,6 +8,7 @@ tags:
 - api
 - script
 - jython
+- plugin
 ---
 
 You can extend XL Release by creating new endpoints backed by Jython scripts. This feature can be useful for example to integrate with other systems.

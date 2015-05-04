@@ -26,7 +26,7 @@ First, create the directory `SERVER_HOME/ext/pythonutil` if it does not already 
 
 ![Extract XLRequest.py and XLResponse.py](../images/extract-xlreq-xlresp.png)
 
-Obviously, you can only extract `XLRequest.py` and `XLResponse.py` if you have access to an XL Release version (such as 4.0.10) that still includes these. If you are running a version that no longer provides these, please download an older version from the XebiaLabs download site or [contact our support team](http://support.xebialabs.com/).
+Obviously, you can only extract `XLRequest.py` and `XLResponse.py` if you have access to an XL Release version (such as 4.0.10) that still includes these. If you are running a version that no longer provides these, please download an older version from the XebiaLabs download site or [contact our support team](https://support.xebialabs.com/).
 
 ## Modify `XLRequest` and `XLResponse` to use `HttpRequest` and `HttpResponse`
 
@@ -98,8 +98,8 @@ Now you can verify that, when you use `XLRequest` and `XLResponse` in a script o
 
 ![Test script output](../images/test-xlrequest-output.png)
 
-[This sample template](sample-scripts/Test_XLRequest_adapter-template.xlr) does exactly that. Also, see [Test an automated task during configuration](test-an-automated-task-during-configuration.html) for more tips on tweaking and debugging tasks.
+[This sample template](sample-scripts/Test_XLRequest_adapter-template.xlr) does exactly that. Also, see [Test an automated task during configuration](/xl-release/how-to/test-an-automated-task-during-configuration.html) for more tips on tweaking and debugging tasks.
 
 **Note:** `HttpRequest` and `HttpResponse`, and `XLRequest` and `XLResponse` before them, are intended as convenient helper classes, nothing more. XL Release certainly does not require that you use them in your scripts or custom tasks: if you'd rather work directly with [`httplib`](http://www.jython.org/docs/library/httplib.html) or [`java.net`](http://docs.oracle.com/javase/tutorial/networking/), you can.
 
-**Important:** The code here is sample code only that is not officially supported by XebiaLabs. If you have questions, please [contact our support team](http://support.xebialabs.com/).
+**Important:** The code here is sample code only that is not officially supported by XebiaLabs. If you have questions, please [contact our support team](https://support.xebialabs.com/).

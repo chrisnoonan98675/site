@@ -17,7 +17,7 @@ Here, we'll use a configuration object to store a number of "global variables" a
 
 ## Defining the configuration type
 
-First, we need to define our configuration type. As explained in [the documentation](/xl-release), there are two "base types" that we can use for this, `xlrelease.Configuration` and `configuration.HttpConnection`. The latter is useful if you're looking to define any kind of HTTP endpoint, but in this case we're looking for something much more basic:
+First, we need to define our configuration type. There are two "base types" that we can use for this, `xlrelease.Configuration` and `configuration.HttpConnection`. The latter is useful if you're looking to define any kind of HTTP endpoint, but in this case we're looking for something much more basic:
 
     <type type="my.GlobalConfig" extends="xlrelease.Configuration">
         <property name="foo" label="Foo (this does X)" />

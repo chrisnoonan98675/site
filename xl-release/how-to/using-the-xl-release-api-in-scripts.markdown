@@ -39,7 +39,7 @@ There is message there: "A Release User account has to be set in order to use XL
 
 Enter your own credentials for now. (Don't forget to hit **Save**!) These user credentials will be used to run all scripts that are defined in this release. 
 
-_Tip: for a more serious set up than testing we recommend to set up a global "Script Runner" user that can be used in each release and has tailor-made security settings._
+**Tip:** for a more serious set up than testing we recommend to set up a global "Script Runner" user that can be used in each release and has tailor-made security settings.
 
 Go back to the **Release Flow** and retry the failed script task.
 
@@ -53,7 +53,6 @@ Click on the **Add a comment task** and scroll down to the comments section. We 
 
 ![Script test tasks](../images/script-test/hello-world.png)
 
-
 ## Looking at the code
 
 Let's take a look at the code step by step.
@@ -62,9 +61,9 @@ Let's take a look at the code step by step.
 
 In the first line, we get a reference to the currently executing task (in other words, our "Add a comment" Script task) and stores it in a variable `task`. The method to do this is `getCurrentTask()`, which is one of a number of methods that are directly exposed to Jython scripts.
 
-To set a comment on a task, we use the Public API endpoint `taskApi.commentTask`, which is documented [here](https://docs.xebialabs.com/jython-docs/#!/xl-release/4.5.x//service/com.xebialabs.xlrelease.api.v1.TaskApi).
+To set a comment on a task, we use the Public API endpoint `taskApi.commentTask`, which is documented [here](/jython-docs/#!/xl-release/4.6.x//service/com.xebialabs.xlrelease.api.v1.TaskApi).
 
-The commentTask method takes the task ID and a `Comment` object as a parameter. The [Comment](https://docs.xebialabs.com/jython-docs/#!/xl-release/4.5.x//service/com.xebialabs.xlrelease.api.v1.forms.Comment) object is a simple wrapper around a string. It is instantiated as follows:
+The commentTask method takes the task ID and a `Comment` object as a parameter. The [Comment](/jython-docs/#!/xl-release/4.6.x//service/com.xebialabs.xlrelease.api.v1.forms.Comment) object is a simple wrapper around a string. It is instantiated as follows:
 
     comment = Comment()
     comment.setComment("Hello World!")
@@ -79,6 +78,8 @@ This will add the comment to the task. Note that for any call to a API endpoint 
 
 This is just a small example about that you can do with the XL Release API. Check out the documentation to see what methods are available.
 
-* [Jython API for XL Release 4.5](https://docs.xebialabs.com/jython-docs/#!/xl-release/4.5.x/)
-* [Script task reference](https://docs.xebialabs.com/xl-release/4.5.x/reference_manual.html#script-task)
-* [Plugin manual](https://docs.xebialabs.com/xl-release/latest/plugin_manual.html)
+* [Jython API for XL Release 4.6.x](/jython-docs/#!/xl-release/4.6.x/)
+* [Script task reference](/xl-release/how-to/create-a-script-task.html)
+* [Create custom task types in XL Release](/xl-release/how-to/create-custom-task-types-in-xl-release.html)
+* [Create custom configuration types in XL Release](/xl-release/how-to/create-custom-configuration-types-in-xl-release.html)
+* [Declare custom REST endpoints in XL Release](/xl-release/how-to/declare-custom-rest-endpoints-in-xl-release.html)

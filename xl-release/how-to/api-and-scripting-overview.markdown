@@ -1,8 +1,9 @@
 ---
-title: XL Release APIs & scripting overview
+title: XL Release API and scripting overview
 categories:
 - xl-release
-subject: XL Release API
+subject:
+- XL Release API
 tags:
 - api
 - script
@@ -18,7 +19,6 @@ There are various ways to automate functionality in XL Release.
 * Script tasks in releases
 * Reusable plugin tasks
 
-
 ## REST API
 
 The principal way to control XL Release from the outside is through the REST API.
@@ -27,10 +27,9 @@ The public REST API of XL Release exposes its core functionality over HTTP, allo
 
 With the API, you can start releases, complete tasks, add comments to tasks and much more.
 
-To get started, take a look on how to [create a new release using the REST API](create-a-new-release-via-rest-api-using-curl.html).
+To get started, take a look on how to [create a new release using the REST API](/xl-release/how-to/create-a-new-release-via-rest-api-using-curl.html).
 
-Browse the [XL Release REST API documentation](/xl-release/4.5.x/rest-api/) to see what functionality can be used.
-
+Browse the [XL Release REST API documentation](/xl-release/latest/rest-api/) to see what functionality can be used.
 
 ## Automation within XL Release
 
@@ -44,14 +43,13 @@ This task allows you to connect to any system that has an HTTP endpoint, for exa
 
 You can send a request and parse the result into an XL Release variable for use in subsequent tasks. No scripting is needed.
 
-See the documentation for the [WebHook task](/xl-release/4.5.x/reference_manual.html#webhook-task) for more information.  
-
+See the documentation for the [WebHook task](/xl-release/how-to/create-a-webhook-task.html) for more information.  
 
 ## Remote shell scripting
 
 The **Remote Script** task in XL Release allows you to execute a shell script on a remote host. Both Unix and Windows are supported.
 
-See [Remote Script Plugin Manual](/xl-release-remotescript-plugin/4.5.x/remoteScriptPluginManual.html) for more information.
+See [Remote Script Plugin Manual](/xl-release/concept/introduction-to-the-xl-release-remote-script-plugin.html) for more information.
 
 ## Script tasks
 
@@ -61,9 +59,9 @@ XL Release users with sufficient access privileges can write the script on the t
 
 The scripting language used is [Jython](http://www.jython.org/), which is a [Python](https://www.python.org/) dialect that runs on the Java VM. It is compatible with Python 2.5. Since it runs on a Java VM, the complete API of Java 7 can also be used.
 
-Script tasks have access to the XL Release through the [XL Release Python API](/jython-docs/#!/xl-release/4.5.x/). This API is equivalent with the REST API.
+Script tasks have access to the XL Release through the [XL Release Python API](/jython-docs/#!/xl-release/4.6.x/). This API is equivalent with the REST API.
 
-See the [Script Task](/xl-release/4.5.x/reference_manual.html#script-task) documentation for more information.
+See the [Script Task](/xl-release/how-to/create-a-script-task.html) documentation for more information.
 
 ## Plugin tasks
 
@@ -72,6 +70,3 @@ You can create custom tasks types using the task plugin mechanism. These tasks w
 In fact, the JIRA and Jenkins tasks and most other standard tasks in XL Release are plugin tasks.
 
 As Script tasks, Plugin tasks are written in Jython and have access to the XL Release API. Plugins are installed on the XL Release server.
-
-See the [Plugin Manual](/xl-release/4.5.x/plugin_manual.html) on how to create them.
-

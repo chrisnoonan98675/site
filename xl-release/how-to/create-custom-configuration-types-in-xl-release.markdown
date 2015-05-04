@@ -7,6 +7,7 @@ subject:
 tags:
 - configuration
 - python
+- plugin
 ---
 
 XL Release allows you to add custom configuration types in XML. Custom configuration types appear in the configuration screens, and custom tasks can reference configuration instances. You can use custom configuration type tasks to reference third-party component settings.
@@ -74,4 +75,4 @@ To edit or delete an instance, click its name.
 
 ## Reference a configuration instance from a custom task
 
-For information about referencing a configuration instance from a custom task, see the [Jenkins task documentation](reference_manual.html#jenkins-task).
+For information about referencing a configuration instance from a custom task, see [Create a Jenkins task](/xl-release/how-to/create-a-jenkins-task.html).

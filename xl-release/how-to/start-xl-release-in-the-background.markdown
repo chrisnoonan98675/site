@@ -14,4 +14,4 @@ When you [start XL Release](/xl-release/how-to/start-xl-release.html) by executi
 
     nohup bin/server.sh &
 
-On a Windows system, you must configure XL Release to run as a [service](http://support.xebialabs.com/entries/20022143-install-deployit-as-a-windows-service).
+On a Windows system, you must configure XL Release to run as a [service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html).

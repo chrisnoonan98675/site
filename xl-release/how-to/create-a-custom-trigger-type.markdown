@@ -2,9 +2,11 @@
 title: Create a custom trigger type
 categories:
 - xl-release
-subject: Releases
+subject:
+- Releases
 tags:
 - trigger
+- customization
 ---
 
 Releases in XL Release can be kicked off in many different ways, such as directly from the user interface or via an upstream CI server or ALM tool.
