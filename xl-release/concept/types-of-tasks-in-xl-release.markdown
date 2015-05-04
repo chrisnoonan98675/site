@@ -3,7 +3,7 @@ title: Types of tasks in XL Release
 categories:
 - xl-release
 subject:
-- Tasks
+- Task types
 tags:
 - task
 ---

@@ -3,7 +3,7 @@ title: Create a script task
 categories:
 - xl-release
 subject:
-- Tasks
+- Task types
 tags:
 - task
 - script

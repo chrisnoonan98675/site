@@ -3,7 +3,7 @@ title: Create a Jenkins task
 categories:
 - xl-release
 subject:
-- Tasks
+- Task types
 tags:
 - task
 - jenkins

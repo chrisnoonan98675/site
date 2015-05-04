@@ -3,7 +3,7 @@ title: Create a webhook task
 categories:
 - xl-release
 subject:
-- Tasks
+- Task types
 tags:
 - task
 - xml
