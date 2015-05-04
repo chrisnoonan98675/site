@@ -13,13 +13,13 @@ product-id: xl-release
 ## Plugin documentation
 
 * [Remote Script Plugin Manual](/xl-release/concept/introduction-to-the-xl-release-remote-script-plugin.html)
-* [JIRA Pugin Manual](../../xl-release-jira-plugin/4.6.x/jiraPluginManual.html)
+* [JIRA Plugin Manual](/xl-release/concept/introduction-to-the-xl-release-jira-plugin.html)
 * [Git Plugin Manual](../../xl-release-git-plugin/4.6.x/gitPluginManual.html)
 * [Nexus Plugin Manual](../../xl-release-nexus-plugin/4.6.x/nexusPluginManual.html)
 * [Time Plugin Manual](/xl-release/concept/introduction-to-the-xl-release-time-plugin.html)
 * [SVN Plugin Manual](/xl-release/concept/introduction-to-the-xl-release-svn-plugin.html)
 
-## Community plugins documentation
+## Community plugin documentation
 
 * [Apache Derby DB tools](https://github.com/xebialabs-community/xl-apache-derby-tools-plugin)
 * [XL Release Stress tests](https://github.com/xebialabs-community/xl-release-stress-tests)
