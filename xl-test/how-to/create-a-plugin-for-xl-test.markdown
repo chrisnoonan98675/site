@@ -1,6 +1,6 @@
 ---
 layout: beta
-title: Create a test tool plugin
+title: Create a plugin for XL Test
 categories:
 - xl-test
 subject:
