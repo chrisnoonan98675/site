@@ -11,17 +11,22 @@ tags:
 - test specification
 - dashboard
 - report
+- project
 ---
 
 XL Test lets you manage, visualize, and analyze tests across all of your test tools to give you a single source of quality truth. XL Test acts as the Fitbit of your software.
 
 ## Test specifications
 
-In XL Test, a *test specification* represents a coherent set of tests. These can be jobs or tasks that include  that include automated tests. You can see the results of these tests in dashboards, reports, and qualifications.
+A *test specification* represents a coherent set of tests. These can be jobs or tasks that include  that include automated tests. You can see the results of these tests in dashboards, reports, and qualifications.
 
 You can create a test specification [in the XL Test interface](/xl-test/how-to/add-a-test-specification.html), by [importing existing test results](/xl-test/how-to/import-test-results.html), or by [pushing results to XL Test via Jenkins](/xl-test/how-to/connect-xl-test-to-a-jenkins-job.html).
 
 XL Test also allows you to create [executable test specifications](/xl-test/how-to/execute-tests-from-xl-test.html). XL Test delegates execution to the appropriate test tool(s) and takes care of importing the results.
+
+## Projects
+
+*Projects* combine test specifications into logical groups. 
 
 ## Test runs
 
