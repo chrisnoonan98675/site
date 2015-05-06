@@ -1,6 +1,6 @@
 ---
 layout: beta
-title: Add a test specification
+title: Create a test specification
 categories:
 - xl-test
 subject:
@@ -10,16 +10,11 @@ tags:
 - project
 ---
 
-To add a test specification or a set of test specifications to XL Test:
+To create a test specification in XL Test:
 
 1. Click **Projects** in the top menu bar.
-2. Click on the project you want to add the test specification to.
-1. Click **Add a test specification to project**. 
-
-## Add a single test specification
-
-To add a single test specification:
-
+1. Next to the project in which you want to create the test specification, click **Manage**.
+1. Click **Add a test specification to project**. The New test specification screen appears.
 1. Select **Single test specification**.
 1. Select the type of test specification that you want to create:
     * Executable test specification
@@ -37,16 +32,4 @@ To add a single test specification:
 
     ![New test specification](images/create-a-test-specification.png)
 
-1. Click **Add Test Specification** to save the specification.
-
-## Create a test specification set
-
-To create a set of test specifications:
-
-1. Select **Test specification set**.
-1. Enter a unique name in the **Test specification name** box.
-1. Select a test specification in the **Available test specifications** list and click the arrow to move it to the **To be added to super set** list. Do this for each specification that you want to add to the set.
-
-    ![New test specification set](images/create-a-test-specification-set.png)
-
-1. Click **Add test specification** to save the set.
+1. Click **Create test specification** to save the specification.
