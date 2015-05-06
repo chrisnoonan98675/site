@@ -34,13 +34,13 @@ The XL Test user interface requires one of the following browsers:
 
 To install XL Test:
 
-1. Download XL Test from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com).
-2. Extract `xl-test-server-<version>.zip` to the directory where you want to install XL Test; for example, `/opt/xebialabs/xl-test` or `C:\Program Files\XL Test`.
+1. Download the XL Test ZIP file from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com).
+2. Extract the ZIP file to the directory where you want to install XL Test; for example, `/opt/xebialabs/xl-test` or `C:\Program Files\XL Test`. This is referred to as `XLTEST_HOME`.
 3. Open a command prompt and navigate to `XLTEST_HOME/bin`.
 4. Execute one of the following commands to start the setup wizard:
       * On Unix: `server.sh`
       * On Windows: `server.cmd`
-5. After XL Test has started, the message `Starting XL Test ... done.` the URL to open XL Test appear.
+5. After XL Test has started, you will see the message `Starting XL Test ... done.` and the URL where you can access XL Test.
 
 ### Run XL Test on a non-default port
 
@@ -49,13 +49,13 @@ If you want to run XL Test on a different port, then perform the following proce
 * Edit `server.sh` or `server.cmd` and look for the definition of `XLTEST_SERVER_OPTS`.
 * Add the parameter `xltest.host` to the definition of `XLTEST_SERVER_OPTS` as follows:
 
-    XLTEST_SERVER_OPTS="-Xmx1024m -XX:MaxPermSize=128m -Dxltest.port=<port number>"
+        XLTEST_SERVER_OPTS="-Xmx1024m -XX:MaxPermSize=128m -Dxltest.port=<port number>"
 
 To access the XL Test user interface, open the provided URL in a browser.
 
 ## Directory structure
 
-After you install the XL Test server, this directory structure exists in the installation directory (`XLTEST_HOME`):
+After you install the XL Test server, this directory structure exists in `XLTEST_HOME`:
 
 * `bin`: Contains server startup scripts
 * `conf`: Contains server configuration files 
