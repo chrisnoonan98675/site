@@ -6,9 +6,10 @@ categories:
 subject:
 - Projects
 tags:
-- Project
+- project
 ---
-Test specifications are grouped in different projects. A test specification is always contained by exactly one project. To add a new project: 
+
+[Test specifications](/xl-test/how-to/add-a-test-specification.html) are grouped in projects. A test specification is always contained by exactly one project. To add a new project: 
 
 1. Click **Projects** in the top menu bar.
 2. Click on the **Add project** button.

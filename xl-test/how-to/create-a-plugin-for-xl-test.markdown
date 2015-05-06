@@ -4,7 +4,7 @@ title: Create a plugin for XL Test
 categories:
 - xl-test
 subject:
-- Plugin
+- Plugins
 tags:
 - test tool
 - plugin

@@ -4,7 +4,7 @@ title: Connect XL Test to a Jenkins job
 categories:
 - xl-test
 subject:
-- Plugin
+- Plugins
 tags:
 - jenkins
 - test results

@@ -7,6 +7,7 @@ subject:
 - Test specification
 tags:
 - test specification
+- project
 ---
 
 To add a test specification or a set of test specifications to XL Test:
