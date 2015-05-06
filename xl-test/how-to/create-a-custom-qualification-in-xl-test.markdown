@@ -4,7 +4,7 @@ title: Create a custom qualification in XL Test
 categories:
 - xl-test
 subject:
-- Reports
+- Qualification
 tags:
 - report
 - script
