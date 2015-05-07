@@ -42,10 +42,12 @@ When the XL Test server starts, it scans the classpath and loads each XL Test pl
 
 At runtime, multiple plugins will be active at the same time. It is up to the XL Test core to integrate the various plugins and ensure they work together to perform its functionality.
 
+{% comment %}
 Plugins can define the following items:
 
 - Report: Configuration items (CIs) that represent a report. See [create a custom report in XL Test](/xl-test/how-to/create-a-custom-report-in-xl-test.html).
 - Test Tool: CIs that represent a test tool or family of test tools representing the same test result format. See [create a test tool plugin](/xl-test/how-to/create-a-test-tool-plugin.html).
+{% endcomment %}
 
 To enhance the extensibility of XL Test, the product provides three APIs:
 

@@ -44,4 +44,4 @@ A *qualification* is XL Test's determination of whether a particular test run pa
 
 ## Plugins
 
-XL Test integrates with your test tools through *plugins* that search for test results and import results into XL Test. You can create a [custom plugin](/xl-test/how-to/create-a-test-tool-plugin.html).
+XL Test integrates with your test tools through *plugins* that search for test results and import results into XL Test. {% comment %}You can create a [custom plugin](/xl-test/how-to/create-a-test-tool-plugin.html).{% endcomment %}
