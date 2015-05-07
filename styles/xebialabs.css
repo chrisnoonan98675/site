@@ -404,15 +404,14 @@ form.form-search:before {
 
 /* In-product help popup styles */
 
-#popup-container {
+#popup-container-narrow {
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
-	font-family: OpenSans, Helvetica, Arial, sans-serif;
 }
 
-#popup-container h1 {
-	text-align: center;
+#popup-container {
+	font-family: OpenSans, Helvetica, Arial, sans-serif;
 }
 
 .img-valign {
@@ -423,3 +422,8 @@ form.form-search:before {
 .in-product-help-list li {
 	padding-bottom: 15px;
 }
+
+.in-product-help-text {
+	margin-top: 25px;
+}
+
