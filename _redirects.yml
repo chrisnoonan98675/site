@@ -17,6 +17,14 @@
 /xl-release/4.6.x/reference_manual.html#creating-a-template : /xl-release/how-to/create-a-release-template.html
 /xl-release/4.6.x/reference_manual.html#release-overview : /xl-release/concept/xl-release-release-overview.html
 /xl-release/4.6.x/reference_manual.html#release-summary : /xl-release/concept/xl-release-release-summary.html
+/xl-release/help/0001.html : /xl-release/index.html
+/xl-release/help/0002.html : /xl-release/concept/variables-in-xl-release.html
+/xl-release/help/0003.html : /xl-release/concept/xl-release-pipeline-view.html
+/xl-release/help/0004.html : /xl-release/concept/xl-release-task-overview.html
+/xl-release/help/0005.html : /xl-release/how-to/using-the-release-flow-editor.html
+/xl-release/help/0006.html : /xl-release/how-to/create-a-release-template.html
+/xl-release/help/0007.html : /xl-release/concept/xl-release-release-overview.html
+/xl-release/help/0008.html : /xl-release/concept/xl-release-release-summary.html
 
 # XL Test in-product links
 /xl-test/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new?community_id=public
