@@ -9,6 +9,7 @@
 /releases/3.0/xl-release/index.html : /xl-release/3.0.x/index.html
 /releases/4.0/xl-release/index.html : /xl-release/4.0.x/index.html
 /releases/4.5/xl-release/index.html : /xl-release/4.5.x/index.html
+/xl-release/4.6.x/reference_manual.html : /xl-release/index.html
 /xl-release/4.6.x/reference_manual.html#variables : /xl-release/concept/variables-in-xl-release.html
 /xl-release/4.6.x/reference_manual.html#pipeline : /xl-release/concept/xl-release-pipeline-view.html
 /xl-release/4.6.x/reference_manual.html#task-overview : /xl-release/concept/xl-release-task-overview.html
