@@ -1,5 +1,5 @@
 ---
-title: Deploy an application (XL Deploy 5.0.0 or later)
+title: Deploy an application
 categories:
 - xl-deploy
 subject:

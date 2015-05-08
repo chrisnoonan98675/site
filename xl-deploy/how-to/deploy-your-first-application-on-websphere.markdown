@@ -1,5 +1,5 @@
 ---
-title: Deploy your first application on IBM WebSphere Application Server (XL Deploy 5.0.0 or later)
+title: Deploy your first application on IBM WebSphere Application Server
 subject:
 - Getting started
 categories:

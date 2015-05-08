@@ -1,5 +1,5 @@
 ---
-title: Deploy your first application on JBoss EAP 6 or JBoss AS/WildFly 7.1+ (XL Deploy 5.0.0 or later)
+title: Deploy your first application on JBoss EAP 6 or JBoss AS/WildFly 7.1+
 subject:
 - Getting started
 categories:
