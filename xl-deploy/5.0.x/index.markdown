@@ -3,6 +3,8 @@ title: XL Deploy 5.0.x documentation
 product-id: xl-deploy
 ---
 
+Can't find what you need? We've moved much of our documentation to topics, to make it easier to browse and search. You can find the topics <a href="/xl-deploy/index.html#browse-documentation-by-subject">here</a>.
+
 ## Product reference documentation
 
 * [Release Notes](releasenotes.html)
