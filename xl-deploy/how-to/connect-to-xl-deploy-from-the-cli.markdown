@@ -32,7 +32,7 @@ The options are:
 | Option | Description |
 | ------ | ----------- |
 | `-configuration config_directory` | Pass an alternative configuration directory to the CLI. The CLI will look for a `deployit.conf` in this location. The configuration file supports the `cli.username` and `cli.password` options. |
-| `-context newcontext` | If provided, the `context` value will be added to the XL Deploy server connection URL. For example, if `newcontext` is given, the CLI will attempt to connect to the XL Deploy server REST API at `http://host:port/newcontext/deployit`. The leading slash and REST API endpoint (`deployit`) will automatically be added if they are omitted from the parameter. |
+| `-context newcontext` | If provided, the `context` value will be added to the XL Deploy server connection URL. For example, if `newcontext` is given, the CLI will attempt to connect to the XL Deploy server REST API at `http://host:port/newcontext/deployit`. The leading slash and REST API endpoint (`deployit`) will automatically be added if they are omitted from the parameter. **Tip:** If the XL Deploy context root is set to `deployit`, the `-context` value must be `/deployit/deployit`. |
 | `-f Python_script_file` | Starts the CLI in batch mode to run the provided Python file. After the script completes, the CLI will terminate. The XL Deploy CLI can load and run Python script files of up to 100 KB in size. |
 | `-source Python_script_file` | Alternative for the `-f` option. |
 | `-host myhost.domain.com` | Specifies the host the XL Deploy server is running on. The default host is `127.0.0.1` (that is, `localhost`). |
