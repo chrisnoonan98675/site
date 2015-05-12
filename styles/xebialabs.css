@@ -24,6 +24,10 @@ img {
 }
 code {
 	color: #001D3B;
+	background-color: #EFEFEF;
+}
+a code {
+	color: #428bca;
 }
 a img { 
 	border: none;  
