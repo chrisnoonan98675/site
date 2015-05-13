@@ -12,16 +12,16 @@ tags:
 
 To edit a dashboard in XL Test:
 
-* Click ![Edit button](images/button-edit.png) next to the dashboard on the Dashboards page, or
-* Click ![Edit dashboard button](images/button-edit-dashboard.png) when viewing a dashboard
+* Click **Edit** next to the dashboard on the Dashboards page, or
+* Click **Edit dashboard** when viewing a dashboard
 
-After you make changes, click ![Save dashboard](images/button-save-dashboard.png) to save the dashboard.
+After you make changes, click **Save dashboard** to save the dashboard.
 
 ## Add a tile to a dashboard
 
 To add a tile to a dashboard:
 
-1. Click ![Add a tile button](images/button-add-tile.png) in the top right corner.
+1. Click **Add tile** in the top right corner.
 2. Enter the header title for the tile in the **Name** box.
 3. Select the test specification from the **Choose test specification** list.
 4. Select the report for this tile from the **Report type** list.
@@ -30,9 +30,9 @@ To add a tile to a dashboard:
 
     ![Add a tile](images/add-a-tile-to-dashboard.png)
 
-5. Click ![Add a tile button](images/button-add-tile.png) to add the tile to the dashboard.
+5. Click **Add tile** to add the tile to the dashboard.
 6. Repeat these steps to add more tiles.
-7. Click ![Save dashboard](images/button-save-dashboard.png) to save the dashboard.
+7. Click **Save dashboard** to save the dashboard.
 
 ## Arrange tiles on a dashboard
 
@@ -43,7 +43,7 @@ To arrange tiles on a dashboard:
 1. Open the dashboard in edit mode.
 2. Left-click and hold a tile, then drag it to the desired position.
 3. To resize a tile, drag its lower right corner.
-4. Click ![Save dashboard](images/button-save-dashboard.png) to save the dashboard.
+4. Click **Save dashboard** to save the dashboard.
 
 **Note:** When you are arranging tiles, it is possible that tiles seem to disappear "fall off" the dashboard. Scroll the dashboard to the right to see these tiles.
 
@@ -54,7 +54,7 @@ To remove a tile from a dashboard:
 1. Open the dashboard in edit mode.
 2. Click ![Delete a tile](images/button-delete-a-tile-from-dashboard.png) on the tile that you want to remove.
 3. Click **Delete** in the confirmation message. Note that you cannot undo removing a tile.
-4. Click ![Save dashboard](images/button-save-dashboard.png) to save the dashboard.
+4. Click **Save dashboard** to save the dashboard.
 
 ## Edit a tile on a dashboard
 
@@ -64,6 +64,6 @@ To edit a tile on a dashboard:
 2. Click ![Edit a tile](images/button-edit-a-tile-on-dashboard.png) on the tile that you want to edit.
 3. Modify the tile settings.
 4. Click **Save** to apply the changes.
-5. Click ![Save dashboard](images/button-save-dashboard.png) to save the dashboard.
+5. Click **Save dashboard** to save the dashboard.
 
 **Tip:** In some reports, such as the bar chart, you can drill down to see more detailed information. For this type of report, you can set the detail level.
