@@ -12,7 +12,7 @@ tags:
 - project
 ---
 
-You can import results from past test executions into XL Test. This will automatically create a test specification that you can use to execute future tests.
+You can import results from past test executions into XL Test. This will automatically create an *active* test specification for you.
 
 To import results into XL Test, click **Get started** on the welcome screen or click **Import** in the top menu bar.
 

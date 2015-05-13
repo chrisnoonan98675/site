@@ -20,9 +20,14 @@ XL Test lets you manage, visualize, and analyze tests across all of your test to
 
 A *test specification* represents a coherent set of tests. These can be jobs or tasks that include  that include automated tests. You can see the results of these tests in dashboards, reports, and qualifications.
 
-You can create a test specification [in the XL Test interface](/xl-test/how-to/add-a-test-specification.html), by [importing existing test results](/xl-test/how-to/import-test-results.html), or by [pushing results to XL Test via Jenkins](/xl-test/how-to/connect-xl-test-to-a-jenkins-job.html).
+There are four types of test specification:
 
-XL Test also allows you to create [executable test specifications](/xl-test/how-to/execute-tests-from-xl-test.html). XL Test delegates execution to the appropriate test tool(s) and takes care of importing the results.
+* Active test specification: A test specification that can retrieve test results
+* Executable test specification: A test specification that can execute test runs and import the results
+* Passive test specification: A test specification to which an external process such as Jenkins can push results
+* Test specification set: A group that aggregates the results of multiple test specifications
+
+You can create a test specification [in the XL Test interface](/xl-test/how-to/create-a-test-specification.html), by [importing existing test results](/xl-test/how-to/import-test-results.html), or by [pushing results to XL Test via Jenkins](/xl-test/how-to/connect-xl-test-to-a-jenkins-job.html).
 
 ## Projects
 
