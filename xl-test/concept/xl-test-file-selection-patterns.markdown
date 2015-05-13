@@ -24,12 +24,13 @@ The patterns are:
 
 For example, if your working directory is `/var/tests`:
 
-{:.table .table-striped}
-| Pattern | Selects | Does not select |
-| ------- | ------- | --------------- |
-| `**/cucumber-report.json` | All files named `cucumber-report.json` in all subdirectories; for example, `/var/tests/a/cucumber-report.json` and `/var/tests/a/b/c/cucumber-report.json` | |
-| `TEST-*.xml` | `/var/tests/TEST-A.xml` and `/var/tests/TEST-myTestSuite.xml` | `/var/tests/a/TEST-A.xml` |
-| `Test?.json` | `/var/tests/Test1.json` and `/var/tests/TestA.json` | `/var/tests/TestAA.json` |
-| `test-result/*` | All files in `/var/tests/test-result` | |
-| `/tmp/tests/*` | All files in `/tmp/tests/` | Files in `/var/tests/` | |	
+* `**/cucumber-report.json` selects all files named `cucumber-report.json` in all subdirectories; for example, `/var/tests/a/cucumber-report.json` and `/var/tests/a/b/c/cucumber-report.json`
+
+* `TEST-*.xml` selects `/var/tests/TEST-A.xml` and `/var/tests/TEST-myTestSuite.xml`, but not `/var/tests/a/TEST-A.xml`
+
+* `Test?.json` selects `/var/tests/Test1.json` and `/var/tests/TestA.json`, but not `/var/tests/TestAA.json`
+
+* `test-result/*` selects all files in `/var/tests/test-result`
+
+* `/tmp/tests/*` selects all files in `/tmp/tests/`, but no files in `/var/tests/`	
 For more information and additional examples, refer to the Apache Ant [documentation](https://ant.apache.org/manual/dirtasks.html).
