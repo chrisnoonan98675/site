@@ -47,7 +47,7 @@ To install XL Test:
 If you want to run XL Test on a different port, then perform the following procedure after step 3: 
 
 * Edit `server.sh` or `server.cmd` and look for the definition of `XLTEST_SERVER_OPTS`.
-* Add the parameter `xltest.host` to the definition of `XLTEST_SERVER_OPTS` as follows:
+* Add the parameter `xltest.port` to the definition of `XLTEST_SERVER_OPTS` as follows:
 
         XLTEST_SERVER_OPTS="-Xmx1024m -XX:MaxPermSize=128m -Dxltest.port=<port number>"
 
