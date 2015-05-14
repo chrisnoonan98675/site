@@ -67,3 +67,15 @@ Whenever a deployment is done to one or more of the containers mentioned in the 
 
 1. Just before the first application server is deployed to, the web server is removed from the load balancing configuration.
 2. After the last application server linked to the web server has been deployed to, the web server is put back into the load balancing configuration.
+
+## Load balance servers with custom orchestrators
+
+If you use *-by-deployment-* orchestrators you might also want to use `sequential-by-loadbalancer-group` orchestrator.
+`sequential-by-loadbalancer-group` orchestrator will split existing execution plan into a sequence of 3 sub-plans:
+
+1. disable affected servers in load balancers
+2. do actual deployment
+3. enable affected servers in load balancers
+
+you can then combine this orchestration with other orchestrations to accomplish desired deployment scenarios.
+
