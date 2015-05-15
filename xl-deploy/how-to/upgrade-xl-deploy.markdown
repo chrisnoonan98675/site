@@ -3,11 +3,12 @@ title: Upgrade XL Deploy
 categories:
 - xl-deploy
 subject:
-- System administration
+- Upgrade
 tags:
 - system administration
 - upgrade
 - installation
+- migration
 ---
 
 Briefly, the process of upgrading XL Deploy is:
