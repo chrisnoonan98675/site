@@ -1,5 +1,6 @@
 ---
 layout: beta
+no_mini_toc: true
 title: XL Test reports
 categories:
 - xl-test
