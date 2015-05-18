@@ -86,13 +86,16 @@ This is an example of a working `xl-release-security.xml` file that uses LDAP:
 
 The XML fragment above contains placeholders for the following values:
 
-* **LDAP_SERVER_URL**: The LDAP URL to connect to (example: `ldap://localhost:1389/`).
-* **MANAGER_DN**: The principal to perform the initial bind to the LDAP server (example: `"cn=admin,dc=example,dc=com"`).
-* **MANAGER_PASSWORD**: The credentials to perform the initial bind to the LDAP server (example: `"secret"`). See **Configuring custom passwords** for information about encrypting this password.
-* **USER_SEARCH_FILTER**: The LDAP filter to determine the LDAP DN for the user who is logging in. `{0}` will be replaced with the user name (example: `"(&(uid={0})(objectClass=inetOrgPerson))"`).
-* **USER_SEARCH_BASE**: The LDAP filter that is the base for searching for users (example: `"dc=example,dc=com"`).
-* **GROUP_SEARCH_FILTER**: The LDAP filter to determine the group memberships for the user. `{0}` will be replaced with the DN of the user (example: `"(memberUid={0})"`).
-* **GROUP_SEARCH_BASE**: The LDAP filter that is the base for searching for groups (example: `"ou=groups,dc=example,dc=com"`).
+{:.table .table-striped}
+| Placeholder | Description | Example |
+| ----------- | ----------- | ------- |
+| `LDAP_SERVER_URL` | The LDAP URL to connect to | `ldap://localhost:1389/` |
+| `MANAGER_DN` | The principal to perform the initial bind to the LDAP server | `"cn=admin,dc=example,dc=com"` |
+| `MANAGER_PASSWORD` | The credentials to perform the initial bind to the LDAP server; see [Configure custom passwords](/xl-release/how-to/changing-passwords-in-xl-release.html#configure-custom-passwords) for information about encrypting this password | `"secret"` |
+| `USER_SEARCH_FILTER` | The LDAP filter to determine the LDAP DN for the user who is logging in; `{0}` will be replaced with the user name | `"(&(uid={0})(objectClass=inetOrgPerson))"` |
+| `USER_SEARCH_BASE` | The LDAP filter that is the base for searching for users | `"dc=example,dc=com"` |
+| `GROUP_SEARCH_FILTER` | The LDAP filter to determine the group memberships for the user; `{0}` will be replaced with the DN of the user | `"(memberUid={0})"` |
+| `GROUP_SEARCH_BASE` | The LDAP filter that is the base for searching for groups | `"ou=groups,dc=example,dc=com"` |
 
 ## Assign a default role to all authenticated users
 
