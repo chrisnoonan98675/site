@@ -232,9 +232,3 @@ Add the group that you used in [step 8](#step-8-determine-group-properties) as a
 
 Verify that you can log in with the group you used in [step 8](#step-8-determine-group-properties).
 
-## Conclusion
-
-You have now set up your LDAP integration. For more information about security, refer to the:
-
-* [System Administration Manual](http://docs.xebialabs.com/releases/latest/deployit/systemadminmanual.html#configuring-security)
-* [Security Manual](http://docs.xebialabs.com/releases/latest/deployit/securitymanual.html)
