@@ -39,13 +39,17 @@ To configure the XL Test plugin:
 
 ## Step 3 Add a post-build step to your job
 
-To connect the XL Test plugin to a build job:
+To connect the XL Test plugin to a build job, first create the test specification in XL Test to which the results will be sent. Optionally, [add a new project](/xl-test/how-to/add-a-project-to-xl-test.html) to which this test specification is added. Please ensure to create a [Passive Test Specification](/xl-test/how-to/create-a-test-specification.html), since the test data will be provided by Jenkins.
+
+Next, configure the XL Test plugin to send the results to the created test specification:
 
 1. Go to the job and click **Configure**.
 1. In the **Post-build Actions** section, click **Add post-build action** and select **Send test results to XL Test**.
-1. In the **Credential** box, select the credentials to use.
+1. In the **Choose test specification** list, select the appropriate test specification to which the results will be added.
 1. Select the tool or output format from the **Tool** list.
-1. In the **Pattern** box, provide the [file selection pattern](/xl-test/concept/xl-test-file-selection-patterns.html) to use to locate the test results. These files will be sent to XL Test for processing. Note that the pattern depends on the tool that you selected.
+1. In the **Include pattern** box, optionally override the [file selection pattern](/xl-test/concept/xl-test-file-selection-patterns.html) that is used select files from the workspace that are sent to XL Test. As a reference, the file selection pattern from the test specification as configured in XL Test is shown in the **Choose test specification** list.
+1. Optionally, provide an pattern to match files that are *excluded* and will not be sent to XL Test.
+1. The matching files will be sent to XL Test for processing. Note that the pattern depends on the tool that you selected.
 1. **Save** the updated configuration.
 
 ## Step 4 Build
@@ -54,6 +58,6 @@ To start a new build of the job, click **Build**.
 
 ## Step 5 View in XL Test
 
-After the build is complete, click **Test specifications** in the XL Test navigation menu to see the newly created specification.
+After the build is complete, navigate to the appropriate **Project** and its **Test specification** in  XL Test to view and analyze the test results.
 
 You can also configure XL Test to execute test specifications that build on Jenkins.
