@@ -83,6 +83,11 @@ Windows-based middleware servers that XL Deploy interacts with must meet the fol
 
 It is possible to connect XL Deploy to middleware servers that do not support SSH, Telnet, or WinRM. This requires you to use the [Overthere](https://github.com/xebialabs/overthere) remote execution framework to create a custom _access method_ that connects to the server.
 
+### Networking
+
+Ensure that the network connection to the XL Deploy host name works. 
+You should be able to successfully execute `ping xl_deploy_hostname`.
+
 ## Client requirements
 
 ### GUI clients
