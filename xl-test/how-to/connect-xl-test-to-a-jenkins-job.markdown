@@ -13,7 +13,7 @@ tags:
 
 If you import test results from Jenkins, XL Test will automatically create a test specification with the same name as the Jenkins job (if it does not already exist).
 
-To connect them so that Jenkins will send test results to XL Test, you must install and configure the XL Test plugin for Jenkins.
+To connect them so that Jenkins will send test results to XL Test, you must install and configure the [XL Test plugin](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin) for Jenkins.
 
 ## Step 1 Install the XL Test plugin
 
@@ -24,18 +24,16 @@ To use the Jenkins interface to install the plugin:
 1. Look for the XL Test plugin.
 1. Select the plugin and click **Install without restart**.
 
-More information about installing plugins in Jenkins can be found in the [Jenkins wiki](https://wiki.jenkins-ci.org/display/JENKINS/Plugins).
+For information about installing plugins in Jenkins, refer to the [Jenkins wiki](https://wiki.jenkins-ci.org/display/JENKINS/Plugins).
 
 ## Step 2 Configure the plugin
 
 To configure the XL Test plugin:
 
-1.  Go to **Manage Jenkins** > **Configure System** and scroll down to the XL Test section.
-1.  In the **Default Server Url** box, enter the URL where XL Test runs.
-1.  In the **Default Proxy Url** box, enter the URL of a proxy server, if one is required to contact XL Test. If no proxy server is required, leave the box empty.
-1.  In the **Credentials** compartment, provide the user name and password that should be used to connect to XL Test.
-
-**Tip**: If you have multiple XL Test servers, you can select the **Use non-default XL Test Server** option. You can then enter a **Server Url** and **Proxy Url** to override the defaults.
+1. Go to **Manage Jenkins** > **Configure System** and locate the **XL Test** section.
+1. In the **Server Url** box, enter the URL where XL Test runs.
+1. In the **Proxy Url** box, enter the URL of a proxy server, if one is required to contact XL Test. If no proxy server is required, leave the box empty.
+1. Next to **Credentials**, click **Add** and provide the user name and password that Jenkins should use to connect to XL Test.
 
 ## Step 3 Add a post-build step to your job
 
@@ -45,11 +43,18 @@ Next, configure the XL Test plugin to send the results to the created test speci
 
 1. Go to the job and click **Configure**.
 1. In the **Post-build Actions** section, click **Add post-build action** and select **Send test results to XL Test**.
+<<<<<<< HEAD
 1. In the **Choose test specification** list, select the appropriate test specification to which the results will be added.
 1. Select the tool or output format from the **Tool** list.
 1. In the **Include pattern** box, optionally override the [file selection pattern](/xl-test/concept/xl-test-file-selection-patterns.html) that is used select files from the workspace that are sent to XL Test. As a reference, the file selection pattern from the test specification as configured in XL Test is shown in the **Choose test specification** list.
 1. Optionally, provide an pattern to match files that are *excluded* and will not be sent to XL Test.
 1. The matching files will be sent to XL Test for processing. Note that the pattern depends on the tool that you selected.
+=======
+1. Next to **Test Specifications**, click **Add**.
+1. Select the test specification where the results should be sent.
+2. In the **Include pattern** box, enter a [file selection pattern](/xl-test/concept/xl-test-file-selection-patterns.html) for the results to include.
+3. In the **Exclude pattern** box, enter a file selection pattern for the results to exclude.
+>>>>>>> d6ab7d660f65e59287770e8cfc5d38bd5d975625
 1. **Save** the updated configuration.
 
 ## Step 4 Build
@@ -58,6 +63,10 @@ To start a new build of the job, click **Build**.
 
 ## Step 5 View in XL Test
 
+<<<<<<< HEAD
 After the build is complete, navigate to the appropriate **Project** and its **Test specification** in  XL Test to view and analyze the test results.
 
 You can also configure XL Test to execute test specifications that build on Jenkins.
+=======
+After the build is complete, open the test specification in XL Test to locate the results.
+>>>>>>> d6ab7d660f65e59287770e8cfc5d38bd5d975625
