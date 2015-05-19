@@ -85,8 +85,8 @@ It is possible to connect XL Deploy to middleware servers that do not support SS
 
 ### Networking
 
-Please make sure that network connection to your hostname works. 
-Configure it so that `ping your_hostname` succeeds.
+Ensure that the network connection to the XL Deploy host name works. 
+You should be able to successfully execute `ping xl_deploy_hostname`.
 
 ## Client requirements
 
