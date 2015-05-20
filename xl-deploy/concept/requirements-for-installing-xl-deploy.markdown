@@ -26,6 +26,14 @@ Depending on the environment, the following may also be required:
 * **Database**: XL Deploy's Jackrabbit repository supports a number of different databases; for more information, see [Configure the XL Deploy repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html)
 * **LDAP**: To enable group-based security, an LDAP x.509 compliant registry is needed; for more information, see [Configure the XL Deploy security file](/xl-deploy/how-to/configure-the-xl-deploy-security-file.html)
 
+### Networking requirements
+
+Before installing XL Deploy, ensure that the network connection to the XL Deploy host name works. You should be able to successfully execute `ping xl_deploy_hostname`.
+
+By default, the XL Deploy server uses port 4516. If, during installation, you choose to enable secure communication (SSL) between the server and the XL Deploy GUI, the server uses port 4517.
+
+To enable secure communication and/or to change the port number during installation, choose the [manual setup option](https://docs.xebialabs.com/xl-deploy/how-to/install-xl-deploy.html#manual-setup) in the command-line server setup wizard. The wizard will take you through the setup steps.
+
 ### Determining hard disk space requirements
 
 The XL Deploy server itself only uses about 70 MB of disk space. The main hard disk space usage comes from the repository which stores your deployment packages and deployment history. The size of the repository will vary from installation to installation but depends mainly on the:
@@ -82,11 +90,6 @@ Windows-based middleware servers that XL Deploy interacts with must meet the fol
 ### Extending middleware support
 
 It is possible to connect XL Deploy to middleware servers that do not support SSH, Telnet, or WinRM. This requires you to use the [Overthere](https://github.com/xebialabs/overthere) remote execution framework to create a custom _access method_ that connects to the server.
-
-### Networking
-
-Ensure that the network connection to the XL Deploy host name works. 
-You should be able to successfully execute `ping xl_deploy_hostname`.
 
 ## Client requirements
 
