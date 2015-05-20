@@ -30,31 +30,32 @@ More information about installing plugins in Jenkins can be found in the [Jenkin
 
 To configure the XL Test plugin:
 
-1.  Go to **Manage Jenkins** > **Configure System** and scroll down to the XL Test section.
+1.  Go to **Manage Jenkins** > **Configure System** and locate the XL Test section.
 1.  In the **Server Url** box, enter the URL where XL Test runs.
 1.  In the **Proxy Url** box, enter the URL of a proxy server, if one is required to contact XL Test. If no proxy server is required, leave the box empty.
-1.  In the **Credentials** compartment, provide the user name and password that should be used to connect to XL Test. See the [documentation](https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin) for more information on using Jenkins' Credentials Plugin.
+1.  In the **Credentials** compartment, provide the user name and password that should be used to connect to XL Test. For information about credentials, refer to the [Jenkins' Credentials plugin](https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin).
 
 ## Step 3 Add a post-build step to your job
 
-To connect the XL Test plugin to a build job, first create the test specification in XL Test to which the results will be sent. Optionally, [add a new project](/xl-test/how-to/add-a-project-to-xl-test.html) to which this test specification is added. Please ensure to create a [Passive Test Specification](/xl-test/how-to/create-a-test-specification.html), since the test data will be provided by Jenkins.
+To connect the XL Test plugin to a build job, create a [passive test specification](/xl-test/how-to/create-a-test-specification.html) in XL Test. You can optionally create this specification in a [new project](/xl-test/how-to/add-a-project-to-xl-test.html).
 
-Next, configure the XL Test plugin to send the results to the created test specification:
+Then, configure the XL Test plugin to send the results to the test specification that you created:
 
-1. Go to the job and click **Configure**.
+1. In Jenkins, go to the job and click **Configure**.
 1. In the **Post-build Actions** section, click **Add post-build action** and select **Send test results to XL Test**.
-1. In the **Choose test specification** list, select the appropriate test specification to which the results will be added.
-1. In the **Include pattern** box, optionally override the [file selection pattern](/xl-test/concept/xl-test-file-selection-patterns.html) that is used select files from the workspace that are sent to XL Test. As a reference, the file selection pattern from the test specification as configured in XL Test is shown in the **Choose test specification** list.
-1. Optionally, provide an pattern to match files that are *excluded* and will not be sent to XL Test.
-   The matching files will be sent to XL Test for processing. Note that the pattern depends on the tool that you selected.
-1. **Save** the updated configuration.
+1. Select the test specification from the **Choose test specification** list.
+1. In the **Include pattern** box, optionally override the [file selection pattern](/xl-test/concept/xl-test-file-selection-patterns.html) that is used select files to send to XL Test from the workspace. For your reference, the **Choose test specification** list shows the file selection pattern that is configured for the specification in XL Test.
+
+1. In the **Exclude pattern** box, optionally provide a pattern to match files that are *excluded* and will not be sent to XL Test.
+
+   **Note:** The include and exclude patterns depend on the tool that you selected.
+
+1. Click **Save** to save the updated configuration.
 
 ## Step 4 Build
 
-To start a new build of the job, click **Build**.
+To start a new build of the job in Jenkins, click **Build**.
 
 ## Step 5 View in XL Test
 
-After the build is complete, navigate to the appropriate **Project** and its **Test specification** in  XL Test to locate and analyze the test results.
-
-You can also configure XL Test to execute test specifications that build on Jenkins.
+After the build is complete, go to the appropriate **Project** in XL Test and locate the test specification. You can then analyze the results.
