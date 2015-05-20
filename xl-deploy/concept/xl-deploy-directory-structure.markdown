@@ -9,6 +9,7 @@ tags:
 - cli
 - installation
 - upgrade
+- hotfix
 ---
 
 ## XL Deploy server directory structure
