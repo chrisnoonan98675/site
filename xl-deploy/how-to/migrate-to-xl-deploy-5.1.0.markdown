@@ -34,7 +34,7 @@ For more information about upgrading from Jython 2.5 and 2.7 and an explanation 
 
 ## Spring Security 4
 
-... placeholder as a reminder, we probably need to fill this in later
+Spring Security was upgraded from version 3.2.5 to 4.0.1. Some deprecated API was removed in the 4.0 version, so please check the [Spring Security 3.x to 4.x](http://docs.spring.io/spring-security/site/migrate/current/3-to-4/html5/migrate-3-to-4-xml.html) migration guide to see if you need to update `conf/deployit-security.xml` file.
 
 ## Deprecation of composite packages
 
