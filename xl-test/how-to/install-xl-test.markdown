@@ -16,10 +16,10 @@ tags:
 
 The XL Test server requires:
 
-* Microsoft Windows or Unix-family operating system running Java 7
-* Java Runtime Environment (JRE) 1.7 (Oracle or IBM); note that Java Development Kit (JDK) 7 is required to execute the example tests included with XL Test
+* Microsoft Windows or Unix-family operating system
+* Java Runtime Environment (JRE) 1.7 (Oracle or IBM)
 * At least 1 GB of RAM available for XL Test
-* At least 256 MB of hard disk space available to store the XL Test repository (the exact amount of space required depends on your usage of XL Test)
+* At least 1 GB of hard disk space available for XL Test and the database (the exact amount of space required depends on your usage of XL Test)
 
 ### Client requirements
 
@@ -46,7 +46,7 @@ In case a license has not been provided to you, fill out the in-product registra
 
 ### Run XL Test on a non-default port
 
-If you want to run XL Test on a different port, then perform the following procedure after step 3: 
+If you want to run XL Test on a different port, then perform the following procedure after step 3:
 
 * Edit `server.sh` or `server.cmd` and look for the definition of `XLTEST_SERVER_OPTS`.
 * Add the parameter `xltest.port` to the definition of `XLTEST_SERVER_OPTS` as follows:
@@ -60,7 +60,7 @@ To access the XL Test user interface, open the provided URL in a browser.
 After you install the XL Test server, this directory structure exists in `XLTEST_HOME`:
 
 * `bin`: Contains server startup scripts
-* `conf`: Contains server configuration files 
+* `conf`: Contains server configuration files
 * `ext`: Contains server Java extensions
 * `plugins`: Contains modules for extending XL Test's functionality
 * `lib`: Contains libraries that the server needs

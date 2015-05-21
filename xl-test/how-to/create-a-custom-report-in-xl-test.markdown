@@ -33,7 +33,7 @@ First, add a custom report type to `<XLTEST_HOME>/ext/synthetic.xml`:
 
 1. Copy a `type` element with attribute `type="xltest.Barchart"` from `<XLTEST_HOME>/plugins/demo/synthetic.xml`:
 
-        <type type="xltest.BarChart" extends="generic.Report">
+        <type type="xltest.BarChart" extends="xltest.Report">
             <property name="title" default="Bar chart"/>
             <property name="scriptLocation" default="reports/BarChart.py"/>
             <property name="iconName" default="bar-report-icon"/>
@@ -46,7 +46,7 @@ First, add a custom report type to `<XLTEST_HOME>/ext/synthetic.xml`:
 
     The result will look like:
 
-        <type type="myCompany.myBarChart" extends="generic.Report">
+        <type type="myCompany.myBarChart" extends="xltest.Report">
             <property name="title" default="My Bar Chart"/>
             <property name="scriptLocation" default="reports/MyBarChart.py"/>
             <property name="iconName" default="bar-report-icon"/>
