@@ -42,6 +42,8 @@ To install XL Test:
       * On Windows: `server.cmd`
 5. After XL Test has started, you will see the message `Starting XL Test ... done.` and the URL where you can access XL Test.
 
+In case a license has not been provided to you, fill out the in-product registration form that is provided as soon as you start XL Test to obtain a license. This license allows you to create, aside the showcase project, [one more project](/xl-test/how-to/add-a-project-to-xl-test.html).
+
 ### Run XL Test on a non-default port
 
 If you want to run XL Test on a different port, then perform the following procedure after step 3: 
