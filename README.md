@@ -8,13 +8,13 @@ online-docs-jekyll
     * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/)
     * Windows users, follow [these instructions](http://jekyll-windows.juthilo.com/) (you can skip step #3 there)
 1. Install [Asciidoctor](http://asciidoctor.org/docs/install-toolchain/).
-1. In the directory where you cloned the repository, execute `jekyll serve` or `jekyll serve --watch` (for [watch mode](http://jekyllrb.com/docs/usage/)).
+1. In the directory where you cloned the repository, execute `jekyll serve` or `jekyll serve --watch` (for [watch mode](http://jekyllrb.com/docs/usage/)). Go to `http://localhost:4000` to see the site running locally.
 
-Go to `http://localhost:4000` to see the site running locally.
+Tips:
 
-**Tip:** To disable updating of the Development Dashboard while you run Jekyll in watch mode, change the `jira_dashboard` `generate` setting in `_config.yml` to `false`. **Do not commit this change to the repository!**
-
-**Note:** If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
+* To disable updating of the Development Dashboard while you run Jekyll in watch mode, change the `jira_dashboard` `generate` setting in `_config.yml` to `false`. **Do not commit this change to the repository!**
+* If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
+* You may want to download a Markdown editor such as [MacDown](http://macdown.uranusjr.com/) for OS X or [MarkdownPad](http://markdownpad.com/) for Windows.
 
 # Branches
 
