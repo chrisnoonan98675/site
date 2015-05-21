@@ -16,6 +16,8 @@ Tips:
 * If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
 * You may want to download a Markdown editor such as [MacDown](http://macdown.uranusjr.com/) for OS X or [MarkdownPad](http://markdownpad.com/) for Windows.
 
+**Tip:** In MacDown, go to **Preferences** > **Rendering** and select **Detect Jekyll front-matter** to have MacDown nicely format the YAML frontmatter in Markdown files.
+
 # Branches
 
 ## Master branch
