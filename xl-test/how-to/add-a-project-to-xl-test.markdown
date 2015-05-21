@@ -10,7 +10,7 @@ tags:
 - test specification
 ---
 
-[Test specifications](/xl-test/how-to/add-a-test-specification.html) are always grouped in projects. To add a new project: 
+[Test specifications](/xl-test/how-to/create-a-test-specification.html) are always grouped in projects. To add a new project: 
 
 1. Click **Projects** in the top menu bar.
 2. Click on the **Add project** button.
