@@ -1,5 +1,5 @@
 ---
-title: Configure XL Deploy to communicate with XL Satellite
+title: Configure XL Deploy to communicate with satellites
 categories:
 - xl-deploy
 subject:
@@ -9,31 +9,30 @@ tags:
 - system administration
 - configuration
 since:
-- 5.1.0
+- 5.0.1
 ---
 
-## Enable satellite communication 
-
-Satellite communication is switched off by default on XL Deploy. To enable it, find `satellite` section in configuration file `conf\system.conf`. And change `enabled` to  `yes` as follows
+By default, communication with satellites is disabled in XL Deploy. To enable it, locate the `satellite` section in the `conf/system.conf` file and change `enabled` to  `yes` as follows:
 
 	satellite {
-		enabled = yes
-	}
+        enabled = yes
+    }
 
-Restart XL Deploy and it will be ready to connect to any instance of XL Satellite. 
+Restart XL Deploy and it will be ready to connect to satellites.
 
+## Change default settings to communicate with satellites
 
-## Change default settings to communicate with XL Satellite
-
-The following setting are provided by default 
+By default, `conf/system.conf` has the following settings: 
 
 	satellite {
-  		hostname = ""
-		port = 8180
-	}
+	    hostname = ""
+       port = 8180
+    }
 
-* `hostname` must be set to an IP address or a host name XL Deploy can bind to. Note that this name must be visible from the network where XL Satellite is located. It's used by XL Satellite to reestablish connection with XL Deploy if initial connection broke. If no configuration value is provided, XL Deploy will resolve it from a network interface avalibale or to a loopback address if no interfaces are available.
-* `port` where XL Deploy binds to. It has to be accessable from XL Satellite network too. 
+* `hostname` must be set to an IP address or a host name that XL Deploy can bind to. XL Deploy will send this value to the satellites. It must be visible from the network(s) where the satellites are located.
 
+    Satellites will use this value to re-establish connection with XL Deploy if the initial connection breaks.
+    
+    If you do not provide a value, XL Deploy will resolve it from a network interface that is available, or to a loopback address if no interfaces are available.
 
-
+* `port` is the port that XL Deploy binds to. It must also be accessible from the satellites.
