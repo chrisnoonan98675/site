@@ -20,6 +20,7 @@ product-id: xl-release
 * [Nexus plugin](/xl-release/concept/introduction-to-the-xl-release-nexus-plugin.html)
 * [Time plugin](/xl-release/concept/introduction-to-the-xl-release-time-plugin.html)
 * [SVN plugin](/xl-release/concept/introduction-to-the-xl-release-svn-plugin.html)
+* [XL Deploy plugin](/xl-release/how-to/create-an-xl-deploy-task.html)
 
 ## Community plugin documentation
 
