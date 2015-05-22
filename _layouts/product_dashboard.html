@@ -82,7 +82,7 @@ layout: default
                         <li>{{ issue.key }} - {{ issue.summary }}</li>
                         {%if issue.description != '' %}
                         <a href="#" data-toggle="{{release.id}}-{{issue.key}}-desc" class="issue-more" style="font-size: 75%">more</a><br/>
-                        <pre id="{{release.id}}-{{issue.key}}-desc" style="display: none;">{{ issue.description | xml_escape | trim }}</pre>
+                        <div id="{{release.id}}-{{issue.key}}-desc" class="issue-description" style="display: none;">{{ issue.description }}</div>
                         </li>
                         {% endif %}
                         {% endfor %}
@@ -97,7 +97,7 @@ layout: default
                         <li>{{ issue.key }} - {{ issue.summary }}</li>
                         {%if issue.description != '' %}
                         <a href="#" data-toggle="{{release.id}}-{{issue.key}}-desc" class="issue-more" style="font-size: 75%">more</a><br/>
-                        <pre id="{{release.id}}-{{issue.key}}-desc" style="display: none;">{{ issue.description | xml_escape | trim }}</pre>
+                        <div id="{{release.id}}-{{issue.key}}-desc" class="issue-description" style="display: none;">{{ issue.description }}</div>
                         </li>
                         {% endif %}
                         {% endfor %}
@@ -112,7 +112,7 @@ layout: default
                         <li>{{ issue.key }} - {{ issue.summary }}
                         {%if issue.description != '' %}
                         <a href="#" data-toggle="{{release.id}}-{{issue.key}}-desc" class="issue-more" style="font-size: 75%">more</a><br/>
-                        <pre id="{{release.id}}-{{issue.key}}-desc" style="display: none;">{{ issue.description | xml_escape | trim }}</pre>
+                        <div id="{{release.id}}-{{issue.key}}-desc" class="issue-description" style="display: none;">{{ issue.description }}</div>
                         </li>
                         {% endif %}
                         {% endfor %}

@@ -105,7 +105,7 @@ module Jira
       issue = Issue.new
       issue.key = json['key'].to_s
       issue.summary = json['fields']['summary'].to_s
-      issue.description = (json['fields']['description'] || '').to_s
+      issue.description = (json['renderedFields']['description'] || '').to_s
       issue.issue_type = json['fields']['issuetype']['name'].to_s
       issue.fix_versions = json['fields']['fixVersions'].map { |x| x['id'] }
       return issue
@@ -114,8 +114,8 @@ module Jira
 
   class Server
     VERSIONS_REQ_URL = '%{base_url}/project/%{jira_id}/versions'
-    ISSUES_SUMMARY_REQ_URL = '%{base_url}/search/?fields=key,summary,issuetype,fixVersions&maxResults=9999&jql=project=%{jira_project}+and+fixVersion+in+(%{versions})+and+"Public+Issue"="Yes - summary only"'
-    ISSUES_DESCRIPTION_REQ_URL = '%{base_url}/search/?fields=key,summary,issuetype,fixVersions,description&maxResults=9999&jql=project=%{jira_project}+and+fixVersion+in+(%{versions})+and+"Public+Issue"="Yes - summary and description"'
+    ISSUES_SUMMARY_REQ_URL = '%{base_url}/search/?fields=key,summary,issuetype,fixVersions&maxResults=9999&expand=renderedFields&jql=project=%{jira_project}+and+fixVersion+in+(%{versions})+and+"Public+Issue"="Yes - summary only"'
+    ISSUES_DESCRIPTION_REQ_URL = '%{base_url}/search/?fields=key,summary,issuetype,fixVersions,description&maxResults=9999&expand=renderedFields&jql=project=%{jira_project}+and+fixVersion+in+(%{versions})+and+"Public+Issue"="Yes - summary and description"'
 
     def initialize(base_url, username, password)
       @base_url = base_url

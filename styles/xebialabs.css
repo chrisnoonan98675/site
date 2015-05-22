@@ -370,25 +370,37 @@ form.form-search:before {
   margin-bottom: 10px;
 }
 
-.dashboard pre {
+.dashboard .issue-description {
   border: 0;
   border-left: 2px solid #428bca;
-  padding: 5px 0 5px 10px;
+  padding: 5px 0px 0px 10px;
   background-color: #ffffff;
   color: #585858;
   font-size: 14px;
   font-family: "effra","Helvetica",Arial,sans-serif;
-  white-space: pre-wrap;       /* CSS 3 */
-  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-  white-space: -pre-wrap;      /* Opera 4-6 */
-  white-space: -o-pre-wrap;    /* Opera 7 */
-  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  word-wrap: normal;
   word-break: normal;
   border-radius: 0;
 }
 
-.dashboard sub {
-  bottom: 0;
+.dashboard .issue-description .panel {
+  border: 1px solid #fff;
+  border-radius: 0;
+  -webkit-box-shadow: 0 0px 0px rgba(0,0,0,.05);
+  box-shadow: 0 0px 0px rgba(0,0,0,.05);
+}
+
+.dashboard .issue-description pre {
+  font-family: "effra","Helvetica",Arial,sans-serif;
+  background-color: #fff;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: normal;
+  margin-bottom: 0;
+}
+
+.dashboard .issue-description ul, .dashboard .issue-description ol {
+  margin-bottom: 10px;
 }
 
 .text-product {
