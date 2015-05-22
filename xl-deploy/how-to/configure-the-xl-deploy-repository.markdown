@@ -36,7 +36,7 @@ Here are some examples of configuring XL Deploy to use a database for various da
 
 For more information about using a database with Jackrabbit, see the [PersistenceManager FAQ](http://wiki.apache.org/jackrabbit/PersistenceManagerFAQ) and [DataStore FAQ](http://wiki.apache.org/jackrabbit/DataStore).
 
-#### Using XL Deploy with MySQL
+### Using XL Deploy with MySQL
 
 This is an example of configuring XL Deploy to use [MySQL](http://www.mysql.com/):
 
