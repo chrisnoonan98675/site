@@ -11,13 +11,13 @@ layout: default
                     Note that, while this information indicates the planned delivery of features and bug fixes, it does not represent a
                     commitment.</p>
             </div>
-            <div class="text-center">
+            <div class="col-md-offset-2 col-md-7 col-xs-12 text-center">
                 <h2><img src="/images/logos/{{ page.product.name }}-logo.png" class="logo"
                          alt="{{ page.product.title }}"> Upcoming Releases</h2>
             </div>
         </div>
         <div class="row filters">
-            <div class="col-xs-12 text-center">
+            <div class="col-md-offset-2 col-md-7 col-xs-12 text-center">
                 <span><i class="icon icon-trophy text-product"></i> <a href="#" class="filter-target">Product</a></span>
                 <span><i class="icon icon-plug text-plugin"></i> <a href="#" class="filter-target">Plugins</a></span>
                 <span><i class="glyphicon glyphicon-flag text-major"></i> <a href="#"
@@ -28,7 +28,7 @@ layout: default
             </div>
         </div>
         <div class="row">
-            <div class="col-md-offset-3 col-md-6">
+            <div class="col-md-offset-2 col-md-7">
                 <form class="form-search form-inline">
                     <input id="issue-filter" type="text" class="form-control search-query input-sm"
                            placeholder="Search issue..."/>
@@ -45,7 +45,7 @@ layout: default
         <div class="row release" data-release-type="{{ release.release_type }}"
              data-release-target="{{ release.release_target }}">
             <hr>
-            <div class="col-md-offset-1 col-md-2">
+            <div class="col-md-2">
                 {% if release.release_target == "Product" %}
                     <span class="label bg-product">
                         <i class="icon icon-trophy"></i>
@@ -69,7 +69,7 @@ layout: default
                     </span>
                 {% endif %}
             </div>
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <b>{{ release.title }} Release</b>
 
                 <ul class="list-unstyled issue-list">
@@ -77,8 +77,14 @@ layout: default
                         {% for issue in release.stories %}
                         {% if forloop.length and forloop.first %}
                         <span class="issue-header">New features</span>
+                        <hr/>
                         {% endif %}
                         <li>{{ issue.key }} - {{ issue.summary }}</li>
+                        {%if issue.description != '' %}
+                        <a href="#" data-toggle="{{release.id}}-{{issue.key}}-desc" class="issue-more" style="font-size: 75%">more</a><br/>
+                        <pre id="{{release.id}}-{{issue.key}}-desc" style="display: none;">{{ issue.description | xml_escape | trim }}</pre>
+                        </li>
+                        {% endif %}
                         {% endfor %}
                     </ul>
 
@@ -86,8 +92,14 @@ layout: default
                         {% for issue in release.improvements %}
                         {% if forloop.length and forloop.first %}
                         <span class="issue-header">Improvements</span>
+                        <hr/>
                         {% endif %}
                         <li>{{ issue.key }} - {{ issue.summary }}</li>
+                        {%if issue.description != '' %}
+                        <a href="#" data-toggle="{{release.id}}-{{issue.key}}-desc" class="issue-more" style="font-size: 75%">more</a><br/>
+                        <pre id="{{release.id}}-{{issue.key}}-desc" style="display: none;">{{ issue.description | xml_escape | trim }}</pre>
+                        </li>
+                        {% endif %}
                         {% endfor %}
                     </ul>
 
@@ -95,8 +107,14 @@ layout: default
                         {% for issue in release.bugs %}
                         {% if forloop.length and forloop.first %}
                         <span class="issue-header">Bug fixes</span>
+                        <hr/>
                         {% endif %}
-                        <li>{{ issue.key }} - {{ issue.summary }}</li>
+                        <li>{{ issue.key }} - {{ issue.summary }}
+                        {%if issue.description != '' %}
+                        <a href="#" data-toggle="{{release.id}}-{{issue.key}}-desc" class="issue-more" style="font-size: 75%">more</a><br/>
+                        <pre id="{{release.id}}-{{issue.key}}-desc" style="display: none;">{{ issue.description | xml_escape | trim }}</pre>
+                        </li>
+                        {% endif %}
                         {% endfor %}
                     </ul>
                 </ul>
@@ -127,7 +145,6 @@ layout: default
 
 <script type="text/javascript">
     function toggleNoResultsMsg() {
-        console.log($(".release:visible").length);
         if ($(".release:visible").length == 0) {
             $("#noresults").show();
         }
@@ -138,7 +155,7 @@ layout: default
     function toggleView(parent, keyword) {
         var visibleChildren = parent.find("li").filter(function () {
             return $(this).css('display') != 'none';
-        })
+        });
 
         if (visibleChildren.length == 0 && keyword) {
             parent.hide();
@@ -156,11 +173,11 @@ layout: default
                 } else {
                     $(this).show();
                 }
-            })
+            });
 
             $(this).children(".issue-sublist").each(function () {
                 toggleView($(this), keyword);
-            })
+            });
 
             toggleView($(this).parents(".release"), keyword);
         });
@@ -168,7 +185,18 @@ layout: default
     }
 
     $(document).ready(function () {
-        filterIssues($("#issue-filter").val())
+        $("a.issue-more").click(function() {
+            var $target = $("#" + $(this).data("toggle"));
+            $target.toggle();
+            if($target.is(':visible')) {
+                $(this).text("less");
+            } else {
+                $(this).text("more");
+            }
+            return false;
+        });
+
+        filterIssues($("#issue-filter").val());
         $("#issue-filter").keyup(function () {
             filterIssues($(this).val());
         });

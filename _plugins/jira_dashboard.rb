@@ -85,6 +85,7 @@ module Jira
 
     def to_liquid
       hash = super
+      hash['id'] = id
       hash['release_type'] = release_type
       hash['release_target'] = release_target
       hash['title'] = title
@@ -98,12 +99,13 @@ module Jira
   end
 
   class Issue < Base
-    attr_accessor :key, :summary, :issue_type, :fix_versions
+    attr_accessor :key, :summary, :issue_type, :fix_versions, :description
 
     def self.from_json(json)
       issue = Issue.new
       issue.key = json['key'].to_s
       issue.summary = json['fields']['summary'].to_s
+      issue.description = (json['fields']['description'] || '').to_s
       issue.issue_type = json['fields']['issuetype']['name'].to_s
       issue.fix_versions = json['fields']['fixVersions'].map { |x| x['id'] }
       return issue
@@ -112,7 +114,8 @@ module Jira
 
   class Server
     VERSIONS_REQ_URL = '%{base_url}/project/%{jira_id}/versions'
-    ISSUES_REQ_URL = '%{base_url}/search/?fields=key,summary,issuetype,fixVersions&maxResults=9999&jql=project=%{jira_project}+and+fixVersion+in+(%{versions})+and+"Public+Issue"=Yes'
+    ISSUES_SUMMARY_REQ_URL = '%{base_url}/search/?fields=key,summary,issuetype,fixVersions&maxResults=9999&jql=project=%{jira_project}+and+fixVersion+in+(%{versions})+and+"Public+Issue"="Yes - summary only"'
+    ISSUES_DESCRIPTION_REQ_URL = '%{base_url}/search/?fields=key,summary,issuetype,fixVersions,description&maxResults=9999&jql=project=%{jira_project}+and+fixVersion+in+(%{versions})+and+"Public+Issue"="Yes - summary and description"'
 
     def initialize(base_url, username, password)
       @base_url = base_url
@@ -155,9 +158,7 @@ module Jira
     end
 
     def get_all_issues_for_releases(product, releases)
-      all_issues = get_json(ISSUES_REQ_URL % {:base_url => @base_url, :jira_project => product.jira_project, :versions => releases.map(&:id).join(',')})['issues'].map { |x|
-        Issue.from_json(x)
-      }
+      all_issues = get_issues_for_releases(product, releases, ISSUES_SUMMARY_REQ_URL) | get_issues_for_releases(product, releases, ISSUES_DESCRIPTION_REQ_URL)
       grouped_issues = {}
       all_issues.each { |issue|
         issue.fix_versions.each { |fv|
@@ -165,6 +166,12 @@ module Jira
         }
       }
       return grouped_issues
+    end
+
+    def get_issues_for_releases(product, releases, query_url)
+      return get_json(query_url % {:base_url => @base_url, :jira_project => product.jira_project, :versions => releases.map(&:id).join(',')})['issues'].map { |x|
+        Issue.from_json(x)
+      }
     end
 
     def get_json(url)
@@ -234,6 +241,7 @@ module Jekyll
         site.pages << dashboard_page
       }
 
+      log 'Finished development dashboard generation, yay!'
     end
   end
 end
