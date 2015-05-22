@@ -210,6 +210,22 @@ This is an example of configuring XL Deploy to use [Oracle](http://www.oracle.co
 
 If you use the TNSNames Alias syntax to connect to Oracle, you may need to inform the driver where to find the TNSNAMES file. See the Oracle documentation for more information.
 
+### Using XL Deploy with SQL Server
+
+To configure XL Deploy to use [SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server/), follow the examples above, replacing the driver with `org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager`. For example:
+
+    <PersistenceManager class ="org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager">
+        <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+        <param name="url" value="jdbc:sqlserver://<database-host>:1433;DatabaseName=xldeploy" />
+        <param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
+        <param name="user" value="user" />
+        <param name="password" value="pwd" />
+        <param name="schemaObjectPrefix" value="${wsp.name}_" />
+        <param name="externalBLOBs" value="false" />
+    </PersistenceManager>
+
+For more information about SQL Server configuration for Jackrabbit, refer to the [Jackrabbit wiki](http://wiki.apache.org/jackrabbit/DataStore#Database_Data_Store). For information about the `MSSqlPersistenceManager` class, refer to the [Jackrabbit documentation](http://jackrabbit.apache.org/api/2.2/org/apache/jackrabbit/core/persistence/db/MSSqlPersistenceManager.html).
+
 ## Clustering
 
 It is also possible to run XL Deploy server with its repository shared with other XL Deploy server instances. For this to happen, the jackrabbit JCR must be configured to run in a [clustered mode](http://wiki.apache.org/jackrabbit/Clustering#Overview). This needs a cluster configuration to be present in the `jackrabbit-repository.xml` file.
