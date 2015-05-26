@@ -36,7 +36,7 @@ To deploy a new version of the application, you must:
 
 The end-user experience depends on the static web content and enterprise application being deployed in sync. This means that you cannot deploy only static web content and enable access to it before the enterprise application is fully deployed on the same side of the web site. You want to avoid having static content that points to an application that has not been deployed yet. Therefore, you want to execute the deployment in parallel as much as possible.
 
-## Define application and infrastructure building blocks
+## Step 1 Define application and infrastructure building blocks
 
 This is the application that will be deployed:
 
@@ -59,7 +59,7 @@ To define the load balancer, create a F5 BIG-IP load balancer and add `sideA-apa
 
 ![Load balancer members](images/deploy-using-sequential-by-loadbalancer-orchestrator/load_balancer_members.png)
 
-## Create a default deployment plan
+## Step 2 Create the default deployment plan
 
 If you create a deployment without any customization:
 
@@ -69,9 +69,9 @@ The resulting deployment plan will be:
 
 ![Basic deployment plan](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_plan_basic.png)
 
-## Orchestrate the deployment
+## Step 3 Divide the deployment into groups
 
-To split the deployment into two groups, edit the servers in the Repository:
+To divide the deployment into two groups, edit the servers in the Repository:
 
 1. Associate servers `sideA-apache` and `sideA-wls` to group `1`
 2. Associate servers `sideB-apache` and `sideB-wls` to group `2`
@@ -80,9 +80,9 @@ This is the configuration for the server `sideA-apache`:
 
 ![Associate sideA-apache to deployment group 1](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_group_1.png)
 
-### Enable the `sequential-by-deployment-group` orchestrator
+## Step 4 Add the `sequential-by-deployment-group` orchestrator
 
-Now you can use the **Deployment Properties** to enable the `sequential-by-deployment-group` orchestrator:
+Now you can use the **Deployment Properties** to add the `sequential-by-deployment-group` orchestrator:
 
 ![Enable sequential-by-deployment-group orchestrator](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_options_1.png)
 
@@ -92,7 +92,7 @@ XL Deploy generates the deployment plan:
 
 ![Deployment plan with sequential-by-deployment-group orchestrator](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_plan_sequential_by_group.png)
 
-### Parallelize deployment to the servers in each group
+## Step 5 Parallelize deployment to the servers in each group
 
 Now you can parallelize deployment to the servers in each group by defining additional sub-groups. Put the Apache servers into sub-group `1` and wls servers into sub-group `2`.
 
@@ -100,9 +100,9 @@ This is the configuration for the `sideA-wls` server:
 
 ![Associate sideA-wls to deployment sub-group 2](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_sub_group_2.png)
 
-### Enable the `parallel-by-deployment-sub-group` orchestrator
+## Step 6 Add the `parallel-by-deployment-sub-group` orchestrator
 
-Use the **Deployment Properties** to enable the `parallel-by-deployment-sub-group` orchestrator.
+Use the **Deployment Properties** to add the `parallel-by-deployment-sub-group` orchestrator.
 
 ![Enable parallel-by-deplyoment-sub-group orchestrator](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_options_2.png)
 
@@ -110,9 +110,7 @@ XL Deploy generates the deployment plan:
 
 ![Deployment plan with parallel-by-deployment-sub-group orchestrator](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_plan_parallel_by_sub_group.png)
 
-### Enable the `sequential-by-loadbalancer-group` orchestrator
-
-However, the plan above does not exactly meet the goal. With this plan, XL Deploy would do the following in parallel:
+However, this plan does not exactly meet the goal. With this plan, XL Deploy would do the following in parallel:
 
 1. Deploy to Apache web server
 	1. Disable access to Apache web server in load balancer
@@ -125,7 +123,9 @@ However, the plan above does not exactly meet the goal. With this plan, XL Deplo
 
 This means that access to the web site would be allowed, even if it is not fully deployed. Typically, deployment of web content will be faster than deployment of enterprise applications, and users will probably be able to access static web content while the back-end applications are still being deployed.
 
-Instead, XL Deploy should do the following, sequentially:
+## Step 7 Add the `sequential-by-loadbalancer-group` orchestrator
+
+To meet the goal, XL Deploy should do the following, sequentially:
 
 1. Disable access to Apache web server and WebLogic application server
 	1. Disable access to Apache web server in load balancer
@@ -137,7 +137,7 @@ Instead, XL Deploy should do the following, sequentially:
 	1. Enable access to WebLogic application server in load balancer
 	1. Enable access to Apache web server in load balancer
 
-To achieve this, use the **Deployment Properties** to enable the `sequential-by-loadbalancer-group` orchestrator.
+To achieve this, use the **Deployment Properties** to add the `sequential-by-loadbalancer-group` orchestrator.
 
 ![Enable sequential-by-loadbalancer-group orchestrator](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_options_3.png)
 
@@ -159,9 +159,11 @@ The deployment plan now looks like:
 
 ![Deployment plan with sequential-by-loadbalancer-group orchestrator in right place](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_plan_final.png)
 
-Then, enable plan optimization:
+## Step 8 Optimize the deployment plan
 
-![Enable `Optimize Plan`](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_options_5.png)
+Finally, enable deployment plan optimization:
+
+![Enable Optimize Plan](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_options_5.png)
 
 XL Deploy generates the deployment plan:
 
