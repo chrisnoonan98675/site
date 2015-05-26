@@ -17,7 +17,7 @@ XL Test supports the following test tools and test result formats:
 * [Gatling](http://gatling.io/)
 * [JMeter](http://jmeter.apache.org/)
 * [Cucumber](http://cukes.info/)
-* [Cucumber.JS](http://cukes.info/install-cucumber-js.html)
+* [Cucumber.JS](http://git.io/cukejs/)
 * [TestNG](http://testng.org/) (xUnit output format)
 * [Appium](http://appium.io/) (xUnit output format)
 * [Selenium](http://www.seleniumhq.org/) (executed via xUnit or Cucumber)
