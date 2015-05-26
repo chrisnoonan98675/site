@@ -47,7 +47,6 @@ The plugin will add two steps to the deployment of each deployment group:
 1. A disable server step that will stop traffic to the servers that are managed by the load balancer.
 2. An enable server step that will start traffic to the servers that were previously disabled.
 
-
 Traffic management to the server is done by enabling and disabling the referenced BIG-IP pool member in the BIG-IP load balancing pool.
 
 ## Set up a load balancing configuration
@@ -59,7 +58,7 @@ To set up XL Deploy to use your BIG-IP load balancing device:
 3. Populate the BIG-IP connection properties 'address', 'username', 'password', and 'partition', as seen from the host machine.
 4. Update all managed containers with the appropriate deployment group and BIG-IP member data and add them to the same `udm.Environment` as the BIG-IP LocalTrafficManager CI.
 
-## Load balance a mixed application server and web server environment
+## Load-balance a mixed application server and web server environment
 
 If you have an Apache `httpd` server that fronts a website backed by one or more application servers, it is possible to setup a more complex load balancing scenario, thus ensuring that the served website is not broken during the deployment. For this, the `www.ApacheHttpdServer` configuration item from the standard `webserver-plugin` is augmented with a property called `applicationServers`.
 
@@ -68,14 +67,13 @@ Whenever a deployment is done to one or more of the containers mentioned in the 
 1. Just before the first application server is deployed to, the web server is removed from the load balancing configuration.
 2. After the last application server linked to the web server has been deployed to, the web server is put back into the load balancing configuration.
 
-## Load balance servers with custom orchestrators
+## Load-balance servers with custom orchestrators
 
-If you use *-by-deployment-* orchestrators you might also want to use `sequential-by-loadbalancer-group` orchestrator.
-`sequential-by-loadbalancer-group` orchestrator will split existing execution plan into a sequence of 3 sub-plans:
+If you use `*-by-deployment-*` orchestrators, you might also want to use the `sequential-by-loadbalancer-group` orchestrator.
+This orchestrator splits the execution plan into a sequence of three sub-plans:
 
-1. disable affected servers in load balancers
-2. do actual deployment
-3. enable affected servers in load balancers
+1. Disable affected servers in load balancers
+2. Do the deployment
+3. Enable affected servers in load balancers
 
-you can then combine this orchestration with other orchestrations to accomplish desired deployment scenarios.
-
+You can combine this orchestrator with other orchestrations to accomplish the desired deployment scenarios.
