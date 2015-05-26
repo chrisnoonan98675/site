@@ -106,13 +106,13 @@ Use the **Deployment Properties** to enable the `parallel-by-deployment-sub-grou
 
 ![Enable parallel-by-deplyoment-sub-group orchestrator](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_options_2.png)
 
-XL Deploy generates deployment plan like:
+XL Deploy generates the deployment plan:
 
 ![Deployment plan with parallel-by-deployment-sub-group orchestrator](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_plan_parallel_by_sub_group.png)
 
 ### Enable the `sequential-by-loadbalancer-group` orchestrator
 
-However, the plan above does not exactly meet the goal. XL Deploy would do the following in parallel:
+However, the plan above does not exactly meet the goal. With this plan, XL Deploy would do the following in parallel:
 
 1. Deploy to Apache web server
 	1. Disable access to Apache web server in load balancer
@@ -141,7 +141,7 @@ To achieve this, use the **Deployment Properties** to enable the `sequential-by-
 
 ![Enable sequential-by-loadbalancer-group orchestrator](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_options_3.png)
 
-XL Deploy generates deployment plan like:
+XL Deploy generates the deployment plan:
 
 ![Deployment plan with sequential-by-loadbalancer-group orchestrator](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_plan_nonfinal.png)
 
@@ -163,7 +163,7 @@ Then, enable plan optimization:
 
 ![Enable `Optimize Plan`](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_options_5.png)
 
-XL Deploy generates following deployment plan:
+XL Deploy generates the deployment plan:
 
 ![Optimized deployment plan](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_plan_final_optimized.png)
 
