@@ -168,7 +168,7 @@ layout: default
     function filterIssues(keyword) {
         $(".issue-list").each(function () {
             $(this).find("li").each(function () {
-                if ($(this).text().search(new RegExp(keyword, "i")) < 0) {
+                if ($(this).text().search(new RegExp(keyword.trim(), "i")) < 0) {
                     $(this).hide();
                 } else {
                     $(this).show();
@@ -197,8 +197,15 @@ layout: default
         });
 
         filterIssues($("#issue-filter").val());
-        $("#issue-filter").keyup(function () {
+        $("#issue-filter").keyup(function (e) {
             filterIssues($(this).val());
+        });
+
+        $('#issue-filter').on('keyup keypress', function(e) {
+            if(e.keyCode == 13) {
+                e.preventDefault();
+                return false;
+            }
         });
 
         $(".filters a").click(function () {
