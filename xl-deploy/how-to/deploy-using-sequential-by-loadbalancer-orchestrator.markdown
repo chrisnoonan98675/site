@@ -1,5 +1,5 @@
 ---
-title: Deploy an application using the `sequential-by-loadbalancer-group` orchestrator
+title: Deploy an application using the sequential-by-loadbalancer-group orchestrator
 categories:
 - xl-deploy
 subject:
@@ -10,6 +10,9 @@ tags:
 - middleware
 - plugin
 - load balancer
+- tutorial
+since:
+- 5.0.1
 ---
 
 This scenario shows how you can use the `sequential-by-loadbalancer-group` orchestrator to deploy to web servers and application servers.
@@ -52,7 +55,7 @@ This is how it looks in the Repository:
 
 ![Basic infrastructure](images/deploy-using-sequential-by-loadbalancer-orchestrator/basic_infrastructure.png)
 
-To define the load balancer, create a F5 BIG-IP load balancer and add `sideA-apache`, `sideB-apache`, `sideA-wls`, `sideB-wls` as load balancer members.
+To define the load balancer, create a F5 BIG-IP load balancer and add `sideA-apache`, `sideB-apache`, `sideA-wls`, and `sideB-wls` as load balancer members.
 
 ![Load balancer members](images/deploy-using-sequential-by-loadbalancer-orchestrator/load_balancer_members.png)
 
@@ -99,7 +102,7 @@ This is the configuration for the `sideA-wls` server:
 
 ### Enable the `parallel-by-deployment-sub-group` orchestrator
 
-Now you can use the **Deployment Properties** to enable the `parallel-by-deployment-sub-group` orchestrator.
+Use the **Deployment Properties** to enable the `parallel-by-deployment-sub-group` orchestrator.
 
 ![Enable parallel-by-deplyoment-sub-group orchestrator](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_options_2.png)
 
@@ -120,10 +123,9 @@ However, the plan above does not exactly meet the goal. XL Deploy would do the f
 	1. Deploy to WebLogic application server
 	1. Enable access to Apache web server in load balancer
 
-This means that access to the web site would be allowed, even if it is not fully deployed. Typically, deployment of web content will be faster than deployment of enterprise applications, and users will probably be able to access static
-web content while the back-end applications are still being deployed.
+This means that access to the web site would be allowed, even if it is not fully deployed. Typically, deployment of web content will be faster than deployment of enterprise applications, and users will probably be able to access static web content while the back-end applications are still being deployed.
 
-Therefore, XL Deploy should do the following, sequentially:
+Instead, XL Deploy should do the following, sequentially:
 
 1. Disable access to Apache web server and WebLogic application server
 	1. Disable access to Apache web server in load balancer
@@ -143,13 +145,13 @@ XL Deploy generates deployment plan like:
 
 ![Deployment plan with sequential-by-loadbalancer-group orchestrator](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_plan_nonfinal.png)
 
-The `sequential-by-loadbalancer-group` orchestrator transforms the sub-plans into a new sequential plan that consists of following groups of tasks:
+The `sequential-by-loadbalancer-group` orchestrator transforms the sub-plans into a new sequential plan that:
 
-1. Disable access to all containers in original sub-plan
-2. Deploy as with original sub-plan
-3. Enable access to all containers in original sub-plan
+1. Disables access to all containers in original sub-plan
+2. Deploys as with original sub-plan
+3. Enables access to all containers in original sub-plan
 
-Unfortunately, the `sequential-by-loadbalancer-group` orchestrator is applied too late and access to the web site might be enabled too soon. To fix this, you need to move the orchestrator up one level:
+Unfortunately, the `sequential-by-loadbalancer-group` orchestrator is applied too late and access to the web site might be enabled too soon. To fix this, move the orchestrator up one level:
 
 ![Move up sequential-by-loadbalancer-group orchestrator](images/deploy-using-sequential-by-loadbalancer-orchestrator/deployment_options_4.png)
 
