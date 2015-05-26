@@ -53,10 +53,10 @@ A report can be any data structure, as long as it can serialize to JSON. This in
 
 The general structure of a script is:
 
- 1. Calculate data to report, based on tesr run events.
+ 1. Calculate data to report, based on test run events.
  2. Pass the generated data to the `resultHolder`.
 
- In code:
+In code:
  
     n = len(testRun.events) # let's say there are 42 events in this test run
     resultHolder.setResult({ 'numberOfTests': n })
@@ -70,9 +70,11 @@ In a Python script, the following properties are available:
  * `testRun` (object): the current test run / the most recent test run given a time span.
  * `testRuns` (object): the test runs repository, used to obtain other test runs.
  * `queryParameters` (dictionary): All query (URL) parameters provided.
- * `startDate` (integer): value of the startDate URL parameter. Defaults to two weeks ago.
- * `endDate` (integer): value of the endDate URL parameter. Defaults to the current time.
- * `tags`(list of string): value of the tags URL parameter. Defaults to an empty list. 
+ * `startDate` (integer): value of the URL parameter "startDate". Defaults to two weeks ago.
+ * `endDate` (integer): value of the URL parameter "endDate". Defaults to the current time.
+ * `tags`(list of strings): value of the URL parameter "tags". Defaults to an empty list. 
+
+### TestRun
 
 The TestRun object has the following public properties:
 
@@ -86,12 +88,14 @@ The TestRun object has the following public properties:
  * `events` (list of events): Test run events associated with this test run.
  * `getEvents(filterParameters)` (list of events): Test run events associated with this test run, only the events that match filter `filterParameters` are returned.
  * `hasParameter(parameterName)` (string): return `True` if a parameter exists.
- * `getParameter(parameterName)` (string): obtain the parameter value, or None if it does not exist.
+ * `getParameter(parameterName)` (string): obtain the parameter value, or `None` if it does not exist.
  * `getParameters()` (dictionary): get all parameters as a dictionary.
 
 The test run parameters are restricted to any parameter that was provided as part of the execution or import process. Parameters of individual test results are not taken into account. 
 
 NB.: The date objects are actually `java.util.Date` objects.
+
+### TestRuns
 
 The `testRuns` object supports the following methods. Those methods range from finding a particular event up to getting a list of test runs.
 
@@ -122,4 +126,12 @@ The HTML component is responsible for rendering the generated report in the web 
 
  * rendering a Highchart chart (reportType = highchart)
  * rendering plain HTML (reportType = html)
+
+Any (AngularJS) formatted HTML snippet can be used as render template. Templates have to be located in a folder `<XLTEST_HOME>/ext/web/reports/<reportType>.html`. `reportType` matches the report type property defined in the report definition.
+
+To show a report in a tile on a dashboard, a similar approach is used, only the report template is named `<XLTEST_HOME>/ext/web/reports/tiles/<reportType>.html`.
+
+A report template has the following properties:
+
+ * `report`: the report as provided to the `resultHolder` in the Python script.
 
