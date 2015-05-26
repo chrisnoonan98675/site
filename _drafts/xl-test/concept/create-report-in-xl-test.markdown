@@ -47,7 +47,7 @@ A report has the following properties:
 
 ## Report generation script
 
-Report generation scripts are created in Python. Custom scripts are placed in the folder `<XLTEST_HOME>ext/<scriptLocation>`.
+Report generation scripts are created in Python. Custom scripts are placed in the folder `<XLTEST_HOME>/ext/<scriptLocation>`.
 
 A report can be any data structure, as long as it can serialize to JSON. This includes dictionaries (hash-map), lists, string, boolean, integers and floating point numbers.
 
