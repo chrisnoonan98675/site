@@ -13,7 +13,7 @@ tags:
 
 Before you install XL Deploy, ensure that you meet the [prerequisites](/xl-deploy/concept/requirements-for-installing-xl-deploy.html).
 
-**Tip:** If you want to install XL Deploy as a daemon or service, refer to [Install XL Deploy as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html). If you are upgrading a previously installed version of XL Deploy, refer to [Upgrade XL Deploy](/xl-deploy/how-to/upgrade-xl-deploy.html).
+For information about installing XL Deploy as a daemon or service, refer to [Install XL Deploy as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html). If you are upgrading a previously installed version of XL Deploy, refer to [Upgrade XL Deploy](/xl-deploy/how-to/upgrade-xl-deploy.html).
 
 ## Install XL Deploy using the installer
 
