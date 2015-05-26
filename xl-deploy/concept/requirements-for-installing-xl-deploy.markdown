@@ -30,7 +30,7 @@ Depending on the environment, the following may also be required:
 
 Before installing XL Deploy, ensure that the network connection to the XL Deploy host name works. You should be able to successfully execute `ping xl_deploy_hostname`.
 
-By default, the XL Deploy server uses port 4516. If, during installation, you choose to enable secure communication (SSL) between the server and the XL Deploy GUI, the server uses port 4517.
+By default, the XL Deploy server uses port `4516`. If, during installation, you choose to enable secure communication (SSL) between the server and the XL Deploy GUI, the server uses port `4517`.
 
 To enable secure communication and/or to change the port number during installation, choose the [manual setup option](https://docs.xebialabs.com/xl-deploy/how-to/install-xl-deploy.html#manual-setup) in the command-line server setup wizard. The wizard will take you through the setup steps.
 
