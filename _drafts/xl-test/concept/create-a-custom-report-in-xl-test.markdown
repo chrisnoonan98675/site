@@ -134,13 +134,70 @@ APIs related to test result events:
 
 ## HTML component
 
-The HTML component is responsible for rendering the generated report in the web browser. Standard examples include:
+The HTML component is responsible for rendering the generated report in the web browser. The following report types are available by default:
 
- * Rendering a Highchart chart (`reportType` = `highchart`)
- * Rendering plain HTML (`reportType` = `html`)
+ * rendering a Highchart chart (reportType = highchart)
+ * tabular data (reportType = table)
+ * rendering plain HTML (reportType = html)
 
-Any AngularJS-formatted HTML snippet can be used as a render template. Templates must be located in `<XLTEST_HOME>/ext/web/reports/<reportType>.html`. `reportType` matches the report type property defined in the report definition.
+### Charts
 
-To show a report in a tile on a dashboard, a similar approach is used, except the report template is named `<XLTEST_HOME>/ext/web/reports/tiles/<reportType>.html`.
+For charts (bar, line, pie), XL Test is using [Highcharts](http://highcharts.com). Report like the Bar chart and Pie chart use this library to visualize th data. For those reports, the Report (server side) script produces a Highcharts data structure. This data structure is basically passed on 1:1 to Highcharts for rendering. This allows the report to set the data series, chart type, and even color. The how-to document on [creating a custom report](/xl-test/how-to/create-a-custom-report-in-xl-test.html) shows an example of how to get started.
 
-Report template have the `report` property, which is the report as provided to the `resultHolder` in the Python script.
+For documentation on configuring charts please refer to the [Highcharts API documentation](http://api.highcharts.com/highcharts).
+
+By default, charts have a `reportType` `highchart`.
+
+### Tabular data
+
+Tabular data is passed to the front-end as a table format, including header and body contents. The following code is a simplified version of the test runs report.
+
+	REF_TMPL = '#/testspecifications/%s/report/xltest.TestRunEvents?runId=%s'
+	
+	runs = testRuns.getTestRunsBetween(testRun.testSpecificationName, startDate.getTime(), endDate.getTime())
+
+	def rowValues(run):
+	    return [ run.qualificationResult,
+	             { 'v': run.startTime.time,
+	               'ref': REF_TMPL % (run.testSpecificationName, run.testRunId) },   ## (1)
+	             run.finished and (run.finishedTime.time - run.startTime.time) or 'in progress']
+
+	resultHolder.setResult({
+	    'title':'Test runs',
+	    'description': 'The test runs performed in the period defined.',
+	    'header': [                                                                  ## (2)
+	        { 'name': '', 'kind': 'qualification'},
+	        { 'name': 'Start date', 'kind': 'date'},
+	        { 'name': 'Duration (s)', 'kind': 'duration'}
+	    ],
+	    'body': [                                                                    ## (3)
+	        rowValues(run) for run in runs
+	    ]
+	})
+
+This table has 3 colums as described in the header field (_2_): a qualification field (will show a qualification icon), a start date and a duration field. These are the different types that are supported. Any other type will just be rendered as is.
+
+The Start date field is rendered as a link (_1_). The qualification result ad duration is rendered as normal field values.
+
+The body contents (_3_) is rendered with a single [list comprehension](https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions).
+
+### Plain HTML
+
+Plain HTML reports simply produce a string of HTML. A trivial example would look like this:
+
+    resultHolder.setResult('''
+    <p>Look mom! A report!</p>
+    ''')
+    
+### Custom HTML templates
+
+Any (AngularJS) formatted HTML snippet can be used as render template. Templates have to be located in a folder `<XLTEST_HOME>/ext/web/reports/<reportType>.html`. `reportType` matches the report type property defined in the report definition.
+
+To show a report in a tile on a dashboard, a similar approach is used, only the report template is named `<XLTEST_HOME>/ext/web/reports/tiles/<reportType>.html`.
+
+A report template has the following properties:
+
+{:.table .table-striped}
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+|`report`  | object | The report as provided to the `resultHolder` in the Python script |
