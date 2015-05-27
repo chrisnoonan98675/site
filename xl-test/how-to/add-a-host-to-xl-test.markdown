@@ -25,7 +25,7 @@ XL Test includes the following types of hosts:
  * SSH host: Point to a remote machine over SSH, typically used for UNIX based systems.
  * CIFS host: Point to a remote Windows machine.
  * SSH jumpstation host: Connect to a SSH host, via another host (the jumpstation).
- * Jenkins host: Point to a Jenkins job.
+ * Jenkins host: Point to a Jenkins job. *Will be removed in the next release*
  
  For information about host configuration options, refer to the [XL Deploy documentation on the Remoting plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-remoting-plugin.html).
  

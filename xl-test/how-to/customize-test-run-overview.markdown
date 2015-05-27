@@ -6,10 +6,8 @@ categories:
 subject:
 - Reports
 tags:
-- host
-- ssh
-- cifs
-- jenkins
+- report
+- test run
 ---
 
 The test run overview shows a table of all runs of a test specification. A lot of information is shown here, such as the qualification result, the start date of the test, and the duration of the test. You can customize this view with additional information.
