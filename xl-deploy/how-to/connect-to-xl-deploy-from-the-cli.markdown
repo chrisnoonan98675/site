@@ -59,6 +59,10 @@ To provide the user name and password for accessing the XL Deploy server, you ca
 * Provide them with the `-username` and `-password` options
 * Store them in the `cli.username` and `cli.password` properties in the `DEPLOYIT_CLI_HOME/conf/deployit.conf` file
 
+## Entering passwords on the Windows command line
+
+Security-aware users will use special characters in their passwords, like `!`, `^`, `"`, etc. For the Windows command prompt these characters have special meanings, and passing the password as-is results in a failed login. This can be prevented by surrounding the password with double-quotes. Should a password itself contain a double-quote, it should be tripled. So, e.g., `My!pass^wo"rd` should be entered as `-password "My!pass^wo"""rd"` 
+
 ## Log out of the CLI
 
 In interactive mode, you can log out of the CLI by executing the `quit` command.
