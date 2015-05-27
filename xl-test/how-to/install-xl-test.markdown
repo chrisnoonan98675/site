@@ -44,6 +44,10 @@ To install XL Test:
 
 In case a license has not been provided to you, fill out the in-product registration form that is provided as soon as you start XL Test to obtain a license. This license allows you to create, aside the showcase project, [one more project](/xl-test/how-to/add-a-project-to-xl-test.html).
 
+NOTE: since XL Test can perform file system operations, such as scanning the file system, it is strongly adviced to execute XL Test as a specialized user with limited permissions and minimal access rights.
+
+The default username is `admin` (password: `admin`). This can be changed in the file `XLTEST_HOME/conf/users.conf`.
+
 ### Run XL Test on a non-default port
 
 If you want to run XL Test on a different port, then perform the following procedure after step 3:
