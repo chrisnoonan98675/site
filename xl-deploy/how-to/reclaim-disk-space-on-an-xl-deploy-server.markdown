@@ -45,3 +45,13 @@ To create a `schedule.GarbageCollectionJob` CI:
 ![Garbage collection job](images/system-admin-gc-job.png)
 
 **Tip:** To execute a garbage collection job manually, right-click it and select **Execute job now**.
+
+### Troubleshooting: `deployit.runGarbageCollector` doesn't free disk space
+
+When you delete packages from XLD repository you expect that running `deployit.runGarbageCollector` will free space on the repository but you don't see any difference and it seems like the only way to free the space after deleting the package is to restart XL Deploy.
+
+Explanation: the algorithm in the internal implementation of the Jackrabbit datastore will not remove files that were recently used from the datastore.
+In order to force Jackrabbit algorithm to remove entries from datastore prior to executing `deployit.runGarbageCollector` JVM garbage collection has to be triggered.
+If you don't want to restart XL Deploy, and you can't wait for JVM garbage collection to be automatically triggered you can manually trigger JVM garbage collection from a `jvisualvm` tool.
+
+
