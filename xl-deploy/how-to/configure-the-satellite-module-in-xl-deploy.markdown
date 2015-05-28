@@ -1,5 +1,6 @@
 ---
-title: Configure the satellite feature in XL Deploy
+layout: satellite
+title: Configure the satellite module in XL Deploy
 categories:
 - xl-deploy
 subject:

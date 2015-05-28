@@ -56,7 +56,8 @@
 /xl-deploy/concept/installing-and-removing-xl-deploy-plugins.html : /xl-deploy/how-to/install-or-remove-xl-deploy-plugins.html
 /xl-deploy/how-to/using-the-plan-analyzer.html : /xl-deploy/how-to/preview-the-deployment-plan.html
 /xl-test/how-to/create-a-test-tool-plugin.html : /xl-test/how-to/create-a-plugin-for-xl-test.html
-
+/xl-deploy/concept/getting-started-with-the-satellite-feature.html : /xl-deploy/concept/getting-started-with-the-satellite-module.html
+/xl-deploy/how-to/configure-the-satellite-feature-in-xl-deploy.html : /xl-deploy/how-to/configure-the-satellite-module-in-xl-deploy.html
 
 ##### LEGACY PAGES THAT ARE NO LONGER USED
 

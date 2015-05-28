@@ -1,5 +1,6 @@
 ---
-title: Getting started with the satellite feature
+layout: satellite
+title: Getting started with the satellite module
 categories:
 - xl-deploy
 subject:
@@ -11,7 +12,7 @@ since:
 - 5.0.0
 ---
 
-The XL Deploy satellite feature lets you to execute deployments on remote data centers. It includes:
+The XL Deploy satellite module lets you to execute deployments on remote data centers. It includes:
 
 * An efficient system for transferring files
 * Executing deployment tasks transparently on satellite servers

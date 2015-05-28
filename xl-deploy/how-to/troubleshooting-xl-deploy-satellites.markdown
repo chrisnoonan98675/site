@@ -1,4 +1,5 @@
 ---
+layout: satellite
 title: Troubleshooting XL Deploy satellites
 categories:
 - xl-deploy
