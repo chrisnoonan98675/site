@@ -14,12 +14,14 @@ layout: default
         <div class="row">
             <hr>
             <div class="col-md-2" data-toggle="collapse" data-target="#{{release_by_month[0] | replace:' ','-'}}">
-                <h3 style="cursor: pointer; cursor: hand;">{{ release_by_month[0] }}</h3>
+                <h3 style="cursor: pointer; cursor: hand; margin-top: 0; margin-bottom: 0;">{{ release_by_month[0] }}</h3>
             </div>
             <div class="col-md-10 collapse in" id="{{release_by_month[0] | replace:' ','-'}}">
                 {% for release in release_by_month[1] %}
                 <div class="row release">
+                    {% if forloop.first == false %}
                     <hr>
+                    {% endif %}
                     <div class="col-md-12">
                         <!-- release row -->
                         <div class="row">
