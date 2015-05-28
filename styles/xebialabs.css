@@ -381,6 +381,11 @@ form.form-search:before {
   margin-bottom: 10px;
 }
 
+.dashboard .release hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .dashboard .issue-description {
   border: 0;
   border-left: 2px solid #428bca;

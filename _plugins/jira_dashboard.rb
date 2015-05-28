@@ -37,10 +37,11 @@ module Jira
   end
 
   class Product < Base
-    attr_accessor :name, :title, :upcoming_releases
+    attr_accessor :name, :title, :upcoming_releases, :recent_releases_by_month
 
     def initialize
       @upcoming_releases = []
+      @recent_releases_by_month = {}
     end
   end
 
@@ -83,6 +84,20 @@ module Jira
       return @issues.select { |x| x.issue_type == type or types.include?(x.issue_type) }
     end
 
+    def component
+      parts = parse_version
+      return parts[0] if parts.size > 1 else ''
+    end
+
+    def version
+      parts = parse_version
+      return parts[1..parts.size].join("-") if parts.size > 1 else ''
+    end
+
+    def parse_version
+      @name.split(/\-(?=[\d])/)
+    end
+
     def to_liquid
       hash = super
       hash['id'] = id
@@ -93,6 +108,8 @@ module Jira
       hash['stories'] = get_issues_by_type 'Story', 'Epic'
       hash['improvements'] = get_issues_by_type 'Improvement'
       hash['bugs'] = get_issues_by_type 'Bug'
+      hash['component'] = component
+      hash['version'] = version
       return hash
     end
 
@@ -134,6 +151,17 @@ module Jira
       return products
     end
 
+    def get_products_with_recent_releases
+      products = Products::ALL.map { |productType|
+        product = Product.new
+        product.name = productType.name
+        product.title = productType.title
+        product.recent_releases_by_month = get_recent_product_releases(productType).group_by { |release | release.release_date.strftime("%B %Y") }
+        product
+      }
+      return products
+    end
+
     def get_upcoming_product_releases(product)
       log "Gathering upcoming releases for product #{product.title}"
 
@@ -149,6 +177,25 @@ module Jira
       }
       upcoming_releases = upcoming_releases.select{|x| x.issues.any?}.sort_by(&:release_date)
       return upcoming_releases
+    end
+
+    def get_recent_product_releases(product)
+      log "Gathering recent releases for product #{product.title}"
+
+      recent_releases = gel_all_product_releases(product).select { |release|
+        !release.archived and release.released and release.release_date and release.release_date <= DateTime.now and release.release_date >= (DateTime.now - 180)
+      }
+
+      return recent_releases unless recent_releases.any?
+
+      log "Gathering issues for releases #{recent_releases.map(&:name)}"
+      all_issues = get_all_issues_for_releases(product, recent_releases)
+      recent_releases.each { |release|
+        release.issues = all_issues[release.id] || []
+        release.issues = release.issues.sort_by(&:key)
+      }
+      recent_releases = recent_releases.select{|x| x.issues.any?}.sort_by(&:release_date).reverse!
+      return recent_releases
     end
 
     def gel_all_product_releases(product)
@@ -194,16 +241,29 @@ module Jira
 end
 
 module Jekyll
-  class ProductDashboardPage < Page
+  class ReleaseDashboardPage < Page
     def initialize(site, base, dir, product)
       @site = site
       @base = base
       @dir = dir
       @name = "#{product.name}-dashboard.html"
       self.process(@name)
-      self.read_yaml(File.join(base, '_layouts'), 'product_dashboard.html')
+      self.read_yaml(File.join(base, '_layouts'), 'release_dashboard.html')
       self.data['product'] = product
       self.data['title'] = "#{product.title} Development dashboard"
+    end
+  end
+
+  class ReleaseHistoryPage < Page
+    def initialize(site, base, dir, product)
+      @site = site
+      @base = base
+      @dir = dir
+      @name = "#{product.name}-history.html"
+      self.process(@name)
+      self.read_yaml(File.join(base, '_layouts'), 'release_history.html')
+      self.data['product'] = product
+      self.data['title'] = "#{product.title} Release History"
     end
   end
 
@@ -224,21 +284,20 @@ module Jekyll
       jira_password = dashboard_config['jira_password']
       server = Jira::Server.new(jira_url, jira_username, jira_password)
 
-      data_file = dashboard_config['data_file']
-      development_status_file = File.join(site.source, data_file)
-      if not data_file.to_s.empty? and File.exist? development_status_file
-        log "Using cached data from file #{development_status_file}"
-        products = YAML.load_file(development_status_file)
-      else
-        products = server.get_products_with_upcoming_releases
-      end
-
-      products.each { |product|
+      server.get_products_with_upcoming_releases.each { |product|
         log "Generating development dashboard site for product #{product.title}"
-        dashboard_page = ProductDashboardPage.new(site, site.source, dir, product)
+        dashboard_page = ReleaseDashboardPage.new(site, site.source, dir, product)
         dashboard_page.render(site.layouts, site.site_payload)
         dashboard_page.write(site.dest)
         site.pages << dashboard_page
+      }
+
+      server.get_products_with_recent_releases.each { |product|
+        log "Generating release history site for product #{product.title}"
+        history_page = ReleaseHistoryPage.new(site, site.source, dir, product)
+        history_page.render(site.layouts, site.site_payload)
+        history_page.write(site.dest)
+        site.pages << history_page
       }
 
       log 'Finished development dashboard generation, yay!'

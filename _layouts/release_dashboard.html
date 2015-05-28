@@ -46,78 +46,11 @@ layout: default
              data-release-target="{{ release.release_target }}">
             <hr>
             <div class="col-md-2">
-                {% if release.release_target == "Product" %}
-                    <span class="label bg-product">
-                        <i class="icon icon-trophy"></i>
-                        <span>{{ release.release_target }}</span>
-                    </span>
-                {% else %}
-                    <span class="label bg-plugin">
-                        <i class="icon icon-plug"></i>
-                        <span>{{ release.release_target }}</span>
-                    </span>
-                {% endif %}
-                {% if release.release_type == "Major" %}
-                    <span class="label bg-major">
-                        <i class="glyphicon glyphicon-flag"></i>
-                        <span>{{ release.release_type }}</span>
-                    </span>
-                {% else %}
-                    <span class="label bg-maintenance">
-                        <i class="icon icon-bug"></i>
-                        <span>{{ release.release_type }}</span>
-                    </span>
-                {% endif %}
+                {% include release_tag_list.html %}
             </div>
             <div class="col-md-7">
                 <b>{{ release.title }} Release</b>
-
-                <ul class="list-unstyled issue-list">
-                    <ul class="list-unstyled issue-sublist">
-                        {% for issue in release.stories %}
-                        {% if forloop.length and forloop.first %}
-                        <span class="issue-header">New features</span>
-                        <hr/>
-                        {% endif %}
-                        <li>{{ issue.key }} - {{ issue.summary }}</li>
-                        {%if issue.description != '' %}
-                        <a href="#" data-toggle="{{release.id}}-{{issue.key}}-desc" class="issue-more" style="font-size: 75%">more</a><br/>
-                        <div id="{{release.id}}-{{issue.key}}-desc" class="issue-description" style="display: none;">{{ issue.description }}</div>
-                        </li>
-                        {% endif %}
-                        {% endfor %}
-                    </ul>
-
-                    <ul class="list-unstyled issue-sublist">
-                        {% for issue in release.improvements %}
-                        {% if forloop.length and forloop.first %}
-                        <span class="issue-header">Improvements</span>
-                        <hr/>
-                        {% endif %}
-                        <li>{{ issue.key }} - {{ issue.summary }}</li>
-                        {%if issue.description != '' %}
-                        <a href="#" data-toggle="{{release.id}}-{{issue.key}}-desc" class="issue-more" style="font-size: 75%">more</a><br/>
-                        <div id="{{release.id}}-{{issue.key}}-desc" class="issue-description" style="display: none;">{{ issue.description }}</div>
-                        </li>
-                        {% endif %}
-                        {% endfor %}
-                    </ul>
-
-                    <ul class="list-unstyled issue-sublist">
-                        {% for issue in release.bugs %}
-                        {% if forloop.length and forloop.first %}
-                        <span class="issue-header">Bug fixes</span>
-                        <hr/>
-                        {% endif %}
-                        <li>{{ issue.key }} - {{ issue.summary }}
-                        {%if issue.description != '' %}
-                        <a href="#" data-toggle="{{release.id}}-{{issue.key}}-desc" class="issue-more" style="font-size: 75%">more</a><br/>
-                        <div id="{{release.id}}-{{issue.key}}-desc" class="issue-description" style="display: none;">{{ issue.description }}</div>
-                        </li>
-                        {% endif %}
-                        {% endfor %}
-                    </ul>
-                </ul>
+                {% include release_issue_list.html %}
             </div>
             <div class="col-md-2">
                 <b>Planned release:</b>

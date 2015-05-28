@@ -1,0 +1,112 @@
+---
+layout: default
+---
+
+<div id="content" class="dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-7 col-xs-12 text-center">
+                <h2><img src="/images/logos/{{ page.product.name }}-logo.png" class="logo"
+                         alt="{{ page.product.title }}"> Release History</h2>
+            </div>
+        </div>
+        {% for release_by_month in page.product.recent_releases_by_month %}
+        <div class="row">
+            <hr>
+            <div class="col-md-2" data-toggle="collapse" data-target="#{{release_by_month[0] | replace:' ','-'}}">
+                <h3 style="cursor: pointer; cursor: hand;">{{ release_by_month[0] }}</h3>
+            </div>
+            <div class="col-md-10 collapse in" id="{{release_by_month[0] | replace:' ','-'}}">
+                {% for release in release_by_month[1] %}
+                <div class="row release">
+                    <hr>
+                    <div class="col-md-12">
+                        <!-- release row -->
+                        <div class="row">
+                            <div class="col-md-5" data-toggle="collapse" data-target="#{{release.id}}-issues" style="cursor: pointer; cursor: hand;">
+                                <span>{{ release.title }} Release</span>
+                            </div>
+                            <div class="col-md-3">
+                                {% include release_tag_list.html %}
+                            </div>
+                            <div class="col-md-3">
+                                <a href="https://support.xebialabs.com/hc/en-us/search?utf8=%E2%9C%93&query={{release.name}}&commit=Search">Announcement</a>&nbsp;&nbsp;
+                                <a href="#" onclick="downloadComponent('{{page.product.name}}', '{{release.component}}', '{{release.version}}'); return false;">Download</a>
+                            </div>
+                        </div>
+                        <!-- issues row -->
+                        <div class="row collapse" id="{{release.id}}-issues">
+                            <div class="col-md-12">
+                                <div style="border-left: 2px solid #428BCA;padding-left: 10px;">{% include release_issue_list.html %}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    String.prototype.format = function() {
+        var newStr = this, i = 0;
+        while (/%s/.test(newStr)) {
+            newStr = newStr.replace("%s", arguments[i++]);
+        }
+        return newStr;
+    };
+
+    function downloadComponent(product, component, version) {
+        var url = "https://dist.xebialabs.com/";
+        switch(product) {
+            case "xl-deploy":
+                    if(component.endsWith("plugin")) {
+                        if(component.indexOf("jenkins") > -1) {
+                            url = "http://updates.jenkins-ci.org/download/plugins/deployit-plugin/%s/deployit-plugin.hpi".format(version);
+                        } else if(component.indexOf("maven") > -1) {
+                            url += "public/maven2/com/xebialabs/xldeploy/xldeploy-maven-plugin/%s".format(version);
+                        } else if(component.indexOf("tfs") > -1) {
+                            url += "public/xl-deploy/ci/tfs/";
+                        } else if(component.indexOf("bamboo") > -1) {
+                            url += "public/xl-deploy/ci/bamboo/bamboo-xl-deploy-plugin/%s/bamboo-xl-deploy-plugin-%s.jar".format(version, version)
+                        } else {
+                            url += "customer/xl-deploy/plugins/%s/%s/%s-%s-distribution.zip".format(component, version, component, version)
+                        }
+                    } else {
+                        url += "customer/%s/server/%s".format(product, version)
+                    }
+                break;
+            case "xl-release":
+                if(component.indexOf("jenkins") > -1) {
+                    url = "https://updates.jenkins-ci.org/download/plugins/xlrelease-plugin/%s/xlrelease-plugin.hpi".format(version)
+                } else {
+                    url += "customer/%s/%s".format(product, version);
+                }
+                break;
+            case "xl-test":
+                if(component.indexOf("jenkins") > -1) {
+                    url += "customer/%s/jenkins-plugin/%s".format(product, version);
+                } else {
+                    url += "customer/%s/server/%s".format(product, version);
+                }
+                break;
+        }
+        window.location.href = url;
+    }
+
+    $(document).ready(function () {
+        $("a.issue-more").click(function () {
+            var $target = $("#" + $(this).data("toggle"));
+            $target.toggle();
+            if ($target.is(':visible')) {
+                $(this).text("less");
+            } else {
+                $(this).text("more");
+            }
+            return false;
+        });
+    });
+</script>
