@@ -14,7 +14,7 @@ tags:
 To connect to the XL Deploy server using the command-line interface (CLI):
 
 1. Ensure that the XL Deploy server is running.
-2. Open a terminal window or command shell and go to the `DEPLOYIT_CLI_HOME/bin` directory (where `DEPLOYIT_CLI_HOME` is the directory where the CLI is installed).
+2. Open a terminal window or command prompt and go to the `XLDEPLOY_CLI_HOME/bin` directory (where `XLDEPLOY_CLI_HOME` is the directory where the CLI is installed).
 3. Execute the start command:
     * Unix-based operating systems: `./cli.sh`
     * Microsoft Windows: `cli.cmd`
@@ -61,7 +61,11 @@ To provide the user name and password for accessing the XL Deploy server, you ca
 
 ## Entering passwords on the Windows command line
 
-Security-aware users will use special characters in their passwords, like `!`, `^`, `"`, etc. For the Windows command prompt these characters have special meanings, and passing the password as-is results in a failed login. This can be prevented by surrounding the password with double-quotes. Should a password itself contain a double-quote, it should be tripled. So, e.g., `My!pass^wo"rd` should be entered as `-password "My!pass^wo"""rd"` 
+{% comment %} This section requires the following versions or later: 4.0.4, 4.5.5, 5.0.1 {% endcomment %}
+
+You may use special characters such as `!`, `^`, or `"` in passwords. These characters have special meaning in the Windows command prompt, which means that passing them to the XL Deploy server as-is causes log-in to fail.
+
+To prevent this issue, surround the password with quotation marks (`"`). If the password contains a quotation mark, you must triple it. For example, `My!pass^wo"rd` should be entered as `-password "My!pass^wo"""rd"`.
 
 ## Log out of the CLI
 
