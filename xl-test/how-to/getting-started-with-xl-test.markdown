@@ -25,7 +25,7 @@ Then, explore [dashboards](/xl-test/how-to/using-xl-test-dashboards.html) and [r
 
 ![Dashboard with sample data](images/getting-started-demo-dashboard.png)
 
-Finally, try [executing](/xl-test/how-to/execute-tests-from-xl-test.html) a sample test specification, such as *calculatorTestsComponentB*.
+Finally, try [executing](/xl-test/how-to/execute-tests-from-xl-test.html) a sample test specification, such as *functionalTestsComponentB*.
 
 ![Sample test specification](images/getting-started-sample-test-specification.png)
 
