@@ -31,7 +31,7 @@ module Jira
 
     XL_DEPLOY = Products.new('xl-deploy', 'XL Deploy', '10010', 'DEPL')
     XL_RELEASE = Products.new('xl-release', 'XL Release', '10030', 'REL')
-    XL_TEST = Products.new('xl-test', 'XL Test', '10430', 'TES')
+    XL_TEST = Products.new('xl-testview', 'XL TestView', '10430', 'TES')
 
     ALL = [XL_DEPLOY, XL_RELEASE, XL_TEST]
   end
