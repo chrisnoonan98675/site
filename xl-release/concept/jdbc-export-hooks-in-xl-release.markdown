@@ -1,5 +1,5 @@
 ---
-title: Export hooks in XL Release
+title: JDBC export hooks in XL Release
 categories:
 - xl-release
 subject:
@@ -14,7 +14,8 @@ since:
 - 4.7.0
 ---
 
-It is possible to configure XL Release to run a Jython script for every release that is about to be archived. There are 3 steps needed to achieve that.
+[XL Release export hooks](/xl-release/concept/export-hooks-in-xl-release.html) is a powerful mechanism which allows to define Jython scrips that can do something with completed releases. If you want to insert information into releases into a SQL database, for instance, for reporting purposes, you can use JDBC export hooks that provide you access to `java.sql.Connection` object out of the box.
+
 
 ## 1. Define new export hook
 
@@ -30,7 +31,7 @@ Here add `url` as a property of this synthetic type. That allows to change this 
 
 That script will define actions which you want to perform with release. The scope will contain following variables:
 
-* `exportHook`: an object of type [ExportHook](/jython-docs/#!/xl-release/4.7.x/service/com.xebialabs.xlrelease.domain.ExportHook)
+* `exportHook`: an object of type [JdbcExportHook](/jython-docs/#!/xl-release/4.7.x/service/com.xebialabs.xlrelease.domain.JdbcExportHook)
 * `release`: an object of type `xlrelease.Release`.
 * `releaseJson`: a string with serialized release.
 * `logger`: an object of type `org.slf4j.Logger`. See [javadoc](http://www.slf4j.org/apidocs/org/slf4j/Logger.html).
@@ -48,14 +49,14 @@ It's easier to stick to conventions though.
 
 ## 3. Create an instance of export hook
 
-Go to `Settings -> Configuration` and configure an instance of your export hook.
+Go to `Settings -> Configuration` and configure an instance of your JDBC export hook.
 
 
 ## Other considerations
 
 #### Sample export hook
 
-There is a [sample export hook](https://github.com/xebialabs/xl-release-samples/tree/master/elastic-search-export-hook). Play with it to understand how it works.
+There is a [sample export hook](https://github.com/xebialabs/xl-release-samples/tree/master/mysql-jdbc-export-hook). Play with it to understand how it works.
 
 #### Order of execution
 
