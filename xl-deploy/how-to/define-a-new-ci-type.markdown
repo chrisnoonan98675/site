@@ -102,3 +102,21 @@ An embedded CI is a CI that is embedded (part of) another CI. The following exam
 The `tc.WarModule` has a `portlets` property that contains a set of `tc.Portlet` embedded CIs.
 
 In a deployment package, a `tc.War` CI and its `tc.PortletSpec` CIs can be specified. When a deployment is configured, a `tc.WarModule` deployed is generated, complete with all of its `tc.Portlet` portlet deployeds.
+
+## Define `as-containment` CI types
+
+One of the [properties that you can set](/xl-deploy/how-to/customize-an-existing-ci-type.html) for CI types is `as-containment`. This models the CI as a parent/child containment instead of as a foreign key reference in the JCR tree, ensuring that when the parent CI is undeployed, the child CI will also be undeployed.
+
+The following example shows the use of the `as-containment` property. Type modifications are needed for `foreignDestinationNames` and `foreignConnectionFactoryNames` because properties of kind `set_of_ci` are *not* copied to the deployable.
+
+     <type type="wls.ForeignJmsServer" extends="wls.Resource" deployable-type="wls.ForeignJmsServerSpec" description="Foreign JMS Server">
+        <generate-deployable type="wls.ForeignJmsServerSpec" extends="wls.ResourceSpec" description="Specification for a foreign JMS server"/>
+
+        <property name="foreignDestinationNames" kind="set_of_ci" referenced-type="wls.ForeignDestinationName" required="false" as-containment="true" description="Foreign_Destination_Name" />
+        <property name="foreignConnectionFactoryNames" kind="set_of_ci" referenced-type="wls.ForeignConnectionFactoryName" required="false" as-containment="true" description="Foreign_Connection_Factory_Name" />
+     </type>
+
+     <type-modification type="wls.ForeignJmsServerSpec">
+          <property name="foreignDestinationNames" kind="set_of_ci" referenced-type="wls.ForeignDestinationNameSpec" required="false" as-containment="true" description="Foreign_Destination_Name" />
+          <property name="foreignConnectionFactoryNames" kind="set_of_ci" referenced-type="wls.ForeignConnectionFactorySpec" required="false" as-containment="true" description="Foreign_Connection_Factory_Name" />
+     </type-modification>
