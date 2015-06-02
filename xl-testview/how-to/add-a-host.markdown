@@ -42,4 +42,4 @@ To manually add a host:
 4. Select the host's operating system from the **Operating system** list.
 5. Click **Add host** to save the host.
 
-The host can be referenced from a [test specification](/xl-testview/how-to/add-a-test-specification.html).
+The host can be referenced from a [test specification](/xl-testview/how-to/create-a-test-specification.html).
