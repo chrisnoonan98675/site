@@ -44,6 +44,40 @@
 /xl-test/help/0012.html : /xl-deploy/how-to/choose-an-overthere-host-type-and-connection-type.html
 /xl-test/help/0013.html : /xl-testview/how-to/using-xl-testview-dashboards.html
 
+##### PRODUCTS THAT HAVE BEEN RENAMED
+
+/xl-test/concept/index.html : /xl-testview/concept/index.html
+/xl-test/concept/key-xl-test-concepts.html : /xl-testview/concept/key-xl-testview-concepts.html
+/xl-test/concept/supported-test-tools-and-test-result-formats.html : /xl-testview/concept/supported-test-tools-and-test-result-formats.html
+/xl-test/concept/understanding-xl-test-architecture.html : /xl-testview/concept/understanding-xl-testview-architecture.html
+/xl-test/concept/working-with-qualifications.html : /xl-testview/concept/working-with-qualifications.html
+/xl-test/concept/xl-test-boot-properties.html : /xl-testview/concept/xl-testview-boot-properties.html
+/xl-test/concept/xl-test-file-selection-patterns.html : /xl-testview/concept/xl-testview-file-selection-patterns.html
+/xl-test/concept/xl-test-reports.html : /xl-testview/concept/xl-testview-reports.html
+/xl-test/how-to/add-a-host-to-xl-test.html : /xl-testview/how-to/add-a-host-to-xl-testview.html
+/xl-test/how-to/add-a-project-to-xl-test.html : /xl-testview/how-to/add-a-project-to-xl-testview.html
+/xl-test/how-to/add-a-tag-to-a-test-case.html : /xl-testview/how-to/add-a-tag-to-a-test-case.html
+/xl-test/how-to/connect-xl-test-to-a-jenkins-job.html : /xl-testview/how-to/connect-xl-testview-to-a-jenkins-job.html
+/xl-test/how-to/create-a-custom-qualification-in-xl-test.html : /xl-testview/how-to/create-a-custom-qualification-in-xl-testview.html
+/xl-test/how-to/create-a-custom-report-in-xl-test.html : /xl-testview/how-to/create-a-custom-report-in-xl-testview.html
+/xl-test/how-to/create-a-custom-report-using-highcharts-demos.html : /xl-testview/how-to/create-a-custom-report-using-highcharts-demos.html
+/xl-test/how-to/create-a-dashboard.html : /xl-testview/how-to/create-a-dashboard.html
+/xl-test/how-to/create-a-test-specification-set.html : /xl-testview/how-to/create-a-test-specification-set.html
+/xl-test/how-to/create-a-test-specification.html : /xl-testview/how-to/create-a-test-specification.html
+/xl-test/how-to/customize-test-run-overview.html : /xl-testview/how-to/customize-test-run-overview.html
+/xl-test/how-to/duplicate-a-dashboard.html : /xl-testview/how-to/duplicate-a-dashboard.html
+/xl-test/how-to/edit-a-dashboard.html : /xl-testview/how-to/edit-a-dashboard.html
+/xl-test/how-to/execute-tests-from-xl-test.html : /xl-testview/how-to/execute-tests-from-xl-test.html
+/xl-test/how-to/filter-a-report-by-tag.html : /xl-testview/how-to/filter-a-report-by-tag.html
+/xl-test/how-to/getting-started-with-xl-test.html : /xl-testview/how-to/getting-started-with-xl-testview.html
+/xl-test/how-to/import-test-results.html : /xl-testview/how-to/import-test-results.html
+/xl-test/how-to/install-xl-test-plugins.html : /xl-testview/how-to/install-xl-testview-plugins.html
+/xl-test/how-to/install-xl-test.html : /xl-testview/how-to/install-xl-test.html
+/xl-test/how-to/start-xl-test.html : /xl-testview/how-to/start-xl-testview.html
+/xl-test/how-to/troubleshoot-custom-reports-in-xl-test.html : /xl-testview/how-to/troubleshoot-custom-reports-in-xl-testview.html
+/xl-test/how-to/using-xl-test-dashboards.html : /xl-testview/how-to/using-xl-testview-dashboards.html
+/xl-test/how-to/view-test-case-details.html : /xl-testview/how-to/view-test-case-details.html
+
 ##### TOPICS THAT HAVE BEEN RENAMED
 
 /xl-deploy/how-to/perform-an-update.html : /xl-deploy/how-to/update-a-deployed-application.html
