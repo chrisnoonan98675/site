@@ -31,7 +31,7 @@ More information about installing plugins in Jenkins can be found in the [Jenkin
 To configure the XL Test plugin:
 
 1.  Go to **Manage Jenkins** > **Configure System** and locate the XL Test section.
-1.  In the **Server Url** box, enter the URL where XL Test runs.
+1.  In the **Server Url** box, enter the URL where XL Test runs. Please ensure the URL does not end with a trailing '/'.
 1.  In the **Proxy Url** box, enter the URL of a proxy server, if one is required to contact XL Test. If no proxy server is required, leave the box empty.
 1.  In the **Credentials** compartment, provide the user name and password that should be used to connect to XL Test. For information about credentials, refer to the [Jenkins' Credentials plugin](https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin).
 
