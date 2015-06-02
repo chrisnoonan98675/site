@@ -17,7 +17,7 @@ On the flakiness report:
 
 1. Click the run of the test that you want to tag.
 2. Click **+** in the test details pane.
-3. Type the name of the tag and press ENTER. If the tag already exists, XL Test will suggest it as you type.
+3. Type the name of the tag and press ENTER. If the tag already exists, XL TestView will suggest it as you type.
 
 In this example, the **FrontEnd** tag has just been added:
 
