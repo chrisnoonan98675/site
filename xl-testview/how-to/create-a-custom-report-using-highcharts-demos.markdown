@@ -217,4 +217,4 @@ The corresponding report will look like this:
 
 ![image](images/using-highchart-demo-line-example.png)
 
-Refer to [Create a custom report in XL TestView](/xl-testview/how-to/create-a-custom-report-in-xl-test.html) for more information about creating and troubleshooting custom reports.
+Refer to [Create a custom report in XL TestView](/xl-testview/how-to/create-a-custom-report.html) for more information about creating and troubleshooting custom reports.

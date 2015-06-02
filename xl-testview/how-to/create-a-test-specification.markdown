@@ -26,7 +26,7 @@ To create a test specification in XL TestView:
 
     If you are creating a passive test specification, click **Create test specification** to finish. Otherwise, continue with the remaining steps.
     
-1. In the **Search Pattern** box, enter the regular expression that XL TestView should use to identify the files that contain the results of test runs. More information on the regular expression pattern can be found [here](/xl-testview/concept/xl-test-file-selection-patterns.html).
+1. In the **Search Pattern** box, enter the regular expression that XL TestView should use to identify the files that contain the results of test runs. More information on the regular expression pattern can be found [here](/xl-testview/concept/file-selection-patterns.html).
 1. In the **Working Directory** box, enter the location where the command to run the test specification should be executed.
 1. Select the host where the specification will from from the **Host** list.
 

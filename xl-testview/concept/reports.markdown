@@ -17,7 +17,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 
 <div class="row">
 <div class="col-md-2">
-<img src="images/xl-test-icon-report-bar-chart.svg" alt="XL TestView bar chart report icon" width="100">
+<img src="images/icon-report-bar-chart.svg" alt="XL TestView bar chart report icon" width="100">
 </div>
 <div class="col-md-10">
 <p>Type: Functional</p>
@@ -30,7 +30,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 
 <div class="row">
 <div class="col-md-2">
-<img src="images/xl-test-icon-report-details.svg" alt="XL TestView details report icon" width="100">
+<img src="images/icon-report-details.svg" alt="XL TestView details report icon" width="100">
 </div>
 <div class="col-md-10">
 <p>Type: Functional</p>
@@ -43,7 +43,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 
 <div class="row">
 <div class="col-md-2">
-<img src="images/xl-test-icon-report-bar-chart.svg" alt="XL TestView diff bar chart report icon" width="100">
+<img src="images/icon-report-bar-chart.svg" alt="XL TestView diff bar chart report icon" width="100">
 </div>
 <div class="col-md-10">
 <p>Type: Functional</p>
@@ -56,7 +56,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 
 <div class="row">
 <div class="col-md-2">
-<img src="images/xl-test-icon-report-duration.svg" alt="XL TestView durations report icon" width="100">
+<img src="images/icon-report-duration.svg" alt="XL TestView durations report icon" width="100">
 </div>
 <div class="col-md-10">
 <p>Type: Functional</p>
@@ -69,7 +69,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 
 <div class="row">
 <div class="col-md-2">
-<img src="images/xl-test-icon-report-flakiness.svg" alt="XL TestView flakiness icon" width="100">
+<img src="images/icon-report-flakiness.svg" alt="XL TestView flakiness icon" width="100">
 </div>
 <div class="col-md-10">
 <p>Type: Functional</p>
@@ -82,7 +82,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 
 <div class="row">
 <div class="col-md-2">
-<img src="images/xl-test-icon-report-general.svg" alt="XL TestView general statistics report icon" width="100">
+<img src="images/icon-report-general.svg" alt="XL TestView general statistics report icon" width="100">
 </div>
 <div class="col-md-10">
 <p>Type: Functional</p>
@@ -95,7 +95,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 
 <div class="row">
 <div class="col-md-2">
-<img src="images/xl-test-icon-report-health-barometer.svg" alt="XL TestView health barometer report icon" width="100">
+<img src="images/icon-report-health-barometer.svg" alt="XL TestView health barometer report icon" width="100">
 </div>
 <div class="col-md-10">
 <p>Type: Functional</p>
@@ -108,7 +108,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 
 <div class="row">
 <div class="col-md-2">
-<img src="images/xl-test-icon-report-historical-comparison-details.svg" alt="XL TestView historical comparison details report icon" width="100">
+<img src="images/icon-report-historical-comparison-details.svg" alt="XL TestView historical comparison details report icon" width="100">
 </div>
 <div class="col-md-10">
 <p>Type: Functional</p>
@@ -122,7 +122,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 
 <div class="row">
 <div class="col-md-2">
-<img src="images/xl-test-icon-report-duration.svg" alt="XL TestView load test report icon" width="100">
+<img src="images/icon-report-duration.svg" alt="XL TestView load test report icon" width="100">
 </div>
 <div class="col-md-10">
 <p>Type: Performance</p>
@@ -135,7 +135,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 
 <div class="row">
 <div class="col-md-2">
-<img src="images/xl-test-icon-report-pie-chart.svg" alt="XL TestView pie chart report icon" width="100">
+<img src="images/icon-report-pie-chart.svg" alt="XL TestView pie chart report icon" width="100">
 </div>
 <div class="col-md-10">
 <p>Type: Functional</p>
@@ -148,7 +148,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 
 <div class="row">
 <div class="col-md-2">
-<img src="images/xl-test-icon-report-testruns-report.svg" alt="XL TestView pie chart report icon" width="100">
+<img src="images/icon-report-testruns-report.svg" alt="XL TestView pie chart report icon" width="100">
 </div>
 <div class="col-md-10">
 <p>Type: Generic</p>

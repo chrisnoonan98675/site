@@ -42,7 +42,7 @@ To install XL TestView:
       * On Windows: `server.cmd`
 5. After XL TestView has started, you will see the message `Starting XL TestView ... done.` and the URL where you can access XL TestView.
 
-If a license has not been provided to you, fill out the in-product registration form that is provided as soon as you start XL TestView to obtain a license. This license allows you to create [one project](/xl-testview/how-to/add-a-project-to-xl-test.html) in addition to the demo project.
+If a license has not been provided to you, fill out the in-product registration form that is provided as soon as you start XL TestView to obtain a license. This license allows you to create [one project](/xl-testview/how-to/add-a-project.html) in addition to the demo project.
 
 **Note:** Because XL TestView can perform file system operations such as scanning the file system, it is strongly advised that you execute XL TestView as a specialized user with limited permissions and minimal access rights.
 

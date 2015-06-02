@@ -37,14 +37,14 @@ To configure the XL TestView plugin:
 
 ## Step 3 Add a post-build step to your job
 
-To connect the XL TestView plugin to a build job, create a [passive test specification](/xl-testview/how-to/create-a-test-specification.html) in XL TestView. You can optionally create this specification in a [new project](/xl-testview/how-to/add-a-project-to-xl-test.html).
+To connect the XL TestView plugin to a build job, create a [passive test specification](/xl-testview/how-to/create-a-test-specification.html) in XL TestView. You can optionally create this specification in a [new project](/xl-testview/how-to/add-a-project.html).
 
 Then, configure the XL TestView plugin to send the results to the test specification that you created:
 
 1. In Jenkins, go to the job and click **Configure**.
 1. In the **Post-build Actions** section, click **Add post-build action** and select **Send test results to XL TestView**.
 1. Select the test specification from the **Choose test specification** list.
-1. In the **Include pattern** box, optionally override the [file selection pattern](/xl-testview/concept/xl-test-file-selection-patterns.html) that is used select files to send to XL TestView from the workspace. For your reference, the **Choose test specification** list shows the file selection pattern that is configured for the specification in XL TestView.
+1. In the **Include pattern** box, optionally override the [file selection pattern](/xl-testview/concept/file-selection-patterns.html) that is used select files to send to XL TestView from the workspace. For your reference, the **Choose test specification** list shows the file selection pattern that is configured for the specification in XL TestView.
 
 1. In the **Exclude pattern** box, optionally provide a pattern to match files that are *excluded* and will not be sent to XL TestView.
 

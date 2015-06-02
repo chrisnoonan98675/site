@@ -15,7 +15,7 @@ Before you customize XL TestView functionality, some knowledge of the XL TestVie
 {% comment %}
 This diagram provides a high-level overview of the system architecture:
 
-![XL TestView Architecture](images/xl-test-architecture.png)
+![XL TestView Architecture](images/architecture.png)
 {% endcomment %}
 
 You can access the XL TestView core using REST services. The product ships with one client of the REST service, a graphical user interface (GUI) that runs in browsers. Furthermore, the REST service can be accessed using various plugins and other tools that want to interact with XL TestView.
@@ -45,7 +45,7 @@ At runtime, multiple plugins will be active at the same time. It is up to the XL
 {% comment %}
 Plugins can define the following items:
 
-- Report: Configuration items (CIs) that represent a report. See [create a custom report in XL TestView](/xl-testview/how-to/create-a-custom-report-in-xl-test.html).
+- Report: Configuration items (CIs) that represent a report. See [create a custom report in XL TestView](/xl-testview/how-to/create-a-custom-report.html).
 - Test Tool: CIs that represent a test tool or family of test tools representing the same test result format. See [create a test tool plugin](/xl-testview/how-to/create-a-test-tool-plugin.html).
 {% endcomment %}
 

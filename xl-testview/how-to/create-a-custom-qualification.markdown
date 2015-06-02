@@ -23,7 +23,7 @@ XL TestView also supports custom qualifications. To create a custom qualificatio
 
 The easiest way to start creating a custom qualifier is to copy a default qualifier. This example shows how to create a custom qualifier based on the default functional qualifier.
 
-For more information about features such as qualification, refer to [Key XL TestView concepts](/xl-testview/concept/key-xl-test-concepts.html).
+For more information about features such as qualification, refer to [Key XL TestView concepts](/xl-testview/concept/key-concepts.html).
 
 ## Configure the qualifier in `synthetic.xml`
 

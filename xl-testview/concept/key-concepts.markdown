@@ -27,7 +27,7 @@ There are four types of test specification:
 * Passive test specification: A test specification to which an external process such as Jenkins can push results
 * Test specification set: A group that aggregates the results of multiple test specifications
 
-You can create a test specification [in the XL TestView interface](/xl-testview/how-to/create-a-test-specification.html), by [importing existing test results](/xl-testview/how-to/import-test-results.html), or by [pushing results to XL TestView via Jenkins](/xl-testview/how-to/connect-xl-test-to-a-jenkins-job.html).
+You can create a test specification [in the XL TestView interface](/xl-testview/how-to/create-a-test-specification.html), by [importing existing test results](/xl-testview/how-to/import-test-results.html), or by [pushing results to XL TestView via Jenkins](/xl-testview/how-to/connect-to-a-jenkins-job.html).
 
 ## Projects
 
@@ -41,11 +41,11 @@ A *test run* is the set of results associated with a single execution of the tes
 
 XL TestView includes a variety of *reports* for functional test results and performance test results. Some reports represent a single test run, while others aggregate data from multiple test runs.
 
-You can add reports to *dashboards* for a quick visual overview of test results. You can also create [custom reports](/xl-testview/how-to/create-a-custom-report-in-xl-test.html).
+You can add reports to *dashboards* for a quick visual overview of test results. You can also create [custom reports](/xl-testview/how-to/create-a-custom-report.html).
 
 ## Qualification
 
-A *qualification* is XL TestView's determination of whether a particular test run passed or failed, based on a configurable analysis of the test results. You can create [your own qualifications](/xl-testview/how-to/create-a-custom-qualification-in-xl-test.html), and they can be applied to all test specifications, even those that group results from multiple test tools. This allows XL TestView to seamlessly integrate with a continuous delivery pipeline.
+A *qualification* is XL TestView's determination of whether a particular test run passed or failed, based on a configurable analysis of the test results. You can create [your own qualifications](/xl-testview/how-to/create-a-custom-qualification.html), and they can be applied to all test specifications, even those that group results from multiple test tools. This allows XL TestView to seamlessly integrate with a continuous delivery pipeline.
 
 ## Plugins
 

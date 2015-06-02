@@ -19,13 +19,13 @@ Below, please find some tips for your first-time XL TestView experience.
 
 ## Step 1 Explore XL TestView
 
-First, read the [essential background information](/xl-testview/concept/key-xl-test-concepts.html) about XL TestView's key concepts.
+First, read the [essential background information](/xl-testview/concept/key-concepts.html) about XL TestView's key concepts.
 
-Then, explore [dashboards](/xl-testview/how-to/using-xl-test-dashboards.html) and [reports](/xl-testview/concept/xl-test-reports.html) with the included sample test specifications and results. You can drill down the hierarchy of tests in reports such as the bar chart and duration chart.
+Then, explore [dashboards](/xl-testview/how-to/using-dashboards.html) and [reports](/xl-testview/concept/reports.html) with the included sample test specifications and results. You can drill down the hierarchy of tests in reports such as the bar chart and duration chart.
 
 ![Dashboard with sample data](images/getting-started-demo-dashboard.png)
 
-Finally, try [executing](/xl-testview/how-to/execute-tests-from-xl-test.html) a sample test specification, such as *functionalTestsComponentB*.
+Finally, try [executing](/xl-testview/how-to/execute-tests.html) a sample test specification, such as *functionalTestsComponentB*.
 
 ![Sample test specification](images/getting-started-sample-test-specification.png)
 
@@ -39,7 +39,7 @@ If you would like to integrate XL TestView with an existing Jenkins setup, skip 
 
 ## Step 3 Install the XL TestView plugin in Jenkins
 
-XL TestView can retrieve test results from test jobs that are run with Jenkins. To integrate XL TestView with Jenkins, [install the XL TestView plugin](/xl-testview/how-to/connect-xl-test-to-a-jenkins-job.html) and add an XL TestView post-build step to an existing job.
+XL TestView can retrieve test results from test jobs that are run with Jenkins. To integrate XL TestView with Jenkins, [install the XL TestView plugin](/xl-testview/how-to/connect-to-a-jenkins-job.html) and add an XL TestView post-build step to an existing job.
 
 ![XL TestView post-build step in Jenkins](images/getting-started-jenkins-post-build-step.png)
 
@@ -59,4 +59,4 @@ Create a [test specification set](/xl-testview/how-to/create-a-test-specificatio
 
 ![Test specification set with qualifications](images/getting-started-test-spec-set-qualification.png)
 
-You can also develop your own qualification algorithm using [XML and Python](/xl-testview/how-to/create-a-custom-qualification-in-xl-test.html).
+You can also develop your own qualification algorithm using [XML and Python](/xl-testview/how-to/create-a-custom-qualification.html).
