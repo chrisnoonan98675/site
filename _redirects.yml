@@ -26,23 +26,23 @@
 /xl-release/help/0007.html : /xl-release/concept/xl-release-release-overview.html
 /xl-release/help/0008.html : /xl-release/concept/xl-release-release-summary.html
 
-# XL Test in-product links
+# XL TestView in-product links
 /xl-test/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new?community_id=public
 /xl-test/suggest-feature.html : https://support.xebialabs.com/hc/communities/public/questions/new?question%5Btopic_id%5D=200258619
-/xl-test/license-agreement.html : /xl-test/index.html
-/xl-test/help/0001.html : /xl-test/how-to/create-a-test-specification.html
-/xl-test/help/0002.html : /xl-test/how-to/execute-tests-from-xl-test.html
-/xl-test/help/0003.html : /xl-test/concept/working-with-qualifications.html
-/xl-test/help/0004.html : /xl-test/concept/xl-test-reports.html
-/xl-test/help/0005.html : /xl-test/how-to/create-a-custom-report-in-xl-test.html
-/xl-test/help/0006.html : /xl-test/how-to/add-a-host-to-xl-test.html
-/xl-test/help/0007.html : /xl-test/how-to/create-a-dashboard.html
-/xl-test/help/0008.html : /xl-test/how-to/duplicate-a-dashboard.html
-/xl-test/help/0009.html : /xl-test/how-to/import-test-results.html
-/xl-test/help/0010.html : /xl-test/concept/supported-test-tools-and-test-result-formats.html
-/xl-test/help/0011.html : /xl-test/concept/xl-test-file-selection-patterns.html
+/xl-test/license-agreement.html : /xl-testview/index.html
+/xl-test/help/0001.html : /xl-testview/how-to/create-a-test-specification.html
+/xl-test/help/0002.html : /xl-testview/how-to/execute-tests-from-xl-testview.html
+/xl-test/help/0003.html : /xl-testview/concept/working-with-qualifications.html
+/xl-test/help/0004.html : /xl-testview/concept/xl-testview-reports.html
+/xl-test/help/0005.html : /xl-testview/how-to/create-a-custom-report-in-xl-testview.html
+/xl-test/help/0006.html : /xl-testview/how-to/add-a-host-to-xl-testview.html
+/xl-test/help/0007.html : /xl-testview/how-to/create-a-dashboard.html
+/xl-test/help/0008.html : /xl-testview/how-to/duplicate-a-dashboard.html
+/xl-test/help/0009.html : /xl-testview/how-to/import-test-results.html
+/xl-test/help/0010.html : /xl-testview/concept/supported-test-tools-and-test-result-formats.html
+/xl-test/help/0011.html : /xl-testview/concept/xl-testview-file-selection-patterns.html
 /xl-test/help/0012.html : /xl-deploy/how-to/choose-an-overthere-host-type-and-connection-type.html
-/xl-test/help/0013.html : /xl-test/how-to/using-xl-test-dashboards.html
+/xl-test/help/0013.html : /xl-testview/how-to/using-xl-testview-dashboards.html
 
 ##### TOPICS THAT HAVE BEEN RENAMED
 
@@ -55,7 +55,7 @@
 /xl-deploy/how-to/common-xl-deploy-cli-tasks.html : /xl-deploy/how-to/using-the-xl-deploy-cli.html
 /xl-deploy/concept/installing-and-removing-xl-deploy-plugins.html : /xl-deploy/how-to/install-or-remove-xl-deploy-plugins.html
 /xl-deploy/how-to/using-the-plan-analyzer.html : /xl-deploy/how-to/preview-the-deployment-plan.html
-/xl-test/how-to/create-a-test-tool-plugin.html : /xl-test/how-to/create-a-plugin-for-xl-test.html
+/xl-test/how-to/create-a-test-tool-plugin.html : /xl-testview/how-to/create-a-plugin-for-xl-testview.html
 /xl-deploy/concept/getting-started-with-the-satellite-feature.html : /xl-deploy/concept/getting-started-with-the-satellite-module.html
 /xl-deploy/how-to/configure-the-satellite-feature-in-xl-deploy.html : /xl-deploy/how-to/configure-the-satellite-module-in-xl-deploy.html
 
