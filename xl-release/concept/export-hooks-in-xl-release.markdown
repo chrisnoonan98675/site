@@ -31,7 +31,7 @@ Here add `url` as a property of this synthetic type. That allows to change this 
 That script will define actions which you want to perform with release. The scope will contain following variables:
 
 * `exportHook`: an object of type [ExportHook](/jython-docs/#!/xl-release/4.7.x/service/com.xebialabs.xlrelease.domain.ExportHook)
-* `release`: an object of type `xlrelease.Release`.
+* `release`: an object of type [Release](/jython-docs/#!/xl-release/4.7.x/service/com.xebialabs.xlrelease.domain.Release).
 * `releaseJson`: a string with serialized release.
 * `logger`: an object of type `org.slf4j.Logger`. See [javadoc](http://www.slf4j.org/apidocs/org/slf4j/Logger.html).
 
