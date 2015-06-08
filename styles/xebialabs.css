@@ -59,6 +59,9 @@ h5, .h5 {
   font-size: 18px !important;
   margin-top: 20px !important;
 }
+.satellite-message {
+    padding-top: 25px;
+}
 
 /* Mini TOC */
 .mini-toc {
