@@ -1,0 +1,38 @@
+---
+layout: in-product-help
+title: How XL Deploy works with Apache Tomcat
+---
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 align="center">Welcome to <img class="img-valign" width="275" src="/images/logos/xl-deploy-logo-with-xebialabs.svg"></h1>
+			<hr />
+		</div>
+	</div>
+	<div class="row">
+        {% include xl-deploy-in-product-video-menu.html %}
+		<div class="col-md-6">
+			<iframe width="400" height="225" src="https://www.youtube.com/embed/rNVkeHeVB-Q" frameborder="0" allowfullscreen></iframe>
+		</div>
+        {% include xl-deploy-in-product-help-topic-menu.html %}
+	</div>
+	<div class="row">
+        <hr />
+		<div class="col-md-12 in-product-help-text">
+			<p>Welcome to XL Deploy. The video above shows how XL Deploy works with Apache Tomcat. First, let's review the steps needed to do a simple deployment to Tomcat.</p>
+			<p>You start in the <code>bin</code> directory, under the location where Tomcat is installed. Here, you can execute a command to stop the Tomcat server. Then, you go to the <code>webapps</code> directory, which is also located under the Tomcat home directory. This is where you copy the WAR file that contains the application you want to deploy. Finally, you return to the <code>bin</code> directory and execute the command to start the Tomcat server. And the deployment is complete!</p>
+			<p>Tomcat also supports more advanced deployments to virtual hosts. Virtual hosts allow you to deploy multiple independent applications to a single Tomcat server. They also provide better support for shared application resources.</p>
+			<p>XL Deploy takes advantage of the virtual host feature. In XL Deploy terminology, the virtual host is a <em>middleware container</em> where you'll deploy an application.</p>
+			<p>Let's see how you would do a simple deployment to Tomcat using XL Deploy.</p>
+			<p>Everything that you define in XL Deploy&mdash;from applications to infrastructure&mdash;is a configuration item. A configuration item's type determines the properties that you can set for it and the way that XL Deploy will deploy it.</p>
+			<p>So, you define your Tomcat server as a <code>tomcat.Server</code> configuration item type. It contains properties of the server, such the directory where it is installed, and the stop and start commands that you would normally execute manually.</p>
+            <p>Then, you need to define a configuration item for a virtual host. During the deployment, XL Deploy will create directories for the virtual host under <code>conf</code>. For example, if you use Tomcat's default Catalina engine, and the Tomcat server is running on <code>localhost</code>, then the virtual host will be created under <code>conf/Catalina/localhost</code>. During deployment, XL Deploy can optionally create an XML file in the virtual host directory. This file contains information about application resources. You specify this information when creating resource configuration items in XL Deploy. While there are several different configuration item types for resources, the most commonly used type is <code>tomcat.DataSourceSpec</code>.</p>
+            <p>The XML file's name identifies which WAR file it corresponds to. In Tomcat terminology, this is called the application's <em>context root</em>.</p>
+            <p>XL Deploy copies the WAR file itself to the <code>webapps</code> directory. The configuration item type for a WAR file is <code>tomcat.War</code>.</p>
+            <p>In XL Deploy, your application is contained in a deployment package. This package contains the WAR file, datasource specs, and any other artifacts or resources that are needed. In XL Deploy terminology, the artifacts and resources in a deployment package are called <em>deployables</em>. To recap, XL Deploy puts the <code>tomcat.DataSourceSpec</code> in the XML file for the virtual host and puts the <code>tomcat.War</code> in the <code>webapps</code> directory.</p>
+            <p>When you set up a deployment, XL Deploy maps the WAR file and the datasource specification to the virtual host. These mapped <em>deployables</em> are called <em>deployeds</em>. In the properties of the datasource deployed, you can see the values that XL Deploy will put in the XML file. And in the properties of the WAR file deployed, you can see that the context root will be set to the name of the deployed.</p>
+            <p>For more information about XL Deploy and Apache Tomcat, visit our <a href="{{ site.url }}" target="_blank">documentation site</a>.</p>
+		</div>
+	</div>
+</div>

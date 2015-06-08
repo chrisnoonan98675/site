@@ -1,0 +1,38 @@
+---
+layout: in-product-help
+title: How XL Deploy works with JBoss AS/WildFly
+---
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 align="center">Welcome to <img class="img-valign" width="275" src="/images/logos/xl-deploy-logo-with-xebialabs.svg"></h1>
+			<hr />
+		</div>
+	</div>
+	<div class="row">
+        {% include xl-deploy-in-product-video-menu.html %}
+		<div class="col-md-6">
+			<iframe width="400" height="225" src="https://www.youtube.com/embed/rNVkeHeVB-Q" frameborder="0" allowfullscreen></iframe>
+		</div>
+        {% include xl-deploy-in-product-help-topic-menu.html %}
+    </div>
+	<div class="row">
+        <hr />
+		<div class="col-md-12 in-product-help-text">
+			<p>Welcome to XL Deploy. The video above shows how XL Deploy works with JBoss Application Server, also known as WildFly. First, let's review the steps needed to do a deployment to a JBoss stand-alone server setup.</p>
+            <p>In a stand-alone setup, application artifacts such as EAR files are deployed to a single server. This server is where you can log in to the JBoss management interface. You also have one default profile, which is assigned to the server. Resources such as datasources and JMS queues are defined on the profile. To deploy an application to a stand-alone server, you would log in to the JBoss management interface, manually upload files, and manually enter configuration information for the profile.</p>
+            <p>Let's see how you would deploy an application to a stand-alone setup using XL Deploy.</p>
+            <p>Everything that you define in XL Deploy&mdash;from applications to infrastructure&mdash;is a configuration item. A configuration item's type determines the properties that you can set for it and the way that XL Deploy will deploy it.</p>
+            <p>So, you define your stand-alone JBoss server as a <code>jbossdm.StandAloneServer</code> configuration item type. The prefix is <code>jbossdm</code> because this is the XL Deploy plugin that supports deployment to JBoss and WildFly. The configuration item contains properties of the server, such the directory where it is installed. It also contains the credentials needed to access the JBoss command-line interface.</p>
+            <p>The resource configuration that should be added to the default profile is also stored in a configuration item. While there are several different configuration item types for resources, the most commonly used type is <code>jbossdm.DataSourceSpec</code>. XL Deploy copies the EAR file itself to the server. The configuration item type for this is <code>jbossdm.Ear</code>.</p>
+            <p>In XL Deploy, your application is contained in a deployment package. This package contains the EAR file, datasource specifications, and any other artifacts or resources that are needed. In XL Deploy terminology, the artifacts and resources in a deployment package are called <em>deployables</em>. To recap, XL Deploy puts the <code>jbossdm.DataSourceSpec</code> in the profile and puts the <code>jbossdm.Ear</code> on the server.</p>
+            <p>When you set up a deployment, XL Deploy maps the EAR file and the datasource specification to the stand-alone server. These mapped <em>deployables</em> are called deployeds. In the properties of the datasource deployed, you can see the values that XL Deploy will put in the profile.</p>
+            <p>XL Deploy can also deploy to a JBoss managed domain. Managed domains allow you to manage multiple JBoss instances from a single control point. A managed domain contains server groups, which contain servers. Profiles are assigned to the server groups. You can deploy EAR files to the server groups, and define resources in the profiles.</p>
+            <p>Deployment to a managed domain works much like deployment to a stand-alone server. Each server group is a <code>jbossdm.ServerGroup</code> configuration item and each profile is a <code>jbossdm.Profile</code> configuration item.</p>
+            <p>XL Deploy's <em>discovery</em> feature allows you to automatically discover the server groups and profiles in your domain. You simply provide some basic information so XL Deploy can query JBoss and XL Deploy discovers the server groups and profiles. You can save them as configuration items with a single click.</p>
+            <p>When you set up a deployment, XL Deploy maps the EAR file to the server groups and maps the datasource specification to the profiles. As you can see, XL Deploy’s deployment model works no matter what your JBoss setup looks like.</p>
+            <p>For more information about XL Deploy and JBoss, visit our <a href="{{ site.url }}" target="_blank">documentation site</a>.</p>
+		</div>
+	</div>
+</div>
