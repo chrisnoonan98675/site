@@ -11,7 +11,7 @@ tags:
 - test specification
 ---
 
-In XL Test, you can easily create custom reports. This document describes the steps to be taken to create a custom report.
+In XL TestView, you can easily create custom reports. This document describes the steps to be taken to create a custom report.
 
 A report has three parts:
 
@@ -27,7 +27,7 @@ Custom reports should be registered in `<XLTEST_HOME>/ext/synthetic.xml`.
 
 This is the type definition of the default bar chart:
 
-    <type type="xltest.BarChart" extends="xltest.Report">
+    <type type="xlt.BarChart" extends="xlt.Report">
         <property name="title" default="Bar chart"/>
         <property name="userFriendlyDescription" default="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format"/>
         <property name="iconName" default="bar-report-icon"/>
@@ -35,7 +35,7 @@ This is the type definition of the default bar chart:
         <property name="reportType" hidden="true" default="highchart"/>
     </type>
 
-The `type` attribute (`xltest.BarChart`) can be changed to a custom name. A type name consists of a name space (`xltest`) and a type name (`BarChart`). The namespace `xltest` is reserved for XL Test internal reports. It is recommended to use a custom namespace; for example, `custom` or your company name. All reports should extend the `xltest.Report` type.
+The `type` attribute (`xlt.BarChart`) can be changed to a custom name. A type name consists of a name space (`xlt`) and a type name (`BarChart`). The namespace `xlt` is reserved for XL TestView internal reports. It is recommended to use a custom namespace; for example, `custom` or your company name. All reports should extend the `xlt.Report` type.
 
 A report has the following properties:
 
@@ -142,7 +142,7 @@ The HTML component is responsible for rendering the generated report in the web 
 
 ### Charts
 
-For charts (bar, line, pie), XL Test is using [Highcharts](http://highcharts.com). Report like the Bar chart and Pie chart use this library to visualize th data. For those reports, the Report (server side) script produces a Highcharts data structure. This data structure is basically passed on 1:1 to Highcharts for rendering. This allows the report to set the data series, chart type, and even color. The how-to document on [creating a custom report](/xl-test/how-to/create-a-custom-report-in-xl-test.html) shows an example of how to get started.
+For charts (bar, line, pie), XL Test is using [Highcharts](http://highcharts.com). Report like the Bar chart and Pie chart use this library to visualize the data. For those reports, the Report (server side) script produces a Highcharts data structure. This data structure is passed on directly to Highcharts for rendering. This allows the report to set the data series, chart type, and even color. Please see [creating a custom report](/xl-test/how-to/create-a-custom-report-in-xl-test.html) for an example of how to get started.
 
 For documentation on configuring charts please refer to the [Highcharts API documentation](http://api.highcharts.com/highcharts).
 
@@ -175,7 +175,7 @@ Tabular data is passed to the front-end as a table format, including header and 
 	    ]
 	})
 
-This table has 3 colums as described in the header field (_2_): a qualification field (will show a qualification icon), a start date and a duration field. These are the different types that are supported. Any other type will just be rendered as is.
+This table has three columns as described in the header field (_2_): a qualification field (will show a qualification icon), a start date and a duration field. These are the different types that are supported. Any other type will just be rendered as is.
 
 The Start date field is rendered as a link (_1_). The qualification result ad duration is rendered as normal field values.
 
