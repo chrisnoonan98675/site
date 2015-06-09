@@ -49,7 +49,8 @@ To see XL TestView and Jenkins in action:
 
 1. Start with an application that has a low number of test jobs; for example, five jobs.
 2. Add the XL TestView post-build action to each test job.
-3. Verify that, when you run these jobs, new test specifications appear in XL TestView for the results.
+3. Create a [passive test specification in XL Test](/xl-testview/how-to/create-a-test-specification.html) to which the test results from Jenkins will be added.
+4. Verify that, when you run the jobs, new test runs appear in the test specification in XL Test.
 
 ## Step 5 Qualification of test results
 
