@@ -482,10 +482,12 @@ form.form-search:before {
 }
 
 .in-product-help-list li {
-  padding-bottom: 15px;
+  padding-bottom: 5px;
 }
 
 .in-product-help-text {
   font-size: 90%;
 }
-
+.in-product-help-subheading {
+    font-weight: bold;
+}
