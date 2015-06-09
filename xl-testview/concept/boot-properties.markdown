@@ -11,7 +11,7 @@ tags:
 - installation
 ---
 
-During startup, you can set several options on XL TestView. These properties are system properties. 
+During startup, you can set several options on XL TestView. These properties are system properties.
 
 {:.table .table-striped}
 | Property | Default | Description |
@@ -25,3 +25,4 @@ During startup, you can set several options on XL TestView. These properties are
 | **xlt.elasticsearch.http** | false | Enable the Elasticsearch HTTP server. This allows access to the Elasticsearch database over the network. No access control is set up on Elasticsearch. **Do not enable this option on production instances.** |
 | **xlt.elasticsearch.port.range** | 9200-9299 | Restrict which ports the Elasticsearch HTTP server uses. When a port in the range is unavailable another port in the range is tried. |
 
+The properties can be configured by placing them in the environment variable XLT_SERVER_OPTS prefixed with `-D`. E.g. to disable creating the demo data, set `XLT_SERVER_OPTS` to `-Dxlt.load.demo.data=false`. More detailed information on configuration can be found [here](/xl-testview/how-to/install.html)
