@@ -37,10 +37,11 @@ To install XL TestView:
 1. Download the XL TestView ZIP file from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com).
 2. Extract the ZIP file to the directory where you want to install XL TestView; for example, `/opt/xebialabs/xl-testview` or `C:\Program Files\XL TestView`. This is referred to as `<XLTESTVIEW_HOME>`.
 3. Open a command prompt and navigate to `<XLTESTVIEW_HOME>/bin`.
-4. Execute one of the following commands to start the setup wizard:
-      * On Unix: `server.sh`
-      * On Windows: `server.cmd`
-5. After XL TestView has started, you will see the message `Starting XL TestView ... done.` and the URL where you can access XL TestView.
+4. Optionally, if you already have a license file. Copy it to `<XLTESTVIEW_HOME>/conf/xl-testview-license.lic`. This will also prevent the registration popup from appearing.
+5. Execute one of the following commands to start the setup wizard:
+      * On Unix: `<XLTESTVIEW_HOME>/bin/server.sh`
+      * On Windows: `<XLTESTVIEW_HOME>/bin/server.cmd`
+6. After XL TestView has started, you will see the message `Starting XL TestView ... done.` and the URL where you can access XL TestView.
 
 If a license has not been provided to you, fill out the in-product registration form that is provided as soon as you start XL TestView to obtain a license. This license allows you to create [one project](/xl-testview/how-to/add-a-project.html) in addition to the demo project.
 
@@ -48,16 +49,32 @@ If a license has not been provided to you, fill out the in-product registration 
 
 The default username is `admin` (password: `admin`). This can be changed in the file `<XLTESTVIEW_HOME>/conf/users.conf`.
 
-### Run XL TestView on a non-default port
+### Configuring the XL TestView server
 
-If you want to run XL TestView on a different port, then perform the following procedure after step 3:
+The behaviour of the XL TestView server can be modified by setting various properties. A overview of the configuration options can be found [here](/xl-testview/concept/boot-properties.html).
 
-* Edit `server.sh` or `server.cmd` and look for the definition of `XLTEST_SERVER_OPTS`.
-* Add the parameter `xltest.port` to the definition of `XLTEST_SERVER_OPTS` as follows:
+Configuration can be done by:
 
-        XLTEST_SERVER_OPTS="-Xmx1024m -XX:MaxPermSize=128m -Dxltest.port=<port number>"
+* Setting the environment variables `XLT_SERVER_OPTS` and/or `XLT_SERVER_MEM_OPTS` before `server.sh` or `server.cmd` is executed.
+* On unix `server.sh` will also source the scripts `/etc/sysconfig/xl-testview` and `/etc/default/xl-testview`, so you can export the `XLT_SERVER_*` variables from there. This has the advantage that settings will be persisted across reinstalls/upgrades.
+* Modifying `server.sh` or `server.cmd` depending on your OS.
 
-To access the XL TestView user interface, open the provided URL in a browser.
+Configuration is split between memory settings for the JVM in `XLT_SERVER_MEM_OPTS` and other settings in `XLT_SERVER_OPTS`. `XLT_SERVER_MEM_OPTS` has a default of `-Xmx1024m -XX:MaxPermSize=256m` refer to your Java Runtime Documentation for details on these settings.
+
+**Important:** The `xlt.*` system properties must be prefixed with `-D` to ensure they will be seen by the server process.
+
+For example configuring the server port can be done by running server.sh like (assuming you have a shell/cmd prompt at `<XLTESTVIEW_HOME>/bin`):
+
+    XLT_SERVER_OPTS="-Dxlt.server.port=8080" ./server.sh
+
+On windows this would be something like:
+
+    set XLT_SERVER_OPTS=-Dxlt.server.port=8080
+    server.cmd
+
+An example for a `/etc/sysconfig/xl-testview` or `/etc/default/xl-testview` file:
+
+    export XLT_SERVER_OPTS="-Dxlt.server.port=8080"
 
 ## Directory structure
 
