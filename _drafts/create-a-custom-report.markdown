@@ -46,11 +46,11 @@ A report has the following properties:
 | `scriptLocation` | Location of the Python script containing the report generation logic; see [Report generation script](#report-generation-type) |
 | `reportType` | Report type that instructs the web front end how to render the report; see [HTML component](#html-component) |
 
-## Report generation script
+## Write the report script
 
 Report generation scripts are created in Python. Custom scripts are placed in the folder `<XLTESTVIEW_HOME>/ext/<scriptLocation>`.
 
-A report can be any data structure, as long as it can serialize to JSON. This includes dictionaries (hash-map), lists, string, Boolean, integers and floating point numbers.
+A report can be any data structure, as long as it can serialize to JSON. This includes dictionaries (hash-map), lists, string, Boolean, integers, and floating point numbers.
 
 The general structure of a script is:
 
@@ -78,7 +78,7 @@ In a Python script, the following properties are available:
 | `endDate` | integer | Value of the URL parameter `endDate`; defaults to the current time |
 | `tags` | list of strings | Value of the URL parameter `tags`; defaults to an empty list |
 
-### TestRun
+### TestRun object
 
 The TestRun object has the following public properties:
 
@@ -102,7 +102,7 @@ The test run parameters are restricted to any parameter that was provided as par
 
 **Note:** The date objects are actually `java.util.Date` objects.
 
-### TestRuns
+### TestRuns object
 
 The `testRuns` object supports the methods below. Those methods range from finding a particular event up to getting a list of test runs.
 
@@ -130,7 +130,7 @@ APIs related to test result events:
 | `getLatestEventWithProperties(eventProperties)` | events | Get the most recent event given a set of properties; this is a more generic version of the APIs above |
 | `getEventsBetween(startTime, endTime, eventProperties)` | list of events | Obtain a list of events given a time period; note that the events can be queried over test specifications |
 
-## HTML component
+## Create the HTML component
 
 The HTML component is responsible for rendering the generated report in the web browser. The following report types are available by default:
 
@@ -140,15 +140,17 @@ The HTML component is responsible for rendering the generated report in the web 
 
 ### Charts
 
-For charts (bar, line, pie), XL TestView is using [Highcharts](http://highcharts.com). Report like the Bar chart and Pie chart use this library to visualize the data. For those reports, the Report (server side) script produces a Highcharts data structure. This data structure is passed on directly to Highcharts for rendering. This allows the report to set the data series, chart type, and even color. Please see [creating a custom report](/xl-test/how-to/create-a-custom-report-in-xl-test.html) for an example of how to get started.
+For charts (bar, line, pie), XL TestView uses [Highcharts](http://highcharts.com). Reports such as the bar chart and pie chart use this library to visualize the data.
 
-For documentation on configuring charts please refer to the [Highcharts API documentation](http://api.highcharts.com/highcharts).
+For those reports, the server-side report script produces a Highcharts data structure. This data structure is passed directly to Highcharts for rendering. This allows the report to set the data series, chart type, and even color.
 
-By default, charts have a `reportType` `highchart`.
+For information about creating charts, refer to the [Highcharts API documentation](http://api.highcharts.com/highcharts).
+
+By default, charts have a `reportType` of `highchart`.
 
 ### Tabular data
 
-Tabular data is passed to the front-end as a table format, including header and body contents. The following code is a simplified version of the test runs report.
+Tabular data is passed to the front end as a table format, including header and body contents. The following code is a simplified version of the test runs report.
 
 	REF_TMPL = '#/testspecifications/%s/report/xltest.TestRunEvents?runId=%s'
 	
@@ -173,9 +175,9 @@ Tabular data is passed to the front-end as a table format, including header and 
 	    ]
 	})
 
-This table has three columns as described in the header field (_2_): a qualification field (will show a qualification icon), a start date and a duration field. These are the different types that are supported. Any other type will just be rendered as is.
+This table has three columns as described in the header field (_2_): a qualification field (will show a qualification icon), a start date, and a duration field. These are the different types that are supported. Any other type will just be rendered as-is.
 
-The Start date field is rendered as a link (_1_). The qualification result ad duration is rendered as normal field values.
+The start date field is rendered as a link (_1_). The qualification result ad duration is rendered as normal field values.
 
 The body contents (_3_) is rendered with a single [list comprehension](https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions).
 
@@ -189,9 +191,9 @@ Plain HTML reports simply produce a string of HTML. A trivial example would look
     
 ### Custom HTML templates
 
-Any (AngularJS) formatted HTML snippet can be used as render template. Templates have to be located in a folder `<XLTESTVIEW_HOME>/ext/web/reports/<reportType>.html`. `reportType` matches the report type property defined in the report definition.
+Any AngularJS-formatted HTML snippet can be used as a render template. Templates must be located in `<XLTESTVIEW_HOME>/ext/web/reports/<reportType>.html`. `reportType` matches the report type property defined in the report definition.
 
-To show a report in a tile on a dashboard, a similar approach is used, only the report template is named `<XLTESTVIEW_HOME>/ext/web/reports/tiles/<reportType>.html`.
+To show a report in a tile on a dashboard, a similar approach is used, but the report template is named `<XLTESTVIEW_HOME>/ext/web/reports/tiles/<reportType>.html`.
 
 A report template has the following properties:
 
