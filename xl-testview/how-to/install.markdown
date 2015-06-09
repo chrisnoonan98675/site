@@ -65,7 +65,8 @@ After you install the XL TestView server, this directory structure exists in `<X
 
 * `bin`: Contains server startup scripts
 * `conf`: Contains server configuration files
+* `data`: Contains the databases in which XL TestView stores configuration and test data.
 * `ext`: Contains server Java extensions
-* `plugins`: Contains modules for extending XL TestView's functionality
 * `lib`: Contains libraries that the server needs
 * `log`: Contains server log files
+* `plugins`: Contains modules for extending XL TestView's functionality
