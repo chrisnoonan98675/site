@@ -29,9 +29,9 @@ For more information about features such as qualification, refer to [Key XL Test
 
 First, add a custom qualifier type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
 
-1. Copy a `type` element with attribute `type="xltest.DefaultFunctionalTestsQualifier"` from `<XLTESTVIEW_HOME>/plugins/demo/synthetic.xml` and add it to `<XLTESTVIEW_HOME>/ext/synthetic.xml`. For example:
+1. Copy a `type` element with attribute `type="xlt.DefaultFunctionalTestsQualifier"` from `<XLTESTVIEW_HOME>/plugins/demo/synthetic.xml` and add it to `<XLTESTVIEW_HOME>/ext/synthetic.xml`. For example:
 
-        <type type="xltest.DefaultFunctionalTestsQualifier" extends="generic.Qualification">
+        <type type="xlt.DefaultFunctionalTestsQualifier" extends="generic.Qualification">
             <property name="scriptLocation" default="functional/qualification.py"/>
         </type> 
 
