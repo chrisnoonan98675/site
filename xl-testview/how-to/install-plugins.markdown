@@ -1,0 +1,18 @@
+---
+layout: beta
+title: Install XL TestView plugins
+categories:
+- xl-testview
+subject:
+- Plugins
+tags:
+- system administration
+- installation
+- plugin
+---
+
+To install a plugin in XL TestView:
+
+1. Stop XL TestView.
+2. Copy the plugin JAR file to `XLTESTVIEW_HOME/plugins`, where `XLTESTVIEW_HOME` is the directory where XL TestView is installed (for example, `/opt/xebialabs/xl-testview` or `C:\Program Files\XL TestView`).
+3. Start XL TestView.

@@ -462,6 +462,8 @@ form.form-search:before {
   margin: 5px 25px 10px 25px;
   display: inline-block;
   height: 45px;
+  box-shadow: none;
+  height: 74px;
 }
 
 /* In-product help popup styles */
