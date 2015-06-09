@@ -23,7 +23,7 @@ Refer to [Create a custom report in XL Test](/xl-test/how-to/create-a-custom-rep
 
 ## Add a report entry
 
-Custom reports should be registered in `<XLTEST_HOME>/ext/synthetic.xml`.
+Custom reports should be registered in `<XLTESTVIEW_HOME>/ext/synthetic.xml`.
 
 This is the type definition of the default bar chart:
 
@@ -44,13 +44,13 @@ A report has the following properties:
 | -------- | ----------- |
 | `title` | Report title that appears in the **Show report** dialog on the project page |
 | `userFriendlyDescription` | Description that appears next to the chart on the project page |
-| `iconName` | An icon name that refers to an SVG icon in `<XLTEST_HOME>/ext/web/images/sprite-icons/<iconName>.svg` |
+| `iconName` | An icon name that refers to an SVG icon in `<XLTESTVIEW_HOME>/ext/web/images/sprite-icons/<iconName>.svg` |
 | `scriptLocation` | Location of the Python script containing the report generation logic; see [Report generation script](#report-generation-type) |
 | `reportType` | Report type that instructs the web front end how to render the report; see [HTML component](#html-component) |
 
 ## Report generation script
 
-Report generation scripts are created in Python. Custom scripts are placed in the folder `<XLTEST_HOME>/ext/<scriptLocation>`.
+Report generation scripts are created in Python. Custom scripts are placed in the folder `<XLTESTVIEW_HOME>/ext/<scriptLocation>`.
 
 A report can be any data structure, as long as it can serialize to JSON. This includes dictionaries (hash-map), lists, string, Boolean, integers and floating point numbers.
 
@@ -191,9 +191,9 @@ Plain HTML reports simply produce a string of HTML. A trivial example would look
     
 ### Custom HTML templates
 
-Any (AngularJS) formatted HTML snippet can be used as render template. Templates have to be located in a folder `<XLTEST_HOME>/ext/web/reports/<reportType>.html`. `reportType` matches the report type property defined in the report definition.
+Any (AngularJS) formatted HTML snippet can be used as render template. Templates have to be located in a folder `<XLTESTVIEW_HOME>/ext/web/reports/<reportType>.html`. `reportType` matches the report type property defined in the report definition.
 
-To show a report in a tile on a dashboard, a similar approach is used, only the report template is named `<XLTEST_HOME>/ext/web/reports/tiles/<reportType>.html`.
+To show a report in a tile on a dashboard, a similar approach is used, only the report template is named `<XLTESTVIEW_HOME>/ext/web/reports/tiles/<reportType>.html`.
 
 A report template has the following properties:
 
