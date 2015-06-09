@@ -1,6 +1,6 @@
 ---
 layout: beta
-title: Create a custom report in XL Test
+title: Create a custom report in XL TestView
 categories:
 - xl-test
 subject:
@@ -18,8 +18,6 @@ A report has three parts:
 * Add a report entry in the `synthetic.xml` file
 * A report generation script
 * An HTML component responsible for rendering the report in the web browser
-
-Refer to [Create a custom report in XL Test](/xl-test/how-to/create-a-custom-report-in-xl-test.html) for information about creating a custom report.
 
 ## Add a report entry
 
@@ -142,7 +140,7 @@ The HTML component is responsible for rendering the generated report in the web 
 
 ### Charts
 
-For charts (bar, line, pie), XL Test is using [Highcharts](http://highcharts.com). Report like the Bar chart and Pie chart use this library to visualize the data. For those reports, the Report (server side) script produces a Highcharts data structure. This data structure is passed on directly to Highcharts for rendering. This allows the report to set the data series, chart type, and even color. Please see [creating a custom report](/xl-test/how-to/create-a-custom-report-in-xl-test.html) for an example of how to get started.
+For charts (bar, line, pie), XL TestView is using [Highcharts](http://highcharts.com). Report like the Bar chart and Pie chart use this library to visualize the data. For those reports, the Report (server side) script produces a Highcharts data structure. This data structure is passed on directly to Highcharts for rendering. This allows the report to set the data series, chart type, and even color. Please see [creating a custom report](/xl-test/how-to/create-a-custom-report-in-xl-test.html) for an example of how to get started.
 
 For documentation on configuring charts please refer to the [Highcharts API documentation](http://api.highcharts.com/highcharts).
 
