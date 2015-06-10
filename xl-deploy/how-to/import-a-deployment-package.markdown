@@ -23,6 +23,6 @@ The first step to performing a deployment with XL Deploy is to import your packa
 
 ![Import package](images/import-package-button.png)
 
-**Import the Package**. Run through the steps of the import wizard. _Import deployment package from server_ scans for packages in the configured dropbox, which by default is the `importablePackages` directory from the XL Deploy installation directory. _Import deployment package from URL_ allows the user to specify a URL to download the package from. Note that you cannot re-import packages.
+**Import the Package**. Run through the steps of the import wizard. _Import deployment package from server_ scans for packages in the configured dropbox, which by default is the `importablePackages` directory from the XL Deploy installation directory. _Import deployment package from URL_ allows the user to specify a URL to download the package from. You can optionally provide a user name and password if the URL requires authentication. Note that you cannot re-import packages.
 
 **Close the Import Wizard**. Click on the Close button to complete the import procedure.

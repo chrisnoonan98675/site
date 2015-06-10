@@ -61,7 +61,8 @@ You can import a deployment package from an external storage location, your comp
 1. Click **Import package**.
 1. To import a package from a location that is accessible via a URL:
     1. Expand **Import a deployment package from url**.
-    1. Enter the URL in the box.
+    1. Enter the URL.
+    1. Enter the user name and password if the URL requires authentication.
     1. Click **Import**.
 1. To import a package from your computer:
     1. Expand **Import a deployment package from disk**.
