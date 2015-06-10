@@ -1,5 +1,5 @@
 ---
-title: Add Resources to a Tomcat Container
+title: Add resources to an Apache Tomcat container
 categories:
 - xl-deploy
 subject:
@@ -10,38 +10,45 @@ tags:
 - plugin
 ---
 
-## Background
+The XL Deploy [Apache Tomcat plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-tomcat-plugin.html) can deploy to a virtual host (`tomcat.VirtualHost`) or common context (`tomcat.CommonContext`) container. WAR files are deployed to virtual hosts, while resources such as datasources are deployed to the global Tomcat configuration, which is stored in the common context.
 
-There are two types of container the Tomcat plugin can deploy resources to, a VirtualHost or to a CommonContext. Users of XLD usually become familiar with working with VirtualHosts as this is where WARs are deployed to. However it is often required to deploy resources, such as Data Sources, to the global Tomcat configuration. To achieve this the CommonContext container is used.
+## Configure a common context
 
-## Configuring a CommonContext
+To configure a common context, create it in XL Deploy:
 
-To setup a common context we need to create this under infrastructure under a Tomcat Server:
+1. Go to the Repository.
+2. Expand **Infrastructure** and locate the Tomcat host.
+3. Expand the host and locate the Tomcat server.
+4. Right-click the server and select **New** > **CommonContext**.
 
-![Adding a CommonContext](images/add-tomcat-common-context-in-repository.png)
+    ![Add a CommonContext](images/add-tomcat-common-context-in-repository.png)
 
-This requires one attribute to be set, Name, this is set to "tomcat-context" in the example below:
+5. Enter a name for the common context in the **Name** box.
+6. Click **Save**.
 
-![CommonContext create screen](images/tomcat-common-context-create.png)
+    ![CommonContext create screen](images/tomcat-common-context-create.png)
 
-Once this is saved it has to be added to an environment so it's available for deployment:
+7. Expand **Environments** and open the environment where you want to add the common context.
+8. Under **Containers**, add the common context to the **Members** list.
 
-![Adding tomcat-context to an environment](images/add-tomcat-context-to-environment.png)
+    ![Adding CommonContext to an environment](images/add-tomcat-context-to-environment.png)
 
-## Confining resources to the CommonContext
+9. Click **Save**.
 
-In a environment with both a VirtualHost and a CommonContext XL Deploy will automatically map resources to both of these which is often not the desired behavior. This can be resolved by using tagging, explained in [Using tags to configure deployments](using-tags-to-configure-deployments.html)
+## Confine resources to the common context
 
-This could be implemented using the tag "Context". To do so first add the tag "Context" to the "tomcat-context":
+In an environment that contains a virtual host and a common context, XL Deploy will automatically map resources to both containers. However, you may want to deploy resources only to the common context. To do so, use the tagging feature; refer to [Using tags to configure deployments](using-tags-to-configure-deployments.html) for more information.
 
-![Add tag to tomcat-context](images/add-tag-to-tomcat-context.png)
+For example, add the tag "Common" to the common context:
 
-Then add the same tag to a resource, for example a DataSource:
+![Add tag to tomcat.CommonContext](images/add-tag-to-tomcat-context.png)
 
-![Add tag to Tomcat DataSourceSpec](images/add-tag-to-tomcat-datasource.png)
+Then add the same tag to a resource (for example, a `tomcat.DataSourceSpec` CI):
 
-This then will automatically map the DataSource to the "tomcat-context" only:
+![Add tag to tomcat.DataSourceSpec](images/add-tag-to-tomcat-datasource.png)
+
+XL Deploy will then automatically map the resource to the common context only:
 
 ![Deployment with tag](images/tomcat-context-with-tag-deployment.png)
 
-For more information about the Tomcat plugin, refer to [Introduction to the XL Deploy Tomcat plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-tomcat-plugin.html).
+For more information about the Tomcat plugin, refer to [Introduction to the XL Deploy Tomcat plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-tomcat-plugin.html) and the [Tomcat reference](/xl-deploy/latest/tomcatPluginManual.html).
