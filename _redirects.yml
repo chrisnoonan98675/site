@@ -77,6 +77,40 @@
 /xl-deploy/concept/getting-started-with-the-satellite-feature.html : /xl-deploy/concept/getting-started-with-the-satellite-module.html
 /xl-deploy/how-to/configure-the-satellite-feature-in-xl-deploy.html : /xl-deploy/how-to/configure-the-satellite-module-in-xl-deploy.html
 
+##### PRODUCTS THAT HAVE BEEN RENAMED
+
+/xl-test/concept/index.html : /xl-testview/concept/index.html
+/xl-test/concept/key-xl-test-concepts.html : /xl-testview/concept/key-concepts.html
+/xl-test/concept/supported-test-tools-and-test-result-formats.html : /xl-testview/concept/supported-test-tools-and-test-result-formats.html
+/xl-test/concept/understanding-xl-test-architecture.html : /xl-testview/concept/understanding-architecture.html
+/xl-test/concept/working-with-qualifications.html : /xl-testview/concept/working-with-qualifications.html
+/xl-test/concept/xl-test-boot-properties.html : /xl-testview/concept/boot-properties.html
+/xl-test/concept/xl-test-file-selection-patterns.html : /xl-testview/concept/file-selection-patterns.html
+/xl-test/concept/xl-test-reports.html : /xl-testview/concept/reports.html
+/xl-test/how-to/add-a-host-to-xl-test.html : /xl-testview/how-to/add-a-host.html
+/xl-test/how-to/add-a-project-to-xl-test.html : /xl-testview/how-to/add-a-project.html
+/xl-test/how-to/add-a-tag-to-a-test-case.html : /xl-testview/how-to/add-a-tag-to-a-test-case.html
+/xl-test/how-to/connect-xl-test-to-a-jenkins-job.html : /xl-testview/how-to/connect-to-a-jenkins-job.html
+/xl-test/how-to/create-a-custom-qualification-in-xl-test.html : /xl-testview/how-to/create-a-custom-qualification.html
+/xl-test/how-to/create-a-custom-report-in-xl-test.html : /xl-testview/how-to/create-a-custom-report.html
+/xl-test/how-to/create-a-custom-report-using-highcharts-demos.html : /xl-testview/how-to/create-a-custom-report-using-highcharts-demos.html
+/xl-test/how-to/create-a-dashboard.html : /xl-testview/how-to/create-a-dashboard.html
+/xl-test/how-to/create-a-test-specification-set.html : /xl-testview/how-to/create-a-test-specification-set.html
+/xl-test/how-to/create-a-test-specification.html : /xl-testview/how-to/create-a-test-specification.html
+/xl-test/how-to/customize-test-run-overview.html : /xl-testview/how-to/customize-test-run-overview.html
+/xl-test/how-to/duplicate-a-dashboard.html : /xl-testview/how-to/duplicate-a-dashboard.html
+/xl-test/how-to/edit-a-dashboard.html : /xl-testview/how-to/edit-a-dashboard.html
+/xl-test/how-to/execute-tests-from-xl-test.html : /xl-testview/how-to/execute-tests.html
+/xl-test/how-to/filter-a-report-by-tag.html : /xl-testview/how-to/filter-a-report-by-tag.html
+/xl-test/how-to/getting-started-with-xl-test.html : /xl-testview/how-to/getting-started.html
+/xl-test/how-to/import-test-results.html : /xl-testview/how-to/import-test-results.html
+/xl-test/how-to/install-xl-test-plugins.html : /xl-testview/how-to/install-plugins.html
+/xl-test/how-to/install-xl-test.html : /xl-testview/how-to/install.html
+/xl-test/how-to/start-xl-test.html : /xl-testview/how-to/start.html
+/xl-test/how-to/troubleshoot-custom-reports-in-xl-test.html : /xl-testview/how-to/troubleshoot-custom-reports.html
+/xl-test/how-to/using-xl-test-dashboards.html : /xl-testview/how-to/using-dashboards.html
+/xl-test/how-to/view-test-case-details.html : /xl-testview/how-to/view-test-case-details.html
+
 ##### LEGACY PAGES THAT ARE NO LONGER USED
 
 /product-version.html#/deployit/3.9.x/index.html : /xl-deploy/3.9.x/index.html
