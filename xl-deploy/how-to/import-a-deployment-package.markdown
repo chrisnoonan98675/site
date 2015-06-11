@@ -7,13 +7,12 @@ categories:
 tags:
 - package
 - application
-- gui
-- repository
+- import
 removed:
 - 5.0.0
 ---
 
-**Tip:** For information about creating a deployment package in XL Deploy 5.0.0 and later, refer to [Add a package to XL Deploy](/xl-deploy/how-to/add-a-package-to-xl-deploy.html).
+**Tip:** For information about importing a deployment package in XL Deploy 5.0.0 or later, refer to [Add a package to XL Deploy](/xl-deploy/how-to/add-a-package-to-xl-deploy.html).
 
 The XL Deploy Repository is the database that contains all packages, environments and other CIs. The repository keeps track of this data and all its revisions.
 
@@ -23,6 +22,6 @@ The first step to performing a deployment with XL Deploy is to import your packa
 
 ![Import package](images/import-package-button.png)
 
-**Import the Package**. Run through the steps of the import wizard. _Import deployment package from server_ scans for packages in the configured dropbox, which by default is the `importablePackages` directory from the XL Deploy installation directory. _Import deployment package from URL_ allows the user to specify a URL to download the package from. You can optionally provide a user name and password if the URL requires authentication. Note that you cannot re-import packages.
+**Import the Package**. Run through the steps of the import wizard. _Import deployment package from server_ scans for packages in the configured dropbox, which by default is the `importablePackages` directory from the XL Deploy installation directory. _Import deployment package from URL_ allows the user to specify a URL to download the package from.
 
 **Close the Import Wizard**. Click on the Close button to complete the import procedure.
