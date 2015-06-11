@@ -13,9 +13,14 @@ weight: 5
 
 {% include product_legacy_doc_list.html %}
 
-{% include product_topic_list_concept.html %}
-
-{% include product_topic_list_how-to.html %}
+<div class="row">
+	<div class="col-sm-6">
+		{% include product_topic_list_concept.html %}
+	</div>
+	<div class="col-sm-6">
+		{% include product_topic_list_how-to.html %}
+	</div>
+</div>
 
 {% include product_doc_browse_by_subject.html %}
 
