@@ -206,7 +206,15 @@ The `html` type produces a string of HTML. A trivial example is:
     <p>This is my custom report.</p>
     ''')
 
-You can use any [AngularJS](https://angularjs.org/)-formatted HTML snippet as a render template. Templates must be located in `<XLTESTVIEW_HOME>/ext/web/reports/<reportType>.html`, where `<reportType>` matches the `reportType` defined in `synthetic.xml`.
+As an advanced feature, you can use any [AngularJS](https://angularjs.org/)-formatted HTML snippet as a render template. Templates must be located in `<XLTESTVIEW_HOME>/ext/web/reports/<reportType>.html`, where `<reportType>` matches the `reportType` defined in `synthetic.xml`.
+
+XL TestView includes the following default templates:
+
+* `highchart.html`
+* `html.html`
+* `link.html`
+*  `noreport.html`
+*  `qualification.html`
 
 To show a report in a tile on a dashboard, a similar approach is used, but the report template is named `<XLTESTVIEW_HOME>/ext/web/reports/tiles/<reportType>.html`.
 
