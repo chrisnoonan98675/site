@@ -32,5 +32,6 @@ For example, if your working directory is `/var/tests`:
 
 * `test-result/*` selects all files in `/var/tests/test-result`
 
-* `/tmp/tests/*` selects all files in `/tmp/tests/`, but no files in `/var/tests/`	
+* `/tmp/tests/*` selects all files in `/tmp/tests/`, but no files in `/var/tests/`
+
 For more information and additional examples, refer to the Apache Ant [documentation](https://ant.apache.org/manual/dirtasks.html).
