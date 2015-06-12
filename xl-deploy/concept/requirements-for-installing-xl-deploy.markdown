@@ -9,13 +9,17 @@ tags:
 - installation
 - license
 - setup
+- requirements
+- prerequisites
 ---
 
 ## Server requirements
 
-To install the XL Deploy server, the following prerequisites must be met:
+To install the XL Deploy server, you must meet the following requirements:
 
-* **XL Deploy license**: Download from [https://dist.xebialabs.com](https://dist.xebialabs.com)
+* **XL Deploy license**:
+    * If you have a customer log-in, you can download your license from [https://dist.xebialabs.com](https://dist.xebialabs.com)
+    * If you are using [XL Deploy Community Edition](https://xebialabs.com/products/xl-deploy/community/), you will automatically receive a license after you [install](/xl-deploy/how-to/install-xl-deploy.html#install-xl-deploy-using-the-installer) and register XL Deploy
 * **Operating system**: Microsoft Windows or a Unix-family operating system running Java
 * **Java Runtime Environment**: Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
 * **RAM**: At least 2 GB of RAM available for XL Deploy
