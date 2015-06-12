@@ -35,11 +35,15 @@ To configure the XL TestView plugin:
 1.  In the **Proxy Url** box, enter the URL of a proxy server, if one is required to contact XL TestView. If no proxy server is required, leave the box empty.
 1.  In the **Credentials** compartment, provide the user name and password that should be used to connect to XL TestView. For information about credentials, refer to the [Jenkins Credentials plugin](https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin).
 
-## Step 3 Add a post-build step to your job
+## Step 3 Create a passive test specification
 
-To connect the XL TestView plugin to a build job, create a [passive test specification](/xl-testview/how-to/create-a-test-specification.html) in XL TestView. You can optionally create this specification in a [new project](/xl-testview/how-to/add-a-project.html).
+To connect the XL TestView plugin to a build job, create a [passive test specification](/xl-testview/how-to/create-a-test-specification.html) in XL TestView. This is the specification where Jenkins will send the test results.
 
-Then, configure the XL TestView plugin to send the results to the test specification that you created:
+You can optionally create this specification in a [new project](/xl-testview/how-to/add-a-project.html).
+
+## Step 4 Add a post-build step to your job
+
+Configure the XL TestView plugin to send the results to the test specification that you created:
 
 1. In Jenkins, go to the job and click **Configure**.
 1. In the **Post-build Actions** section, click **Add post-build action** and select **Send test results to XL TestView**.
@@ -52,10 +56,10 @@ Then, configure the XL TestView plugin to send the results to the test specifica
 
 1. Click **Save** to save the updated configuration.
 
-## Step 4 Build
+## Step 5 Build
 
 To start a new build of the job in Jenkins, click **Build**.
 
-## Step 5 View in XL TestView
+## Step 6 View in XL TestView
 
 After the build is complete, go to the appropriate **Project** in XL TestView and locate the test specification. You can then analyze the results.
