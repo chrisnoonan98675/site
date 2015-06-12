@@ -17,6 +17,8 @@ XL TestView lets you define, manage, execute, visualize, and analyze tests acros
 
 Below, please find some tips for your first-time XL TestView experience.
 
+**Tip:** To watch a video version of this guide, click [here](https://www.youtube.com/watch?v=7NaCEJVdCBQ&list=PLIIv46GEoJ7YrOn09FrNB4SV10rTaT9Mt&index=3).
+
 ## Step 1 Explore XL TestView
 
 First, read the [essential background information](/xl-testview/concept/key-concepts.html) about XL TestView's key concepts.
