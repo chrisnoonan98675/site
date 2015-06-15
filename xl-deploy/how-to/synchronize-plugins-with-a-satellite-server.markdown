@@ -15,6 +15,8 @@ since:
 
 If you add, remove, or update an XL Deploy plugin, you must synchronize XL Deploy with satellite servers before performing a deployment.
 
+Before XL Deploy executes a deployment plan on a satellite, it checks if any plugins are missing or out-of-date. If any are, XL Deploy stops the deployment, and you must synchronize the satellite before continuing.
+
 To synchronize a satellite server:
 
 1. Click **Repository** in XL Deploy.
@@ -28,4 +30,4 @@ To synchronize a satellite server:
 
 The log of the first task shows how many plugins have been synchronized.
 
-**Note:** Before XL Deploy executes a deployment plan on a satellite, it checks if any plugins are missing or out-of-date. If any are, XL Deploy stops the deployment, and you must synchronize the satellite before continuing.
+**Note:** The `<XLDEPLOY_HOME>/ext` directory is *not* synchronized to satellite servers. To ensure that content from your `ext` directory is synchronized to satellite servers, package the content in a JAR file and place the file in the `plugins` directory.
