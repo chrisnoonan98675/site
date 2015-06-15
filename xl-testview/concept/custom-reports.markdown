@@ -87,9 +87,9 @@ In a Python script, the following properties are available:
 | `endDate` | integer | Value of the URL parameter `endDate`; defaults to the current time |
 | `tags` | list of strings | Value of the URL parameter `tags`; defaults to an empty list |
 
-### TestRun object properties
+### TestRun object
 
-The TestRun object has the following public properties:
+The `TestRun` object refers to the test run on which the report should be based. has the following public properties and methods:
 
 {:.table .table-striped}
 | Property | Type | Description |
@@ -102,6 +102,11 @@ The TestRun object has the following public properties:
 | `qualificationResult` | boolean | Qualification (passed/failed) for this test run |
 | `failureReason` | string | Reason for failure |
 | `events` | list of events | Test run events associated with this test run |
+
+
+{:.table .table-striped}
+| Method   | Type | Description |
+| -------- | ---- | ----------- |
 | `getEvents(filterParameters)` | list of events | Test run events associated with this test run, only the events that match filter `filterParameters` are returned |
 | `hasParameter(parameterName)` | string | Returns `True` if a parameter exists |
 | `getParameter(parameterName)` | string | Obtain the parameter value, or `None` if it does not exist |
@@ -111,16 +116,16 @@ The test run parameters are restricted to any parameter that was provided as par
 
 **Note:** The date objects are actually `java.util.Date` objects.
 
-### TestRuns object properties
+### TestRuns object
 
-The `testRuns` object supports the methods below. Those methods range from finding a particular event up to getting a list of test runs.
+The `testRuns` object is used to retrieve (older) test runs from the repository. Its methods range from finding a particular event up to getting a list of test runs.
 
 #### APIs related to test runs
 
 APIs related to test runs:
 
 {:.table .table-striped}
-| Property | Type | Description |
+| Method   | Type | Description |
 | -------- | ---- | ----------- |
 | `getTestRun(testRunId)` | test run | Get a specific test run based on a run ID, which can be a string or a `java.util.UUID` |
 | `getLatestTestRun(testSpecificationName, startTime, endTime)` | test run | Get the most recent test run given a test specification ID and in a time slot |
@@ -136,7 +141,7 @@ APIs related to test runs:
 APIs related to test result events:
 
 {:.table .table-striped}
-| Property | Type | Description |
+| Method   | Type | Description |
 | -------- | ---- | ----------- |
 | `getLatestEventOfType(testSpecificationName, eventType, startTime, endTime)` | event | Get the most recent event of a particular time, given a time period |
 | `getLatestEventOfTypeAndRunId(testSpecificationName, eventType, runId, startTime, endTime)` | event | Get the most recent event of a particular event type, given a test run and a time period; `runId` must be a `java.util.UUID` |
