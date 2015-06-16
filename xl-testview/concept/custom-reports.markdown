@@ -11,7 +11,7 @@ tags:
 - test specification
 ---
 
-You can easily create custom reports in XL TestView. This topic provides background information about custom reports. For a step-by-step example, refer to [Create a custom report](/xl-testview/how-to/create-a-custom-report.html).
+You can easily create custom reports in XL TestView. This topic provides background information about custom reports. For a step-by-step example, refer to [Create a custom report based on a built-in report](/xl-testview/how-to/create-a-custom-report.html).
 
 This document describes the steps to be taken to create a custom report.
 
@@ -25,7 +25,7 @@ A report has three parts:
 
 Custom reports are registered in `<XLTESTVIEW_HOME>/ext/synthetic.xml`.
 
-For example, this is the type definition of the default bar chart:
+For example, this is the type definition of the default bar chart in `synthetic.xml`:
 
     <type type="xlt.BarChart" extends="xlt.Report">
         <property name="title" default="Bar chart"/>
@@ -46,9 +46,9 @@ A report has the following properties in `synthetic.xml`:
 | -------- | ----------- |
 | `title` | Report title that appears in the **Show report** dialog on the project page |
 | `userFriendlyDescription` | Description that appears next to the chart on the project page |
-| `iconName` | An icon name that refers to an SVG icon in `<XLTESTVIEW_HOME>/ext/web/images/sprite-icons/<iconName>.svg` |
+| `iconName` | A name that refers to an SVG icon in `<XLTESTVIEW_HOME>/ext/web/images/sprite-icons/<iconName>.svg` |
 | `scriptLocation` | Location of the Python script containing the report generation logic |
-| `reportType` | Report type that instructs the web front end how to render the report |
+| `reportType` | Report type that instructs the front end how to render the report |
 
 ## Report script
 
@@ -80,8 +80,8 @@ In a Python script, the following properties are available:
 {:.table .table-striped}
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `testRun` | object | The current test run / the most recent test run given a time span (see [TestRun object properties](#testrun-object-properties)) |
-| `testRuns` | object | The test runs repository, used to obtain other test runs (see [TestRuns object properties](#testruns-object-properties)) |
+| `testRun` | object | The current test run / the most recent test run given a time span (see [TestRun object](#testrun-object)) |
+| `testRuns` | object | The test runs repository, used to obtain other test runs (see [TestRuns object](#testruns-object)) |
 | `queryParameters` | dictionary | All query (URL) parameters provided
 | `startDate` | integer | Value of the URL parameter `startDate`; defaults to two weeks ago |
 | `endDate` | integer | Value of the URL parameter `endDate`; defaults to the current time |
