@@ -57,21 +57,28 @@ Before upgrading, carefully read the [**release notes**](/xl-deploy/latest/relea
 To upgrade an XL Deploy server installation:
 
 1. Extract the server archive. It creates an installation directory called, for example, `xl-deploy-4.0.0-server`.
+
 1. Stop the Deployit/XL Deploy server.
+
 1. When upgrading to XL Deploy 4.5.x or earlier, copy the contents of the `conf` directory from the previous installation to the new installation directory.
 
-    When upgrading to XL Deploy 5.0.0 or later, only copy the following files from `conf`:
-
-    * `deployit.conf`
-    * `jackrabbit-repository.xml`
-    * `repository-keystore.jceks`
-    * `deployit-defaults.properties`
-
-    **Note:** If you have customized the `conf/tasker.conf` file and you are upgrading to XL Deploy 5.0.0 or later, you must reapply your customizations in `conf/system.conf`.
+    <div class="alert alert-warning" role="alert">
+    <p>When upgrading to XL Deploy 5.0.0 or later, do not copy the full contents of the <code>conf</code> directory. Only copy the following files from <code>conf</code>:</p>
+    <ul>
+    <li><code>deployit.conf</code></li>
+    <li><code>jackrabbit-repository.xml</code></li>
+    <li><code>repository-keystore.jceks</code></li>
+    <li><code>deployit-defaults.properties</code></li>
+    </ul>
+    <p><strong>Note:</strong> If you have customized the <code>conf/tasker.conf</code> file and you are upgrading to XL Deploy 5.0.0 or later, you must reapply your customizations in <code>conf/system.conf</code>.</p>
+    </div>
 
 1. If necessary, update the license (`conf/deployit-license.lic`). **This is required when upgrading to XL Deploy 5.0.0 or later.** You can download your current license from [https://dist.xebialabs.com/](https://dist.xebialabs.com/).
+
 1. Copy the `repository` directory from the previous installation to the new installation directory.
+
 1. Copy the contents of the `importablePackages` directory from the previous installation to the new installation directory.
+
 1. Copy the contents of the `plugins` directory from the previous installation to the new installation directory (unless new versions of your plugins were provided with the new XL Deploy version). 
 
     **Tip:** Check the [version-specific upgrade notes](/xl-deploy/latest/upgrademanual.html) for information about plugin incompatibility.
@@ -81,6 +88,7 @@ To upgrade an XL Deploy server installation:
     **Note:** *Do not* copy the contents of the `hotfix` directory unless instructed to do so (because hotfixes are version-specific).
 
 1. If you added libraries to XL Deploy's `lib` directory (such as database drivers), copy the additional libraries from the previous installation to the new installation directory.
+ 
 1. If you have made any changes to the XL Deploy server startup scripts in the `bin` directory, manually re-do these changes in the new installation directory.
 
     In XL Deploy 4.5.x and earlier, the startup scripts are `server.sh` and `server.cmd`. In XL Deploy 5.0.0 and later, they are `run.sh` and `run.cmd`.
@@ -90,6 +98,7 @@ To upgrade an XL Deploy server installation:
     For example, if `lib` contains `guava-16.0.1.jar`, then the `plugins` directory should not contain any `guava-x.x.x.jar` file (such as `guava-13.0.jar`). In this case, you must remove the library from the plugins directory. 
 
 1. [Start the XL Deploy server interactively](/xl-deploy/how-to/start-xl-deploy.html) to allow automatic repository upgraders to run.
+
 1. If you normally run the XL Deploy server [as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html), shut it down and restart it as you normally do.
 
 ### Upgrading the CLI
