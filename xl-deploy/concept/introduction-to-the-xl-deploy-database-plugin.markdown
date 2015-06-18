@@ -70,6 +70,8 @@ You can include dependencies with SQL scripts. Dependencies are included in the 
 
 Common dependencies that are placed in a sub-folder called `common` are available to all scripts.
 
+### Dependencies example
+
 For example, this is a ZIP file containing Oracle scripts:
 
 	mysqlfolder
@@ -106,6 +108,12 @@ The `02-CreateUser.sql` script can use its dependencies or common dependencies a
 	COMMIT;
 	
 **Note:** The syntax for including the dependent scripts varies between databases. For example, Microsoft SQL databases use `include <script file name>`.
+
+### Updating dependencies
+
+Because XL Deploy cannot interpret the content of an SQL script, it cannot detect when a dependent script has been modified between versions. If you modify a dependent script and you want XL Deploy to execute it when you [update a deployed application](/xl-deploy/how-to/update-a-deployed-application.html), you must also modify the script that calls it.
+
+Using the example above, assume that `create_admin_users.sql` has been modified in a new version of the application. For XL Deploy to to execute `create_admin_users.sql` again, `02-CreateUser.sql` must also be modified.
 
 ## SQL client
 
