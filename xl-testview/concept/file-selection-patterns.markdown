@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: XL TestView file selection patterns
 categories:
 - xl-testview

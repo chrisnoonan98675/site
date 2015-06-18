@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Import test results into XL TestView
 categories:
 - xl-testview

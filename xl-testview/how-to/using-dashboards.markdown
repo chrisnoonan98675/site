@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Using XL TestView dashboards
 categories:
 - xl-testview

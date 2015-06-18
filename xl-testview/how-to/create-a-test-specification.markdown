@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Create a test specification
 categories:
 - xl-testview

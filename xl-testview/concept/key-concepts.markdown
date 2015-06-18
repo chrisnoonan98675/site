@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Key XL TestView concepts
 categories:
 - xl-testview

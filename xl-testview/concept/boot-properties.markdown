@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: XL TestView boot properties
 categories:
 - xl-testview

@@ -1,5 +1,4 @@
 ---
-layout: beta
 no_mini_toc: true
 title: XL TestView reports
 categories:

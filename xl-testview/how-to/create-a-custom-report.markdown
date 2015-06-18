@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Create a custom report based on a built-in report
 categories:
 - xl-testview

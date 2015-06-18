@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Custom reports in XL TestView
 categories:
 - xl-test

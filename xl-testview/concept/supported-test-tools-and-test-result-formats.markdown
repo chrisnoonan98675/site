@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Supported test tools and test result formats
 categories:
 - xl-testview

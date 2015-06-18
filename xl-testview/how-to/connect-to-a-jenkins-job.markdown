@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Connect XL TestView to a Jenkins job
 categories:
 - xl-testview

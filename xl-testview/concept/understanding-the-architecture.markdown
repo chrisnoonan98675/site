@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Understanding XL TestView's architecture
 categories:
 - xl-testview

@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Troubleshoot custom reports in XL TestView
 categories:
 - xl-testview

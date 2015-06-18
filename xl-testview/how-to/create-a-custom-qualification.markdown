@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Create a custom qualification in XL TestView
 categories:
 - xl-testview

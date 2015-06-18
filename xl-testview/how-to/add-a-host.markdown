@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Add a host to XL TestView
 categories:
 - xl-testview

@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Getting started with XL TestView
 categories:
 - xl-testview

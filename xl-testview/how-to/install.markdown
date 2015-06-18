@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Install XL TestView
 categories:
 - xl-testview

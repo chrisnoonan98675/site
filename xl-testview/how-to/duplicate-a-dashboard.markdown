@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Duplicate a dashboard in XL TestView
 categories:
 - xl-testview

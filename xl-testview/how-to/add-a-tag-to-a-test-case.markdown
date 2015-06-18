@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Add a tag to a test case
 categories:
 - xl-testview

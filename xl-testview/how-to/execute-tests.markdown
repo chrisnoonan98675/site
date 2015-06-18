@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Execute tests from XL TestView
 categories:
 - xl-testview

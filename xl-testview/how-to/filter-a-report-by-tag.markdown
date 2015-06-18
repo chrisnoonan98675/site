@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Filter a report by tag
 categories:
 - xl-testview

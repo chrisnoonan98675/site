@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Add a project to XL TestView
 categories:
 - xl-testview

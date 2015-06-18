@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: View test case details
 categories:
 - xl-testview

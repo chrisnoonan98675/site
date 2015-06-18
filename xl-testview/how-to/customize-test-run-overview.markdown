@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Customize the test run overview
 categories:
 - xl-testview

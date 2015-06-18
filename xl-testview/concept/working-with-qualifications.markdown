@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Working with qualifications
 categories:
 - xl-testview
