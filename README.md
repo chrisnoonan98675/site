@@ -18,13 +18,13 @@ Tips:
 
 **Tip:** In MacDown, go to **Preferences** > **Rendering** and select **Detect Jekyll front-matter** to have MacDown nicely format the YAML frontmatter in Markdown files.
 
-# Branches
-
-## Master branch
+# Publishing changes to the site
 
 When you commit a change to the master branch of this repository, a [Jenkins job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/app1/job/Jekyll%20docs/) is triggered. This job generates the HTML and immediately publishes it to [docs.xebialabs.com](https://docs.xebialabs.com).
 
 If you want to make a documentation change that should *not* be published immediately, create a branch.
+
+# Branches
 
 ## Release branches
 
@@ -34,7 +34,7 @@ A branch should be created for each product or plugin release; for example, `xl-
 
 You can create branches for a feature—for example, `DEPL-1234` or `REL-5678`—but feature branches are only for short-term use. They should eventually be merged into the appropriate release branch when the feature is ready.
 
-## Pull requests
+# Pull requests
 
 If you want to submit changes for review without immediately publishing them, [create a branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/#creating-a-branch) and then [create a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
