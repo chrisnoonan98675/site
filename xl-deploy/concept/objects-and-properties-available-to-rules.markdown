@@ -1,5 +1,5 @@
 ---
-title: Define rule behavior
+title: Objects and properties available to rules
 categories:
 - xl-deploy
 subject:
@@ -14,6 +14,8 @@ since:
 ---
 
 When you define an XML or script rule, you use expressions or scripts to define its behavior. These are written in Jython, a combination of Python and Java.
+
+## Objects available to rules
 
 The data that is available for a planning script to use depends on the scope of the rule. This table shows when each object is available:
 

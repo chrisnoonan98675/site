@@ -76,6 +76,9 @@
 /xl-test/how-to/create-a-test-tool-plugin.html : /xl-testview/concept/understanding-the-architecture.html
 /xl-deploy/concept/getting-started-with-the-satellite-feature.html : /xl-deploy/concept/getting-started-with-the-satellite-module.html
 /xl-deploy/how-to/configure-the-satellite-feature-in-xl-deploy.html : /xl-deploy/how-to/configure-the-satellite-module-in-xl-deploy.html
+/xl-deploy/concept/understanding-xl-deploy-rules.html : /xl-deploy/concept/getting-started-with-xl-deploy-rules.html
+/xl-deploy/how-to/define-rule-behavior.html : /xl-deploy/concept/objects-and-properties-available-to-rules.html
+/xl-deploy/how-to/how-to-define-rules.html : /xl-deploy/how-to/define-a-rule.html
 
 ##### PRODUCTS THAT HAVE BEEN RENAMED
 

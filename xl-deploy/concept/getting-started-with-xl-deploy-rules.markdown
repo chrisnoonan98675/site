@@ -1,5 +1,5 @@
 ---
-title: Understanding XL Deploy rules
+title: Getting started with XL Deploy rules
 categories:
 - xl-deploy
 subject:
@@ -21,11 +21,9 @@ When preparing a deployment, XL Deploy must determine which actions, or steps, t
 
 XL Deploy's *rules* system works with the planning phase. Rules allow you to use XML or Jython to specify the steps that belong in a deployment plan and how the steps are configured.
 
-This manual describes how the rules system works and how you can influence the steps that will be included in the deployment plan. 
-
 ## Orchestration
 
-Orchestration is important in the planning of a deployment. Orchestration is not part of the planning phase itself; rather, it happens immediately before the planning phase and after the delta analysis phase, and its output is used as input for how planning is done.
+[Orchestration](/xl-deploy/concept/understanding-orchestrators.html) is important in the planning of a deployment. Orchestration is not part of the planning phase itself; rather, it happens immediately before the planning phase and after the delta analysis phase, and its output is used as input for how planning is done.
  
 Delta analysis first determines which deployables need to be deployed, modified, deleted, or to remain unchanged. Each of these is called a `delta`. Orchestration determines the order in which the deltas should be processed. The result of orchestration is a tree-like structure of sub-plans, each of which is:
 
