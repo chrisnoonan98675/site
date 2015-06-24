@@ -46,7 +46,7 @@ XL Deploy allows users to deploy application along with its dependencies togethe
     The app3 has three deployment packages with names 1.1, 2.1, 3.5. The version 1.1 has no dependencies whereas version 2.1 and 3.5 have dependency on app4 version [1.5,2.0]
     ![App3 Application Dependencies](images/application_dependencies/application_dependencies_app3.png)
 
-    The app4 has one two deployment packages with name 2.0 and 2.5. Both deployment packages have dependency on app5 version 2.0 as shown below.
+    The app4 has two deployment packages with name 2.0 and 2.5. Both deployment packages have dependency on app5 version 2.0 as shown below.
     ![App4 Application Dependencies](images/application_dependencies/application_dependencies_app4.png)
 
     The app5 has two deployment packages 1.0 and 2.0 with no dependencies.
@@ -61,7 +61,7 @@ XL Deploy allows users to deploy application along with its dependencies togethe
     ![Deployment workspace with Dependencies](images/application_dependencies/deployment_workspace_with_dependencies.png)
 
     Click on the Preview button at the bottom to view the deployment plan
-    
+
     ![Deployment workspace with Dependencies](images/application_dependencies/deployment_workspace_preview.png)
 
     It will show you the preview of the deployment plan. As you can see on the preview screen, the deployment order for the applications is app5, app4, app2, app3, and finally app1.
@@ -70,7 +70,7 @@ XL Deploy allows users to deploy application along with its dependencies togethe
 
     ### How XL Deploy decide which version number to choose?
 
-    You would have noticed that XL Deploy picked specific deployment package versions for deployment. Lets discuss all why XL Deploy did what it did one by one:
+    You would have noticed that XL Deploy picked specific deployment package versions for deployment. Lets discuss why XL Deploy did what it did one by one:
 
     1. app1 version 1.0: As we dragged version 1.0 of the app1 and there are no multiple versions of app1 so version 1.0 of app1 is selected.
 
