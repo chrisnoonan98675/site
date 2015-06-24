@@ -110,8 +110,32 @@ Now to update `app2` to 1.9 version, press the **Execute** button.
 
 > If you try to update an application to a version that does not satisfy the depepency of another application that depends on the first application then XL Deploy will not allow you to update the application. For example, in above scenario if we try to update `app2` to version 2.1 then update will not work as that would break dependency of `app1`.
 
+## Rolling back
 
+It is possible to rollback application with dependencies deployment operations.
 
+Let's look at the simple example. Suppose that we have 3 applications:
+
+`app1` of version 1.0, `app2` of version 2.0 and `app3` or version 1.0
+
+The dependency chain can be represented like this:
+`app1 (1.0) -> app2 (2.0) -> app3 (1.0)`
+
+Now, let's execute the deployment of `app1 (1.0)` and it's dependencies and then click **"Rollback"** button:
+
+<img src="images/application_dependencies/application_dependencies_rollback_1.png">
+
+As a result, you will see a rollback plan for application and it's dependencies. Please notice, that deployment order is reverted. This done explicitly not to break the dependencies during un-deployment:
+
+<img src="images/application_dependencies/application_dependencies_rollback_2.png">
+
+It's also possible to rollback partial deployments. Let's assume, that during deployment of application `app1` and it's dependencies, we put **"pause"** step somewhere in the middle of dependent `app2` and decided to roll-back:
+
+<img src="images/application_dependencies/application_dependencies_rollback_3.png">
+
+After clicking **"Rollback"** button, you will see the plan that consists of only an artifacts and applications that **where already deployed**. Please notice, that part of `app2` artifacts and the whole `app1` is not inclided in the plan:
+
+<img src="images/application_dependencies/application_dependencies_rollback_4.png">
 
 ## xsacefv
 
