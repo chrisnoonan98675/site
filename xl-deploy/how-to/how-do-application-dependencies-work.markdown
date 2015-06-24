@@ -112,7 +112,39 @@ Now to update `app2` to 1.9 version, press the **Execute** button.
 
 > If you try to update an application to a version that does not satisfy the dependency of another application that depends on the first application then XL Deploy will not allow you to update the application. For example, in above scenario if we try to update `app2` to version 2.1 then update will not work as that would break dependency of `app1`.
 
-## How rollback works with application and it's dependencies?
+## How staging works with application with dependencies?
+
+Staging functionality can be used with dependencies as well. In case of application with dependencies, the system will first analyze all the artifacts that must be staged and upload them to staging directory before first deployment started. This will reduce the delays between dependencies deployment and overall downtime of the deployed applications.
+
+To enable staging, you need to specify **"Staging Directory Path"** on **"Advanced"** tab of the host:
+
+<img
+src="images/application_dependencies/application_dependencies_staging1.png">
+
+After that, on the next deployment, you will see an additional staging and cleanup steps at the beginning and the end of the plan:
+
+<img
+src="images/application_dependencies/application_dependencies_staging2.png">
+
+## How Satellite's works with application with dependencies?
+
+Applications with dependencies can be deployed with the help of satellite.
+The process is the same as deploying single application.
+Just enable satellite support on your host:
+
+<img
+src="images/application_dependencies/application_dependencies_satellite1.png">
+
+As a result, during deployment you will see an additional phases in your deployment plan:
+
+<img
+src="images/application_dependencies/application_dependencies_satellite2.png">
+
+The first phase is actually preparing deployment task on satellite, checking plugins and doing other heavy lifting that may take significant time to complete.
+
+For each particular application deployment XL-Deploy will test satellite connectivity and finally clean up satellite at the end.
+
+## How rollback works with application with dependencies?
 
 It is possible to rollback application with dependencies deployment operations.
 
@@ -155,9 +187,6 @@ After clicking **"Rollback"** button, you will see the plan that consists of onl
         * how does this work with orchestration
     * Validation if the desired deployment is allowed
         * will it break other dependencies
-    * How does it behave in combination with Staging/Satellites
-    * Rollbacks
-
 
 * How to go from Composite packages to Application Dependencies
 * Todo: Fix the current API documentation because the api changed - migration manual?
