@@ -110,7 +110,7 @@ Now to update `app2` to 1.9 version, press the **Execute** button.
 
 > If you try to update an application to a version that does not satisfy the depepency of another application that depends on the first application then XL Deploy will not allow you to update the application. For example, in above scenario if we try to update `app2` to version 2.1 then update will not work as that would break dependency of `app1`.
 
-## Rolling back
+## How rollback works with application and it's dependencies?
 
 It is possible to rollback application with dependencies deployment operations.
 
