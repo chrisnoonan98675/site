@@ -35,12 +35,12 @@ In XL Release 4.7.0 and later, the [archiving feature](/xl-release/how-to/config
 
 ## Archiving
 
-Since XL Release 4.7.0 you can configure XL Release to archive finished releases. These releases are moved to a separate "reporting" database, so that the active repository can be kept relatively small. Archived releases are still available in reports, but they are not searchable in the Release Overview screen. 
+Since XL Release 4.7.0 you can configure XL Release to archive finished releases. These releases are moved to a separate "reporting" database, so that the active repository can be kept relatively small. Archived releases are still available in reports, they are searchable in the Release Value Stream Mapping screen, but they are not searchable in the Release Overview screen.
 
-When you enable archiving, you can configure the time after which XL Release will archive a completed release. This is an amount of time since the release was completed or aborted.
+You can configure the time after which XL Release will archive a completed release. This is an amount of time since the release was completed or aborted.
 
 ![Archiving Settings](../images/archiving-settings.png)
 
-Note that XL Release reports related to finished releases only use data from the reporting database. So if you do not have archiving enabled, or if you configure too long period before releases are archived, then your reports will not be up to date.
+Note that XL Release reports related to finished releases only use data from the reporting database. So if you configure a too long period before releases are archived, then your reports will not be up to date.
 
 You can find details about configuration of reporting database [here](/xl-release/how-to/configure-the-reporting-database.html).
