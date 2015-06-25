@@ -21,7 +21,7 @@ XL Deploy recognizes placeholders using the following format:
 
 Values for placeholders can be provided manually or filled in from a _dictionary_.
 
-**Note:** When you update an application, XL Deploy will resolve the values for the placeholders again from the dictionary. For more information about the way XL Deploy resolves placeholders during updates, refer to [Resolving placeholders during application updates](/xl-deploy/concept/resolving-placeholders-during-application-updates.html).
+**Note:** When you update an application, XL Deploy will resolve the values for the placeholders again from the dictionary. For more information about the way XL Deploy resolves placeholders during updates, refer to [Resolving properties during application updates](/xl-deploy/concept/resolving-properties-during-application-updates.html).
 
 ## File placeholders
 

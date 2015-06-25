@@ -1,4 +1,5 @@
 ---
+layout: satellite
 title: Ping a satellite from XL Deploy
 categories:
 - xl-deploy

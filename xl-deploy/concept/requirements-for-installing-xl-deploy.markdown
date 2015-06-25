@@ -9,14 +9,18 @@ tags:
 - installation
 - license
 - setup
+- requirements
+- prerequisites
 ---
 
 ## Server requirements
 
-To install the XL Deploy server, the following prerequisites must be met:
+To install the XL Deploy server, you must meet the following requirements:
 
-* **XL Deploy license**: Download from [https://dist.xebialabs.com](https://dist.xebialabs.com)
-* **Operating system**: Microsoft Windows or a Unix-family operating system running Java
+* **XL Deploy license**:
+    * If you have a customer log-in, you can download your license from [https://dist.xebialabs.com](https://dist.xebialabs.com)
+    * If you are using [XL Deploy Community Edition](https://xebialabs.com/products/xl-deploy/community/), you will automatically receive a license after you [install](/xl-deploy/how-to/install-xl-deploy.html#install-xl-deploy-using-the-installer) and register XL Deploy
+* **Operating system**: Microsoft Windows (32-bit or 64-bit) or a Unix-family operating system running Java
 * **Java Runtime Environment**: Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
 * **RAM**: At least 2 GB of RAM available for XL Deploy
 * **Hard disk space**: Sufficient hard disk space to store the XL Deploy repository; see [Determining hard disk space requirements](#determining-hard-disk-space-requirements)
@@ -25,6 +29,14 @@ Depending on the environment, the following may also be required:
 
 * **Database**: XL Deploy's Jackrabbit repository supports a number of different databases; for more information, see [Configure the XL Deploy repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html)
 * **LDAP**: To enable group-based security, an LDAP x.509 compliant registry is needed; for more information, see [Configure the XL Deploy security file](/xl-deploy/how-to/configure-the-xl-deploy-security-file.html)
+
+### Networking requirements
+
+Before installing XL Deploy, ensure that the network connection to the XL Deploy host name works. You should be able to successfully execute `ping xl_deploy_hostname`.
+
+By default, the XL Deploy server uses port `4516`. If, during installation, you choose to enable secure communication (SSL) between the server and the XL Deploy GUI, the server uses port `4517`.
+
+To enable secure communication and/or to change the port number during installation, choose the [manual setup option](https://docs.xebialabs.com/xl-deploy/how-to/install-xl-deploy.html#manual-setup) in the command-line server setup wizard. The wizard will take you through the setup steps.
 
 ### Determining hard disk space requirements
 

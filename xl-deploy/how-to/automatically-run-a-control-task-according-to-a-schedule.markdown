@@ -10,18 +10,20 @@ tags:
 - control task
 ---
 
-XL Deploy uses a scheduling mechanism to run various system administration jobs on top of the repository (e.g. garbage collection, purge policies etc.).
+XL Deploy uses a scheduling mechanism to run various system administration jobs on top of the repository, such as garbage collection, purge policies, and so on. You can also use this mechanism to run specific control tasks on configuration items (CIs) stored in the repository.
 
-This mechanism can also be used to run arbitrary control tasks on configuration items stored in the repository.
+To automatically run a control task according to a schedule, create a new `schedule.ControlTaskJob` CI:
 
-To automatically run a control task according to a schedule, you need to create a new `schedule.ControlTaskJob`:
+1. Click **Repository** in the top menu.
+2. Right-click **Configuration** and select **schedule** > **ControlTaskJob**.
+3. Enter a unique name in the **Name** box.
+4. In the **Crontab schedule** box, define a crontab pattern for executing the control task.
 
-1. Click **Repository** in XL Deploy
-2. Right-click on the **Configuration** root and select `schedule.ControlTaskJob`
-3. Populate the required unique identifer and define a crontab pattern when the control task should execute.
-The pattern is a list of six single space-separated fields: representing second, minute, hour, day, month, weekday. Month and weekday names can be given as the first three letters of the English names.
+    The pattern is a list of six single space-separated fields representing second, minute, hour, day, month, and weekday. Month and weekday names can be entered as the first three letters of their English names.
 
-4. Enter the Id of the target configuration item and the name of the control task to invoke
-5. If the control task expects paremeters in form of an `udm.Parameters` CI, populate the **Control task paramaters** property
+5. In the **Configuration item Id** box, enter the ID of the target CI.
+6. In the **Control task name** box, enter the name of the control task to invoke.
+7. Under **Control task parameters**, provide any parameters that the control task requires, in the form of a `udm.Parameters` CI.
+8. Click **Save**.
 
 ![Control task job](images/system-admin-control-task-job.png)

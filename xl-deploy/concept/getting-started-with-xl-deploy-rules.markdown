@@ -1,0 +1,74 @@
+---
+title: Getting started with XL Deploy rules
+categories:
+- xl-deploy
+subject:
+- Rules
+tags:
+- rules
+- orchestrator
+- planning
+- step
+since:
+- 4.5.0
+---
+
+When preparing a deployment, XL Deploy must determine which actions, or steps, to take for the deployment, and in what order. This happens in three phases:
+
+1. *Delta analysis* determines which deployables are to be deployed, resulting in a delta specification for the deployment.
+2. *Orchestration* determines the order in which deployments of the deployables should happen (serially, in parallel, or interleaved).
+3. *Planning* determines the specific steps that must be taken for the deployment of each deployable in the interleaved plan.
+
+XL Deploy's *rules* system works with the planning phase. Rules allow you to use XML or Jython to specify the steps that belong in a deployment plan and how the steps are configured.
+
+## Orchestration
+
+[Orchestration](/xl-deploy/concept/understanding-orchestrators.html) is important in the planning of a deployment. Orchestration is not part of the planning phase itself; rather, it happens immediately before the planning phase and after the delta analysis phase, and its output is used as input for how planning is done.
+ 
+Delta analysis first determines which deployables need to be deployed, modified, deleted, or to remain unchanged. Each of these is called a `delta`. Orchestration determines the order in which the deltas should be processed. The result of orchestration is a tree-like structure of sub-plans, each of which is:
+
+* A serial plan that contains other plans that will be executed one after another;
+* A parallel plan that contains other plans that will be executed at the same time; or
+* An interleaved plan that will contain the specific deployment steps after planning is done
+
+The leaf nodes of the full deployment plan are always interleaved plans, and it is on these that the planning phase acts.
+
+Planning provides steps for an interleaved plan, and this is done by invoking rules. Some rules will trigger depending on the delta under planning, while others may trigger independent of any delta. When a rule is triggered, it may or may not add one or more steps to the interleaved plan under consideration.
+
+## Rules and steps
+
+A step is a concrete action that XL Deploy performs to accomplish a task, such as *delete a file* or *execute a PowerShell script*. The plugins that are installed on the XL Deploy server define several step types and may also define rules that contribute steps to the plan. If you define your own rules, you can reuse the step types defined by the plugins.
+
+You can also disable rules defined by the plugins.
+
+Each step type is identified by a name. When you create a rule, you can add a step by referring to the step type's name. 
+
+Also every step has parameters, which are variable properties that can be determined during planning and passed to the step. The parameters that a step needs depend on the step type, but they all have at least an *order* and a *description*. The order determines when the step will run, and the description is how the step will be named when you inspect the plan.
+
+## Rules and the planning context
+
+Rules receive a reference to the XL Deploy planning context, which allows them to interact with the deployment plan. Rules use the planning context to contribute steps to the deployment plan or to add checkpoints that are needed for rollbacks.
+
+The result of evaluating a rule is either that:
+
+* The planning context is not affected, or 
+* Steps and side effects are added to the planning context
+
+Typically, a rule only contributes steps to the plan in a few specific situations, when all of the conditions in its `conditions` section (if present) are met. Therefore, a rule will not always produce steps.
+
+## How rules affect one another
+
+Rules are applied one after another, depending on the [scope](/xl-deploy/concept/understanding-xl-deploy-rule-scope.html). Rules operate in isolation, although they can share information through the planning context. Rules can not affect one another, but you can disable rules. Every rule must have a name that is unique across the system.
+
+## Types of rules
+
+There are two types of rules:
+
+* **XML rules** allow you to define a rule using common conditions such as deployed types, operations, or the result of evaluating an expression. XML rules also allow you to define how a step must be instantiated by only writing XML.
+* **Script rules** allow you to express rule logic in a Jython script. You can provide the same conditions as you can in XML rules. Depending on the scope of a script rule, it has access to the deltas or to the delta specification and the planning context.
+
+The rule types are comparable in functionality. XML rules are more convenient because they define frequently used concepts in a simple way. Script steps are more powerful because they can include additional logic.
+ 
+If you do not know which type of rule to use, try an XML rule first. If the XML rule is too restrictive, try a script rule.
+
+For information about defining rules, refer to [How to define rules](/xl-deploy/how-to/how-to-define-rules.html).

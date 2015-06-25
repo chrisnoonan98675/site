@@ -10,7 +10,7 @@ tags:
 - plugin
 - extension
 - api
-- type
+- type system
 ---
 
 The Tomcat plugin is designed to be extended through XL Deploy's plugin API type system.

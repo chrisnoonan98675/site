@@ -14,8 +14,8 @@
     - 4.0.x
     - 4.5.x
     - 4.6.x
-- name: XL Test
-  id: xl-test
-  blurb: XL Test lets you define, execute, and analyze all of the tests relevant to an application's quality. You can easily manage complex test sets and execute tests across a wide spectrum of tools.
+- name: XL TestView
+  id: xl-testview
+  blurb: XL TestView lets you define, execute, and analyze all of the tests relevant to an application's quality. You can easily manage complex test sets and execute tests across a wide spectrum of tools.
   versions:
     - 1.2.x

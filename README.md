@@ -8,21 +8,23 @@ online-docs-jekyll
     * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/)
     * Windows users, follow [these instructions](http://jekyll-windows.juthilo.com/) (you can skip step #3 there)
 1. Install [Asciidoctor](http://asciidoctor.org/docs/install-toolchain/).
-1. In the directory where you cloned the repository, execute `jekyll serve` or `jekyll serve --watch` (for [watch mode](http://jekyllrb.com/docs/usage/)).
+1. In the directory where you cloned the repository, execute `jekyll serve` or `jekyll serve --watch` (for [watch mode](http://jekyllrb.com/docs/usage/)). Go to `http://localhost:4000` to see the site running locally.
 
-Go to `http://localhost:4000` to see the site running locally.
+Tips:
 
-**Tip:** To disable updating of the Development Dashboard while you run Jekyll in watch mode, change the `jira_dashboard` `generate` setting in `_config.yml` to `false`. **Do not commit this change to the repository!**
+* To disable updating of the Development Dashboard while you run Jekyll in watch mode, change the `jira_dashboard` `generate` setting in `_config.yml` to `false`. **Do not commit this change to the repository!**
+* If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
+* You may want to download a Markdown editor such as [MacDown](http://macdown.uranusjr.com/) for OS X or [MarkdownPad](http://markdownpad.com/) for Windows.
 
-**Note:** If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
+**Tip:** In MacDown, go to **Preferences** > **Rendering** and select **Detect Jekyll front-matter** to have MacDown nicely format the YAML frontmatter in Markdown files.
 
-# Branches
-
-## Master branch
+# Publishing changes to the site
 
 When you commit a change to the master branch of this repository, a [Jenkins job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/app1/job/Jekyll%20docs/) is triggered. This job generates the HTML and immediately publishes it to [docs.xebialabs.com](https://docs.xebialabs.com).
 
 If you want to make a documentation change that should *not* be published immediately, create a branch.
+
+# Branches
 
 ## Release branches
 
@@ -32,7 +34,7 @@ A branch should be created for each product or plugin release; for example, `xl-
 
 You can create branches for a feature—for example, `DEPL-1234` or `REL-5678`—but feature branches are only for short-term use. They should eventually be merged into the appropriate release branch when the feature is ready.
 
-## Pull requests
+# Pull requests
 
 If you want to submit changes for review without immediately publishing them, [create a branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/#creating-a-branch) and then [create a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
