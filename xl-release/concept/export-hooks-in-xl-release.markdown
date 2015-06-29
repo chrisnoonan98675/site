@@ -3,12 +3,12 @@ title: Export hooks in XL Release
 categories:
 - xl-release
 subject:
-- Archivation and data export
+- Archiving and data export
 tags:
 - export
 - reporting
 - system administration
-- archivation
+- archiving
 - purging
 since:
 - 4.7.0
