@@ -34,7 +34,9 @@ Just before deployment, XL Deploy will verify the connection with the satellites
 
 In the following example, the deployment to the **env** environment will be executed with satellite **satellite.xebialabs.uk**. After XL Deploy checks the connection, it will deploy the **test.war** file from **satellite.xebialabs.uk** to **localhost**.
 
-![Deployment plan with steps executed on satellite](images/step-executed-on-satellite.png) 
+![Deployment plan with steps executed on satellite](images/step-executed-on-satellite.png)
+
+**Note:** XL Deploy does not support rolling back a deployment to satellites.
 
 ## Satellite cleanup phase
 
