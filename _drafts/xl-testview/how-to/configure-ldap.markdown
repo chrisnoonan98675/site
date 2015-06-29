@@ -1,6 +1,6 @@
 ---
 layout: beta
-title: XL TestView boot properties
+title: Configure LDAP authentication for XL TestView
 categories:
 - xl-testview
 subject:
@@ -11,8 +11,6 @@ tags:
 - ldap
 - authentication
 ---
-
-# LDAP Authentication
 
 XL TestView supports authentication of users using LDAP. This topic describes how to configure LDAP authentication on XL TestView. Some general knowledge about LDAP and your LDAP server in particular is required.
 
@@ -30,13 +28,13 @@ Then restart XL TestView and try to log in.
 
 If your LDAP uses a certificate signed by a certificate authority or a certificate that is trusted in the global Java trust store, making a connection should work by setting the secure URL (for example, `ldaps://server.domain:636`) in `xlt.authentication.ldap.url`.
 
-If you use a self-signed certificate and you cannot add it to the global trust store, you need to configure a local keystore. 
+If you use a self-signed certificate and you cannot add it to the global trust store, you need to configure a local keystore. You can do so using the [`keytool`](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html) utility (part of the Java JDK distribution).
 
-**Note:** Ensure you complete the registration process before you configure your LDAP. Registration will not work afterwards.
+**Note:** Ensure you complete the registration process before you configure LDAP. Registration will not work afterward.
 
 To configure a local keystore:
 
-1. Export the certificate of your LDAP server. Please consult the documenation of your LDAP server for instructions.
+1. Export the certificate of your LDAP server. Please consult the documentation of your LDAP server for instructions.
 2. Go to the `conf` directory of your installation. Another location is also allowed.
 3. Create a new trust store using the following command: `keytool -import  -alias ldap.example.com -file ldapCertificate.crt -keystore truststore.jks`.
 4. Type a keystore password twice.
