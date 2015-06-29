@@ -41,6 +41,6 @@ You can configure the time after which XL Release will archive a completed relea
 
 ![Archiving Settings](../images/archiving-settings.png)
 
-Note that XL Release reports related to finished releases only use data from the reporting database. So if you configure a too long period before releases are archived, then your reports will not be up to date.
+Note that XL Release reports related to finished releases only use data from the reporting database. So if you configure a too long period before releases are archived, then your reports will not be up to date. Also large amount of releases that were not archived negatively affects performance.
 
 You can find details about configuration of reporting database [here](/xl-release/how-to/configure-the-reporting-database.html).
