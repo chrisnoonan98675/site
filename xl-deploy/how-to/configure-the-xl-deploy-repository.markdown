@@ -18,7 +18,7 @@ Out of the box, XL Deploy uses the filesystem to store all data in the repositor
 
 By default, the repository is located in `XLDEPLOY_SERVER_HOME/repository`. To change the location, change the value of `jcr.repository.path` in `XLDEPLOY_SERVER_HOME/conf/deployit.conf`. For example:
 
-      jcr.repository.path=file://opt/xldeploy/repository
+    jcr.repository.path=file://opt/xldeploy/repository
 
 ## Using a database
 
