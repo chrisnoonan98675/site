@@ -16,9 +16,11 @@ tags:
 The XL TestView server requires:
 
 * Microsoft Windows or Unix-family operating system
-* Java Runtime Environment (JRE) 1.7 (Oracle or IBM)
+* Java Development Kit (JDK). Version 1.7 and 1.8 are supported for Oracle and IBM. Version 1.7 is supported for OpenJDK.
 * At least 1 GB of RAM available for XL TestView
 * At least 1 GB of hard disk space available for XL TestView and the database (the exact amount of space required depends on your usage of XL TestView)
+* A Java Development Kit is required for generating the demo data. If you do not need demo data, the Java Runtime Environment is sufficient.
+* Generation of jMeter demodata is not supported on version 1.8
 
 ### Client requirements
 
