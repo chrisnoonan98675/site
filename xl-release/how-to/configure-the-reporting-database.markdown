@@ -12,7 +12,7 @@ since:
 - 4.7.0
 ---
 
-Create or update the file `conf/xl-release.conf` and add the following section:
+To configure the XL Release reporting database, add the following section to the `conf/xl-release.conf` file:
 
     xl {
       reporting {
@@ -25,7 +25,9 @@ Create or update the file `conf/xl-release.conf` and add the following section:
 
 Where:
 
-* **db-driver-classname** is the Java classname of the JDBC Driver to be used
-* **db-url** is the database's connection URL
-* **db-username** is the database's username
-* **db-password** is the database's password
+* `db-driver-classname` is the Java classname of the JDBC Driver to be used
+* `db-url` is the database connection URL
+* `db-username` is the database username
+* `db-password` is the database password
+
+Save the file and restart XL Release.
