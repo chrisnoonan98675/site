@@ -6,13 +6,16 @@ subject:
 - Satellite
 tags:
 - satellite
+- remoting
 - system administration
 - configuration
 since:
-- 5.0.1
+- 5.0.0
 ---
 
-By default, communication with satellites is disabled in XL Deploy. To enable it, locate the `satellite` section in the `conf/system.conf` file and change `enabled` to  `yes` as follows:
+## Enable communicate with satellites
+
+In XL Deploy 5.0.1 and later, communication with satellites is disabled by default. To enable it, locate the `satellite` section in the `conf/system.conf` file and change `enabled` to  `yes` as follows:
 
 	satellite {
         enabled = yes
@@ -36,3 +39,27 @@ By default, `conf/system.conf` has the following settings:
     If you do not provide a value, XL Deploy will resolve it from a network interface that is available, or to a loopback address if no interfaces are available.
 
 * `port` is the port that XL Deploy binds to. It must also be accessible from the satellites.
+
+## Configure the ping timeout
+
+To configure the ping timeout while reaching a satellite, change the `satellite.timeout.ping` property in `conf/system.conf`:
+
+    satellite {
+      timeout {
+        ping = "<timeout>"
+      }
+    }
+
+You can specify the ping timeout in milliseconds, seconds, or minutes. For example, `100 ms` or `10 seconds`.
+
+## Configure the upload idle timeout
+
+The upload idle timeout occurs when a satellite has accepted an incoming streaming connection but does not seed to accept the uploaded file. This prevents unused TCP connections from remaining open. To configure the upload idle timeout, change the `satellite.timeout.upload.idle` property in the file `conf/system.conf`:
+
+    satellite {
+      timeout {
+        upload.idle = "<timeout>"
+      }
+    }
+
+You can specify the ping timeout in milliseconds, seconds, or minutes. For example, `100 ms` or `10 seconds`.

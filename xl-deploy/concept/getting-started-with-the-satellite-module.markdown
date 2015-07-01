@@ -36,6 +36,7 @@ Satellites are stand-alone processes that are located in your infrastructure, cl
 
 To get started deploying applications using a satellite:
 
+1. [Configure XL Deploy](/xl-deploy/how-to/configure-xl-deploy-to-communicate-with-satellites.html) to communicate with satellites
 1. [Install and configure](/xl-deploy/how-to/install-and-configure-a-satellite-server.html) the software on the satellite server
 1. [Open the necessary ports](/xl-deploy/how-to/install-and-configure-a-satellite-server.html) on the satellite server
 1. [Create a configuration item (CI)](/xl-deploy/how-to/add-a-satellite-server-to-xl-deploy.html) for the satellite in XL Deploy
