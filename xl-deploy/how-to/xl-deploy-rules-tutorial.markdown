@@ -329,6 +329,8 @@ The script `start-stop-server.py` contains:
             freemarker_context={'container': container},
             target_host=container.host))
 
+Note that `freemarker_context={'container': container}` is required to make the container object available in the FreeMarker context.
+
 The [rules demo plugin](https://github.com/xebialabs/xl-deploy-samples/tree/master/rules-demo-plugin) also contains a dummy script called `start.sh.ftl` that contains:
 
     echo "Starting server on Unix"
