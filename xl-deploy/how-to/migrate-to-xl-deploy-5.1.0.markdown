@@ -36,8 +36,14 @@ Spring Security was upgraded from version 3.2.5 to 4.0.1. Some deprecated API wa
 
 ## Deprecation of composite packages
 
-Using dependencies and multi-application deployments you can now do what you previously needed udm.CompositePackage s for. 
+Composite packages (`udm.CompositePackage`) are deprecated as of XL Deploy 5.1.0. [Application dependencies]() should be used instead.
 
- Example:
-   you have a composite package "C (1.0)" which consist of "A (1.0)" and "B (1.0)". So you need to create an empty package "D (1.0)" 
-and assign application dependencies: A to [1.0,1.0] and B to [1.0, 1.0]. Afterwards delete "C (1.0)" and rename "D (1.0)" to "C (1.0)".  
+For example, an easy way to migrate a composite package to use application dependencies is:
+
+1. Assume you have a composite package called C 1.0, which contains packages A 1.0 and B 1.0.
+2. Create an empty deployment package called D 1.0.
+3. Assign the following dependencies to D 1.0:
+    * A [1.0,1.0]
+    * A [1.0,1.0]
+4. Delete C 1.0.
+5. Rename D 1.0 to C 1.0.
