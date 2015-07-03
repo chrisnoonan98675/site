@@ -6,113 +6,52 @@ subject:
 - Deployment
 tags:
 - deployment
-- dependencies
+- dependency
 - microservices
+since:
+- 5.1.0
 ---
 
-XL Deploy allows users to deploy application along with its dependencies together. XL Deploy figures out correct deployment order of application dependencies and makes sure your dependencies are not broken. In situations, it can't figure out  correct deployment order manual intervention will be required and IT administrator has to deploy applications manually.
+## Application dependencies in XL Deploy
 
-## How to define application dependencies?
+    ---
+    title: Application dependencies in XL Deploy
+    categories:
+    - xl-deploy
+    subject:
+    - Dependencies
+    tags:
+    - package
+    - deployment
+    - dependency
+    - microservices
+    since:
+    - 5.1.0
+    ---
 
-To use application dependencies, you have to use [Semver Versioning 2.0](http://semver.org/) for package names as shown below. In Semver versioning scheme, a version number is expressed as **MAJOR.MINOR.PATH**. For example, a deployment package with name 1.2.3, where 1 is the **MAJOR** version, 2 is the **MINOR** version, and 3 is the **PATCH** version.
+XL Deploy allows you to define dependencies among different versions of different applications. When you set up the deployment of an application, XL Deploy automatically includes the correct versions of other applications that it depends on and ensures that they are deployed in the correct order.
 
-![Deployment Package Semver Version](images/application_dependencies/deployment_package_semver_versioning.png)
+You define dependencies at the *deployment package* level.
 
-**Application dependencies functionality only work when your package names uses Semver versioning scheme.**
+### Versioning requirements
 
-Lets suppose we have two applications `app1` and `app2` where `app1` has dependency on `app2`. Application dependencies are specified at deployment package level. To define dependency of `app2` version 1.0 on `app1` version 1.2.3, you have to specify the dependency on deployment package screen as shown below.
+To define application dependencies in XL Deploy, you must use [Semantic Versioning (SemVer) 2.0.0](http://semver.org/) for deployment package names.
 
-![Define application dependency](images/application_dependencies/application_dependency.png)
+In the SemVer versioning scheme, a version number is expressed as `major.minor.patch`. For example, a deployment package can have the name 1.2.3, where 1 is the major version, 2 is the minor version, and 3 is the patch version.
 
-Application dependencies also support version ranges using the formats shown below:
+### Version ranges
 
-1. [version1, version2) : This version string means application is dependent on any version starting from version1 to version2 excluded. For example, if app1 version 1.0 is dependent on app2 version [1.0,2.0) then app1 works with any version starting from 1.0 like 1.0, 1.1,1.9 but not 2.0.
+XL Deploy allows you to define ranges for version dependencies. The range formats are:
 
-2. [version1, version2] : This version string means application is dependent on any version starting from version1 to version2 included. For example, if app1 version 1.0 is dependent on app2 version [1.0,2.0] then app1 works with any version starting from 1.0 like 1.0, 1.1,1.9 including 2.0 but not versions above 2.0 like 2.1.
+{:.table .table-striped}
+| Format | Description | Example |
+| ------ | ----------- | ------- |
+| `[version1,version2]` | The application depends on any version between `version1` and `version2`, including both versions | AppA depends on AppB `[1.0,2.0]`, so AppA works with AppB `1.0`, `1.5.5`, `1.9`, and `2.0` |
+| `(version1,version2)` | The application depends on any version between `version1` and `version2`, excluding both versions | AppA depends on AppB `(1.0,2.0)`, so AppA works with AppB `1.5.5` and `1.9`, but does not work with AppB `1.0` or `2.0` |
+| `[version1,version2)` | The application depends on any version between `version1` and `version2`, including `version1` and excluding `version2` | AppA depends on AppB `[1.0,2.0)`, so AppA works with AppB `1.0`, `1.5.5`, and `1.9`, but does not work with AppB `2.0` |
+| `(version1,version2]` | The application depends on any version between `version1` and `version2`, excluding `version1` and including `version2` | AppA depends on AppB `(1.0,2.0]`, so AppA works with App B `1.5.5`, `1.9`, and `2.0`, but does not work with AppB `1.0` |
 
-3. (version1, version2) : This version string means application is dependent on any version between version1 to version2. For example, if app1 version 1.0 is dependent on app2 version (1.0,2.0) then app1 works with any version between 1.0 and 2.0 like 1.1, 1.2.1, 1.9.9, etc.
-
-4. (version1, version2] : This version string means application is dependent on any version between version1 to version2 included. For example, if app1 version 1.0 is dependent on app2 version (1.0,2.0] then app1 works with any version between 1.0(excluded) to 2.0(included) like 1.1,1.9, .. 2.0.
-
-## How to deploy/upgrade/undeploy an application with its dependencies?
-
-Lets suppose we have five applications app1, app2, app3, app4, and app5. The app1 has dependencies on app2 and app3 as shown below.
-
-![App1 Application Dependencies](images/application_dependencies/application_dependencies_app1.png)
-
-The app2 has two deployment packages with names 1.0, 1.5. The 1.0 version of app2 has no dependency whereas version 1.5 of app2 has dependency on app 4 [1.0,2.0]. This is shown below.
-
-![App2 Application Dependencies](images/application_dependencies/application_dependencies_app2.png)
-
-The app3 has three deployment packages with names 1.1, 2.1, 3.5. The version 1.1 has no dependencies whereas version 2.1 and 3.5 have dependency on app4 version [1.5,2.0]
-
-![App3 Application Dependencies](images/application_dependencies/application_dependencies_app3.png)
-
-The app4 has two deployment packages with name 2.0 and 2.5. Both deployment packages have dependency on app5 version 2.0 as shown below.
-
-![App4 Application Dependencies](images/application_dependencies/application_dependencies_app4.png)
-
-The app5 has two deployment packages 1.0 and 2.0 with no dependencies.
-
-![App5 Application Dependencies](images/application_dependencies/application_dependencies_app5.png)
-
-Now that we have setup application dependencies, we can deploy multiple applications together i.e. if we deploy app1 then all its dependencies along with dependencies of dependencies will also get deployed. Go to the **Deployment** screen and you will see all the applications listed on the left and environment listed on the right.
-
-![Application Deployment Screen](images/application_dependencies/application_depedencies_deployment_screen.png)
-
-Now drag the app1 from left to the deployment workspace and drag `dev` environment from right to the deployment workspace and all the deployables from all the application dependencies will be be resolved as shown below.
-
-![Deployment workspace with Dependencies](images/application_dependencies/deployment_workspace_with_dependencies.png)
-
-Click on the Preview button at the bottom to view the deployment plan
-
-![Deployment workspace with Dependencies](images/application_dependencies/deployment_workspace_preview.png)
-
-It will show you the preview of the deployment plan. As you can see on the preview screen, the deployment order for the applications is app5, app4, app2, app3, and finally app1.
-
-![Preview Screen](images/application_dependencies/preview_screen.png)
-
-Now that you have previewed the plan generated by XL Deploy, you can execute the deployment by pressing the **Execute** button. Once deployed, you will see all tasks ticked green as shown below.
-
-![Execution Screen](images/application_dependencies/execute_deployment_task.png)
-
-> If application dependencies form a cycle then XL Deploy will show an error message. For example, if `app1` 1.0 deployment package depends on `app2` deployment package version 1.0 and vice versa then XL Deploy will show an error message disallowing deployment.
-
-## How XL Deploy decide which deployment package version to deploy?
-
-You would have noticed that XL Deploy picked specific deployment package versions for deployment. Lets discuss why XL Deploy did what it did one by one:
-
-1. app1 version 1.0: As we dragged version 1.0 of the app1 and there are no multiple versions of app1 so version 1.0 of app1 is selected.
-
-2. app2 version 1.5: app1 version 1.0 has a dependency on app 2 [1.0,2.0]. XL Deploy will pick the maximum version of app2 within the [1.0,2.0]. app2 has two deployment packages 1.0 and 2.0. XL Deploy selects version 1.5 as it is the maximum version within the [1.0,2.0] range.
-
-3. app3 version 2.1: app1 version 1.0 has a dependency on app 3 [1.0,3.0]. XL Deploy will pick the maximum version of app3 within the [1.0,3.0]. app3 has three deployment packages with names 1.1, 2.1, and 3.5. XL Deploy selects version 2.1 as it is the maximum version within the [1.0,3.0] range.
-
-4. app4 version 2: XL Deploy selects version 2.0 of app4 as it is the maximum version that satisfies dependency of app2 and app3.
-
-5. app5 version 2: app4 has a hard dependency on app5 version 2. As mentioned above, app5 has two versions 1.0 and 2.0. Because app5 has version 2 so XL Deploy picked deployment package with version 2 for deployment.
-
-## Undeploying dependent applications
-
-XL Deploy currently does not support automated undeployment of dependencies. Users of XL Deploy have to undeploy applications manually one by one. If you try to undeploy an application which is a dependency of one or more applications then XL Deploy will not allow you to undeploy the application and will greet you with an error message.
-
-
-## Managing application dependencies updates##
-
-As mentioned above, `app2` has two versions 1.0 and 1.5 and XL Deploy selected 1.5 version for deployment as that is the maximum version with in the `app1` dependency range [1.0,2.). Now lets suppose a new version 1.9 of `app2` is available and you want to update `app2` to latest version i.e. 1.9. To do that using XL Deploy UI, right click on the deployed `app2/1.9` deployment package in the deployment workspace **Environments** section and click update as shown below.
-
-<img src="images/application_dependencies/update_application.png" height="300" width="300">
-
-Then drag the version 1.9 of the application from the left on the deployment workspace and press automapping button as shown below.
-
-<img
-src="images/application_dependencies/automapping_update_app.png" height="300" width="600">
-
-Now to update `app2` to 1.9 version, press the **Execute** button.
-
-> If you try to update an application to a version that does not satisfy the dependency of another application that depends on the first application then XL Deploy will not allow you to update the application. For example, in above scenario if we try to update `app2` to version 2.1 then update will not work as that would break dependency of `app1`.
-
-## How staging works with application with dependencies?
+### Staging applications with dependencies [WIP]
 
 Staging functionality can be used with dependencies as well. In case of application with dependencies, the system will first analyze all the artifacts that must be staged and upload them to staging directory before first deployment started. This will reduce the delays between dependencies deployment and overall downtime of the deployed applications.
 
@@ -126,7 +65,7 @@ After that, on the next deployment, you will see an additional staging and clean
 <img
 src="images/application_dependencies/application_dependencies_staging2.png">
 
-## How Satellite's works with application with dependencies?
+### Deploying applications with dependencies using satellites [WIP]
 
 Applications with dependencies can be deployed with the help of satellite.
 The process is the same as deploying single application.
@@ -144,7 +83,15 @@ The first phase is actually preparing deployment task on satellite, checking plu
 
 For each particular application deployment XL-Deploy will test satellite connectivity and finally clean up satellite at the end.
 
-## How rollback works with application with dependencies?
+## Deploy an application with dependencies [WIP]
+
+    ADD THIS TO https://docs.xebialabs.com/xl-deploy/how-to/deploy-an-application.html
+
+For more information, refer to [How XL Deploy checks application dependencies]().
+
+## Roll back a deployment of an application with dependencies [WIP]
+
+    UPDATE SECTION https://docs.xebialabs.com/xl-deploy/how-to/deploy-an-application.html#roll-back-a-deployment
 
 It is possible to rollback application with dependencies deployment operations.
 
@@ -171,22 +118,127 @@ After clicking **"Rollback"** button, you will see the plan that consists of onl
 
 <img src="images/application_dependencies/application_dependencies_rollback_4.png">
 
+## Undeploy an application with dependencies
+
+    ADD THIS TO https://docs.xebialabs.com/xl-deploy/how-to/undeploy-an-application.html
+
+When you undeploy an application that has dependencies, XL Deploy does not automatically undeploy the dependent applications. You must manually undeploy applications, one at a time.
+
+If you try to undeploy an application that other applications depend on, XL Deploy will return an error and you will not be able to undeploy the application.
+
+## Update an application with dependencies [WIP]
+
+    ADD THIS TO https://docs.xebialabs.com/xl-deploy/how-to/update-a-deployed-application.html
+
+As mentioned above, `app2` has two versions 1.0 and 1.5 and XL Deploy selected 1.5 version for deployment as that is the maximum version with in the `app1` dependency range [1.0,2.). Now lets suppose a new version 1.9 of `app2` is available and you want to update `app2` to latest version i.e. 1.9. To do that using XL Deploy UI, right click on the deployed `app2/1.9` deployment package in the deployment workspace **Environments** section and click update as shown below.
+
+<img src="images/application_dependencies/update_application.png" height="300" width="300">
+
+Then drag the version 1.9 of the application from the left on the deployment workspace and press automapping button as shown below.
+
+<img
+src="images/application_dependencies/automapping_update_app.png" height="300" width="600">
+
+Now to update `app2` to 1.9 version, press the **Execute** button.
+
+> If you try to update an application to a version that does not satisfy the dependency of another application that depends on the first application then XL Deploy will not allow you to update the application. For example, in above scenario if we try to update `app2` to version 2.1 then update will not work as that would break dependency of `app1`.
+
+## How XL Deploy checks application dependencies
+
+    ---
+    title: How XL Deploy checks application dependencies
+    categories:
+    - xl-deploy
+    subject:
+    - Dependencies
+    tags:
+    - package
+    - deployment
+    - dependency
+    - microservices
+    since:
+    - 5.1.0
+    ---
+
+<!-- note: this content is copied from https://docs.xebialabs.com/xl-deploy/how-to/define-dependencies-between-versions.html#checking-dependencies 
+question: should we use the term 'deployed' instead of 'installed' here? -->
+
+When you deploy, update, or undeploy an application, XL Deploy performs a dependency check. This may detect the following issues:
+
+{:.table .table-striped}
+| Issue | Example |
+| ----- | ------- |
+| While installing or updating an application, another application that it depends on is not installed at all. | |
+| While installing or updating an application, a version of the application(s) it depends on is installed, but it is too old or too new. | The application requires application `A` version `[1.0, 2.0)`, but version `2.1` is installed. |
+| While installing or updating an application, XL Deploy looks for an application in a certain range, but the version that is actually installed is not in X.X.X format. | Application `Android` version `[2.0, 5.0]` is required, but the installed version is `KitKat`. |
+| While updating an application, an installed application depends on that application, but the version that you want to update to is out of the dependency range of that application. | You want to update application `A` to version `2.1`, but a version of `C` is installed that depends on application `A` range `[1.0, 2.0)`. |
+| While updating an application, an installed application depends on that application, but the version that you want to update to is not in X.X.X format. | You want to update application `Android` to version `KitKat`, but the installed version application `C` requires `Android` to be in range `[2.0, 5.0]`. |
+| While undeploying, an installed application depends on the application that you want to undeploy. | |
+
+## Advanced application dependencies example
+
+    ---
+    title: Advanced application dependencies example
+    categories:
+    - xl-deploy
+    subject:
+    - Dependencies
+    tags:
+    - package
+    - deployment
+    - dependency
+    - microservices
+    since:
+    - 5.1.0
+    ---
+
+This is an example of an advanced scenario with multiple applications that depend on one another.
+
+Assume that you have five applications called CustomerProfile, Inventory, PaymentOptions, ShoppingCart, and WebsiteFront-End. Their versions and dependencies are as follows:
+
+{:.table .table-striped}
+| Application name | Version | Depends on... |
+| ---------------- | ------- | ------------- |
+| CustomerProfile | `1.0` | Inventory `[1.0,2.0)` |
+| | | PaymentOptions `[1.0,3.0]` |
+| Inventory | `1.0` | No dependencies |
+| | `1.5` | ShoppingCart `[1.0,2.0]` |
+| PaymentOptions | `1.1` | No dependencies |
+| | `2.1` | ShoppingCart `[1.5,2.0]` |
+| | `3.5` | ShoppingCart `[1.5,2.0]` |
+| ShoppingCart | `2.0` | WebsiteFront-End `2.0` |
+| | `2.5` | WebsiteFront-End `2.0` |
+| WebsiteFront-End | `1.0` | No dependencies |
+| | `2.0` | No dependencies |
+
+You can set up a deployment of the latest version of CustomerProfile by dragging it to the Deployment Workspace. XL Deploy automatically adds the deployables from the dependent deployment packages.
+
+    ADD SCREENSHOT OF MAPPING HERE
+
+**Tip:** Hover the mouse pointer over a deployable to see the deployment package it belongs to.
+
+### Selecting dependent application versions
+
+This is how XL Deploy selected the right application versions:
+
+1. CustomerProfile 1.0: This is the latest version of CustomerProfile, so XL Deploy selected it when you dragged the application to the Deployment Workspace.
+
+2. Inventory 1.5: CustomerProfile 1.0 depends on Inventory [1.0,2.0), so XL Deploy selects the highest version between 1.0 and 2.0, which is Inventory 1.5.
+
+3. PaymentOptions 2.1: CustomerProfile 1.0 depends on PaymentOptions [1.0,3.0], so XL Deploy selects the highest version between 1.0 and 3.0, which is PaymentOptions 2.1.
+
+4. ShoppingCart 2.0: Inventory 1.5 and PaymentOptions 2.1 both depend on ShoppingCart. XL Deploy selects the highest version that satisfies both of their requirements, which is ShoppingCart 2.0.
+
+5. WebsiteFront-End 2.0: ShoppingCart 2.0 requires WebsiteFront-End 2.0, so XL Deploy selects that version.
+
 ## Remaining items
 
-    * gui
-        * using cli
-        * Upgrade - no difference
-
-    * Undeployment -
-
-    * Permissions
-
-
+* How does XL Deploy calculate dependencies during mapping (algorithm)
+* Deployment via the CLI
+* Permissions
 * How does XL Deploy deploy dependent applications?
     * Order of applications in the plan
         * how does this work with orchestration
     * Validation if the desired deployment is allowed
         * will it break other dependencies
-
-* How to go from Composite packages to Application Dependencies
 * Todo: Fix the current API documentation because the api changed - migration manual?
