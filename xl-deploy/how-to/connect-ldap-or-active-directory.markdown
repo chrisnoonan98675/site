@@ -46,7 +46,7 @@ Use an LDAP browser such as [JXplorer](http://jxplorer.org/) to verify that the 
 Add the following code to `deployit-security.xml` if you are using XL Deploy or to `xl-release-security.xml` if you are using XL Release. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
 
 	<?xml version="1.0" encoding="UTF-8"?>
-	<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd ">
+	<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd ">
 	 <bean id="ldapServer" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
 	   <constructor-arg value="LDAP_SERVER_URL" />
 	     <property name="userDn" value="MANAGER_DN" />
@@ -68,7 +68,39 @@ Add the following code to `deployit-security.xml` if you are using XL Deploy or 
 	   <security:authentication-provider ref="rememberMeAuthenticationProvider" /> 
 	   <security:authentication-provider ref="jcrAuthenticationProvider"/> 
 	 </security:authentication-manager>
+
+     <bean id="unanimousBased" class="org.springframework.security.access.vote.UnanimousBased">
+       <constructor-arg>
+         <list>
+           <bean class="org.springframework.security.access.vote.AuthenticatedVoter"/>
+           <bean class="com.xebialabs.deployit.security.LoginPermissionVoter"/>
+         </list>
+       </constructor-arg>
+     </bean>
+
+     <bean id="basicAuthenticationFilter" class="com.xebialabs.deployit.security.authentication.BasicAuthWithRememberMeFilter">
+       <constructor-arg ref="authenticationManager"/>
+       <constructor-arg ref="basicAuthenticationEntryPoint"/>
+     </bean>
+
+     <bean id="basicAuthenticationEntryPoint"
+       class="com.xebialabs.deployit.security.authentication.BasicAuthenticationEntryPoint"
+       p:realmName="Deployit"/>
+
+     <security:http security="none" pattern="/deployit/internal/download/**" create-session="never"/>
+     <security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/>
+
+     <security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never">
+       <security:csrf disabled="true"/>
+       <!-- The download url has no security access set -->
+       <security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/>
+       <security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/>
+       <security:custom-filter position="BASIC_AUTH_FILTER" ref="basicAuthenticationFilter"/>
+       <security:session-management session-fixation-protection="none"/>
+     </security:http>
+
 	</beans>
+
 
 Restart XL Deploy or XL Release. Ensure that the server starts without any exceptions.
 
@@ -97,7 +129,7 @@ Using an LDAP browser, search for a user who has permission to log in to XL Depl
 Update `deployit-security.xml` or `xl-release-xecurity.xml` as follows. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
 
 	<?xml version="1.0" encoding="UTF-8"?>
-	<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd ">
+	<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd ">
 	 <bean id="ldapServer" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
 	   <constructor-arg value="LDAP_SERVER_URL" />
 	     <property name="userDn" value="MANAGER_DN" />
@@ -134,7 +166,37 @@ Update `deployit-security.xml` or `xl-release-xecurity.xml` as follows. Replace 
 	   <security:authentication-provider ref="ldapProvider" />
 	   <security:authentication-provider ref="jcrAuthenticationProvider"/> 
 	 </security:authentication-manager>
-	
+
+     <bean id="unanimousBased" class="org.springframework.security.access.vote.UnanimousBased">
+       <constructor-arg>
+         <list>
+           <bean class="org.springframework.security.access.vote.AuthenticatedVoter"/>
+           <bean class="com.xebialabs.deployit.security.LoginPermissionVoter"/>
+         </list>
+       </constructor-arg>
+     </bean>
+
+     <bean id="basicAuthenticationFilter" class="com.xebialabs.deployit.security.authentication.BasicAuthWithRememberMeFilter">
+       <constructor-arg ref="authenticationManager"/>
+       <constructor-arg ref="basicAuthenticationEntryPoint"/>
+     </bean>
+
+     <bean id="basicAuthenticationEntryPoint"
+       class="com.xebialabs.deployit.security.authentication.BasicAuthenticationEntryPoint"
+       p:realmName="Deployit"/>
+
+     <security:http security="none" pattern="/deployit/internal/download/**" create-session="never"/>
+     <security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/>
+
+     <security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never">
+       <security:csrf disabled="true"/>
+       <!-- The download url has no security access set -->
+       <security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/>
+       <security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/>
+       <security:custom-filter position="BASIC_AUTH_FILTER" ref="basicAuthenticationFilter"/>
+       <security:session-management session-fixation-protection="none"/>
+     </security:http>
+
 	</beans>
 
 Restart XL Deploy or XL Release. Ensure that the server starts without any exceptions.
@@ -172,7 +234,7 @@ Using an LDAP browser, search for a group that should be a principal in to XL De
 Update `deployit-security.xml` or `xl-release-xecurity.xml` as follows. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
 
 	<?xml version="1.0" encoding="UTF-8"?>
-	<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd ">
+	<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd ">
 	 <bean id="ldapServer" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
 	   <constructor-arg value="LDAP_SERVER_URL" />
 	     <property name="userDn" value="MANAGER_DN" />
@@ -219,7 +281,37 @@ Update `deployit-security.xml` or `xl-release-xecurity.xml` as follows. Replace 
 	   <security:authentication-provider ref="ldapProvider" />
 	   <security:authentication-provider ref="jcrAuthenticationProvider"/> 
 	 </security:authentication-manager>
-	
+
+     <bean id="unanimousBased" class="org.springframework.security.access.vote.UnanimousBased">
+       <constructor-arg>
+         <list>
+           <bean class="org.springframework.security.access.vote.AuthenticatedVoter"/>
+           <bean class="com.xebialabs.deployit.security.LoginPermissionVoter"/>
+         </list>
+       </constructor-arg>
+     </bean>
+
+     <bean id="basicAuthenticationFilter" class="com.xebialabs.deployit.security.authentication.BasicAuthWithRememberMeFilter">
+       <constructor-arg ref="authenticationManager"/>
+       <constructor-arg ref="basicAuthenticationEntryPoint"/>
+     </bean>
+
+     <bean id="basicAuthenticationEntryPoint"
+       class="com.xebialabs.deployit.security.authentication.BasicAuthenticationEntryPoint"
+       p:realmName="Deployit"/>
+
+     <security:http security="none" pattern="/deployit/internal/download/**" create-session="never"/>
+     <security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/>
+
+     <security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never">
+       <security:csrf disabled="true"/>
+       <!-- The download url has no security access set -->
+       <security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/>
+       <security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/>
+       <security:custom-filter position="BASIC_AUTH_FILTER" ref="basicAuthenticationFilter"/>
+       <security:session-management session-fixation-protection="none"/>
+     </security:http>
+
 	</beans>
 
 Restart XL Deploy or XL Release. Ensure that the server starts without any exceptions.

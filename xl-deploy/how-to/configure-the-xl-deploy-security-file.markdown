@@ -22,7 +22,7 @@ This is an example of a working `deployit-security.xml` file that uses LDAP:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:security="http://www.springframework.org/schema/security"
+        xmlns:security="http://www.springframework.org/schema/security" xmlns:p="http://www.springframework.org/schema/p"
         xsi:schemaLocation="
             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
             http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
@@ -76,6 +76,36 @@ This is an example of a working `deployit-security.xml` file that uses LDAP:
             <security:authentication-provider ref="jcrAuthenticationProvider"/>
         </security:authentication-manager>
 
+        <bean id="unanimousBased" class="org.springframework.security.access.vote.UnanimousBased">
+            <constructor-arg>
+                <list>
+                    <bean class="org.springframework.security.access.vote.AuthenticatedVoter"/>
+                    <bean class="com.xebialabs.deployit.security.LoginPermissionVoter"/>
+                </list>
+            </constructor-arg>
+        </bean>
+
+        <bean id="basicAuthenticationFilter"
+              class="com.xebialabs.deployit.security.authentication.BasicAuthWithRememberMeFilter">
+            <constructor-arg ref="authenticationManager"/>
+            <constructor-arg ref="basicAuthenticationEntryPoint"/>
+        </bean>
+
+        <bean id="basicAuthenticationEntryPoint"
+              class="com.xebialabs.deployit.security.authentication.BasicAuthenticationEntryPoint"
+              p:realmName="Deployit"/>
+
+        <security:http security="none" pattern="/deployit/internal/download/**" create-session="never"/>
+        <security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/>
+
+        <security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never">
+            <security:csrf disabled="true"/>
+            <!-- The download url has no security access set -->
+            <security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/>
+            <security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/>
+            <security:custom-filter position="BASIC_AUTH_FILTER" ref="basicAuthenticationFilter"/>
+            <security:session-management session-fixation-protection="none"/>
+        </security:http>
     </beans>
 
 The XML fragment above contains placeholders for the following values:
