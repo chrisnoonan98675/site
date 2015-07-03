@@ -36,5 +36,8 @@ Spring Security was upgraded from version 3.2.5 to 4.0.1. Some deprecated API wa
 
 ## Deprecation of composite packages
 
-... placeholder as a reminder, we probably need to fill this in later
+Using dependencies and multi-application deployments you can now do what you previously needed udm.CompositePackage s for. 
 
+ Example:
+   you have a composite package "C (1.0)" which consist of "A (1.0)" and "B (1.0)". So you need to create an empty package "D (1.0)" 
+and assign application dependencies: A to [1.0,1.0] and B to [1.0, 1.0]. Afterwards delete "C (1.0)" and rename "D (1.0)" to "C (1.0)".  
