@@ -140,22 +140,12 @@ module Jira
       @password = password
     end
 
-    def get_products_with_upcoming_releases
+    def get_products_with_releases
       products = Products::ALL.map { |productType|
         product = Product.new
         product.name = productType.name
         product.title = productType.title
         product.upcoming_releases = get_upcoming_product_releases(productType)
-        product
-      }
-      return products
-    end
-
-    def get_products_with_recent_releases
-      products = Products::ALL.map { |productType|
-        product = Product.new
-        product.name = productType.name
-        product.title = productType.title
         product.recent_releases_by_month = get_recent_product_releases(productType).group_by { |release | release.release_date.strftime("%B %Y") }
         product
       }
@@ -241,7 +231,7 @@ module Jira
 end
 
 module Jekyll
-  class ReleaseDashboardPage < Page
+  class ProductDashboardPage < Page
     def initialize(site, base, dir, product)
       @site = site
       @base = base
@@ -251,19 +241,6 @@ module Jekyll
       self.read_yaml(File.join(base, '_layouts'), 'release_dashboard.html')
       self.data['product'] = product
       self.data['title'] = "#{product.title} Development dashboard"
-    end
-  end
-
-  class ReleaseHistoryPage < Page
-    def initialize(site, base, dir, product)
-      @site = site
-      @base = base
-      @dir = dir
-      @name = "#{product.name}-history.html"
-      self.process(@name)
-      self.read_yaml(File.join(base, '_layouts'), 'release_history.html')
-      self.data['product'] = product
-      self.data['title'] = "#{product.title} Release History"
     end
   end
 
@@ -284,20 +261,12 @@ module Jekyll
       jira_password = dashboard_config['jira_password']
       server = Jira::Server.new(jira_url, jira_username, jira_password)
 
-      server.get_products_with_upcoming_releases.each { |product|
+      server.get_products_with_releases.each { |product|
         log "Generating development dashboard site for product #{product.title}"
-        dashboard_page = ReleaseDashboardPage.new(site, site.source, dir, product)
+        dashboard_page = ProductDashboardPage.new(site, site.source, dir, product)
         dashboard_page.render(site.layouts, site.site_payload)
         dashboard_page.write(site.dest)
         site.pages << dashboard_page
-      }
-
-      server.get_products_with_recent_releases.each { |product|
-        log "Generating release history site for product #{product.title}"
-        history_page = ReleaseHistoryPage.new(site, site.source, dir, product)
-        history_page.render(site.layouts, site.site_payload)
-        history_page.write(site.dest)
-        site.pages << history_page
       }
 
       log 'Finished development dashboard generation, yay!'

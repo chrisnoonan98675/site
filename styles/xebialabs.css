@@ -422,6 +422,50 @@ form.form-search:before {
   margin-bottom: 10px;
 }
 
+.dashboard .nav-tabs > li, .dashboard .nav-pills > li {
+  float: none;
+  display: inline-block;
+  *display: inline; /* ie7 fix */
+  zoom: 1; /* hasLayout ie7 trigger */
+}
+
+.dashboard .nav-tabs, .dashboard .nav-pills {
+  text-align: center;
+}
+
+.dashboard .nav-tabs > li > a {
+  border-radius: 0;
+  padding: 7px 20px;
+  color: #001D3B;
+}
+
+.dashboard .nav-tabs > li.active > a, .dashboard .nav-tabs > li.active > a:hover, .dashboard .nav-tabs > li.active > a:focus {
+  color: #555;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-top: 3px solid #428bca;
+  border-bottom-color: transparent;
+}
+
+.dashboard .tab-pane {
+  margin-top: 30px;
+}
+
+.dashboard .section.collapsed > h3:before, .dashboard .section.collapsed > span:before {
+  font-family: "online-doc-icons" !important;
+  content: "f";
+  float: left;
+  margin-right: 5px;
+}
+
+.dashboard .section > h3:before, .dashboard .section > span:before {
+  font-family: "online-doc-icons" !important;
+  content: "h";
+  float: left;
+  margin-right: 5px;
+}
+
 .text-product {
   color: #d8543e;
 }

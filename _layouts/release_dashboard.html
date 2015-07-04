@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 <div id="content" class="dashboard">
     <div class="container-fluid">
         <div class="row">
@@ -11,82 +10,49 @@ layout: default
                     Note that, while this information indicates the planned delivery of features and bug fixes, it does not represent a
                     commitment.</p>
             </div>
-            <div class="col-md-offset-2 col-md-7 col-xs-12 text-center">
+            <div class="col-xs-12 text-center">
                 <h2><img src="/images/logos/{{ page.product.name }}-logo.png" class="logo"
-                         alt="{{ page.product.title }}"> Upcoming Releases</h2>
-            </div>
-        </div>
-        <div class="row filters">
-            <div class="col-md-offset-2 col-md-7 col-xs-12 text-center">
-                <span><i class="icon icon-trophy text-product"></i> <a href="#" class="filter-target">Product</a></span>
-                <span><i class="icon icon-plug text-plugin"></i> <a href="#" class="filter-target">Plugins</a></span>
-                <span><i class="glyphicon glyphicon-flag text-major"></i> <a href="#"
-                                                                             class="filter-type">Major</a></span>
-                <span><i class="icon icon-bug text-maintenance"></i> <a href="#"
-                                                                        class="filter-type">Maintenance</a></span>
-                <span><i class="icon icon-sort text-all"></i> <a href="#" class="filter-off">Show all</a></span>
+                         alt="{{ page.product.title }}"> Development Dashboard</h2>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-offset-2 col-md-7">
-                <form class="form-search form-inline">
-                    <input id="issue-filter" type="text" class="form-control search-query input-sm"
-                           placeholder="Search issue..."/>
-                </form>
-                <br>
+            <div class="col-xs-12">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#upcoming" aria-controls="upcoming" role="tab" data-toggle="tab">Upcoming releases</a>
+                        </li>
+                        <li role="presentation"><a href="#history" aria-controls="history" role="tab" data-toggle="tab">Release history</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="upcoming">
+                            {% include dashboard/releases_search.html %}
+                            {% include dashboard/releases_upcoming.html %}
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="history">
+                            {% include dashboard/releases_search.html %}
+                            {% include dashboard/releases_history.html %}
+                        </div>
+                    </div>
 
-                <div id="noresults" class="alert alert-info btn-group-sm text-center" role="alert"
-                     style="display: none; padding: 5px;">No issues found
                 </div>
             </div>
         </div>
-
-        {% for release in page.product.upcoming_releases %}
-        <div class="row release" data-release-type="{{ release.release_type }}"
-             data-release-target="{{ release.release_target }}">
-            <hr>
-            <div class="col-md-2">
-                {% include release_tag_list.html %}
-            </div>
-            <div class="col-md-7">
-                <b>{{ release.title }} Release</b>
-                {% include release_issue_list.html %}
-            </div>
-            <div class="col-md-2">
-                <b>Planned release:</b>
-                <br/>
-
-                <p class="text-all">
-                    {% if release.precise_date %}
-                    {{ release.release_date | date: '%B' }}
-                    {% else %}
-                    {% assign rm = release.release_date | date: "%-m" %}
-                    {% case rm %}
-                    {% when '1' or '2' or '3' %} Q1
-                    {% when '4' or '5' or '6' %} Q2
-                    {% when '7' or '8' or '9' %} Q3
-                    {% when '10' or '11' or '12' %} Q4
-                    {% endcase %}
-                    {% endif %}
-                    {{ release.release_date | date: '%Y' }}
-                </p>
-            </div>
-        </div>
-        {% endfor %}
     </div>
 </div>
 
-<script type="text/javascript">
+<script type="application/javascript">
     function toggleNoResultsMsg() {
         if ($(".release:visible").length == 0) {
-            $("#noresults").show();
+            $(".tab-pane.active .no-results").show();
         }
         else {
-            $("#noresults").hide();
+            $(".tab-pane.active .no-results").hide();
         }
     }
-    function toggleView(parent, keyword) {
-        var visibleChildren = parent.find("li").filter(function () {
+    function toggleView(parent, childSelector, keyword) {
+        if(!parent) return;
+
+        var visibleChildren = parent.find(childSelector).filter(function () {
             return $(this).css('display') != 'none';
         });
 
@@ -95,11 +61,14 @@ layout: default
         }
         else {
             parent.show();
+            if(keyword) {
+                parent.parents(".collapse").collapse("show");
+            }
         }
     }
 
     function filterIssues(keyword) {
-        $(".issue-list").each(function () {
+        $(".tab-pane.active .issue-list").each(function () {
             $(this).find("li").each(function () {
                 if ($(this).text().search(new RegExp(keyword.trim(), "i")) < 0) {
                     $(this).hide();
@@ -109,19 +78,26 @@ layout: default
             });
 
             $(this).children(".issue-sublist").each(function () {
-                toggleView($(this), keyword);
+                toggleView($(this), ".issue", keyword);
             });
 
-            toggleView($(this).parents(".release"), keyword);
+            var $release = $(this).parents(".release");
+            toggleView($release, ".issue-sublist", keyword);
+
+            var $releaseGroup = $release.parents(".release-group");
+            toggleView($releaseGroup, ".release", keyword);
         });
         toggleNoResultsMsg();
     }
 
     $(document).ready(function () {
-        $("a.issue-more").click(function() {
+        $('.collapse').collapse({
+            toggle: false
+        })
+        $("a.issue-more").click(function () {
             var $target = $("#" + $(this).data("toggle"));
             $target.toggle();
-            if($target.is(':visible')) {
+            if ($target.is(':visible')) {
                 $(this).text("less");
             } else {
                 $(this).text("more");
@@ -129,20 +105,21 @@ layout: default
             return false;
         });
 
-        filterIssues($("#issue-filter").val());
-        $("#issue-filter").keyup(function (e) {
+        var $issueFilter = $("input.issue-filter");
+        filterIssues($issueFilter.val());
+        $issueFilter.keyup(function (e) {
             filterIssues($(this).val());
         });
 
-        $('#issue-filter').on('keyup keypress', function(e) {
-            if(e.keyCode == 13) {
+        $issueFilter.on('keyup keypress', function (e) {
+            if (e.keyCode == 13) {
                 e.preventDefault();
                 return false;
             }
         });
 
         $(".filters a").click(function () {
-            $("#issue-filter").val("");
+            $(".tab-pane.active .issue-filter").val("");
             filterIssues("");
 
             var text = $(this).text();
@@ -154,10 +131,11 @@ layout: default
                 attribute = "release-type";
             }
 
-            $(".release").each(function () {
+            $(".tab-pane.active .release").each(function () {
                 if (attribute) {
                     if ($(this).data(attribute) === text) {
                         $(this).show();
+                        $(this).parents(".collapse").collapse("show");
                     }
                     else {
                         $(this).hide();
