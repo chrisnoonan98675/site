@@ -31,6 +31,8 @@ since:
 
 XL Deploy allows you to define dependencies among different versions of different applications. When you set up the deployment of an application, XL Deploy automatically includes the correct versions of other applications that it depends on and ensures that they are deployed in the correct order.
 
+Application dependencies work with other XL Deploy features such as staging, satellites, rollbacks, updates, and undeployment.
+
 You define dependencies at the *deployment package* level.
 
 ### Versioning requirements
@@ -51,97 +53,81 @@ XL Deploy allows you to define ranges for version dependencies. The range format
 | `[version1,version2)` | The application depends on any version between `version1` and `version2`, including `version1` and excluding `version2` | AppA depends on AppB `[1.0,2.0)`, so AppA works with AppB `1.0`, `1.5.5`, and `1.9`, but does not work with AppB `2.0` |
 | `(version1,version2]` | The application depends on any version between `version1` and `version2`, excluding `version1` and including `version2` | AppA depends on AppB `(1.0,2.0]`, so AppA works with App B `1.5.5`, `1.9`, and `2.0`, but does not work with AppB `1.0` |
 
-### Staging applications with dependencies [WIP]
+## Staging applications with dependencies
 
-Staging functionality can be used with dependencies as well. In case of application with dependencies, the system will first analyze all the artifacts that must be staged and upload them to staging directory before first deployment started. This will reduce the delays between dependencies deployment and overall downtime of the deployed applications.
+    USE THIS TO OVERWRITE https://docs.xebialabs.com/xl-deploy/concept/staging-artifacts-in-xl-deploy.html
 
-To enable staging, you need to specify **"Staging Directory Path"** on **"Advanced"** tab of the host:
+To ensure that the downtime of your application is limited, XL Deploy can stage artifacts to target hosts before deploying the application.
 
-<img
-src="images/application_dependencies/application_dependencies_staging1.png">
+When staging is enabled, XL Deploy will copy all artifacts to the host before starting the deployment. If the application [depends on other applications](), XL Deploy will also copy the artifacts from the dependent applications. After the deployment completes successfully, XL Deploy will clean up the staging directory.
 
-After that, on the next deployment, you will see an additional staging and cleanup steps at the beginning and the end of the plan:
+To enable staging on a host, enter a directory path in the host's **Advanced** > **Staging Directory Path** property.
 
-<img
-src="images/application_dependencies/application_dependencies_staging2.png">
+**Note:** The plugin being used must support staging.
 
-### Deploying applications with dependencies using satellites [WIP]
+## Deploying applications with dependencies using satellites
 
-Applications with dependencies can be deployed with the help of satellite.
-The process is the same as deploying single application.
-Just enable satellite support on your host:
+    USE THIS TO UPDATE https://docs.xebialabs.com/xl-deploy/concept/getting-started-with-the-satellite-module.html#using-xl-deploy-satellites
 
-<img
-src="images/application_dependencies/application_dependencies_satellite1.png">
+XL Deploy satellites can be used to:
 
-As a result, during deployment you will see an additional phases in your deployment plan:
+* Deploy one or more applications in a cluster that is located around the world
 
-<img
-src="images/application_dependencies/application_dependencies_satellite2.png">
+## Deploy an application with dependencies
 
-The first phase is actually preparing deployment task on satellite, checking plugins and doing other heavy lifting that may take significant time to complete.
+    USE THIS TO UPDATE https://docs.xebialabs.com/xl-deploy/how-to/deploy-an-application.html
 
-For each particular application deployment XL-Deploy will test satellite connectivity and finally clean up satellite at the end.
+To deploy an application to an environment:
 
-## Deploy an application with dependencies [WIP]
+1. Click **Deployment** in the top bar.
+1. Locate the application under **Packages** and expand it to see the versions (deployment packages).
+1. Locate the environment under **Environments**.
+1. Drag the version of the application that you want to deploy and drop it on the environment where you want to deploy it. The application and environment appear in the Workspace.
 
-    ADD THIS TO https://docs.xebialabs.com/xl-deploy/how-to/deploy-an-application.html
+    If the application has [dependencies](), XL Deploy analyzes them and includes the deployables from the appropriate versions of the dependent applications. For more information, refer to [How XL Deploy checks application dependencies]().
 
-For more information, refer to [How XL Deploy checks application dependencies]().
+    XL Deploy then automatically maps the deployables in the application to the appropriate containers in the environment.
+    
+1. Click **Execute** to immediately start the deployment.
 
-## Roll back a deployment of an application with dependencies [WIP]
+## Roll back a deployment of an application with dependencies
 
-    UPDATE SECTION https://docs.xebialabs.com/xl-deploy/how-to/deploy-an-application.html#roll-back-a-deployment
+    USE THIS TO UPDATE https://docs.xebialabs.com/xl-deploy/how-to/deploy-an-application.html#roll-back-a-deployment
 
-It is possible to rollback application with dependencies deployment operations.
-
-Let's look at the simple example. Suppose that we have 3 applications:
-
-`app1` of version 1.0, `app2` of version 2.0 and `app3` or version 1.0
-
-The dependency chain can be represented like this:
-`app1 (1.0) -> app2 (2.0) -> app3 (1.0)`
-
-Now, let's execute the deployment of `app1 (1.0)` and it's dependencies and then click **"Rollback"** button:
-
-<img src="images/application_dependencies/application_dependencies_rollback_1.png">
-
-As a result, you will see a rollback plan for application and it's dependencies. Please notice, that deployment order is reverted. This done explicitly not to break the dependencies during un-deployment:
-
-<img src="images/application_dependencies/application_dependencies_rollback_2.png">
-
-It's also possible to rollback partial deployments. Let's assume, that during deployment of application `app1` and it's dependencies, we put **"pause"** step somewhere in the middle of dependent `app2` and decided to roll-back:
-
-<img src="images/application_dependencies/application_dependencies_rollback_3.png">
-
-After clicking **"Rollback"** button, you will see the plan that consists of only an artifacts and applications that **where already deployed**. Please notice, that part of `app2` artifacts and the whole `app1` is not inclided in the plan:
-
-<img src="images/application_dependencies/application_dependencies_rollback_4.png">
+To roll back a deployment that is in a `STOPPED` or `EXECUTED` state, click **Rollback** on the deployment plan. Executing the rollback plan will revert the deployment to the previous version of the deployed application (or applications, if the deployment involved multiple applications because of [dependencies]()). It will also revert the deployeds created on execution.
 
 ## Undeploy an application with dependencies
 
-    ADD THIS TO https://docs.xebialabs.com/xl-deploy/how-to/undeploy-an-application.html
+    USE THIS TO UPDATE https://docs.xebialabs.com/xl-deploy/how-to/undeploy-an-application.html
 
 When you undeploy an application that has dependencies, XL Deploy does not automatically undeploy the dependent applications. You must manually undeploy applications, one at a time.
 
 If you try to undeploy an application that other applications depend on, XL Deploy will return an error and you will not be able to undeploy the application.
 
-## Update an application with dependencies [WIP]
+## Update an application with dependencies
 
-    ADD THIS TO https://docs.xebialabs.com/xl-deploy/how-to/update-a-deployed-application.html
+    USE THIS TO UPDATE https://docs.xebialabs.com/xl-deploy/how-to/update-a-deployed-application.html
 
-As mentioned above, `app2` has two versions 1.0 and 1.5 and XL Deploy selected 1.5 version for deployment as that is the maximum version with in the `app1` dependency range [1.0,2.). Now lets suppose a new version 1.9 of `app2` is available and you want to update `app2` to latest version i.e. 1.9. To do that using XL Deploy UI, right click on the deployed `app2/1.9` deployment package in the deployment workspace **Environments** section and click update as shown below.
+To update a deployed application:
 
-<img src="images/application_dependencies/update_application.png" height="300" width="300">
+1. Click **Deployment** in the top bar.
+1. Locate the application under **Packages** and expand it to see the versions (deployment packages).
+1. Locate the environment under **Environments**.
+1. Drag the version of the application that you want to deploy and drop it on the environment where you want to deploy it. The application and environment appear in the **Workspace**.
 
-Then drag the version 1.9 of the application from the left on the deployment workspace and press automapping button as shown below.
+    XL Deploy analyzes the application's [dependencies]() and the dependencies of the applications in the environment. If the new version does not satisfy the dependencies of the applications that are already deployed, then XL Deploy will not deploy it. For more information, refer to [How XL Deploy checks application dependencies]().
 
-<img
-src="images/application_dependencies/automapping_update_app.png" height="300" width="600">
+    XL Deploy then automatically maps the deployables in the application to the appropriate containers in the environment.
 
-Now to update `app2` to 1.9 version, press the **Execute** button.
+    **Note:** If the updated application is missing a deployable that was included in the previous deployment, the corresponding deployed item will appear in red.
 
-> If you try to update an application to a version that does not satisfy the dependency of another application that depends on the first application then XL Deploy will not allow you to update the application. For example, in above scenario if we try to update `app2` to version 2.1 then update will not work as that would break dependency of `app1`.
+1. Optionally view or edit the properties of a mapped deployable by double-clicking it or by selecting it and clicking ![Edit deployed](/images/button_edit_deployed.png).
+1. Optionally click **Deployment Properties** to select the [orchestrators](/xl-deploy/concept/understanding-orchestrators.html) that XL Deploy should use when generating the deployment plan.
+1. Optionally click **Analyze** to preview the deployment plan that XL Deploy generates. You can double-click each step to see the script that XL Deploy will use to execute the step.
+1. Click **Next**. The deployment plan appears.
+1. Click **Execute** to start the update. If the server does not have the capacity to immediately start executing the plan, the plan will be in a `QUEUED` state until the server has sufficient capacity. 
+
+If a step in the update fails, XL Deploy stops executing the update and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
 
 ## How XL Deploy checks application dependencies
 
@@ -217,7 +203,7 @@ You can set up a deployment of the latest version of CustomerProfile by dragging
 
 **Tip:** Hover the mouse pointer over a deployable to see the deployment package it belongs to.
 
-### Selecting dependent application versions
+### How dependent application versions are selected
 
 This is how XL Deploy selected the right application versions:
 
@@ -230,6 +216,16 @@ This is how XL Deploy selected the right application versions:
 4. ShoppingCart 2.0: Inventory 1.5 and PaymentOptions 2.1 both depend on ShoppingCart. XL Deploy selects the highest version that satisfies both of their requirements, which is ShoppingCart 2.0.
 
 5. WebsiteFront-End 2.0: ShoppingCart 2.0 requires WebsiteFront-End 2.0, so XL Deploy selects that version.
+
+### Updating a deployed application
+
+You can easily update a deployed application to a new version. For example, to update the Inventory application to version 1.9:
+
+1. Under **Environments** in the Deployment Workspace, right-click Inventory 1.5 and select **Update**.
+2. Under **Packages**, locate Inventory 1.9 and drag it to the left side of the deployment workspace.
+3. Click **Execute** to execute the deployment.
+
+This deployment is possible because Inventory 1.9 satisfies the CustomerProfile dependency on Inventory `[1.0,2.0)`. Updating Inventory to a version such as 2.1 is not possible, because 2.1 does not satisfy the dependency.
 
 ## Remaining items
 
