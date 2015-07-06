@@ -70,7 +70,7 @@ To install the XL Deploy license:
 1. If you do not already have a license file (`deployit-license.lic`), download it from [https://dist.xebialabs.com/customer/licenses/](https://dist.xebialabs.com/customer/licenses/).
 1. Copy the downloaded file to the `conf` directory. Be sure that you do not modify the license file in any way.
 
-Refer to [Licensing in XL Deploy](/xl-deploy/concept/licensing-in-xl-deploy.html) for information about how the XL Deploy license works.
+Refer to [XL Deploy licensing](/xl-deploy/concept/xl-deploy-licensing.html) for information about how the XL Deploy license works.
 
 ### Run the server setup wizard
 
