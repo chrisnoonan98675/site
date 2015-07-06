@@ -80,6 +80,7 @@
 /xl-deploy/how-to/define-rule-behavior.html : /xl-deploy/concept/objects-and-properties-available-to-rules.html
 /xl-deploy/how-to/how-to-define-rules.html : /xl-deploy/how-to/define-a-rule.html
 /xl-deploy/how-to/configure-the-satellite-module-in-xl-deploy.html : /xl-deploy/how-to/configure-xl-deploy-to-communicate-with-satellites.html
+/xl-deploy/concept/licensing-in-xl-deploy.html : /xl-deploy/concept/xl-deploy-licensing.html
 
 ##### PRODUCTS THAT HAVE BEEN RENAMED
 
