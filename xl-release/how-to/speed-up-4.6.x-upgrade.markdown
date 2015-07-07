@@ -21,12 +21,12 @@ If your repository is large and you want to speed up the upgrade process, you ca
 
 ## Prerequisites
 
-You must have a standard XL Release repository configuration, which is:
+You must have the default XL Release repository configuration, which is:
 
 * The underlying database is Apache Derby
 * The version store is kept separately from the default JCR workspace
 
-To review your configuration, check if your `<XLR_HOME>/conf/jackrabbit-repository.xml` contains the following lines:
+To review your configuration, check if your `<XLRELEASE_HOME>/conf/jackrabbit-repository.xml` contains the following lines, particularly `<param name="url" value="jdbc:derby:${rep.home}/version/db;create=true" />`:
 
     <Versioning rootPath="${rep.home}/version">
         <FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">
@@ -43,7 +43,7 @@ To review your configuration, check if your `<XLR_HOME>/conf/jackrabbit-reposito
         <param name="supportHighlighting" value="true" />
     </SearchIndex>
 
-## Upgrade workaround steps
+## Alternative workaround steps
 
 To upgrade XL Release:
 
