@@ -81,7 +81,9 @@ The structure of `maven.conf` is slightly different from `settings.xml` and `pom
 		  ]
 		}
 
-* Repository policies for `releases` and `snapshots` configure whether this repository will be used to search for `SNAPSHOT` and non-`SNAPSHOT` versions of artifacts. The `checksumPolicy` property configures how strictly XL Deploy will react to unmatched checksums when downloading artifacts from this Maven repository. Allowed values are: `ignore`, `fail` or `warn`. XL Deploy does not cache remote artifacts locally, so `updatePolicy` configuration does not apply.
+* Repository policies for `releases` and `snapshots` configure whether this repository will be used to search for `SNAPSHOT` and non-`SNAPSHOT` versions of artifacts. The value of `snapshots` should always be `false`, because unstable references such as snapshots are not supported.
+
+    The `checksumPolicy` property configures how strictly XL Deploy will react to unmatched checksums when downloading artifacts from this Maven repository. Allowed values are: `ignore`, `fail` or `warn`. XL Deploy does not cache remote artifacts locally, so `updatePolicy` configuration does not apply.
 
     This is an example configuration of repository policies:
 
