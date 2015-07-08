@@ -30,6 +30,10 @@ It is possible to skip XL Release versions when upgrading. XL Release will seque
 
 If a repository upgrade is required, XL Release will detect that it is running against an old repository and will automatically execute an upgrade when it is first started. The server log will contain extensive logging of the repository upgrade process. Save this log for future reference.
 
+<div class="alert alert-warning" role="alert">
+    <p><strong>Note:</strong> After a component is upgraded, it cannot be downgraded to an older version.</p>
+</div>
+
 ## Performing the upgrade
 
 To upgrade an existing XL Release server installation:
