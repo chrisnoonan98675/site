@@ -43,7 +43,7 @@ To create the sample pipeline:
 
     In a fully-fledged pipeline, you would refer to application source code here, which would be compiled and packaged in a deployable artifact during a build step. However, this example demonstrates a deployment step, so the source location points to a Deployment ARchive (DAR) file, which is XL Deploy's standard input format. To learn more about DAR files, refer to [Preparing your application for XL Deploy](/xl-deploy/concept/preparing-your-application-for-xl-deploy.html).
 
-    For this example, select the *Amazon S3* **Source provider** and set the **Amazon S3 location** to *s3://petclinic-30-06-2015/petclinic.dar*.
+    For this example, select the *Amazon S3* **Source provider** and set the **Amazon S3 location** to *s3://petclinic-packages/PetClinic-1.0.dar*.
 
     ![Create a pipeline - Step 2](images/codepipeline/pipeline-step2.png)
 
