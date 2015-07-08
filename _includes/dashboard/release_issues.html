@@ -5,12 +5,12 @@
         <span class="issue-header">New features</span>
         <hr/>
         {% endif %}
-        <li class="issue">{{ issue.key }} - {{ issue.summary }}</li>
+        <li class="issue">{{ issue.key }} - {{ issue.summary }}
         {%if issue.description != '' %}
         <a href="#" data-toggle="{{release.id}}-{{issue.key}}-desc" class="issue-more" style="font-size: 75%">more</a><br/>
         <div id="{{release.id}}-{{issue.key}}-desc" class="issue-description" style="display: none;">{{ issue.description }}</div>
-        </li>
         {% endif %}
+        </li>
         {% endfor %}
     </ul>
 
@@ -20,12 +20,12 @@
         <span class="issue-header">Improvements</span>
         <hr/>
         {% endif %}
-        <li class="issue">{{ issue.key }} - {{ issue.summary }}</li>
+        <li class="issue">{{ issue.key }} - {{ issue.summary }}
         {%if issue.description != '' %}
         <a href="#" data-toggle="{{release.id}}-{{issue.key}}-desc" class="issue-more" style="font-size: 75%">more</a><br/>
         <div id="{{release.id}}-{{issue.key}}-desc" class="issue-description" style="display: none;">{{ issue.description }}</div>
-        </li>
         {% endif %}
+        </li>
         {% endfor %}
     </ul>
 
@@ -39,8 +39,8 @@
             {%if issue.description != '' %}
             <a href="#" data-toggle="{{release.id}}-{{issue.key}}-desc" class="issue-more" style="font-size: 75%">more</a><br/>
             <div id="{{release.id}}-{{issue.key}}-desc" class="issue-description" style="display: none;">{{ issue.description }}</div>
+            {% endif %}
         </li>
-        {% endif %}
         {% endfor %}
     </ul>
 </ul>
