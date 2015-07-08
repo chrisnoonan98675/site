@@ -35,7 +35,7 @@ However, you may be required to take manual actions for the intermediate version
 If a repository upgrade is required, XL Deploy will detect that it is running against an old repository and will automatically execute an upgrade when it is first started. The server log will contain extensive logging of the repository upgrade process. Save this log for future reference.
 
 <div class="alert alert-warning" role="alert">
-    <p><strong>Note:</strong> After a component is upgraded, it cannot be downgraded to an older version anymore!</p>
+    <p><strong>Note:</strong> After a component is upgraded, it cannot be downgraded to an older version.</p>
 </div>
 
 ## Upgrading plugins
