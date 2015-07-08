@@ -34,6 +34,10 @@ However, you may be required to take manual actions for the intermediate version
 
 If a repository upgrade is required, XL Deploy will detect that it is running against an old repository and will automatically execute an upgrade when it is first started. The server log will contain extensive logging of the repository upgrade process. Save this log for future reference.
 
+<div class="alert alert-warning" role="alert">
+    <p><strong>Note:</strong> After a component is upgraded, it cannot be downgraded to an older version anymore!</p>
+</div>
+
 ## Upgrading plugins
 
 Plugin versions are related to the version of XL Deploy (or Deployit) that they are compatible with. For example, the WebSphere Application Server plugin version 4.0.0 requires XL Deploy 4.0.0 or later, unless otherwise specified in the [version-specific upgrade notes](/xl-deploy/latest/upgrademanual.html).
