@@ -227,14 +227,35 @@ You can easily update a deployed application to a new version. For example, to u
 
 This deployment is possible because Inventory 1.9 satisfies the CustomerProfile dependency on Inventory `[1.0,2.0)`. Updating Inventory to a version such as 2.1 is not possible, because 2.1 does not satisfy the dependency.
 
-## Remaining items
+### How does XL Deploy calculate dependencies during mapping (algorithm)
 
-* How does XL Deploy calculate dependencies during mapping (algorithm)
-* Deployment via the CLI
-* Permissions
-* How does XL Deploy deploy dependent applications?
-    * Order of applications in the plan
-        * how does this work with orchestration
-    * Validation if the desired deployment is allowed
-        * will it break other dependencies
-* Todo: Fix the current API documentation because the api changed - migration manual?
+During deployment XLD selected the highest possible version in the provided range for each of the dependency. If you have already 
+deployed application version A (2.0) and the selected dependency is A (3.0), after deployment A will be upgraded to 3.0,
+if the version is the same - it will just skip the upgrade procedure and if it was deployed before A (4.0) downgrade it back to 
+A (3.0). If in this environment you have already deployments which have dependency to A (4.0) then deployment will be failed.
+
+### Deployment via the CLI
+
+Performing multi-application dependency deployment does the same flow as a single application deployment:
+
+	# Start deployment
+	deployit> deploymentRef = deployment.prepareInitial('Applications/SampleDar/1.0', 'Environments/0smallEnv0')
+	deployit> deploymentRef = deployment.generateAllDeployeds(deploymentRef)
+	deployit> taskID = deployment.deploy(deploymentRef).id
+	deployit> deployit.startTaskAndWait(taskID)
+
+### Permissions
+
+When you make a deployment all dependencies will be checked on permissions. In case of lacking read permissions of any 
+dependency you will not be able to perform deployment and you will see the error message about not found dependency. There are 
+3 different permissions which you can have for an environment where you are trying to deploy an application:
+
+    deploy#initial - permission which allow you to deploy a new application
+    deploy#upgrade - permission which allow you to upgrade already deployed application
+    deploy#undeploy - permission which allow you to undeploy a application
+    
+
+### How does XL Deploy deploy dependent applications?
+
+The order of dependencies are in reversed topological order. So that's mean XLD guarantees that dependant dependency 
+will be deployed first.
