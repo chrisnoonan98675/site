@@ -14,7 +14,7 @@ tags:
 
 To enable multi-hop support (also known as CredSSP) for WinRM when using the `WINRM_NATIVE` connection type, follow the steps below. CredSSP is not supported by the `WINRM_INTERNAL` connection type.
 
-### On the XL Deploy server machine
+### On the XL Deploy server machine and/or XL Satellite instance(s)
 
 1. Execute the following command:
 
