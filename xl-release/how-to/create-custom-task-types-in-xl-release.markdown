@@ -239,6 +239,15 @@ For example, this is a possible implementation of the `jira.CreateIssue` task in
                 :return: an HttpResponse instance
                 """
 
+            def patch(self, context, body, **options):
+                """
+                Performs an Http PATCH Request
+
+                :param context: the context url
+                :param body: the body of the HTTP request
+                :param options: the options keyword argument described in doRequest()
+                :return: an HttpResponse instance
+                """
 
         class HttpResponse:
             def getStatus(self):
