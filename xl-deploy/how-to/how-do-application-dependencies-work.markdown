@@ -21,6 +21,7 @@ since:
     subject:
     - Dependencies
     tags:
+    - application
     - package
     - deployment
     - dependency
@@ -52,6 +53,16 @@ XL Deploy allows you to define ranges for version dependencies. The range format
 | `(version1,version2)` | The application depends on any version between `version1` and `version2`, excluding both versions | AppA depends on AppB `(1.0,2.0)`, so AppA works with AppB `1.5.5` and `1.9`, but does not work with AppB `1.0` or `2.0` |
 | `[version1,version2)` | The application depends on any version between `version1` and `version2`, including `version1` and excluding `version2` | AppA depends on AppB `[1.0,2.0)`, so AppA works with AppB `1.0`, `1.5.5`, and `1.9`, but does not work with AppB `2.0` |
 | `(version1,version2]` | The application depends on any version between `version1` and `version2`, excluding `version1` and including `version2` | AppA depends on AppB `(1.0,2.0]`, so AppA works with App B `1.5.5`, `1.9`, and `2.0`, but does not work with AppB `1.0` |
+
+### Permissions
+
+When you set up a deployment, XL Deploy checks the permissions of all applications that will be deployed because of dependencies. You must at least have `read` permission on all dependent applications.
+
+For the environment, you must have one or more of the following permissions:
+
+* `deploy#initial`: Permission to deploy a new application
+* `deploy#upgrade`: Permission to upgrade a deployed application
+* `deploy#undeploy`: Permission to undeploy a deployed application
 
 ## Staging applications with dependencies
 
@@ -89,6 +100,14 @@ To deploy an application to an environment:
     XL Deploy then automatically maps the deployables in the application to the appropriate containers in the environment.
     
 1. Click **Execute** to immediately start the deployment.
+
+Applications are deployed in reverse topological order, to ensure that dependent applications are deployed first.
+
+## Deploy an application with dependencies using the CLI
+
+    USE THIS TO UPDATE https://docs.xebialabs.com/xl-deploy/how-to/perform-a-deployment-using-the-xl-deploy-cli.html
+
+You can use the XL Deploy command-line interface (CLI) to deploy, update, and undeploy applications, including applications with [dependencies]().
 
 ## Roll back a deployment of an application with dependencies
 
@@ -146,19 +165,20 @@ If a step in the update fails, XL Deploy stops executing the update and marks th
     - 5.1.0
     ---
 
-<!-- note: this content is copied from https://docs.xebialabs.com/xl-deploy/how-to/define-dependencies-between-versions.html#checking-dependencies 
-question: should we use the term 'deployed' instead of 'installed' here? -->
+<!-- note: this content is copied from https://docs.xebialabs.com/xl-deploy/how-to/define-dependencies-between-versions.html#checking-dependencies -->
 
-When you deploy, update, or undeploy an application, XL Deploy performs a dependency check. This may detect the following issues:
+When you deploy, update, or undeploy an application, XL Deploy performs a dependency check. It selects the highest possible version in the dependency range of each application.
+
+The dependency check may detect the following issues:
 
 {:.table .table-striped}
 | Issue | Example |
 | ----- | ------- |
-| While installing or updating an application, another application that it depends on is not installed at all. | |
-| While installing or updating an application, a version of the application(s) it depends on is installed, but it is too old or too new. | The application requires application `A` version `[1.0, 2.0)`, but version `2.1` is installed. |
-| While installing or updating an application, XL Deploy looks for an application in a certain range, but the version that is actually installed is not in X.X.X format. | Application `Android` version `[2.0, 5.0]` is required, but the installed version is `KitKat`. |
-| While updating an application, an installed application depends on that application, but the version that you want to update to is out of the dependency range of that application. | You want to update application `A` to version `2.1`, but a version of `C` is installed that depends on application `A` range `[1.0, 2.0)`. |
-| While updating an application, an installed application depends on that application, but the version that you want to update to is not in X.X.X format. | You want to update application `Android` to version `KitKat`, but the installed version application `C` requires `Android` to be in range `[2.0, 5.0]`. |
+| While deploying or updating an application, another application that it depends on is not present in the environment at all. | |
+| While deploying or updating an application, a version of the application(s) it depends on is present in the environment, but the version is too old or too new. | The application requires application `A` version `[1.0, 2.0)`, but version `2.1` is present. |
+| While deploying or updating an application, XL Deploy looks for an application in a certain range, but the version that is actually present is not in `major.minor.patch` format. | Application `Android` version `[2.0, 5.0]` is required, but version `KitKat` is present. |
+| While updating an application, an application that is present in the environment depends on that application, but the version that you want to update to is out of the dependency range of that application. | You want to update application `A` to version `2.1`, but the environment contains a version of application `C` that depends on application `A` range `[1.0, 2.0)`. |
+| While updating an application, an application that is present in the environment depends on that application, but the version that you want to update to is not in `major.minor.patch` format. | You want to update application `Android` to version `KitKat`, but the installed application `C` requires `Android` to be in range `[2.0, 5.0]`. |
 | While undeploying, an installed application depends on the application that you want to undeploy. | |
 
 ## Advanced application dependencies example
@@ -226,15 +246,3 @@ You can easily update a deployed application to a new version. For example, to u
 3. Click **Execute** to execute the deployment.
 
 This deployment is possible because Inventory 1.9 satisfies the CustomerProfile dependency on Inventory `[1.0,2.0)`. Updating Inventory to a version such as 2.1 is not possible, because 2.1 does not satisfy the dependency.
-
-## Remaining items
-
-* How does XL Deploy calculate dependencies during mapping (algorithm)
-* Deployment via the CLI
-* Permissions
-* How does XL Deploy deploy dependent applications?
-    * Order of applications in the plan
-        * how does this work with orchestration
-    * Validation if the desired deployment is allowed
-        * will it break other dependencies
-* Todo: Fix the current API documentation because the api changed - migration manual?
