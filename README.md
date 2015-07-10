@@ -12,7 +12,7 @@ online-docs-jekyll
 
 Tips:
 
-* We are using Jekyll 2.3.0. Newer versions of Jekyll will not work.
+* We are using Jekyll 2.3.0. Newer versions of Jekyll will not work. See [this StackOverflow question](http://stackoverflow.com/questions/24223567/how-can-i-install-an-older-version-of-jekyll) if you need help installing the right version.
 * To disable updating of the Development Dashboard while you run Jekyll in watch mode, change the `jira_dashboard` `generate` setting in `_config.yml` to `false`. **Do not commit this change to the repository!**
 * If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
 * You may want to download a Markdown editor such as [MacDown](http://macdown.uranusjr.com/) for OS X or [MarkdownPad](http://markdownpad.com/) for Windows.
