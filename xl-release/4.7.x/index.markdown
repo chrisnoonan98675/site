@@ -8,7 +8,7 @@ product-id: xl-release
 ## Product documentation
 
 * [Release notes](release_notes.html)
-* [Upgrade manual](upgrademanual.html)
+* [Version-specific upgrade notes](upgrademanual.html)
 * [REST API reference](rest-api/)
 * [Jython API reference](/jython-docs/#!/xl-release/4.7.x/)
 
