@@ -1,5 +1,5 @@
 ---
-title: Perform a deployment using the XL Deploy CLI
+title: Deploy an application using the XL Deploy CLI
 categories:
 - xl-deploy
 subject:
