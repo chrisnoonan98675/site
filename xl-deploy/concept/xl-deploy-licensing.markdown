@@ -18,8 +18,8 @@ If you are using XL Deploy Enterprise Edition, you can download your license at 
 
 When you log in to the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/), you will see all of your current licenses. There are three versions of the XL Deploy license:
 
-* **V1**: Required for XL Deploy 4.0.x and earlier
-* **V2**: Required for XL Deploy 4.5.x
+* **V1**: Required for XL Deploy 4.0.x and earlier, XL Deploy 4.5.1, and XL Deploy 4.5.2
+* **V2**: Required for XL Deploy 4.5.3 and later
 * **V3**: Required for XL Deploy 5.0.0 and later
 
 To check the version of a license, open it in a text editor. The version is identified in the license file.
