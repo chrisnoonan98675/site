@@ -105,7 +105,7 @@ This is how the above task definition looks like in the task details window:
 
 ## Python scripts
 
-When the custom task becomes active, it triggers the Python script that is associated with it. Scripts must be written in the Jython dialect of Python, which is version 2.6 of Python running in the Java VM, with full access to the Java 7 API. 
+When the custom task becomes active, it triggers the Python script that is associated with it. Scripts must be written in the Jython dialect of Python, which is version 2.7 of Python running in the Java VM, with full access to the Java 7 API. 
 
 Store scripts in a directory that has the same name as the prefix of the task type definition. The script file name has the same name as the name of the task, followed by the `.py` extension. For example, the Python script for the `jira.CreateIssue` task must be stored in `jira/CreatePython.py`.
 
@@ -166,6 +166,7 @@ For example, this is a possible implementation of the `jira.CreateIssue` task in
             response.errorDump()
             sys.exit(1)
 
+Note that in contrary to [Script tasks](/xl-release/how-to/create-a-script-task.html), Jython scripts of custom task types are not run in a sandboxed environment and do not have any restrictions. So you do not have to update the `script.policy` file of your XL Release installation if you need additional access such as to filesystem or network from your custom task type.
 
 #### HttpRequest
 
