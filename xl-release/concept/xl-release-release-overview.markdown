@@ -37,7 +37,7 @@ Click **Filter options** to toggle the options:
 
 * **All active releases**: Show releases that are currently busy (release state 'in progress', 'failing', or 'failed').
 * **All planned releases**: Show releases that have been created but that have not started yet (release state 'planned')
-* **All completed releases**: Show releases that are complete (release states 'completed' and 'aborted').
+* **All completed and aborted releases**: Show releases that are completed or aborted (release states 'completed' and 'aborted').
 * **Only my releases**: Show releases for which you are the release owner.
 * **Only flagged releases**: Only show releases that are flagged with a warning message. Use this option to show releases that are currently at risk.
 
