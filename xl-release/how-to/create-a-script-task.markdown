@@ -14,7 +14,7 @@ A script task contains a Python script that is executed on the XL Release server
 
 ![Script Task Details](../images/script-task-details.png)
 
-Type or paste a Python script in the **Script** field of the script task details. XL Release supports Jython 2.5. Jython is the Java implementation of Python. This means that you have access to standard Python as well as the Java libraries included in Java 7.
+Type or paste a Python script in the **Script** field of the script task details. XL Release supports Jython 2.7. Jython is the Java implementation of Python. This means that you have access to standard Python as well as the Java libraries included in Java 7.
 
 You can access and modify [release variables](/xl-release/concept/variables-in-xl-release.html) in your scripts using the dictionary named **releaseVariables**. This sample script shows how to access and modify a variable:
 
