@@ -46,7 +46,8 @@ In the SemVer versioning scheme, a version number is expressed as `major.minor.p
 
 XL Deploy allows you to define ranges for version dependencies. The range formats are:
 
-{:.table .table-striped}
+    {:.table .table-striped}
+
 | Format | Description | Example |
 | ------ | ----------- | ------- |
 | `[version1,version2]` | The application depends on any version between `version1` and `version2`, including both versions | AppA depends on AppB `[1.0,2.0]`, so AppA works with AppB `1.0`, `1.5.5`, `1.9`, and `2.0` |
@@ -171,7 +172,8 @@ When you deploy, update, or undeploy an application, XL Deploy performs a depend
 
 The dependency check may detect the following issues:
 
-{:.table .table-striped}
+    {:.table .table-striped}
+
 | Issue | Example |
 | ----- | ------- |
 | While deploying or updating an application, another application that it depends on is not present in the environment at all. | |
@@ -202,7 +204,8 @@ This is an example of an advanced scenario with multiple applications that depen
 
 Assume that you have five applications called CustomerProfile, Inventory, PaymentOptions, ShoppingCart, and WebsiteFront-End. Their versions and dependencies are as follows:
 
-{:.table .table-striped}
+    {:.table .table-striped}
+
 | Application name | Version | Depends on... |
 | ---------------- | ------- | ------------- |
 | CustomerProfile | `1.0` | Inventory `[1.0,2.0)` |
