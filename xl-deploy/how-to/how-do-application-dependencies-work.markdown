@@ -32,6 +32,8 @@ since:
 
 XL Deploy allows you to define dependencies among different versions of different applications. When you set up the deployment of an application, XL Deploy automatically includes the correct versions of other applications that it depends on and ensures that they are deployed in the correct order.
 
+![Application with dependencies](images/deployment-package-with-dependencies.png)
+
 Application dependencies work with other XL Deploy features such as staging, satellites, rollbacks, updates, and undeployment.
 
 You define dependencies at the *deployment package* level.
@@ -222,7 +224,7 @@ Assume that you have five applications called CustomerProfile, Inventory, Paymen
 
 You can set up a deployment of the latest version of CustomerProfile by dragging it to the Deployment Workspace. XL Deploy automatically adds the deployables from the dependent deployment packages.
 
-    ADD SCREENSHOT OF MAPPING HERE
+![Mapped application with dependencies](images/mapping-with-dependent-apps.png)
 
 **Tip:** Hover the mouse pointer over a deployable to see the deployment package it belongs to.
 
