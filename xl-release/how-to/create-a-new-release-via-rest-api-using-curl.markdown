@@ -22,7 +22,7 @@ There is a single API call to start a release from a template, which is document
 
 For the simple template that we're using in this example, the cURL command to create the release would be:
 
-    curl -u 'admin:secret'  -v -H "Content-Type: application/json" http://localhost:5516/api/v1/templates/Applications/Release2994650/start -i -X POST -d '{"title": "My Automated Release"}'
+    curl -u 'admin:secret'  -v -H "Content-Type: application/json" http://localhost:5516/api/v1/templates/Applications/Release2994650/start -i -X POST -d '{"releaseTitle": "My Automated Release"}'
 
 **Tip:** Note that the release template ID is always prepended with `Applications/`. For more information about IDs, refer to [How to find IDs](/xl-release/how-to/how-to-find-ids.html)
 
