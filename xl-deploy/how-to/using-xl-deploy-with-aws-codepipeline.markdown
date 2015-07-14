@@ -72,7 +72,15 @@ To create the sample pipeline:
 1. Click **Next step** to proceed.
 1. Review the AWS CodePipeline details and click **Create pipeline** to create the pipeline.
 
-### Step 3 Add XL Deploy as the deployment provider
+### Step 3 Create XL Deploy custom action
+
+By default XL Deploy is not shown as one of the deployment provider so you need to manually create XL Deploy action. To do that you will need AWS command-line client installed on your machine. To create the action, execute the following command on your machine.
+
+```
+$ aws codepipeline create-custom-action-type --cli-input-json http://git.io/vmY38
+```
+
+### Step 4 Add XL Deploy as the deployment provider
 
 After the pipeline is created, you will be redirected to the *petclinic-pipeline* page. To change the deployment provider to XL Deploy:
 
