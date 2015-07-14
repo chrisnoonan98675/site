@@ -10,7 +10,7 @@ tags:
 - script
 ---
 
-You can do a deployment from the XL Deploy command-line interface (CLI). Here is an example of how to perform a simple deployment.
+You can use the XL Deploy command-line interface (CLI) to deploy, update, and undeploy applications, including applications with [dependencies](/xl-deploy/concept/application-dependencies-in-xl-deploy.html) (supported in XL Deploy 5.1.0 and later).
 
 	# Import package
 	deployit> package = deployit.importPackage('demo-application/1.0')

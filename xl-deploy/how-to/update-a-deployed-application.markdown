@@ -23,7 +23,11 @@ To update a deployed application:
 1. Click **Deployment** in the top bar.
 1. Locate the application under **Packages** and expand it to see the versions (deployment packages).
 1. Locate the environment under **Environments**.
-1. Drag the version of the application that you want to deploy and drop it on the environment where you want to deploy it. The application and environment appear in the **Workspace**. XL Deploy automatically maps the deployables in the application to the appropriate containers in the environment.
+1. Drag the version of the application that you want to deploy and drop it on the environment where you want to deploy it. The application and environment appear in the deployment workspace.
+
+    XL Deploy analyzes the application's [dependencies](/xl-deploy/concept/application-dependencies-in-xl-deploy.html) and the dependencies of the applications in the environment (supported in XL Deploy 5.1.0 and later). If the new version [does not satisfy](/xl-deploy/concept/how-xl-deploy-checks-application-dependencies.html) the dependencies of the applications that are already deployed, then XL Deploy will not deploy it.
+
+    XL Deploy then automatically maps the deployables in the application to the appropriate containers in the environment.
 
     **Note:** If the updated application is missing a deployable that was included in the previous deployment, the corresponding deployed item will appear in red.
 
@@ -42,4 +46,4 @@ If a step in the update fails, XL Deploy stops executing the update and marks th
 * To remove a deployable from all containers where it is mapped, select it in the left side of the Workspace and click ![Remove deployed from all containers](/images/remove_deployed.png).
 * To remove one mapped deployable from a container, select it in the right side of the Workspace and click ![Remove deployed](/images/button_remove_deployed.png).
 
-For information about skipping steps or stopping an update, refer to [link](/xl-deploy/how-to/perform-an-initial-deployment.html).
+For information about skipping steps or stopping an update, refer to [Deploy an application](/xl-deploy/how-to/deploy-an-application.html).
