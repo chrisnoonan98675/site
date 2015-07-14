@@ -1,10 +1,9 @@
 ---
-title: Connect XL Deploy or XL Release to your LDAP or Active Directory
+title: Connect XL Deploy to your LDAP or Active Directory
 subject:
 - Security
 categories:
 - xl-deploy
-- xl-release
 tags:
 - ldap
 - active directory
@@ -12,7 +11,7 @@ tags:
 - user management
 ---
 
-This tutorial describes how to connect XL Deploy or XL Release to your LDAP or Active Directory.
+This tutorial describes how to connect XL Deploy to your LDAP or Active Directory.
 
 ## Step 1 Get your LDAP credentials
 
@@ -43,7 +42,7 @@ Use an LDAP browser such as [JXplorer](http://jxplorer.org/) to verify that the 
 
 ## Step 3 Update security
 
-Add the following code to `deployit-security.xml` if you are using XL Deploy or to `xl-release-security.xml` if you are using XL Release. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
+Add the following code to `deployit-security.xml`. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd ">
@@ -91,7 +90,6 @@ Add the following code to `deployit-security.xml` if you are using XL Deploy or 
      <security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/>
 
      <security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never">
-       <security:csrf disabled="true"/>
        <!-- The download url has no security access set -->
        <security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/>
        <security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/>
@@ -102,11 +100,11 @@ Add the following code to `deployit-security.xml` if you are using XL Deploy or 
 	</beans>
 
 
-Restart XL Deploy or XL Release. Ensure that the server starts without any exceptions.
+Restart XL Deploy. Ensure that the server starts without any exceptions.
 
 ## Step 4 Determine user properties
 
-Using an LDAP browser, search for a user who has permission to log in to XL Deploy or XL Release. Use this user to determine these items:
+Using an LDAP browser, search for a user who has permission to log in to XL Deploy. Use this user to determine these items:
 
 <table class="table table-striped">
 	<thead>
@@ -126,7 +124,7 @@ Using an LDAP browser, search for a user who has permission to log in to XL Depl
 
 ## Step 5 Update security
 
-Update `deployit-security.xml` or `xl-release-xecurity.xml` as follows. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
+Update `deployit-security.xml` as follows. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd ">
@@ -189,7 +187,6 @@ Update `deployit-security.xml` or `xl-release-xecurity.xml` as follows. Replace 
      <security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/>
 
      <security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never">
-       <security:csrf disabled="true"/>
        <!-- The download url has no security access set -->
        <security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/>
        <security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/>
@@ -199,11 +196,11 @@ Update `deployit-security.xml` or `xl-release-xecurity.xml` as follows. Replace 
 
 	</beans>
 
-Restart XL Deploy or XL Release. Ensure that the server starts without any exceptions.
+Restart XL Deploy. Ensure that the server starts without any exceptions.
 
 ## Step 6 Add the user in the GUI
 
-Add the user who you used in [step 4](#step-4-determine-user-properties) as a principal in the XL Deploy or XL Release interface and assign the principal permission to log in.
+Add the user who you used in [step 4](#step-4-determine-user-properties) as a principal in the XL Deploy interface and assign the principal permission to log in.
 
 ## Step 7 Verify the user log-in
 
@@ -211,7 +208,7 @@ Verify that you can log in with the user you used in [step 4](#step-4-determine-
 
 ## Step 8 Determine group properties
 
-Using an LDAP browser, search for a group that should be a principal in to XL Deploy or XL Release. Use this group to determine these items:
+Using an LDAP browser, search for a group that should be a principal in XL Deploy. Use this group to determine these items:
 
 <table class="table table-striped">
 	<thead>
@@ -231,7 +228,7 @@ Using an LDAP browser, search for a group that should be a principal in to XL De
 
 ## Step 9 Update security
 
-Update `deployit-security.xml` or `xl-release-xecurity.xml` as follows. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
+Update `deployit-security.xml` as follows. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd ">
@@ -304,7 +301,6 @@ Update `deployit-security.xml` or `xl-release-xecurity.xml` as follows. Replace 
      <security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/>
 
      <security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never">
-       <security:csrf disabled="true"/>
        <!-- The download url has no security access set -->
        <security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/>
        <security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/>
@@ -314,11 +310,11 @@ Update `deployit-security.xml` or `xl-release-xecurity.xml` as follows. Replace 
 
 	</beans>
 
-Restart XL Deploy or XL Release. Ensure that the server starts without any exceptions.
+Restart XL Deploy. Ensure that the server starts without any exceptions.
 
 ## Step 10 Add the group in the GUI
 
-Add the group that you used in [step 8](#step-8-determine-group-properties) as a principal in the XL Deploy or XL Release interface and assign the principal permission to log in.
+Add the group that you used in [step 8](#step-8-determine-group-properties) as a principal in the XL Deploy interface and assign the principal permission to log in.
 
 ## Step 11 Verify the group log-in
 
