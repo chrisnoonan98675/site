@@ -57,7 +57,7 @@ See [Remote Script Plugin Manual](/xl-release/concept/introduction-to-the-xl-rel
 
 XL Release users with sufficient access privileges can write the script on the template or release level.
 
-The scripting language used is [Jython](http://www.jython.org/), which is a [Python](https://www.python.org/) dialect that runs on the Java VM. It is compatible with Python 2.7. Since it runs on a Java VM, the complete API of Java 7 can also be used.
+The scripting language used is [Jython](http://www.jython.org/), which is a [Python](https://www.python.org/) dialect that runs on the Java VM. XL Release 4.6.x and earlier uses Jython 2.5, while XL Release 4.7.0 and later uses Jython 2.7. Because it runs on a Java VM, the complete API of Java 7 can also be used.
 
 Script tasks have access to the XL Release through the [XL Release Python API](/jython-docs/#!/xl-release/4.6.x/). This API is equivalent with the REST API.
 
