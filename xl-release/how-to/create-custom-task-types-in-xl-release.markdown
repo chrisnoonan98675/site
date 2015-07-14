@@ -105,7 +105,7 @@ This is how the above task definition looks like in the task details window:
 
 ## Python scripts
 
-When the custom task becomes active, it triggers the Python script that is associated with it. Scripts must be written in the Jython dialect of Python, which is version 2.7 of Python running in the Java VM, with full access to the Java 7 API. 
+When the custom task becomes active, it triggers the Python script that is associated with it. For information about the script, refer to [API and scripting overview](xl-release/how-to/api-and-scripting-overview.html)
 
 Store scripts in a directory that has the same name as the prefix of the task type definition. The script file name has the same name as the name of the task, followed by the `.py` extension. For example, the Python script for the `jira.CreateIssue` task must be stored in `jira/CreatePython.py`.
 
