@@ -12,22 +12,14 @@ since:
 - 4.7.0
 ---
 
-To configure the XL Release reporting database, add the following section to the `conf/xl-release.conf` file:
+Since XL Release 4.7.0 completed releases are exported to the internal reporting database, which is then used to generate reports. Currently only the default database is supported: Apache Derby. But you can change its location if needed.
+
+To do that create a file `XLR_HOME/conf/xl-release.conf` with following content:
 
     xl {
       reporting {
-        db-driver-classname = "org.apache.derby.jdbc.AutoloadedDriver"
-        db-url = "jdbc:derby:archive/db;create=true"
-        db-username = ""
-        db-password = ""
+        db-url = "jdbc:derby:/path/to/archive/db;create=true"
       }
     }
 
-Where:
-
-* `db-driver-classname` is the Java classname of the JDBC Driver to be used
-* `db-url` is the database connection URL
-* `db-username` is the database username
-* `db-password` is the database password
-
-Save the file and restart XL Release.
+If you already have the reporting database in the default location (`XLR_HOME/archive/db`), then you also need to move it to the new one. Please do that while XL Release is not running. After moving the database and changing the configuration, you can start XL Release again.
