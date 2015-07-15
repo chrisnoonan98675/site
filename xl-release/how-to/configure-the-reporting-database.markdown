@@ -7,14 +7,15 @@ subject:
 tags:
 - system administration
 - reporting
+- archiving
 - configuration
 since:
 - 4.7.0
 ---
 
-Since XL Release 4.7.0 completed releases are exported to the internal reporting database, which is then used to generate reports. Currently only the default database is supported: Apache Derby. But you can change its location if needed.
+Since XL Release 4.7.0, completed releases are exported to the internal reporting database, which is used to generate reports. XL Release only supports the default reporting database, Apache Derby. You can change the database location if needed.
 
-To do that create a file `XLR_HOME/conf/xl-release.conf` with following content:
+To do so, create an `XLRELEASE_HOME/conf/xl-release.conf` file with following content:
 
     xl {
       reporting {
@@ -22,4 +23,4 @@ To do that create a file `XLR_HOME/conf/xl-release.conf` with following content:
       }
     }
 
-If you already have the reporting database in the default location (`XLR_HOME/archive/db`), then you also need to move it to the new one. Please do that while XL Release is not running. After moving the database and changing the configuration, you can start XL Release again.
+If you already have the reporting database in the default location (`XLRELEASE_HOME/archive/db`), then you must move it to the new location while XL Release is not running. After moving the database and changing the configuration, you can start XL Release again.
