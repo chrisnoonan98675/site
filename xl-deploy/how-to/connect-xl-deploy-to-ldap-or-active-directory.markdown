@@ -17,24 +17,12 @@ This tutorial describes how to connect XL Deploy to your LDAP or Active Director
 
 Check with your system administrator for your LDAP credentials:
 
-<table class="table table-striped">
-	<thead>
-    <tr>
-        <th>Placeholder</th> <th>Description</th> <th>Example</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>LDAP_SERVER_URL</td> <td>LDAP URL to connect to</td> <td><code>ldap://localhost:389/</code></td>
-    </tr>
-        <tr>
-        <td>MANAGER_DN</td> <td>Principal to perform the initial bind to the LDAP server</td> <td><code>cn=admin,dc=example,dc=com</code></td>
-    </tr>
-            <tr>
-        <td>MANAGER_PASSWORD</td> <td>Credentials to perform the initial bind to the LDAP server</td> <td><code>secret</code></td>
-    </tr>
-    </tbody>
-</table>
+{:.table .table-striped}
+| Placeholder | Description | Example |
+| ----------- | ----------- | ------- |
+| `LDAP_SERVER_URL` | LDAP URL to connect to | `ldap://localhost:389/` |
+| `MANAGER_DN` | Principal to perform the initial bind to the LDAP server | `cn=admin,dc=example,dc=com` |
+| `MANAGER_PASSWORD` | Credentials to perform the initial bind to the LDAP server | `secret` |
 
 ## Step 2 Verify your credentials
 
@@ -42,63 +30,64 @@ Use an LDAP browser such as [JXplorer](http://jxplorer.org/) to verify that the 
 
 ## Step 3 Update security
 
-Add the following code to `deployit-security.xml`. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
+Add the highlighted code to `deployit-security.xml`. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
 
-	<?xml version="1.0" encoding="UTF-8"?>
-	<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd ">
-	 <bean id="ldapServer" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
-	   <constructor-arg value="LDAP_SERVER_URL" />
-	     <property name="userDn" value="MANAGER_DN" />
-	     <property name="password" value="MANAGER_PASSWORD" />
-	     <property name="baseEnvironmentProperties">
-	       <map>
-	         <entry key="java.naming.referral">
-	           <value>ignore</value>
-	         </entry>
-	       </map>
-	     </property>
-	 </bean> 
-	 
-	 <bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/> 
-	
-	 <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/> 
-	
-	 <security:authentication-manager alias="authenticationManager"> 
-	   <security:authentication-provider ref="rememberMeAuthenticationProvider" /> 
-	   <security:authentication-provider ref="jcrAuthenticationProvider"/> 
-	 </security:authentication-manager>
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd "&gt;
+ &lt;bean id="ldapServer" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource"&gt;
+<mark>   &lt;constructor-arg value="LDAP_SERVER_URL" /&gt;
+	 &lt;property name="userDn" value="MANAGER_DN" /&gt;
+	 &lt;property name="password" value="MANAGER_PASSWORD" /&gt;</mark>
+	 &lt;property name="baseEnvironmentProperties"&gt;
+	   &lt;map&gt;
+		 &lt;entry key="java.naming.referral"&gt;
+		   &lt;value&gt;ignore&lt;/value&gt;
+		 &lt;/entry&gt;
+	   &lt;/map&gt;
+	 &lt;/property&gt;
+ &lt;/bean&gt; 
+ 
+ &lt;bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/&gt; 
 
-     <bean id="unanimousBased" class="org.springframework.security.access.vote.UnanimousBased">
-       <constructor-arg>
-         <list>
-           <bean class="org.springframework.security.access.vote.AuthenticatedVoter"/>
-           <bean class="com.xebialabs.deployit.security.LoginPermissionVoter"/>
-         </list>
-       </constructor-arg>
-     </bean>
+ &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/&gt; 
 
-     <bean id="basicAuthenticationFilter" class="com.xebialabs.deployit.security.authentication.BasicAuthWithRememberMeFilter">
-       <constructor-arg ref="authenticationManager"/>
-       <constructor-arg ref="basicAuthenticationEntryPoint"/>
-     </bean>
+ &lt;security:authentication-manager alias="authenticationManager"&gt; 
+   &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt; 
+   &lt;security:authentication-provider ref="jcrAuthenticationProvider"/&gt; 
+ &lt;/security:authentication-manager&gt;
 
-     <bean id="basicAuthenticationEntryPoint"
-       class="com.xebialabs.deployit.security.authentication.BasicAuthenticationEntryPoint"
-       p:realmName="Deployit"/>
+ &lt;bean id="unanimousBased" class="org.springframework.security.access.vote.UnanimousBased"&gt;
+   &lt;constructor-arg&gt;
+	 &lt;list&gt;
+	   &lt;bean class="org.springframework.security.access.vote.AuthenticatedVoter"/&gt;
+	   &lt;bean class="com.xebialabs.deployit.security.LoginPermissionVoter"/&gt;
+	 &lt;/list&gt;
+   &lt;/constructor-arg&gt;
+ &lt;/bean&gt;
 
-     <security:http security="none" pattern="/deployit/internal/download/**" create-session="never"/>
-     <security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/>
+ &lt;bean id="basicAuthenticationFilter" class="com.xebialabs.deployit.security.authentication.BasicAuthWithRememberMeFilter"&gt;
+   &lt;constructor-arg ref="authenticationManager"/&gt;
+   &lt;constructor-arg ref="basicAuthenticationEntryPoint"/&gt;
+ &lt;/bean&gt;
 
-     <security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never">
-       <!-- The download url has no security access set -->
-       <security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/>
-       <security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/>
-       <security:custom-filter position="BASIC_AUTH_FILTER" ref="basicAuthenticationFilter"/>
-       <security:session-management session-fixation-protection="none"/>
-     </security:http>
+ &lt;bean id="basicAuthenticationEntryPoint"
+   class="com.xebialabs.deployit.security.authentication.BasicAuthenticationEntryPoint"
+   p:realmName="Deployit"/&gt;
 
-	</beans>
+ &lt;security:http security="none" pattern="/deployit/internal/download/**" create-session="never"/&gt;
+ &lt;security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/&gt;
 
+ &lt;security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never"&gt;
+   &lt;!-- The download url has no security access set --&gt;
+   &lt;security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/&gt;
+   &lt;security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/&gt;
+   &lt;security:custom-filter position="BASIC_AUTH_FILTER" ref="basicAuthenticationFilter"/&gt;
+   &lt;security:session-management session-fixation-protection="none"/&gt;
+ &lt;/security:http&gt;
+
+&lt;/beans&gt;
+</pre>
 
 Restart XL Deploy. Ensure that the server starts without any exceptions.
 
@@ -106,95 +95,87 @@ Restart XL Deploy. Ensure that the server starts without any exceptions.
 
 Using an LDAP browser, search for a user who has permission to log in to XL Deploy. Use this user to determine these items:
 
-<table class="table table-striped">
-	<thead>
-    <tr>
-        <th>Placeholder</th> <th>Description</th> <th>Example</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>USER_SEARCH_FILTER</td> <td>LDAP filter to determine the LDAP <code>dn</code> for the user who is logging in; <code>{0}</code> will be replaced with the username</td> <td><code>((uid={0})(objectClass=inetOrgPerson))</code></td>
-    </tr>
-        <tr>
-        <td>USER_SEARCH_BASE</td> <td>LDAP filter to use as a basis for searching for users</td> <td><code>dc=example,dc=com</code></td>
-    </tr>
-    </tbody>
-</table>
+{:.table .table-striped}
+| Placeholder | Description | Example |
+| ----------- | ----------- | ------- |
+| `USER_SEARCH_FILTER` | LDAP filter to determine the LDAP `dn` for the user who is logging in; `{0}` will be replaced with the username | `((uid={0})(objectClass=inetOrgPerson))` |
+| `USER_SEARCH_BASE` | LDAP filter to use as a basis for searching for users | `dc=example,dc=com` |
 
 ## Step 5 Update security
 
-Update `deployit-security.xml` as follows. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
+Update the highlighted lines in `deployit-security.xml` as follows. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
 
-	<?xml version="1.0" encoding="UTF-8"?>
-	<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd ">
-	 <bean id="ldapServer" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
-	   <constructor-arg value="LDAP_SERVER_URL" />
-	     <property name="userDn" value="MANAGER_DN" />
-	     <property name="password" value="MANAGER_PASSWORD" />
-	     <property name="baseEnvironmentProperties">
-	       <map>
-	         <entry key="java.naming.referral">
-	           <value>ignore</value>
-	         </entry>
-	       </map>
-	     </property>
-	 </bean> 
-	
-	 <bean id="ldapProvider" class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider"> 
-	  <constructor-arg> 
-	   <bean class="org.springframework.security.ldap.authentication.BindAuthenticator">
-	     <constructor-arg ref="ldapServer" />
-	     <property name="userSearch">
-	        <bean id="userSearch" class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
-	          <constructor-arg index="0" value="USER_SEARCH_BASE" />
-	          <constructor-arg index="1" value="USER_SEARCH_FILTER" />
-	          <constructor-arg index="2" ref="ldapServer" />
-	        </bean>
-	     </property>
-	   </bean>
-	  </constructor-arg>
-	 </bean> 
-	
-	 <bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/> 
-	 <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/> 
-	
-	 <security:authentication-manager alias="authenticationManager"> 
-	   <security:authentication-provider ref="rememberMeAuthenticationProvider" /> 
-	   <security:authentication-provider ref="ldapProvider" />
-	   <security:authentication-provider ref="jcrAuthenticationProvider"/> 
-	 </security:authentication-manager>
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd "&gt;
+ &lt;bean id="ldapServer" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource"&gt;
+   &lt;constructor-arg value="LDAP_SERVER_URL" /&gt;
+	 &lt;property name="userDn" value="MANAGER_DN" /&gt;
+	 &lt;property name="password" value="MANAGER_PASSWORD" /&gt;
+	 &lt;property name="baseEnvironmentProperties"&gt;
+	   &lt;map&gt;
+		 &lt;entry key="java.naming.referral"&gt;
+		   &lt;value&gt;ignore&lt;/value&gt;
+		 &lt;/entry&gt;
+	   &lt;/map&gt;
+	 &lt;/property&gt;
+ &lt;/bean&gt; 
 
-     <bean id="unanimousBased" class="org.springframework.security.access.vote.UnanimousBased">
-       <constructor-arg>
-         <list>
-           <bean class="org.springframework.security.access.vote.AuthenticatedVoter"/>
-           <bean class="com.xebialabs.deployit.security.LoginPermissionVoter"/>
-         </list>
-       </constructor-arg>
-     </bean>
+ &lt;bean id="ldapProvider" class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider"&gt; 
+  &lt;constructor-arg&gt; 
+   &lt;bean class="org.springframework.security.ldap.authentication.BindAuthenticator"&gt;
+	 &lt;constructor-arg ref="ldapServer" /&gt;
+	 &lt;property name="userSearch"&gt;
+		&lt;bean id="userSearch" class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch"&gt;
+<mark>		  &lt;constructor-arg index="0" value="USER_SEARCH_BASE" /&gt;
+		  &lt;constructor-arg index="1" value="USER_SEARCH_FILTER" /&gt;</mark>
+		  &lt;constructor-arg index="2" ref="ldapServer" /&gt;
+		&lt;/bean&gt;
+	 &lt;/property&gt;
+   &lt;/bean&gt;
+  &lt;/constructor-arg&gt;
+ &lt;/bean&gt; 
 
-     <bean id="basicAuthenticationFilter" class="com.xebialabs.deployit.security.authentication.BasicAuthWithRememberMeFilter">
-       <constructor-arg ref="authenticationManager"/>
-       <constructor-arg ref="basicAuthenticationEntryPoint"/>
-     </bean>
+ &lt;bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/&gt; 
+ &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/&gt; 
 
-     <bean id="basicAuthenticationEntryPoint"
-       class="com.xebialabs.deployit.security.authentication.BasicAuthenticationEntryPoint"
-       p:realmName="Deployit"/>
+ &lt;security:authentication-manager alias="authenticationManager"&gt; 
+   &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt; 
+   &lt;security:authentication-provider ref="ldapProvider" /&gt;
+   &lt;security:authentication-provider ref="jcrAuthenticationProvider"/&gt; 
+ &lt;/security:authentication-manager&gt;
 
-     <security:http security="none" pattern="/deployit/internal/download/**" create-session="never"/>
-     <security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/>
+ &lt;bean id="unanimousBased" class="org.springframework.security.access.vote.UnanimousBased"&gt;
+   &lt;constructor-arg&gt;
+	 &lt;list&gt;
+	   &lt;bean class="org.springframework.security.access.vote.AuthenticatedVoter"/&gt;
+	   &lt;bean class="com.xebialabs.deployit.security.LoginPermissionVoter"/&gt;
+	 &lt;/list&gt;
+   &lt;/constructor-arg&gt;
+ &lt;/bean&gt;
 
-     <security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never">
-       <!-- The download url has no security access set -->
-       <security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/>
-       <security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/>
-       <security:custom-filter position="BASIC_AUTH_FILTER" ref="basicAuthenticationFilter"/>
-       <security:session-management session-fixation-protection="none"/>
-     </security:http>
+ &lt;bean id="basicAuthenticationFilter" class="com.xebialabs.deployit.security.authentication.BasicAuthWithRememberMeFilter"&gt;
+   &lt;constructor-arg ref="authenticationManager"/&gt;
+   &lt;constructor-arg ref="basicAuthenticationEntryPoint"/&gt;
+ &lt;/bean&gt;
 
-	</beans>
+ &lt;bean id="basicAuthenticationEntryPoint"
+   class="com.xebialabs.deployit.security.authentication.BasicAuthenticationEntryPoint"
+   p:realmName="Deployit"/&gt;
+
+ &lt;security:http security="none" pattern="/deployit/internal/download/**" create-session="never"/&gt;
+ &lt;security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/&gt;
+
+ &lt;security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never"&gt;
+   &lt;!-- The download url has no security access set --&gt;
+   &lt;security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/&gt;
+   &lt;security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/&gt;
+   &lt;security:custom-filter position="BASIC_AUTH_FILTER" ref="basicAuthenticationFilter"/&gt;
+   &lt;security:session-management session-fixation-protection="none"/&gt;
+ &lt;/security:http&gt;
+
+&lt;/beans&gt;
+</pre>
 
 Restart XL Deploy. Ensure that the server starts without any exceptions.
 
@@ -210,105 +191,97 @@ Verify that you can log in with the user you used in [step 4](#step-4-determine-
 
 Using an LDAP browser, search for a group that should be a principal in XL Deploy. Use this group to determine these items:
 
-<table class="table table-striped">
-	<thead>
-    <tr>
-        <th>Placeholder</th> <th>Description</th> <th>Example</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>GROUP_SEARCH_FILTER</td> <td>LDAP filter to determine group memberships of the user; <code>{0}</code> will be replaced with the <code>dn</code> of the user</td> <td><code>(memberUid={0})</code></td>
-    </tr>
-        <tr>
-        <td>GROUP_SEARCH_BASE</td> <td>LDAP filter to use as a basis for searching for groups</td> <td><code>ou=groups,dc=example,dc=com</code></td>
-    </tr>
-    </tbody>
-</table>
+{:.table .table-striped}
+| Placeholder | Description | Example |
+| ----------- | ----------- | ------- |
+| `GROUP_SEARCH_FILTER` | LDAP filter to determine group memberships of the user; `{0}` will be replaced with the `dn` of the user | `(memberUid={0})` |
+| `GROUP_SEARCH_BASE` | LDAP filter to use as a basis for searching for groups | `ou=groups,dc=example,dc=com` |
 
 ## Step 9 Update security
 
-Update `deployit-security.xml` as follows. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
+Update the highlighted lines in `deployit-security.xml` as follows. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
 
-	<?xml version="1.0" encoding="UTF-8"?>
-	<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd ">
-	 <bean id="ldapServer" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
-	   <constructor-arg value="LDAP_SERVER_URL" />
-	     <property name="userDn" value="MANAGER_DN" />
-	     <property name="password" value="MANAGER_PASSWORD" />
-	     <property name="baseEnvironmentProperties">
-	       <map>
-	         <entry key="java.naming.referral">
-	           <value>ignore</value>
-	         </entry>
-	       </map>
-	     </property>
-	 </bean> 
-	
-	 <bean id="ldapProvider" class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider"> 
-	  <constructor-arg> 
-	   <bean class="org.springframework.security.ldap.authentication.BindAuthenticator">
-	     <constructor-arg ref="ldapServer" />
-	     <property name="userSearch">
-	        <bean id="userSearch" class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
-	          <constructor-arg index="0" value="USER_SEARCH_BASE" />
-	          <constructor-arg index="1" value="USER_SEARCH_FILTER" />
-	          <constructor-arg index="2" ref="ldapServer" />
-	        </bean>
-	     </property>
-	   </bean>
-	  </constructor-arg> 
-	  <constructor-arg>
-	   <bean class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator">
-	     <constructor-arg ref="ldapServer" />
-	     <constructor-arg value="GROUP_SEARCH_BASE" />
-	     <property name="groupSearchFilter" value="GROUP_SEARCH_FILTER" />
-	     <property name="rolePrefix" value="" />
-	     <property name="searchSubtree" value="true" />
-	     <property name="convertToUpperCase" value="false" />
-	   </bean>
-	  </constructor-arg>
-	 </bean> 
-	
-	 <bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/> 
-	 <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/> 
-	
-	 <security:authentication-manager alias="authenticationManager"> 
-	   <security:authentication-provider ref="rememberMeAuthenticationProvider" /> 
-	   <security:authentication-provider ref="ldapProvider" />
-	   <security:authentication-provider ref="jcrAuthenticationProvider"/> 
-	 </security:authentication-manager>
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd "&gt;
+ &lt;bean id="ldapServer" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource"&gt;
+   &lt;constructor-arg value="LDAP_SERVER_URL" /&gt;
+	 &lt;property name="userDn" value="MANAGER_DN" /&gt;
+	 &lt;property name="password" value="MANAGER_PASSWORD" /&gt;
+	 &lt;property name="baseEnvironmentProperties"&gt;
+	   &lt;map&gt;
+		 &lt;entry key="java.naming.referral"&gt;
+		   &lt;value&gt;ignore&lt;/value&gt;
+		 &lt;/entry&gt;
+	   &lt;/map&gt;
+	 &lt;/property&gt;
+ &lt;/bean&gt; 
 
-     <bean id="unanimousBased" class="org.springframework.security.access.vote.UnanimousBased">
-       <constructor-arg>
-         <list>
-           <bean class="org.springframework.security.access.vote.AuthenticatedVoter"/>
-           <bean class="com.xebialabs.deployit.security.LoginPermissionVoter"/>
-         </list>
-       </constructor-arg>
-     </bean>
+ &lt;bean id="ldapProvider" class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider"&gt; 
+  &lt;constructor-arg&gt; 
+   &lt;bean class="org.springframework.security.ldap.authentication.BindAuthenticator"&gt;
+	 &lt;constructor-arg ref="ldapServer" /&gt;
+	 &lt;property name="userSearch"&gt;
+		&lt;bean id="userSearch" class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch"&gt;
+		  &lt;constructor-arg index="0" value="USER_SEARCH_BASE" /&gt;
+		  &lt;constructor-arg index="1" value="USER_SEARCH_FILTER" /&gt;
+		  &lt;constructor-arg index="2" ref="ldapServer" /&gt;
+		&lt;/bean&gt;
+	 &lt;/property&gt;
+   &lt;/bean&gt;
+  &lt;/constructor-arg&gt; 
+  &lt;constructor-arg&gt;
+   &lt;bean class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator"&gt;
+	 &lt;constructor-arg ref="ldapServer" /&gt;
+<mark>	 &lt;constructor-arg value="GROUP_SEARCH_BASE" /&gt;
+	 &lt;property name="groupSearchFilter" value="GROUP_SEARCH_FILTER" /&gt;</mark>
+	 &lt;property name="rolePrefix" value="" /&gt;
+	 &lt;property name="searchSubtree" value="true" /&gt;
+	 &lt;property name="convertToUpperCase" value="false" /&gt;
+   &lt;/bean&gt;
+  &lt;/constructor-arg&gt;
+ &lt;/bean&gt; 
 
-     <bean id="basicAuthenticationFilter" class="com.xebialabs.deployit.security.authentication.BasicAuthWithRememberMeFilter">
-       <constructor-arg ref="authenticationManager"/>
-       <constructor-arg ref="basicAuthenticationEntryPoint"/>
-     </bean>
+ &lt;bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/&gt; 
+ &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/&gt; 
 
-     <bean id="basicAuthenticationEntryPoint"
-       class="com.xebialabs.deployit.security.authentication.BasicAuthenticationEntryPoint"
-       p:realmName="Deployit"/>
+ &lt;security:authentication-manager alias="authenticationManager"&gt; 
+   &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt; 
+   &lt;security:authentication-provider ref="ldapProvider" /&gt;
+   &lt;security:authentication-provider ref="jcrAuthenticationProvider"/&gt; 
+ &lt;/security:authentication-manager&gt;
 
-     <security:http security="none" pattern="/deployit/internal/download/**" create-session="never"/>
-     <security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/>
+ &lt;bean id="unanimousBased" class="org.springframework.security.access.vote.UnanimousBased"&gt;
+   &lt;constructor-arg&gt;
+	 &lt;list&gt;
+	   &lt;bean class="org.springframework.security.access.vote.AuthenticatedVoter"/&gt;
+	   &lt;bean class="com.xebialabs.deployit.security.LoginPermissionVoter"/&gt;
+	 &lt;/list&gt;
+   &lt;/constructor-arg&gt;
+ &lt;/bean&gt;
 
-     <security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never">
-       <!-- The download url has no security access set -->
-       <security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/>
-       <security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/>
-       <security:custom-filter position="BASIC_AUTH_FILTER" ref="basicAuthenticationFilter"/>
-       <security:session-management session-fixation-protection="none"/>
-     </security:http>
+ &lt;bean id="basicAuthenticationFilter" class="com.xebialabs.deployit.security.authentication.BasicAuthWithRememberMeFilter"&gt;
+   &lt;constructor-arg ref="authenticationManager"/&gt;
+   &lt;constructor-arg ref="basicAuthenticationEntryPoint"/&gt;
+ &lt;/bean&gt;
 
-	</beans>
+ &lt;bean id="basicAuthenticationEntryPoint"
+   class="com.xebialabs.deployit.security.authentication.BasicAuthenticationEntryPoint"
+   p:realmName="Deployit"/&gt;
+
+ &lt;security:http security="none" pattern="/deployit/internal/download/**" create-session="never"/&gt;
+ &lt;security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/&gt;
+
+ &lt;security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never"&gt;
+   &lt;!-- The download url has no security access set --&gt;
+   &lt;security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/&gt;
+   &lt;security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/&gt;
+   &lt;security:custom-filter position="BASIC_AUTH_FILTER" ref="basicAuthenticationFilter"/&gt;
+   &lt;security:session-management session-fixation-protection="none"/&gt;
+ &lt;/security:http&gt;
+
+&lt;/beans&gt;
+</pre>
 
 Restart XL Deploy. Ensure that the server starts without any exceptions.
 
