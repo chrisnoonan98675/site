@@ -82,7 +82,6 @@
 /xl-deploy/how-to/configure-the-satellite-module-in-xl-deploy.html : /xl-deploy/how-to/configure-xl-deploy-to-communicate-with-satellites.html
 /xl-deploy/concept/licensing-in-xl-deploy.html : /xl-deploy/concept/xl-deploy-licensing.html
 /xl-deploy/how-to/perform-a-deployment-using-the-xl-deploy-cli.html : /xl-deploy/how-to/deploy-an-application-using-the-cli.html
-/xl-deploy/how-to/use-tags-to-control-deployments.html : /xl-deploy/concept/using-tags-to-configure-deployments.html
 
 ##### PRODUCTS THAT HAVE BEEN RENAMED
 
@@ -137,7 +136,7 @@
 /generated/xl-release/4.0.x/index.html : /xl-release/4.0.x/index.html
 /generated/xl-release/3.0.x/index.html : /xl-release/3.0.x/index.html
 
-##### "LATEST" LINKS
+##### "LATEST" LINKS, XL DEPLOY
 
 # XL Deploy product doc, new format
 /xl-deploy/latest/index.html : /xl-deploy/5.0.x/index.html
@@ -263,35 +262,37 @@
 /releases/latest/xl-scale-ec2-plugin/ec2PluginManual.html : /xl-scale/4.0.x/xl-scale-ec2-plugin/ec2PluginManual.html
 /releases/latest/xl-scale-vsphere-plugin/vspherePluginManual.html : /xl-scale/4.0.x/xl-scale-vsphere-plugin/vspherePluginManual.html
 
+##### "LATEST" LINKS, XL RELEASE
+
 # XL Release product doc, new format
-/xl-release/latest/index.html : /xl-release/4.6.x/index.html
-/xl-release/latest/upgrademanual.html : /xl-release/4.6.x/upgrademanual.html
-/xl-release/latest/release_notes.html : /xl-release/4.6.x/release_notes.html
-/xl-release/latest/systemadminmanual.html : /xl-release/4.6.x/systemadminmanual.html
-/xl-release/latest/reference_manual.html : /xl-release/4.6.x/reference_manual.html
-/xl-release/latest/plugin_manual.html : /xl-release/4.6.x/plugin_manual.html
-/xl-release/latest/markdownsyntax.html : /xl-release/4.6.x/markdownsyntax.html
-/xl-release/latest/rest-api/index.html : /xl-release/4.6.x/rest-api/
+/xl-release/latest/index.html : /xl-release/4.7.x/index.html
+/xl-release/latest/upgrademanual.html : /xl-release/4.7.x/upgrademanual.html
+/xl-release/latest/release_notes.html : /xl-release/4.7.x/release_notes.html
+/xl-release/latest/systemadminmanual.html : /xl-release/4.7.x/systemadminmanual.html
+/xl-release/latest/reference_manual.html : /xl-release/4.7.x/reference_manual.html
+/xl-release/latest/plugin_manual.html : /xl-release/4.7.x/plugin_manual.html
+/xl-release/latest/markdownsyntax.html : /xl-release/4.7.x/markdownsyntax.html
+/xl-release/latest/rest-api/index.html : /xl-release/4.7.x/rest-api/
 
 # XL Release product doc, legacy format
-/releases/latest/xl-release/upgrademanual.html : /xl-release/4.6.x/upgrademanual.html
-/releases/latest/xl-release/release_notes.html : /xl-release/4.6.x/release_notes.html
-/releases/latest/xl-release/systemadminmanual.html : /xl-release/4.6.x/systemadminmanual.html
-/releases/latest/xl-release/reference_manual.html : /xl-release/4.6.x/reference_manual.html
-/releases/latest/xl-release/plugin_manual.html : /xl-release/4.6.x/plugin_manual.html
-/releases/latest/xl-release/markdownsyntax.html : /xl-release/4.6.x/markdownsyntax.html
-/releases/latest/xl-release/rest-api/index.html : /xl-release/4.6.x/rest-api/
+/releases/latest/xl-release/upgrademanual.html : /xl-release/4.7.x/upgrademanual.html
+/releases/latest/xl-release/release_notes.html : /xl-release/4.7.x/release_notes.html
+/releases/latest/xl-release/systemadminmanual.html : /xl-release/4.7.x/systemadminmanual.html
+/releases/latest/xl-release/reference_manual.html : /xl-release/4.7.x/reference_manual.html
+/releases/latest/xl-release/plugin_manual.html : /xl-release/4.7.x/plugin_manual.html
+/releases/latest/xl-release/markdownsyntax.html : /xl-release/4.7.x/markdownsyntax.html
+/releases/latest/xl-release/rest-api/index.html : /xl-release/4.7.x/rest-api/
 
 # XL Release plugin doc, new format
-/xl-release/latest/remoteScriptPluginManual.html : /xl-release/4.6.x/xlr-remotescript-plugin/remoteScriptPluginManual.html
-/xl-release/latest/jiraPluginManual.html : /xl-release/4.6.x/xlr-jira-plugin/jiraPluginManual.html
-/xl-release/latest/gitPluginManual.html : /xl-release/4.6.x/xlr-git-plugin/gitPluginManual.html
-/xl-release/latest/nexusPluginManual.html : /xl-release/4.6.x/xlr-nexus-plugin/nexusPluginManual.html
-/xl-release/latest/timePluginManual.html : /xl-release/4.6.x/xlr-time-plugin/timePluginManual.html
+/xl-release/latest/remoteScriptPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-remote-script-plugin.html
+/xl-release/latest/jiraPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-jira-plugin.html
+/xl-release/latest/gitPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-git-trigger-plugin.html
+/xl-release/latest/nexusPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-nexus-trigger-plugin.html
+/xl-release/latest/timePluginManual.html : /xl-release/concept/introduction-to-the-xl-release-time-trigger-plugin.html
 
 # XL Release plugin doc, legacy format
-/releases/latest/xlr-remotescript-plugin/remoteScriptPluginManual.html : /xl-release/4.6.x/xlr-remotescript-plugin/remoteScriptPluginManual.html
-/releases/latest/xlr-jira-plugin/jiraPluginManual.html : /xl-release/4.6.x/xlr-jira-plugin/jiraPluginManual.html
-/releases/latest/xlr-git-plugin/gitPluginManual.html : /xl-release/4.6.x/xlr-git-plugin/gitPluginManual.html
-/releases/latest/xlr-nexus-plugin/nexusPluginManual.html : /xl-release/4.6.x/xlr-nexus-plugin/nexusPluginManual.html
-/releases/latest/xlr-time-plugin/timePluginManual.html : /xl-release/4.6.x/xlr-time-plugin/timePluginManual.html
+/releases/latest/xlr-remotescript-plugin/remoteScriptPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-remote-script-plugin.html
+/releases/latest/xlr-jira-plugin/jiraPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-jira-plugin.html
+/releases/latest/xlr-git-plugin/gitPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-git-trigger-plugin.html
+/releases/latest/xlr-nexus-plugin/nexusPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-nexus-trigger-plugin.html
+/releases/latest/xlr-time-plugin/timePluginManual.html : /xl-release/concept/introduction-to-the-xl-release-time-trigger-plugin.html
