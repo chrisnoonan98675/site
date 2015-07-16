@@ -7,9 +7,8 @@ subject:
 - System administration
 tags:
 - system administration
-- installation
-- ldap
-- authentication
+- testtool
+- extension
 ---
 
 XL TestView supports a number of test tools out of the box, but there are many other tools available. Some are commercial, self build or proprietary. To support all these tools, it is possible to write custom test tools.
@@ -27,10 +26,20 @@ The following steps are required for a new test tool:
 2. Write the implementation
 3. Add an entry to a synthetic.xml file.
 
+The easiest way to build a test tool is to copy and expand an existing test tool. The following table can help you select a good starting point:
+
+|Script|Tool|Type|Input format|
+|------|----|----|------------|
+|cucumber.py|Cucumber|Functional|json|
+|gatling.py|Gatling|Performance|csv & json|
+|jmeter_csv.py|JMeter|Performance|csv|
+|jmeter_xml.py|JMeter|Performance|xml|
+|junit.py|JUnit|Functional|xml|
+
 ## Writing a functional test tool
 This is the interface that needs to be implemented:
 
-    public interface TestToolApi<T> extends UberTestTool {
+    public interface FunctionalTestTool<T> extends TestTool {
     
         /**
          * Filters blob list of files in list which contains fails who are *all* interpretable for the test tool
@@ -110,39 +119,87 @@ This is the interface that needs to be implemented:
         Map<String, Object> getOtherProperties(T testCase, final T subject, OverthereFile file, Map<String, Object> eventMap);
     }
 
-## Configure unsecure LDAP
+This is a template of the python file that needs to be implemented:
 
-To configure LDAP, update the following properties in the `xl-testview.conf` file:
+    from com.xebialabs.xltest.domain import TestToolCategory
+    from com.xebialabs.xltest.domain import FunctionalTestTool
+    from com.xebialabs.xltest.domain import TestToolUtils
+    
+    class CustomTestTool(FunctionalTestTool):
+    
+        def filterReadable(self, blob):
+            pass
+    
+        def splitIntoSubjects(self, file):
+            pass
+    
+        def splitIntoCases(self, subject):
+            pass
+    
+        def getDuration(self, testCase, eventMap):
+            pass
+    
+        def getResult(self, testCase, eventMap):
+            pass
+    
+        def failureReason(self, testCase, eventMap):
+            pass
+    
+        def getSuite(self, testCase, subject, file, eventMap):
+            pass
+    
+        def getOtherProperties(self, testCase, subject, file, eventMap):
+            pass
+    
+        def getCategory(self):
+            pass
+    
+        def getLastModified(self, file):
+            pass
+    
+    
+    resultHolder.result = CustomTestTool()
+    
+You also need an addition to the synthetic.xml:
 
-{:.table .table-striped}
-| Property | Description |
-| -------- | ----------- |
-| `xlt.authentication.method` | Set to `ldap` |
-| `xlt.authentication.ldap.url` | Set to the complete URL of your LDAP server including the port number; for example, `ldap://server.domain:389` |
-| `xlt.authentication.ldap.user-dn` | Set to a distinguished name template that identifies users; for example, `cn={0},ou=people,dc=xebialabs,dc=com`, where `{0}` will be replaced by the user name |
+    <type type="" extends="xlt.FunctionalTestToolFactory">
+        <property name="testToolName" default=""/>
+        <property name="category" default="functional"/>
+        <property name="defaultSearchPattern" default=""/>
+        <property name="scriptLocation" default=""/>
+    </type>
 
-**Note:** Identifying users by properties other than the user name is not currently supported.
+In the system only this type definition is used, no instances are created. Set the following values:
 
-After saving the `xl-testview.conf` file, [restart XL TestView](/xl-testview/how-to/start.html) and log in.
+* type - A unique typename for this test Tool
+* testToolName - A unique, user friendly name for this test tool
+* category - `functional` or `performance`
+* defaultSearchPattern - A Ant style pattern to select relevant test result files. For example: `**/test-results/TEST*.xml` selects all files starting with `TEST` and ending with `.xml` that are in a directory `test-results`, which can be at any depth in the file tree.
+* scriptLocation - The name of the script.
 
-## Configure secure LDAP
+For more information about the type system, please look at <link>
+##Writing a performanceTestTool
+...
 
-If your LDAP configuration uses a certificate signed by a certificate authority or a certificate that is trusted in the global Java truststore, you should be able to connect by setting the secure URL (for example, `ldaps://server.domain:636`) in `xlt.authentication.ldap.url`.
+## Writing a GreatPowerTestTool
+The GreatPowerTestTool gives complete control over the events produced. It is done by implementing this interface:
 
-If you use a self-signed certificate and you cannot add it to the global truststore, you need to configure a local keystore. You can do so using the [`keytool`](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html) utility (part of the Java JDK distribution).
+    /**
+     * This is the most generic test tool, where *all* responsibility is delegated to the tool. (old style)
+     */
+    public interface GreatPowerTestTool extends TestTool {
+    
+        List<Event> generateEventsFromFiles(UUID testRunId, List<OverthereFile> blob) throws ImportException;
+    
+    }
 
-**Note:** Ensure you complete the registration process before you configure LDAP. Registration will not work afterward.
+There are hardly any restrictions on the list of events produced. The test tool is responsible to generate sensible events.
 
-To configure a local keystore:
+    <type type="" extends="xlt.GreatPowerTestToolFactory">
+        <property name="testToolName" default=""/>
+        <property name="category" default=""/>
+        <property name="defaultSearchPattern" default=""/>
+        <property name="scriptLocation" default=""/>
+    </type>
 
-1. Export the certificate of your LDAP server. Please consult the documentation of your LDAP server for instructions.
-2. Go to the `conf` directory of your installation. Another location is also allowed.
-3. Create a new truststore using the following command:
-
-        keytool -import  -alias ldap.example.com -file ldapCertificate.crt -keystore truststore.jks
-
-4. Type a keystore password twice.
-5. Confirm you trust this account.
-6. In the configuration file, set `xlt.truststore.location` to the absolute file location of the truststore you just created.
-7. Set `xlt.truststore.password` to the password.
-8. After saving the file, [restart XL TestView](/xl-testview/how-to/start.html) and log in.
+The synthetic is identical to the synthetic entries of the functional and performance test tools, except for the category. It should be set to `functional` or `performance`. 
