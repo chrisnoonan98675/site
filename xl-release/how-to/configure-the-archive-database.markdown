@@ -14,12 +14,11 @@ since:
 - 4.7.0
 ---
 
-Since XL Release 4.7.0, completed releases are exported to the internal archive database, which is used to generate reports. By default XL Release uses Apache Derby with data stored at `XLRELEASE_HOME/archive/db`.
+Since XL Release 4.7.0, completed releases are exported to the internal archive database, which is used to generate reports. By default, XL Release uses Apache Derby, with data stored at `XLRELEASE_HOME/archive/db`.
 
+## Change the location of the Apache Derby database
 
-## Changing location of Apache Derby database.
-
-This can be done by changing configuration at `XLRELEASE_HOME/conf/xl-release.conf`. Create the file if it doesn't exist. For example:
+Youcan move the Apache Derby database by changing the configuration in `XLRELEASE_HOME/conf/xl-release.conf` (if this file does not yet exist, create it). For example:
 
     xl {
       reporting {
@@ -27,36 +26,32 @@ This can be done by changing configuration at `XLRELEASE_HOME/conf/xl-release.co
       }
     }
 
-If you already have the archive database, then you must move it to the new location while XL Release is not running.
+If you are already using the archive database, you must move it to the new location while XL Release is not running.
 
-## Configuring archive database with DBMS of different vendor
+## Change the archive database DBMS
 
-It is possible to use the following products as archive database:
+You can use the following products as archive database:
 
-* Apache Derby (ebmedded);
-* H2 (embedded);
-* Oracle 11;
-* MySQL 4.6.
+* Apache Derby (ebmedded)
+* H2 (embedded)
+* Oracle 11
+* MySQL 4.6
 
-The following configuration changes need to be made before initializing XL Release repository:
+To change the DBMS, do the following before initializing the XL Release repository:
 
-### Change xl-release.conf
+1. Ensure that `XLRELEASE_HOME/conf/xl-release.conf` exists and contains the appropriate configuration. For example:
 
-In order to do so you have to make sure `XLRELEASE_HOME/conf/xl-release.conf` exists and contains appropriate configuration snippet. For instance:
+        xl {
+          reporting {
+            db-driver-classname = "com.mysql.jdbc.Driver"
+            db-url = "jdbc:mysql://mysql-host.db:3306/archive"
+            db-username = "xlrelease"
+            db-password = "s3cr3t"
+          }
+        }
 
-    xl {
-      reporting {
-        db-driver-classname = "com.mysql.jdbc.Driver"
-        db-url = "jdbc:mysql://mysql-host.db:3306/archive"
-        db-username = "xlrelease"
-        db-password = "s3cr3t"
-      }
-    }
-
-### Make sure JDBC driver is available
-
-Drivers of embedded databases (H2 and Apache Derby) are provided with XL Release. Usage of MySQL of Oracle requires appropriate JDBC driver to be added into `XLRELEASE_HOME/plugins`. Such driver can be downloaded from website of the vendor.
+2. Ensure that the JDBC driver is available. Drivers of embedded databases (H2 and Apache Derby) are provided with XL Release. Usage of MySQL of Oracle requires appropriate JDBC driver to be added to `XLRELEASE_HOME/plugins`. You can obtain the driver from the website of the vendor.
 
 ## Known limitations
 
-Reporting database needs to be configured before setting up the repository (i.e. starting XL Release server first time). Once the schema and data is present in some database, XL Release doesn't support automation migration into different location/vendor.
+You must configure the archive database before setting up the repository; that is, before starting XL Release for the first time. XL Release does not support automatic migration to a different location or vendor after the schema and data are present in the database.
