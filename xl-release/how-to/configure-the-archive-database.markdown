@@ -18,7 +18,7 @@ Since XL Release 4.7.0, completed releases are exported to the internal archive 
 
 ## Change the location of the Apache Derby database
 
-Youcan move the Apache Derby database by changing the configuration in `XLRELEASE_HOME/conf/xl-release.conf` (if this file does not yet exist, create it). For example:
+You can move the Apache Derby database by changing the configuration in `XLRELEASE_HOME/conf/xl-release.conf` (if this file does not yet exist, create it). For example:
 
     xl {
       reporting {
