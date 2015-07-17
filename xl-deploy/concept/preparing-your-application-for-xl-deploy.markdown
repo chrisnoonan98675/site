@@ -138,7 +138,7 @@ For Windows environments, there is a Manifest Editor that can help you create an
 
 XL Deploy includes plugins that enable you to automatically build packages as part of your delivery pipeline. Some of the plugins that are available are:
 
-* [Maven](/xl-deploy/latest/maven-plugin/index.html)
+* [Maven](/xl-deploy/latest/xldeploy-maven-plugin/index.html)
 * [Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
 * [Bamboo](/xl-deploy/latest/bamboo-plugin/index.html)
 * [Team Foundation Server (TFS)](/xl-deploy/latest/tfs-plugin/index.html)
