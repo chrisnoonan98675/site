@@ -166,7 +166,7 @@ For example, this is a possible implementation of the `jira.CreateIssue` task in
             response.errorDump()
             sys.exit(1)
 
-Note that in contrary to [Script tasks](/xl-release/how-to/create-a-script-task.html), Jython scripts of custom task types are not run in a sandboxed environment and do not have any restrictions. So you do not have to update the `script.policy` file of your XL Release installation if you need additional access such as to filesystem or network from your custom task type.
+Note that since XL Release 4.7.0, in contrary to [Script tasks](/xl-release/how-to/create-a-script-task.html), Jython scripts of custom task types are not run in a sandboxed environment and do not have any restrictions. So you do not have to update the `script.policy` file of your XL Release installation if you need additional access such as to filesystem or network from your custom task type. You still need to do this for versions prior to 4.7.0.
 
 #### HttpRequest
 
