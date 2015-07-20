@@ -28,4 +28,4 @@ To create an environment where you can deploy an application:
 
 4. Click **Save**. XL Deploy saves the environment in the Repository.
 
-**Tip:** To see a sample environment being created, watch the *[Defining environments](http://vimeo.com/97815292)* video.
+**Tip:** To see a sample environment being created, watch the *[Defining environments](https://www.youtube.com/watch?v=LU4NLPcCwlQ&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=3)* video.
