@@ -10,7 +10,7 @@ tags:
 - jenkins
 ---
 
-## Using the XL Deploy Jenkins plugin
+## The XL Deploy Jenkins plugin
 
 To enable continuous integration, XL Deploy can be integrated with the Jenkins CI server. The XL Deploy Jenkins plugin enables you to integrate Maven and XL Deploy. Specifically, the plugin supports:
 
