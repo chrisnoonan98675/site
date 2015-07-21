@@ -79,4 +79,4 @@ In addition to setting tags in the XL Deploy Repository, you can assign them to 
         </deployables>
     </udm.DeploymentPackage>
 
-For an example of tagged deployables in a Maven POM file, refer to the [Maven documentation](http://tech.xebialabs.com/deployit-maven-plugin/4.5.2/examples/tags.html).
+For an example of tagged deployables in a Maven POM file, refer to the [Maven documentation](/xl-deploy/latest/maven-plugin/index.html).

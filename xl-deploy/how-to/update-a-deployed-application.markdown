@@ -16,7 +16,7 @@ When updating a deployed application, XL Deploy identifies the configuration ite
 
 When you want to update a deployed application, the process is the same whether you’re upgrading to a new version or downgrading to a previous version.
 
-**Tip:** Watch the *Performing an update* video [here](http://vimeo.com/99837505) and the *Reverting to a previous version* video [here](http://vimeo.com/100130875).
+**Tip:** Watch the *Performing an update* video [here](https://www.youtube.com/watch?v=S8HuaxCJA00&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=6) and the *Reverting to a previous version* video [here](https://www.youtube.com/watch?v=zfmu75XocCg&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=7).
 
 To update a deployed application:
 
@@ -42,4 +42,4 @@ If a step in the update fails, XL Deploy stops executing the update and marks th
 * To remove a deployable from all containers where it is mapped, select it in the left side of the Workspace and click ![Remove deployed from all containers](/images/remove_deployed.png).
 * To remove one mapped deployable from a container, select it in the right side of the Workspace and click ![Remove deployed](/images/button_remove_deployed.png).
 
-For information about skipping steps or stopping an update, refer to [link](/xl-deploy/how-to/perform-an-initial-deployment.html).
+For information about skipping steps or stopping an update, refer to [Deploy an application](/xl-deploy/how-to/deploy-an-application.html).

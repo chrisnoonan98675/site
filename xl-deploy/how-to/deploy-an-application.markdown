@@ -14,7 +14,7 @@ since:
 
 After you have [defined your infrastructure](connect-xl-deploy-to-your-infrastructure.html), [defined an environment](create-an-environment-in-xl-deploy.html), and added an application to XL Deploy, you can perform the initial deployment of an application to an environment.
 
-**Tip:** Watch the *Performing an initial deployment* video [here](http://vimeo.com/97815293).
+**Tip:** Watch the *Performing an initial deployment* video [here](https://www.youtube.com/watch?v=pw17C9j60xY&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=4).
 
 To deploy an application to an environment:
 
