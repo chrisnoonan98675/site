@@ -7,7 +7,7 @@ subject:
 tags:
 - package
 - application
-- Jenkins
+- jenkins
 ---
 
 ## Using the XL Deploy Jenkins plugin
