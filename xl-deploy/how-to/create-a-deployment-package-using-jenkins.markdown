@@ -27,7 +27,7 @@ Navigate to Manage Jenkins > Configure System
 
 You will now see an additional section for XL Deploy.  Simply fill in the details about your XL Deploy server and Test your connection
 
-<<JENKINS IMAGE>>Jenkins-SetXLDServer.png
+![image](images/jenkins-set-xld-server.png)
 
 ## Using the Jenkins plugin
 
