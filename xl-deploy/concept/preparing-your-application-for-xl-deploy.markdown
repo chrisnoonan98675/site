@@ -53,7 +53,7 @@ The plugins that are included in your XL Deploy installation determine the CI ty
 Before you create a deployment package, you should explore the CI types that are available. To do so in the XL Deploy interface, first import a sample deployment package:
 
 1. Go to **Deployment**.
-2. Click ![image](/images/button_import_package.png). The Import New Package tab appears.
+2. Click ![image](/images/button_add_package_deployment_workspace.png). The Import New Package tab appears.
 3. Select **Import deployment package from server**.
 4. Select the **PetClinic-ear 1.0** sample package.
 5. Click **Import**. XL Deploy imports the package.
