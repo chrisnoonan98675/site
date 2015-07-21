@@ -6,6 +6,10 @@ subject:
 - Security
 tags:
 - security
+- principals
+- permissions
+- roles
+- ldap
 - system administration
 ---
 
@@ -36,15 +40,15 @@ The following table shows the global permissions that XL Deploy supports.
 {:.table .table-striped}
 | Permission | Description |
 | ---------- | ----------- |
-| admin | This permission grants all rights within XL Deploy. |
-| discovery | The right to perform discovery of middleware. |
-| login | The right to log into the XL Deploy application. This permission does not automatically allow the user access to nodes in the repository. |
-| security#edit | The right to administer security permissions. |
-| task#assign | The right to reassign any task to someone else. |
-| task#takeover | The right to assign any task to yourself. |
-| task#preview_step | The right to inspect scripts that will be executed with steps in the deployment plan. |
-| report#view | The right to see all the reports. When granted, the UI will show the Reports tab. To be able to view the full details of an archived task, a user needs read permissions on both the environment and application. |
-| controltask#execute | The right to execute control tasks on configuration items. |
+| `admin` | This permission grants all rights within XL Deploy. |
+| `discovery` | The right to perform discovery of middleware. |
+| `login` | The right to log into the XL Deploy application. This permission does not automatically allow the user access to nodes in the repository. |
+| `security#edit` | The right to administer security permissions. |
+| `task#assign` | The right to reassign any task to someone else. |
+| `task#takeover` | The right to assign any task to yourself. |
+| `task#preview_step` | The right to inspect scripts that will be executed with steps in the deployment plan. |
+| `report#view` | The right to see all the reports. When granted, the UI will show the Reports tab. To be able to view the full details of an archived task, a user needs read permissions on both the environment and application. |
+| `controltask#execute` | The right to execute control tasks on configuration items. |
 
 ### Local permissions
 
@@ -53,16 +57,16 @@ The following table shows the local permissions that XL Deploy supports.
 {:.table .table-striped}
 | Permission | Description |
 | ---------- | ----------- |
-| deploy#initial | The right to perform an initial deployment of a package to an environment. Applies only for the Environment CIs within the containing directory. |
-| deploy#undeploy | The right to undeploy an application. Applies only for the environment CIs within the containing directory. |
-| deploy#upgrade | The right to perform an upgrade of a deployment on an environment. Note that this does not allow deploying items from the package to new targets. Applies only for the environment CIs within the containing directory. |
-| import#initial | The right to import a package for which the application does not yet exist in the repository and for which a new application will be created. |
-| import#remove | The right to remove an application or package. Applies only for application and deployment package CIs within the containing directory. |
-| import#upgrade | The right to import a package for which the application already exists in the repository. Applies only for application CIs within the containing directory. |
-| read | The right to see CIs in the repository. |
-| repo#edit | The right to edit (create and modify) CIs in the repository. The user must also have read access to CIs to be able to edit them. Applies only for the CIs within the containing directory. |
-| task#assign | The right to transfer a task to another user. |
-| task#skip_step | The right to skip steps in the generated step list before starting a deployment. Applies only for deployments executed on environment CIs in the containing directory. |
+| `deploy#initial` | The right to perform an initial deployment of a package to an environment. Applies only for the Environment CIs within the containing directory. |
+| `deploy#undeploy` | The right to undeploy an application. Applies only for the environment CIs within the containing directory. |
+| `deploy#upgrade` | The right to perform an upgrade of a deployment on an environment. Note that this does not allow deploying items from the package to new targets. Applies only for the environment CIs within the containing directory. |
+| `import#initial` | The right to import a package for which the application does not yet exist in the repository and for which a new application will be created. |
+| `import#remove` | The right to remove an application or package. Applies only for application and deployment package CIs within the containing directory. |
+| `import#upgrade` | The right to import a package for which the application already exists in the repository. Applies only for application CIs within the containing directory. |
+| `read` | The right to see CIs in the repository. |
+| `repo#edit` | The right to edit (create and modify) CIs in the repository. The user must also have read access to CIs to be able to edit them. Applies only for the CIs within the containing directory. |
+| `task#assign` | The right to transfer a task to another user. |
+| `task#skip_step` | The right to skip steps in the generated step list before starting a deployment. Applies only for deployments executed on environment CIs in the containing directory. |
 
 ## Granting and revoking
 
