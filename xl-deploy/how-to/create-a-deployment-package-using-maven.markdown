@@ -18,7 +18,7 @@ To enable continuous deployment, XL Deploy can be integrated with the Maven buil
 * Performing a deployment to a target environment
 * Undeploying a previously deployed application
 
-For more information, see [the XL Deploy maven plugin documentation](http://tech.xebialabs.com/deployit-maven-plugin).
+For more information, see [the XL Deploy maven plugin documentation](/xl-deploy/latest/maven-plugin/index.html).
 
 ## Using the Maven `jar` plugin
 
