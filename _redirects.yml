@@ -83,6 +83,7 @@
 /xl-deploy/concept/licensing-in-xl-deploy.html : /xl-deploy/concept/xl-deploy-licensing.html
 /xl-deploy/how-to/perform-a-deployment-using-the-xl-deploy-cli.html : /xl-deploy/how-to/deploy-an-application-using-the-cli.html
 /xl-release/how-to/migrate-to-xl-release-4.7.0.html : /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470
+/xl-deploy/concept/using-tags-to-configure-deployments.html : /xl-deploy/how-to/use-tags-to-configure-deployments.html
 
 ##### PRODUCTS THAT HAVE BEEN RENAMED
 
