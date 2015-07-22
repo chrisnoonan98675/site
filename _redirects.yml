@@ -62,7 +62,7 @@
 /xl-test/help/0012.html : /xl-deploy/how-to/choose-an-overthere-host-type-and-connection-type.html
 /xl-test/help/0013.html : /xl-testview/how-to/using-dashboards.html
 
-##### TOPICS THAT HAVE BEEN RENAMED OR MOVED
+##### TOPICS THAT HAVE BEEN RENAMED, MOVED, OR MERGED
 
 /xl-deploy/how-to/perform-an-update.html : /xl-deploy/how-to/update-a-deployed-application.html
 /xl-deploy/how-to/use-xl-deploy-garbage-collection.html : /xl-deploy/how-to/reclaim-disk-space-on-an-xl-deploy-server.html
@@ -84,6 +84,7 @@
 /xl-deploy/how-to/perform-a-deployment-using-the-xl-deploy-cli.html : /xl-deploy/how-to/deploy-an-application-using-the-cli.html
 /xl-release/how-to/migrate-to-xl-release-4.7.0.html : /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470
 /xl-deploy/concept/using-tags-to-configure-deployments.html : /xl-deploy/how-to/use-tags-to-configure-deployments.html
+/xl-deploy/concept/authoring-a-new-step-primitive-for-rules.html : /xl-deploy/how-to/create-a-custom-step-for-rules.html
 
 ##### PRODUCTS THAT HAVE BEEN RENAMED
 
