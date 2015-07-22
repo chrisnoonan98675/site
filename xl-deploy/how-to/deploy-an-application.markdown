@@ -12,7 +12,7 @@ since:
 - 5.0.0
 ---
 
-After you have [defined your infrastructure](connect-xl-deploy-to-your-infrastructure.html), [defined an environment](create-an-environment-in-xl-deploy.html), and added an application to XL Deploy, you can perform the initial deployment of an application to an environment.
+After you have [defined your infrastructure](/xl-deploy/how-to/connect-xl-deploy-to-your-infrastructure.html), [defined an environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html), and added an application to XL Deploy, you can perform the initial deployment of an application to an environment.
 
 **Tip:** Watch the *Performing an initial deployment* video [here](https://www.youtube.com/watch?v=pw17C9j60xY&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=4).
 
@@ -53,13 +53,9 @@ If you have the appropriate permission in XL Deploy, you can adjust the deployme
 
 If you have the appropriate permission in XL Deploy, you can insert pause steps in the deployment plan. To do so, select the step just below the point where you want to pause, right-click, and select **Pause**.
 
-## Stop or abort an executing deployment
+## Stop, abort, or cancel an executing deployment
 
-To gracefully stop a deployment that is executing, click **Stop**. XL Deploy will wait until the currently executing step is finished and then stop the deployment.
-
-To forcefully abort a deployment that is executing, click **Abort**. XL Deploy will attempt to abort the currently executing step and mark it as `FAILED`.
-
-After stopping or aborting a deployment, you can **Continue** or **Cancel** it.
+You can stop or abort an executing deployment, then continue or cancel it. For information about doing so, refer to [Stopping, aborting, or canceling a deployment](/xl-deploy/how-to/stop-abort-or-cancel-a-deployment.html).
 
 ## Continue after a failed step
 
