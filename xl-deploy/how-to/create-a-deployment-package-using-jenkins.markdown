@@ -45,6 +45,8 @@ For artifacts, the **Location** field indicates where the artifact resides. For 
 
 You can add additional properties that are required for each artifact or resource.
 
+**Tip:** For properties of type `MAP_STRING_STRING`, enter a single property value in the format `key1=value1`. You can enter multiple values using the format `key1=value1&key2=value2`.
+
 ![image](images/jenkins-add-property.png) 
 
 To publish the package to XL Deploy, select **Deploy application**. You can can select the generated package or a package from another location (that is, from the file system or from an artifact repository). Note that the application must exist in XL Deploy before you can publish a package.
