@@ -22,7 +22,9 @@ When you log in to the [XebiaLabs Software Distribution site](https://dist.xebia
 * **V2**: Required for XL Deploy 4.5.3 and later
 * **V3**: Required for XL Deploy 5.0.0 and later
 
-To check the version of a license, open it in a text editor. The version is identified in the license file.
+You can also find this information in the `README` file located with your licenses on the Software Distribution site.
+
+To check the version of a license, open it in a text editor.
 
 For information about installing the license, refer to [Install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html#install-the-license).
 
