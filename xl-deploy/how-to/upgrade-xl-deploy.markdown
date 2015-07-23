@@ -19,32 +19,34 @@ Briefly, the process of upgrading XL Deploy is:
 1. Stop the current version of XL Deploy if it is running and ensure that there are no running tasks active.
 1. Create a new installation directory for the new version of XL Deploy (so the previous version will still be available in case of problems).
 1. Extract the new XL Deploy release into the new installation directory.
-1. Copy the data from the previous XL Deploy installation directory to the new installation directory.
+1. Copy the data from the previous XL Deploy installation directory to the new installation directory. This ensures that you have a backup of your repository.
 1. Start the new version of XL Deploy.
 
 You can find release notes and version-specific upgrade notes on the page for each version; for example, [XL Deploy 4.5.x](/xl-deploy/4.5.x/).
 
 ## Skipping versions
 
-When upgrading, you can skip XL Deploy versions when upgrading. XL Deploy will sequentially apply upgrades for the intermediate versions.
+When upgrading, you can skip XL Deploy versions. XL Deploy will sequentially apply upgrades for the intermediate versions. However, you may be required to take manual actions for the intermediate versions; you can find these in the [version-specific upgrade notes](/xl-deploy/latest/upgrademanual.html).
 
-However, you may be required to take manual actions for the intermediate versions; you can find these in the [version-specific upgrade notes](/xl-deploy/latest/upgrademanual.html).
+## Upgrading and downgrading
+
+After you upgrade to a new version of XL Deploy, you cannot downgrade to an older version.
+
+If you upgrade to a release candidate (RC), alpha, or beta version, you cannot upgrade to a newer version or downgrade to an older version.
+
+Ensure that you always create a backup of your repository before you upgrade to a new version of XL Deploy.
 
 ## Upgrading the repository
 
 If a repository upgrade is required, XL Deploy will detect that it is running against an old repository and will automatically execute an upgrade when it is first started. The server log will contain extensive logging of the repository upgrade process. Save this log for future reference.
 
-<div class="alert alert-warning" role="alert">
-    <p><strong>Note:</strong> After a component is upgraded, it cannot be downgraded to an older version.</p>
-</div>
-
 ## Upgrading plugins
 
 Plugin versions are related to the version of XL Deploy (or Deployit) that they are compatible with. For example, the WebSphere Application Server plugin version 4.0.0 requires XL Deploy 4.0.0 or later, unless otherwise specified in the [version-specific upgrade notes](/xl-deploy/latest/upgrademanual.html).
 
-The new version of XL Deploy may not be compatible with the current version of your plugins. If this is the case, you must download and install updated versions of the plugins.
+The new version of XL Deploy may not be compatible with the current version of your plugins. If this is the case, you must download and install updated versions of the plugins. Upgrading to a new plugin version may require you to take manual actions; you can find these in the [version-specific upgrade notes](/xl-deploy/latest/upgrademanual.html).
 
-Upgrading to a new plugin version may require you to take manual actions; you can find these in the [version-specific upgrade notes](/xl-deploy/latest/upgrademanual.html).
+XL Deploy will not prevent you from downgrading a plugin to an older version, but doing so is not recommended.
 
 ## Deprecations
 
