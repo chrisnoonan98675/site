@@ -20,7 +20,7 @@ The life cycle of a release is as follows:
 First, a release is created from a template and it is in **planned** state.
 Then, the release is started and it is **in progress**. While it is in progress, tasks are completed, or tasks may fail and be restarted, etc. Finally either all tasks are completed and the release is **completed**, or after one or more failures the release is **aborted**.
 
-See the [Release life cycle diagram](xl-release/concept/release-life-cycle.html) for more information.
+See the [Release life cycle diagram](/xl-release/concept/release-life-cycle.html) for more information.
 
 **Completed** and **Aborted** are final states of a release, meaning that no work can be done in the scope of this release.
 
