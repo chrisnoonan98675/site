@@ -12,13 +12,17 @@ tags:
 
 An _orchestrator_ in XL Deploy combines the _steps_ for the individual component changes into an overall deployment workflow. 
 
-If no orchestrator is selected, XL Deploy will use the default orchestrator. The default orchestrator "interleaves" all individual component changes by running all steps of a given order for all components. This results in an overall workflow that first stops all containers, then removes all old components, then adds the new ones etc.
-
 Orchestrators are also responsible for deciding which parts of the plan can be executed in parallel. To enable parallelism, you must select an orchestrator for your deployment that supports parallelism. You can identify such orchestrator by its name that has a `parallel-` prefix. The effect of parallelism for every orchestrator can vary, please see the description below for details.
 
 **Note:** For orchestrators that specify an order, the order is reversed for undeployment.
 
 For illustrated examples of the way different orchestrators work, refer to [Understanding orchestrators](/xl-deploy/concept/understanding-orchestrators.html).
+
+## Default orchestrator
+
+The default orchestrator "interleaves" all individual component changes by running all steps of a given [order](https://docs.xebialabs.com/xl-deploy/concept/steps-and-steplists-in-xl-deploy.html#steplist) for all components. This results in an overall workflow that first stops all containers, then removes all old components, then adds the new ones, and so on.
+
+![Default orchestrator](images/orchestrators-default.png "Default orchestrator")
 
 ## *By container* orchestrators
 
@@ -26,6 +30,10 @@ For illustrated examples of the way different orchestrators work, refer to [Unde
 
 * `sequential-by-container` will deploy to all containers sequentially. The order of deployment is defined by alphabetic order of the containers' names.
 * `parallel-by-container` will deploy to all containers in parallel.
+
+![Sequential by container](images/orchestrators-container.png "Sequential by container")
+
+![Parallel by container](images/orchestrators-container-p.png "Parallel by container")
 
 ## *By composite package* orchestrators
 
@@ -36,6 +44,10 @@ For illustrated examples of the way different orchestrators work, refer to [Unde
 
 **Tip:** You can use the `sequential-by-composite-package` or `parallel-by-composite-package` orchestrator with a composite package that has other composite packages nested inside. When XL Deploy creates the interleaved sub-plans, it will flatten the composite packages and maintain the order of the deployment package members.
 
+![Sequential by composite package](images/orchestrators-composite.png "Sequential by composite package")
+
+![Parallel by composite package](images/orchestrators-composite-p.png "Parallel by composite package")
+
 ## *By deployment group* orchestrators
 
 *By deployment group* orchestrators use the _deployment group_ property of a middleware *container* to group steps for all containers in the same group.
@@ -44,6 +56,12 @@ All component changes for a given container are put in the same group, and all g
 
 * `sequential-by-deployment-group` will deploy to each member of group sequentially. The order of deployment is defined by ascending order of the deployment group property. If the property is not specified, this group will be deployed first.
 * `parallel-by-deployment-group` will deploy to each member of group in parallel.
+
+![Sequential by deployment group](images/orchestrators-group.png "Sequential by deployment group")
+
+![Parallel by deployment group](images/orchestrators-group-p.png "Parallel by deployment group")
+
+### *By deployment sub-group* orchestrators
 
 The following *by deployment group* orchestrators are supported in XL Deploy 5.0.0 and later:
 
@@ -61,3 +79,23 @@ You can specify multiple orchestrators per deployment to achieve complex use cas
 * **Recursion.** In general, orchestrators create execution plans represented as trees. For example, the `parallel-by-composite-package` orchestrator creates a parallel block with interleaved blocks per each member of the composite package as its leaves. The subsequent orchestrator uses the execution plan of the preceding orchestrator and scans it for interleaved blocks. As soon as it finds one, it will apply its rules independently of each interleaved block. As a consequence, the execution tree becomes deeper.
 
 * **Two are enough.** Specifying just two orchestrators should cover almost all use cases.
+
+### Example with multiple orchestrators
+
+In this example, a composite package must be deployed to an environment that consists of many multiple containers. Also, each member of the package must only be deployed when the previous member has been deployed. To decrease the deployment time, each member has to be deployed in parallel to the containers.
+
+The solution is to use two orchestrators: `sequential-by-composite-package` and `parallel-by-container`.
+
+Let's show step by step how the orchestrators are being applied and how the execution plan changes on the way.
+
+Deploying a composite package to an environment with multiple containers will require steps that might look like this:
+
+![Steps needed for composite package](images/orchestrators-composed-1.png "Steps needed for composite package")
+
+As soon as the `sequential-by-composite-package` orchestrator is applied to that list the execution plan will look like this:
+
+![Sequential by composite package](images/orchestrators-composed-2.png "Sequential by composite package")
+
+As a final stage of orchestration, the `parallel-by-container` orchestrator is applied to all interleaved blocks separately and the final result will be like this:
+
+![Parallel by composite package](images/orchestrators-composed-3.png "Parallel by composite package")
