@@ -16,6 +16,8 @@ An _orchestrator_ in XL Deploy combines the _steps_ for the individual component
 
 You can use more than one orchestrator in a deployment. For more information, refer to [Combining multiple orchestrators](/xl-deploy/concept/combining-multiple-orchestrators.html).
 
+For examples of deployment plans using different orchestrators, refer to [Examples of orchestrators in XL Deploy](/xl-deploy/concept/examples-of-orchestrators-in-xl-deploy.html#by-deployment-group-orchestrators).
+
 ## Default orchestrator
 
 The default orchestrator "interleaves" all individual component changes by running all steps of a given [order](https://docs.xebialabs.com/xl-deploy/concept/steps-and-steplists-in-xl-deploy.html#steplist) for all components. This results in an overall workflow that first stops all containers, then removes all old components, then adds the new ones, and so on.
