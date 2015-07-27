@@ -48,7 +48,7 @@ The default orchestrator "interleaves" all individual component changes by runni
 
 ## *By deployment group* orchestrators
 
-*By deployment group* orchestrators use the _deployment group_ property of a middleware *container* to group steps for all containers in the same group.
+*By deployment group* orchestrators use the **deployment group** property of a middleware container to group steps for all containers that are assigned the same deployment group.
 
 All component changes for a given container are put in the same group, and all groups are combined into a single (sequential or parallel) deployment workflow. This allows fine-grained control over which containers are deployed to together.
 
@@ -61,9 +61,9 @@ All component changes for a given container are put in the same group, and all g
 
 ### *By deployment sub-group* orchestrators
 
-The following *by deployment group* orchestrators are supported in XL Deploy 5.0.0 and later:
+In XL Deploy 5.0.0 and later, you can further organize deployment to middleware containers using the **deployment sub-group** and **deployment sub-sub-group** properties.
 
-* `sequential-by-deployment-sub-group` will enforce a sequential deployment order based on the container's *deployment sub-group* property.
-* `parallel-by-deployment-sub-group` will enforce a parallel deployment order based on the container's *deployment sub-group* property.
-* `sequential-by-deployment-sub-sub-group` will enforce a sequential deployment order based on the container's *deployment sub-sub-group* property.
-* `parallel-by-deployment-sub-sub-group` will enforce a parallel deployment order based on the container's *deployment sub-sub-group* property.
+* `sequential-by-deployment-sub-group` will deploy to each member of a sub-group sequentially.
+* `parallel-by-deployment-sub-group` will deploy to each member of a sub-group in parallel.
+* `sequential-by-deployment-sub-sub-group` will deploy to each member of a sub-sub-group sequentially.
+* `parallel-by-deployment-sub-sub-group` will deploy to each member of a sub-sub-group in parallel.
