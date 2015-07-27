@@ -74,10 +74,10 @@ To create the sample pipeline:
 
 ### Step 3 Create XL Deploy custom action
 
-By default XL Deploy is not shown as one of the deployment provider so you need to manually create XL Deploy action. To do that you will need AWS command-line client installed on your machine. To create the action, execute the following command on your machine.
+By default XL Deploy is not shown as a deployment provider in the CodePipeline console so you need to manually create XL Deploy action. To do that you will need AWS command-line client installed on your machine. To create the action, execute the following command on your machine. Please follow the [documentation](http://aws.amazon.com/cli/) to install AWS CLI on your machine.
 
 ```
-$ aws codepipeline create-custom-action-type --cli-input-json http://git.io/vmY38
+$ aws codepipeline create-custom-action-type --cli-input-json http://git.io/vYwwV
 ```
 
 ### Step 4 Add XL Deploy as the deployment provider
@@ -99,7 +99,7 @@ After the pipeline is created, you will be redirected to the *petclinic-pipeline
 
     ![Select XL Deploy deployment provider](images/codepipeline/pipeline-add-xldeploy-action.png)
 
-1. To configure the XL Deploy action, set the **Deployment Package** to *Applications/PetClinic/1.0*.
+1. To configure the XL Deploy action, set the **Deployment Package Name** to *Applications/PetClinic* and **Deployment Package Version** to *1.0*.
 
     This is the package that contains the files and resources that make up a version of the application, as well as a manifest file (`deployit-manifest.xml`) that describes the package contents.
 
@@ -162,7 +162,7 @@ To create an environment where the application will be deployed:
 An AWS CodePipeline job worker will poll AWS CodePipeline every minute for jobs that are assigned to this XL Deploy server (as determined by the XL Deploy server key). To create an AWS CodePipeline job worker:
 
 1. In XL Deploy, click **Repository** in the top menu, then right-click **Configuration**.
-1. Select **New** > **awscodepipeline** > **CodePipelineJobWorker**.
+1. Select **New** > **aws** > **CodePipelineJobWorker**.
 
     ![Create awscodepipeline.CodePipelineJobWorker](images/codepipeline/xldeploy-codepipeline-job-worker.png)
 
