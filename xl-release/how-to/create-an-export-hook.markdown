@@ -14,7 +14,7 @@ since:
 - 4.7.0
 ---
 
-You can use the *export hook* feature to configure XL Release to run a Jython script for every release that is about to be archived.
+You can use the *export hook* feature to configure XL Release to run a Jython script for every release that is about to be [archived](/xl-release/concept/how-archiving-works.html).
 
 ## Step 1 Define a new export hook
 

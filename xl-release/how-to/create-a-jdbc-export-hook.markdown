@@ -14,7 +14,9 @@ since:
 - 4.7.0
 ---
 
-[XL Release export hooks](/xl-release/how-to/create-an-export-hook.html) are a powerful mechanism that allows you to define Jython scrips that can do something with completed releases. You can also create JDBC export hooks. These allow you to insert information about releases into a SQL database; for example, for reporting purposes. JDBC export hooks give you access to the `java.sql.Connection` object.
+[XL Release export hooks](/xl-release/how-to/create-an-export-hook.html) are a powerful mechanism that allows you to define Jython scripts that export information about completed and aborted releases before they are [archived](/xl-release/concept/how-archiving-works.html).
+
+You can also create JDBC export hooks. These allow you to insert information about releases into a SQL database; for example, for reporting purposes. JDBC export hooks give you access to the `java.sql.Connection` object.
 
 ## Step 1 Define a new export hook
 
@@ -33,7 +35,7 @@ The Jython script defines actions that you want to perform with release. The sco
 * `releaseJson`: A string with serialized release
 * `logger`: An object of type `org.slf4j.Logger`; see [Javadoc](http://www.slf4j.org/apidocs/org/slf4j/Logger.html)
 
-In the script you can get the JDBC connection by calling `exportHook.getJdbcConnection()`, see the example in [GitHub project](https://github.com/xebialabs/xl-release-samples/blob/master/mysql-jdbc-export-hook/src/main/resources/acme/MysqlReportingExportHook.py).
+In the script, you can get the JDBC connection by calling `exportHook.getJdbcConnection()`. You can see this in the example on [GitHub](https://github.com/xebialabs/xl-release-samples/blob/master/mysql-jdbc-export-hook/src/main/resources/acme/MysqlReportingExportHook.py).
 
 Store scripts in the `ext` directory, which is a part of the classpath. By default, the export hook tries to locate `prefix/TypeName.py` on the classpath. In the case of this example, it will be `acme/MysqlReportingExportHook.py`.
 
