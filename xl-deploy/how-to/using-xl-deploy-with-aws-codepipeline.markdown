@@ -74,11 +74,9 @@ To create the sample pipeline:
 
 ### Step 3 Create XL Deploy custom action
 
-By default XL Deploy is not shown as a deployment provider in the CodePipeline console so you need to manually create XL Deploy action. To do that you will need AWS command-line client installed on your machine. To create the action, execute the following command on your machine. Please follow the [documentation](http://aws.amazon.com/cli/) to install AWS CLI on your machine.
+By default, XL Deploy is not shown as a deployment provider in the CodePipeline console, so you need to manually create the XL Deploy action. To do so, you must install the AWS command-line client on your machine; please follow the [documentation](http://aws.amazon.com/cli/) to install the client. To create the XL Deploy action, execute the following command in the AWS client:
 
-```
-$ aws codepipeline create-custom-action-type --cli-input-json http://git.io/vYwwV
-```
+    $ aws codepipeline create-custom-action-type --cli-input-json http://git.io/vYwwV
 
 ### Step 4 Add XL Deploy as the deployment provider
 
