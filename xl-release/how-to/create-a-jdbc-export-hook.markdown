@@ -33,6 +33,8 @@ The Jython script defines actions that you want to perform with release. The sco
 * `releaseJson`: A string with serialized release
 * `logger`: An object of type `org.slf4j.Logger`; see [Javadoc](http://www.slf4j.org/apidocs/org/slf4j/Logger.html)
 
+In the script you can get the JDBC connection by calling `exportHook.getJdbcConnection()`, see the example in [GitHub project](https://github.com/xebialabs/xl-release-samples/blob/master/mysql-jdbc-export-hook/src/main/resources/acme/MysqlReportingExportHook.py).
+
 Store scripts in the `ext` directory, which is a part of the classpath. By default, the export hook tries to locate `prefix/TypeName.py` on the classpath. In the case of this example, it will be `acme/MysqlReportingExportHook.py`.
 
 Alternatively, you can set a customized script path in the `scriptLocation` property of each export hook:
