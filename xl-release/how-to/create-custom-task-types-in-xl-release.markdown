@@ -83,7 +83,7 @@ Next are the properties. They are defined as nested `<property>` elements. The f
 
 * `description`: Help text explaining the property in more detail. This will appear in the UI.
 
-* `kind`: The property type, which is `string`, `int`, `boolean`, or `ci`. If omitted, this attribute defaults to `string`.
+* `kind`: The property type, which is `string`, `integer`, `boolean`, or `ci`. If omitted, this attribute defaults to `string`.
 
 * `password`: Set this attribute to `true` to instruct XL Release to treat the property as a password. The content of password fields are obscured in the UI and encrypted in network traffic and storage.
 
