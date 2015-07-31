@@ -7,7 +7,8 @@ product-id: xl-deploy
 
 ## Product reference documentation
 
-* [Release Manual](release_manual_5_0_x.html)
+* [Release Notes](releasenotes.html)
+* [Version-specific upgrade notes](upgrademanual.html)
 * [Steps Reference](referencesteps.html)
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
