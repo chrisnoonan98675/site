@@ -5,8 +5,7 @@ product-id: xl-deploy
 
 ## Product documentation
 
-* [Start Here](starthere.html)
-* [Upgrade Manual](upgrademanual.html)
+* [Release Manual](release_manual_3_9_x.html)
 * [Reference Manual](referencemanual.html)
 * [System Administration Manual](systemadminmanual.html)
 * [Security Manual](securitymanual.html)
