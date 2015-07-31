@@ -79,9 +79,9 @@
 # XL Deploy product doc, new format
 /xl-deploy/latest/index.html : /xl-deploy/5.1.x/index.html
 /xl-deploy/latest/starthere.html : /xl-deploy/4.5.x/starthere.html
-/xl-deploy/latest/releasenotes.html : /xl-deploy/5.1.x/release_manual_5_1_x.html
-/xl-deploy/latest/upgrademanual.html : /xl-deploy/5.1.x/release_manual_5_1_x.html
-/xl-deploy/latest/releasemanual.html : /xl-deploy/5.1.x/release_manual_5_1_x.html
+/xl-deploy/latest/releasenotes.html : /xl-deploy/5.1.x/releasemanual.html
+/xl-deploy/latest/upgrademanual.html : /xl-deploy/5.1.x/releasemanual.html
+/xl-deploy/latest/releasemanual.html : /xl-deploy/5.1.x/releasemanual.html
 /xl-deploy/latest/referencemanual.html : /xl-deploy/4.5.x/referencemanual.html
 /xl-deploy/latest/systemadminmanual.html : /xl-deploy/4.5.x/systemadminmanual.html
 /xl-deploy/latest/securitymanual.html : /xl-deploy/4.5.x/securitymanual.html
@@ -102,9 +102,9 @@
 
 # XL Deploy product doc, legacy format
 /releases/latest/deployit/starthere.html : /xl-deploy/4.5.x/starthere.html
-/releases/latest/deployit/releasenotes.html : /xl-deploy/5.1.x/release_manual_5_1_x.html
-/releases/latest/deployit/upgrademanual.html : /xl-deploy/5.1.x/release_manual_5_1_x.html
-/releases/latest/deployit/releasemanual.html : /xl-deploy/5.1.x/release_manual_5_1_x.html
+/releases/latest/deployit/releasenotes.html : /xl-deploy/5.1.x/releasemanual.html
+/releases/latest/deployit/upgrademanual.html : /xl-deploy/5.1.x/releasemanual.html
+/releases/latest/deployit/releasemanual.html : /xl-deploy/5.1.x/releasemanual.html
 /releases/latest/deployit/referencemanual.html : /xl-deploy/4.5.x/referencemanual.html
 /releases/latest/deployit/systemadminmanual.html : /xl-deploy/4.5.x/systemadminmanual.html
 /releases/latest/deployit/securitymanual.html : /xl-deploy/4.5.x/securitymanual.html
