@@ -60,10 +60,10 @@ You must configure the archive database before setting up the repository; that i
 
 ### Increase MySQL maximal allowed packet size
 
-XL Release supports attachments up to 100 MB. Increase value of `max_allowed_packet` configuration option in MySQL to be able to store large attachments in the archive database of XLR. Otherwise you might get 'Packet Too Large' error from MySQL server.
+XL Release supports attachments up to 100 MB. Increase the value of the `max_allowed_packet` configuration option in MySQL to be able to store large attachments in XL Release's archive database. Otherwise, the MySQL server may respond with 'Packet Too Large' errors.
 
 ### Use UTF-8 collation and charset in MySQL
 
-XL Release stores data in UTF-8. To enable archive database to work properly with multibyte characters MySQL server should be either configured with `character_set_server=utf8`, or JDBC URL should explicitly mention the encoding as URL parameter: `characterEncoding=UTF-8`.
+XL Release stores data in UTF-8. To allow the archive database to work properly with multibyte characters, the MySQL server should be either configured with the setting `character_set_server=utf8`, or the JDBC connection URL should explicitly include the encoding as a URL parameter: `characterEncoding=UTF-8`.
 
-<a href="https://dev.mysql.com/doc/refman/5.5/en/charset-general.html">More information</a> at dev.mysql.com.
+More information at [dev.mysql.com](https://dev.mysql.com/doc/refman/5.5/en/charset-general.html).
