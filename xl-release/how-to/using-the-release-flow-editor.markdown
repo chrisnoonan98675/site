@@ -92,9 +92,7 @@ The elements of a task are:
 	* Icon indicating the type of task
 	* The current state of the task (if the release is active)
 	* Alert icon (if action is needed)
-	* Buttons for duplicating and removing a task
-		* In an active release, you can only remove planned tasks (tasks that are not in progress)
-		* You can only duplicate tasks that are active or planned
+	* Context menu button
 * The due date appears in the lower right corner (if it is set).
 
-Click anywhere on the task (besides the duplicate and remove buttons) to open the task details.
+Click anywhere on the task (besides context menu button) to open the task details.
