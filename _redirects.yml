@@ -87,10 +87,11 @@
 ##### "LATEST" LINKS
 
 # XL Deploy product doc, new format
-/xl-deploy/latest/index.html : /xl-deploy/5.0.x/index.html
+/xl-deploy/latest/index.html : /xl-deploy/5.1.x/index.html
 /xl-deploy/latest/starthere.html : /xl-deploy/4.5.x/starthere.html
-/xl-deploy/latest/releasenotes.html : /xl-deploy/5.0.x/releasenotes.html
-/xl-deploy/latest/upgrademanual.html : /xl-deploy/5.0.x/upgrademanual.html
+/xl-deploy/latest/releasenotes.html : /xl-deploy/5.1.x/release_manual_5_1_x.html
+/xl-deploy/latest/upgrademanual.html : /xl-deploy/5.1.x/release_manual_5_1_x.html
+/xl-deploy/latest/releasemanual.html : /xl-deploy/5.1.x/release_manual_5_1_x.html
 /xl-deploy/latest/referencemanual.html : /xl-deploy/4.5.x/referencemanual.html
 /xl-deploy/latest/systemadminmanual.html : /xl-deploy/4.5.x/systemadminmanual.html
 /xl-deploy/latest/securitymanual.html : /xl-deploy/4.5.x/securitymanual.html
@@ -103,16 +104,17 @@
 /xl-deploy/latest/releasedashboardmanual.html : /xl-deploy/4.5.x/releasedashboardmanual.html
 /xl-deploy/latest/rulesmanual.html : /xl-deploy/4.5.x/rulesmanual.html
 /xl-deploy/latest/rulestutorial.html : /xl-deploy/4.5.x/rulestutorial.html
-/xl-deploy/latest/referencesteps.html : /xl-deploy/5.0.x/referencesteps.html
-/xl-deploy/latest/udmcireference.html : /xl-deploy/5.0.x/udmcireference.html
-/xl-deploy/latest/rest-api/index.html : /xl-deploy/5.0.x/rest-api/index.html
+/xl-deploy/latest/referencesteps.html : /xl-deploy/5.1.x/referencesteps.html
+/xl-deploy/latest/udmcireference.html : /xl-deploy/5.1.x/udmcireference.html
+/xl-deploy/latest/rest-api/index.html : /xl-deploy/5.1.x/rest-api/index.html
 /xl-deploy/latest/xldeployjavaapimanual.html : /xl-deploy/4.5.x/xldeployjavaapimanual.html
 /xl-deploy/latest/javadoc/udm-plugin-api/index.html : /xl-deploy/4.5.x/javadoc/udm-plugin-api/index.html
 
 # XL Deploy product doc, legacy format
 /releases/latest/deployit/starthere.html : /xl-deploy/4.5.x/starthere.html
-/releases/latest/deployit/releasenotes.html : /xl-deploy/5.0.x/releasenotes.html
-/releases/latest/deployit/upgrademanual.html : /xl-deploy/5.0.x/upgrademanual.html
+/releases/latest/deployit/releasenotes.html : /xl-deploy/5.1.x/release_manual_5_1_x.html
+/releases/latest/deployit/upgrademanual.html : /xl-deploy/5.1.x/release_manual_5_1_x.html
+/releases/latest/deployit/releasemanual.html : /xl-deploy/5.1.x/release_manual_5_1_x.html
 /releases/latest/deployit/referencemanual.html : /xl-deploy/4.5.x/referencemanual.html
 /releases/latest/deployit/systemadminmanual.html : /xl-deploy/4.5.x/systemadminmanual.html
 /releases/latest/deployit/securitymanual.html : /xl-deploy/4.5.x/securitymanual.html
@@ -125,37 +127,37 @@
 /releases/latest/deployit/releasedashboardmanual.html : /xl-deploy/4.5.x/releasedashboardmanual.html
 /releases/latest/deployit/rulesmanual.html : /xl-deploy/4.5.x/rulesmanual.html
 /releases/latest/deployit/rulestutorial.html : /xl-deploy/4.5.x/rulestutorial.html
-/releases/latest/deployit/referencesteps.html : /xl-deploy/5.0.x/referencesteps.html
-/releases/latest/deployit/udmcireference.html : /xl-deploy/5.0.x/udmcireference.html
-/releases/latest/deployit/rest-api/index.html : /xl-deploy/5.0.x/rest-api/index.html
+/releases/latest/deployit/referencesteps.html : /xl-deploy/5.1.x/referencesteps.html
+/releases/latest/deployit/udmcireference.html : /xl-deploy/5.1.x/udmcireference.html
+/releases/latest/deployit/rest-api/index.html : /xl-deploy/5.1.x/rest-api/index.html
 /releases/latest/deployit/xldeployjavaapimanual.html : /xl-deploy/4.5.x/xldeployjavaapimanual.html
 /releases/latest/deployit/javadoc/udm-plugin-api/index.html : /xl-deploy/4.5.x/javadoc/udm-plugin-api/index.html
 
 # XL Deploy bundled plugin doc, new format
-/xl-deploy/latest/commandPluginManual.html : /xl-deploy/5.0.x/commandPluginManual.html
-/xl-deploy/latest/databasePluginManual.html : /xl-deploy/5.0.x/databasePluginManual.html
-/xl-deploy/latest/groupOrchestratorPluginManual.html : /xl-deploy/5.0.x/groupOrchestratorPluginManual.html
-/xl-deploy/latest/filePluginManual.html : /xl-deploy/5.0.x/filePluginManual.html
-/xl-deploy/latest/genericPluginManual.html : /xl-deploy/5.0.x/genericPluginManual.html
-/xl-deploy/latest/jeePluginManual.html : /xl-deploy/5.0.x/jeePluginManual.html
-/xl-deploy/latest/powershellPluginManual.html : /xl-deploy/5.0.x/powershellPluginManual.html
-/xl-deploy/latest/pythonPluginManual.html : /xl-deploy/5.0.x/pythonPluginManual.html
-/xl-deploy/latest/remotingPluginManual.html : /xl-deploy/5.0.x/remotingPluginManual.html
-/xl-deploy/latest/webserverPluginManual.html : /xl-deploy/5.0.x/webserverPluginManual.html
-/xl-deploy/latest/triggerPluginManual.html : /xl-deploy/5.0.x/triggerPluginManual.html
+/xl-deploy/latest/commandPluginManual.html : /xl-deploy/5.1.x/commandPluginManual.html
+/xl-deploy/latest/databasePluginManual.html : /xl-deploy/5.1.x/databasePluginManual.html
+/xl-deploy/latest/groupOrchestratorPluginManual.html : /xl-deploy/5.1.x/groupOrchestratorPluginManual.html
+/xl-deploy/latest/filePluginManual.html : /xl-deploy/5.1.x/filePluginManual.html
+/xl-deploy/latest/genericPluginManual.html : /xl-deploy/5.1.x/genericPluginManual.html
+/xl-deploy/latest/jeePluginManual.html : /xl-deploy/5.1.x/jeePluginManual.html
+/xl-deploy/latest/powershellPluginManual.html : /xl-deploy/5.1.x/powershellPluginManual.html
+/xl-deploy/latest/pythonPluginManual.html : /xl-deploy/5.1.x/pythonPluginManual.html
+/xl-deploy/latest/remotingPluginManual.html : /xl-deploy/5.1.x/remotingPluginManual.html
+/xl-deploy/latest/webserverPluginManual.html : /xl-deploy/5.1.x/webserverPluginManual.html
+/xl-deploy/latest/triggerPluginManual.html : /xl-deploy/5.1.x/triggerPluginManual.html
 
 # XL Deploy bundled plugin doc, legacy format
-/releases/latest/deployit/commandPluginManual.html : /xl-deploy/5.0.x/commandPluginManual.html
-/releases/latest/deployit/databasePluginManual.html : /xl-deploy/5.0.x/databasePluginManual.html
-/releases/latest/deployit/groupOrchestratorPluginManual.html : /xl-deploy/5.0.x/groupOrchestratorPluginManual.html
-/releases/latest/deployit/filePluginManual.html : /xl-deploy/5.0.x/filePluginManual.html
-/releases/latest/deployit/genericPluginManual.html : /xl-deploy/5.0.x/genericPluginManual.html
-/releases/latest/deployit/jeePluginManual.html : /xl-deploy/5.0.x/jeePluginManual.html
-/releases/latest/deployit/powershellPluginManual.html : /xl-deploy/5.0.x/powershellPluginManual.html
-/releases/latest/deployit/pythonPluginManual.html : /xl-deploy/5.0.x/pythonPluginManual.html
-/releases/latest/deployit/remotingPluginManual.html : /xl-deploy/5.0.x/remotingPluginManual.html
-/releases/latest/deployit/webserverPluginManual.html : /xl-deploy/5.0.x/webserverPluginManual.html
-/releases/latest/deployit/triggerPluginManual.html : /xl-deploy/5.0.x/triggerPluginManual.html
+/releases/latest/deployit/commandPluginManual.html : /xl-deploy/5.1.x/commandPluginManual.html
+/releases/latest/deployit/databasePluginManual.html : /xl-deploy/5.1.x/databasePluginManual.html
+/releases/latest/deployit/groupOrchestratorPluginManual.html : /xl-deploy/5.1.x/groupOrchestratorPluginManual.html
+/releases/latest/deployit/filePluginManual.html : /xl-deploy/5.1.x/filePluginManual.html
+/releases/latest/deployit/genericPluginManual.html : /xl-deploy/5.1.x/genericPluginManual.html
+/releases/latest/deployit/jeePluginManual.html : /xl-deploy/5.1.x/jeePluginManual.html
+/releases/latest/deployit/powershellPluginManual.html : /xl-deploy/5.1.x/powershellPluginManual.html
+/releases/latest/deployit/pythonPluginManual.html : /xl-deploy/5.1.x/pythonPluginManual.html
+/releases/latest/deployit/remotingPluginManual.html : /xl-deploy/5.1.x/remotingPluginManual.html
+/releases/latest/deployit/webserverPluginManual.html : /xl-deploy/5.1.x/webserverPluginManual.html
+/releases/latest/deployit/triggerPluginManual.html : /xl-deploy/5.1.x/triggerPluginManual.html
 
 # XL Deploy non-bundled plugin doc, new format
 /xl-deploy/latest/jbossPluginManual.html : /xl-deploy-jbossas-plugin/5.0.x/jbossPluginManual.html
