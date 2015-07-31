@@ -69,7 +69,7 @@ To upgrade an XL Deploy server installation:
 1. When upgrading to XL Deploy 4.5.x or earlier, copy the contents of the `conf` directory from the previous installation to the new installation directory.
 
     <div class="alert alert-warning" role="alert">
-    <p>When upgrading to XL Deploy 5.0.0 or later, do not copy the full contents of the <code>conf</code> directory. Only copy the following files from <code>conf</code>:</p>
+    <p>When upgrading to XL Deploy 4.5.5, XL Deploy 5.0.0, or later, do not copy the full contents of the <code>conf</code> directory. Only copy the following files from <code>conf</code>:</p>
     <ul>
     <li><code>deployit.conf</code></li>
     <li><code>jackrabbit-repository.xml</code></li>
