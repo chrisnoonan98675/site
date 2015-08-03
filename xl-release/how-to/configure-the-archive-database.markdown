@@ -28,9 +28,9 @@ You can move the Apache Derby database by changing the configuration in `XLRELEA
 
 If you are already using the archive database, you must move it to the new location while XL Release is not running.
 
-## Change the archive database DBMS (4.8.0+)
+## Change the archive database DBMS (XL Release 4.8.0 and later)
 
-You can use the following products as archive database:
+In XL Release 4.8.0 and later, you can use the following products as archive database:
 
 * Apache Derby (ebmedded)
 * H2 (embedded)
@@ -56,7 +56,7 @@ To change the DBMS, do the following before initializing the XL Release reposito
 
 You must configure the archive database before setting up the repository; that is, before starting XL Release for the first time. XL Release does not support automatic migration to a different location or vendor after the schema and data are present in the database.
 
-## Configuration tips
+## Additional database configuration
 
 ### Increase MySQL maximal allowed packet size
 
