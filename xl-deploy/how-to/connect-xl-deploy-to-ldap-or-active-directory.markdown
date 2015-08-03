@@ -32,6 +32,8 @@ Use an LDAP browser such as [JXplorer](http://jxplorer.org/) to verify that the 
 
 Add the highlighted code to `deployit-security.xml`. Replace the placeholders with your credentials. Note that credentials are case-sensitive.
 
+**Note:** The sample XML below may differ from your `deployit-security.xml` file, depending on your version of XL Deploy and any other customizations that have been done. It is recommended that you only add the highlighted code, instead of copying the entire sample.
+
 <pre>
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd "&gt;
