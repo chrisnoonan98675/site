@@ -32,6 +32,9 @@ a code {
 a img {
   border: none;
 }
+mark {
+    background-color: #FFFF00;
+}
 .splash-page-logo {
   margin-bottom: 20px;
 }
