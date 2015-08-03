@@ -52,7 +52,7 @@ Add the highlighted code to `deployit-security.xml`. Replace the placeholders wi
  
  &lt;bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/&gt; 
 
- &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/&gt; 
+ &lt;bean id="jackrabbitUserService" class="com.xebialabs.deployit.security.JackrabbitUserService"/&gt; 
 
  &lt;security:authentication-manager alias="authenticationManager"&gt; 
    &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt; 
@@ -81,6 +81,7 @@ Add the highlighted code to `deployit-security.xml`. Replace the placeholders wi
  &lt;security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/&gt;
 
  &lt;security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never"&gt;
+   &lt;security:csrf disabled="true"/&gt;
    &lt;!-- The download url has no security access set --&gt;
    &lt;security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/&gt;
    &lt;security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/&gt;
@@ -139,7 +140,7 @@ Update the highlighted lines in `deployit-security.xml` as follows. Replace the 
  &lt;/bean&gt; 
 
  &lt;bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/&gt; 
- &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/&gt; 
+ &lt;bean id="jackrabbitUserService" class="com.xebialabs.deployit.security.JackrabbitUserService"/&gt; 
 
  &lt;security:authentication-manager alias="authenticationManager"&gt; 
    &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt; 
@@ -169,6 +170,7 @@ Update the highlighted lines in `deployit-security.xml` as follows. Replace the 
  &lt;security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/&gt;
 
  &lt;security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never"&gt;
+   &lt;security:csrf disabled="true"/&gt;
    &lt;!-- The download url has no security access set --&gt;
    &lt;security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/&gt;
    &lt;security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/&gt;
@@ -245,7 +247,7 @@ Update the highlighted lines in `deployit-security.xml` as follows. Replace the 
  &lt;/bean&gt; 
 
  &lt;bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/&gt; 
- &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/&gt; 
+ &lt;bean id="jackrabbitUserService" class="com.xebialabs.deployit.security.JackrabbitUserService"/&gt; 
 
  &lt;security:authentication-manager alias="authenticationManager"&gt; 
    &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt; 
@@ -275,6 +277,7 @@ Update the highlighted lines in `deployit-security.xml` as follows. Replace the 
  &lt;security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/&gt;
 
  &lt;security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never"&gt;
+   &lt;security:csrf disabled="true"/&gt;
    &lt;!-- The download url has no security access set --&gt;
    &lt;security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/&gt;
    &lt;security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/&gt;
