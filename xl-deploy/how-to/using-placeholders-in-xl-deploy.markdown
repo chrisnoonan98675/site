@@ -11,7 +11,9 @@ tags:
 - environment
 ---
 
-Placeholders are configurable entries in your application that will be set to an actual value at deployment time. This allows the deployment package to be environment-independent and thus reusable.
+Placeholders are configurable entries in your application that will be set to an actual value at deployment time. This allows the deployment package to be environment-independent and thus reusable. Values for placeholders can be provided manually or filled in from a _dictionary_.
+
+**Note:** When you update an application, XL Deploy will resolve the values for the placeholders again from the dictionary. For more information about the way XL Deploy resolves placeholders during updates, refer to [Resolving properties during application updates](/xl-deploy/concept/resolving-properties-during-application-updates.html).
 
 ## Placeholder format
 
@@ -19,9 +21,7 @@ XL Deploy recognizes placeholders using the following format:
 
 	{% raw %}{{ PLACEHOLDER_KEY }}{% endraw %}
 
-Values for placeholders can be provided manually or filled in from a _dictionary_.
-
-**Note:** When you update an application, XL Deploy will resolve the values for the placeholders again from the dictionary. For more information about the way XL Deploy resolves placeholders during updates, refer to [Resolving properties during application updates](/xl-deploy/concept/resolving-properties-during-application-updates.html).
+**Tip:** To use delimiters other than {% raw %}`{{`{% endraw %} and {% raw %}`}}`{% endraw %} in artifacts of a specific configuration item (CI) type, [modify the CI type](/xl-deploy/how-to/customize-an-existing-ci-type.html) and change the hidden property `delimiters`. This property is a five-character string that consists of two characters identifying the leading delimiter, a space, and two characters identifying the closing delimiter; for example, `%% %%`.
 
 ## File placeholders
 
