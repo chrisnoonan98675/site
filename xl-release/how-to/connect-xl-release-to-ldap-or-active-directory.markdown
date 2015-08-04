@@ -50,7 +50,7 @@ Add the highlighted code to `xl-release-security.xml`. Replace the placeholders 
  
  &lt;bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/&gt; 
 
- &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/&gt; 
+ &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider"/&gt; 
 
  &lt;security:authentication-manager alias="authenticationManager"&gt; 
    &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt; 
@@ -108,7 +108,7 @@ Update the highlighted lines in `xl-release-security.xml` as follows. Replace th
  &lt;/bean&gt; 
 
  &lt;bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/&gt; 
- &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/&gt; 
+ &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider"/&gt; 
 
  &lt;security:authentication-manager alias="authenticationManager"&gt; 
    &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt; 
@@ -185,7 +185,7 @@ Update `xl-release-security.xml` as follows. Replace the placeholders with your 
  &lt;/bean&gt; 
 
  &lt;bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/&gt; 
- &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/&gt; 
+ &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider"/&gt; 
 
  &lt;security:authentication-manager alias="authenticationManager"&gt; 
    &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt; 

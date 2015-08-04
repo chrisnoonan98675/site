@@ -74,7 +74,7 @@ This is an example of a working `xl-release-security.xml` file that uses LDAP:
 
         <bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/>
 
-        <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/>
+        <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider"/>
 
         <security:authentication-manager alias="authenticationManager">
             <security:authentication-provider ref="rememberMeAuthenticationProvider" />
@@ -115,7 +115,7 @@ Because `xl-release-security.xml` is an XML file, you must escape certain charac
 In the `xl-release-security.xml` file, you can configure:
 
 * An LDAP setup in which there is not a group that contains all XL Release users
-* You want to use such a group in the default `JcrAuthenticationProvider`
+* You want to use such a group in the default `XlAuthenticationProvider`
 
 The code below sets up an group called `everyone` that is assigned to each user who is authenticated (the group name can be anything you want). You can then link this group to a XL Release role and assign 'login' privileges to it.
 
@@ -130,7 +130,7 @@ The code below sets up an group called `everyone` that is assigned to each user 
             <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
         </bean>
 
-        <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider">
+        <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider">
             <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
         </bean>
 
