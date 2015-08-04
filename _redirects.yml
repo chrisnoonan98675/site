@@ -88,6 +88,7 @@
 /xl-deploy/concept/authoring-a-new-step-primitive-for-rules.html : /xl-deploy/how-to/create-a-custom-step-for-rules.html
 /xl-deploy/concept/understanding-orchestrators.html : /xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html
 /xl-deploy/how-to/connect-ldap-or-active-directory.html : /xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html
+/xl-release/how-to/connect-xl-release-to-ldap-or-active-directory.html : /xl-release/how-to/configure-ldap-security-for-xl-release.html
 
 ##### PRODUCTS THAT HAVE BEEN RENAMED
 
