@@ -22,19 +22,19 @@ By default, the repository is located in `XLDEPLOY_SERVER_HOME/repository`. To c
 
 ## Using a database
 
-XL Deploy can also use a database to store its repository. The built-in Jackrabbit JCR implementation must be configured to make this possible.
-
-There are several configuration options when setting up a database repository:
+XL Deploy can also use a database to store its repository. To use a database, you must configure the built-in Jackrabbit JCR implementation, depending on what you want to store in the database:
 
 * Store **only binary artifacts** in a database. This requires configuring the `DataStore` property.
 * Store **only CIs and CI history** in a database. This requires configuring the `PersistenceManager` and `FileSystem` properties.
 * Store **all data** (binary artifacts and CIs and CI history) in a database. This requires configuring the `DataStore`, `PersistenceManager` and `FileSystem` must be configured.
 
-Here are some examples of configuring XL Deploy to use a database for various database vendors. The XML snippets below must be put into the `conf/jackrabbit-repository.xml` file.
-
-**Note:** XL Deploy **must** initialize the repository before it can be used. Run XL Deploy's setup wizard and initialize the repository after making any changes to the repository configuration.
+**Note:** XL Deploy must initialize the repository before it can be used. Run XL Deploy's setup wizard and initialize the repository after making any changes to the repository configuration.
 
 For more information about using a database with Jackrabbit, see the [PersistenceManager FAQ](http://wiki.apache.org/jackrabbit/PersistenceManagerFAQ) and [DataStore FAQ](http://wiki.apache.org/jackrabbit/DataStore).
+
+Below are examples of the required `conf/jackrabbit-repository.xml` configuration for several database vendors.
+
+**Tip:** For information about changing the configuration, refer to [Change the repository database settings](/xl-deploy/how-to/change-the-repository-database-settings.html).
 
 ### Using XL Deploy with MySQL
 
