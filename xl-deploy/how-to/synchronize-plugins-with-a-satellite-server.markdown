@@ -16,7 +16,13 @@ since:
 
 If you add, remove, or update an XL Deploy plugin or extension, you must synchronize XL Deploy with satellite servers before performing a deployment.
 
-What exactly will be synchronized?
+**Tip:** After you change a plugin or extension, restart the XL Deploy server and ensure that it is working without any issues before you synchronize with satellite servers. This prevents synchronization of plugins or extensions that have errors. 
+
+Before XL Deploy executes a deployment plan on a satellite, it checks if any plugins are missing or out-of-date. If any are, XL Deploy stops the deployment, and you must synchronize the satellite before continuing.
+
+## What is synchronized?
+
+The following folders will be synchronized:
 
 * Plugins and other files in the `plugins` folder
 * Extensions and other files in the `ext` folder
@@ -24,19 +30,27 @@ What exactly will be synchronized?
 
 When determining the difference between the satellite and the XL Deploy server, name changes and content change are also taken into consideration. When XL Deploy detects a change, it re-uploads the entire folder.
 
+Note that:
+
+* The `hotfix/lib` folder is not synchronized.
+* Manually placing files on the satellite is not recommended. XL Deploy will delete such files during the next synchronization.
+
+## Synchronize a satellite server
+
 To synchronize a satellite server:
 
 1. Click **Repository** in XL Deploy.
-2. Right-click the satellite and select **Synchronize plugins satellite**.
+1. Right-click the satellite and select **Synchronize plugins satellite**.
 
     Before synchronizing, the satellite will wait for all executing tasks to complete. It will then synchronize and restart.
 
-3. Select the number of times that XL Deploy should attempt to ping the satellite after it restarts and the delay between attempts to ping it.
+1. In the **Max Attempts** box, enter the number of times that XL Deploy should attempt to ping the satellite.
+1. In the **Delay** box, enter the number of seconds that XL Deploy should wait between attempts to ping the satellite.
+1. Click **Next**, then click **Execute**.
 
     ![image](images/synchronize-a-satellite-result.png)
 
 The log of the first task shows how many plugins have been synchronized.
 
-**Note** Ensure there is at least one file to synchronize in one of the folders. If there are no files on the XL Deploy server, the synchronization of that folder is skipped.
+**Note** Ensure there is at least one file to synchronize in each one of the folders. If there are no files on the XL Deploy server, the synchronization of that folder is skipped.
 
-Before XL Deploy executes a deployment plan on a satellite, it checks if any plugins are missing or out-of-date. If any are, XL Deploy stops the deployment, and you must synchronize the satellite before continuing.
