@@ -6,13 +6,23 @@ subject:
 - Satellite
 tags:
 - plugin
+- extension
+- hotfix
 - remoting
 - satellite
 since:
 - 5.0.0
 ---
 
-If you add, remove, or update an XL Deploy plugin, you must synchronize XL Deploy with satellite servers before performing a deployment.
+If you add, remove, or update an XL Deploy plugin or extension, you must synchronize XL Deploy with satellite servers before performing a deployment.
+
+What exactly will be synchronised?
+
+* Plugins and other files in the `plugins` folder
+* Extensions and other files in the `ext` folder
+* Hotfixes and other files in the `hotfix/plugins` folder
+
+When determining the difference between the satellite and the XL Deploy server, name changes and content change are also taken into consideration. When a change is detected, the entire folder will be re-uploaded.
 
 To synchronize a satellite server:
 
@@ -26,5 +36,7 @@ To synchronize a satellite server:
     ![image](images/synchronize-a-satellite-result.png)
 
 The log of the first task shows how many plugins have been synchronized.
+
+**Note** Make sure there is at least one file to synchronize in on of the folders. If there are no files on the XL Deploy server, the synchronisation of that folder is skipped.
 
 **Note:** Before XL Deploy executes a deployment plan on a satellite, it checks if any plugins are missing or out-of-date. If any are, XL Deploy stops the deployment, and you must synchronize the satellite before continuing.
