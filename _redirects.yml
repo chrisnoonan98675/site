@@ -303,3 +303,9 @@
 /releases/latest/xlr-git-plugin/gitPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-git-trigger-plugin.html
 /releases/latest/xlr-nexus-plugin/nexusPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-nexus-trigger-plugin.html
 /releases/latest/xlr-time-plugin/timePluginManual.html : /xl-release/concept/introduction-to-the-xl-release-time-trigger-plugin.html
+
+##### "LATEST" LINKS, XL TESTVIEW
+
+# XL TestView product doc
+/xl-testview/latest/index.html : /xl-testview/1.3.x/index.html
+/xl-testview/latest/releasemanual.html : /xl-testview/1.3.x/releasemanual.html
