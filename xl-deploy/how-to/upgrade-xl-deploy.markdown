@@ -69,14 +69,14 @@ To upgrade an XL Deploy server installation:
 1. When upgrading to XL Deploy 4.5.x or earlier, copy the contents of the `conf` directory from the previous installation to the new installation directory.
 
     <div class="alert alert-warning" role="alert">
-    <p>When upgrading to XL Deploy 4.5.5, XL Deploy 5.0.0, or later, do not copy the full contents of the <code>conf</code> directory. Only copy the following files from <code>conf</code>:</p>
+    <p>In XL Deploy 4.5.5 and 5.0.0, files in the <code>conf</code> directory changed significantly. When upgrading to XL Deploy 4.5.5, XL Deploy 5.0.0, or later, do not copy the full contents of the <code>conf</code> directory. Only copy the following files from <code>conf</code>:</p>
     <ul>
     <li><code>deployit.conf</code></li>
     <li><code>jackrabbit-repository.xml</code></li>
     <li><code>repository-keystore.jceks</code></li>
     <li><code>deployit-defaults.properties</code></li>
     </ul>
-    <p><strong>Note:</strong> If you have customized the <code>conf/tasker.conf</code> file and you are upgrading to XL Deploy 5.0.0 or later, you must reapply your customizations in <code>conf/system.conf</code>.</p>
+    <p>If you have customized <code>deployit-security.xml</code> (for example, with your LDAP credentials), you must reapply your changes in the new <code>deployit-security.xml</code> file. If you have customized the <code>conf/tasker.conf</code> file and you are upgrading to XL Deploy 5.0.0 or later, you must reapply your customizations in <code>conf/system.conf</code>.</p>
     </div>
 
 1. If necessary, update the license (`conf/deployit-license.lic`). **This is required when upgrading to XL Deploy 5.0.0 or later.** You can download your current license from [https://dist.xebialabs.com/](https://dist.xebialabs.com/).
