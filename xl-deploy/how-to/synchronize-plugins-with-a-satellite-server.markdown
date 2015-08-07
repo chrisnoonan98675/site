@@ -37,6 +37,8 @@ Note that:
 
 ## Synchronize a satellite server
 
+Before synchronising the satellite, make sure the XL Deploy server can boot with currently installed extensions and plugins. Synchronising a broken setup can result in a broken satellite.
+
 To synchronize a satellite server:
 
 1. Click **Repository** in XL Deploy.
