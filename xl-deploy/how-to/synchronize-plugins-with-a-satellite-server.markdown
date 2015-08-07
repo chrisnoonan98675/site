@@ -16,8 +16,6 @@ since:
 
 If you add, remove, or update an XL Deploy plugin or extension, you must synchronize XL Deploy with satellite servers before performing a deployment.
 
-**Tip:** After you change a plugin or extension, restart the XL Deploy server and ensure that it is working without any issues before you synchronize with satellite servers. This prevents synchronization of plugins or extensions that have errors. 
-
 Before XL Deploy executes a deployment plan on a satellite, it checks if any plugins are missing or out-of-date. If any are, XL Deploy stops the deployment, and you must synchronize the satellite before continuing.
 
 ## What is synchronized?
@@ -37,7 +35,7 @@ Note that:
 
 ## Synchronize a satellite server
 
-Before synchronising the satellite, make sure the XL Deploy server can boot with currently installed extensions and plugins. Synchronising a broken setup can result in a broken satellite.
+Before synchronizng the satellite, ensure that the XL Deploy server can boot with the currently installed plugins and extensions. Synchronizing a broken setup can result in a broken satellite.
 
 To synchronize a satellite server:
 
