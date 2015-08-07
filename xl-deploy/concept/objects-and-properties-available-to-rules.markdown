@@ -1,5 +1,5 @@
 ---
-title: Define rule behavior
+title: Objects and properties available to rules
 categories:
 - xl-deploy
 subject:
