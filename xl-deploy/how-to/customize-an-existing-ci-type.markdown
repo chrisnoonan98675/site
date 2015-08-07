@@ -10,16 +10,20 @@ tags:
 - type system
 ---
 
-Types that exist in XL Deploy can be modified to contain additional synthetic properties. These properties become a part of the CI type and can be specified in the deployment package and shown in the XL Deploy GUI.
+You can customize XL Deploy configuration item (CI) types to contain additional synthetic properties. These properties become a part of the CI type and can be specified in the deployment package (DAR file) and shown in the XL Deploy GUI.
 
 There are several reasons to modify a CI:
 
-* A CI property is always given the same value in your environment. Using synthetic properties, the property can be given a default value and hidden from the user in the GUI.
-* There are additional properties of an existing CI that you want to specify. For example, suppose there is a CI representing a deployed datasource for a specific middleware platform. The middleware platform allows the user to specify a connection pool size and connection timeout and XL Deploy supports the connection pool size out of the box. In this case, modifying the CI to add a synthetic property allows the user to specify the connection timeout.
+* A CI property is always given the same value in your environment. Using synthetic properties, you can give the property a default value and hide it in the GUI.
+* There are additional properties of an existing CI that you want to specify.
 
-**Note**: To use the newly defined property in a deployment, XL Deploy's behavior must be modified. To learn how to add new behavior to the product, refer to [Understanding XL Deploy rules](/xl-deploy/concept/understanding-xl-deploy-rules.html).
+    For example, suppose there is a CI representing a deployed datasource for a specific middleware platform. The middleware platform allows you to specify a connection pool size and connection timeout, but XL Deploy only supports the connection pool size by default. In this case, modifying the CI to add a synthetic property allows you to specify the connection timeout.
 
-Additionally, any property that is modified is listed as a nested `property` element. For each property, the following information can be specified:
+**Note:** To use a newly defined property in a deployment, you must modify XL Deploy's behavior. To learn how to do so, refer to [Understanding XL Deploy rules](/xl-deploy/concept/understanding-xl-deploy-rules.html).
+
+## Specify CI properties
+
+For each CI, you must specify a `type`. Any property that is modified is listed as a nested `property` element. For each property, the following information can be specified:
 
 {:.table .table-striped}
 | Property | Required | Description |
