@@ -25,7 +25,7 @@ Additionally, any property that is modified is listed as a nested `property` ele
 | Property | Required | Description |
 | -------- | -------- | ----------- |
 | `name` | Yes | The name of the property to modify. |
-| `kind` | No | The type of the property to modify. Possible values are: `enum`, `boolean`, `integer`, `string`, `ci`, `set_of_ci`, `set_of_string`, `map_string_string`, `list_of_ci`, `list_of_string`, and `date` (internal use only). |
+| `kind` | No | The type of the property to modify. Possible values are: `enum`, `boolean`, `integer`, `string`, `ci`, `set_of_ci`, `set_of_string`, `map_string_string`, `list_of_ci`, `list_of_string`, and `date` (internal use only). You must always specify the `kind` of the parent CI. You can find the `kind` next to the property name in the plugin reference documentation. |
 | `description` | No | Describes the property. |
 | `category` | No | Categorizes the property. Each category is shown in a separate tab in the XL Deploy GUI. |
 | `label` | No | Sets the property's label. If set, the label is shown in the XL Deploy GUI instead of the name. |
