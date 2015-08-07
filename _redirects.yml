@@ -57,7 +57,7 @@
 /xl-deploy/how-to/using-the-plan-analyzer.html : /xl-deploy/how-to/preview-the-deployment-plan.html
 /xl-test/how-to/create-a-test-tool-plugin.html : /xl-test/how-to/create-a-plugin-for-xl-test.html
 /xl-deploy/how-to/define-dependencies-between-versions.html : /xl-deploy/concept/application-dependencies-in-xl-deploy.html
-/xl-deploy/how-to/define-rule-behavior.html : /xl-deploy/concept/objects-and-properties-available-to-rules.html
+
 
 ##### LEGACY PAGES THAT ARE NO LONGER USED
 
