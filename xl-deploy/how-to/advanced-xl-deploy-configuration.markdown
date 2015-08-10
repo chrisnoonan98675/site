@@ -39,7 +39,7 @@ You can configure the following client security settings in `<XLDEPLOY_HOME>/con
 
 You must restart the server and reload the GUI after changing these settings.
 
-## Advanced configuration settings
+## Advanced XL Deploy settings
 
 You can configure the following advanced XL Deploy settings in `<XLDEPLOY_HOME>/conf/deployit.conf`:
 
@@ -52,3 +52,5 @@ You can configure the following advanced XL Deploy settings in `<XLDEPLOY_HOME>/
 | `taskThreadPool.queueCapacity` | Capacity of the queue that holds tasks to be executed if no threads are available | 2147483647 |
 
 You must restart the server after changing these settings.
+
+**Note:** In XL Deploy 5.0.0 and later, the execution engine uses a more advanced mechanism for thread management. Therefore, it should not be necessary to change these advanced settings.
