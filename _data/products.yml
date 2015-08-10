@@ -19,4 +19,4 @@
   id: xl-testview
   blurb: XL TestView lets you define, execute, and analyze all of the tests relevant to an application's quality. You can easily manage complex test sets and execute tests across a wide spectrum of tools.
   versions:
-    - 1.2.x
+    - 1.3.x
