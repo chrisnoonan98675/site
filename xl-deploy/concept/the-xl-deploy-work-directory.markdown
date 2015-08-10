@@ -55,20 +55,20 @@ In XL Deploy 5.0.0 and later, you cannot change the location of the work directo
 
 In XL Deploy 4.5.x and earlier, you can change the work directory. To do so, create a file in the `conf` directory called `hotfix-context.xml` and add the following content, replacing `/tmp/work` with the desired work directory location:
 
-		<?xml version="1.0" encoding="UTF-8"?>
-		<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		  xmlns:context="http://www.springframework.org/schema/context" xmlns:security="http://www.springframework.org/schema/security"
-		  xmlns:util="http://www.springframework.org/schema/util"
-		  xsi:schemaLocation="
-			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-			http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd
-			http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
-			http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	<?xml version="1.0" encoding="UTF-8"?>
+	<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xmlns:context="http://www.springframework.org/schema/context" xmlns:security="http://www.springframework.org/schema/security"
+	  xmlns:util="http://www.springframework.org/schema/util"
+	  xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-		  <bean id="baseWorkDir" class="java.lang.String">
-			<constructor-arg value="/tmp/work" />
-		  </bean>
+	  <bean id="baseWorkDir" class="java.lang.String">
+		<constructor-arg value="/tmp/work" />
+	  </bean>
 
-		</beans>
+	</beans>
 
 After saving the file, restart the XL Deploy server.
