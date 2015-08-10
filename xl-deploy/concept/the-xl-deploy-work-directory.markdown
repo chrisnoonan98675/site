@@ -31,13 +31,13 @@ By default, the `work` directory is located in the XL Deploy server installation
 
 The work directory can grow for several reasons:
 
-* **There are many unarchived tasks.** After a deployment finishes, you should archive the deployment task so XL Deploy can remove the task from the work directory. To archive a deployment task after is complete, click **Close** on the deployment screen.
+* There are many unarchived tasks. After a deployment finishes, you should archive the deployment task so XL Deploy can remove the task from the work directory. To archive a deployment task after is complete, click **Close** on the deployment screen.
 
     **Tip:** To check for unarchived tasks (including those owned by other users), log in to XL Deploy as an administrator, open the Task Monitor, and select **All Tasks**.
 
-* **The active tasks work with large artifacts.** When deploying a large artifact, multiple copies of the artifact may be stored in the work directory.
+* The active tasks work with large artifacts. When deploying a large artifact, multiple copies of the artifact may be stored in the work directory.
 
-* **Large artifacts are being created, imported, or exported.** This can also cause a temporary increase in the size of the work directory.
+* Large artifacts are being created, imported, or exported. This can also cause a temporary increase in the size of the work directory.
 
 To prevent the work directory from growing, it is recommended that you always archive completed deployment tasks and avoid leaving incomplete tasks open.
 
