@@ -11,6 +11,8 @@ tags:
 - extension
 ---
 
+TODO: make this a more tutorial like.
+
 XL TestView supports a number of test tools out of the box, but there are many other tools available. Some are open source, self build or proprietary. To support these tools, it is possible to define new test tool configurations. The processing of test results is done by a test result parser.
 
 A test result parser is essentially a program that parses several test files, and produces test results in a format that XL TestView can store in its database. XL TestView offers a flexibale scripting interface. Users can write implementations in Python or Java that will provide the logic that is specific for that test tool.
@@ -61,6 +63,8 @@ You also need an addition to the `synthetic.xml`:
         <property name="defaultSearchPattern" default=""/>
         <property name="scriptLocation" default="custom-script.py"/>
     </type>
+
+TODO: make remark on type namespace prefix and class path namespacing.
 
 The following values need to be specified:
 
