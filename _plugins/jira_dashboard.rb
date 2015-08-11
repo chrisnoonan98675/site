@@ -159,6 +159,8 @@ module Jira
         !release.archived and !release.released and release.release_date
       }
 
+      return upcoming_releases unless upcoming_releases.any?
+
       log "Gathering issues for releases #{upcoming_releases.map(&:name)}"
       all_issues = get_all_issues_for_releases(product, upcoming_releases)
       upcoming_releases.each { |release|
