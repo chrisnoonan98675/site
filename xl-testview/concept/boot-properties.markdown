@@ -16,7 +16,7 @@ During startup, you can set several system properties on XL TestView.
 | Property | Default | Description |
 | -------- | ------- | ----------- |
 | `xlt.load.demo.data` | `true` | XL TestView includes a rich set of demonstration data to show all features. Set this property to `false` to start with a clean database. This feature only works on the first startup, to prevent overwriting existing data. |
-| `xlt.server.host` | 0.0.0.0 |  Host where XL TestView runs. |
+| `xlt.server.host` | `0.0.0.0` | IP address of the interface the server should listen on. The value '0.0.0.0' means that XL TestView will listen on all network interfaces. |
 | `xlt.server.port` | `6516` | Port to run XL TestView on. On Unix, the port must be greater than 1024 unless the server is running as root (which is not recommended). |
 | `xlt.server.root` |`""` | Context root of the XL TestView service. Must start with a forward slash (`/`). |
 | `xlt.server.session.timeout` | 30 | Time to allow browser sessions to live, in minutes. |
