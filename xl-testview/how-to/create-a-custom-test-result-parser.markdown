@@ -11,18 +11,23 @@ tags:
 - extension
 ---
 
-TODO: make this a more tutorial like.
+XL TestView supports a number of test tools out of the box. Many more tools are available. Some are open source, self build or proprietary. To support these tools, XL-TestView allows writing a custom test result parser so that you can support tools that are not (yet) supported out of the box. 
 
-XL TestView supports a number of test tools out of the box, but there are many other tools available. Some are open source, self build or proprietary. To support these tools, it is possible to define new test tool configurations. The processing of test results is done by a test result parser.
+TODO: Insert plug here for possible cooperation with XebiaLabs to sell support? (like, we can help you with building a plugin for X money?)
 
-A test result parser is essentially a program that parses several test files, and produces test results in a format that XL TestView can store in its database. XL TestView offers a flexibale scripting interface. Users can write implementations in Python or Java that will provide the logic that is specific for that test tool.
+A test result parser is a program that parses several test result files, and produces test results in a format that XL TestView can store in its database. 
 
-## Writing a new Test Tool
-The following steps are required for a new test tool:
+XL TestView offers a flexible scripting interface. Parsers can be written in Python or Java.
+
+In this how-to we will explain the steps required to create your own test result parser.
+
+## General approach
+In general the following steps need to be followed.
 
 1. Determine the type of results produced by the test tool. XL TestView supports functional and performance test results
-2. Write the implementation
-3. Add an entry to a synthetic.xml file.
+2. Define a new `test tool configuration` in the `synthetic.xml`. Here we have to decide wether the tool will produce functional or performance results and we define where we can find the actual `parser`.
+3. Write an implementation of the test results parser
+4. Test (and repeat from #2 if needed)
 
 XL TestView contains a set of default tools. Those can be used as a basis for new test tools. The following table can help you select a good starting point:
 
@@ -34,6 +39,116 @@ XL TestView contains a set of default tools. Those can be used as a basis for ne
 |gatling.py|Gatling|Performance|csv & json|
 |jmeter_csv.py|JMeter|Performance|csv|
 |jmeter_xml.py|JMeter|Performance|xml|
+
+### Determine type of results
+XL-TestView currently supports `functional` and `performance` test results. More information about these can be found <a href="#">HERE THAT DOES NOT WORK YET</a>
+
+Functional results have a `RESULT` (ie `PASSED` or `FAILED`, or any other you might want to support). They refer to a single `test case` or `scenario` (in case of feature based test tools, like for example Cucumber).
+
+Performance results are summaries of the performance results from tests. 
+
+If the tool you wish to support is not performance related, you would choose the functional test tool.
+
+### Define a new `test tool configuration` in the `synthetic.xml`
+Add an entry to the `synthetic.xml` file. This file is located in your `ext` directory.
+
+Refer to the following snippet as inspiration:
+
+    <type type="custom.MyTestToolConfiguration"
+          extends="xlt.TestToolConfiguration"
+          label="My custom tool">
+        <property name="category" default="functional"/>
+
+        <property name="defaultSearchPattern" default=""/>
+
+        <!-- optional, default is python -->
+        <property name="language" default="python"/>
+
+        <!-- optional, only used when language is python -->
+        <property name="scriptLocation" default="custom-script.py"/>
+
+        <!-- optional, only used when language is java -->
+        <property name="className" default="com.mycompany.xltestview.testtools.mytesttool.MyTestToolParser"/>
+    </type>
+
+The properties are explained below:
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Property name</th>
+			<th>Required</th>
+			<th>Default</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>type</td>
+			<td>yes</td>
+			<td>n/a</td>
+			<td><p>A unique value that identifies your tool.
+			
+			It is recommended to prefix the value. XL-TestView prefixes tools with <strong>xlt</strong>. For example: <pre>xlt.SurefireJUnit</pre></p>
+			<p>
+			Be aware that there is a distinction between the <strong>format</strong> that a test tool should produce and the <strong>report generator</strong> of the build tool you're using. For example: if you're generating JUnit test results it depends on your build tool (maven, gradle, ant) and its respective <strong>generator</strong> (ie surefire) how the result file will look like. Reflecting these distinctions in the type name is recommended.</p>
+			</td>
+		</tr>
+		<tr>
+			<td>category</td>
+			<td>yes</td>
+			<td>n/a</td>
+			<td><p>Specificies what kind of test results are generated.</p>
+			Valid values are:
+			<pre>functional</pre>
+			functional results are results are related to test cases, scenario's, etc.
+			<pre>performance</pre>
+			performance results are related to performance tests, derived from summarized data.
+			</td>
+		</tr>
+		<tr>
+			<td>defaultSearchPattern</td>
+			<td>yes</td>
+			<td>n/a</td>
+			<td><p>Ant pattern used for retrieving the applicable test result files for a given directory. Propagated in the GUI and Jenkins Plugin.</p>
+			<p>
+			Example, for JUnit test results the following pattern is used:
+			<pre>**/*.xml	</pre>
+			</p></td>
+		</tr>
+		<tr>
+			<td>scriptLocation</td>
+			<td>Location of python script for parsing test results</td>
+			<td>yes - if <pre>language</pre> is <pre>python</pre> or not specified</td>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<td>language</td>
+			<td>no</td>
+			<td><pre>python</pre></td>
+			<td><p>Tells XL-TestView in what language the parser is written.</p>
+				<p>Possible values are:
+					<pre>python</pre>
+					<pre>java</pre>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>className</td>
+			<td>yes - if <pre>language</pre> property is <pre>java</pre></td>
+			<td>n/a</td>
+			<td><p>If language is <strong>java</strong> it tells XL-TestView where the parser is located.</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+## Writing a new Test Tool
+
+1. Determine the type of results produced by the test tool. XL TestView supports functional and performance test results
+2. Write the implementation
+3. Add an entry to a synthetic.xml file.
+
 
 ## Writing a test result parser
 
