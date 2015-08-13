@@ -143,14 +143,7 @@ The properties are explained below:
 	</tbody>
 </table>
 
-## Writing a new Test Tool
-
-1. Determine the type of results produced by the test tool. XL TestView supports functional and performance test results
-2. Write the implementation
-3. Add an entry to a synthetic.xml file.
-
-
-## Writing a test result parser
+### Write an implementation of the test results parser
 
 A (Python) script is required to do the actual parsing.
 
