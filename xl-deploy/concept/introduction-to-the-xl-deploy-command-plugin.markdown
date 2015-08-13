@@ -40,9 +40,22 @@ In XL Deploy 5.1.0 and later, the preferred way to define an `undo` command is b
 
 **Note:** It is also possible to define an undo command by referring to an existing command. This approach is deprecated in favor of the approach described above, which has the advantage that it can resolve placeholders used in the undo command.
 
+> In case both undoCommandLine and reference undo command are defined then undoCommandLine will have precedence.
+
 ### Command order
 
 The order in which the command is run in relation to other commands. The order allows for the chaining of commands to create a logical sequence of events. For example, an install Tomcat command would execute before an install web application command, while a start Tomcat command would be the last in the sequence.
+
+### Further details
+
+Command lines are split into arguments on single spaces (i.e. `' '`). For example, the `commandLine` property `echo Hello World` is interpreted as the command `echo` with the two arguments `Hello` and `World`.
+
+### Limitations
+
+* Only single-line commands are supported
+* Command lines are always split on spaces, even if the target shell supports a syntax for treating strings containing a space as a single argument. For example, `echo "Hello World"` is also intepreted as a command `echo` with _two_ arguments, `"Hello` and `World"`
+* Excess spaces in commands are converted to empty string arguments. For example, <tt>ifconfig&nbsp;&nbsp;-a</tt> is executed as `ifconfig "" -a`
+* Characters in commands that are special characters of the target shell are **escaped** when executed. For example, the command `ifconfig && echo Hello` is executed as _three_ commands `ifconfig \&\& echo Hello` on a Unix system
 
 ## Usage in deployment packages
 
@@ -99,7 +112,8 @@ The following command will be executed at order 50 in the generated step list. `
     <cmd.Command name="install-tc-command">
         <order>50</order>
         <commandLine>/bin/sh ${install-tc.sh} ${tomcat.zip}</commandLine>
-        <undoCommand>uninstall-tc-command</undoCommand>
+        <commandLine>uninstall-tc-command</commandLine>
+        <undoOrder>45</undoOrder>
         <dependencies>
 			<ci ref="install-tc.sh" />
         	<ci ref="tomcat.zip" />
