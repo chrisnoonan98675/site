@@ -4,7 +4,7 @@ online-docs-jekyll
 # Setting it up locally
 
 1. Clone this repository.
-1. Install Jekyll 2.3.0 and its requirements:
+1. Install Jekyll 2.x and its requirements:
     * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/)
     * Windows users, follow [these instructions](http://jekyll-windows.juthilo.com/) (you can skip step #3 there)
 1. Install [Asciidoctor](http://asciidoctor.org/docs/install-toolchain/).
@@ -12,7 +12,8 @@ online-docs-jekyll
 
 Tips:
 
-* We are using Jekyll 2.3.0. Newer versions of Jekyll will not work. See [this StackOverflow question](http://stackoverflow.com/questions/24223567/how-can-i-install-an-older-version-of-jekyll) if you need help installing the right version.
+* We are using Jekyll 2.x. Jekyll 3.x will not work yet because of changes in the Liquid templating system.
+* It's a known issue that generating the site (even in watch mode) is quite slow. Hopefully Jekyll 3.x will fix this.
 * To disable updating of the Development Dashboard while you run Jekyll in watch mode, change the `jira_dashboard` `generate` setting in `_config.yml` to `false`. **Do not commit this change to the repository!**
 * If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
 * You may want to download a Markdown editor such as [MacDown](http://macdown.uranusjr.com/) for OS X or [MarkdownPad](http://markdownpad.com/) for Windows.
