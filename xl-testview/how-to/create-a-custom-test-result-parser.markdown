@@ -26,6 +26,7 @@ The following steps are required for a new test tool:
 
 XL TestView contains a set of default tools. Those can be used as a basis for new test tools. The following table can help you select a good starting point:
 
+{:.table .table-striped}
 |Script|Tool|Type|Input format|
 |------|----|----|------------|
 |junit.py|JUnit|Functional|xml|
@@ -46,6 +47,7 @@ In many cases all test results that can be found belong to one test run. This is
 
 Apart from a list of `files`, the script is primes with the following information:
 
+{:.table .table-striped}
 |Attribute|Description|
 |---------|-----------|
 | `testRunId` | An ID identifying a test run. |
@@ -68,6 +70,7 @@ TODO: make remark on type namespace prefix and class path namespacing.
 
 The following values need to be specified:
 
+{:.table .table-striped}
 |Attribute|Description|
 |---------|-----------|
 | `type` | A unique typename for this test Tool. |
