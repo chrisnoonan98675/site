@@ -79,7 +79,9 @@ The following values need to be specified:
 | `defaultSearchPattern` | A Ant style pattern to select relevant test result files. For example: `**/test-results/TEST*.xml` selects all files starting with `TEST` and ending with `.xml` that are in a directory `test-results`, which can be at any depth in the file tree. |
 | `scriptLocation` | The name of the script. |
 
-For more information about the type system, please look at <link>
+XL-TestView uses the same type system as XL-Deploy. However, only the above fields are used for test tools. To acquire a better understanding about the type system in general please look at [Understanding XL Deploy rules](/xl-deploy/how-to/customize-an-existing-ci-type.html).
+
+
 
 TODO: example parse flow
 
