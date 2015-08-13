@@ -85,11 +85,3 @@ If an XL Release node becomes unavailable:
 * All users that are on that node will be logged out and will lose any work that was not yet persisted to the database.
 
 * Any background tasks running on the node will be lost.
-
-### Limitations on replication
-
-If a node leaves the cluster (because it is stopped, there are networking problems, or another reason) and then re-joins the cluster, new releases that were added in the meantime will *not* appear in search results or in the release overview, despite the fact that they are replicated to the node.
-
-This is caused by a Modeshape issue that will be fixed in the next Modeshape release; refer to the [JBossDeveloper forum](https://developer.jboss.org/message/936937) and [MODE-1903](https://issues.jboss.org/browse/MODE-1903) for more information.
-
-A workaround is to remove all indexes on the node before it re-joins the cluster. The indexes will then be rebuilt with new data. Partial indexes rebuilt based on [journaling](https://docs.jboss.org/author/display/MODE40/Journaling) is [scheduled](https://issues.jboss.org/browse/MODE-1903) for Modeshape 4.4.
