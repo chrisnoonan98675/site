@@ -47,17 +47,16 @@ The following configuration settings are important:
 
 ### Enabling infinispan clustered cache
 
-XL Release uses a clustered setup of [Infinispan](http://infinispan.org/). To enable infinispan cluster configuration, open file `conf/repository.json` and replace value of property `cacheConfiguration` from `infinispan-local-h2.xml` to `infinispan-cluster-oracle.xml`.
+XL Release uses a clustered setup of [Infinispan](http://infinispan.org/). To enable Infinispan cluster configuration, open `conf/repository.json` and change the value of property `cacheConfiguration` from `infinispan-local-h2.xml` to `infinispan-cluster-oracle.xml`.
 
 ### Connection to Oracle Database
 
-[Infinispan](http://infinispan.org/) is responsible for data persistence. To connect Infinispan to the Oracle database, make the following changes in the `conf/infinispan-cluster-oracle.xml` file:
+Infinispan is responsible for data persistence. To connect Infinispan to the Oracle database, modify the `jdbc:connection-pool` element in the `conf/infinispan-cluster-oracle.xml` file as follows:
 
-* Modify element `jdbc:connection-pool`:
-    * `connection-url` must be a valid JDBC URL; for example, `jdbc:oracle:thin:@oracle.hostname.com:1521:SID`
-    * `driver` must be a valid Oracle driver; for example, `oracle.jdbc.driver.OracleDriver`
-    * `username` specifies the username to connect to the database
-    * `password` specifies the password to connect to the database
+* `connection-url` must be a valid JDBC URL; for example, `jdbc:oracle:thin:@oracle.hostname.com:1521:SID`
+* `driver` must be a valid Oracle driver; for example, `oracle.jdbc.driver.OracleDriver`
+* `username` specifies the username to connect to the database
+* `password` specifies the password to connect to the database
 
 Also, place the JAR file containing the Oracle JDBC driver `ojdbc6.jar` in the XL Release `plugins` directory. You can download the driver from [Oracle](http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html).
 
