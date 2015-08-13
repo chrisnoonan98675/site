@@ -24,9 +24,9 @@ You can also use the Command plugin to reuse existing deployment scripts with XL
 
 ### Command
 
-A command encapsulates an operating system-specific command, as one would enter at the command prompt of a native OS command shell. The OS command is captured in the command's `commandLine` property; e.g. `echo hello >> /tmp/hello.txt`.
+A command encapsulates an operating system-specific command, as you would enter at the command prompt of a native operating system (OS) command shell. The OS command is captured in the command's `commandLine` property; for example, `echo hello >> /tmp/hello.txt`.
 
-The command also has the capability of uploading any dependent files to the target system and make those available to the `commandLine` with the use of a placeholder; e.g. `cat ${uploadedHello.txt} >> /tmp/hello.txt`.
+The command can also upload dependent files to the target system and make them available to the `commandLine` with the use of a placeholder; for example, `cat ${uploadedHello.txt} >> /tmp/hello.txt`.
 
 ### Undo command
 
@@ -38,28 +38,27 @@ In XL Deploy 5.1.0 and later, the preferred way to define an `undo` command is b
 * `undoOrder`: Specifies the order of execution of undo command
 * `undoDependencies`: Specifies the dependent artifacts that undo command requires
 
-**Note:** It is also possible to define an undo command by referring to an existing command. This approach is deprecated in favor of the approach described above, which has the advantage that it can resolve placeholders used in the undo command.
-
-> In case both undoCommandLine and reference undo command are defined then undoCommandLine will have precedence.
+**Note:** It is also possible to define an undo command by referring to an existing command. This approach is deprecated in favor of the approach described above, which has the advantage that it can resolve placeholders used in the undo command. If `undoCommandLine` and a reference undo command are both defined, then `undoCommandLine` will take precedence.
 
 ### Command order
 
-The order in which the command is run in relation to other commands. The order allows for the chaining of commands to create a logical sequence of events. For example, an install Tomcat command would execute before an install web application command, while a start Tomcat command would be the last in the sequence.
+The command order is the order in which the command is run in relation to other commands. The order allows you to chain commands to create a logical sequence of events.
 
-### Further details
-
-Command lines are split into arguments on single spaces (i.e. `' '`). For example, the `commandLine` property `echo Hello World` is interpreted as the command `echo` with the two arguments `Hello` and `World`.
+For example, an "install Tomcat" command would execute before an "install web application" command, while a "start Tomcat" command would be the last in the sequence.
 
 ### Limitations
 
-* Only single-line commands are supported
-* Command lines are always split on spaces, even if the target shell supports a syntax for treating strings containing a space as a single argument. For example, `echo "Hello World"` is also intepreted as a command `echo` with _two_ arguments, `"Hello` and `World"`
-* Excess spaces in commands are converted to empty string arguments. For example, <tt>ifconfig&nbsp;&nbsp;-a</tt> is executed as `ifconfig "" -a`
-* Characters in commands that are special characters of the target shell are **escaped** when executed. For example, the command `ifconfig && echo Hello` is executed as _three_ commands `ifconfig \&\& echo Hello` on a Unix system
+* Only single-line commands are supported.
+
+* Command lines are always split on spaces (that is, `' '`), even if the target shell supports a syntax for treating strings containing a space as a single argument. For example, `echo "Hello World"` is interpreted as a command `echo` with _two_ arguments, `"Hello` and `World"`.
+
+* Excess spaces in commands are converted to empty string arguments. For example, <code>ifconfig&nbsp;&nbsp;-a</code> is executed as `ifconfig "" -a`.
+
+* Characters in commands that are special characters of the target shell are *escaped* when executed. For example, the command `ifconfig && echo Hello` is executed as _three_ commands `ifconfig \&\& echo Hello` on a Unix system.
 
 ## Usage in deployment packages
 
-This is an example of a deployment package (DAR) manifest that defines a package that can (un)provision a Tomcat server using an install and uninstall script. This example is valid for XL Deploy 5.1.0 and later.
+This is an example of a deployment package (DAR) manifest that defines a package that can provision and un-provision a Tomcat server using an install and uninstall script. This example is valid for XL Deploy 5.1.0 and later.
 
 	<cmd.Command name="install-tc-command">
 		<order>50</order>
@@ -80,11 +79,7 @@ This is an example of a deployment package (DAR) manifest that defines a package
 
 ### Sample scenario: Provision a Tomcat server
 
-For illustration purposes, we take a simplistic view of installing Tomcat. In reality however, your installation of
-Tomcat would take on a far more comprehensive form.
-
-Tomcat is distributed as a ZIP. For this example, we create an installation script to unzip the distribution
-on the host. The uninstall script simply shuts down a running Tomcat and deletes the installation directory.
+This is an example of a simple way of installing Apache Tomcat, which is distributed as a ZIP file. This example creates an installation script to unzip the distribution file on the host. The uninstall script shuts down a running Tomcat server and deletes the installation directory.
 
 #### Create the installation script (`install-tc.sh`)
 
@@ -105,9 +100,9 @@ on the host. The uninstall script simply shuts down a running Tomcat and deletes
     /apache-tomcat-6.0.32/bin/shutdown.sh
     rm -rf /apache-tomcat-6.0.32
 
-#### Manifest snippet defining the command to trigger the execution of the install script for the initial deployment
+#### Define the command to trigger execution of the install script for the initial deployment
 
-The following command will be executed at order 50 in the generated step list. `/bin/sh` is used on the host to execute the install script which takes a single parameter, the absolute path to the `tomcat.zip` on the host. When the command is undeployed, `uninstall-tc-command` will be executed.
+This is an example of part of a `deployit-manifest.xml` file. The command will be executed at order 50 in the generated step list. `/bin/sh` is used on the host to execute the install script which takes a single parameter, the absolute path to the `tomcat.zip` on the host. When the command is undeployed, `uninstall-tc-command` will be executed.
 
     <cmd.Command name="install-tc-command">
         <order>50</order>
@@ -120,10 +115,9 @@ The following command will be executed at order 50 in the generated step list. `
         </dependencies>
     </cmd.Command>
 
-#### Manifest snippet defining the undo command to trigger the execution of the uninstall script for the undeploy
+#### Deinfe the undo command to trigger the execution of the uninstall script for the undeploy
 
-The undo command will be executed at order 45 in the generated step list. Note that it has a lower order than the
-`install-tc-command`. This ensures that the undo command will always run before the `install-tc-command` during an upgrade.
+This is an example of part of a `deployit-manifest.xml` file. The undo command will be executed at order 45 in the generated step list. Note that it has a lower order than the `install-tc-command`. This ensures that the undo command will always run before `install-tc-command` during an upgrade.
 
     <cmd.Command name="uninstall-tc-command">
         <order>45</order>
