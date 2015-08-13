@@ -45,14 +45,13 @@ The following configuration settings are important:
 
 * Element `TCPPING`, attribute `initial_hosts`: Must contain addresses and ports of all nodes in a cluster. Multiple values are comma-separated. Defaults to `127.0.0.1[7800]`. You can change this value using the JVM system property `jgroups.tcp.cluster.addresses`.
 
-### Connecting Infinispan clustered cache to Oracle database
+### Enabling infinispan clustered cache
 
-XL Release uses a clustered setup of [Infinispan](http://infinispan.org/), which is responsible for data persistence. To connect Infinispan to the Oracle database, make the following changes in the `conf/infinispan.xml` file:
-  
-* Modify column data types specified for table `ISPN_STRING_TABLE` in element `jdbc:string-keyed-table`:
-    * `jdbc:id-column` must have type `VARCHAR(255)`
-    * `jdbc:data-column` must have type `BLOB`
-    * `jdbc:timestamp-column` must have type `NUMBER(20)`
+XL Release uses a clustered setup of [Infinispan](http://infinispan.org/). To enable infinispan cluster configuration, open file `conf/repository.json` and replace value of property `cacheConfiguration` from `infinispan-local-h2.xml` to `infinispan-cluster-oracle.xml`.
+
+### Connection to Oracle Database
+
+[Infinispan](http://infinispan.org/) is responsible for data persistence. To connect Infinispan to the Oracle database, make the following changes in the `conf/infinispan-cluster-oracle.xml` file:
 
 * Modify element `jdbc:connection-pool`:
     * `connection-url` must be a valid JDBC URL; for example, `jdbc:oracle:thin:@oracle.hostname.com:1521:SID`
