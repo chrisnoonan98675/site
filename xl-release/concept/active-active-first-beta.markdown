@@ -35,7 +35,7 @@ The beta release includes a number of components that are not included in other 
 1. Ensure task archiving uses the Oracle database by configuring `conf/xl-release.conf` as described under [Configure task archiving](#configure-task-archiving).
 1. On the first node *only*, follow the server setup procedure in the normal way (`bin/server.sh -setup`). Do not run the setup procedure on other nodes yet.
 1. Start XL Release on the first node and log in to the user interface as the admin user.
-1. After logging in successfully, copy `conf/xl-release-server.conf` and `conf/repository-keystore.jceks` (if it exists) to the other node(s).
+1. After logging in successfully, copy `conf/xl-release-server.conf` and `conf/repository-keystore.jceks` (if it exists) to the other node(s). For nodes running on the same machine, edit `conf/xl-release-server.conf` to set `http.port` to an unused port.
 1. On the other node(s), start the server without running the setup procedure (that is, without the `-setup` argument).
 1. Read about the [limitations of this beta release](#limitations-in-the-beta-release).
 1. Execute performance tests and fill out the form. [See below for instructions.](#running-stress-tests)  
