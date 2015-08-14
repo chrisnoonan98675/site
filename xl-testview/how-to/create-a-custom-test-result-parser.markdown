@@ -163,6 +163,7 @@ Apart from a list of `files`, the script is primes with the following informatio
 | `workingDirectory` | Directory there the test results have been stored. |
 | `testSpecification` | The test specification that will own the test run. |
 | `testRunHistorian` | This service can tell the script if results have been imported already. |
+| `LOG` | A SLF4J logger you can use to log information at greater detail |
 
 You also need an addition to the `synthetic.xml`:
 
@@ -198,10 +199,19 @@ TODO: example parse flow
 
 For functional test tools, the Python module `functional.parser` contains useful functions for processing test results and making sure the test results are structured in a way accepted by XL TestView.
 
-   
+
 ## Writing a performance test result parser
 
 Writing a performance test result parser is much alike writing a functional test result parser. In this case the useful functions are located in module `performance.parser`.
 
+## Logging
 
+When a script uses the python 'print' statement the output will be logged in the `<XLTESTVIEW_HOME>/log/xl-testview.log` using a logger with the name of the test tool at `INFO` level. You can also use the SLF4J logger `LOG` that is availble in the script e.g.:
 
+```
+   LOG.error('Test results improperly formatted')
+   LOG.warn('Test result parser did not find any usefull information')
+   LOG.info('Parsing the results took {} seconds', time)
+```
+
+This logger will log to a logger with the name of the test result parser.
