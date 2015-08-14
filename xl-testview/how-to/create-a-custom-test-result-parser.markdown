@@ -4,7 +4,7 @@ title: Create a custom test result parser
 categories:
 - xl-testview
 subject:
-- System administration
+- Test tool
 tags:
 - system administration
 - test tool
