@@ -99,20 +99,33 @@ If an XL Release node becomes unavailable:
 
 To run a set of tests, follow these steps:
 
-0. Conssult form for required test sets [Test Sets Form TODO](http://somewhere.todo.xebialabs.com) and pick up one test set.
+1. Consult the [form for required test sets TO DO](http://somewhere.todo.xebialabs.com) and pick up one test set.
 1. Using Git, clone [https://github.com/xebialabs-community/xl-release-stress-tests.git](https://github.com/xebialabs-community/xl-release-stress-tests.git).
-2. Stop all nodes in a cluster if previously run
-3. Remove table `ISPN_STRING_TABLE_REPO` from Oracle DB if present.
-4. Start single node in the cluster and wait until it is fully intialized. 
-5. Insert test data by executing following command within direcotry of the cloned git repository
-    * On Microsoft Windows `gradlew :data-generator:run -Pserver-url=http://node1.hostname.com:5516 -Pactive-releases=NUMBER_OF_RELEASES -i`
-    * On Linux: `./gradlew :data-generator:run -Pserver-url=http://node1.hostname.com:5516 -Pactive-releases=NUMBER_OF_RELEASES -i`
-    * Where `node1.hostname.com:5516` points to a single running node in the cluster. 
-    * And `NUMBER_OF_RELEASES` is number of releases to insert into the repository. This number is defined by current test set and must be manually specified in the command.
-6. Start the remaining nodes that participate in the test set and wait until they are fully initialized.
-6. Run test set by execution following command:
-    * On Microsoft Windows `gradlew :runner:run -PbaseUrl=http://loadbalancer.hostname.com -Psimulation=stress.RealisticSimulation`
-    * On Linux: `./gradlew :runner:run -PbaseUrl=http://loadbalancer.hostname.com -Psimulation=stress.RealisticSimulation`
-    * Where `loadbalancer.hostname.com` points to a pre-configured load balancer that distributes requests to all active nodes in the cluster.
-7. Copy generated report found in the `runner/reports` directory and upload it to [http://somewhere.todo.xebialabs.com](http://somewhere.todo.xebialabs.com).
-8. Fill out the form for corresponding test set [Test Sets Form TODO](http://somewhere.todo.xebialabs.com)
+1. If the nodes in the cluster are running, stop them.
+1. If the `ISPN_STRING_TABLE_REPO` table exists in the Oracle database, remove it.
+1. Start a single node in the cluster and wait until it is fully initialized. 
+1. Insert the test data by executing the following command in the directory of the cloned Git repository:
+
+    On Microsoft Windows:
+    
+        gradlew :data-generator:run -Pserver-url=http://node1.hostname.com:5516 -Pactive-releases=NUMBER_OF_RELEASES -i
+
+    On Linux:
+
+        ./gradlew :data-generator:run -Pserver-url=http://node1.hostname.com:5516 -Pactive-releases=NUMBER_OF_RELEASES -i
+
+    Where `node1.hostname.com:5516` points to a single running node in the cluster and `NUMBER_OF_RELEASES` is number of releases to insert into the repository. This number is defined by current test set and must be manually specified in the command.
+1. Start the remaining nodes that participate in the test set and wait until they are fully initialized.
+1. Run the test set by executing following command:
+
+    On Microsoft Windows:
+
+        gradlew :runner:run -PbaseUrl=http://loadbalancer.hostname.com -Psimulation=stress.RealisticSimulation
+
+    On Linux
+
+        ./gradlew :runner:run -PbaseUrl=http://loadbalancer.hostname.com -Psimulation=stress.RealisticSimulation
+
+    Where `loadbalancer.hostname.com` points to a pre-configured load balancer that distributes requests to all active nodes in the cluster.
+1. Copy the generated report from the `runner/reports` directory and upload it to [http://somewhere.todo.xebialabs.com](http://somewhere.todo.xebialabs.com).
+1. Fill out the [form for the corresponding test set TODO](http://somewhere.todo.xebialabs.com).
