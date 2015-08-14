@@ -99,11 +99,11 @@ If an XL Release node becomes unavailable:
 
 To run a set of tests, follow these steps:
 
-0. Conssult from for required test sets [Test Sets Form TODO](http://somewhere.todo.xebialabs.com) and pick up one test set.
+0. Conssult form for required test sets [Test Sets Form TODO](http://somewhere.todo.xebialabs.com) and pick up one test set.
 1. Using Git, clone [https://github.com/xebialabs-community/xl-release-stress-tests.git](https://github.com/xebialabs-community/xl-release-stress-tests.git).
-2. Stop all nodes in cluster if previously run
+2. Stop all nodes in a cluster if previously run
 3. Remove table `ISPN_STRING_TABLE_REPO` from Oracle DB if present.
-4. Start a single node in the cluster and wait until it is fully intialized. 
+4. Start single node in the cluster and wait until it is fully intialized. 
 5. Insert test data by executing following command within direcotry of the cloned git repository
     * On Microsoft Windows `gradlew :data-generator:run -Pserver-url=http://node1.hostname.com:5516 -Pactive-releases=NUMBER_OF_RELEASES -i`
     * On Linux: `./gradlew :data-generator:run -Pserver-url=http://node1.hostname.com:5516 -Pactive-releases=NUMBER_OF_RELEASES -i`
