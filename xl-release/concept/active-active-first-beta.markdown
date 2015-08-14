@@ -102,7 +102,7 @@ To run a set of tests, follow these steps:
 1. Consult the [form for required test sets TO DO](http://somewhere.todo.xebialabs.com) and pick up one test set.
 1. Using Git, clone [https://github.com/xebialabs-community/xl-release-stress-tests.git](https://github.com/xebialabs-community/xl-release-stress-tests.git).
 1. If the nodes in the cluster are running, stop them.
-1. If the `ISPN_STRING_TABLE_REPO` table exists in the Oracle database, remove it.
+1. If the `ISPN_STRING_TABLE_repo` table exists in the Oracle database, remove it.
 1. Start a single node in the cluster and wait until it is fully initialized. 
 1. Insert the test data by executing the following command in the directory of the cloned Git repository:
 
