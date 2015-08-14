@@ -97,17 +97,22 @@ If an XL Release node becomes unavailable:
 
 ## Running stress tests
 
-**-- UNDER CONSTRUCTION --**
+To run a set of tests, follow these steps:
 
-To run stress tests, follow these steps:
-
+0. Conssult from for required test sets [Test Sets Form TODO](http://somewhere.todo.xebialabs.com) and pick up one test set.
 1. Using Git, clone [https://github.com/xebialabs-community/xl-release-stress-tests.git](https://github.com/xebialabs-community/xl-release-stress-tests.git).
-1. Go to the directory where you cloned the repository and execute the following commands:
-    * On Microsoft Windows:
-        * `gradlew :data-generator:run`
-        * `gradlew :runner:run`
-    * On Linux:
-        * `./gradlew :data-generator:run`
-        * `./gradlew :runner:run`
-1. Reports can be found in the `runner/reports` directory.
-1. Fill out the form at [http://somewhere.todo.xebialabs.com](http://somewhere.todo.xebialabs.com)
+2. Stop all nodes in cluster if previously run
+3. Remove table `ISPN_STRING_TABLE_REPO` from Oracle DB if present.
+4. Start a single node in the cluster and wait until it is fully intialized. 
+5. Insert test data by executing following command within direcotry of the cloned git repository
+    * On Microsoft Windows `gradlew :data-generator:run -Pserver-url=http://node1.hostname.com:5516 -Pactive-releases=NUMBER_OF_RELEASES -i`
+    * On Linux: `./gradlew :data-generator:run -Pserver-url=http://node1.hostname.com:5516 -Pactive-releases=NUMBER_OF_RELEASES -i`
+    * Where `node1.hostname.com:5516` points to a single running node in the cluster. 
+    * And `NUMBER_OF_RELEASES` is number of releases to insert into the repository. This number is defined by current test set and must be manually specified in the command.
+6. Start the remaining nodes that participate in the test set and wait until they are fully initialized.
+6. Run test set by execution following command:
+    * On Microsoft Windows `gradlew :runner:run -PbaseUrl=http://loadbalancer.hostname.com -Psimulation=stress.RealisticSimulation`
+    * On Linux: `./gradlew :runner:run -PbaseUrl=http://loadbalancer.hostname.com -Psimulation=stress.RealisticSimulation`
+    * Where `loadbalancer.hostname.com` points to a pre-configured load balancer that distributes requests to all active nodes in the cluster.
+7. Copy generated report found in the `runner/reports` directory and upload it to [http://somewhere.todo.xebialabs.com](http://somewhere.todo.xebialabs.com).
+8. Fill out the form for corresponding test set [Test Sets Form TODO](http://somewhere.todo.xebialabs.com)
