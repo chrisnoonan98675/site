@@ -99,7 +99,7 @@ If an XL Release node becomes unavailable:
 
 To run a set of tests, follow these steps:
 
-1. Consult the [form for required test sets TO DO](http://somewhere.todo.xebialabs.com) and pick up one test set.
+1. Consult the `XLR.TestSets.xlsx` and pick up one test set.
 1. Using Git, clone [https://github.com/xebialabs-community/xl-release-stress-tests.git](https://github.com/xebialabs-community/xl-release-stress-tests.git).
 1. If the nodes in the cluster are running, stop them.
 1. If the `ISPN_STRING_TABLE_repo` table exists in the Oracle database, remove it.
@@ -127,5 +127,11 @@ To run a set of tests, follow these steps:
         ./gradlew :runner:run -PbaseUrl=http://loadbalancer.hostname.com -Psimulation=stress.RealisticSimulation
 
     Where `loadbalancer.hostname.com` points to a pre-configured load balancer that distributes requests to all active nodes in the cluster.
-1. Copy the generated report from the `runner/reports` directory and upload it to [http://somewhere.todo.xebialabs.com](http://somewhere.todo.xebialabs.com).
-1. Fill out the [form for the corresponding test set TODO](http://somewhere.todo.xebialabs.com).
+1. Copy the generated report from the `runner/reports` directory and fill the name of the report in corresponding column of the `XLR.TestSets.xlsx`.
+
+    Note: The report full path location is printed at the end of test run and displayed as
+    
+        Reports generated in 0s.
+        Please open the following file: /full/path/to/xl-release-stress-tests/runner/reports/realisticsimulation-1439800181549/index.html
+
+1. Fill out additional information in the `XLR.TestSets.xlsx`.
