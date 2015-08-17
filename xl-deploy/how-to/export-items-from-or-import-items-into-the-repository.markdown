@@ -20,11 +20,15 @@ Administrative permissions are required to perform repository export or import. 
 
 ## Export CIs
 
-To export all configuration items (Applications, Environments, and so on) use `'/'` or `None` as the argument:
+To export all CIs in the repository, use `'/'` or `None` as the argument:
 
-    repository.exportCis('/')`
+    repository.exportCis('/')
 
-This command will export all applications to a ZIP file called `DEPLOYIT_SERVER_HOME/export/Applications-<date>.zip`:
+To export the CIs under an internal root (`Applications`, `Environments`, `Infrastructure`, or `Configuration`), specify the root:
+
+    repository.exportCis('Applications')
+
+For example, this command will export all applications to a ZIP file called `XLDEPLOY_SERVER_HOME/export/Applications-<date>.zip`:
 
 	deployit> fileName = repository.exportCisAndWait('Applications')
 
@@ -37,7 +41,7 @@ Note that:
 
 ## Control the export process
 
-Export process is a task, same as deployments, so you can control it using the same objects. If you want to have more control over the export task, you can use it like this:
+The export process is a task, so you can control it using the same objects you use for a deployment. For example, if you want to have more control over the export task:
 
 	deployit> taskId = repository.exportCis('Applications')
 	deployit> task2.start(taskId)
@@ -46,7 +50,7 @@ Export process is a task, same as deployments, so you can control it using the s
 
 ## Import previously exported content
 
-For importing previously exported content you can use either:
+To import previously exported content, use either:
 
 	deployit> repository.importCisAndWait(fileName)
 

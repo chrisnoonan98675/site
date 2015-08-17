@@ -23,7 +23,7 @@ The **Filter options** give you control over which releases are shown on the cal
 
 * **All active releases**: Show releases that are currently in progress.
 * **All planned releases**: Show planned releases that have not started yet.
-* **All completed releases**: Show releases that have completed or that were aborted.
+* **All completed and aborted releases**: Show releases that are completed or aborted.
 * **Only my releases**: Show releases that you own.
 * **Only flagged releases**: Show releases that are flagged with a status message to indicate that they need attention or are at risk.
 

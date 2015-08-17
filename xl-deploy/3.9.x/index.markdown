@@ -3,6 +3,8 @@ title: XL Deploy 3.9.x documentation
 product-id: xl-deploy
 ---
 
+<div class="alert alert-warning" style="width: 60%">As of June 2, 2015, XL Deploy 3.9.x is <a href="https://support.xebialabs.com/hc/en-us/articles/204524829-XL-Deploy-3-9-is-no-longer-officially-supported">no longer officially supported</a>. Please <a href="https://support.xebialabs.com/hc/en-us" target="_new">contact us via our support site</a> if you have any questions.</div>
+
 ## Product documentation
 
 * [Start Here](starthere.html)

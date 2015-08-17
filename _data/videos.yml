@@ -1,0 +1,24 @@
+- product: xl-deploy
+  videos:
+    - title: A quick look at XL Deploy
+      url: https://www.youtube.com/watch?v=rmbH98YeWck
+    - title: Getting started with XL Deploy (series)
+      url: https://www.youtube.com/playlist?list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1
+    - title: Using XL Deploy with Apache Tomcat
+      url: https://www.youtube.com/watch?v=rNVkeHeVB-Q
+    - title: Using XL Deploy with JBoss Application Server/WildFly
+      url: https://www.youtube.com/watch?v=o_J3ov9jAzI
+    - title: Using XL Deploy with IBM WebSphere
+      url: https://www.youtube.com/watch?v=XEh5QGcpn5U
+- product: xl-release
+  videos:
+    - title: A quick look at XL Release
+      url: https://www.youtube.com/watch?v=Y3tbOveSggA
+- product: xl-testview
+  videos:
+    - title: Why do I need XL TestView
+      url: https://www.youtube.com/watch?v=_17xKtB3iWU
+    - title: Key benefits of XL TestView
+      url: https://www.youtube.com/watch?v=H1aQ6uHeIbM
+    - title: Getting started with XL TestView
+      url: https://www.youtube.com/watch?v=7NaCEJVdCBQ

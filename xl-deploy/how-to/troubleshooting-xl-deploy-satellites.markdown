@@ -1,4 +1,5 @@
 ---
+layout: satellite
 title: Troubleshooting XL Deploy satellites
 categories:
 - xl-deploy
@@ -15,7 +16,9 @@ since:
 
 ## I configured a satellite in XL Deploy and started it, but I cannot ping it
 
-This issue may be caused by the configuration of the satellite address. The IP address and port number that you specify when you create the satellite configuration item (CI) in XL Deploy's repository must *exactly* match the values that appear in the satellite's log when it is started.
+If you are using XL Deploy 5.0.1 or later, ensure that the `satellite` `enabled` setting in `conf/system.conf` is set to `yes`, as described in [Configure XL Deploy to communicate with satellites](/xl-deploy/how-to/configure-xl-deploy-to-communicate-with-satellites.html).
+
+Also, this issue may be caused by the configuration of the satellite address. The IP address and port number that you specify when you create the [satellite configuration item (CI)](/xl-deploy/how-to/add-a-satellite-server-to-xl-deploy.html) in XL Deploy's repository must *exactly* match the values that appear in the satellite's log when it is started.
 
 For example, in this log:
 

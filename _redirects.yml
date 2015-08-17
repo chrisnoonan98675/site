@@ -26,25 +26,43 @@
 /xl-release/help/0007.html : /xl-release/concept/xl-release-release-overview.html
 /xl-release/help/0008.html : /xl-release/concept/xl-release-release-summary.html
 
-# XL Test in-product links
+# XL TestView in-product links
+/xl-testview/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new?community_id=public
+/xl-testview/suggest-feature.html : https://support.xebialabs.com/hc/communities/public/questions/new?question%5Btopic_id%5D=200258619
+/xl-testview/license-agreement.html : /xl-testview/xl-testview-community-edition-eula.html
+/xl-testview/help/0001.html : /xl-testview/how-to/create-a-test-specification.html
+/xl-testview/help/0002.html : /xl-testview/how-to/execute-tests.html
+/xl-testview/help/0003.html : /xl-testview/concept/working-with-qualifications.html
+/xl-testview/help/0004.html : /xl-testview/concept/reports.html
+/xl-testview/help/0005.html : /xl-testview/how-to/create-a-custom-report.html
+/xl-testview/help/0006.html : /xl-testview/how-to/add-a-host.html
+/xl-testview/help/0007.html : /xl-testview/how-to/create-a-dashboard.html
+/xl-testview/help/0008.html : /xl-testview/how-to/duplicate-a-dashboard.html
+/xl-testview/help/0009.html : /xl-testview/how-to/import-test-results.html
+/xl-testview/help/0010.html : /xl-testview/concept/supported-test-tools-and-test-result-formats.html
+/xl-testview/help/0011.html : /xl-testview/concept/file-selection-patterns.html
+/xl-testview/help/0012.html : /xl-deploy/how-to/choose-an-overthere-host-type-and-connection-type.html
+/xl-testview/help/0013.html : /xl-testview/how-to/using-dashboards.html
+
+# Old XL Test in-product links
 /xl-test/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new?community_id=public
 /xl-test/suggest-feature.html : https://support.xebialabs.com/hc/communities/public/questions/new?question%5Btopic_id%5D=200258619
-/xl-test/license-agreement.html : /xl-test/index.html
-/xl-test/help/0001.html : /xl-test/how-to/create-a-test-specification.html
-/xl-test/help/0002.html : /xl-test/how-to/execute-tests-from-xl-test.html
-/xl-test/help/0003.html : /xl-test/concept/working-with-qualifications.html
-/xl-test/help/0004.html : /xl-test/concept/xl-test-reports.html
-/xl-test/help/0005.html : /xl-test/how-to/create-a-custom-report-in-xl-test.html
-/xl-test/help/0006.html : /xl-test/how-to/add-a-host-to-xl-test.html
-/xl-test/help/0007.html : /xl-test/how-to/create-a-dashboard.html
-/xl-test/help/0008.html : /xl-test/how-to/duplicate-a-dashboard.html
-/xl-test/help/0009.html : /xl-test/how-to/import-test-results.html
-/xl-test/help/0010.html : /xl-test/concept/supported-test-tools-and-test-result-formats.html
-/xl-test/help/0011.html : /xl-test/concept/xl-test-file-selection-patterns.html
+/xl-test/license-agreement.html : /xl-testview/xl-testview-community-edition-eula.html
+/xl-test/help/0001.html : /xl-testview/how-to/create-a-test-specification.html
+/xl-test/help/0002.html : /xl-testview/how-to/execute-tests.html
+/xl-test/help/0003.html : /xl-testview/concept/working-with-qualifications.html
+/xl-test/help/0004.html : /xl-testview/concept/reports.html
+/xl-test/help/0005.html : /xl-testview/how-to/create-a-custom-report.html
+/xl-test/help/0006.html : /xl-testview/how-to/add-a-host.html
+/xl-test/help/0007.html : /xl-testview/how-to/create-a-dashboard.html
+/xl-test/help/0008.html : /xl-testview/how-to/duplicate-a-dashboard.html
+/xl-test/help/0009.html : /xl-testview/how-to/import-test-results.html
+/xl-test/help/0010.html : /xl-testview/concept/supported-test-tools-and-test-result-formats.html
+/xl-test/help/0011.html : /xl-testview/concept/file-selection-patterns.html
 /xl-test/help/0012.html : /xl-deploy/how-to/choose-an-overthere-host-type-and-connection-type.html
-/xl-test/help/0013.html : /xl-test/how-to/using-xl-test-dashboards.html
+/xl-test/help/0013.html : /xl-testview/how-to/using-dashboards.html
 
-##### TOPICS THAT HAVE BEEN RENAMED
+##### TOPICS THAT HAVE BEEN RENAMED, MOVED, OR MERGED
 
 /xl-deploy/how-to/perform-an-update.html : /xl-deploy/how-to/update-a-deployed-application.html
 /xl-deploy/how-to/use-xl-deploy-garbage-collection.html : /xl-deploy/how-to/reclaim-disk-space-on-an-xl-deploy-server.html
@@ -55,9 +73,58 @@
 /xl-deploy/how-to/common-xl-deploy-cli-tasks.html : /xl-deploy/how-to/using-the-xl-deploy-cli.html
 /xl-deploy/concept/installing-and-removing-xl-deploy-plugins.html : /xl-deploy/how-to/install-or-remove-xl-deploy-plugins.html
 /xl-deploy/how-to/using-the-plan-analyzer.html : /xl-deploy/how-to/preview-the-deployment-plan.html
-/xl-test/how-to/create-a-test-tool-plugin.html : /xl-test/how-to/create-a-plugin-for-xl-test.html
-/xl-deploy/how-to/define-dependencies-between-versions.html : /xl-deploy/concept/application-dependencies-in-xl-deploy.html
+/xl-test/how-to/create-a-test-tool-plugin.html : /xl-testview/concept/understanding-the-architecture.html
+/xl-deploy/concept/getting-started-with-the-satellite-feature.html : /xl-deploy/concept/getting-started-with-the-satellite-module.html
+/xl-deploy/how-to/configure-the-satellite-feature-in-xl-deploy.html : /xl-deploy/how-to/configure-the-satellite-module-in-xl-deploy.html
+/xl-deploy/concept/understanding-xl-deploy-rules.html : /xl-deploy/concept/getting-started-with-xl-deploy-rules.html
 /xl-deploy/how-to/define-rule-behavior.html : /xl-deploy/concept/objects-and-properties-available-to-rules.html
+/xl-deploy/how-to/how-to-define-rules.html : /xl-deploy/how-to/define-a-rule.html
+/xl-deploy/how-to/configure-the-satellite-module-in-xl-deploy.html : /xl-deploy/how-to/configure-xl-deploy-to-communicate-with-satellites.html
+/xl-deploy/concept/licensing-in-xl-deploy.html : /xl-deploy/concept/xl-deploy-licensing.html
+/xl-deploy/how-to/perform-a-deployment-using-the-xl-deploy-cli.html : /xl-deploy/how-to/deploy-an-application-using-the-cli.html
+/xl-release/how-to/migrate-to-xl-release-4.7.0.html : /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470
+/xl-deploy/concept/using-tags-to-configure-deployments.html : /xl-deploy/how-to/use-tags-to-configure-deployments.html
+/xl-deploy/concept/authoring-a-new-step-primitive-for-rules.html : /xl-deploy/how-to/create-a-custom-step-for-rules.html
+/xl-deploy/concept/understanding-orchestrators.html : /xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html
+/xl-deploy/how-to/connect-ldap-or-active-directory.html : /xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html
+
+##### PRODUCTS THAT HAVE BEEN RENAMED
+
+/development-dashboard/xl-test-dashboard.html : /development-dashboard/xl-testview-dashboard.html
+/development-dashboard/xl-test-history.html : /development-dashboard/xl-testview-history.html
+/xl-test/index.html : /xl-testview/index.html
+/xl-test/concept/index.html : /xl-testview/concept/index.html
+/xl-test/concept/key-xl-test-concepts.html : /xl-testview/concept/key-concepts.html
+/xl-test/concept/supported-test-tools-and-test-result-formats.html : /xl-testview/concept/supported-test-tools-and-test-result-formats.html
+/xl-test/concept/understanding-xl-test-architecture.html : /xl-testview/concept/understanding-the-architecture.html
+/xl-test/concept/working-with-qualifications.html : /xl-testview/concept/working-with-qualifications.html
+/xl-test/concept/xl-test-boot-properties.html : /xl-testview/concept/boot-properties.html
+/xl-test/concept/xl-test-file-selection-patterns.html : /xl-testview/concept/file-selection-patterns.html
+/xl-test/concept/xl-test-reports.html : /xl-testview/concept/reports.html
+/xl-test/how-to/index.html : /xl-testview/how-to/index.html
+/xl-test/how-to/add-a-host-to-xl-test.html : /xl-testview/how-to/add-a-host.html
+/xl-test/how-to/add-a-project-to-xl-test.html : /xl-testview/how-to/add-a-project.html
+/xl-test/how-to/add-a-tag-to-a-test-case.html : /xl-testview/how-to/add-a-tag-to-a-test-case.html
+/xl-test/how-to/connect-xl-test-to-a-jenkins-job.html : /xl-testview/how-to/connect-to-a-jenkins-job.html
+/xl-test/how-to/create-a-custom-qualification-in-xl-test.html : /xl-testview/how-to/create-a-custom-qualification.html
+/xl-test/how-to/create-a-custom-report-in-xl-test.html : /xl-testview/how-to/create-a-custom-report.html
+/xl-test/how-to/create-a-custom-report-using-highcharts-demos.html : /xl-testview/how-to/create-a-custom-report-using-highcharts-demos.html
+/xl-test/how-to/create-a-dashboard.html : /xl-testview/how-to/create-a-dashboard.html
+/xl-test/how-to/create-a-test-specification-set.html : /xl-testview/how-to/create-a-test-specification-set.html
+/xl-test/how-to/create-a-test-specification.html : /xl-testview/how-to/create-a-test-specification.html
+/xl-test/how-to/customize-test-run-overview.html : /xl-testview/how-to/customize-test-run-overview.html
+/xl-test/how-to/duplicate-a-dashboard.html : /xl-testview/how-to/duplicate-a-dashboard.html
+/xl-test/how-to/edit-a-dashboard.html : /xl-testview/how-to/edit-a-dashboard.html
+/xl-test/how-to/execute-tests-from-xl-test.html : /xl-testview/how-to/execute-tests.html
+/xl-test/how-to/filter-a-report-by-tag.html : /xl-testview/how-to/filter-a-report-by-tag.html
+/xl-test/how-to/getting-started-with-xl-test.html : /xl-testview/how-to/getting-started.html
+/xl-test/how-to/import-test-results.html : /xl-testview/how-to/import-test-results.html
+/xl-test/how-to/install-xl-test-plugins.html : /xl-testview/how-to/install-plugins.html
+/xl-test/how-to/install-xl-test.html : /xl-testview/how-to/install.html
+/xl-test/how-to/start-xl-test.html : /xl-testview/how-to/start.html
+/xl-test/how-to/troubleshoot-custom-reports-in-xl-test.html : /xl-testview/how-to/troubleshoot-custom-reports.html
+/xl-test/how-to/using-xl-test-dashboards.html : /xl-testview/how-to/using-dashboards.html
+/xl-test/how-to/view-test-case-details.html : /xl-testview/how-to/view-test-case-details.html
 
 ##### LEGACY PAGES THAT ARE NO LONGER USED
 
@@ -74,7 +141,7 @@
 /generated/xl-release/4.0.x/index.html : /xl-release/4.0.x/index.html
 /generated/xl-release/3.0.x/index.html : /xl-release/3.0.x/index.html
 
-##### "LATEST" LINKS
+##### "LATEST" LINKS, XL DEPLOY
 
 # XL Deploy product doc, new format
 /xl-deploy/latest/index.html : /xl-deploy/5.1.x/index.html
@@ -98,7 +165,7 @@
 /xl-deploy/latest/udmcireference.html : /xl-deploy/5.1.x/udmcireference.html
 /xl-deploy/latest/rest-api/index.html : /xl-deploy/5.1.x/rest-api/index.html
 /xl-deploy/latest/xldeployjavaapimanual.html : /xl-deploy/4.5.x/xldeployjavaapimanual.html
-/xl-deploy/latest/javadoc/udm-plugin-api/index.html : /xl-deploy/4.5.x/javadoc/udm-plugin-api/index.html
+/xl-deploy/latest/javadoc/udm-plugin-api/index.html : /xl-deploy/5.0.x/javadoc/udm-plugin-api/index.html
 
 # XL Deploy product doc, legacy format
 /releases/latest/deployit/starthere.html : /xl-deploy/4.5.x/starthere.html
@@ -164,7 +231,8 @@
 /xl-deploy/latest/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.0.x/bigipPluginManual.html
 /xl-deploy/latest/wmqPluginManual.html : /xl-deploy-wmq-plugin/5.0.x/wmqPluginManual.html
 /xl-deploy/latest/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/5.0.x/netscalerPluginManual.html
-/xl-deploy/latest/maven-plugin/index.html : /deployit-maven-plugin/5.0.x/index.html
+/xl-deploy/latest/maven-plugin/index.html : /xldeploy-maven-plugin/5.0.x/index.html
+/xl-deploy/latest/xldeploy-maven-plugin/index.html : /xldeploy-maven-plugin/5.0.x/index.html
 /xl-deploy/latest/jenkins-plugin/index.html : https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin
 /xl-deploy/latest/bamboo-plugin/index.html : /bamboo-xl-deploy-plugin/5.0.x/bambooPluginManual.html
 /xl-deploy/latest/tfs-plugin/index.html : /xl-deploy-tfs-plugin/5.0.x/tfsPluginManual.html
@@ -184,7 +252,8 @@
 /releases/latest/bigip-plugin/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.0.x/bigipPluginManual.html
 /releases/latest/wmq-plugin/webserverPluginManual.html : /xl-deploy-wmq-plugin/5.0.x/wmqPluginManual.html
 /releases/latest/netscaler-plugin/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/5.0.x/netscalerPluginManual.html
-/deployit-maven-plugin/index.html : /deployit-maven-plugin/5.0.x/index.html
+/deployit-maven-plugin/index.html : /xldeploy-maven-plugin/5.0.x/index.html
+/xldeploy-maven-plugin/index.html : /xldeploy-maven-plugin/5.0.x/index.html
 /releases/latest/bamboo-xl-deploy-plugin/bambooPluginManual.html : /bamboo-xl-deploy-plugin/5.0.x/bambooPluginManual.html
 
 # XL Scale product doc, new format
@@ -202,33 +271,37 @@
 /releases/latest/xl-scale-ec2-plugin/ec2PluginManual.html : /xl-scale/4.0.x/xl-scale-ec2-plugin/ec2PluginManual.html
 /releases/latest/xl-scale-vsphere-plugin/vspherePluginManual.html : /xl-scale/4.0.x/xl-scale-vsphere-plugin/vspherePluginManual.html
 
+##### "LATEST" LINKS, XL RELEASE
+
 # XL Release product doc, new format
-/xl-release/latest/index.html : /xl-release/4.6.x/index.html
-/xl-release/latest/upgrademanual.html : /xl-release/4.6.x/upgrademanual.html
-/xl-release/latest/systemadminmanual.html : /xl-release/4.6.x/systemadminmanual.html
-/xl-release/latest/reference_manual.html : /xl-release/4.6.x/reference_manual.html
-/xl-release/latest/plugin_manual.html : /xl-release/4.6.x/plugin_manual.html
-/xl-release/latest/markdownsyntax.html : /xl-release/4.6.x/markdownsyntax.html
-/xl-release/latest/rest-api/index.html : /xl-release/4.6.x/rest-api/
+/xl-release/latest/index.html : /xl-release/4.7.x/index.html
+/xl-release/latest/upgrademanual.html : /xl-release/4.7.x/upgrademanual.html
+/xl-release/latest/release_notes.html : /xl-release/4.7.x/release_notes.html
+/xl-release/latest/systemadminmanual.html : /xl-release/4.7.x/systemadminmanual.html
+/xl-release/latest/reference_manual.html : /xl-release/4.7.x/reference_manual.html
+/xl-release/latest/plugin_manual.html : /xl-release/4.7.x/plugin_manual.html
+/xl-release/latest/markdownsyntax.html : /xl-release/4.7.x/markdownsyntax.html
+/xl-release/latest/rest-api/index.html : /xl-release/4.7.x/rest-api/
 
 # XL Release product doc, legacy format
-/releases/latest/xl-release/upgrademanual.html : /xl-release/4.6.x/upgrademanual.html
-/releases/latest/xl-release/systemadminmanual.html : /xl-release/4.6.x/systemadminmanual.html
-/releases/latest/xl-release/reference_manual.html : /xl-release/4.6.x/reference_manual.html
-/releases/latest/xl-release/plugin_manual.html : /xl-release/4.6.x/plugin_manual.html
-/releases/latest/xl-release/markdownsyntax.html : /xl-release/4.6.x/markdownsyntax.html
-/releases/latest/xl-release/rest-api/index.html : /xl-release/4.6.x/rest-api/
+/releases/latest/xl-release/upgrademanual.html : /xl-release/4.7.x/upgrademanual.html
+/releases/latest/xl-release/release_notes.html : /xl-release/4.7.x/release_notes.html
+/releases/latest/xl-release/systemadminmanual.html : /xl-release/4.7.x/systemadminmanual.html
+/releases/latest/xl-release/reference_manual.html : /xl-release/4.7.x/reference_manual.html
+/releases/latest/xl-release/plugin_manual.html : /xl-release/4.7.x/plugin_manual.html
+/releases/latest/xl-release/markdownsyntax.html : /xl-release/4.7.x/markdownsyntax.html
+/releases/latest/xl-release/rest-api/index.html : /xl-release/4.7.x/rest-api/
 
 # XL Release plugin doc, new format
-/xl-release/latest/remoteScriptPluginManual.html : /xl-release/4.6.x/xlr-remotescript-plugin/remoteScriptPluginManual.html
-/xl-release/latest/jiraPluginManual.html : /xl-release/4.6.x/xlr-jira-plugin/jiraPluginManual.html
-/xl-release/latest/gitPluginManual.html : /xl-release/4.6.x/xlr-git-plugin/gitPluginManual.html
-/xl-release/latest/nexusPluginManual.html : /xl-release/4.6.x/xlr-nexus-plugin/nexusPluginManual.html
-/xl-release/latest/timePluginManual.html : /xl-release/4.6.x/xlr-time-plugin/timePluginManual.html
+/xl-release/latest/remoteScriptPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-remote-script-plugin.html
+/xl-release/latest/jiraPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-jira-plugin.html
+/xl-release/latest/gitPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-git-trigger-plugin.html
+/xl-release/latest/nexusPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-nexus-trigger-plugin.html
+/xl-release/latest/timePluginManual.html : /xl-release/concept/introduction-to-the-xl-release-time-trigger-plugin.html
 
 # XL Release plugin doc, legacy format
-/releases/latest/xlr-remotescript-plugin/remoteScriptPluginManual.html : /xl-release/4.6.x/xlr-remotescript-plugin/remoteScriptPluginManual.html
-/releases/latest/xlr-jira-plugin/jiraPluginManual.html : /xl-release/4.6.x/xlr-jira-plugin/jiraPluginManual.html
-/releases/latest/xlr-git-plugin/gitPluginManual.html : /xl-release/4.6.x/xlr-git-plugin/gitPluginManual.html
-/releases/latest/xlr-nexus-plugin/nexusPluginManual.html : /xl-release/4.6.x/xlr-nexus-plugin/nexusPluginManual.html
-/releases/latest/xlr-time-plugin/timePluginManual.html : /xl-release/4.6.x/xlr-time-plugin/timePluginManual.html
+/releases/latest/xlr-remotescript-plugin/remoteScriptPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-remote-script-plugin.html
+/releases/latest/xlr-jira-plugin/jiraPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-jira-plugin.html
+/releases/latest/xlr-git-plugin/gitPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-git-trigger-plugin.html
+/releases/latest/xlr-nexus-plugin/nexusPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-nexus-trigger-plugin.html
+/releases/latest/xlr-time-plugin/timePluginManual.html : /xl-release/concept/introduction-to-the-xl-release-time-trigger-plugin.html

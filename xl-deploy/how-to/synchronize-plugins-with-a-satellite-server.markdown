@@ -1,4 +1,5 @@
 ---
+layout: satellite
 title: Synchronize plugins with a satellite server
 categories:
 - xl-deploy
@@ -37,6 +38,8 @@ Note that:
 
 Before synchronizng the satellite, ensure that the XL Deploy server can boot with the currently installed plugins and extensions. Synchronizing a broken setup can result in a broken satellite.
 
+Before XL Deploy executes a deployment plan on a satellite, it checks if any plugins are missing or out-of-date. If any are, XL Deploy stops the deployment, and you must synchronize the satellite before continuing.
+
 To synchronize a satellite server:
 
 1. Click **Repository** in XL Deploy.
@@ -53,4 +56,3 @@ To synchronize a satellite server:
 The log of the first task shows how many plugins have been synchronized.
 
 **Note** Ensure there is at least one file to synchronize in each one of the folders. If there are no files on the XL Deploy server, the synchronization of that folder is skipped.
-

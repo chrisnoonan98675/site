@@ -20,9 +20,13 @@
 			<li>{{ subject_to_search_for }}
 				<ul>
 					{% for page in site.pages %}
-						{% if page.subject contains subject_to_search_for and page.path contains product-id-to-search-for and page.path contains 'concept' %}
-							<li><a href="{{ page.url }}">{{ page.title }}</a></li>
-						{% endif %}
+						{% for category in page.categories %}
+							{% if category contains product-id-to-search-for %}
+								{% if page.subject contains subject_to_search_for and page.path contains 'concept' %}
+									<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+								{% endif %}
+							{% endif %}
+						{% endfor %}
 					{% endfor %}
 				</ul>	
 			</li>		

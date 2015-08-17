@@ -21,3 +21,5 @@ After the deployment completes successfully, XL Deploy will clean up the staging
 To enable staging on a host, enter a directory path in the host's **Advanced** > **Staging Directory Path** property.
 
 **Note:** The plugin being used must support staging.
+
+**Tip:** If you set a staging directory on the host(s) but you do not see staging steps in the deployment plan, verify that the `file.DeployedFile.copyDirectlyToTargetPath` and `file.DeployedFile.DeployedFolder` in the `conf/deployit-default.properties` file are set to "false" (their default setting).

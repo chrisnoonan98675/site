@@ -1,5 +1,5 @@
 ---
-title: Install XL Release
+title: XL Release directory structure
 categories:
 - xl-release
 subject:

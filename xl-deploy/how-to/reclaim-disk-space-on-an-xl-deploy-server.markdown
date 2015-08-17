@@ -11,27 +11,25 @@ tags:
 - repository
 ---
 
-Garbage collection can be used to optimize the disk space that is used for the XL Deploy repository. Running garbage collection is only relevant if you deleted a package. When deleting a package, XL Deploy at first only deletes the reference (for performance reasons) and later on you can delete the actual files by running a garbage collect. For imports, garbage collection is not needed.
+When you delete a deployment package from XL Deploy, XL Deploy initially only deletes the reference to the package. This helps optimize performance. You can reclaim disk space on an XL Deploy server by using garbage collection to delete the actual deployment package at a later time.
 
-It is not required to run a garbage collection every delete of a package. The system will not break, it will only occupy a small amount of disk space that you can win back by running garbage collection at a later moment in time.
+You do not need to run garbage collection every time you delete a package. How often you should run garbage collection depends on how many packages you delete and the buffer of free space on your desk; generally, you should not need to run garbage collection more than once per day.
 
-How often you want to run the garbage collector depends on how many package you delete, and the buffer of free space on your disk, but in general it is not needed to run it more than once per day.
+## Schedule garbage collection from the CLI
 
-## Run garbage collection from the CLI
+To schedule garbage collection from the command-line interface (CLI), run the following command:
 
-To start garbage collection from the command-line interface (CLI), run the following command:
+    deployit.runGarbageCollector()
 
-    deployit> deployit.runGarbageCollector()
+This command requires requires admin permissions.
 
-This requires requires admin permissions.
+The garbage collector automatically stops when the task is finished. You can see the status when running `listUnfinishedTasks`.
 
-The garbage collector stops automatically when the task is finished. The garbage collector is not accessible from the GUI, but the status of the task can be seen when running `listUnfinishedTasks`.
+## Automatically schedule garbage collection
 
-## Automatically run garbage collection according to a schedule
+The easiest way to schedule garbage collection is to create a garbage collection job (`schedule.GarbageCollectionJob`) configuration item (CI) that triggers the garbage collection based on a crontab expression.
 
-The easiest way to schedule a garbage collection is to create a `schedule.GarbageCollectionJob` configuration item (CI) that triggers the garbage collection based on a crontab expression.
-
-To create a `schedule.GarbageCollectionJob` CI:
+To create a garbage collection job:
 
 1. Click **Repository** in the top menu.
 2. Right-click **Configuration** and select **schedule** > **GarbageCollectionJob**.
@@ -44,4 +42,22 @@ To create a `schedule.GarbageCollectionJob` CI:
 
 ![Garbage collection job](images/system-admin-gc-job.png)
 
-**Tip:** To execute a garbage collection job manually, right-click it and select **Execute job now**.
+**Tip:** To trigger a garbage collection job manually, right-click it and select **Execute job now**.
+
+## Force garbage collection to free space immediately
+
+The algorithm used in XL Deploy's internal Jackrabbit datastore will not allow recently used files to be deleted. To delete these files immediately, the Java virtual machine (JVM) garbage collection mechanism must run. Therefore, depending on your JVM configuration, you may see a delay between the time that the XL Deploy garbage collector runs and the time that the space is actually freed by the JVM garbage collector.
+
+There are two ways to force garbage collection to free disk space immediately.
+
+**Method one (requires server restart)**
+
+1. Delete the desired deployment packages.
+1. Restart XL Deploy.
+1. Run XL Deploy garbage collection from the CLI or from a garbage collection job.
+
+**Method two (does not require server restart)**
+
+1. Delete the desired deployment packages.
+1. Trigger JVM garbage collection using the `jvisualvm` tool.
+1. Run XL Deploy garbage collection from the CLI or from a garbage collection job.

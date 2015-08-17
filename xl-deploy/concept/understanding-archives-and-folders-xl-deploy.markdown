@@ -9,12 +9,12 @@ tags:
 - package
 ---
 
-There are several special things about the way that XL Deploy handles archive artifacts (such as ZIP files) and folders. In XL Deploy's [Unified Deployment Model](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#unified-deployment-model-udm) (UDM) type hierarchy, there are two base types for deployable artifacts:
+There are several special things about the way that XL Deploy handles archive artifacts (such as ZIP files) and folders. In XL Deploy's [Unified Deployment Model](/xl-deploy/concept/understanding-xl-deploy-architecture.html) (UDM) type hierarchy, there are two base types for deployable artifacts:
 
-* [`udm.BaseDeployableFileArtifact`](http://docs.xebialabs.com/releases/latest/deployit/udmcireference.html#udmbasedeployablefileartifact) for files
-* [`udm.BaseDeployableFolderArtifact`](http://docs.xebialabs.com/releases/latest/deployit/udmcireference.html#udmbasedeployablefolderartifact) for folders
+* [`udm.BaseDeployableFileArtifact`](/xl-deploy/5.0.x/udmcireference.html#udmbasedeployablefileartifact) for files
+* [`udm.BaseDeployableFolderArtifact`](/xl-deploy/5.0.x/udmcireference.html#udmbasedeployablefolderartifact) for folders
 
-Every deployable artifact type in XL Deploy is a subtype of one of these two base types. Therefore,  [`udm.BaseDeployableArchiveArtifact`](http://docs.xebialabs.com/releases/latest/deployit/udmcireference.html#udmbasedeployablearchiveartifact) is a subtype of `udm.BaseDeployableFileArtifact` and is used as the base type for deployable archives such as `jee.Ear`. 
+Every deployable artifact type in XL Deploy is a subtype of one of these two base types. Therefore, [`udm.BaseDeployableArchiveArtifact`](/xl-deploy/5.0.x/udmcireference.html#udmbasedeployablearchiveartifact) is a subtype of `udm.BaseDeployableFileArtifact` and is used as the base type for deployable archives such as `jee.Ear`. 
 
 For the most part, XL Deploy treats archives like regular files; however, in the case of archives, the default value for the `scanPlaceholdersproperty` is false. This prevents the costly scanning of placeholders when you import an archive into XL Deploy's repository.
 

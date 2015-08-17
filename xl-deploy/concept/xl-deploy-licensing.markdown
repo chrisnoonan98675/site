@@ -7,11 +7,28 @@ subject:
 tags:
 - system administration
 - license
+- ci
+- installation
+- upgrade
 ---
 
-If you are using XL Deploy Enterprise Edition, you can download your license at [https://dist.xebialabs.com](https://dist.xebialabs.com/).
+If you are using XL Deploy Enterprise Edition, you can download your license at the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/).
 
-**Important:** XL Deploy 5.0.0 or later requires a new license. If you are upgrading from an earlier version of XL Deploy, be sure to download and install your new license.
+## License types
+
+When you log in to the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/), you will see all of your current licenses. There are three versions of the XL Deploy license:
+
+* **V1**: Required for XL Deploy 4.0.x and earlier, XL Deploy 4.5.1, and XL Deploy 4.5.2
+* **V2**: Required for XL Deploy 4.5.3 and later
+* **V3**: Required for XL Deploy 5.0.0 and later
+
+You can also find this information in the `README` file located with your licenses on the Software Distribution site.
+
+To check the version of a license, open it in a text editor.
+
+For information about installing the license, refer to [Install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html#install-the-license).
+
+## License validation
 
 XL Deploy checks the validity of your license when you start the XL Deploy server and at certain times while the server is running.
 
@@ -20,18 +37,16 @@ The server will not start if a valid license is not installed.
 If XL Deploy finds a license violation while the server is running, the server will not stop; however, some requests will be denied. For example:
 
 * If the license usage time has expired, the server will deny all requests.
-* If the license limits the number of configuration items (CIs) that you can create and that limit has been reached for a CI type, the server will not allow you to create new CIs of that type.
+* If the license limits the number of configuration items (CIs) that you can create, and that limit has been reached for a CI type, the server will not allow you to create new CIs of that type.
 
 **Note:** After the server is stopped, it might not start again (for example, if the license expiry date has been reached).
 
 ## Licensed number of configuration items
 
-If your license limits the number of configuration items (CIs) that you can create, XL Deploy validates it as follows:
+If your license limits the number of CIs that you can create, XL Deploy validates it as follows:
 
 * You cannot create more instances of a CI type than your license allows. Note that if you delete instances of a CI type, you can create new instances of that type.
 * If a CI is a subtype of another type (its *supertype*), the instances of the subtype CI count toward the limit on the supertype. 
 * You can always create instances of CI types that are not limited by your license.
 
-## Checking license usage
-
-Your license may pose restrictions one or more CI types, disallowing you to create more than the given number of CIs of that type. To see how many CIs you have created, click the arrow next to the **Help** menu, select **About**, and go to the **License** tab.
+To see how many CI types you have created, go to **Administration** > **About** > **License** in the XL Deploy user interface.

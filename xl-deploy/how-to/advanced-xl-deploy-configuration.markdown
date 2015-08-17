@@ -16,24 +16,41 @@ XL Deploy automatically generates the `<XLDEPLOY_HOME>/conf/deployit-defaults.pr
 
 Lines in the file that start with a number sign (`#`) are provided for reference; XL Deploy ignores these lines. To change the value of a property, remove the number sign from that line and set the property to the desired value.
 
-## XL Deploy configuration file
+## Client settings
 
-A number of advanced configuration options are available by editing the `deployit.conf` file in the `conf` directory. Restart the server after making the necessary changes.
+You can configure the following client settings in `<XLDEPLOY_HOME>/conf/deployit.conf`:
 
-* `taskThreadPool.corePoolSize`: The minimum number of threads allocated to execute tasks. Default value: 10.
-* `taskThreadPool.maxPoolSize`: The maximum number of threads allocated to execute tasks. Default value: 2147483647.
-* `taskThreadPool.keepAliveSeconds`: The number of seconds a task thread is kept alive before destroying it if the number of allocated threads exceeds.
-* `taskThreadPool.queueCapacity`: The capacity of the queue that holds tasks to be executed if no threads are available. Default value: 2147483647.
+{:.table .table-striped}
+| Setting | Description | Default |
+| ------- | ----------- | ------- |
+| `client.automatically.map.all.deployables` | Enable or disable automatic mapping of all deployables when you set up a deployment in the GUI | true (all deployables will be auto-mapped) |
 
-## Client security configuration
+You must restart the server and reload the GUI after changing these settings.
 
-A number of client security configuration options are available by editing the `deployit.conf` file in the `conf` directory. Restart the server after making the necessary changes.
+## Client security settings
 
-* `client.session.timeout.minutes`: The number of minutes it takes before the session of the user is locked when he is not using the XL Deploy GUI. The default value of '0' means that no time-out is configured.
-* `client.session.remember.enabled`: Setting this value to false disables the "Keep me logged in" option on the login screen. Default value: true.
+You can configure the following client security settings in `<XLDEPLOY_HOME>/conf/deployit.conf`:
 
-## Client configuration
+{:.table .table-striped}
+| Setting | Description | Default |
+| ------- | ----------- | ------- |
+| `client.session.timeout.minutes` | Number of minutes before a user's session is locked when the GUI is idle | 0 (no timeout) |
+| `client.session.remember.enabled` | Show or hide the **Keep me logged in** option on the log-in screen | true (option is shown) |
 
-A number of client configuration options are available by editing the `deployit.conf` file in the `conf` directory. Restart the server after making the necessary changes.
+You must restart the server and reload the GUI after changing these settings.
 
-* `client.automatically.map.all.deployables`: This property is used to automatically maps all deployables when configuring a deployment using Flex UI. The default value of this property is `true`, which means all deployables will be automatically mapped.
+## Advanced XL Deploy settings
+
+You can configure the following advanced XL Deploy settings in `<XLDEPLOY_HOME>/conf/deployit.conf`:
+
+{:.table .table-striped}
+| Setting | Description | Default |
+| ------- | ----------- | ------- |
+| `taskThreadPool.corePoolSize` | Minimum number of threads allocated to execute tasks | 10 |
+| `taskThreadPool.maxPoolSize` | Maximum number of threads allocated to execute tasks | 2147483647 |
+| `taskThreadPool.keepAliveSeconds` | Number of seconds a task thread is kept alive before destroying it if the number of allocated threads exceeds | |
+| `taskThreadPool.queueCapacity` | Capacity of the queue that holds tasks to be executed if no threads are available | 2147483647 |
+
+You must restart the server after changing these settings.
+
+**Note:** In XL Deploy 5.0.0 and later, the execution engine uses a more advanced mechanism for thread management. Therefore, it should not be necessary to change these advanced settings.

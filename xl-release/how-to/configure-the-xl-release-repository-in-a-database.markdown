@@ -12,21 +12,19 @@ tags:
 - repository
 ---
 
-XL Release uses a repository to store all of its data. XL Release can use the filesystem or a database to maintain the repository. By default, XL Release uses the filesystem to store all data in the repository. To use a database, the built-in Jackrabbit JCR implementation must be configured
-
-There are several configuration options when setting up a database repository:
+XL Release stores data in a repository in the filesystem or in a database. By default, the repository is stored in the filesystem. To use a database instead, you must configure the built-in Jackrabbit JCR implementation, depending on what you want to store in the database:
 
 * Store only binary artifacts in a database. This requires you to configure the *DataStore* property.
 * Store only CIs and CI history in a database. This requires you to configure the *PersistenceManager* and *FileSystem* properties.
 * Store all data (binary artifacts and CIs and CI history) in a database. This requires you to configure the *DataStore*, *PersistenceManager*, and *FileSystem* properties.
 
-Here are some examples of configuring XL Release to use a database for various database vendors. The XML snippets below must be placed in the `conf/jackrabbit-repository.xml` file.
-
 **Note:** XL Release must initialize the repository before it can be used. Run XL Release's Setup Wizard and initialize the repository after making any changes to the repository configuration.
 
-<!--**Note:** See **Configuring custom passwords** for information about encrypting the database password.-->
-
 For more information about using a database with Jackrabbit, see its [PersistenceManager FAQ](http://wiki.apache.org/jackrabbit/PersistenceManagerFAQ) and [DataStore FAQ](http://wiki.apache.org/jackrabbit/DataStore).
+
+Below are examples of the required `conf/jackrabbit-repository.xml` configuration for several database vendors.
+
+**Tip:** For information about changing the configuration, refer to [Change the repository database settings](/xl-release/how-to/change-the-repository-database-settings.html).
 
 ## Using XL Release with [MySQL](http://www.mysql.com/)
 

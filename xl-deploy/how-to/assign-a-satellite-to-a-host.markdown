@@ -1,4 +1,5 @@
 ---
+layout: satellite
 title: Assign a satellite to a host
 categories:
 - xl-deploy

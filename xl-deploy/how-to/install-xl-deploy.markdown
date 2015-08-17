@@ -13,7 +13,7 @@ tags:
 
 Before you install XL Deploy, ensure that you meet the [prerequisites](/xl-deploy/concept/requirements-for-installing-xl-deploy.html).
 
-**Tip:** If you want to install XL Deploy as a daemon or service, refer to [Install XL Deploy as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html). If you are upgrading a previously installed version of XL Deploy, refer to [Upgrade XL Deploy](/xl-deploy/how-to/upgrade-xl-deploy.html).
+For information about installing XL Deploy as a daemon or service, refer to [Install XL Deploy as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html). If you are upgrading a previously installed version of XL Deploy, refer to [Upgrade XL Deploy](/xl-deploy/how-to/upgrade-xl-deploy.html).
 
 ## Install XL Deploy using the installer
 
@@ -70,7 +70,7 @@ To install the XL Deploy license:
 1. If you do not already have a license file (`deployit-license.lic`), download it from [https://dist.xebialabs.com/customer/licenses/](https://dist.xebialabs.com/customer/licenses/).
 1. Copy the downloaded file to the `conf` directory. Be sure that you do not modify the license file in any way.
 
-Refer to [Licensing in XL Deploy](/xl-deploy/concept/licensing-in-xl-deploy.html) for information about how the XL Deploy license works.
+Refer to [XL Deploy licensing](/xl-deploy/concept/xl-deploy-licensing.html) for information about how the XL Deploy license works.
 
 ### Run the server setup wizard
 

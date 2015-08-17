@@ -53,3 +53,12 @@
 .icon-link:before {
   content: "e";
 }
+.icon-pencil:before {
+  content: "g";
+}
+.icon-arrow-right:before {
+  content: "f";
+}
+.icon-arrow-down:before {
+  content: "h";
+}

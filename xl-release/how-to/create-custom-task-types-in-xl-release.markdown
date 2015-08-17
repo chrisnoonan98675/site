@@ -83,7 +83,7 @@ Next are the properties. They are defined as nested `<property>` elements. The f
 
 * `description`: Help text explaining the property in more detail. This will appear in the UI.
 
-* `kind`: The property type, which is `string`, `int`, `boolean`, or `ci`. If omitted, this attribute defaults to `string`.
+* `kind`: The property type, which is `string`, `integer`, `boolean`, or `ci`. If omitted, this attribute defaults to `string`.
 
 * `password`: Set this attribute to `true` to instruct XL Release to treat the property as a password. The content of password fields are obscured in the UI and encrypted in network traffic and storage.
 
@@ -105,7 +105,7 @@ This is how the above task definition looks like in the task details window:
 
 ## Python scripts
 
-When the custom task becomes active, it triggers the Python script that is associated with it. Scripts must be written in the Jython dialect of Python, which is version 2.6 of Python running in the Java VM, with full access to the Java 7 API. 
+When the custom task becomes active, it triggers the Python script that is associated with it. For information about the script, refer to [API and scripting overview](xl-release/how-to/api-and-scripting-overview.html)
 
 Store scripts in a directory that has the same name as the prefix of the task type definition. The script file name has the same name as the name of the task, followed by the `.py` extension. For example, the Python script for the `jira.CreateIssue` task must be stored in `jira/CreatePython.py`.
 
@@ -166,6 +166,7 @@ For example, this is a possible implementation of the `jira.CreateIssue` task in
             response.errorDump()
             sys.exit(1)
 
+Note that since XL Release 4.7.0, in contrary to [Script tasks](/xl-release/how-to/create-a-script-task.html), Jython scripts of custom task types are not run in a sandboxed environment and do not have any restrictions. So you do not have to update the `script.policy` file of your XL Release installation if you need additional access such as to filesystem or network from your custom task type. You still need to do this for versions prior to 4.7.0.
 
 #### HttpRequest
 
@@ -239,6 +240,15 @@ For example, this is a possible implementation of the `jira.CreateIssue` task in
                 :return: an HttpResponse instance
                 """
 
+            def patch(self, context, body, **options):
+                """
+                Performs an Http PATCH Request
+
+                :param context: the context url
+                :param body: the body of the HTTP request
+                :param options: the options keyword argument described in doRequest()
+                :return: an HttpResponse instance
+                """
 
         class HttpResponse:
             def getStatus(self):

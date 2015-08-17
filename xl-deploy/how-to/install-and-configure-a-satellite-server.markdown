@@ -1,4 +1,5 @@
 ---
+layout: satellite
 title: Install and configure a satellite server
 categories:
 - xl-deploy

@@ -62,13 +62,13 @@ Use the **Configuration** page to configure objects that a custom task can refer
 
 The page shows the configuration types that are currently available and allows you to create instances of the types.
 
-![Configurations list](plugin_manual/configurations-list.png)
+![Configurations list](/xl-release/images/configurations-list.png)
 
 XL Release includes two configuration types: Jira Server and Jenkins Server.
 
 To add a configuration instance, click **Add** under the type that you need. You can then set properties:
 
-![Configuration details](plugin_manual/jira-configuration-details.png)
+![Configuration details](/xl-release/images/jira-configuration-details.png)
 
 Enter a symbolic name in the **Title** box. In the XL Release application, the configuration instance is referred to by this name.
 

@@ -4,25 +4,29 @@ online-docs-jekyll
 # Setting it up locally
 
 1. Clone this repository.
-1. Install Jekyll and its requirements:
+1. Install Jekyll 2.x and its requirements:
     * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/)
     * Windows users, follow [these instructions](http://jekyll-windows.juthilo.com/) (you can skip step #3 there)
 1. Install [Asciidoctor](http://asciidoctor.org/docs/install-toolchain/).
-1. In the directory where you cloned the repository, execute `jekyll serve` or `jekyll serve --watch` (for [watch mode](http://jekyllrb.com/docs/usage/)).
+1. In the directory where you cloned the repository, execute `jekyll serve` or `jekyll serve --watch` (for [watch mode](http://jekyllrb.com/docs/usage/)). Go to `http://localhost:4000` to see the site running locally.
 
-Go to `http://localhost:4000` to see the site running locally.
+Tips:
 
-**Tip:** To disable updating of the Development Dashboard while you run Jekyll in watch mode, change the `jira_dashboard` `generate` setting in `_config.yml` to `false`. **Do not commit this change to the repository!**
+* We are using Jekyll 2.x. Jekyll 3.x will not work yet because of changes in the Liquid templating system.
+* It's a known issue that generating the site (even in watch mode) is quite slow. Hopefully Jekyll 3.x will fix this.
+* To disable updating of the Development Dashboard while you run Jekyll in watch mode, change the `jira_dashboard` `generate` setting in `_config.yml` to `false`. **Do not commit this change to the repository!**
+* If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
+* You may want to download a Markdown editor such as [MacDown](http://macdown.uranusjr.com/) for OS X or [MarkdownPad](http://markdownpad.com/) for Windows.
 
-**Note:** If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
+**Tip:** In MacDown, go to **Preferences** > **Rendering** and select **Detect Jekyll front-matter** to have MacDown nicely format the YAML frontmatter in Markdown files.
 
-# Branches
-
-## Master branch
+# Publishing changes to the site
 
 When you commit a change to the master branch of this repository, a [Jenkins job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/app1/job/Jekyll%20docs/) is triggered. This job generates the HTML and immediately publishes it to [docs.xebialabs.com](https://docs.xebialabs.com).
 
 If you want to make a documentation change that should *not* be published immediately, create a branch.
+
+# Branches
 
 ## Release branches
 
@@ -32,7 +36,7 @@ A branch should be created for each product or plugin release; for example, `xl-
 
 You can create branches for a feature—for example, `DEPL-1234` or `REL-5678`—but feature branches are only for short-term use. They should eventually be merged into the appropriate release branch when the feature is ready.
 
-## Pull requests
+# Pull requests
 
 If you want to submit changes for review without immediately publishing them, [create a branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/#creating-a-branch) and then [create a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
@@ -154,9 +158,9 @@ The `_drafts` folder also contains the *documentation template*.
 
 Use heading 2 (`##` in Markdown) and lower. Don't use heading 1.
 
-## Placeholders
+## Placeholders and double curly brackets
 
-In [Liquid](https://github.com/Shopify/liquid/wiki) (the template language that Jekyll uses), variables are identified by double curly brackets, just like XebiaLabs-style placeholders. If you want to show a XebiaLabs-style placeholder, you must surround it with [`{% raw %}` tags](http://docs.shopify.com/themes/liquid-documentation/tags/theme-tags#raw).
+In [Liquid](https://github.com/Shopify/liquid/wiki) (the template language that Jekyll uses), variables are identified by double curly brackets, just like XebiaLabs-style placeholders. If you want to show two curly brackets or show a XebiaLabs-style placeholder, you must surround it with [`{% raw %}` tags](http://docs.shopify.com/themes/liquid-documentation/tags/theme-tags#raw).
 
 **Example #1**
 
@@ -170,6 +174,10 @@ The deployable contains `username = {% raw %}{{my.password}}{% endraw %}`.
 
 	transform.2.find=((quux))
 	transform.2.replacement={% raw %}{{quux-transform-2}}{% endraw %}
+
+**Example #4**
+
+Placeholders are surrounded by {% raw %}`{{`{% endraw %} and {% raw %}`}}`{% endraw %}.
 
 ## Table styles in Markdown files
 
@@ -236,6 +244,21 @@ To see the tags and subjects that are already in use, visit [https://docs.xebial
 See `_redirects.yml` for a complete list of the redirects that are available.
 
 **Note:** At this time, there is no "latest" link for the Jython API documentation.
+
+# Development Dashboard
+
+The [Development Dashboard](https://docs.xebialabs.com/development-dashboard/index.html) is generated by a Jekyll plugin that pulls information from JIRA.
+
+To make a release appear on the Development Dashboard, go to the [project versions screen](https://confluence.atlassian.com/display/JIRA/Managing+Versions) and assign a **Release date** to the desired version.
+
+**Tip:** By default, the project name appears in sentence case; for example, *XL TestView* will appear on the Dashboard as *Xl Testview*. To override this, enter the desired project name in the version's **Description** field on the [project versions screen](https://confluence.atlassian.com/display/JIRA/Managing+Versions).
+
+To make a story, improvement, or bug fix to appear on the Dashboard, assign it a **Fix Version** and set its **Public Issue** property must be set to one of the following options:
+
+* Yes - summary only: Only show the issue's title
+* Yes - summary and description: Show the issue's title and description
+
+To refresh the Dashboard so it shows the latest information from JIRA, log in to [Jenkins](https://xebialabs.atlassian.net/wiki/display/Labs/Jenkins) and execute the [Jekyll docs job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/app1/job/Jekyll%20docs/).
 
 # Logical structure of the site
 

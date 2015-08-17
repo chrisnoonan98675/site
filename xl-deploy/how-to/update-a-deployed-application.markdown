@@ -16,7 +16,7 @@ When updating a deployed application, XL Deploy identifies the configuration ite
 
 When you want to update a deployed application, the process is the same whether you’re upgrading to a new version or downgrading to a previous version.
 
-**Tip:** Watch the *Performing an update* video [here](http://vimeo.com/99837505) and the *Reverting to a previous version* video [here](http://vimeo.com/100130875).
+**Tip:** Watch the *Performing an update* video [here](https://www.youtube.com/watch?v=S8HuaxCJA00&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=6) and the *Reverting to a previous version* video [here](https://www.youtube.com/watch?v=zfmu75XocCg&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=7).
 
 To update a deployed application:
 

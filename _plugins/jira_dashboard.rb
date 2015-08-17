@@ -31,16 +31,17 @@ module Jira
 
     XL_DEPLOY = Products.new('xl-deploy', 'XL Deploy', '10010', 'DEPL')
     XL_RELEASE = Products.new('xl-release', 'XL Release', '10030', 'REL')
-    XL_TEST = Products.new('xl-test', 'XL Test', '10430', 'TES')
+    XL_TEST = Products.new('xl-testview', 'XL TestView', '10430', 'TES')
 
     ALL = [XL_DEPLOY, XL_RELEASE, XL_TEST]
   end
 
   class Product < Base
-    attr_accessor :name, :title, :upcoming_releases
+    attr_accessor :name, :title, :upcoming_releases, :recent_releases_by_month
 
     def initialize
       @upcoming_releases = []
+      @recent_releases_by_month = {}
     end
   end
 
@@ -83,8 +84,23 @@ module Jira
       return @issues.select { |x| x.issue_type == type or types.include?(x.issue_type) }
     end
 
+    def component
+      parts = parse_version
+      return parts[0] if parts.size > 1 else ''
+    end
+
+    def version
+      parts = parse_version
+      return parts[1..parts.size].join("-") if parts.size > 1 else ''
+    end
+
+    def parse_version
+      @name.split(/\-(?=[\d])/)
+    end
+
     def to_liquid
       hash = super
+      hash['id'] = id
       hash['release_type'] = release_type
       hash['release_target'] = release_target
       hash['title'] = title
@@ -92,18 +108,21 @@ module Jira
       hash['stories'] = get_issues_by_type 'Story', 'Epic'
       hash['improvements'] = get_issues_by_type 'Improvement'
       hash['bugs'] = get_issues_by_type 'Bug'
+      hash['component'] = component
+      hash['version'] = version
       return hash
     end
 
   end
 
   class Issue < Base
-    attr_accessor :key, :summary, :issue_type, :fix_versions
+    attr_accessor :key, :summary, :issue_type, :fix_versions, :description
 
     def self.from_json(json)
       issue = Issue.new
       issue.key = json['key'].to_s
       issue.summary = json['fields']['summary'].to_s
+      issue.description = (json['renderedFields']['description'] || '').to_s
       issue.issue_type = json['fields']['issuetype']['name'].to_s
       issue.fix_versions = json['fields']['fixVersions'].map { |x| x['id'] }
       return issue
@@ -112,7 +131,8 @@ module Jira
 
   class Server
     VERSIONS_REQ_URL = '%{base_url}/project/%{jira_id}/versions'
-    ISSUES_REQ_URL = '%{base_url}/search/?fields=key,summary,issuetype,fixVersions&maxResults=9999&jql=project=%{jira_project}+and+fixVersion+in+(%{versions})+and+"Public+Issue"=Yes'
+    ISSUES_SUMMARY_REQ_URL = '%{base_url}/search/?fields=key,summary,issuetype,fixVersions&maxResults=9999&expand=renderedFields&jql=project=%{jira_project}+and+fixVersion+in+(%{versions})+and+"Public+Issue"="Yes - summary only"'
+    ISSUES_DESCRIPTION_REQ_URL = '%{base_url}/search/?fields=key,summary,issuetype,fixVersions,description&maxResults=9999&expand=renderedFields&jql=project=%{jira_project}+and+fixVersion+in+(%{versions})+and+"Public+Issue"="Yes - summary and description"'
 
     def initialize(base_url, username, password)
       @base_url = base_url
@@ -120,12 +140,13 @@ module Jira
       @password = password
     end
 
-    def get_products_with_upcoming_releases
+    def get_products_with_releases
       products = Products::ALL.map { |productType|
         product = Product.new
         product.name = productType.name
         product.title = productType.title
         product.upcoming_releases = get_upcoming_product_releases(productType)
+        product.recent_releases_by_month = get_recent_product_releases(productType).group_by { |release | release.release_date.strftime("%B %Y") }
         product
       }
       return products
@@ -138,6 +159,8 @@ module Jira
         !release.archived and !release.released and release.release_date
       }
 
+      return upcoming_releases unless upcoming_releases.any?
+
       log "Gathering issues for releases #{upcoming_releases.map(&:name)}"
       all_issues = get_all_issues_for_releases(product, upcoming_releases)
       upcoming_releases.each { |release|
@@ -148,6 +171,25 @@ module Jira
       return upcoming_releases
     end
 
+    def get_recent_product_releases(product)
+      log "Gathering recent releases for product #{product.title}"
+
+      recent_releases = gel_all_product_releases(product).select { |release|
+        !release.archived and release.released and release.release_date and release.release_date <= DateTime.now and release.release_date >= (DateTime.now - 180)
+      }
+
+      return recent_releases unless recent_releases.any?
+
+      log "Gathering issues for releases #{recent_releases.map(&:name)}"
+      all_issues = get_all_issues_for_releases(product, recent_releases)
+      recent_releases.each { |release|
+        release.issues = all_issues[release.id] || []
+        release.issues = release.issues.sort_by(&:key)
+      }
+      recent_releases = recent_releases.select{|x| x.issues.any?}.sort_by(&:release_date).reverse!
+      return recent_releases
+    end
+
     def gel_all_product_releases(product)
       return get_json(VERSIONS_REQ_URL % {:base_url => @base_url, :jira_id => product.jira_id}).map { |x|
         Release.from_json(x)
@@ -155,9 +197,7 @@ module Jira
     end
 
     def get_all_issues_for_releases(product, releases)
-      all_issues = get_json(ISSUES_REQ_URL % {:base_url => @base_url, :jira_project => product.jira_project, :versions => releases.map(&:id).join(',')})['issues'].map { |x|
-        Issue.from_json(x)
-      }
+      all_issues = get_issues_for_releases(product, releases, ISSUES_SUMMARY_REQ_URL) | get_issues_for_releases(product, releases, ISSUES_DESCRIPTION_REQ_URL)
       grouped_issues = {}
       all_issues.each { |issue|
         issue.fix_versions.each { |fv|
@@ -165,6 +205,12 @@ module Jira
         }
       }
       return grouped_issues
+    end
+
+    def get_issues_for_releases(product, releases, query_url)
+      return get_json(query_url % {:base_url => @base_url, :jira_project => product.jira_project, :versions => releases.map(&:id).join(',')})['issues'].map { |x|
+        Issue.from_json(x)
+      }
     end
 
     def get_json(url)
@@ -194,7 +240,7 @@ module Jekyll
       @dir = dir
       @name = "#{product.name}-dashboard.html"
       self.process(@name)
-      self.read_yaml(File.join(base, '_layouts'), 'product_dashboard.html')
+      self.read_yaml(File.join(base, '_layouts'), 'release_dashboard.html')
       self.data['product'] = product
       self.data['title'] = "#{product.title} Development dashboard"
     end
@@ -217,16 +263,7 @@ module Jekyll
       jira_password = dashboard_config['jira_password']
       server = Jira::Server.new(jira_url, jira_username, jira_password)
 
-      data_file = dashboard_config['data_file']
-      development_status_file = File.join(site.source, data_file)
-      if not data_file.to_s.empty? and File.exist? development_status_file
-        log "Using cached data from file #{development_status_file}"
-        products = YAML.load_file(development_status_file)
-      else
-        products = server.get_products_with_upcoming_releases
-      end
-
-      products.each { |product|
+      server.get_products_with_releases.each { |product|
         log "Generating development dashboard site for product #{product.title}"
         dashboard_page = ProductDashboardPage.new(site, site.source, dir, product)
         dashboard_page.render(site.layouts, site.site_payload)
@@ -234,6 +271,7 @@ module Jekyll
         site.pages << dashboard_page
       }
 
+      log 'Finished development dashboard generation, yay!'
     end
   end
 end

@@ -17,7 +17,7 @@ deprecated:
 
 **Tip:** In XL Deploy 5.0.0 and later, you can [connect to your infrastructure and create an environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html) in a single step.
 
-After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy/#getting-started) and logged in for the first time, follow these instructions to connect XL Deploy to the host on which your middleware is running.
+After you have installed [XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) and logged in for the first time, follow these instructions to connect XL Deploy to the host on which your middleware is running.
 
 Follow the instructions for the host's operating system and the connection protocol that you want XL Deploy to use:
 
@@ -26,7 +26,7 @@ Follow the instructions for the host's operating system and the connection proto
 
 If you would like to use SSH on Windows through WinSSHD or OpenSSH, refer to [Set up SSH in XL Deploy and on a target host](/xl-deploy/how-to/set-up-ssh-in-xl-deploy-and-on-a-target-host.html).
 
-**Tip:** To see a host setup and connection check in action, watch the *[Defining infrastructure](http://vimeo.com/97815291)* video.
+**Tip:** To see a host setup and connection check in action, watch the *[Defining infrastructure](https://www.youtube.com/watch?v=ZzYDzql1Iek&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=2)* video.
 
 ## Connect to a Unix host using SSH
 

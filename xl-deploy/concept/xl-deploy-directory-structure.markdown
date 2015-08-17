@@ -7,6 +7,9 @@ subject:
 tags:
 - system administration
 - cli
+- installation
+- upgrade
+- hotfix
 ---
 
 ## XL Deploy server directory structure
@@ -17,11 +20,12 @@ When you extract the XL Deploy server archive, the following directory structure
 * `conf`: Contains server configuration files and the XL Deploy license
 * `doc`: Contains the XL Deploy product documentation
 * `ext`: Contains server extensions
-* `hotfix/lib`: Contains hotfixes that fix issues with the server software
-* `hotfix/plugins`: Contains hotfixes that fix issues with the plugin software
+* `hotfix`: Contains hotfixes (XL Deploy 4.5.x and earlier only)
+* `hotfix/lib`: Contains hotfixes that fix issues with the server software (XL Deploy 5.0.0 and later)
+* `hotfix/plugins`: Contains hotfixes that fix issues with the plugin software (XL Deploy 5.0.0 and later)
 * `importablePackages`: Default location for importable deployment packages
-* `lib`: Contains libraries that the Server needs
-* `log`: Contains Server log files (this directory is only present once you have started XL Deploy Server)
+* `lib`: Contains libraries that the server needs
+* `log`: Contains server log files (this directory is only present once you have started XL Deploy server)
 * `plugins`: Contains the XL Deploy middleware plugins
 * `recovery.dat`: Stores tasks that are in progress for recovery purposes (this file is only present after you have started XL Deploy server)
 * `samples`: Contains sample plugins and configuration snippets

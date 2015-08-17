@@ -53,7 +53,7 @@ The plugins that are included in your XL Deploy installation determine the CI ty
 Before you create a deployment package, you should explore the CI types that are available. To do so in the XL Deploy interface, first import a sample deployment package:
 
 1. Go to **Deployment**.
-2. Click ![image](/images/button_import_package.png). The Import New Package tab appears.
+2. Click ![image](/images/button_add_package_deployment_workspace.png). The Import New Package tab appears.
 3. Select **Import deployment package from server**.
 4. Select the **PetClinic-ear 1.0** sample package.
 5. Click **Import**. XL Deploy imports the package.
@@ -113,13 +113,9 @@ When you execute a deployment to this environment, XL Deploy replaces the placeh
 
     jdbc.url=jdbc:oracle:thin:scott/tiger@dbhost:1521:orcl
 
-### Composite packages
-
-XL Deploy supports composite packages; that is, deployment packages that contain other deployment packages. This is an advanced strategy that you can use to aggregate individual components of larger systems. For more information about composite packages, refer to the [Packaging Manual](http://docs.xebialabs.com/releases/latest/deployit/packagingmanual.html).
-
 ### Create a deployment package in the XL Deploy interface
 
-Creating a deployment package in the XL Deploy interface is an easy way to see what makes up a DAR file and what a manifest file looks like. To create a deployment package, follow the steps in the [Create a Deployment Package using the Deployit UI cookbook](http://docs.xebialabs.com/general/cookbook_createpackage.html).
+Creating a deployment package in the XL Deploy interface is an easy way to see what makes up a DAR file and what a manifest file looks like. To create a deployment package, refer to [Create a deployment package using the XL Deploy UI](/xl-deploy/how-to/create-a-deployment-package-using-the-ui.html).
 
 #### Export the deployment package
 
@@ -208,7 +204,7 @@ You may be able to achieve the desired deployment behavior by:
 * Using different CI types
 * Creating a new CI type
 
-To check the types that are available and their properties, follow the instructions provided in *Exploring CI types*. The [documentation for each plugin](https://docs.xebialabs.com/) describes the actions that are linked to each CI type.
+To check the types that are available and their properties, follow the instructions provided in *Exploring CI types*. The documentation for each plugin describes the actions that are linked to each CI type.
 
 If you cannot find the CI type that you need for a component of your application, you can add types by creating a new plugin.
 
@@ -222,7 +218,7 @@ For example, say you are going to deploy an application to a JBoss or Tomcat ser
 2. Restart the XL Deploy server to load the new configuration setting.
 3. Create a deployment that will deploy your application to the target environment. You will see that the server stop and start steps do not appear in the deployment plan that is generated.
 
-For more detailed information about the way that XL Deploy creates deployment plans, refer to the [Understanding the packaging phase](/xl-deploy/concept/understanding-the-xl-deploy-planning-phase.html). For information about configuring the plugin you are using, refer to its manual in the [XL Deploy documentation](https://docs.xebialabs.com/).
+For more detailed information about the way that XL Deploy creates deployment plans, refer to the [Understanding the packaging phase](/xl-deploy/concept/understanding-the-xl-deploy-planning-phase.html). For information about configuring the plugin you are using, refer to its manual in the XL Deploy documentation.
 
 ### Create a new plugin
 

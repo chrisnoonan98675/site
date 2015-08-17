@@ -74,7 +74,7 @@ Let's start with an application that contains one artifact. We want to deploy th
 * Upload the artifact
 * Run a script that installs the artifact in the right place
 
-### synthetic.xml
+### Add type definitions
 
 First, in `synthetic.xml`, add a type definition called `example.ArtifactDeployed` for the application and add a container type named `example.Server`:
 
@@ -94,7 +94,7 @@ Notice that:
 * The deployed `example.ArtifactDeployed` extends from `udm.BaseDeployedArtifact`, which contains a `file` property that the step uses.
 * The generated deployable `example.Artifact` extends from `udm.BaseDeployableFileArtifact`.
 
-### xl-rules.xml
+### Define a rule for the artifact
 
 Next, define an XML rule for the CI in `xl-rules.xml`:
 
@@ -111,8 +111,6 @@ Next, define an XML rule for the CI in `xl-rules.xml`:
     	</steps>
     </rule>
 
-### Parts of the rule
-
 Notice that:
 
 * The `name` `example.ArtifactDeployed.CREATE_MODIFY` identifies the rule in the system. It is recommended that you use a descriptive name that includes the name of the plugin and the type and operation the rule responds to.
@@ -126,28 +124,20 @@ The following `os-script` parameters are defined automatically:
 * The **order**, which is automatically set to 70 (the default step order for artifacts). You can optionally override the default order.
 * The **target-host** property gets a reference to the host of the container. The step will use this host to run the script.
 
-### Script
+### Script to deploy the artifact
 
-In XL Deploy 4.5.3, 5.0.0, and later, the FreeMarker variable for the `deployed` object is automatically added to the `freemarker-context`. This allows the script to refer to properties of the `deployed` object such as file location.
+The FreeMarker variable for the `deployed` object is automatically added to the `freemarker-context`. This allows the script to refer to properties of the `deployed` object such as file location.
      
 The `script` parameter refers to scripts for Unix (`deploy-artifact.sh.ftl`) and Windows (`deploy-artifact.bat.ftl`). The step will select the correct script for the operating system that XL Deploy runs on. The scripts are actually script templates processed by FreeMarker. The template can access the variables passed in by the `freemarker-context` parameter of the step.
 
-The Unix script `deploy-artifact.sh.ftl` contains:
+In XL Deploy 4.5.3, 5.0.0, and later, the Unix script `deploy-artifact.sh.ftl` contains:
 
     echo "Deploying file on Unix"
     mkdir -p ${deployed.container.home + "/context"}
     cp ${deployed.file.path} ${deployed.container.home + "/context"}
     echo "Done"
 
-The script accesses the variable `deployed` and uses it to find the location of the server installation and copy the file to the `context` folder. The script also prints progress information in the step log.
-
-### Script
-
-In XL Deploy 4.5.3, 5.0.0, and later, the FreeMarker variable for the `deployed` object is automatically added to the `freemarker-context`. This allows the script to refer to properties of the `deployed` object such as file location.
-     
-The `script` parameter refers to scripts for Unix (`deploy-artifact.sh.ftl`) and Windows (`deploy-artifact.bat.ftl`). The step will select the correct script for the operating system that XL Deploy runs on. The scripts are actually script templates processed by FreeMarker. The template can access the variables passed in by the `freemarker-context` parameter of the step.
-
-The Unix script `deploy-artifact.sh.ftl` contains:
+In XL Deploy 4.5.2 and earlier, the Unix script `deploy-artifact.sh.ftl` contains:
 
     echo "Deploying file on Unix"
     mkdir -p ${deployed.container.home + "/context"}
@@ -163,7 +153,7 @@ Additionally, we can enrich the plan with an additional step that waits a specif
 * While preparing the deployment, the user can set the number of seconds to wait in the deployment properties
 * If the user does not set a number, XL Deploy will not add a wait step to the plan
 
-### synthetic.xml
+### Add a property to type definition
 
 First, we need to store the wait time in the deployment properties by adding the following property to `udm.DeployedApplication` in `synthetic.xml`:
 
@@ -171,7 +161,7 @@ First, we need to store the wait time in the deployment properties by adding the
          <property name="waitTime" kind="integer" label="Time in seconds to wait for starting the deployment" required="false"/>
     </type-modification>
 
-### xl-rules.xml
+### Define a rule to contribute a wait step
 
 Next, we need to define a rule in `xl-rules.xml` to contribute the wait step to the plan:
 
@@ -187,8 +177,6 @@ Next, we need to define a rule in `xl-rules.xml` to contribute the wait step to 
             </wait>
         </steps>
     </rule>
-
-### Parts of the rule
 
 Notice that:
 
@@ -234,7 +222,7 @@ The folder structure should be similar to:
 
 When you create rules to deploy things, you should also define rules to undeploy them. In the case of this plugin, undeployment means removing the artifact that was deployed. The rule will use the state of the deployment to determine which files must be deleted.
 
-### xl-rules.xml
+### Define an undeploy rule
 
 The rule definition in `xl-rules.xml` is:
 
@@ -256,7 +244,7 @@ Notice that:
 * XL Deploy automatically sets the `order` and `description`.
 * The step is an `os-script` step. The script behind the step is responsible for deleting the file on the server.
 
-### Script
+### Undeploy script (XL Deploy 4.5.3, 5.0.0, and later)
 
 In XL Deploy 4.5.3, 5.0.0, and later, the FreeMarker variable for the `previousDeployed` object is automatically added to the `freemarker-context`. This allows the script to refer to the properties of the previous deployed object such as file name.
 
@@ -266,7 +254,7 @@ The Unix script `undeploy-artifact.sh.ftl` contains:
     rm ${previousDeployed.container.home + "/context/" + previousDeployed.file.name}
     echo "Done"
 
-### Script
+### Undeploy script (XL Deploy 4.5.2 or earlier)
 
 If you are using XL Deploy 4.5.2 or earlier, the Unix script `undeploy-artifact.sh.ftl` contains:
 
@@ -296,7 +284,7 @@ Note that a full implementation would require four scripts in total:
 * One script that stops the server for Windows
 * One script that starts the server for Windows
 
-### xl-rules.xml
+### Define a restart rule
 
 The script rule is defined in `xl-rules.xml` as follows:
 
@@ -304,15 +292,13 @@ The script rule is defined in `xl-rules.xml` as follows:
         <planning-script-path>planning/start-stop-server.py</planning-script-path>
     </rule>
 
-### Parts of the rule
-
 Notice that:
 
 * The `scope` is `plan` because the script needs to inspect all deployeds of the specific sub-plan to make its decision. Also, the rule only needs to contribute one start step and stop step per sub-plan, and rules with the plan scope are only triggered once per sub-plan.
 * The rule has no conditions because the script will determine if the rule will contribute steps.
 * The rule refers to an external script file in a location that is relative to the plugin definition.
 
-### Script
+### Restart server script
 
 The script `start-stop-server.py` contains:
 
@@ -343,13 +329,13 @@ The script `start-stop-server.py` contains:
             freemarker_context={'container': container},
             target_host=container.host))
 
+Note that `freemarker_context={'container': container}` is required to make the container object available in the FreeMarker context.
+
 The [rules demo plugin](https://github.com/xebialabs/xl-deploy-samples/tree/master/rules-demo-plugin) also contains a dummy script called `start.sh.ftl` that contains:
 
     echo "Starting server on Unix"
 
 In a real implementation, this script would need to contain the commands required to start the server. 
-
-### Parts of the script
 
 * The script starts with:
     * An import statement of an utility class
@@ -370,7 +356,7 @@ In a real implementation, this script would need to contain the commands require
         * We use the `addStep` method to add the constructed step directly to the `context`.
 * If XL Deploy does not find deltas for the sub-plan, the start and stop steps will not be created.
 
-### Test the server restart rules
+### Test the server restart
 
 To test the server restart rules, set up a deployment as described in [Test the deployment rules](#test-the-deployment-rules). The deployment plan should look like:
 

@@ -1,0 +1,31 @@
+---
+title: Release automation report
+categories:
+- xl-release
+subject:
+- Reports
+tags:
+- report
+- release
+- release automation
+---
+
+To access the XL Release release automation report, select **Reports** > **Release automation** from the top menu. Use the buttons at the top of the report to select a time period such as "last six months" or a specific date range.
+
+The data for this report comes from XL Release's [archive database](/xl-release/concept/how-archiving-works.html). Releases that are completed but not yet archived do not appear in reports.
+
+## Release duration and automation
+
+The **Release duration** section shows the average duration of [completed](/xl-release/concept/release-life-cycle.html) releases by month, while the **Release automation** section shows the average percentage of automated tasks in releases that were completed in each month.
+
+A release's completion date determines the month that it is included in; for example, a release that was started in April and completed in May is included in the averages for May.
+
+![Release duration and automation](../images/reports-release-duration-and-automation.png)
+
+## Number of tasks and time spent
+
+The **Number of tasks** section indicates whether your releases are becoming more or less automated. It shows a comparison of the number of automated and manual tasks in each of the last 20 [completed](/xl-release/concept/release-life-cycle.html) releases (sorted by completion date).
+
+The **Time spent** section indicates where you are spending the most time during releases. It shows a comparison of the total time spent in automated and manual tasks in each of the last 20 completed releases (sorted by completion date).
+
+![Number of tasks and time spent](../images/reports-number-of-tasks-and-time-spent.png)
