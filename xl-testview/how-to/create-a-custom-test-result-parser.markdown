@@ -128,12 +128,11 @@ The properties are explained below:
 		</tr>
 		<tr>
 			<td>language</td>
-			<td>no</td>
+			<td>yes</td>
 			<td><pre>python</pre></td>
 			<td><p>Tells XL-TestView in what language the parser is written.</p>
 				<p>Possible values are:
 					<pre>python</pre>
-					<pre>java</pre>
 				</p>
 			</td>
 		</tr>
