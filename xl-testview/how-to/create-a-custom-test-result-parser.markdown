@@ -107,14 +107,18 @@ The properties are explained below:
 			</td>
 		</tr>
 		<tr>
+			<td>label</td>
+			<td>yes</td>
+			<td>n/a</td>
+			<td><p>A unique, user friendly name for this test tool</p>
+			</td>
+		</tr>
+		<tr>
 			<td>defaultSearchPattern</td>
 			<td>yes</td>
 			<td>n/a</td>
-			<td><p>Ant pattern used for retrieving the applicable test result files for a given directory. Propagated in the GUI and Jenkins Plugin.</p>
-			<p>
-			Example, for JUnit test results the following pattern is used:
-			<pre>**/*.xml	</pre>
-			</p></td>
+			<td><p>An Ant style pattern to select relevant test result files. For example: <pre>**/test-results/TEST*.xml</pre> selects all files starting with <em>TEST</em> and ending with <em>.xml</em> that are in a directory <em>test-results</em>, which can be at any depth in the file tree.</p>
+			</td>
 		</tr>
 		<tr>
 			<td>scriptLocation</td>
@@ -143,17 +147,25 @@ The properties are explained below:
 	</tbody>
 </table>
 
+XL-TestView uses the same type system as XL-Deploy. However, only the above fields are used for test tools. To acquire a better understanding about the type system in general please look at [Understanding XL Deploy rules](/xl-deploy/how-to/customize-an-existing-ci-type.html).
+
 ### Write an implementation of the test results parser
 
-A (Python) script is required to do the actual parsing.
+<blockquote>Depending on your language property you have to provide a python or java implementation. This chapter assumes a python implementation.</blockquote>
 
-As input XL TestView provides the files that contain test results, the output is a collection of test runs. Each test run is itself a collection of test results. In pseudo-code:
+Using the search pattern from the test tool configuration the files to be imported will be assembled into one list and feeded into the test results parser.
+
+The output of the test result parser is a collection of test runs. Each test run is itself a collection of test results. 
+
+In pseudo-code this looks like:
 
     TestResultParser(files) -> [ [ test result1, test result2, ... ], ... ]
-   
-In many cases all test results that can be found belong to one test run. This is the case with for example JUnit and Cucumber. Some tools build up a history of test runs, such as Gatling and FitNesse. It is up to the test result parser implementor to be aware of this distinction.
 
-Apart from a list of `files`, the script is primes with the following information:
+In many cases all test results that can be found belong to one test run. This is the case with for example JUnit and Cucumber. One 'run' of the test tool generates results. All these results belong to a `test run`.
+
+Some tools build up a *history* of test runs, such as Gatling and FitNesse. This means that every *run* of the tool *adds* test result data (instead of replacing it with new data). This implies that the test result parser will be feeded with the latest and all previous test run data. It is up to the test result parser to deal with this case and distinguish already imported runs.
+
+Apart from a list of `files`, the script is primed with the following information:
 
 {:.table .table-striped}
 |Attribute|Description|
@@ -164,32 +176,6 @@ Apart from a list of `files`, the script is primes with the following informatio
 | `testSpecification` | The test specification that will own the test run. |
 | `testRunHistorian` | This service can tell the script if results have been imported already. |
 | `LOG` | A SLF4J logger you can use to log information at greater detail |
-
-You also need an addition to the `synthetic.xml`:
-
-    <type type="custom.MyTestToolConfiguration"
-          extends="xlt.TestToolConfiguration"
-          label="My custom tool">
-        <property name="category" default="functional"/>
-        <property name="defaultSearchPattern" default=""/>
-        <property name="scriptLocation" default="custom-script.py"/>
-    </type>
-
-TODO: make remark on type namespace prefix and class path namespacing.
-
-The following values need to be specified:
-
-{:.table .table-striped}
-|Attribute|Description|
-|---------|-----------|
-| `type` | A unique typename for this test Tool. |
-| `label` | A unique, user friendly name for this test tool. |
-| `category` | `functional` or `performance`. |
-| `defaultSearchPattern` | A Ant style pattern to select relevant test result files. For example: `**/test-results/TEST*.xml` selects all files starting with `TEST` and ending with `.xml` that are in a directory `test-results`, which can be at any depth in the file tree. |
-| `scriptLocation` | The name of the script. |
-
-XL-TestView uses the same type system as XL-Deploy. However, only the above fields are used for test tools. To acquire a better understanding about the type system in general please look at [Understanding XL Deploy rules](/xl-deploy/how-to/customize-an-existing-ci-type.html).
-
 
 
 TODO: example parse flow
