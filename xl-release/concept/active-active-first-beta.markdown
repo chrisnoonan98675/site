@@ -80,6 +80,11 @@ The following configuration settings are relevant:
 
 ## Limitations in the beta release
 
+### Limitation on http session sharing
+
+XL Release does not share http sessions between nodes in a cluster yet. This requires a user to hold http connection to a concreate node in a cluster. When loadbalancer is used, a sticky session flag must be enabled. Session is identified by cookie `JSESSIONID`.
+
+
 ### Limitations on functionality
 
 * XL Release does not yet support concurrent operations on a release on two nodes. The current XL Release server uses a node-wide lock to prevent concurrent changes. This lock will be changed to a cluster-friendly solution later.
