@@ -1,5 +1,5 @@
 ---
-layout: beta-noindex
+layout: beta
 title: XL Release Active/Active - First beta release
 ---
 
@@ -7,7 +7,7 @@ XL Release has been enhanced to support active/active configurations. This docum
 
 The beta release mainly contains infrastructural changes instead of application-level changes; this means there are some limitations in the release, which are described below. These limitations will be addressed in a later release.
 
-**Important:** XebiaLabs does not support the migration of production data from a non-beta release to the beta release, nor from the beta release to a later release. The beta release should only  be used for testing purposes.
+**Important:** XebiaLabs does not provide an upgrade path to the beta release and will not provide upgrade paths from the beta release to later releases.
 
 ## Infrastructural view
 
@@ -97,6 +97,10 @@ If an XL Release node becomes unavailable:
 
 ## Running stress tests
 
+### Pre-requirements 
+
+Test that are run on XL Release cluster setup aim to reproduce a more or less realistic load on a system. It tries to execute some dummy scripts on a remote host. To achive this, an SSH host must be set up in advance of running tests. A password authentication must be used. One can provide values for connection to SSH server as hostname, username and password via gradle parameters `-PsshHost`, `-PsshUser` and `-PsshPassword`. 
+
 To run a set of tests, follow these steps:
 
 1. Consult the `XLR.TestSets.xlsx` and pick up one test set.
@@ -120,13 +124,13 @@ To run a set of tests, follow these steps:
 
     On Microsoft Windows:
 
-        gradlew :runner:run -PbaseUrl=http://loadbalancer.hostname.com -Psimulation=stress.RealisticSimulation
+        gradlew :runner:run -PbaseUrl=http://loadbalancer.hostname.com -Psimulation=stress.RealisticSimulation -PsshHost=ssh.hostname -PsshUser=ssh_user -PsshPassword=ssh_password
 
     On Linux
 
-        ./gradlew :runner:run -PbaseUrl=http://loadbalancer.hostname.com -Psimulation=stress.RealisticSimulation
+        ./gradlew :runner:run -PbaseUrl=http://loadbalancer.hostname.com -Psimulation=stress.RealisticSimulation -PsshHost=ssh.hostname -PsshUser=ssh_user -PsshPassword=ssh_password
 
-    Where `loadbalancer.hostname.com` points to a pre-configured load balancer that distributes requests to all active nodes in the cluster.
+    Where `loadbalancer.hostname.com` points to a pre-configured load balancer that distributes requests to all active nodes in the cluster. And `sshHost`, `sshUser` and `sshPassword` are connection details for SSH server set up in pre-reqirements. 
 1. Copy the generated report from the `runner/reports` directory and fill the name of the report in corresponding column of the `XLR.TestSets.xlsx`.
 
     Note: The report full path location is printed at the end of test run and displayed as
