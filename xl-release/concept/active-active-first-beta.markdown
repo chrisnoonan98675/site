@@ -33,10 +33,14 @@ The beta release includes a number of components that are not included in other 
 1. Set up cluster connectivity as described under [Configure cluster connectivity](#configure-cluster-connectivity).
 1. Copy a valid license to the `conf` directory on each node.
 1. Ensure task archiving uses the Oracle database by configuring `conf/xl-release.conf` as described under [Configure task archiving](#configure-task-archiving).
-1. Download [the default settings file](active-active-beta/xl-release-server.conf.defaults) and copy it into the `conf` directory.
-1. On the first node *only*, run the server setup command as follows: `bin/server.sh -setup -force -reinitialize -setup-defaults=conf/xl-release-server.conf.defaults`. Do not run the setup procedure on other nodes yet. The resulting settings are the required ones for the stress tests.
+1. Download [the default settings file](active-active-beta/xl-release-server.conf.defaults) and copy it to the `conf` directory.
+1. On the first node *only*, run the server setup command as follows:
+
+        bin/server.sh -setup -force -reinitialize -setup-defaults=conf/xl-release-server.conf.defaults
+
+    Do not run the setup procedure on other nodes yet. The resulting settings are required for the stress tests.
 1. Start XL Release on the first node and log in to the user interface as the admin user.
-1. After logging in successfully, copy `conf/xl-release-server.conf` (note: the one without `.defaults`) and `conf/repository-keystore.jceks` (if it exists) to the other node(s). For nodes running on the same machine, edit `conf/xl-release-server.conf` to set `http.port` to an unused port.
+1. After logging in successfully, copy `conf/xl-release-server.conf` (*not* `xl-release-server.conf.defaults`) and `conf/repository-keystore.jceks` (if it exists) to the other node(s). For nodes running on the same machine, edit `conf/xl-release-server.conf` to set `http.port` to an unused port.
 1. On the other node(s), start the server without running the setup procedure (that is, without the `-setup` argument).
 1. Read about the [limitations of this beta release](#limitations-in-the-beta-release).
 1. Execute performance tests and fill out the form. [See below for instructions.](#running-stress-tests)  
