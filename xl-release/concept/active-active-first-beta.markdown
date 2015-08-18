@@ -33,7 +33,7 @@ The beta release includes a number of components that are not included in other 
 1. Set up cluster connectivity as described under [Configure cluster connectivity](#configure-cluster-connectivity).
 1. Copy a valid license to the `conf` directory on each node.
 1. Ensure task archiving uses the Oracle database by configuring `conf/xl-release.conf` as described under [Configure task archiving](#configure-task-archiving).
-1. Download [the default settings file](active-active-beta/xl-release-server.conf.defaults) and copy it to the `conf` directory.
+1. Download [the default settings file](active-active-beta/xl-release-server.conf.defaults) (right-click and select 'Save as...') and copy it to the `conf` directory.
 1. On the first node *only*, run the server setup command as follows:
 
         bin/server.sh -setup -force -reinitialize -setup-defaults=conf/xl-release-server.conf.defaults
