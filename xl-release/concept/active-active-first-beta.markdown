@@ -94,12 +94,14 @@ If an XL Release node becomes unavailable:
 
 * Any background tasks running on the node will be lost.
 
-
 ## Running stress tests
 
 ### Pre-requirements 
 
-Test that are run on XL Release cluster setup aim to reproduce a more or less realistic load on a system. It tries to execute some dummy scripts on a remote host. To achive this, an SSH host must be set up in advance of running tests. A password authentication must be used. One can provide values for connection to SSH server as hostname, username and password via gradle parameters `-PsshHost`, `-PsshUser` and `-PsshPassword`. 
+1. Test that are run on XL Release cluster setup aim to reproduce a more or less realistic load on a system. It tries to execute some dummy scripts on a remote host. To achive this, an SSH host must be set up in advance of running tests. A password authentication must be used. One can provide values for connection to SSH server as hostname, username and password via gradle parameters `-PsshHost`, `-PsshUser` and `-PsshPassword`. 
+1. Configure a load balancer like [HAProxy](http://www.haproxy.org/) to distribute http requests do different node in cluster. 
+
+### Running Tests
 
 To run a set of tests, follow these steps:
 
@@ -130,7 +132,7 @@ To run a set of tests, follow these steps:
 
         ./gradlew :runner:run -PbaseUrl=http://loadbalancer.hostname.com -Psimulation=stress.RealisticSimulation -PsshHost=ssh.hostname -PsshUser=ssh_user -PsshPassword=ssh_password
 
-    Where `loadbalancer.hostname.com` points to a pre-configured load balancer that distributes requests to all active nodes in the cluster. And `sshHost`, `sshUser` and `sshPassword` are connection details for SSH server set up in pre-reqirements. 
+    Where `loadbalancer.hostname.com` points to a pre-configured load balancer that distributes requests to all active nodes in the cluster. And `sshHost`, `sshUser` and `sshPassword` are connection details of SSH server set up in pre-requirements. 
 1. Copy the generated report from the `runner/reports` directory and fill the name of the report in corresponding column of the `XLR.TestSets.xlsx`.
 
     Note: The report full path location is printed at the end of test run and displayed as
