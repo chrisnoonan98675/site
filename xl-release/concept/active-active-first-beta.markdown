@@ -1,5 +1,5 @@
 ---
-layout: beta
+layout: beta-noindex
 title: XL Release Active/Active - First beta release
 ---
 
@@ -7,7 +7,7 @@ XL Release has been enhanced to support active/active configurations. This docum
 
 The beta release mainly contains infrastructural changes instead of application-level changes; this means there are some limitations in the release, which are described below. These limitations will be addressed in a later release.
 
-**Important:** XebiaLabs does not provide an upgrade path to the beta release and will not provide upgrade paths from the beta release to later releases.
+**Important:** XebiaLabs does not support the migration of production data from a non-beta release to the beta release, nor from the beta release to a later release. The beta release should only  be used for testing purposes.
 
 ## Infrastructural view
 
