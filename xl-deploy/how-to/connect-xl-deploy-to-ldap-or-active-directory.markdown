@@ -100,7 +100,7 @@ Alternatively, using an LDAP browser, search for a user who has permission to lo
 {:.table .table-striped}
 | Placeholder | Description | Example |
 | ----------- | ----------- | ------- |
-| `USER_SEARCH_FILTER` | LDAP filter to determine the LDAP `dn` for the user who is logging in; `{0}` will be replaced with the username | `(&amp;(uid={0})(objectClass=inetOrgPerson))` |
+| `USER_SEARCH_FILTER` | LDAP filter to determine the LDAP `dn` for the user who is logging in; `{0}` will be replaced with the username. Please note that any `&` used in the search filter must be written as `&amp;` | `(&amp;(uid={0})(objectClass=inetOrgPerson))` |
 | `USER_SEARCH_BASE` | LDAP `dn` to use as the basis for searching for users | `dc=example,dc=com` |
 
 ## Step 5 Update security - LDAP User Authentication
