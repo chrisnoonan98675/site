@@ -14,10 +14,10 @@ XL TestView supports the following test tools and test result formats:
 
 * [FitNesse](http://www.fitnesse.org/), for test suites executed by FitNesse itself, not through its jUnit runner
 * [Cucumber](http://cukes.info/) report files
-* JUnit compliant output files through the *xUnit* "tool", see below
 * [Selenium](http://www.seleniumhq.org/), executed via xUnit or Cucumber
 * [Gatling](http://gatling.io/) simulation logs
 * [JMeter](http://jmeter.apache.org/) summary reports
+* JUnit-compliant output files through the xUnit output format (see below)
 
 *xUnit* output is known to work with the following setups:
 
