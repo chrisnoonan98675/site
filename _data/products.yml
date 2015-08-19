@@ -2,19 +2,19 @@
   id: xl-deploy
   blurb: XL Deploy is the only application release automation solution that is agentless across all target platforms. Connect to Windows and Unix target systems using proven, industry-standard remote protocols; no agent installation and maintenance, no overhead on the target systems, no firewall ports to be opened, and no security reviews.
   versions:
-    - 3.9.x
-    - 4.0.x
-    - 4.5.x
     - 5.0.x
+    - 4.5.x
+    - 4.0.x
+    - 3.9.x
 - name: XL Release
   id: xl-release
   blurb: XL Release is an end-to-end pipeline orchestration tool for Continuous Delivery and DevOps teams. It handles dependencies, release trains, and integration with change and release management.
   versions:
-    - 3.0.x
-    - 4.0.x
-    - 4.5.x
-    - 4.6.x
     - 4.7.x
+    - 4.6.x
+    - 4.5.x
+    - 4.0.x
+    - 3.0.x
 - name: XL TestView
   id: xl-testview
   blurb: XL TestView lets you define, execute, and analyze all of the tests relevant to an application's quality. You can easily manage complex test sets and execute tests across a wide spectrum of tools.
