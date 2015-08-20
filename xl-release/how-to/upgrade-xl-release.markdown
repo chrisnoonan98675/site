@@ -26,13 +26,17 @@ Briefly, the process of upgrading XL Release is:
 
 It is possible to skip XL Release versions when upgrading. XL Release will sequentially apply any upgrades for the intermediate (skipped) versions. However, you may be required to take manual actions for the intermediate versions; you can find these in the [version-specific upgrade notes](/xl-release/latest/upgrademanual.html).
 
+## Upgrading and downgrading
+
+After you upgrade to a new version of XL Release, you cannot downgrade to an older version.
+
+If you upgrade to a release candidate (RC), alpha, or beta version, you cannot upgrade to a newer version or downgrade to an older version.
+
+Ensure that you always create a backup of your repository before you upgrade to a new version of XL Release.
+
 ## Upgrading the repository
 
 If a repository upgrade is required, XL Release will detect that it is running against an old repository and will automatically execute an upgrade when it is first started. The server log will contain extensive logging of the repository upgrade process. Save this log for future reference.
-
-<div class="alert alert-warning" role="alert">
-    <p><strong>Note:</strong> After a component is upgraded, it cannot be downgraded to an older version.</p>
-</div>
 
 ## Performing the upgrade
 
