@@ -80,7 +80,7 @@ The properties that are available are:
 | `defaultSearchPattern` | Yes | N/A | An [Ant](http://ant.apache.org/)-style pattern to select relevant test result files. For example: `**/test-results/TEST*.xml` selects all files starting with `TEST` and ending with `.xml` that are in a `test-results` directory, which can be at any depth in the file tree. |
 | `scriptLocation` | Yes, if `language` is `python` or is not specified | N/A | Location of the Python script that parses test results. |
 | `language` | Yes | `python` | Defines the language in which the parser is written. Valid values are `python` and `java`. |
-| `className` | Yes, if `language` is `java` | N/A | Defines the location of the parser (only applies if `language` is `java`. |
+| `className` | Yes, if `language` is `java` | N/A | Defines the location of the parser (only applies if `language` is `java`). |
 
 XL TestView uses the same type system as XL Deploy, although only the properties above are used for test tools. For more information about the type system, refer to [Understanding XL Deploy rules](/xl-deploy/how-to/customize-an-existing-ci-type.html).
 
