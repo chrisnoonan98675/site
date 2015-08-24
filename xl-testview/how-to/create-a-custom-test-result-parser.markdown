@@ -99,13 +99,14 @@ Other tools, such as Gatling and FitNesse, build up a *history* of test runs. Th
 In addition to `files`, the test results parser script is primed with the following information:
 
 {:.table .table-striped}
+
 | Attribute | Description |
 | --------- | ----------- |
-| `testRunId` | An ID identifying a test run. |
+| `test_run_id` | An ID identifying a test run. |
 | `files` | The files found in the `workingDirectory` based on a search pattern provided in the test tool configuration. |
-| `workingDirectory` | Directory there the test results are stored. |
-| `testSpecification` | The test specification that will own the test run. |
-| `testRunHistorian` | This service can inform the script if results have already been imported. |
+| `working_directory` | Directory there the test results are stored. |
+| `test_specification` | The test specification that will own the test run. |
+| `test_run_historian` | This service can inform the script if results have already been imported. |
 | `LOG` | An SLF4J logger you can use to log information in greater detail. |
 
 ### Writing a performance test results parser
