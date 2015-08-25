@@ -8,6 +8,7 @@ tags:
 - deployment
 - application
 - package
+- update
 ---
 
 XL Deploy always works with complete [deployment packages](/xl-deploy/concept/preparing-your-application-for-xl-deploy.html#whats-in-an-application-deployment-package) that contain everything your applications need. You don't have to manually create a delta package to perform an update; instead, XL Deploy’s auto-flow engine calculates the delta between two packages automatically.
