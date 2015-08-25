@@ -53,7 +53,7 @@ All events have the following required properties:
 | Key        | Value type       | Mandatory  |  Description | 
 |------------|------------------|------------|--------------|
 |  `@testedAt`	|DateTime	|	|		Time this test was executed. Not before 1980-01-01 and not in the future
-| `@runKey` |String||Test specification specific identifier of this run. This key can be used to determine if a test run has already been imported. See []
+| `@runKey` |String||Test specification specific identifier of this run. This key can be used to determine if a test run has already been imported. See [Detecting duplicate imports](/xl-testview/how-to/detect-duplicate-imports.html).
 
 ### `importFinished`:
 

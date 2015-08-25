@@ -109,6 +109,8 @@ In addition to `files`, the test results parser script is primed with the follow
 | `test_run_historian` | This service can inform the script if results have already been imported. |
 | `LOG` | An SLF4J logger you can use to log information in greater detail. |
 
+For usage of the testRunHistorian, see [detecting duplicate imports](/xl-testview/how-to/detect-duplicate-imports.html).
+
 ### Writing a performance test results parser
 
 The `parser.xunit` Python module contains useful functions for processing functional test tool results and ensuring that test results are structured in a way that XL TestView accepts. For example, `parse_last_modified` takes a list of files and extracts the timestamp from `xunit` test result files.
