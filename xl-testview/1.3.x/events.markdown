@@ -32,6 +32,7 @@ A test result parser will always produce a list of events, called a run. A run h
 
 These properties are set on all events by XL-TestView. Reports can read them, but Test Parsers do not use them.
 
+{:.table .table-striped}
 | Key        | Value type       | Mandatory  |  Description | 
 |------------|------------------|------------|--------------|
 | `_id`|String|✔|Identifier of Elastic Search. Not used by Test Tools|
@@ -41,12 +42,14 @@ These properties are set on all events by XL-TestView. Reports can read them, bu
 
 All events have the following required properties:
 
+{:.table .table-striped}
 | Key        | Value type       | Mandatory  |  Description | 
 |------------|------------------|------------|--------------|
 |  `@type`	|String	| ✔|One of `importStarted`, `importFinished`, `functionalResult`, `performanceResult`	|
 
 ### `importStarted`:
 
+{:.table .table-striped}
 | Key        | Value type       | Mandatory  |  Description | 
 |------------|------------------|------------|--------------|
 |  `@testedAt`	|DateTime	|	|		Time this test was executed. Not before 1980-01-01 and not in the future
@@ -58,6 +61,7 @@ Has no properties apart from the required ones.
 
 ### `functionalResult`:
 
+{:.table .table-striped}
 | Key        | Value type       | Mandatory  |  Description | 
 |------------|------------------|------------|--------------|
 |  `@result`	|String	|✔		|	No restrictions, but one of PASSED, FAILED, SKIPPED is encouraged.|
