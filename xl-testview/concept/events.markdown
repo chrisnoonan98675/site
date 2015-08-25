@@ -1,74 +1,89 @@
 ---
-title: Events
+title: XL TestView events
 categories:
 - xl-testview
 subject:
-- Events
+- Test results
 tags:
 - test parsers
 - events
+- test tool
+- extension
+- test results
+- api
+since:
+- 1.3.0
 ---
-## Events
-XL TestView stores all test results in the database as "events". These events are key-value maps and are a uniform representation of a test result, independent of the tool the result originated from. Custom test tools will need to create a list of events, and the events have a number of requirements. If these requirements are not met, the events will not be accepted by the system. This is required to protect the integrity of the data.
 
-An event is a key-value map. The keys are strings, the values are either strings, integers, booleans or floating point values, or lists of one of those. Another often used data type is DateTime, which represents a date. In the events this is represented as the number of milliseconds since 1970-01-01 00:00:00 UTC, stored in a 64-bit integer. 
+XL TestView stores all test results in the database as "events". These are key-value maps that are a uniform representation of a test result, independent of the tool the result originated from.
 
-During the processing of test results the parsers are allowed to insert their own keys and values. All the keys used by XL-TestView start with an `@` or an `_`. Test tools cannot use any keys starting with `@` or `_` except for the ones described here.
+Custom test tools must create a list of events, which have a number of requirements. If these requirements are not met, XL TestView will not accept the events. This is required to protect the integrity of the data.
+
+An event is a key-value map. The keys are strings, while the values are strings, integers, Booleans, floating point values, or lists of one of those. Another often used data type is `DateTime`, which represents a date. In the events this is represented as the number of milliseconds since 1970-01-01 00:00:00 UTC, stored in a 64-bit integer.
+
+During test results processing, parsers are allowed to insert their own keys and values. All keys used by XL TestView start with an at-sign (`@`) or an underscore (`_`). Test tools cannot use any keys starting with `@` or `_` except for the ones described here.
+
+## Types of events
 
 There are 4 types of events:
 
 * `importStarted`
 * `importFinished`
 * `functionalResult`
-* `performanceResult` (incubating)
+* `performanceResult` (not yet used)
 
 A test result parser will always produce a list of events, called a run. A run has the following properties:
 
 * Exactly one `importStarted` event
 * Exactly one `importFinished` event
-* Any number of FunctionalResult events, for "functional" test tools **or** PerformanceResult events, for "performance" test tools. Those events may not be mixed.
+* For functional test tools, any number of `FunctionalResult` events
+* For performance test tools, any number of `PerformanceResult` events
 
-##Event properties
+**Note:** `FunctionalResult` and `PerformanceResult` events cannot be mixed.
 
-These properties are set on all events by XL-TestView. Reports can read them, but Test Parsers do not use them.
+## Event properties
+
+XL TestView sets these properties on all events. Reports can read them, but test results parsers do not use them.
 
 {:.table .table-striped}
-| Key        | Value type       | Mandatory  |  Description | 
-|------------|------------------|------------|--------------|
-| `_id`|String|✔|Identifier of Elastic Search. Not used by Test Tools|
-|  `@runId`|String|✔||
-|  `@createdAt`	|	DateTime	|✔	| 		Time of import. Always larger than 1980 and not in the future|
-|  `@testSpecification`	|String	|✔||
+| Key | Value type | Mandatory | Description | 
+| --- | ---------- | --------- | ----------- |
+| `_id` | String | &#x2714; | Identifier of Elasticsearch; not used by test tools. |
+| `@runId` | String | &#x2714; | |
+| `@createdAt` | DateTime | &#x2714;	| Time of import; always larger than 1980 and not in the future. |
+| `@testSpecification` | String | &#x2714; | |
+
+### Required properties
 
 All events have the following required properties:
 
 {:.table .table-striped}
-| Key        | Value type       | Mandatory  |  Description | 
-|------------|------------------|------------|--------------|
-|  `@type`	|String	| ✔|One of `importStarted`, `importFinished`, `functionalResult`, `performanceResult`	|
+| Key | Value type | Mandatory | Description | 
+| --- | ---------- | --------- | ----------- |
+| `@type` | String | &#x2714; | One of `importStarted`, `importFinished`, `functionalResult`, or `performanceResult`. |
 
-### `importStarted`:
-
-{:.table .table-striped}
-| Key        | Value type       | Mandatory  |  Description | 
-|------------|------------------|------------|--------------|
-|  `@testedAt`	|DateTime	|	|		Time this test was executed. Not before 1980-01-01 and not in the future
-| `@runKey` |String||Test specification specific identifier of this run. This key can be used to determine if a test run has already been imported. See [Detecting duplicate imports](/xl-testview/how-to/detect-duplicate-imports.html).
-
-### `importFinished`:
-
-Has no properties apart from the required ones.
-
-### `functionalResult`:
+### `importStarted` event properties
 
 {:.table .table-striped}
-| Key        | Value type       | Mandatory  |  Description | 
-|------------|------------------|------------|--------------|
-|  `@result`	|String	|✔		|	No restrictions, but one of PASSED, FAILED, SKIPPED is encouraged.|
-|  `@hierarchy`	|list of String	|✔		|Structure of test results. Used for drill down in reports. The whole hierarchy should be a unique textual representation of a test and its position in the suite. For example, if a unit test in JUnit was in the class in `com.example.PersonTest`, and the test was called `test1`, the hierarchy would be `['com','example','PersonTest','test1']`|
-|  `@message`	|String	|	|  Textual information about the test result|
-|  `@duration`	|	Integer|	|	Duration of this test in milliseconds. Should be positive| 
+| Key | Value type | Mandatory | Description | 
+| --- | ---------- | --------- | ----------- |
+| `@testedAt` | DateTime | | Time this test was executed; not before 1980-01-01 and not in the future. |
+| `@runKey` | String | | Test specification-specific identifier of this run. This key can be used to determine if a test run has already been imported; see [Detecting duplicate imports](/xl-testview/how-to/detect-duplicate-imports.html). |
 
-### `performanceResult`:
+### `importFinished` event properties
 
-Note: `performanceResult` will be subject to change in the next release.
+`importFinished` has no properties apart from the required ones.
+
+### `functionalResult` event properties
+
+{:.table .table-striped}
+| Key | Value type | Mandatory | Description |
+| --- | ---------- | --------- | ----------- |
+| `@result` | String | &#x2714; | No restrictions, but `PASSED`, `FAILED`, or `SKIPPED` is recommended. |
+| `@hierarchy` | list of String | &#x2714; | Structure of test results, used for drilling down in reports. The whole hierarchy should be a unique textual representation of a test and its position in the suite. For example, if a unit test in JUnit was in the class `com.example.PersonTest` and the test was called `test1`, the hierarchy would be `['com','example','PersonTest','test1']` |
+| `@message` | String | | Textual information about the test result. |
+| `@duration` | Integer | | Duration of this test in milliseconds; should be positive. | 
+
+### `performanceResult` event properties
+
+`performanceResult` should not be used, as it is subject to change in the next release.
