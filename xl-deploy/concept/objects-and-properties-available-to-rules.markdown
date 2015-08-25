@@ -23,7 +23,7 @@ The data that is available for a planning script to use depends on the scope of 
 | Object name | Type | Scope | Description |
 | ----------- | ---- | ----- | ----------- |
 | context | [DeploymentPlanningContext](/xl-deploy/5.1.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/planning/DeploymentPlanningContext.html) | all | Use this to add steps and checkpoints to the plan |
-| deployedApplication | [DeployedApplication](/xl-deploy/5.1.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/udm/DeployedApplication.html) | all | Specifies which application version will be deployed to which environment. In XL Deploy 5.1.0 and later, in case of `DESTROY` is not available |
+| deployedApplication | [DeployedApplication](/xl-deploy/5.1.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/udm/DeployedApplication.html) | all | Specifies which application version will be deployed to which environment<br /><br />In XL Deploy 5.1.0 and later, `deployedApplication` is not available in the case of `DESTROY` |
 | previousDeployedApplication | [DeployedApplication](/xl-deploy/5.1.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/udm/DeployedApplication.html) | all | In XL Deploy 5.1.0 and later, this is the previous application version that was deployed<br /><br />In XL Deploy 5.0.x and earlier, `previousDeployedApplication` is not available |
 | steps | | all |  Allows you to create steps from the [step registry](/xl-deploy/how-to/use-a-predefined-step-in-a-rule.html) |
 | specification | [DeltaSpecification](/xl-deploy/5.1.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/DeltaSpecification.html) | pre-plan<br/>post-plan | Contains the delta specification for the current deployment |
