@@ -35,6 +35,10 @@ The Jython script defines actions that you want to perform with release. The sco
 * `releaseJson`: A string with serialized release
 * `logger`: An object of type `org.slf4j.Logger`; see [Javadoc](http://www.slf4j.org/apidocs/org/slf4j/Logger.html)
 
+**Tip:** It is recommended that you use `logger` instead of `print` for logging.
+
+### Script storage location
+
 Store scripts in the `ext` directory, which is a part of the classpath. By default, the export hook tries to locate `prefix/TypeName.py` on the classpath. In the case of this example, it will be `acme/ElasticSearchExportHook.py`.
 
 Alternatively, you can set a customized script path in the `scriptLocation` property of each export hook:
