@@ -39,6 +39,11 @@ Ensure that you always create a backup of your repository before you upgrade to 
 
 If a repository upgrade is required, XL TestView will detect that it is running against an old repository and will automatically execute an upgrade when it is first started. The server log will contain extensive logging of the repository upgrade process. Save this log for future reference.
 
+## Upgrade logging
+After running upgrades (using the `-upgrade` flag or `-force-upgrades` flag), all logging that happens during an upgrade step is written into `upgrade.log`
+
+Some upgrades may take a while to complete (especially when going through the event model which is persisted in Elastic Search). The more test runs you have the more events there are to update. Upgrade progress is also logged in the `upgrade.log`. 
+
 ## Deprecations
 
 Each new version may deprecate some functionality or features in favor of newer ways of working. If functionality is marked as deprecated for a specific version, the old functionality is still available (so you can still upgrade hassle-free), but it will be removed in the next version.
