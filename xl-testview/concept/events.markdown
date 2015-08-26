@@ -25,12 +25,12 @@ During test results processing, parsers are allowed to insert their own keys and
 
 ## Types of events
 
-There are 4 types of events:
+There are four types of events:
 
 * `importStarted`
 * `importFinished`
 * `functionalResult`
-* `performanceResult` (not yet used)
+* `performanceResult`
 
 A test result parser will always produce a list of events, called a run. A run has the following properties:
 
@@ -86,12 +86,12 @@ All events have the following required properties:
 
 ### `performanceResult` event properties
 
-`performanceResult` should not be used, as it is subject to change in the next release.
+`performanceResult` is subject to change in future releases
 
 {:.table .table-striped}
 | Key | Value type | Mandatory | Description |
 | --- | ---------- | --------- | ----------- |
-| `simulationName` | String | &#x2714; | The name of the performance test. This field is provided on the `importStarted` event. |
+| `simulationName` | String | &#x2714; | The name of the performance test; this field is provided on the `importStarted` event. |
 | `numberOfRequests.ok` | Integer | &#x2714; | Number of requests that went okay. |
 | `numberOfRequests.ko` | Integer | &#x2714; | Number of errored requests. |
 | `meanResponseTime.total` | Integer | &#x2714; | The mean response time over the whole test run. | 
