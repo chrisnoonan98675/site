@@ -200,6 +200,7 @@ This sample `deployit-security.xml` file shows the required LDAP configuration i
  &lt;security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/&gt;
 
  &lt;security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never"&gt;
+   &lt;security:csrf disabled="true"/&gt;
    &lt;!-- The download url has no security access set --&gt;
    &lt;security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/&gt;
    &lt;security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/&gt;
