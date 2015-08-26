@@ -87,3 +87,11 @@ All events have the following required properties:
 ### `performanceResult` event properties
 
 `performanceResult` should not be used, as it is subject to change in the next release.
+
+{:.table .table-striped}
+| Key | Value type | Mandatory | Description |
+| --- | ---------- | --------- | ----------- |
+| `simulationName` | String | &#x2714; | The name of the performance test. This field is provided on the `importStarted` event. |
+| `numberOfRequests.ok` | Integer | &#x2714; | Number of requests that went okay. |
+| `numberOfRequests.ko` | Integer | &#x2714; | Number of errored requests. |
+| `meanResponseTime.total` | Integer | &#x2714; | The mean response time over the whole test run. | 
