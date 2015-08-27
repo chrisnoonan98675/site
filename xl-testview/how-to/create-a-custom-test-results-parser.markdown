@@ -99,7 +99,6 @@ Other tools, such as Gatling and FitNesse, build up a *history* of test runs. Th
 In addition to `files`, the test results parser script is primed with the following information:
 
 {:.table .table-striped}
-
 | Attribute | Description |
 | --------- | ----------- |
 | `test_run_id` | An ID identifying a test run. |
