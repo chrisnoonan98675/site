@@ -10,6 +10,7 @@ tags:
 - license
 - setup
 - requirements
+- system requirements
 - prerequisites
 ---
 
@@ -108,6 +109,8 @@ To use the XL Deploy GUI, you must meet the following requirements:
 	* Internet Explorer 10 or later for XL Deploy 5.0.0 or later
 	* Internet Explorer 8, 9, or later for XL Deploy 4.5.x or earlier (note that the [Compare feature](/xl-deploy/how-to/compare-configuration-items.html) requires Internet Explorer 10 or later)
 * **Flash player**: Version 9 or later
+
+**Note:** Internet Explorer Compatibility View is not supported.
 
 ### CLI clients
 
