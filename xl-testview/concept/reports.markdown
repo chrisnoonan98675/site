@@ -73,7 +73,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 <div class="col-md-10">
 <p>Type: Functional</p>
 <p>Span: Multiple test runs</p>
-<p>A flakiness overview report shows how stable or unstable tests are over time. Given a time range, the most flaky tests are shown.</p>
+<p>A flakiness overview report shows how stable or unstable tests are over time. Given a time range, the most flaky tests are shown. Flakiness is calculated as the actual number of changes from 'passed' to 'failed' ()or the other way arround) versus the possible number of changes. This given the number of test runs visible in the date/time range selected.</p>
 </div>
 </div>
 
