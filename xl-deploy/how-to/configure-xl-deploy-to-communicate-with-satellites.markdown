@@ -54,7 +54,7 @@ You can specify the ping timeout in milliseconds, seconds, or minutes. For examp
 
 ## Configure the upload idle timeout
 
-The upload idle timeout occurs when a satellite has accepted an incoming streaming connection but does not seed to accept the uploaded file. This prevents unused TCP connections from remaining open. To configure the upload idle timeout, change the `satellite.timeout.upload.idle` property in the file `conf/system.conf`:
+The upload idle timeout occurs when a satellite has accepted an incoming streaming connection but does not need to accept the uploaded file. This prevents unused TCP connections from remaining open. To configure the upload idle timeout, change the `satellite.timeout.upload.idle` property in the file `conf/system.conf`:
 
     satellite {
       timeout {
