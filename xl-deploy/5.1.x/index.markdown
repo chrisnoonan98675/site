@@ -7,11 +7,11 @@ product-id: xl-deploy
 
 ## Product reference documentation
 
-* [Release Manual](release_manual_5_1_x.html)
+* [Release Manual](releasemanual.html)
 * [Steps Reference](referencesteps.html)
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
-* [Jython API Manual](/jython-docs/#!/xl-deploy/5.1.x/)
+* [Jython API Reference](/jython-docs/#!/xl-deploy/5.1.x/)
 
 ## Plugin reference documentation
 
