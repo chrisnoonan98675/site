@@ -1,5 +1,4 @@
 ---
-layout: satellite
 title: Configure secure communication with a satellite server
 categories:
 - xl-deploy
@@ -9,8 +8,6 @@ tags:
 - security
 - satellite
 since:
-- 5.0.0
-deprecated:
 - 5.1.0
 ---
 
@@ -58,6 +55,18 @@ The satellite security configuration is located in `conf/satellite.conf`:
       ssl {
         enabled = yes
 
+        # Protocol to use for SSL encryption, choose from:
+        # Java 7:
+        #   'TLSv1.1', 'TLSv1.2'
+        protocol = "TLSv1.2"
+      
+        # Example: ["TLS_RSA_WITH_AES_128_CBC_SHA", "TLS_RSA_WITH_AES_256_CBC_SHA"]
+        # You need to install the JCE Unlimited Strength Jurisdiction Policy
+        # Files to use AES 256.
+        # More info here:
+        # http://docs.oracle.com/javase/7/docs/technotes/guides/security/SunProviders.html#SunJCEP
+        enabled-algorithms = ["TLS_RSA_WITH_AES_128_CBC_SHA"]
+
         # Absolute path to the Java Key Store used by the server connection
         key-store = "keystore"
         # This password is used for decrypting the key store
@@ -72,37 +81,7 @@ The satellite security configuration is located in `conf/satellite.conf`:
       }
     }
     
-The default configuration uses `TLSv1.2`, `TLS_RSA_WITH_AES_128_CBC_SHA`, and `AES128CounterSecureRNG`. You can change these values depending on your security policy and requirements. The change is needed to be done in `conf/satellite.conf`.
-
-    akka.remote.netty.ssl.security {
-
-      # Protocol to use for SSL encryption, choose from:
-      # Java 7:
-      #   'TLSv1.1', 'TLSv1.2'
-      protocol = "TLSv1.2"
-  
-      # Example: ["TLS_RSA_WITH_AES_128_CBC_SHA", "TLS_RSA_WITH_AES_256_CBC_SHA"]
-      # You need to install the JCE Unlimited Strength Jurisdiction Policy
-      # Files to use AES 256.
-      # More info here:
-      # http://docs.oracle.com/javase/7/docs/technotes/guides/security/SunProviders.html#SunJCEP
-      enabled-algorithms = ["TLS_RSA_WITH_AES_128_CBC_SHA"]
-      # There are three options, in increasing order of security:
-      # "" or SecureRandom => (default)
-      # "SHA1PRNG" => Can be slow because of blocking issues on Linux
-      # "AES128CounterSecureRNG" => fastest startup and based on AES encryption
-      # "AES256CounterSecureRNG"
-      # The following use one of 3 possible seed sources, depending on
-      # availability: /dev/random, random.org and SecureRandom (provided by Java)
-      # "AES128CounterInetRNG"
-      # "AES256CounterInetRNG" (Install JCE Unlimited Strength Jurisdiction
-      # Policy Files first)
-      # Setting a value here may require you to supply the appropriate cipher
-      # suite (see enabled-algorithms section above)
-      random-number-generator = "AES128CounterSecureRNG"
-    }
-
-**Important:** These configuration values must match the values that XL Deploy uses.
+**Important:** These configuration values for `protocol` and `enabled-algorithms` must match the values that XL Deploy uses in `conf/system.conf` file.
 
 ## Logging
 

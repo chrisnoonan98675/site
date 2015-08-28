@@ -34,7 +34,6 @@ You are required to provide values for all variables when starting a release. Va
 
 Special variables can be used to access release properties:
 
-* `${release.id}`
 * `${release.title}`
 * `${release.status}`
 * `${release.owner}`

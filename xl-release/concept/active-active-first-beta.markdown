@@ -1,5 +1,5 @@
 ---
-layout: beta-noindex
+layout: beta
 title: XL Release Active/Active - First beta release
 ---
 
@@ -7,7 +7,7 @@ XL Release has been enhanced to support active/active configurations. This docum
 
 The beta release mainly contains infrastructural changes instead of application-level changes; this means there are some limitations in the release, which are described below. These limitations will be addressed in a later release.
 
-**Important:** XebiaLabs does not support the migration of production data from a non-beta release to the beta release, nor from the beta release to a later release. The beta release should only  be used for testing purposes.
+**Important:** XebiaLabs does not provide an upgrade path to the beta release and will not provide upgrade paths from the beta release to later releases.
 
 ## Infrastructural view
 
@@ -33,14 +33,9 @@ The beta release includes a number of components that are not included in other 
 1. Set up cluster connectivity as described under [Configure cluster connectivity](#configure-cluster-connectivity).
 1. Copy a valid license to the `conf` directory on each node.
 1. Ensure task archiving uses the Oracle database by configuring `conf/xl-release.conf` as described under [Configure task archiving](#configure-task-archiving).
-1. Download [the default settings file](active-active-beta/xl-release-server.conf.defaults) (right-click and select 'Save as...') and copy it to the `conf` directory.
-1. On the first node *only*, run the server setup command as follows:
-
-        bin/server.sh -setup -force -reinitialize -setup-defaults=conf/xl-release-server.conf.defaults
-
-    Do not run the setup procedure on other nodes yet. The resulting settings are required for the stress tests.
+1. On the first node *only*, follow the server setup procedure in the normal way (`bin/server.sh -setup`). Do not run the setup procedure on other nodes yet.
 1. Start XL Release on the first node and log in to the user interface as the admin user.
-1. After logging in successfully, copy `conf/xl-release-server.conf` (*not* `xl-release-server.conf.defaults`) and `conf/repository-keystore.jceks` (if it exists) to the other node(s). For nodes running on the same machine, edit `conf/xl-release-server.conf` to set `http.port` to an unused port.
+1. After logging in successfully, copy `conf/xl-release-server.conf` and `conf/repository-keystore.jceks` (if it exists) to the other node(s). For nodes running on the same machine, edit `conf/xl-release-server.conf` to set `http.port` to an unused port.
 1. On the other node(s), start the server without running the setup procedure (that is, without the `-setup` argument).
 1. Read about the [limitations of this beta release](#limitations-in-the-beta-release).
 1. Execute performance tests and fill out the form. [See below for instructions.](#running-stress-tests)  
@@ -85,10 +80,6 @@ The following configuration settings are relevant:
 
 ## Limitations in the beta release
 
-### Limitation on HTTP session sharing
-
-XL Release does not yet share HTTP sessions among nodes in a cluster. This requires the user to hold an HTTP connection to a concrete node in a cluster. When a load balancer is used, a sticky session flag must be enabled. Session is identified by the `JSESSIONID` cookie.
-
 ### Limitations on functionality
 
 * XL Release does not yet support concurrent operations on a release on two nodes. The current XL Release server uses a node-wide lock to prevent concurrent changes. This lock will be changed to a cluster-friendly solution later.
@@ -103,19 +94,11 @@ If an XL Release node becomes unavailable:
 
 * Any background tasks running on the node will be lost.
 
+
 ## Running stress tests
-
-### Prerequisites 
-
-* Tests that are run on an XL Release cluster setup aim to reproduce a realistic load on the system. Tests attempt to execute dummy scripts on a remote host. To achieve this, an SSH host must be set up before running tests. Password authentication must be used. You can provide values for the connection to the SSH server as hostname, user name, and password using the Gradle parameters `-PsshHost`, `-PsshUser`, and `-PsshPassword`. 
-
-* Configure a load balancer such as [HAProxy](http://www.haproxy.org/) to distribute HTTP requests to different nodes in the cluster. 
-
-### Running Tests
 
 To run a set of tests, follow these steps:
 
-1. Download the file [`XLR.TestSets.xlsx`](active-active-beta/XLR.TestSets.xlsx)
 1. Consult the `XLR.TestSets.xlsx` and pick up one test set.
 1. Using Git, clone [https://github.com/xebialabs-community/xl-release-stress-tests.git](https://github.com/xebialabs-community/xl-release-stress-tests.git).
 1. If the nodes in the cluster are running, stop them.
@@ -137,18 +120,18 @@ To run a set of tests, follow these steps:
 
     On Microsoft Windows:
 
-        gradlew :runner:run -PbaseUrl=http://loadbalancer.hostname.com -Psimulation=stress.RealisticSimulation -PsshHost=ssh.hostname -PsshUser=ssh_user -PsshPassword=ssh_password
+        gradlew :runner:run -PbaseUrl=http://loadbalancer.hostname.com -Psimulation=stress.RealisticSimulation
 
-    On Linux:
+    On Linux
 
-        ./gradlew :runner:run -PbaseUrl=http://loadbalancer.hostname.com -Psimulation=stress.RealisticSimulation -PsshHost=ssh.hostname -PsshUser=ssh_user -PsshPassword=ssh_password
+        ./gradlew :runner:run -PbaseUrl=http://loadbalancer.hostname.com -Psimulation=stress.RealisticSimulation
 
-    Where `loadbalancer.hostname.com` points to a pre-configured load balancer that distributes requests to all active nodes in the cluster and `sshHost`, `sshUser` and `sshPassword` are connection details of SSH server set up in the prerequisites. 
+    Where `loadbalancer.hostname.com` points to a pre-configured load balancer that distributes requests to all active nodes in the cluster.
 1. Copy the generated report from the `runner/reports` directory and fill the name of the report in corresponding column of the `XLR.TestSets.xlsx`.
 
-    **Note:** The report's full path location is printed at the end of test run and displayed as:
+    Note: The report full path location is printed at the end of test run and displayed as
     
         Reports generated in 0s.
         Please open the following file: /full/path/to/xl-release-stress-tests/runner/reports/realisticsimulation-1439800181549/index.html
 
-1. Fill out additional information in `XLR.TestSets.xlsx`.
+1. Fill out additional information in the `XLR.TestSets.xlsx`.

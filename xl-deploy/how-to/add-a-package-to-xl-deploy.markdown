@@ -7,6 +7,7 @@ subject:
 tags:
 - application
 - package
+- import
 since:
 - 5.0.0
 ---
@@ -61,7 +62,8 @@ You can import a deployment package from an external storage location, your comp
 1. Click **Import package**.
 1. To import a package from a location that is accessible via a URL:
     1. Expand **Import a deployment package from url**.
-    1. Enter the URL in the box.
+    1. Enter the URL.
+    1. If the URL requires authentication, enter the required user name and password (supported in XL Deploy 5.1.0 and later).
     1. Click **Import**.
 1. To import a package from your computer:
     1. Expand **Import a deployment package from disk**.
