@@ -14,8 +14,7 @@ tags:
 Briefly, the process of upgrading XL Deploy is:
 
 1. Obtain a new version of the XL Deploy software and, if necessary, a new license from [XebiaLabs](https://dist.xebialabs.com/).
-1. Read the [**release notes**](/xl-deploy/latest/releasenotes.html) so you are aware of the new functionality and possible upgrade considerations.
-1. Read the [**version-specific upgrade notes**](/xl-deploy/latest/upgrademanual.html) so you are aware of all special upgrade considerations.
+1. Read the [release manual](/xl-deploy/latest/releasemanual.html) so you are aware of the new functionality and possible upgrade considerations.
 1. Stop the current version of XL Deploy if it is running and ensure that there are no running tasks active.
 1. Create a new installation directory for the new version of XL Deploy (so the previous version will still be available in case of problems).
 1. Extract the new XL Deploy release into the new installation directory.
@@ -26,7 +25,7 @@ You can find release notes and version-specific upgrade notes on the page for ea
 
 ## Skipping versions
 
-When upgrading, you can skip XL Deploy versions. XL Deploy will sequentially apply upgrades for the intermediate versions. However, you may be required to take manual actions for the intermediate versions; you can find these in the [version-specific upgrade notes](/xl-deploy/latest/upgrademanual.html).
+When upgrading, you can skip XL Deploy versions. XL Deploy will sequentially apply upgrades for the intermediate versions. However, you may be required to take manual actions for the intermediate versions; you can find these in the [release manual](/xl-deploy/latest/releasemanual.html).
 
 ## Upgrading and downgrading
 
@@ -42,9 +41,9 @@ If a repository upgrade is required, XL Deploy will detect that it is running ag
 
 ## Upgrading plugins
 
-Plugin versions are related to the version of XL Deploy (or Deployit) that they are compatible with. For example, the WebSphere Application Server plugin version 4.0.0 requires XL Deploy 4.0.0 or later, unless otherwise specified in the [version-specific upgrade notes](/xl-deploy/latest/upgrademanual.html).
+Plugin versions are related to the version of XL Deploy (or Deployit) that they are compatible with. For example, the WebSphere Application Server plugin version 4.0.0 requires XL Deploy 4.0.0 or later, unless otherwise specified in the [release manual](/xl-deploy/latest/releasemanual.html).
 
-The new version of XL Deploy may not be compatible with the current version of your plugins. If this is the case, you must download and install updated versions of the plugins. Upgrading to a new plugin version may require you to take manual actions; you can find these in the [version-specific upgrade notes](/xl-deploy/latest/upgrademanual.html).
+The new version of XL Deploy may not be compatible with the current version of your plugins. If this is the case, you must download and install updated versions of the plugins. Upgrading to a new plugin version may require you to take manual actions; you can find these in the [release manual](/xl-deploy/latest/releasemanual.html).
 
 XL Deploy will not prevent you from downgrading a plugin to an older version, but doing so is not recommended.
 
@@ -52,11 +51,11 @@ XL Deploy will not prevent you from downgrading a plugin to an older version, bu
 
 Each new version may deprecate some functionality or features in favor of newer ways of working. If functionality is marked as deprecated for a specific version, the old functionality is still available (so you can still upgrade hassle-free), but it will be removed in the next version.
 
-In the [version-specific upgrade notes](/xl-deploy/latest/upgrademanual.html), there is information about how to migrate to the new way of working. This gives you the time and opportunity to migrate to the new situation before upgrading to a still newer version that will no longer have the old functionality. Be sure to read the deprecation information for each release you're upgrading to, so you know what will change in upcoming versions.
+In the [release manual](/xl-deploy/latest/releasemanual.html), there is information about how to migrate to the new way of working. This gives you the time and opportunity to migrate to the new situation before upgrading to a still newer version that will no longer have the old functionality. Be sure to read the deprecation information for each release you're upgrading to, so you know what will change in upcoming versions.
 
 ## Performing the upgrade
 
-Before upgrading, carefully read the [**release notes**](/xl-deploy/latest/releasenotes.html) and the [**version-specific upgrade notes**](/xl-deploy/latest/upgrademanual.html). Note anything that may apply to your situation.
+Before upgrading, carefully read the [release manual](/xl-deploy/latest/releasemanual.html). Note anything that may apply to your situation.
 
 ### Upgrading the server
 
@@ -87,7 +86,7 @@ To upgrade an XL Deploy server installation:
 
 1. Copy the contents of the `plugins` directory from the previous installation to the new installation directory (unless new versions of your plugins were provided with the new XL Deploy version). 
 
-    **Tip:** Check the [version-specific upgrade notes](/xl-deploy/latest/upgrademanual.html) for information about plugin incompatibility.
+    **Tip:** Check the [release manual](/xl-deploy/latest/releasemanual.html) for information about plugin incompatibility.
 
 1. Copy the contents of the `ext` directory from the previous installation to the new installation directory.
 
