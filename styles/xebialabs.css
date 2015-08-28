@@ -207,8 +207,15 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gs
   background: none !important;
   border: none !important;
 }
+.gs-title {
+    line-height: 120%;
+}
 .gs-title a {
   color: #15C !important;
+  text-decoration: underline !important;
+}
+.gs-title a:visited {
+  text-decoration: underline !important;
 }
 #top-bar, .navbar-form, .navbar-right {
   border: none !important;
