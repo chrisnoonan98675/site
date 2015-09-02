@@ -3,7 +3,7 @@ title: Add a host to XL TestView
 categories:
 - xl-testview
 subject:
-- Test specification
+- Test specifications
 tags:
 - host
 - ssh

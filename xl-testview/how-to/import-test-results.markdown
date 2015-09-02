@@ -3,7 +3,7 @@ title: Import test results into XL TestView
 categories:
 - xl-testview
 subject:
-- Test specification
+- Test specifications
 tags:
 - test specification
 - test results

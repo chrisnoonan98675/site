@@ -3,7 +3,7 @@ title: Create a custom qualification in XL TestView
 categories:
 - xl-testview
 subject:
-- Qualification
+- Qualifications
 tags:
 - report
 - script

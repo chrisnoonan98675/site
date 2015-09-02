@@ -3,7 +3,7 @@ title: Create a test specification set
 categories:
 - xl-testview
 subject:
-- Test specification
+- Test specifications
 tags:
 - test specification
 - test specification set

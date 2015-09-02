@@ -3,7 +3,7 @@ title: XL TestView file selection patterns
 categories:
 - xl-testview
 subject:
-- Test specification
+- Test specifications
 tags:
 - test specification
 - test results

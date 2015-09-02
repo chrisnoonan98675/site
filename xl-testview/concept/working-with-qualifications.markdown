@@ -3,7 +3,7 @@ title: Working with qualifications
 categories:
 - xl-testview
 subject:
-- Qualification
+- Qualifications
 tags:
 - test results
 - qualification

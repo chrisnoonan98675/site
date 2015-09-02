@@ -3,7 +3,7 @@ title: Execute tests from XL TestView
 categories:
 - xl-testview
 subject:
-- Test specification
+- Test specifications
 tags:
 - test specification
 - test execution
