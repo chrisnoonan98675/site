@@ -173,10 +173,10 @@ Writing a performance test results parser is much alike writing a functional tes
 
 ## Logging
 
-When a script uses the Python `print` statement, the output will be logged in `<XLTESTVIEW_HOME>/log/xl-testview.log` using a logger with the name of the test tool at `INFO` level. You can also use the SLF4J logger `LOG` that is available in the script. For example:
+When a script uses the Python `print` statement, the output will be logged in `<XLTESTVIEW_HOME>/log/xl-testview.log` using a logger with the name of the test tool at `INFO` level. You can also use the SLF4J logger `logger` that is available in the script. For example:
 
-    LOG.error('Test results improperly formatted')
-    LOG.warn('Test results parser did not find any useful information')
-    LOG.info('Parsing the results took {} seconds', time)
+    logger.error('Test results improperly formatted')
+    logger.warn('Test results parser did not find any useful information')
+    logger.info('Parsing the results took {} seconds', time)
 
 This will log to a logger with the name of the test results parser.
