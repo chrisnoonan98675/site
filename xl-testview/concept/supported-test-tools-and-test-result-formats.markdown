@@ -3,7 +3,7 @@ title: Supported test tools and test result formats
 categories:
 - xl-testview
 subject:
-- Test tool
+- Test parsers
 tags:
 - test tool
 - plugin

@@ -3,7 +3,7 @@ title: XL TestView events
 categories:
 - xl-testview
 subject:
-- Test results
+- Test parsers
 tags:
 - test parsers
 - events

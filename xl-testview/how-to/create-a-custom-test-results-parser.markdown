@@ -3,7 +3,7 @@ title: Create a custom test results parser
 categories:
 - xl-testview
 subject:
-- Test tool
+- Test parsers
 tags:
 - system administration
 - test tool
@@ -180,3 +180,6 @@ When a script uses the Python `print` statement, the output will be logged in `<
     logger.info('Parsing the results took {} seconds', time)
 
 This will log to a logger with the name of the test results parser.
+
+## Dates
+All dates in events are the number milliseconds from 1970-01-01 00:00:00 UTC. The test parser is responsible for any conversions of timezones. Many test tools do not report time zones in the test result files, but keep in mind that it is dangerous to assume that the test system and the XL TestView system are in the same time zone.

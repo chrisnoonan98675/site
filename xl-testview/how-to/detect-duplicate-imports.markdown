@@ -3,7 +3,7 @@ title: Detecting duplicate imports
 categories:
 - xl-testview
 subject:
-- Test tool
+- Test parsers
 tags:
 - test parsers
 - test tool
