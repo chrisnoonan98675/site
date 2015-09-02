@@ -33,7 +33,7 @@ The TestRunHistorian is injected in the test parser scripts in the variable `tes
 
 ## Using a run key
 
-The run key is a unique, deterministic string that represents a run. It can be a timestamp read from a file, a hash of a file, a unique test run number provided by the test tool, or any other string. See [runkey](/xl-testview/concept/runkey).
+The run key is a unique, deterministic string that represents a run. It can be a timestamp read from a file, a hash of a file, a unique test run number provided by the test tool, or any other string. See [Identifying test runs](/xl-testview/concept/identifying-test-runs.html).
 
 To use the run key:
 
