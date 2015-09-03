@@ -309,3 +309,7 @@
 # XL TestView product doc
 /xl-testview/latest/index.html : /xl-testview/1.3.x/index.html
 /xl-testview/latest/releasemanual.html : /xl-testview/1.3.x/releasemanual.html
+/xl-testview/latest/rest-api/index.html : /xl-testview/1.3.x/rest-api/
+/xl-testview/latest/jython-api/index.html : /jython-docs/#!/xl-testview/1.3.x
+/xl-testview/latest/xltestview.html : /xl-testview/1.3.x/xltestview.html # This is the UDM CI reference
+/xl-testview/latest/javadoc/index.html : /xl-testview/1.3.x/javadoc/index.html
