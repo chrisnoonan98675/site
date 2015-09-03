@@ -12,6 +12,7 @@ tags:
 
 XL TestView supports the following test tools and test result formats:
 
+{:.table .table-striped}
 |Test Tool |Build tool / Executor|Reporter format|Synthetic type|Type|
 |------|----------|--------|--------------|----|-------|
 |[Cucumber](http://cukes.info/)|     |   |      xlt.Cucumber     |Functional|
