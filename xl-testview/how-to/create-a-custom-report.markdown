@@ -27,27 +27,31 @@ First, add a custom report type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
 
 1. Copy a `type` element with the `type="xlt.Barchart"` attribute from `<XLTESTVIEW_HOME>/plugins/demo/synthetic.xml`:
 
-        <type type="xlt.BarChart" extends="xlt.Report">
-            <property name="title" default="Bar chart"/>
-            <property name="scriptLocation" default="reports/BarChart.py"/>
-            <property name="iconName" default="bar-report-icon"/>
-            <property name="userFriendlyDescription" default="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format"/>
-            <property name="reportType" hidden="true" default="highchart"/>
-        </type>
+{% highlight xml %}
+<type type="xlt.BarChart" extends="xlt.Report">
+    <property name="title" default="Bar chart"/>
+    <property name="scriptLocation" default="reports/BarChart.py"/>
+    <property name="iconName" default="bar-report-icon"/>
+    <property name="userFriendlyDescription" default="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format"/>
+    <property name="reportType" hidden="true" default="highchart"/>
+</type>
+{% endhighlight %}
     
 1. Change the `type` attribute to use your desired prefix and name; for example, `type="myCompany.myBarChart"`.
 1. Change the `scriptLocation` to the report script that you will create; for example, `MyBarChart.py`.
 
     The result will look like:
-
-        <type type="myCompany.myBarChart" extends="xlt.Report">
-            <property name="title" default="My Bar Chart"/>
-            <property name="scriptLocation" default="reports/MyBarChart.py"/>
-            <property name="iconName" default="bar-report-icon"/>
-            <property name="userFriendlyDescription"
-                  default="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format"/>
-            <property name="reportType" hidden="true" default="highchart"/>
-        </type>
+    
+{% highlight xml %}
+<type type="myCompany.myBarChart" extends="xlt.Report">
+    <property name="title" default="My Bar Chart"/>
+    <property name="scriptLocation" default="reports/MyBarChart.py"/>
+    <property name="iconName" default="bar-report-icon"/>
+    <property name="userFriendlyDescription"
+          default="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format"/>
+    <property name="reportType" hidden="true" default="highchart"/>
+</type>
+{% endhighlight %}
 
 1. Save `synthetic.xml` and [restart](/xl-testview/how-to/start.html) XL TestView. All changes made to `synthetic.xml` require you to restart.
 1. To verify that your changes took effect, click **Projects** in the top menu and select the demo project. Next to *functionalTestsComponentA*, click **Show report**. It should show the *My Bar Chart* report:
@@ -66,10 +70,13 @@ Refer to the [Highcharts API](http://api.highcharts.com/highcharts) to see the o
 
 This example shows how you can change the color of the bars in the bar chart. To do so, add a `colors` key to the JSON structure. Add this line after the closing curly bracket of `charts`:
 
+{% highlight python %}
     'colors': {'#7cb5ec', '#434348', '#90ed7d'},
+{% endhighlight %}
 
 `colors` should be placed between `charts` and `title`, so it looks like this:
 
+{% highlight python %}
     'chart': {
        'type': 'column'
     },
@@ -77,6 +84,7 @@ This example shows how you can change the color of the bars in the bar chart. To
     'title': {
         'text': title
     },
+{% endhighlight %}
 
 **Note:** This structure looks similar to JSON, but because this is a Python script, it is actually a `Dictionary` (or `Map` in other languages). This means that the keys should be surrounded by single quotation marks (`'`). If you copy examples from a Highcharts demo, you must adjust the keys accordingly. For an extended example, refer to [Create a custom report using Highcharts demos](/xl-testview/how-to/create-a-custom-report-using-highcharts-demos.html).
 
