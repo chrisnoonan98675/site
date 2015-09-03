@@ -6,7 +6,6 @@ subject:
 - Test specifications
 tags:
 - test specification
-- test specification set
 - project
 ---
 
