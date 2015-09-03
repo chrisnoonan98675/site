@@ -204,6 +204,14 @@ To format a block of code, indent each line by at least four spaces.
 
 Jekyll does not support formatting a block of code by surrounding it with [three backticks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks).
 
+## Syntax highlighting and line numbers
+
+[Syntax highlighting](http://jekyllrb.com/docs/templates/#code-snippet-highlighting) is provided by Pygments. To highlight a block of code, surround it with Liquid `{% highlight %}` tags and specify the [language](http://pygments.org/languages/). To include line numbers, add `linenos`.
+
+    {% highlight python linenos %}
+    code goes here
+    {% endhighlight %}
+
 ## Manual HTML anchors
 
 Do not manually insert HTML anchors directly above headings, like this:
