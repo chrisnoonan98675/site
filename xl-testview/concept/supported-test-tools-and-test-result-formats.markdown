@@ -12,17 +12,17 @@ tags:
 
 XL TestView supports the following test tools and test result formats:
 
-* [FitNesse](http://www.fitnesse.org/), for test suites executed by FitNesse itself, not through its jUnit runner
-* [Cucumber](http://cukes.info/) report files
-* [Selenium](http://www.seleniumhq.org/), executed via xUnit or Cucumber
-* [Gatling](http://gatling.io/) simulation logs
-* [JMeter](http://jmeter.apache.org/) summary reports
-* JUnit-compliant output files through the xUnit output format (see below)
-
-*xUnit* output is known to work with the following setups:
-
-* [JUnit](http://junit.org)
-* [Maven](http://maven.apache.org) Surefire
-* [Gradle](http://gradle.org), both [JUnit](http://junit.org/) and [TestNG](http://testng.org/)
-* [Karma](http://karma-runner.github.io), with JUnit reporter
-* [Appium](http://appium.io/)
+|Test Tool |Build tool / Executor|Reporter format|Synthetic type|Type|
+|------|----------|--------|--------------|----|-------|
+|[Cucumber](http://cukes.info/)|     |   |      xlt.Cucumber     |Functional|
+|[Gatling](http://gatling.io/)|||xlt.Gatling|Performance||
+|[FitNesse](http://www.fitnesse.org/)| FitNesse   | |    xlt.FitNesse          |Functional| 
+|[JMeter](http://jmeter.apache.org/)||CSV|xlt.JMeterCSV|Performance||
+|[JMeter](http://jmeter.apache.org/)||XML|xlt.JMeterXML|Performance||
+|[JUnit](http://junit.org) |Ant	     |        |     xlt.JUnit         |Functional|
+|JUnit |Gradle	     |        |       xlt.JUnit       |Functional|
+|JUnit |Maven Surefire	     |        |     xlt.SurefireJUnit         |Funcational|
+|[Jasmine](http://jasmine.github.io/)|[Karma](http://karma-runner.github.io) |  JUnit  |    xlt.KarmaXunit          |Functional|
+|[TestNG](http://testng.org/)|Ant       |   JUnit reporter     |    xlt.TestNGJUnitReportReporter          |Functional|
+|TestNG|Gradle       |        |     xlt.TestNGJUnitReportReporter         |Functional|
+|TestNG|Maven Surefire       |        |  xlt.SurefireJUnit            |Functional|
