@@ -52,29 +52,32 @@ If the tool you wish to support is not performance-related, you should choose th
 
 First, you must define a new test tool configuration in the `ext/synthetic.xml` file. For example:
 
+{% highlight xml %}
+
     <type type="custom.MyTestToolConfiguration"
           extends="xlt.TestToolConfiguration"
           label="My custom tool">
         <property name="category" default="functional"/>
-
+    
         <property name="defaultSearchPattern" default=""/>
-
+    
         <!-- optional, default is python -->
         <property name="language" default="python"/>
-
+    
         <!-- optional, only used when language is python -->
         <property name="scriptLocation" default="custom-script.py"/>
-
+    
         <!-- optional, only used when language is java -->
         <property name="className" default="com.mycompany.xltestview.testtools.mytesttool.MyTestToolParser"/>
     </type>
+{% endhighlight %}
 
 The properties that are available are:
 
 {:.table .table-striped}
 | Property | Required? | Default | Description |
 | -------- | --------- | ------- | ----------- |
-| `type` | Yes | N/A | A unique value that identifies the tool. It is recommended that you prefix the value; for example, XL TestView prefixes tools with `xlt`, as in `xlt.SurefireJUnit`. <br /><br />Be aware that there is a distinction between the *format* that a test tool should produce and the *report generator* of the build tool that you are using. For example, if you are generating JUnit test results, the way the test results file looks depends on your build tool (Maven, Gradle, Ant) and its *generator* (such as Surefire). It is recommended that you indicate these distinctions when creating the type name. |
+| `type` | Yes | N/A | A unique value that identifies the tool. It is recommended that you prefix the value; for example, XL TestView prefixes tools with `xlt`, as in `xlt.SurefireJUnit`. The prefixes `xlt`, `udm` and `overthere` are used by XL TestView and should not be used by custom tools. <br /><br />Be aware that there is a distinction between the *format* that a test tool should produce and the *report generator* of the build tool that you are using. For example, if you are generating JUnit test results, the way the test results file looks depends on your build tool (Maven, Gradle, Ant) and its *generator* (such as Surefire). It is recommended that you indicate these distinctions when creating the type name. |
 | `category` | Yes | N/A | Specifies the type of test results that are generated. Valid values are `functional` (results related to test cases, scenarios, and so on) and `performance` (results related to performance tests, derived from summarized data) |
 | `label` | Yes | N/A | A unique, user-friendly name for the test tool. |
 | `defaultSearchPattern` | Yes | N/A | An [Ant](http://ant.apache.org/)-style pattern to select relevant test result files. For example: `**/test-results/TEST*.xml` selects all files starting with `TEST` and ending with `.xml` that are in a `test-results` directory, which can be at any depth in the file tree. |
@@ -96,7 +99,7 @@ In many cases, all test results that can be found belong to one test run. For ex
 
 Other tools, such as Gatling and FitNesse, build up a *history* of test runs. This means that every *run* of the tool adds test result data, instead of replacing it with new data. This implies that the test results parser will receive the latest and all previous test run data. The parser must deal with this case by identifying runs that have already been imported.
 
-In addition to `files`, the test results parser script is primed with the following information:
+In addition to `files`, the following variables are used to communicate with the rest of the system:
 
 {:.table .table-striped}
 | Attribute | Description |
@@ -106,15 +109,55 @@ In addition to `files`, the test results parser script is primed with the follow
 | `working_directory` | Directory there the test results are stored. |
 | `test_specification` | The test specification that will own the test run. |
 | `test_run_historian` | This service can inform the script if results have already been imported. |
-| `LOG` | An SLF4J logger you can use to log information in greater detail. |
+| `logger` | An SLF4J logger you can use to log information in greater detail. |
+| `result_holder` | Callback object to return the calculated results|
+For usage of the test_run_historian, see [detecting duplicate imports](/xl-testview/how-to/detect-duplicate-imports.html).
 
-For usage of the testRunHistorian, see [detecting duplicate imports](/xl-testview/how-to/detect-duplicate-imports.html).
+### Writing a functional test results parser
 
-### Writing a performance test results parser
+The result of a functional test tool is a list of test runs. A test run is a list of test events, accompanied by some meta information. This is the simplest example of a test run:
 
-The `parser.xunit` Python module contains useful functions for processing functional test tool results and ensuring that test results are structured in a way that XL TestView accepts. For example, `parse_last_modified` takes a list of files and extracts the timestamp from `xunit` test result files.
+{% highlight json linenos=table %}
+[
+  {
+    "@testedAt": 1440759717000,
+    "@type": "importStarted",
+    "@runKey": "1440759717000"
+  },
+  {
+    "@duration": 11,
+    "@hierarchy": [
+      "com",
+      "xebialabs",
+      "xltest",
+      "Test1",
+      "method1"
+    ],
+    "@result": "FAILED",
+    "@type": "functionalResult",
+    "fileName": "TEST-com.xebialabs.xltest.reference.p1.Junit.xml",
+    "firstError": "java.lang.AssertionError: \nExpected: is <true>\n     but: was <false>"
+  },
+  {
+    "@duration": 43,
+    "@type": "importFinished"
+  }
+]
+{% endhighlight %}
 
-Results returned by the Python script are done via this obligated line:
+A test run has at least three events: a `importStarted` event, an `importFinished` event and one or more `functionalResult` or `performanceResult` events. Events are simple python dictionaries, and stored in the database as json objects.
+
+* In line 3 is the `@testedAt` property. This is the moment the test was executed, in milliseconds after 1970-01-01 00:00:00 UTC.
+* In line 4, 17 and 23 are the event types. There is always exactly one `importStarted` event, one `importFinished` event and one or more `functionalResult` or `performanceResult` events.
+* Line 8 is the duration of this specific test
+* Lines 13 to 19 is the hierarchy of the test. Tests are usually structured in some kind of tree, for example grouping suites, scenarios or test cases. In JUnit the tests are typically structured by package, class name and method name, but this can vary between test tools. The `@hierarchy` property is a list of strings, uniquely identifying a test and its place in relation to other tests. It is used to drill down on tests in reports, and identifying tests when comparing to previous runs of the same test.
+* Line 16 is the test result. Typically this is either `PASSED` or `FAILED`, but more values are allowed.
+* Line 19 is the error message of this failed test.
+* Line 22 is the duration of the complete run
+
+Additional properties can be added by tools if required, but the property names cannot start with either `@` or `_`. These are reserved for XL TestView use.
+
+Results returned by the Python script in this line:
 
 	resultHolder.result = events
 
@@ -124,6 +167,11 @@ As explained in the previous section, the `files` parameter provides the files t
 
 	events = do_something_with_files(files)
 	resultHolder.result = events
+	
+#### XUnit variants
+XUnit is a loose format for test results used by a lot of tools. XL TestView offers several utilities to help parsing these variants.
+
+The `parser.xunit` Python module contains useful functions for processing functional test tool results and ensuring that test results are structured in a way that XL TestView accepts. For example, `parse_last_modified` takes a list of files and extracts the timestamp from `xunit` test result files.
 
 If you need to deviate from the default `parser.xunit` behavior, you can provide functions as parameters. This differs for each function. For example, in `xunit.py`:
 
@@ -134,7 +182,8 @@ This indicates that you can override the behavior to extract the last modified d
 	def extract_last_modified(file):
 	    root = ET.parse(file.getPath()).getroot()
 	    timestamp = root.attrib["timestamp"]
-	    return int(((datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%S") - datetime(1970,1,1)).total_seconds() * 1000))
+	    return int(((datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%S") - 
+	        datetime(1970,1,1)).total_seconds() * 1000))
 
 This helps you see what the *method signature* and the *return value* should be. 
 
@@ -144,6 +193,8 @@ Assume you have test result files from an `xunit` tool in which the date/time fo
 
 Start by copying `junit.py` and adding the function that extracts the date/time properly. The script will look like:
 	
+{% highlight python linenos=table %}
+
 	from parser.xunit import validate_files, parse_last_modified, parse_junit_test_results
 	
 	# our own version to extract date
@@ -166,6 +217,7 @@ Start by copying `junit.py` and adding the function that extracts the date/time 
 	# Result holder should contain a list of test runs. A test run is a list of events
 	
 	resultHolder.result = [events] if events else []
+{% endhighlight %}
 
 ### Writing a performance test results parser
 
