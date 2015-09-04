@@ -9,7 +9,7 @@ tags:
 - svn
 - trigger
 since:
-- 4.5.x
+- XL Release 4.5.x
 ---
 
 To use the XL Release SVN trigger plugin, you need to create a **SVN Repository**. SVN repositories can be managed from the configuration screen.

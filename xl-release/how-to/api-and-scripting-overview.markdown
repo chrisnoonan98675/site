@@ -8,7 +8,7 @@ tags:
 - api
 - script
 since:
-- 4.5.0
+- XL Release 4.5.0
 ---
 
 There are various ways to automate functionality in XL Release.

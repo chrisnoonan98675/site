@@ -10,7 +10,7 @@ tags:
 - sql
 - rules
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 In XL Deploy 5.0.0 and later, the Database plugin uses the XL Deploy [rules system](/xl-deploy/concept/understanding-xl-deploy-rules.html) to provide improved rollback support for SQL scripts.

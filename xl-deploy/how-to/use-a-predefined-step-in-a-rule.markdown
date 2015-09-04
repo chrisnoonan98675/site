@@ -11,7 +11,7 @@ tags:
 - planning
 - plugin
 since:
-- 4.5.0
+- XL Deploy 4.5.0
 ---
 
 The plugins that are bundled with XL Deploy contain predefined steps that you can use in rules.

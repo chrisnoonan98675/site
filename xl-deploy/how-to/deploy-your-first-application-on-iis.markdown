@@ -9,7 +9,7 @@ tags:
 - middleware
 - deployment
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 After you have [installed XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) and logged in for the first time, follow these instructions to:

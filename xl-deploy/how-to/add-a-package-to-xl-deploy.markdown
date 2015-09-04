@@ -9,7 +9,7 @@ tags:
 - package
 - import
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 To deploy an application with XL Deploy, you supply a deployment package. It contains the files (artifacts) and middleware resources that XL Deploy can deploy to a target environment.

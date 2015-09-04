@@ -9,7 +9,7 @@ tags:
 - middleware
 - deployment
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 The [XL Deploy installer](/xl-deploy/how-to/install-xl-deploy.html#install-xl-deploy-using-the-installer) for Microsoft Windows and Mac OS X allows you to install demo content that includes:

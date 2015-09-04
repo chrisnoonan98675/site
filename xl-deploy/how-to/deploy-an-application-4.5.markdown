@@ -9,7 +9,7 @@ tags:
 - application
 - package
 deprecated:
-- 4.5.x
+- XL Deploy 4.5.x
 ---
 
 After you have [defined your infrastructure](connect-xl-deploy-to-your-infrastructure.html), [defined an environment](create-an-environment-in-xl-deploy.html), and added an application to XL Deploy, you can perform the initial deployment of an application to an environment.

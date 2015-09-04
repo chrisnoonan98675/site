@@ -9,9 +9,9 @@ tags:
 - application
 - gui
 since:
-- 3.8.x
+- XL Deploy 3.8.x
 deprecated:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 **Tip:** For information about creating a deployment package in XL Deploy 5.0.0 and later, refer to [Add a package to XL Deploy](/xl-deploy/how-to/add-a-package-to-xl-deploy.html).

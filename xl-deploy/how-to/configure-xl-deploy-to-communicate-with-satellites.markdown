@@ -10,7 +10,7 @@ tags:
 - system administration
 - configuration
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 ## Enable communicate with satellites

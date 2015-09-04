@@ -7,7 +7,7 @@ subject:
 tags:
 - api
 since:
-- 4.5.0
+- XL Release 4.5.0
 ---
 
 _This article uses the public XL Release REST API, available from XL Release 4.5. For earlier versions of XL Release, please refer to [the older version of this article](/xl-release/how-to/create-a-new-release-via-rest-api-using-curl-4.0.html)._

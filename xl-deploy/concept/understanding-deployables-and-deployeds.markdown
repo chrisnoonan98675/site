@@ -14,7 +14,7 @@ In the [_XL Deploy: Understanding Packages_](https://www.youtube.com/watch?v=dqe
 
 Since these two concepts are central to understanding XL Deploy, and the difference between the two can be subtle, I would like to spend a bit of time talking about them.
 
-### What is the relationship between deployables and deployeds?
+## What is the relationship between deployables and deployeds?
 
 Every item that is deployed to a target system by XL Deploy—whether that's a file that is copied to a server, an SQL script that is executed against a database, or a virtual host created in a web server—comes from an item in the deployment package that is currently being deployed. In other words, each deployed has a deployable as its source. Put a different way, during a deployment each deployed is "created from" a deployable.
 
@@ -22,7 +22,7 @@ In that sense, a deployable can almost be considered as a "request", "template" 
 
 Note that the relationship between deployables and deployeds is one-to-many; that is, one deployable in a deployment package can be the source for many deployeds in the target environment. For example, we can copy a file in the deployment package to many target servers, creating one deployed per server.
 
-### What are the differences between deployables and deployeds?
+## What are the differences between deployables and deployeds?
 
 If we consider a deployable to be a "template" or "specification" for a deployed, it is easier to understand a key difference between the two: deployables may be "incomplete" or "less fully-specified" than the deployeds that are created from them.
 

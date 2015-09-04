@@ -9,7 +9,7 @@ tags:
 - configuration
 - satellite
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 Before you add a satellite server configuration item (CI) to the XL Deploy repository, ensure that you have [enabled communication with satellites](/xl-deploy/how-to/configure-xl-deploy-to-communicate-with-satellites.html).

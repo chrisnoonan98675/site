@@ -9,7 +9,7 @@ tags:
 - system administration
 - configuration
 since:
-- 5.0.1
+- XL Deploy 5.0.1
 ---
 
 By default, communication with satellites is disabled in XL Deploy. To enable it, locate the `satellite` section in the `conf/system.conf` file and change `enabled` to  `yes` as follows:

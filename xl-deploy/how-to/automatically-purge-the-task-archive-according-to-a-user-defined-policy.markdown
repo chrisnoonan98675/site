@@ -10,7 +10,7 @@ tags:
 - task
 - purge
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 XL Deploy records and archives information about all tasks that it executes. This information is available through the statistics, graphs, and task archives on the **Reports** screen.

@@ -11,7 +11,7 @@ tags:
 - codepipeline
 - deployment
 since:
-- 5.0.1
+- XL Deploy 5.0.1
 ---
 
 [AWS CodePipeline](http://aws.amazon.com/codepipeline/) is Amazon Web Services' continuous delivery service. It allows you to model and automate your software release process.
