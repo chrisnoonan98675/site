@@ -3,9 +3,8 @@ title: Extend XL TestView
 categories:
 - xl-testview
 subject:
-- Test parsers
+- Test results
 tags:
-- test parsers
 - api
 - extension
 since:

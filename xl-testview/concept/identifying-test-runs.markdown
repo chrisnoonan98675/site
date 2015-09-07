@@ -3,9 +3,9 @@ title: Identifying test runs
 categories:
 - xl-testview
 subject:
-- Test parsers
+- Test results
 tags:
-- test parsers
+- test result parsers
 - test results
 since:
 - 1.3.0

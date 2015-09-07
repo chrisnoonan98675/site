@@ -3,11 +3,12 @@ title: Supported test tools and test result formats
 categories:
 - xl-testview
 subject:
-- Test parsers
+- Test results
 tags:
 - test tool
 - plugin
 - test results
+- test result parsers
 ---
 
 XL TestView supports the following test tools and test result formats:

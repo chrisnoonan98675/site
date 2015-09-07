@@ -1,12 +1,11 @@
 ---
-title: Test parser
+title: Test result parser
 categories:
 - xl-testview
 subject:
-- Test parsers
+- Test results
 tags:
-- test tool
-- test parsers
+- test result parsers
 - plugin
 - test results
 - events

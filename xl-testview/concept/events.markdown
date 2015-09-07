@@ -3,13 +3,12 @@ title: XL TestView events
 categories:
 - xl-testview
 subject:
-- Test parsers
+- Test results
 tags:
-- test parsers
+- test result parsers
 - events
 - test tool
 - extension
-- test results
 - api
 since:
 - 1.3.0

@@ -3,12 +3,11 @@ title: Detecting duplicate imports
 categories:
 - xl-testview
 subject:
-- Test parsers
+- Test results
 tags:
-- test parsers
 - test tool
 - extension
-- test results
+- test result parsers
 - api
 since:
 - 1.3.0

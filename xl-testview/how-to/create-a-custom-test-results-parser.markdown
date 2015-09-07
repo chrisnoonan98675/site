@@ -3,10 +3,10 @@ title: Create a custom test results parser
 categories:
 - xl-testview
 subject:
-- Test parsers
+- Test results
 tags:
 - system administration
-- test tool
+- test result parsers
 - extension
 ---
 
