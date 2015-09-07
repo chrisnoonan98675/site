@@ -2,8 +2,6 @@
 title: Configure XL TestView 1.2.x
 categories:
 - xl-testview
-subject:
-- Configuration
 tags:
 - system administration
 - installation

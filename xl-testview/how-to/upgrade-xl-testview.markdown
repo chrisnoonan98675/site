@@ -3,7 +3,7 @@ title: Upgrade XL TestView
 categories:
 - xl-testview
 subject:
-- Upgrade
+- Installation
 tags:
 - system administration
 - upgrade
