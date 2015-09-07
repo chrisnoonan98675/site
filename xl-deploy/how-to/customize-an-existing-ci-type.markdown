@@ -49,14 +49,18 @@ For each CI, you must specify a `type`. Any property that is modified is listed 
 
 The following example hides the `connectionTimeoutMillis` property for `Hosts` from the UI and gives it a default value:
 
-    <type-modification type="base.Host">
-        <property name="connectionTimeoutMillis" kind="integer" default="1200000" hidden="true" />
-    </type-modification>
+{% highlight xml %}
+<type-modification type="base.Host">
+    <property name="connectionTimeoutMillis" kind="integer" default="1200000" hidden="true" />
+</type-modification>
+{% endhighlight %}
 
 ## Extend a CI
 
 The following example adds a "notes" field to a CI to record notes:
 
-    <type-modification type="overthere.Host">
-        <property name="notes" kind="string"/>
-    </type-modification>
+{% highlight xml %}
+<type-modification type="overthere.Host">
+    <property name="notes" kind="string"/>
+</type-modification>
+{% endhighlight %}
