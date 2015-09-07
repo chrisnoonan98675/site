@@ -21,7 +21,7 @@ To create a custom task, you need:
 * The definition of the task and its properties
 * The implementation of the task in a Python script
 
-## Task definition
+## Defining a custom task
 
 Custom tasks are stored in the `ext` or `plugins` directory of XL Release server:
 
@@ -39,23 +39,25 @@ This is an example of the layout of the `ext` directory:
 
 You define the custom task in XML in `synthetic.xml`. As an example, this is the definition of the "Create Jira Issue" task:
 
-    <synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xmlns="http://www.xebialabs.com/deployit/synthetic"
-           xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
+{% highlight xml %}
+<synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.xebialabs.com/deployit/synthetic"
+       xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
 
-      <type type="jira.CreateIssue" extends="xlrelease.PythonScript">
-        <property name="jiraServer"  category="input" label="Server" referenced-type="jira.Server" kind="ci"/>
-        <property name="username"    category="input"/>
-        <property name="password"    category="input" kind="string" password="true" />
-        <property name="project"     category="input"/>
-        <property name="title"       category="input"/>
-        <property name="description" category="input" size="large" />
-        <property name="issueType"   category="input" default="Task"/>
+  <type type="jira.CreateIssue" extends="xlrelease.PythonScript">
+    <property name="jiraServer"  category="input" label="Server" referenced-type="jira.Server" kind="ci"/>
+    <property name="username"    category="input"/>
+    <property name="password"    category="input" kind="string" password="true" />
+    <property name="project"     category="input"/>
+    <property name="title"       category="input"/>
+    <property name="description" category="input" size="large" />
+    <property name="issueType"   category="input" default="Task"/>
 
-        <property name="issueId"     category="output"/>
-      </type>
+    <property name="issueId"     category="output"/>
+  </type>
 
-    </synthetic>
+</synthetic>
+{% endhighlight %}
 
 ### Synthetic element
 
@@ -73,25 +75,18 @@ The attribute `extends="xlrelease.PythonScript"` defines this type as a custom t
 
 Next are the properties. They are defined as nested `<property>` elements. The following attributes can be set on each property:
 
-* `name`: Name of the property. This is also the name of the variable by which it is referred in the Python script.
-
-* `category`: XL Release supports two categories:
-	* `input`: Appear in the task in the XL Release UI and must be specified before the task starts. They are then passed to the Python script.
-	* `output`: Can be set in the Python script. When the script completes, they can be copied into release variables in XL Release.
-
-* `label`: Label used in the XL Release UI. If you do not specify a label, XL Release will attempt to make a readable version of the property name. For example, the "issueType" property will appear as "Issue Type" in the UI.
-
-* `description`: Help text explaining the property in more detail. This will appear in the UI.
-
-* `kind`: The property type, which is `string`, `integer`, `boolean`, or `ci`. If omitted, this attribute defaults to `string`.
-
-* `password`: Set this attribute to `true` to instruct XL Release to treat the property as a password. The content of password fields are obscured in the UI and encrypted in network traffic and storage.
-
-* `size`: Indicates how much space the UI gives to the property. Supported levels are `default`, `small`, `medium`, and `large`.
-
-* `default`: The default value of the property.
-
-* `referenced-type`: Indicates the type of CI this property can reference (only apply if `kind` is set to `ci`).
+{:.table .table-striped}
+| Property | Description |
+| -------- | ----------- |
+| `name` | Name of the property. This is also the name of the variable by which it is referred in the Python script. |
+| `category` | XL Release supports two categories.<br />`input` appear in the task in the XL Release UI and must be specified before the task starts. They are then passed to the Python script.<br />`output` can be set in the Python script. When the script completes, they can be copied into release variables in XL Release. |
+| `label` | Label used in the XL Release UI. If you do not specify a label, XL Release will attempt to make a readable version of the property name. For example, the "issueType" property will appear as "Issue Type" in the UI. |
+| `description` | Help text explaining the property in more detail. This will appear in the UI. |
+| `kind` | The property type, which is `string`, `integer`, `boolean`, or `ci`. If omitted, this attribute defaults to `string`. |
+| `password` | Set this attribute to `true` to instruct XL Release to treat the property as a password. The content of password fields are obscured in the UI and encrypted in network traffic and storage. |
+| `size` | Indicates how much space the UI gives to the property. Supported levels are `default`, `small`, `medium`, and `large`. |
+| `default` | The default value of the property. |
+| `referenced-type` | Indicates the type of CI this property can reference (only apply if `kind` is set to `ci`). |
 
 ### Add custom tasks
 
@@ -105,7 +100,7 @@ This is how the above task definition looks like in the task details window:
 
 ## Python scripts
 
-When the custom task becomes active, it triggers the Python script that is associated with it. For information about the script, refer to [API and scripting overview](xl-release/how-to/api-and-scripting-overview.html)
+When the custom task becomes active, it triggers the Python script that is associated with it. For information about the script, refer to [API and scripting overview](/xl-release/how-to/api-and-scripting-overview.html)
 
 Store scripts in a directory that has the same name as the prefix of the task type definition. The script file name has the same name as the name of the task, followed by the `.py` extension. For example, the Python script for the `jira.CreateIssue` task must be stored in `jira/CreatePython.py`.
 
@@ -113,58 +108,60 @@ Input properties are available as variables in the Python script. You can set ou
 
 For example, this is a possible implementation of the `jira.CreateIssue` task in Python:
 
-        import sys, string
-        import com.xhaus.jyson.JysonCodec as json
+{% highlight python linenos=table %}
+import sys, string
+import com.xhaus.jyson.JysonCodec as json
 
-        ISSUE_CREATED_STATUS = 201
+ISSUE_CREATED_STATUS = 201
 
-        content = """
-        {
-            "fields": {
-               "project":
-               {
-                  "key": "%s"
-               },
-               "summary": "%s",
-               "description": "%s",
-               "issuetype": {
-                  "name": "%s"
-               }
-           }
-        }
-        """ % (project, title, description, string.capwords(issueType))
+content = """
+{
+    "fields": {
+       "project":
+       {
+          "key": "%s"
+       },
+       "summary": "%s",
+       "description": "%s",
+       "issuetype": {
+          "name": "%s"
+       }
+   }
+}
+""" % (project, title, description, string.capwords(issueType))
 
-        if jiraServer is None:
-            print "No server provided."
-            sys.exit(1)
+if jiraServer is None:
+    print "No server provided."
+    sys.exit(1)
 
-        jiraURL = jiraServer['url']
-        if jiraURL.endswith('/'):
-            jiraURL = jiraURL[:len(jiraURL)-1]
+jiraURL = jiraServer['url']
+if jiraURL.endswith('/'):
+    jiraURL = jiraURL[:len(jiraURL)-1]
 
-        # You can pass custom headers to the request
-        headers = {'myCustomHeaders': 'myValue'}
+# You can pass custom headers to the request
+headers = {'myCustomHeaders': 'myValue'}
 
-        # jiraServer object may contains proxy information (field proxyHost and proxyPort)
-        request = HttpRequest(jiraServer, username, password)
-        response = request.post('/rest/api/2/issue', content, contentType = 'application/json', headers = headers)
+# jiraServer object may contains proxy information (field proxyHost and proxyPort)
+request = HttpRequest(jiraServer, username, password)
+response = request.post('/rest/api/2/issue', content, contentType = 'application/json', headers = headers)
 
-        if response.status == ISSUE_CREATED_STATUS:
-            # In order to debug your script, you can print the status, the body and the headers
-            print response.status
-            print response.response
-            print response.headers
+if response.status == ISSUE_CREATED_STATUS:
+    # In order to debug your script, you can print the status, the body and the headers
+    print response.status
+    print response.response
+    print response.headers
 
-            # you can access the http headers of the response
-            if response.headers['Content-Type'].startswith('application/json'):
-                # Parsing the response body as JSON
-                data = json.loads(response.response)
-                issueId = data.get('key')
-                print "Created %s in JIRA at %s." % (issueId, jiraURL)
-        else:
-            print "Failed to create issue in JIRA at %s." % jiraURL
-            response.errorDump()
-            sys.exit(1)
+    # you can access the http headers of the response
+    if response.headers['Content-Type'].startswith('application/json'):
+        # Parsing the response body as JSON
+        data = json.loads(response.response)
+        issueId = data.get('key')
+        print "Created %s in JIRA at %s." % (issueId, jiraURL)
+else:
+    print "Failed to create issue in JIRA at %s." % jiraURL
+    response.errorDump()
+    sys.exit(1)
+{% endhighlight %}
 
 Note that since XL Release 4.7.0, in contrary to [Script tasks](/xl-release/how-to/create-a-script-task.html), Jython scripts of custom task types are not run in a sandboxed environment and do not have any restrictions. So you do not have to update the `script.policy` file of your XL Release installation if you need additional access such as to filesystem or network from your custom task type. You still need to do this for versions prior to 4.7.0.
 
@@ -172,155 +169,167 @@ Note that since XL Release 4.7.0, in contrary to [Script tasks](/xl-release/how-
 
 `HttpRequest` is a class provided by XL Release that is used to perform HTTP calls. It has the following API:
 
-        class HttpRequest:
-            def __init__(self, params, username = None, password = None):
-                """
-                Builds an HttpRequest
+{% highlight python linenos=table %}
+class HttpRequest:
+    def __init__(self, params, username = None, password = None):
+        """
+        Builds an HttpRequest
 
-                :param params: an HttpConnection
-                :param username: the username
-                    (optional, it will override the credentials defined on the HttpConnection object)
-                :param password: an password
-                    (optional, it will override the credentials defined on the HttpConnection object)
-                """
+        :param params: an HttpConnection
+        :param username: the username
+            (optional, it will override the credentials defined on the HttpConnection object)
+        :param password: an password
+            (optional, it will override the credentials defined on the HttpConnection object)
+        """
 
-            def doRequest(self, **options):
-                """
-                Performs an HTTP Request
+    def doRequest(self, **options):
+        """
+        Performs an HTTP Request
 
-                :param options: A keyword arguments object with the following properties :
-                    method: the HTTP method : 'GET', 'PUT', 'POST', 'DELETE'
-                        (optional: GET will be used if empty)
-                    context: the context url
-                        (optional: the url on HttpConnection will be used if empty)
-                    body: the body of the HTTP request for PUT & POST calls
-                        (optional: an empty body will be used if empty)
-                    contentType: the content type to use
-                        (optional, no content type will be used if empty)
-                    headers: a dictionary of headers key/values
-                        (optional, no headers will be used if empty)
-                :return: an HttpResponse instance
-                """
+        :param options: A keyword arguments object with the following properties :
+            method: the HTTP method : 'GET', 'PUT', 'POST', 'DELETE'
+                (optional: GET will be used if empty)
+            context: the context url
+                (optional: the url on HttpConnection will be used if empty)
+            body: the body of the HTTP request for PUT & POST calls
+                (optional: an empty body will be used if empty)
+            contentType: the content type to use
+                (optional, no content type will be used if empty)
+            headers: a dictionary of headers key/values
+                (optional, no headers will be used if empty)
+        :return: an HttpResponse instance
+        """
 
-            def get(self, context, **options):
-                """
-                Performs an Http GET Request
+    def get(self, context, **options):
+        """
+        Performs an Http GET Request
 
-                :param context: the context url
-                :param options: the options keyword argument described in doRequest()
-                :return: an HttpResponse instance
-                """
+        :param context: the context url
+        :param options: the options keyword argument described in doRequest()
+        :return: an HttpResponse instance
+        """
 
-            def post(self, context, body, **options):
-                """
-                Performs an Http POST Request
+    def post(self, context, body, **options):
+        """
+        Performs an Http POST Request
 
-                :param context: the context url
-                :param body: the body of the HTTP request
-                :param options: the options keyword argument described in doRequest()
-                :return: an HttpResponse instance
-                """
+        :param context: the context url
+        :param body: the body of the HTTP request
+        :param options: the options keyword argument described in doRequest()
+        :return: an HttpResponse instance
+        """
 
-            def put(self, context, body, **options):
-                """
-                Performs an Http PUT Request
+    def put(self, context, body, **options):
+        """
+        Performs an Http PUT Request
 
-                :param context: the context url
-                :param body: the body of the HTTP request
-                :param options: the options keyword argument described in doRequest()
-                :return: an HttpResponse instance
-                """
+        :param context: the context url
+        :param body: the body of the HTTP request
+        :param options: the options keyword argument described in doRequest()
+        :return: an HttpResponse instance
+        """
 
-            def delete(self, context, **options):
-                """
-                Performs an Http DELETE Request
+    def delete(self, context, **options):
+        """
+        Performs an Http DELETE Request
 
-                :param context: the context url
-                :param options: the options keyword argument described in doRequest()
-                :return: an HttpResponse instance
-                """
+        :param context: the context url
+        :param options: the options keyword argument described in doRequest()
+        :return: an HttpResponse instance
+        """
 
-            def patch(self, context, body, **options):
-                """
-                Performs an Http PATCH Request
+    def patch(self, context, body, **options):
+        """
+        Performs an Http PATCH Request
 
-                :param context: the context url
-                :param body: the body of the HTTP request
-                :param options: the options keyword argument described in doRequest()
-                :return: an HttpResponse instance
-                """
+        :param context: the context url
+        :param body: the body of the HTTP request
+        :param options: the options keyword argument described in doRequest()
+        :return: an HttpResponse instance
+        """
 
-        class HttpResponse:
-            def getStatus(self):
-                """
-                Gets the status code
-                :return: the http status code
-                """
+class HttpResponse:
+    def getStatus(self):
+        """
+        Gets the status code
+        :return: the http status code
+        """
 
-            def getResponse(self):
-                """
-                Gets the response content
-                :return: the reponse as text
-                """
+    def getResponse(self):
+        """
+        Gets the response content
+        :return: the reponse as text
+        """
 
-            def isSuccessful(self):
-                """
-                Checks if request successful
-                :return: true if successful, false otherwise
-                """
+    def isSuccessful(self):
+        """
+        Checks if request successful
+        :return: true if successful, false otherwise
+        """
 
-            def getHeaders(self):
-                """
-                Returns the response headers
-                :return: a dictionary of all response headers
-                """
+    def getHeaders(self):
+        """
+        Returns the response headers
+        :return: a dictionary of all response headers
+        """
 
-            def errorDump(self):
-                """
-                Dumps the whole response
-                """
+    def errorDump(self):
+        """
+        Dumps the whole response
+        """
+{% endhighlight %}
 
 ### Examples
 
 #### Posting JSON
 
-        request = HttpRequest({'url': 'http://site'})
-        response = request.post(
-            '/api/addObject',
-            '{"json": "content"}',
-            contentType = 'application/json')
-        content = response.getResponse()
-        status = response.getStatus()
+{% highlight python %}
+request = HttpRequest({'url': 'http://site'})
+response = request.post(
+    '/api/addObject',
+    '{"json": "content"}',
+    contentType = 'application/json')
+content = response.getResponse()
+status = response.getStatus()
+{% endhighlight %}
 
 #### Using connection credentials
 
-        request = HttpRequest({'url': 'http://site'}, "username", "password")
-        response = request.get('/api/tasks')
-        content = response.getResponse()
-        status = response.getStatus()
+{% highlight python %}
+request = HttpRequest({'url': 'http://site'}, "username", "password")
+response = request.get('/api/tasks')
+content = response.getResponse()
+status = response.getStatus()
+{% endhighlight %}
 
 #### Using a proxy
 
-        request = HttpRequest({
-            'url': 'http://site',
-            'proxyHost': 'proxy.company',
-            'proxyPort': '8080'})
-        response = request.get('/api/tasks')
-        content = response.getResponse()
-        status = response.getStatus()
+{% highlight python %}
+request = HttpRequest({
+    'url': 'http://site',
+    'proxyHost': 'proxy.company',
+    'proxyPort': '8080'})
+response = request.get('/api/tasks')
+content = response.getResponse()
+status = response.getStatus()
+{% endhighlight %}
 
 #### Getting results using a configuration object
 
 If your task definition has a [configuration object](/xl-release/how-to/create-custom-configuration-types-in-xl-release.html#reference-a-configuration-instance-from-a-custom-task) defined using:
 
-        <property name="jiraServer" category="input" label="Server" referenced-type="jira.Server" kind="ci"/>
+{% highlight xml %}
+<property name="jiraServer" category="input" label="Server" referenced-type="jira.Server" kind="ci"/>
+{% endhighlight %}
 
-You can use the jiraServer instance like that:
+You can use the `jiraServer` instance like that:
 
-        request = HttpRequest(jiraServer)
-        response = request.get('/api/tasks', contentType = 'application/json')
-        content = response.getResponse()
-        status = response.getStatus()
+{% highlight python %}
+request = HttpRequest(jiraServer)
+response = request.get('/api/tasks', contentType = 'application/json')
+content = response.getResponse()
+status = response.getStatus()
+{% endhighlight %}
 
 `HttpRequest` will then use the settings of the HttpConnection
 
@@ -328,15 +337,20 @@ You can use the jiraServer instance like that:
 
 The [XL Release API](/xl-release/latest/rest-api/) is available in scripts : You can view the [Jython API Manual](/jython-docs/#!/xl-release/4.6.x/) to find a complete description of the methods you can call.
 
+For an extended example, refer to [Creating XL Release Tasks Dynamically Using Jython API](http://blog.xebialabs.com/2015/08/11/creating-xl-release-tasks-dynamically-using-jython-api/).
+
+
 ## Further customization
 
 You can add the following properties to the `<type>` element to further customize your task:
 
-    <type type="myplugin.MyTask" extends="xlrelease.PythonScript">
-        <property name="scriptLocation" required="false" hidden="true" default="my/custom/dir/script.py" />
-        <property name="iconLocation" required="false" hidden="true" default="my/custom/dir/icon.png" />
-        <property name="taskColor" hidden="true" default="#9C00DB" />
-        ...
+{% highlight xml %}
+<type type="myplugin.MyTask" extends="xlrelease.PythonScript">
+    <property name="scriptLocation" required="false" hidden="true" default="my/custom/dir/script.py" />
+    <property name="iconLocation" required="false" hidden="true" default="my/custom/dir/icon.png" />
+    <property name="taskColor" hidden="true" default="#9C00DB" />
+    ...
+{% endhighlight %}
 
 * `scriptLocation`: Specifies a custom script location that overrides the default rules.
 * `iconLocation`: Location of an icon file (PNG or GIF format) that is used in the UI for this task.
