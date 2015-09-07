@@ -3,7 +3,7 @@ title: Extend XL TestView
 categories:
 - xl-testview
 subject:
-- Test results
+- Configuration
 tags:
 - api
 - extension
@@ -13,7 +13,7 @@ since:
 
 XL TestView includes the following interfaces for extending its functionality:
 
-* [XL TestView REST API reference](/xl-testview/latest/rest-api/index.html)
-* [XL TestView Jython API reference](/xl-testview/latest/jython-api/index.html)
-* [XL TestView UDM configuration item (CI) reference](/xl-testview/latest/xltestview.html)
-* [XL TestView Javadoc](/xl-testview/latest/javadoc/index.html)
+* [XL TestView REST API reference](https://docs.xebialabs.com/generated/xl-testview/1.3.x/rest-api/)
+* [XL TestView Jython API reference](https://docs.xebialabs.com/jython-docs/#!/xl-testview/1.3.x)
+* [XL TestView UDM configuration item (CI) reference](https://docs.xebialabs.com/generated/xl-testview/1.3.x)
+* [XL TestView Javadoc](https://docs.xebialabs.com/generated/xl-testview/1.3.x/javadoc)
