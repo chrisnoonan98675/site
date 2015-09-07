@@ -35,15 +35,16 @@ A test result parser will always produce a list of events, called a run. A run h
 
 * Exactly one `importStarted` event
 * Exactly one `importFinished` event
-* For functional test tools, any number of `FunctionalResult` events
-* For performance test tools, any number of `PerformanceResult` events
+* For functional test tools, any number of `functionalResult` events
+* For performance test tools, any number of `performanceResult` events
 
-**Note:** `FunctionalResult` and `PerformanceResult` events cannot be mixed.
+**Note:** `functionalResult` and `performanceResult` events cannot be mixed.
 
 ## Event properties
 
 XL TestView sets these properties on all events. Reports can read them, but test results parsers do not use them.
 
+For each event, XL TestView makes sure the following properties are set ()
 {:.table .table-striped}
 | Key | Value type | Mandatory | Description | 
 | --- | ---------- | --------- | ----------- |
@@ -54,7 +55,7 @@ XL TestView sets these properties on all events. Reports can read them, but test
 
 ### Required properties
 
-All events have the following required properties:
+All events should have the following required properties:
 
 {:.table .table-striped}
 | Key | Value type | Mandatory | Description | 

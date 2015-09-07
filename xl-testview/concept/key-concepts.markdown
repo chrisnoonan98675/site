@@ -48,10 +48,10 @@ A *qualification* is XL TestView's determination of whether a particular test ru
 
 ## Plugins
 
-XL TestView integrates with your test tools through *plugins* that search for test results and import results into XL TestView. {% comment %}You can create a [custom plugin](/xl-testview/how-to/create-a-test-tool-plugin.html).{% endcomment %}
+XL TestView integrates with your test tools through *plugins* that search for test results and import results into XL TestView. You can create a [custom plugin](/xl-testview/how-to/create-a-custom-test-results-parser.html) if your prefered test tool is not supported by XL TestView out of the box.
 
-## Test parsers
-Test parsers are small programs that interpret the results of test tools. Several parsers are provided out of the box, and additional parsers can be written. See [Test parser](xl-testview/concept/test-parser). 
+## Test result parsers
+Test result parsers are small programs that interpret the results of test tools. Several parsers are provided out of the box, and additional parsers can be written. See [Test result parser](xl-testview/concept/test-result-parser.html). 
 
 ## Test tools
-Test tools are the programs used to test software, such as JUnit, Fitnesse or Gatling. XL TestView interprets their results.  
+Test tools are the programs used to test software, such as JUnit, FitNesse or Gatling. XL TestView interprets their results.

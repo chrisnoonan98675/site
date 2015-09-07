@@ -3,7 +3,7 @@ title: Add a tag to a test case
 categories:
 - xl-testview
 subject:
-- Tags
+- Reports
 tags:
 - report
 - tag

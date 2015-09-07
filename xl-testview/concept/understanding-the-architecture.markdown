@@ -11,25 +11,16 @@ tags:
 
 Before you customize XL TestView functionality, some knowledge of the XL TestView architecture is required. XL TestView features a modular architecture that allows extension and modification of various components while maintaining a consistent system.
 
-{% comment %}
-This diagram provides a high-level overview of the system architecture:
+You can access the XL TestView core using REST services. The product ships with one client of the REST service, a graphical user interface (GUI) that runs in browsers.
 
-![XL TestView Architecture](images/architecture.png)
-{% endcomment %}
+Plugins add capabilities to XL TestView and may be delivered by XebiaLabs or custom built by users of XL TestView. These capabilities include supporting test tools, integration with ALM tools, or custom reports.
 
-You can access the XL TestView core using REST services. The product ships with one client of the REST service, a graphical user interface (GUI) that runs in browsers. Furthermore, the REST service can be accessed using various plugins and other tools that want to interact with XL TestView.
+## Events
 
-Plugins add capabilities to XL TestView and may be delivered by XebiaLabs or custom-built by users of XL TestView. These capabilities include supporting test tools, integration with ALM tools, or custom reports.
-
-## Event repository
-
-XL TestView uses events to represent facts. Examples of these events include the start of executing a test specification and the completion of an import of existing test results. Each individual test result is also stored as an event.
+Test results are stored in the database of XL TestView. In XL TestView a single test result is called an [Event](events.html).
+Examples of these events include the result of the execution of a single test case (the most granular level) and the start of an import of a test specification.
 
 XL TestView uses a central, scalable data storage solution as a repository to store these events.
-
-### Event repository interface
-
-The events in the repository can be accessed through a uniform interface. This interface is described in an API.
 
 ## XL TestView and plugins
 
@@ -41,15 +32,14 @@ When the XL TestView server starts, it scans the classpath and loads each XL Tes
 
 At runtime, multiple plugins will be active at the same time. It is up to the XL TestView core to integrate the various plugins and ensure they work together to perform its functionality.
 
-{% comment %}
-Plugins can define the following items:
+Plugins can be used to extend XL TestView in the following ways:
 
-- Report: Configuration items (CIs) that represent a report. See [create a custom report in XL TestView](/xl-testview/how-to/create-a-custom-report.html).
-- Test Tool: CIs that represent a test tool or family of test tools representing the same test result format. See [create a test tool plugin](/xl-testview/how-to/create-a-test-tool-plugin.html).
-{% endcomment %}
+- Report - configuration items (CIs) that represent a report.
+  
+  See [create a custom report in XL TestView](/xl-testview/how-to/create-a-custom-report.html).
+- Qualifications - define if test specification results are either passed or failed, based on a (pre-)defined qualifier.
 
-To enhance the extensibility of XL TestView, the product provides three APIs:
+  See [create a custom qualification](/xl-testview/how-to/create-a-custom-qualification.html).
+- Test tool configuration - CIs that represent a test tool or family of test tools representing the same test result format.
 
-- Report and Repository API: This API provides a uniform way to query XL TestView's event repository to obtain test results that can be interpreted and represented.
-- Test Tool: An API that can be used to extend XL TestView in the supported test tools and test output formats.
-- Services: The services of XL TestView are exposed through a REST API. XL TestView's graphical user interface uses this API.
+  See [create a custom test result parser](/xl-testview/how-to/create-a-custom-test-results-parser.html).

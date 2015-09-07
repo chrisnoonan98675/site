@@ -10,6 +10,8 @@ tags:
 - import
 ---
 
+Test tool configurations, Active and Executable test specification contain a search pattern. This pattern is used to select the files that have to be imported as part of a test run.
+
 To select files from a file system, XL TestView uses the selection pattern that is also used by the [Apache Ant](https://ant.apache.org/manual/dirtasks.html) build system. The following special characters are used:
  
 * `?`: one character
@@ -20,6 +22,8 @@ The patterns are:
 
 * Relative to the working directory that you specify in the test specification
 * Case-sensitive if the operating system is case-sensitive
+
+Multiple patterns may be provided, separated by a comma (",").
 
 For example, if your working directory is `/var/tests`:
 
@@ -32,5 +36,7 @@ For example, if your working directory is `/var/tests`:
 * `test-result/*` selects all files in `/var/tests/test-result`
 
 * `/tmp/tests/*` selects all files in `/tmp/tests/`, but no files in `/var/tests/`
+
+* `test-result/*,other-results/*` selects all files in `/var/tests/test-result` and `/var/tests/other-results`
 
 For more information and additional examples, refer to the Apache Ant [documentation](https://ant.apache.org/manual/dirtasks.html).
