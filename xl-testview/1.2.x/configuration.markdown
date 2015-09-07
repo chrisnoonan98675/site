@@ -1,13 +1,12 @@
 ---
-title: XL TestView 1.2.x Configuration
+title: Configure XL TestView 1.2.x
 categories:
 - xl-testview
 subject:
-- System administration
+- Configuration
 tags:
 - system administration
 - installation
-- configuration
 ---
 
 ## Configuration of XL TestView 1.2.x

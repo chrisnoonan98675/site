@@ -3,7 +3,7 @@ title: Install XL TestView plugins
 categories:
 - xl-testview
 subject:
-- Plugins
+- Installation
 tags:
 - system administration
 - installation

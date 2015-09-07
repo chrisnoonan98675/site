@@ -4,7 +4,7 @@ title: Configure LDAP authentication for XL TestView
 categories:
 - xl-testview
 subject:
-- System administration
+- Configuration
 tags:
 - system administration
 - installation

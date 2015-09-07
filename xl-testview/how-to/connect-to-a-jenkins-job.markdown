@@ -3,7 +3,7 @@ title: Connect XL TestView to a Jenkins job
 categories:
 - xl-testview
 subject:
-- Plugins
+- Jenkins
 tags:
 - jenkins
 - test results
