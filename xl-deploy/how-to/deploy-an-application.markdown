@@ -21,10 +21,12 @@ To deploy an application to an environment:
 1. Click **Deployment** in the top bar.
 1. Locate the application under **Packages** and expand it to see the versions (deployment packages).
 1. Locate the environment under **Environments**.
-1. Drag the version of the application that you want to deploy and drop it on the environment where you want to deploy it. The application and environment appear in the Workspace.
+1. Drag the version of the application that you want to deploy and drop it on the environment where you want to deploy it. The application and environment appear in the deployment workspace.
 
-    XL Deploy automatically maps the deployables in the application to the appropriate containers in the environment.
+    If the application has [dependencies](/xl-deploy/concept/application-dependencies-in-xl-deploy.html) (supported in XL Deploy 5.1.0 and later), XL Deploy [analyzes them](/xl-deploy/concept/how-xl-deploy-checks-application-dependencies.html) and includes the deployables from the appropriate versions of the dependent applications. Applications will be deployed in reverse topological order to ensure that dependent applications are deployed first.
 
+    XL Deploy then automatically maps the deployables in the application to the appropriate containers in the environment.
+    
 1. Click **Execute** to immediately start the deployment.
 
 You can also optionally:
@@ -65,4 +67,4 @@ In some cases, you can click **Continue** to retry the failed step. If the step 
 
 ## Roll back a deployment
 
-To roll back a deployment that is in a `STOPPED` or `EXECUTED` state, click **Rollback** on the deployment plan. Executing the rollback plan will revert the deployment back to the previous version of the deployed application. It will also revert the deployeds created on execution.
+To roll back a deployment that is in a `STOPPED` or `EXECUTED` state, click **Rollback** on the deployment plan. Executing the rollback plan will revert the deployment to the previous version of the deployed application (or applications, if the deployment involved multiple applications because of [dependencies](/xl-deploy/concept/application-dependencies-in-xl-deploy.html)). It will also revert the deployeds created on execution.

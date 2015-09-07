@@ -37,6 +37,10 @@ The Jython script defines actions that you want to perform with release. The sco
 
 In the script, you can get the JDBC connection by calling `exportHook.getJdbcConnection()`. You can see this in the example on [GitHub](https://github.com/xebialabs/xl-release-samples/blob/master/mysql-jdbc-export-hook/src/main/resources/acme/MysqlReportingExportHook.py).
 
+**Tip:** It is recommended that you use `logger` instead of `print` for logging.
+
+### Script storage location
+
 Store scripts in the `ext` directory, which is a part of the classpath. By default, the export hook tries to locate `prefix/TypeName.py` on the classpath. In the case of this example, it will be `acme/MysqlReportingExportHook.py`.
 
 Alternatively, you can set a customized script path in the `scriptLocation` property of each export hook:

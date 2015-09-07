@@ -23,3 +23,9 @@ To remove an application and its components from an environment, you need to _un
 1. Optionally select one or more orchestrators to use when executing the undeployment.
 1. Click **Next**. The undeployment plan appears.
 1. Click **Execute** to execute the plan.
+
+## Undeploying an application with dependencies
+
+When you undeploy an application that has [dependencies](/xl-deploy/concept/application-dependencies-in-xl-deploy.html), XL Deploy does not automatically undeploy the dependent applications. You must manually undeploy applications, one at a time.
+
+If you try to undeploy an application that other applications depend on, XL Deploy will return an error and you will not be able to undeploy the application.

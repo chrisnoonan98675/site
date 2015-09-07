@@ -47,7 +47,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 <div class="col-md-10">
 <p>Type: Functional</p>
 <p>Span: Two test runs</p>
-<p>A bar chart report that shows the tests that changed state since the last execution. E.g. passing tests shown failed during the previous execution and the failing tests shown passed during the previous execution. Click a bar to see the results in that section of the test results.</p>
+<p>A bar chart report that shows the tests that changed state since the last execution; that is, passing tests shown failed during the previous execution and failing tests shown passed during the previous execution. Click a bar to see the results in that section of the test results.</p>
 </div>
 </div>
 
@@ -60,7 +60,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 <div class="col-md-10">
 <p>Type: Functional</p>
 <p>Span: Multiple test runs</p>
-<p>A durationsnreport plots a graph of the test run durations over a specific time span. Clicking an individual line of the duration reports drills down into the durations of its constituents.</p>
+<p>A durations report plots a graph of the test run durations over a specific time span. Clicking an individual line of the duration reports drills down into the durations of its constituents.</p>
 </div>
 </div>
 
@@ -73,7 +73,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 <div class="col-md-10">
 <p>Type: Functional</p>
 <p>Span: Multiple test runs</p>
-<p>A flakiness overview report shows how stable or unstable tests are over time. Given a time range, the most flaky tests are shown.</p>
+<p>A flakiness overview report shows how stable or unstable tests are over time. Given a time range, the most flaky tests are shown. Flakiness is calculated as the actual number of changes from passed to failed or from failed to passed versus the possible number of changes, given the number of test runs visible in the date/time range selected.</p>
 </div>
 </div>
 

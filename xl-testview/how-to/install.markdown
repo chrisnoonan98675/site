@@ -19,17 +19,22 @@ The XL TestView server requires:
 * Java Development Kit (JDK). Version 1.7 and 1.8 are supported for Oracle and IBM. Version 1.7 is supported for OpenJDK.
 * At least 1 GB of RAM available for XL TestView for version 1.2.x, at least 2GB of RAM for XL TestView 1.3.x.
 * At least 1 GB of hard disk space available for XL TestView and the database (the exact amount of space required depends on your usage of XL TestView)
-* A Java Development Kit is required for generating the demo data. If you do not need demo data, the Java Runtime Environment is sufficient.
-* Generation of jMeter demodata is not supported on version 1.8
+
+Note that:
+
+* If you do not want or need XL TestView to generate sample data, then you can install the Java Runtime Environment (JRE) instead of the JDK
+* Generation of sample jMeter data is not supported on JDK 1.8
 
 ### Client requirements
 
 The XL TestView user interface requires one of the following browsers:
 
-* Internet Explorer 10.0 or later
 * Firefox
 * Chrome
 * Safari
+* Internet Explorer 10 or later
+
+**Note:** Internet Explorer Compatibility View is not supported.
 
 ## Installation procedure
 
@@ -37,8 +42,8 @@ To install XL TestView:
 
 1. Download the XL TestView ZIP file from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com).
 2. Extract the ZIP file to the directory where you want to install XL TestView; for example, `/opt/xebialabs/xl-testview` or `C:\Program Files\XL TestView`. This is referred to as `<XLTESTVIEW_HOME>`.
-3. Open a command prompt and navigate to `<XLTESTVIEW_HOME>/bin`.
-4. If you already have a license file, copy it to `<XLTESTVIEW_HOME>/conf/xl-testview-license.lic`. If you do not have a license file, you can request one after XL TestView starts.
+3. If you already have a license file, copy it to `<XLTESTVIEW_HOME>/conf/xl-testview-license.lic`. If you do not have a license file, you can request one after XL TestView starts.
+4. Open a command prompt and navigate to `<XLTESTVIEW_HOME>/bin`.
 5. Execute one of the following commands to start the setup wizard:
       * On Unix: `<XLTESTVIEW_HOME>/bin/server.sh`
       * On Windows: `<XLTESTVIEW_HOME>/bin/server.cmd`
@@ -48,7 +53,7 @@ If you do not have a license, fill out the registration form that appears when y
 
 **Note:** Because XL TestView can perform file system operations such as scanning the file system, it is strongly advised that you execute XL TestView as a specialized user with limited permissions and minimal access rights.
 
-The default username is `admin` and default password is `admin`. You can change this in `<XLTESTVIEW_HOME>/conf/users.conf`.
+The default username and password are both `admin`. You can change these values in `<XLTESTVIEW_HOME>/conf/users.conf`.
 
 After installation various aspects of the server can be configured. See [Configuring XL TestView](/xl-testview/how-to/configuration.html).
 

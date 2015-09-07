@@ -1,4 +1,5 @@
 /* XebiaLabs-specific styles */
+
 .hidden {
   display: none;
 }
@@ -67,6 +68,7 @@ h5, .h5 {
 }
 
 /* Mini TOC */
+
 .mini-toc {
   float: right;
   width: 30%;
@@ -97,6 +99,7 @@ h5, .h5 {
 	margin-top: 0px;
 	padding-top: 0px;
 }
+
 /* Multi-level lists */
 
 ol > li > ol {
@@ -116,6 +119,7 @@ ol > li > ol > li > ol > li > ol > li > ol > li > ol {
 }
 
 /* Header hover links */
+
 .header-link {
   position: absolute;
   left: -0.5em;
@@ -135,6 +139,7 @@ h6:hover .header-link {
 }
 
 /* Top bar */
+
 #top-bar {
   background-color: #003366;
   min-height: 70px;
@@ -160,6 +165,7 @@ h6:hover .header-link {
 }
 
 /* Vertical sidebar navigation */
+
 @media (min-width: 768px) {
   .sidebar-nav .navbar .navbar-collapse {
     padding: 0;
@@ -191,14 +197,20 @@ h6:hover .header-link {
     width: 262px;
   }
 }
-.sidebar-nav .navbar-header { float: none; }
+.sidebar-nav .navbar-header {
+  float: none;
+}
 
 /* Google Custom Search overrides */
+
 input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gsc-search-button, .gsc-inline-block {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   line-height: normal;
+}
+.gsc-input {
+  width: 300px;
 }
 .gsc-tabsArea div {
   overflow: visible !important;
@@ -207,8 +219,15 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gs
   background: none !important;
   border: none !important;
 }
+.gs-title {
+    line-height: 120%;
+}
 .gs-title a {
   color: #15C !important;
+  text-decoration: underline !important;
+}
+.gs-title a:visited {
+  text-decoration: underline !important;
 }
 #top-bar, .navbar-form, .navbar-right {
   border: none !important;
@@ -217,6 +236,7 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gs
 }
 
 /* Sticky footer styles */
+
 html {
   position: relative;
   min-height: 100%;
@@ -242,6 +262,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /* Scroll-to-top button styles */
+
 .scroll-top-wrapper {
   position: fixed;
   opacity: 0;
@@ -281,6 +302,7 @@ h1,h2,h3,h4,h5,h6 {
 
 /* IE10 viewport width workaround */
 /* See http://getbootstrap.com/getting-started/#support-ie10-width */
+
 @-webkit-viewport   { width: device-width; }
 @-moz-viewport      { width: device-width; }
 @-ms-viewport       { width: device-width; }
@@ -288,6 +310,7 @@ h1,h2,h3,h4,h5,h6 {
 @viewport           { width: device-width; }
 
 /* Collapsible bulleted list */
+
 .expList ul {
   list-style: none;
   margin: 0;
@@ -308,7 +331,6 @@ h1,h2,h3,h4,h5,h6 {
   margin-left: 20px;
   padding: 0;
 }
-
 /* Collapsed state for list element */
 .expList .collapsed {
   background-image: url(/images/bullet_right_arrow.png);

@@ -10,6 +10,8 @@ tags:
 - satellite
 since:
 - 5.0.0
+deprecated:
+- 5.1.0
 ---
 
 XL Deploy can communicate with satellite servers over a secure communication channel using [TLS/SSL technology](http://en.wikipedia.org/wiki/Transport_Layer_Security) to encrypt data. This algorithm relies on certificate checking and data encryption using asymmetric keys.
