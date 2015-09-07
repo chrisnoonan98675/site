@@ -29,24 +29,28 @@ The `step-name` you give in the annotation will be used verbatim as the XML tag 
  
 For example, the following Java code will allow you to use the `UsefulStep` class by specifying `my-nifty-step` inside your `xl-rules.xml`:
 
-    @StepMetadata(name = "my-nifty-step")
-    class UsefulStep implements Step {
-        ...
-    }
+{% highlight java %}
+@StepMetadata(name = "my-nifty-step")
+class UsefulStep implements Step {
+    ...
+}
+{% endhighlight %}
 
 Your XML would then look as follows:
 
-    <?xml ... ?>
-    <rules ...>
-        <rule ...>
-            <conditions>...</conditions>
-            <steps>
-                <my-nifty-step>
-                    ...
-                </my-nifty-step>
-            </steps>
-        </rule>
-    </rules>
+{% highlight xml %}
+<?xml ... ?>
+<rules ...>
+    <rule ...>
+        <conditions>...</conditions>
+        <steps>
+            <my-nifty-step>
+                ...
+            </my-nifty-step>
+        </steps>
+    </rule>
+</rules>
+{% endhighlight %}
 
 You can make your step primitives parameterized, with parameters that are required, optional and/or auto-calculated.
 
@@ -62,9 +66,11 @@ XL Deploy uses the `com.xebialabs.deployit.plugin.api.flow.Step` interface to de
 
 For this, the `Step` interface declares these methods:
 
-    int getOrder();
-    String getDescription();
-    StepExitCode execute(ExecutionContext ctx) throws Exception;
+{% highlight java %}
+int getOrder();
+String getDescription();
+StepExitCode execute(ExecutionContext ctx) throws Exception;
+{% endhighlight %}
 
 The `execute` method is where you define the business logic for your step primitive. The `ExecutionContext` that is passed in allows you to access the repository using the credentials of the user executing the deployment plan. 
 
@@ -78,6 +84,7 @@ XL Deploy has a dependency injection mechanism that allows values from `xl-rules
 
 To receive values from a rule, define a field in your class and annotate it with the `@com.xebialabs.deployit.plugin.api.rules.StepParameter` annotation. This annotation has the following attributes:
 
+{:.table .table-striped}
 | Attribute | Description |
 | --------- | ----------- |
 | `name` | Defines the XML tag name of the parameter. Camel-case names (such as `myParam`) are represented with dashes in XML (`my-param`) or underscores in Jython (`my_param=...`). The content of the resulting XML tags are interpreted as Jython expressions and must result in a value of the type of the private field. |
@@ -87,24 +94,28 @@ To receive values from a rule, define a field in your class and annotate it with
 
 For example, the `manual` step primitive has:
 
-    @StepParameter(name = "freemarkerContext", description = "Dictionary that contains all values available in the template", required = false, calculated = true)
-    private Map<String, Object> vars = new HashMap<>();
+{% highlight java %}
+@StepParameter(name = "freemarkerContext", description = "Dictionary that contains all values available in the template", required = false, calculated = true)
+private Map<String, Object> vars = new HashMap<>();
+{% endhighlight %}
 
 The following XML sets the value of the `vars` field:
 
-    <?xml ... ?>
-    <rules ...>
-        <rule ...>
-            <conditions>...</conditions>
-            <steps>
-                <manual>
-                    ...
-                    <freemarker-context>...</freemarker-context>
-                    ...
-                </manual>
-            </steps>
-        </rule>
-    </rules>
+{% highlight xml %}
+<?xml ... ?>
+<rules ...>
+    <rule ...>
+        <conditions>...</conditions>
+        <steps>
+            <manual>
+                ...
+                <freemarker-context>...</freemarker-context>
+                ...
+            </manual>
+        </steps>
+    </rule>
+</rules>
+{% endhighlight %}
 
 Refer to the [Javadoc](/xl-deploy/latest/javadoc/udm-plugin-api/index.html) for more information about `StepParameter`.
 
@@ -123,17 +134,19 @@ The `StepPostConstructContext` contains references to the `DeployedApplication`,
 
 For example, the following step will try to find a value for `defaultUrl` in the repository if it is not specified in the rules XML, and the planning will fail if it is not found:
 
-    @StepParameter(name="defaultHostURL", description="The URL to contact first", required=true, calculated=true)
-    private String defaultUrl;
+{% highlight java %}
+@StepParameter(name="defaultHostURL", description="The URL to contact first", required=true, calculated=true)
+private String defaultUrl;
 
-    @RulePostConstruct
-    private void lookupDefaultUrl(StepPostConstructContext ctx) {
-        if (defaultUrl==null || defaultUrl.equals("")) {
-            Repository repo = ctx.getRepository();
-            Delta delta = ctx.getDelta();
-            defaultUrl = findDefaultUrl(delta, repo);      // to be implemented yourself
-        }
+@RulePostConstruct
+private void lookupDefaultUrl(StepPostConstructContext ctx) {
+    if (defaultUrl==null || defaultUrl.equals("")) {
+        Repository repo = ctx.getRepository();
+        Delta delta = ctx.getDelta();
+        defaultUrl = findDefaultUrl(delta, repo);      // to be implemented yourself
     }
+}
+{% endhighlight %}
 
 Refer to the [Javadoc](/xl-deploy/latest/javadoc/udm-plugin-api/index.html) for more information about `StepPostConstructContext`.
 
@@ -151,48 +164,54 @@ After writing the code for your step primitive, you make it available to XL Depl
 ## Custom step example
 
 This is an example of the implementation of a new type of step:
- 
-    import com.xebialabs.deployit.plugin.api.flow.Step;
-    import com.xebialabs.deployit.plugin.api.rules.StepMetadata;
-    import com.xebialabs.deployit.plugin.api.rules.StepParameter;
 
-    @StepMetadata(name = "my-step")
-    public class MyStep implements Step {
+{% highlight java %}
+import com.xebialabs.deployit.plugin.api.flow.Step;
+import com.xebialabs.deployit.plugin.api.rules.StepMetadata;
+import com.xebialabs.deployit.plugin.api.rules.StepParameter;
+
+@StepMetadata(name = "my-step")
+public class MyStep implements Step {
    
-        @StepParameter(label = "My parameter", description = "The foo's bar to baz the quuxes", required=false)
-        private FooBarImpl myParam;
-        @StepParameter(label = "Order", description = "The execution order of this step")
-        private int order;
-       
-        public int getOrder() { return order; }
-        public String getDescription() { return "Performing MyStep..."; }
-        public StepExitCode execute(ExecutionContext ctx) throws Exception {
-            /* ...perform deployment operations, using e.g. myParam...*/
-        }
+    @StepParameter(label = "My parameter", description = "The foo's bar to baz the quuxes", required=false)
+    private FooBarImpl myParam;
+    @StepParameter(label = "Order", description = "The execution order of this step")
+    private int order;
+   
+    public int getOrder() { return order; }
+    public String getDescription() { return "Performing MyStep..."; }
+    public StepExitCode execute(ExecutionContext ctx) throws Exception {
+        /* ...perform deployment operations, using e.g. myParam...*/
     }
+}
+{% endhighlight %}
 
 In `xl-rules.xml`, you refer to this rule as follows:
-   
-    <rule ...>
-        ...
-        <steps>
-            <my-step>
-                <order>42</order>
-                <my-param expression="true">deployed.foo.bar</myParam>
-            </my-step>
-        </steps>
-    </rule>
-   
+
+{% highlight xml %}
+<rule ...>
+    ...
+    <steps>
+        <my-step>
+            <order>42</order>
+            <my-param expression="true">deployed.foo.bar</myParam>
+        </my-step>
+    </steps>
+</rule>
+{% endhighlight %}
+
 The script variant is as follows (note the underscores):
- 
-    <rule ...>
-        <steps>
-            <script><![CDATA[
-                context.addStep(steps.my_step(order=42, my_param=deployed.foo.bar))
-            ]]></script>
-        </steps>
-    </rule>
-    
+
+{% highlight xml %}
+<rule ...>
+    <steps>
+        <script><![CDATA[
+            context.addStep(steps.my_step(order=42, my_param=deployed.foo.bar))
+        ]]></script>
+    </steps>
+</rule>
+{% endhighlight %}
+
 A step type is represented by a Java class with a default constructor implementing 
 the `Step` interface. The resulting class file must be placed in the standard XL Deploy classpath.
    

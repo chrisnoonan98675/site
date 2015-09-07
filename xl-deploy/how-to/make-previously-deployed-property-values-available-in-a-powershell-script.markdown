@@ -18,45 +18,52 @@ For example, as a part of your deployment, you might copy a property value that 
 
 This example shows how you can retrieve the previously deployed property value from the current deployment.
 
-1. Create a rule in `xl-rules.xml` with the condition `MODIFY`.
-1. In the `powershell-context` tag, add:
+First, create a rule in `xl-rules.xml` with the condition `MODIFY`. In the `powershell-context` tag, add:
 
-        <previousDeployed expression="true">delta.previous</previousDeployed>
+{% highlight xml %}
+<previousDeployed expression="true">delta.previous</previousDeployed>
+{% endhighlight %}
 
-1. In the PowerShell script, refer to the previously deployed properties value using `$previousDeployed` and the suffix `.propertyname`. For example: 
+In the PowerShell script, refer to the previously deployed properties value using `$previousDeployed` and the suffix `.propertyname`. For example: 
 
-        $previousDeployed.processModelIdleTimeout
+{% highlight powershell %}
+$previousDeployed.processModelIdleTimeout
+{% endhighlight %}
 
 The complete entry in `xl-rules.xml` would look like:
 
-    <rule name="AppPoolSpec.CREATE.MODIFY" scope="deployed">
-        <conditions>
-            <type>iis.ApplicationPool</type>
-            <operation>CREATE</operation>
-            <operation>MODIFY</operation>
-        </conditions>
-        <steps>
-            <powershell>
-                <order>60</order>
-                <description>Modify the hosts file</description>
-                <script>previous.ps1</script>
-                <powershell-context>
-                    <previousDeployed expression="true">delta.previous</previousDeployed>
-                    <Deployed>Deployed</Deployed>           
-                </powershell-context> 
-            </powershell>
-        </steps>    
-    </rule>
+{% highlight xml %}
+<rule name="AppPoolSpec.CREATE.MODIFY" scope="deployed">
+    <conditions>
+        <type>iis.ApplicationPool</type>
+        <operation>CREATE</operation>
+        <operation>MODIFY</operation>
+    </conditions>
+    <steps>
+        <powershell>
+            <order>60</order>
+            <description>Modify the hosts file</description>
+            <script>previous.ps1</script>
+            <powershell-context>
+                <previousDeployed expression="true">delta.previous</previousDeployed>
+                <Deployed>Deployed</Deployed>           
+            </powershell-context> 
+        </powershell>
+    </steps>    
+</rule>
+{% endhighlight %}
 
 **Note:** For the initial deployment (that is, the `CREATE` operation), the `previousDeployed` property will be null.
 
 The PowerShell script would look like:
 
-    # Update file
-    # Replace previous processModelIdleTimeout with new value in file
-    $rFile = “C:\MyApp\myFile”
+{% highlight powershell %}
+# Update file
+# Replace previous processModelIdleTimeout with new value in file
+$rFile = “C:\MyApp\myFile”
 
-    if ($previousdeployed.processModelIdleTimeout) {
-        (Get-Content $rFile) -replace $previousdeployed.processModelIdleTimeout, $deployed.processModelIdleTimeout| Set-Content $rFile
-        Write-Host "previousDeployed.processModelIdleTimeout = " $previousDeployed.processModelIdleTimeout
-    }
+if ($previousdeployed.processModelIdleTimeout) {
+    (Get-Content $rFile) -replace $previousdeployed.processModelIdleTimeout, $deployed.processModelIdleTimeout| Set-Content $rFile
+    Write-Host "previousDeployed.processModelIdleTimeout = " $previousDeployed.processModelIdleTimeout
+}
+{% endhighlight %}

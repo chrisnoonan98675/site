@@ -22,10 +22,12 @@ To disable a rule, add the `disable-rule` tag under the `rules` tag in `xl-rules
 
 For example, to disable a rule with the name `deployArtifact`, use:
 
-    <?xml version="1.0"?>
-    <rules xmlns="http://www.xebialabs.com/xl-deploy/xl-rules">
-        <disable-rule name="deployArtifact" />
-    </rules>
+{% highlight xml %}
+<?xml version="1.0"?>
+<rules xmlns="http://www.xebialabs.com/xl-deploy/xl-rules">
+    <disable-rule name="deployArtifact" />
+</rules>
+{% endhighlight %}
 
 ## Predefined rule naming
 
@@ -35,16 +37,22 @@ You can disable the rules that are predefined by Java classes in XL Deploy. Each
 
 All methods of deployed classes that are annotated with `@Create`, `@Modify`, `@Destroy`, `@Noop` annotations. The name of the rule is given by concatenation of the UDM type of the deployed class, the method name, and annotation name. For example:
 
-    file.DeployedArtifactOnHost.executeCreate_CREATE
+{% highlight java %}
+file.DeployedArtifactOnHost.executeCreate_CREATE
+{% endhighlight %}
 
 ### Contributor system rules
 
 All methods that are annotated with `@Contributor` annotations. The rule name is defined by concatenation of the full class name and method name. For example:
 
-    com.xebialabs.deployit.plugin.generic.container.LifeCycleContributor.restartContainers
+{% highlight java %}
+com.xebialabs.deployit.plugin.generic.container.LifeCycleContributor.restartContainers
+{% endhighlight %}
 
 ### Pre-plan and post-plan system rules
 
 All methods that are annotated with `@PrePlanProcessor` or `@PostPlanProcessor` annotations. The rule name is defined by concatenation of the full class name and method name. For example:
 
-    com.xebialabs.deployit.plugins.releaseauth.planning.CheckReleaseConditionsAreMet.validate
+{% highlight java %}
+com.xebialabs.deployit.plugins.releaseauth.planning.CheckReleaseConditionsAreMet.validate
+{% endhighlight %}

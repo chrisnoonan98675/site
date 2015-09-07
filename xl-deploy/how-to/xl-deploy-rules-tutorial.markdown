@@ -78,15 +78,16 @@ Let's start with an application that contains one artifact. We want to deploy th
 
 First, in `synthetic.xml`, add a type definition called `example.ArtifactDeployed` for the application and add a container type named `example.Server`:
 
-      <type type="example.Server" extends="udm.BaseContainer" description="Example server">
-        <property name="host" kind="ci" referenced-type="overthere.Host" as-containment="true"/>
-        <property name="home" description="Home directory for the server"/>
-      </type>
+{% highlight xml %}
+<type type="example.Server" extends="udm.BaseContainer" description="Example server">
+    <property name="host" kind="ci" referenced-type="overthere.Host" as-containment="true"/>
+    <property name="home" description="Home directory for the server"/>
+</type>
 
-      <type type="example.ArtifactDeployed" extends="udm.BaseDeployedArtifact" deployable-type="example.Artifact"
-        container-type="example.Server" description="Artifact that can be deployed to an example server">
-        <generate-deployable type="example.Artifact" extends="udm.BaseDeployableFileArtifact"/>
-      </type>
+<type type="example.ArtifactDeployed" extends="udm.BaseDeployedArtifact" deployable-type="example.Artifact" container-type="example.Server" description="Artifact that can be deployed to an example server">
+    <generate-deployable type="example.Artifact" extends="udm.BaseDeployableFileArtifact"/>
+</type>
+{% endhighlight %}
 
 Notice that:
 
@@ -98,18 +99,20 @@ Notice that:
 
 Next, define an XML rule for the CI in `xl-rules.xml`:
 
-    <rule name="example.ArtifactDeployed.CREATE_MODIFY" scope="deployed">
-        <conditions>
-            <type>example.ArtifactDeployed</type>
-            <operation>CREATE</operation>
-            <operation>MODIFY</operation>
-        </conditions>
-        <steps>
-    		<os-script>
-    			<script>scripts/deploy-artifact</script>
-    		</os-script>
-    	</steps>
-    </rule>
+{% highlight xml %}
+<rule name="example.ArtifactDeployed.CREATE_MODIFY" scope="deployed">
+    <conditions>
+        <type>example.ArtifactDeployed</type>
+        <operation>CREATE</operation>
+        <operation>MODIFY</operation>
+    </conditions>
+    <steps>
+        <os-script>
+            <script>scripts/deploy-artifact</script>
+        </os-script>
+    </steps>
+</rule>
+{% endhighlight %}
 
 Notice that:
 
@@ -157,26 +160,30 @@ Additionally, we can enrich the plan with an additional step that waits a specif
 
 First, we need to store the wait time in the deployment properties by adding the following property to `udm.DeployedApplication` in `synthetic.xml`:
 
-    <type-modification type="udm.DeployedApplication">
-         <property name="waitTime" kind="integer" label="Time in seconds to wait for starting the deployment" required="false"/>
-    </type-modification>
+{% highlight xml %}
+<type-modification type="udm.DeployedApplication">
+     <property name="waitTime" kind="integer" label="Time in seconds to wait for starting the deployment" required="false"/>
+</type-modification>
+{% endhighlight %}
 
 ### Define a rule to contribute a wait step
 
 Next, we need to define a rule in `xl-rules.xml` to contribute the wait step to the plan:
 
-    <rule name="example.DeployedApplication.wait" scope="pre-plan">
-        <conditions>
-            <expression>specification.deployedOrPreviousApplication.waitTime is not None</expression>
-        </conditions>
-        <steps>
-            <wait>
-                <order>10</order>
-                <description expression="true">"Waiting %i seconds before starting the deployment" % specification.deployedOrPreviousApplication.waitTime</description>
-                <seconds expression="true">specification.deployedOrPreviousApplication.waitTime</seconds>
-            </wait>
-        </steps>
-    </rule>
+{% highlight xml %}
+<rule name="example.DeployedApplication.wait" scope="pre-plan">
+    <conditions>
+        <expression>specification.deployedOrPreviousApplication.waitTime is not None</expression>
+    </conditions>
+    <steps>
+        <wait>
+            <order>10</order>
+            <description expression="true">"Waiting %i seconds before starting the deployment" % specification.deployedOrPreviousApplication.waitTime</description>
+            <seconds expression="true">specification.deployedOrPreviousApplication.waitTime</seconds>
+        </wait>
+    </steps>
+</rule>
+{% endhighlight %}
 
 Notice that:
 
@@ -226,17 +233,19 @@ When you create rules to deploy things, you should also define rules to undeploy
 
 The rule definition in `xl-rules.xml` is:
 
-    <rule name="example.ArtifactDeployed.DESTROY" scope="deployed">
-        <conditions>
-            <type>example.ArtifactDeployed</type>
-            <operation>DESTROY</operation>
-        </conditions>
-        <steps>
-            <os-script>
-                <script>scripts/undeploy-artifact</script>
-            </os-script>
-        </steps>
-    </rule>
+{% highlight xml %}
+<rule name="example.ArtifactDeployed.DESTROY" scope="deployed">
+    <conditions>
+        <type>example.ArtifactDeployed</type>
+        <operation>DESTROY</operation>
+    </conditions>
+    <steps>
+        <os-script>
+            <script>scripts/undeploy-artifact</script>
+        </os-script>
+    </steps>
+</rule>
+{% endhighlight %}
 
 Notice that:
 
@@ -288,9 +297,11 @@ Note that a full implementation would require four scripts in total:
 
 The script rule is defined in `xl-rules.xml` as follows:
 
-    <rule name="example.Server.startStop" scope="plan">
-        <planning-script-path>planning/start-stop-server.py</planning-script-path>
-    </rule>
+{% highlight xml %}
+<rule name="example.Server.startStop" scope="plan">
+    <planning-script-path>planning/start-stop-server.py</planning-script-path>
+</rule>
+{% endhighlight %}
 
 Notice that:
 
@@ -302,32 +313,34 @@ Notice that:
 
 The script `start-stop-server.py` contains:
 
-    from java.util import HashSet
+{% highlight python %}
+from java.util import HashSet
 
-    def containers():
-        result = HashSet()
-        for _delta in deltas.deltas:
-            deployed = _delta.deployedOrPrevious
-            current_container = deployed.container
-            if _delta.operation != "NOOP" and current_container.type == "example.Server":
-                result.add(current_container)
-        return result
+def containers():
+    result = HashSet()
+    for _delta in deltas.deltas:
+        deployed = _delta.deployedOrPrevious
+        current_container = deployed.container
+        if _delta.operation != "NOOP" and current_container.type == "example.Server":
+            result.add(current_container)
+    return result
 
 
-    for container in containers():
-        context.addStep(steps.os_script(
-            description="Stopping server %s" % container.name,
-            order=20,
-            script="scripts/stop",
-            freemarker_context={'container': container},
-            target_host=container.host)
-        )
-        context.addStep(steps.os_script(
-            description="Starting server %s" % container.name,
-            order=80,
-            script="scripts/start",
-            freemarker_context={'container': container},
-            target_host=container.host))
+for container in containers():
+    context.addStep(steps.os_script(
+        description="Stopping server %s" % container.name,
+        order=20,
+        script="scripts/stop",
+        freemarker_context={'container': container},
+        target_host=container.host)
+    )
+    context.addStep(steps.os_script(
+        description="Starting server %s" % container.name,
+        order=80,
+        script="scripts/start",
+        freemarker_context={'container': container},
+        target_host=container.host))
+{% endhighlight %}
 
 Note that `freemarker_context={'container': container}` is required to make the container object available in the FreeMarker context.
 
@@ -375,13 +388,6 @@ If you have more advanced rollback requirements, refer to [Using checkpoints](/x
 ## What's next
 
 You made it through the entire tutorial, congratulations! You should now have a good understanding of rules-based planning, and you should be able to find the information you need to continue creating deployment rules.
-
-{% comment %}The most important sources for information about rules and deployment planning are:
-
-* [Rules Manual](/xl-deploy/4.5.x/rulesmanual.html)
-* [Customization Manual](/xl-deploy/4.5.x/customizationmanual.html)
-* [Reference Manual](/xl-deploy/4.5.x/referencemanual.html)
-* [API documentation](/xl-deploy/4.5.x/javadoc/udm-plugin-api/){% endcomment %}
 
 The code discussed in this tutorial is available in the rules demo plugin, which you can download from [GitHub](https://github.com/xebialabs/xl-deploy-samples/tree/master/rules-demo-plugin). Also, the demo plugin contains additional examples.
 

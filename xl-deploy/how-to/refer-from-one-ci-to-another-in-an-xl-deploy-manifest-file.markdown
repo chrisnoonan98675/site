@@ -13,12 +13,14 @@ tags:
 
 You can refer from one configuration item (CI) to another in an XL Deploy deployment package manifest file as follows:
 
-    <sample.Sample name="referencing">
-        <ciReferenceProperty ref="AnimalZooBE" />
-        <ciSetReferenceProperty>
-            <ci ref="AnimalZooBE" />
-        </ciSetReferenceProperty>
-        <ciListReferenceProperty>
-            <ci ref="AnimalZooBE" />
-        </ciListReferenceProperty>
-    </sample.Sample>
+{% highlight xml %}
+<sample.Sample name="referencing">
+    <ciReferenceProperty ref="AnimalZooBE" />
+    <ciSetReferenceProperty>
+        <ci ref="AnimalZooBE" />
+    </ciSetReferenceProperty>
+    <ciListReferenceProperty>
+        <ci ref="AnimalZooBE" />
+    </ciListReferenceProperty>
+</sample.Sample>
+{% endhighlight %}
