@@ -26,22 +26,22 @@ There are several reasons to modify a CI:
 For each CI, you must specify a `type`. Any property that is modified is listed as a nested `property` element. For each property, the following information can be specified:
 
 {:.table .table-striped}
-| Property | Required | Description |
-| -------- | -------- | ----------- |
-| `name` | Yes | The name of the property to modify. |
-| `kind` | No | The type of the property to modify. Possible values are: `enum`, `boolean`, `integer`, `string`, `ci`, `set_of_ci`, `set_of_string`, `map_string_string`, `list_of_ci`, `list_of_string`, and `date` (internal use only). You must always specify the `kind` of the parent CI. You can find the `kind` next to the property name in the plugin reference documentation. |
-| `description` | No | Describes the property. |
-| `category` | No | Categorizes the property. Each category is shown in a separate tab in the XL Deploy GUI. |
-| `label` | No | Sets the property's label. If set, the label is shown in the XL Deploy GUI instead of the name. |
-| `required` | No | Indicates whether the property is required or not. Note that you cannot modify the required attribute of existing CIs. |
-| `size` | No | Specifies the property size. Possible values are: `default`, `small`, `medium`, and `large`. Large text fields will be shown as a text area in the XL Deploy GUI. *Only relevant for properties of kind `string`.* |
-| `default` | No | Specifies the default value of the property. |
-| `enum-class` | No | The enumeration class that contains the possible values for this property. *Only relevant for properties of kind `enum`.* |
-| `referenced-type` | No | The type of the referenced CI. *Only relevant for properties of kind `ci`, `set_of_ci`, or `list_of_ci`.* |
-| `as-containment` | No | Indicates whether the property is modeled as containment in the repository. If true, the referenced CI or CIs are stored under the parent CI. *Only relevant for properties of kind `ci`, `set_of_ci`, or `list_of_ci`.* |
-| `hidden` | No | Indicates whether the property is hidden. Hidden properties do not appear in the XL Deploy GUI. Note that a hidden property must have a default value. |
-| `transient` | No | Indicates whether the property is persisted in the repository or not. |
-| `inspectionProperty` | No | Indicates that this property is used for inspection (discovery). |
+| Property | Required | Description | Notes |
+| -------- | -------- | ----------- | ----- |
+| `name` | Yes | The name of the property to modify. | |
+| `kind` | No | The type of the property to modify. Possible values are: `enum`, `boolean`, `integer`, `string`, `ci`, `set_of_ci`, `set_of_string`, `map_string_string`, `list_of_ci`, `list_of_string`, and `date` (internal use only). | You must always specify the `kind` of the parent CI. You can find the `kind` next to the property name in the plugin reference documentation. |
+| `description` | No | Describes the property. | |
+| `category` | No | Categorizes the property. Each category is shown in a separate tab in the XL Deploy GUI. | |
+| `label` | No | Sets the property's label. If set, the label is shown in the XL Deploy GUI instead of the name. | |
+| `required` | No | Indicates whether the property is required or not. | You cannot change the `required` attribute of an existing CI; that is, if a CI's `required` property is set to "true", you cannot later change it to "false". |
+| `size` | No | Specifies the property size. Possible values are: `default`, `small`, `medium`, and `large`. Large text fields will be shown as a text area in the XL Deploy GUI. | Only relevant for properties of kind `string`. |
+| `default` | No | Specifies the default value of the property. | |
+| `enum-class` | No | The enumeration class that contains the possible values for this property. | Only relevant for properties of kind `enum`. |
+| `referenced-type` | No | The type of the referenced CI. | Only relevant for properties of kind `ci`, `set_of_ci`, or `list_of_ci`. |
+| `as-containment` | No | Indicates whether the property is modeled as containment in the repository. If true, the referenced CI or CIs are stored under the parent CI. | Only relevant for properties of kind `ci`, `set_of_ci`, or `list_of_ci`. |
+| `hidden` | No | Indicates whether the property is hidden. Hidden properties do not appear in the XL Deploy GUI. | A hidden property must have a default value. |
+| `transient` | No | Indicates whether the property is persisted in the repository or not. | |
+| `inspectionProperty` | No | Indicates that this property is used for inspection (discovery). | |
 
 **Note:** For security reasons, the `password` property of a CI cannot be modified.
 
