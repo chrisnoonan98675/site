@@ -9,7 +9,7 @@ tags:
 - remoting
 - satellite
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 The XL Deploy satellite module lets you to execute deployments on remote data centers. It includes:

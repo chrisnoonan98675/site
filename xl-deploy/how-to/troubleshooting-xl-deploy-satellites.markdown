@@ -11,7 +11,7 @@ tags:
 - configuration
 - troubleshooting
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 ## I configured a satellite in XL Deploy and started it, but I cannot ping it

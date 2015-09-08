@@ -11,7 +11,7 @@ tags:
 - configuration
 - system administration
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 ## Install the satellite

@@ -9,7 +9,7 @@ tags:
 - planning
 - step
 since:
-- 4.5.0
+- XL Deploy 4.5.0
 ---
 
 You can disable any rule that is registered in XL Deploy's rule registry, including rules that are:

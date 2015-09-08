@@ -9,7 +9,7 @@ tags:
 - security
 - property
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 In XL Deploy's [type system](/xl-deploy/concept/key-xl-deploy-concepts.html#type-system), any property defined as [`password="true"`](/xl-deploy/how-to/customizing-the-xl-deploy-type-system.html#synthetic-properties) is stored in the [repository](/xl-deploy/concept/the-xl-deploy-repository.html) in encrypted form (AES-256) and appears as `******` in the user interface. The `password="true"` setting usually applies to properties called "password", but you can define _any_ property as secure in this way.

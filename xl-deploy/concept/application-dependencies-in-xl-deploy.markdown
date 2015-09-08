@@ -11,7 +11,7 @@ tags:
 - dependency
 - microservices
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 XL Deploy allows you to define dependencies among different versions of different applications. When you set up the deployment of an application, XL Deploy automatically includes the correct versions of other applications that it depends on and ensures that they are deployed in the correct order.

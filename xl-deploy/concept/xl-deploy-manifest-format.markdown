@@ -9,7 +9,7 @@ tags:
 - application
 - manifest
 since:
-- 3.9.0
+- XL Deploy 3.9.0
 ---
 
 The manifest file included in a deployment package (DAR file) describes the contents of the archive for XL Deploy. When importing a package, the manifest is used to construct CIs in XL Deploy's repository based on the contents of the imported package. The format is based on XML.

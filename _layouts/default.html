@@ -70,41 +70,11 @@
 		<div class="col-sm-9">
 			<!-- If there is a since, deprecated, and/or removed version, show them -->
 			{% if page.since or page.deprecated or page.removed %}
-				<div class="offset9 span2 pull-right">
-					<div class="well well-sm">
-						{% if page.since %}
-							<p class="small no-para-spacing">Valid since: 
-								{% for product in site.data.products %}
-									{% if page.categories contains product.id %}
-											{{ product.name }} 
-									{% endif %}
-								{% endfor %}				
-								{% for item in page.since %}{{ item }}{% endfor %}</p>
-						{% endif %}
-						{% if page.deprecated %}
-							<p class="small no-para-spacing">Deprecated in: 
-								{% for product in site.data.products %}
-									{% if page.categories contains product.id %}
-											{{ product.name }} 
-									{% endif %}
-								{% endfor %}				
-								{% for item in page.deprecated %}{{ item }}{% endfor %}</p>
-						{% endif %}
-						{% if page.removed %}
-							<p class="small no-para-spacing">Removed in: 
-								{% for product in site.data.products %}
-									{% if page.categories contains product.id %}
-											{{ product.name }} 
-									{% endif %}
-								{% endfor %}				
-								{% for item in page.removed %}{{ item }}{% endfor %}</p>
-						{% endif %}
-					</div><!-- /.well well-sm -->
-				</div><!-- /.offset9 span2 pull-right -->
+				{% include since-deprecated-removed.html %}
 			{% endif %}
 			<!-- Page content -->
 			{{ content }}
-		</div>
+		</div><!-- /.col-sm-9 -->
 	</div><!-- /.row -->
 </div><!-- /.container -->
 

@@ -2,6 +2,8 @@
 title: Access dictionary values in Freemarker template
 categories: 
 - xl-deploy
+subject:
+- Rules
 tags:
 - rules
 - freemarker

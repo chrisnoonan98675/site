@@ -11,7 +11,7 @@ tags:
 - daemon
 - setup
 since:
-- 4.5.x
+- XL Deploy 4.5.x
 ---
 
 ## Linux approach 1: LSB `init` scripts

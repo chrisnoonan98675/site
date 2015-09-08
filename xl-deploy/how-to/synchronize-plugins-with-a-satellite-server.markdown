@@ -12,7 +12,7 @@ tags:
 - remoting
 - satellite
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 If you add, remove, or update an XL Deploy plugin or extension, you must synchronize XL Deploy with satellite servers before performing a deployment.

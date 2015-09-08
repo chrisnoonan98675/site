@@ -9,7 +9,7 @@ tags:
 - repository
 - infrastructure
 since:
-- 4.5.x
+- XL Deploy 4.5.x
 ---
 
 The XL Deploy Compare feature allows you to compare two or more configuration item (CI) trees. That means, in addition to comparing the chosen configuration items, it recursively traverses the CI tree and compares each CI from one tree with matching configuration items from other trees.

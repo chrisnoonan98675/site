@@ -10,7 +10,7 @@ tags:
 - planning
 - step
 since:
-- 4.5.0
+- XL Deploy 4.5.0
 ---
 
 An XML rule is fully specified using XML and has the following format in `xl-rules.xml`:

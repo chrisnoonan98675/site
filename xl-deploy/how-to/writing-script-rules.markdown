@@ -10,7 +10,7 @@ tags:
 - planning
 - step
 since:
-- 4.5.0
+- XL Deploy 4.5.0
 ---
 
 A script rule adds steps and checkpoints to a plan by running a Jython script that calculates which steps and checkpoints to add.

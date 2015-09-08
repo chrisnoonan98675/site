@@ -10,7 +10,7 @@ tags:
 - step
 - deployment
 since:
-- 4.5.0
+- XL Deploy 4.5.0
 ---
 
 XL Deploy allows you to create [rules](/xl-deploy/concept/getting-started-with-xl-deploy-rules.html) that define which steps should be included in a deployment plan. Each rule in the `xl-rules.xml` file defines a number of steps to add to the deployment plan, and the available *step primitives* determine what kind of steps can be used. A step primitive is a definition of a piece of functionality that XL Deploy may execute as part of the deployment plan.

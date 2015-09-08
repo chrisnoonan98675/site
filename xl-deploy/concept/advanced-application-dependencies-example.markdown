@@ -10,7 +10,7 @@ tags:
 - dependency
 - microservices
 since:
-- 5.1.0
+- XL Deploy 5.1.0
 ---
 
 This is an example of an advanced scenario with multiple applications that depend on one another.
