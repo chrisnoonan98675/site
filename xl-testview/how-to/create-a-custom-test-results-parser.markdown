@@ -235,3 +235,6 @@ This will log to a logger with the name of the test results parser.
 
 ## Dates
 All dates in events are the number milliseconds from 1970-01-01 00:00:00 UTC. The test parser is responsible for any conversions of timezones. Many test tools do not report time zones in the test result files, but keep in mind that it is dangerous to assume that the test system and the XL TestView system are in the same time zone.
+
+## Exceptions
+Several things might go wrong while parsing test results. See how to [handle exceptions in parsers](handle-exceptions-in-parsers) for an explanation of the available exceptions and their use.
