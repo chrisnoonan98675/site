@@ -6,7 +6,6 @@ subject:
 - Dashboards
 tags:
 - dashboard
-- report
 ---
 
 In XL TestView, you can add a new dashboard by copying an existing dashboard. To do so:

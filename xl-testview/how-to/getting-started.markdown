@@ -5,8 +5,6 @@ categories:
 subject:
 - Getting started
 tags:
-- test results
-- test tool
 - test specification
 - dashboard
 - report

@@ -6,7 +6,6 @@ subject:
 - Test results
 tags:
 - test result parsers
-- test results
 since:
 - 1.3.0
 ---

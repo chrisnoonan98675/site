@@ -5,11 +5,6 @@ categories:
 subject:
 - Qualifications
 tags:
-- report
-- script
-- python
-- json
-- freemarker
 - qualification
 ---
 

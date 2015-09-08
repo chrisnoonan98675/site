@@ -8,7 +8,6 @@ tags:
 - system administration
 - upgrade
 - installation
-- migration
 ---
 
 Briefly, the process of upgrading XL TestView is:

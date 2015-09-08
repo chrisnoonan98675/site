@@ -7,7 +7,6 @@ subject:
 tags:
 - test result parsers
 - events
-- test tool
 - extension
 - api
 since:

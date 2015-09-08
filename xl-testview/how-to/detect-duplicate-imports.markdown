@@ -5,7 +5,7 @@ categories:
 subject:
 - Test results
 tags:
-- test tool
+- import
 - extension
 - test result parsers
 - api

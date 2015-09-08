@@ -5,10 +5,9 @@ categories:
 subject:
 - Test results
 tags:
-- test tool
 - plugin
-- test results
 - test result parsers
+- import
 ---
 
 XL TestView supports the following test tools and test result formats:

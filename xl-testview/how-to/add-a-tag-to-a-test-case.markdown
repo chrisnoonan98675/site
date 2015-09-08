@@ -5,9 +5,9 @@ categories:
 subject:
 - Reports
 tags:
-- report
 - tag
 - filter
+- test case
 ---
 
 On the [flakiness report](/xl-testview/concept/reports.html#flakiness-overview) and on the [test case details screen](/xl-testview/how-to/view-test-case-details.html), you can add tags to or remove tags from specific runs of test cases.

@@ -6,7 +6,6 @@ subject:
 - Dashboards
 tags:
 - dashboard
-- report
 ---
 
 Before you can create a dashboard in XL TestView, you must have test specifications and reports configured.

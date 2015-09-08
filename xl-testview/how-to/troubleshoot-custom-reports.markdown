@@ -6,10 +6,7 @@ subject:
 - Reports
 tags:
 - report
-- script
-- python
-- json
-- freemarker
+- troubleshooting
 ---
 
 ## My report does not appear and I see errors in the browser console

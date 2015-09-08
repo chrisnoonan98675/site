@@ -8,9 +8,9 @@ tags:
 - system administration
 - installation
 - configuration
+since:
+- 1.3.0
 ---
-
-## Configuring the XL TestView server
 
 Depending on the version of XL TestView the configuration is different.
 
@@ -18,7 +18,7 @@ Configuration for older versions:
 
 * [XL TestView 1.2.x](/xl-testview/1.2.x/configuration.html)
 
-### Configuring JVM settings
+## Configuring JVM settings
 
 Configuration can be done by:
 
@@ -41,15 +41,15 @@ An example for a `/etc/sysconfig/xl-testview` or `/etc/default/xl-testview` file
 
     export XLT_SERVER_MEM_OPTS="-Xmx4096m -XX:MaxPermSize=256m"
 
-### Configuring XL TestView 1.3.x
+## Configuring XL TestView 1.3.x
 
 Starting with XL TestView 1.3.x configuration is now done via a configuration file: `<XLTESTVIEW_HOME>/conf/xl-testview.conf`. The format of this file is HOCON, refer to [https://github.com/typesafehub/config/blob/master/HOCON.md](https://github.com/typesafehub/config/blob/master/HOCON.md) for syntax.
 
-#### LDAP
+### LDAP
 
 LDAP configuration is described in more detail in: [Configure LDAP authentication for XL TestView](/xl-testview/how-to/configure-ldap.html).
 
-#### Example configuration file
+### Example configuration file
 
 This is the default configuration file.
 

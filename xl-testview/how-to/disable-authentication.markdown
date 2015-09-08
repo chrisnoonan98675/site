@@ -8,6 +8,7 @@ tags:
 - system administration
 - installation
 - authentication
+- ldap
 since:
 - 1.3.0
 ---

@@ -6,7 +6,6 @@ subject:
 - Dashboards
 tags:
 - dashboard
-- report
 ---
 
 To edit a dashboard in XL TestView:

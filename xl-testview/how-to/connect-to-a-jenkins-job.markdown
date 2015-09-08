@@ -6,11 +6,10 @@ subject:
 - Jenkins
 tags:
 - jenkins
-- test results
 - import
 ---
 
-XL TestView provides a jenkins plugin that will send the results of a jenkins build automatically to XL TestView. This article describes how to install and configure the XL TestView Jenkins plugin.
+XL TestView provides a Jenkins plugin that will send the results of a Jenkins build automatically to XL TestView. This article describes how to install and configure the XL TestView Jenkins plugin.
 
 ## Step 1 Install the XL TestView plugin
 

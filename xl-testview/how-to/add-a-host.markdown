@@ -6,8 +6,6 @@ subject:
 - Test specifications
 tags:
 - host
-- ssh
-- cifs
 ---
 
 A host provides a a generic mechanism to connect to local or remote machines and:

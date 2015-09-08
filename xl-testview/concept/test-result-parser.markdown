@@ -7,7 +7,6 @@ subject:
 tags:
 - test result parsers
 - plugin
-- test results
 - events
 ---
 

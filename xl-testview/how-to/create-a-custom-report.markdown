@@ -6,10 +6,6 @@ subject:
 - Reports
 tags:
 - report
-- script
-- python
-- json
-- freemarker
 ---
 
 XL TestView generates reports using:

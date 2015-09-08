@@ -6,10 +6,6 @@ subject:
 - Reports
 tags:
 - report
-- script
-- python
-- highcharts
-- json
 ---
 
 For reports based on [Highcharts](http://www.highcharts.com/), XL TestView uses Python scripts. You can use the [demos provided by Highcharts](http://www.highcharts.com/demo) as a basis for Python scripts for custom XL TestView reports.

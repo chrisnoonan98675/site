@@ -5,8 +5,6 @@ categories:
 subject:
 - Architecture
 tags:
-- test results
-- test tool
 - test specification
 - dashboard
 - report
