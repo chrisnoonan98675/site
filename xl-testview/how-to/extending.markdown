@@ -11,9 +11,19 @@ since:
 - 1.3.x
 ---
 
+XL TestView can be extended in multiple ways:
+
+* By adding [test result parsers](/xl-testview/how-to/create-a-custom-test-results-parser.html) that import data from test tools not supported by default
+* By adding [reports](/xl-testview/how-to/create-a-custom-report.html) to display the information of your interest
+* By adding [qualifications](/xl-testview/how-to/create-a-custom-qualification.html) to make automated go/no go decisions based on test results
+
 XL TestView includes the following interfaces for extending its functionality:
 
-* [XL TestView REST API reference](https://docs.xebialabs.com/generated/xl-testview/1.3.x/rest-api/)
-* [XL TestView Jython API reference](https://docs.xebialabs.com/jython-docs/#!/xl-testview/1.3.x)
-* [XL TestView UDM configuration item (CI) reference](https://docs.xebialabs.com/generated/xl-testview/1.3.x)
-* [XL TestView Javadoc](https://docs.xebialabs.com/generated/xl-testview/1.3.x/javadoc)
+To interact with XL TestView from other tools, refer to the [XL TestView REST API reference](/xl-testview/latest/rest-api/index.html).
+
+To extend XL TestView with custom test result parsers consult the [XL TestView Jython API reference](/xl-testview/latest/jython-api/index.html).
+
+Additional information:
+
+* [XL TestView UDM configuration item (CI) reference](/xl-testview/latest/ci-reference/index.html)
+* [XL TestView Javadoc](/xl-testview/latest/javadoc/index.html)
