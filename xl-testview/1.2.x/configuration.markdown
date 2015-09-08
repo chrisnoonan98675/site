@@ -1,13 +1,6 @@
 ---
 title: Configure XL TestView 1.2.x
-categories:
-- xl-testview
-tags:
-- system administration
-- installation
 ---
-
-## Configuration of XL TestView 1.2.x
 
 Configuration can be done by:
 
