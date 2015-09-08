@@ -39,6 +39,7 @@ Ensure that you always create a backup of your repository before you upgrade to 
 If a repository upgrade is required, XL TestView will detect that it is running against an old repository and will automatically execute an upgrade when it is first started. The server log will contain extensive logging of the repository upgrade process. Save this log for future reference.
 
 ## Upgrade logging
+
 After running upgrades (using the `-upgrade` flag or `-force-upgrades` flag), all logging that happens during an upgrade step is written into `upgrade.log`
 
 Some upgrades may take a while to complete (especially when going through the event model which is persisted in Elastic Search). The more test runs you have the more events there are to update. Upgrade progress is also logged in the `upgrade.log`. 
@@ -69,7 +70,7 @@ To upgrade an XL TestView server installation:
 
 1. Copy the contents of the `plugins` directory from the previous installation to the new installation directory (unless new versions of your plugins were provided with the new XL TestView version).
 
-    **Tip:** Check the [upgrade manual](/xl-testview/latest/releasemanual.html) for information about plugin incompatibility.
+    **Tip:** Check the [release manual](/xl-testview/latest/releasemanual.html) for information about plugin incompatibility.
 
 1. Copy the contents of the `ext` directory from the previous installation to the new installation directory.
 
@@ -77,7 +78,7 @@ To upgrade an XL TestView server installation:
 
 1. If you added libraries to XL TestView's `lib` directory (such as database drivers), copy the additional libraries from the previous installation to the new installation directory.
 
-1. On unix based operating systems review `/etc/sysconfig/xl-testview` and/or `/etc/default/xl-testview` for changes in configuration settings. See also the [upgrade manual](/xl-testview/latest/releasemanual.html).
+1. On unix based operating systems review `/etc/sysconfig/xl-testview` and/or `/etc/default/xl-testview` for changes in configuration settings. See also the [release manual](/xl-testview/latest/releasemanual.html).
 
 1. If you have made any changes to the XL TestView server startup scripts in the `bin` directory, manually re-do these changes in the new installation directory.
 
