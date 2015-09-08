@@ -22,7 +22,7 @@ To install the XL Deploy server, you must meet the following requirements:
     * If you have a customer log-in, you can download your license from [https://dist.xebialabs.com](https://dist.xebialabs.com)
     * If you are using [XL Deploy Community Edition](https://xebialabs.com/products/xl-deploy/community/), you will automatically receive a license after you [install](/xl-deploy/how-to/install-xl-deploy.html#install-xl-deploy-using-the-installer) and register XL Deploy
 * **Operating system**: Microsoft Windows (32-bit or 64-bit) or a Unix-family operating system running Java
-* **Java Runtime Environment**: Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
+* **Java Runtime Environment**: Java Development Kit (JDK) 7 or 8 (Oracle, IBM, or Apple)
 * **RAM**: At least 2 GB of RAM available for XL Deploy
 * **Hard disk space**: Sufficient hard disk space to store the XL Deploy repository; see [Determining hard disk space requirements](#determining-hard-disk-space-requirements)
 
@@ -117,4 +117,4 @@ To use the XL Deploy GUI, you must meet the following requirements:
 To use the XL Deploy CLI, you must meet the following requirements:
 
 * **Operating system**: Microsoft Windows or Unix-family operating system running Java
-* **Java Runtime Environment**: Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
+* **Java Runtime Environment**: Java Development Kit (JDK) 7 or 8 (Oracle, IBM, or Apple)
