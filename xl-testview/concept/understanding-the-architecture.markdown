@@ -17,7 +17,7 @@ Plugins add capabilities to XL TestView and may be delivered by XebiaLabs or cus
 
 ## Events
 
-Test results are stored in the database of XL TestView. In XL TestView a single test result is called an [Event](events.html).
+Test results are stored in the database of XL TestView. In XL TestView a single test result is called an [Event](/xl-testview/concept/events.html).
 Examples of these events include the result of the execution of a single test case (the most granular level) and the start of an import of a test specification.
 
 XL TestView uses a central, scalable data storage solution as a repository to store these events.
@@ -34,12 +34,12 @@ At runtime, multiple plugins will be active at the same time. It is up to the XL
 
 Plugins can be used to extend XL TestView in the following ways:
 
-- Report - configuration items (CIs) that represent a report.
+- Reports - items that represent a report.
   
   See [create a custom report in XL TestView](/xl-testview/how-to/create-a-custom-report.html).
 - Qualifications - define if test specification results are either passed or failed, based on a (pre-)defined qualifier.
 
   See [create a custom qualification](/xl-testview/how-to/create-a-custom-qualification.html).
-- Test tool configuration - CIs that represent a test tool or family of test tools representing the same test result format.
+- Test tool configuration - items that represent a test tool or family of test tools producing the same test result format.
 
   See [create a custom test result parser](/xl-testview/how-to/create-a-custom-test-results-parser.html).
