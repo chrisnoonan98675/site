@@ -40,7 +40,7 @@ You can base your custom test results parser on one of the default test result p
 | `jmeter_csv.py` | JMeter | Performance | CSV |
 | `jmeter_xml.py` | JMeter | Performance | XML |
 
-The implementations can be found in the test tools plugin: `plugins/oss-testtools-plugin-x.y.z.jar`.
+The implementations can be found in the test tools plugin: `plugins/testtools-plugin-x.y.z.jar`.
 
 ## Determine test result type
 
