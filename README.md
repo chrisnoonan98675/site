@@ -148,9 +148,9 @@ To mark a paragraph, sentence, or table cell as "beta", add the following inline
 
 # Drafts
 
-You can store drafts, images, samples, etc. in `_drafts`. Markdown and AsciiDoc files stored in `_drafts` are never converted to HTML.
+Although draft versions can be put in a `_drafts` folder, it is prefered to use branching instead.
 
-The `_drafts` folder also contains the *documentation template*.
+The `_drafts` folder does contain the *documentation template*.
 
 # Things to know about formatting
 
@@ -252,6 +252,8 @@ To see the tags and subjects that are already in use, visit [https://docs.xebial
 See `_redirects.yml` for a complete list of the redirects that are available.
 
 **Note:** At this time, there is no "latest" link for the Jython API documentation.
+
+**Note also:** If you use absolute URL's, you can check the links from the comfort of your local work environment.
 
 # Development Dashboard
 
