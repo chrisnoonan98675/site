@@ -44,12 +44,10 @@ You can add reports to *dashboards* for a quick visual overview of test results.
 
 A *qualification* is XL TestView's determination of whether a particular test run passed or failed, based on a configurable analysis of the test results. You can create [your own qualifications](/xl-testview/how-to/create-a-custom-qualification.html), and they can be applied to all test specifications, even those that group results from multiple test tools. This allows XL TestView to seamlessly integrate with a continuous delivery pipeline.
 
-## Plugins
-
-XL TestView integrates with your test tools through *plugins* that search for test results and import results into XL TestView. You can create a [custom plugin](/xl-testview/how-to/create-a-custom-test-results-parser.html) if your prefered test tool is not supported by XL TestView out of the box.
-
 ## Test result parsers
 Test result parsers are small programs that interpret the results of test tools. Several parsers are provided out of the box, and additional parsers can be written. See [Test result parser](xl-testview/concept/test-result-parser.html). 
+
+XL TestView integrates with your test tools through *plugins* that search for test results and import results into XL TestView. You can create a [custom plugin](/xl-testview/how-to/create-a-custom-test-results-parser.html) if your prefered test tool is not supported by XL TestView out of the box.
 
 ## Test tools
 Test tools are the programs used to test software, such as JUnit, FitNesse or Gatling. XL TestView interprets their results.

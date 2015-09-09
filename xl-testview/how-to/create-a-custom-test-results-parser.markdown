@@ -14,7 +14,7 @@ since:
 
 By default, XL TestView supports [a number of test tools](/xl-testview/concept/supported-test-tools-and-test-result-formats.html). XL TestView also allows you to write custom test result parsers so you can integrate with tools that are not supported by default. A test results parser is a program that parses several test result files and produces test results in a format that XL TestView can store in its database. You can write parsers in Python or Java.
 
-This topic explains the steps required to create your own test result parser. The examples in this topic assume a Python-based parser.
+This topic explains the steps required to create your own test result parser. The examples in this topic assume a Python-based parser, which is considered the prefered way of creating new test result parsers. Some knowlegde on XL TestView's [key concepts](/xl-testview/concept/key-concepts.html) and [architecture](/xl-testview/concept/understanding-the-architecture.html) are required to understand this topic.
 
 {% comment %} TODO: Insert plug here for possible cooperation with XebiaLabs to sell support? (like, we can help you with building a plugin for X money?) {% endcomment %}
 
@@ -39,6 +39,8 @@ You can base your custom test results parser on one of the default test result p
 | `gatling.py` | Gatling | Performance | CSV and JSON |
 | `jmeter_csv.py` | JMeter | Performance | CSV |
 | `jmeter_xml.py` | JMeter | Performance | XML |
+
+The implementations can be found in the test tools plugin: `plugins/oss-testtools-plugin-x.y.z.jar`.
 
 ## Determine test result type
 
@@ -90,13 +92,13 @@ XL TestView uses the same type system as XL Deploy, although only the properties
 
 ## Write an implementation of the test results parser
 
-Using the search pattern from the test tool configuration, the test results files to be imported will be assembled into one list and fed to the test results parser. The output of the parser is a collection of test runs. Each test run is a collection of [test results](/xl-testview/concept/events.html).
+Using the search pattern from the test tool configuration, the test results files to be imported will be assembled into one list and fed to the test results parser. The output of the parser is a collection of test runs. Each test run is a collection of test [test results](/xl-testview/concept/events.html). Test results are instances of the Java class [`com.xebialabs.xlt.plugin.api.testrun.Event`](/xl-testview/latest/javadoc/Event.html).
 
 In pseudocode, this looks like:
 
     TestResultParser(files) -> [ [ test result 1, test result 2, ... ], ... ]
 
-In many cases, all test results that can be found belong to one test run. For example, this is the case for JUnit and Cucumber. One *run* of the test tool generates results, and all of these results belong to a test run.
+In many cases, all test results that can be found belong to one test run. For example, this is the case for JUnit and Cucumber. One *run* of the test tool generates results, and all of these results belong to the same test run.
 
 Other tools, such as Gatling and FitNesse, build up a *history* of test runs. This means that every *run* of the tool adds test result data, instead of replacing it with new data. This implies that the test results parser will receive the latest and all previous test run data. The parser must deal with this case by identifying runs that have already been imported.
 
@@ -105,7 +107,7 @@ In addition to `files`, the following variables are used to communicate with the
 {:.table .table-striped}
 | Attribute | Description |
 | --------- | ----------- |
-| `files` | The files found in the `workingDirectory` based on a search pattern provided in the test tool configuration. |
+| `files` | The files found in the `working_directory` based on a search pattern provided in the test tool configuration. |
 | `working_directory` | Directory there the test results are stored. |
 | `test_specification` | The test specification that will own the test run. |
 | `test_run_historian` | This service can inform the script if results have already been imported. |
@@ -173,8 +175,8 @@ events = do_something_with_files(files)
 result_holder.result = events
 {% endhighlight %}
 	
-#### XUnit variants
-XUnit is a loose format for test results used by a lot of tools. XL TestView offers several utilities to help parsing these variants.
+#### JUnit variants
+JUnit has a loose format for test results used by a lot of tools. XL TestView offers several utilities to help parsing these variants.
 
 The `parser.xunit` Python module contains useful functions for processing functional test tool results and ensuring that test results are structured in a way that XL TestView accepts. For example, `parse_last_modified` takes a list of files and extracts the timestamp from `xunit` test result files.
 
