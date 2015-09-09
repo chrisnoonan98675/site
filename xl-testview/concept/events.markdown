@@ -72,7 +72,10 @@ All events should have the following required properties:
 
 ### `importFinished` event properties
 
-`importFinished` has no properties apart from the required ones.
+{:.table .table-striped}
+| Key | Value type | Mandatory | Description | 
+| --- | ---------- | --------- | ----------- |
+| `@duration` | Integer | &#x2714; | The total duration of a run |
 
 ### `functionalResult` event properties
 
