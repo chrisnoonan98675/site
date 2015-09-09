@@ -16,6 +16,7 @@ module Jekyll
                                 site.pages.map do |page|
                                         @@url_to_page[page.url] = page
                                 end
+                                puts "Rebuilt breadcrumbs cache."
                         end
 
                         url = self.url
