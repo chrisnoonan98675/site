@@ -8,6 +8,8 @@ tags:
 - system administration
 - test result parsers
 - extension
+since:
+- 1.3.0
 ---
 
 By default, XL TestView supports [a number of test tools](/xl-testview/concept/supported-test-tools-and-test-result-formats.html). XL TestView also allows you to write custom test result parsers so you can integrate with tools that are not supported by default. A test results parser is a program that parses several test result files and produces test results in a format that XL TestView can store in its database. You can write parsers in Python or Java.
@@ -52,24 +54,23 @@ If the tool you wish to support is not performance-related, you should choose th
 
 First, you must define a new test tool configuration in the `ext/synthetic.xml` file. For example:
 
-{% highlight xml %}
-
-    <type type="custom.MyTestToolConfiguration"
-          extends="xlt.TestToolConfiguration"
-          label="My custom tool">
-        <property name="category" default="functional"/>
+{% highlight xml linenos=table %}
+<type type="custom.MyTestToolConfiguration"
+      extends="xlt.TestToolConfiguration"
+      label="My custom tool">
+    <property name="category" default="functional"/>
     
-        <property name="defaultSearchPattern" default=""/>
+    <property name="defaultSearchPattern" default=""/>
     
-        <!-- optional, default is python -->
-        <property name="language" default="python"/>
+    <!-- optional, default is python -->
+    <property name="language" default="python"/>
     
-        <!-- optional, only used when language is python -->
-        <property name="scriptLocation" default="custom-script.py"/>
+    <!-- optional, only used when language is python -->
+    <property name="scriptLocation" default="custom-script.py"/>
     
-        <!-- optional, only used when language is java -->
-        <property name="className" default="com.mycompany.xltestview.testtools.mytesttool.MyTestToolParser"/>
-    </type>
+    <!-- optional, only used when language is java -->
+    <property name="className" default="com.mycompany.xltestview.testtools.mytesttool.MyTestToolParser"/>
+</type>
 {% endhighlight %}
 
 The properties that are available are:
@@ -110,6 +111,7 @@ In addition to `files`, the following variables are used to communicate with the
 | `test_run_historian` | This service can inform the script if results have already been imported. |
 | `logger` | An SLF4J logger you can use to log information in greater detail. |
 | `result_holder` | Callback object to return the calculated results|
+
 For usage of the `test_run_historian`, see [detecting duplicate imports](/xl-testview/how-to/detect-duplicate-imports.html).
 
 ### Writing a functional test results parser
