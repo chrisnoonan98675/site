@@ -36,10 +36,10 @@ Plugins can be used to extend XL TestView in the following ways:
 
 - Reports - items that represent a report.
   
-  See [create a custom report in XL TestView](/xl-testview/how-to/create-a-custom-report.html).
+  See: [Create a custom report in XL TestView](/xl-testview/how-to/create-a-custom-report.html).
 - Qualifications - define if test specification results are either passed or failed, based on a (pre-)defined qualifier.
 
-  See [create a custom qualification](/xl-testview/how-to/create-a-custom-qualification.html).
-- Test tool configuration - items that represent a test tool or family of test tools producing the same test result format.
+  See: [Create a custom qualification](/xl-testview/how-to/create-a-custom-qualification.html).
+- Test result parsers - scripts that process the test results produced by a test tool.
 
-  See [create a custom test result parser](/xl-testview/how-to/create-a-custom-test-results-parser.html).
+  See: [Create a custom test result parser](/xl-testview/how-to/create-a-custom-test-results-parser.html).
