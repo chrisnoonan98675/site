@@ -25,4 +25,4 @@ If the connection check succeeds, XL Deploy will return five ping values and the
 
 ![Ping results](images/ping-a-satellite-result.png)
 
-If the connection check fails, refer to the [information on troubleshooting](/xl-deploy/how-to/troubleshoot-with-satellite.html).
+If the connection check fails, refer to the [information on troubleshooting](/xl-deploy/how-to/troubleshooting-xl-deploy-satellites.html).
