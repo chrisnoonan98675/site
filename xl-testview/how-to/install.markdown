@@ -17,7 +17,7 @@ The XL TestView server requires:
 
 * Microsoft Windows or Unix-family operating system
 * Java Development Kit (JDK). Version 1.7 and 1.8 are supported for Oracle and IBM. Version 1.7 is supported for OpenJDK.
-* At least 1 GB of RAM available for XL TestView for version 1.2.x, at least 2GB of RAM for XL TestView 1.3.x.
+* At least 1 GB of RAM available for XL TestView.
 * At least 1 GB of hard disk space available for XL TestView and the database (the exact amount of space required depends on your usage of XL TestView)
 
 Note that:
