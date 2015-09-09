@@ -83,16 +83,16 @@ The properties that are available are:
 | `type` | Yes | N/A | A unique value that identifies the tool. It is recommended that you prefix the value; for example, XL TestView prefixes tools with `xlt`, as in `xlt.SurefireJUnit`. The prefixes `xlt`, `udm` and `overthere` are used by XL TestView and should not be used by custom tools. <br /><br />Be aware that there is a distinction between the *format* that a test tool should produce and the *report generator* of the build tool that you are using. For example, if you are generating JUnit test results, the way the test results file looks depends on your build tool (Maven, Gradle, Ant) and its *generator* (such as Surefire). It is recommended that you indicate these distinctions when creating the type name. |
 | `category` | Yes | N/A | Specifies the type of test results that are generated. Valid values are `functional` (results related to test cases, scenarios, and so on) and `performance` (results related to performance tests, derived from summarized data) |
 | `label` | Yes | N/A | A unique, user-friendly name for the test tool. |
-| `defaultSearchPattern` | Yes | N/A | An [Ant](http://ant.apache.org/)-style pattern to select relevant test result files. For example: `**/test-results/TEST*.xml` selects all files starting with `TEST` and ending with `.xml` that are in a `test-results` directory, which can be at any depth in the file tree. |
-| `scriptLocation` | Yes, if `language` is `python` or is not specified | N/A | Location of the Python script that parses test results. |
+| `defaultSearchPattern` | Yes | N/A | An [Ant](http://ant.apache.org/)-style pattern to select relevant test result files. For example: `**/test-results/TEST*.xml` selects all files starting with `TEST` and ending with `.xml` that are in a `test-results` directory, which can be at any depth in the file tree. Multiple patterns may be specified separated with a `','`. This implies that you cannot match on `','` in files.|
 | `language` | Yes | `python` | Defines the language in which the parser is written. Valid values are `python` and `java`. |
+| `scriptLocation` | Yes, if `language` is `python` or the language is not specified | N/A | Location of the Python script that parses test results. |
 | `className` | Yes, if `language` is `java` | N/A | Defines the location of the parser (only applies if `language` is `java`). |
 
 XL TestView uses the same type system as XL Deploy, although only the properties above are used for test tools. For more information about the type system, refer to [Understanding XL Deploy rules](/xl-deploy/how-to/customize-an-existing-ci-type.html).
 
 ## Write an implementation of the test results parser
 
-Using the search pattern from the test tool configuration, the test results files to be imported will be assembled into one list and fed to the test results parser. The output of the parser is a collection of test runs. Each test run is a collection of test [test results](/xl-testview/concept/events.html). Test results are instances of the Java class [`com.xebialabs.xlt.plugin.api.testrun.Event`](/xl-testview/latest/javadoc/Event.html).
+Using the search pattern from the test tool configuration, the test results files to be imported will be assembled into one list and fed to the test results parser. The output of the parser is a collection of test runs. Each test run is a collection of [test results](/xl-testview/concept/events.html). Test results are instances of the Java class [`com.xebialabs.xlt.plugin.api.testrun.Event`](/xl-testview/latest/javadoc/Event.html).
 
 In pseudocode, this looks like:
 
@@ -100,7 +100,7 @@ In pseudocode, this looks like:
 
 In many cases, all test results that can be found belong to one test run. For example, this is the case for JUnit and Cucumber. One *run* of the test tool generates results, and all of these results belong to the same test run.
 
-Other tools, such as Gatling and FitNesse, build up a *history* of test runs. This means that every *run* of the tool adds test result data, instead of replacing it with new data. This implies that the test results parser will receive the latest and all previous test run data. The parser must deal with this case by identifying runs that have already been imported.
+Other tools, such as Gatling and FitNesse, build up a *history* of test runs. This means that every *run* of the tool adds test result data, instead of replacing it with new data. This implies that the test results parser will receive the latest and all previous test run data. The parser must deal with this case by identifying runs that have already been imported. See [detecting duplicate imports](/xl-testview/how-to/detect-duplicate-imports.html) for details on how to deal with this.
 
 In addition to `files`, the following variables are used to communicate with the rest of the system:
 
