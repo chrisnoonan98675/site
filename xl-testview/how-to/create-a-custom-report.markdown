@@ -11,7 +11,7 @@ tags:
 XL TestView generates reports using:
 
 * Python scripts for reports based on [Highcharts](http://www.highcharts.com/)
-* FreeMarker scripts for reports based on HTML 
+* Python or FreeMarker scripts for reports based on HTML 
 
 The easiest way to create a custom XL TestView report is to copy a built-in report. This topic shows how to create a custom Highcharts report based on the built-in [bar chart](/xl-testview/concept/reports.html#bar-chart) report.
 
@@ -49,7 +49,8 @@ First, add a custom report type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
 </type>
 {% endhighlight %}
 
-1. Save `synthetic.xml` and [restart](/xl-testview/how-to/start.html) XL TestView. All changes made to `synthetic.xml` require you to restart.
+1. Save `synthetic.xml` and [restart](/xl-testview/how-to/start.html) XL TestView.
+1. All changes made to `synthetic.xml` require you to restart.
 1. To verify that your changes took effect, click **Projects** in the top menu and select the demo project. Next to *functionalTestsComponentA*, click **Show report**. It should show the *My Bar Chart* report:
 
     ![Report list with new custom report](images/report-list-with-custom-report.png)
@@ -58,7 +59,7 @@ First, add a custom report type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
 
 Next, copy `<XLTESTVIEW_HOME>/plugins/demo/reports/BarChart.py` to `<XLTESTVIEW_HOME>/ext/reports/MyBarChart.py`. You do not need to restart XL TestView after changing the script.
 
-The Python script ends with `resultHolder.setResult( <json> )`. This is because Highcharts expects a JSON structure, so that is the output of the report script. The JSON structure is created as a Python dictionary.
+The Python script ends with `result_holder.result = <json>`. This is because Highcharts expects a JSON structure, so that is the output of the report script. The JSON structure is created as a Python dictionary.
 
 Refer to the [Highcharts API](http://api.highcharts.com/highcharts) to see the options that are available for configuration.
 
@@ -82,9 +83,9 @@ This example shows how you can change the color of the bars in the bar chart. To
     },
 {% endhighlight %}
 
-**Note:** This structure looks similar to JSON, but because this is a Python script, it is actually a `Dictionary` (or `Map` in other languages). This means that the keys should be surrounded by single quotation marks (`'`). If you copy examples from a Highcharts demo, you must adjust the keys accordingly. For an extended example, refer to [Create a custom report using Highcharts demos](/xl-testview/how-to/create-a-custom-report-using-highcharts-demos.html).
+**Note:** This structure looks similar to JSON, but because this is a Python script, it is actually a `Dictionary` (or `Map` in other languages). This means that the keys should be surrounded by quotation marks (`'` or `"`). If you copy examples from a Highcharts demo, you must adjust the keys accordingly. For an extended example, refer to [Create a custom report using Highcharts demos](/xl-testview/how-to/create-a-custom-report-using-highcharts-demos.html).
 
-To see your changes in effect, open the `My Bar Chart` report for `demoFitnesse`.
+To see your changes in effect, open the `My Bar Chart` report for one of the sample test specifications.
 
 This is the original bar chart:
 

@@ -33,4 +33,4 @@ Change the attribute `default` to a property of events you want to show. For exa
         <property name="extraColumns" kind="list_of_string" default="artifactHash"/>
     </type-modification>
     
-This name is case-sensitive and should appear exactly as it does in the test events.
+This name is case-sensitive and should appear exactly as it does in the test events. Multiple names can be provided, separated by comma's (",").

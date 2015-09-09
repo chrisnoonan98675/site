@@ -10,7 +10,7 @@ tags:
 - project
 ---
 
-You can import results from past test executions into XL TestView. This will automatically create an *active* test specification for you.
+You can import results from past test executions into XL TestView. The import wizard will guide you through the process.
 
 To import results into XL TestView, click **Get started** on the welcome screen or click **Import** in the top menu bar.
 

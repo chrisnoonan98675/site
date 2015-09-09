@@ -8,7 +8,7 @@ tags:
 - report
 ---
 
-For reports based on [Highcharts](http://www.highcharts.com/), XL TestView uses Python scripts. You can use the [demos provided by Highcharts](http://www.highcharts.com/demo) as a basis for Python scripts for custom XL TestView reports.
+For reports based on the [Highcharts](http://www.highcharts.com/) charting library, XL TestView uses Python scripts. You can use the [demos provided by Highcharts](http://www.highcharts.com/demo) as a basis for Python scripts for custom XL TestView reports.
 
 Click **View Options** when viewing a Highcharts demo to get sample code in JSON. Copy this sample code to the Python script and add single quotation marks around all keys.
 

@@ -43,7 +43,8 @@ A test result parser will always produce a list of events, called a run. A run h
 
 XL TestView sets these properties on all events. Reports can read them, but test results parsers do not use them.
 
-For each event, XL TestView makes sure the following properties are set ()
+For each event, XL TestView makes sure the following properties are set:
+
 {:.table .table-striped}
 | Key | Value type | Mandatory | Description | 
 | --- | ---------- | --------- | ----------- |

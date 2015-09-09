@@ -21,3 +21,5 @@ You can add more tags to the filter by entering them in the box. This report is 
 ![Sample report filtered by two tags](images/tag-filtered-report-two-tags.png)
 
 To remove a tag from the filter, click the X next to the tag.
+
+Some reports, such as the [flakiness report](/xl-testview/concept/reports.html#flakiness-overview) and the [test case details](/xl-testview/how-to/view-test-case-details.html) allow you to [add tags yourself](/xl-testview/how-to/add-a-tag-to-a-test-case.html).
