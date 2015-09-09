@@ -48,7 +48,7 @@ XL TestView supports functional and performance test results.
 
 Functional test results have a *result*, such as *passed*, *failed*, or any other result you want to support. They refer to a single *test case* or, in the case of feature-based test tools such as Cucumber, a *scenario*.
 
-Performance test results are summaries of the performance results from tests. 
+Performance test results are summaries of the performance results from tests.
 
 If the tool you wish to support is not performance-related, you should choose the functional test tool.
 
@@ -61,15 +61,15 @@ First, you must define a new test tool configuration in the `ext/synthetic.xml` 
       extends="xlt.TestToolConfiguration"
       label="My custom tool">
     <property name="category" default="functional"/>
-    
+
     <property name="defaultSearchPattern" default=""/>
-    
+
     <!-- optional, default is python -->
     <property name="language" default="python"/>
-    
+
     <!-- optional, only used when language is python -->
     <property name="scriptLocation" default="custom-script.py"/>
-    
+
     <!-- optional, only used when language is java -->
     <property name="className" default="com.mycompany.xltestview.testtools.mytesttool.MyTestToolParser"/>
 </type>
@@ -174,7 +174,7 @@ As explained in the previous section, the `files` parameter provides the files t
 events = do_something_with_files(files)
 result_holder.result = events
 {% endhighlight %}
-	
+
 #### JUnit variants
 JUnit has a loose format for test results used by a lot of tools. XL TestView offers several utilities to help parsing these variants.
 
@@ -192,40 +192,40 @@ This indicates that you can override the behavior to extract the last modified d
 def extract_last_modified(file):
     root = ET.parse(file.getPath()).getroot()
     timestamp = root.attrib["timestamp"]
-    return int(((datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%S") - 
+    return int(((datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%S") -
         datetime(1970,1,1)).total_seconds() * 1000))
 {% endhighlight %}
 
-This helps you see what the *method signature* and the *return value* should be. 
+This helps you see what the *method signature* and the *return value* should be.
 
 #### Example: Changing default behavior for `xunit` importer
 
-Assume you have test result files from an `xunit` tool in which the date/time format is different from usual. To write a test results parser for this, you need to override the default `extract_last_modified` function. 
+Assume you have test result files from an `xunit` tool in which the date/time format is different from usual. To write a test results parser for this, you need to override the default `extract_last_modified` function.
 
 Start by copying `junit.py` and adding the function that extracts the date/time properly. The script will look like:
-	
+
 {% highlight python %}
 from parser.xunit import validate_files, parse_last_modified, parse_junit_test_results
-	
+
 # our own version to extract date
 def extract_last_modified_date_only(file):
     root = ET.parse(file.getPath()).getroot()
     timestamp = root.attrib["timestamp"]
     # my file format only has dates and no time!
     return int(((datetime.strptime(timestamp, "%Y-%m-%dT") - datetime(1970,1,1)).total_seconds() * 1000))
-    
+
 validate_files(files)
-	
+
 # here we pass it to the parse_last_modified function
 last_modified = parse_last_modified(files, extract_last_modified=extract_last_modified_date_only)
-	
+
 if not test_run_historian.isKnownKey(str(last_modified)):
     events = parse_junit_test_results(testRunId, files, last_modified)
 else:
     events = None
-	
+
 # Result holder should contain a list of test runs. A test run is a list of events
-	
+
 result_holder.result = [events] if events else []
 {% endhighlight %}
 
