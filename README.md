@@ -7,7 +7,6 @@ online-docs-jekyll
 1. Install Jekyll 2.x and its requirements:
     * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/)
     * Windows users, follow [these instructions](http://jekyll-windows.juthilo.com/) (you can skip step #3 there)
-1. Install [Asciidoctor](http://asciidoctor.org/docs/install-toolchain/).
 1. In the directory where you cloned the repository, execute `jekyll serve` or `jekyll serve --watch` (for [watch mode](http://jekyllrb.com/docs/usage/)). Go to `http://localhost:4000` to see the site running locally.
 
 Tips:
@@ -224,10 +223,6 @@ This prevents "Upgrading to XL Deploy 4.5.0" from being rendered as a heading.
 
 HTML anchors are automatically created for headings (h1, h2, h3, etc.).
 
-## AsciiDoc
-
-You can use [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/) instead of Markdown to format files. AsciiDoc support is provided by [a Jekyll plugin](https://github.com/asciidoctor/jekyll-asciidoc). If you use it, please carefully review the way that Jekyll renders the HTML file.
-
 # Tags and subjects
 
 To see the tags and subjects that are already in use, visit [https://docs.xebialabs.com/tags-and-subjects.html](https://docs.xebialabs.com/tags-and-subjects.html).
@@ -313,7 +308,6 @@ Save drafts of pages in `_drafts`. Drafts are never converted to HTML.
 | Plugin file name | Description | Source | License |
 | ---------------- | ----------- | ------ | ------- |
 | `breadcrumbs.rb` | Creates dynamic breadcrumbs on pages | [Source](http://biosphere.cc/software-engineering/jekyll-breadcrumbs-navigation-plugin/) | None |
-| `asciidoc_plugin.rb` | Enables Jekyll to interpret Asciidoc files | [Source](https://github.com/asciidoctor/jekyll-asciidoc) | MIT |
 | `pageless_redirects.rb` | Allows you to create redirects in `_redirects.yml` | [Source](https://github.com/nquinlan/jekyll-pageless-redirects/pull/7) | MIT |
 | `sitemap_generator.rb` | Generates `sitemap.xml` | [Source](https://github.com/kinnetica/jekyll-plugins) | Creative Commons |
 | `remove_whitespace.rb` | Adds the `{% strip %}` tag, which you can use to remove the empty lines that Liquid loops produce | [Source](https://github.com/aucor/jekyll-plugins/blob/master/strip.rb) | MIT |
