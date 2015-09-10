@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Configure LDAP authentication for XL TestView
 categories:
 - xl-testview
