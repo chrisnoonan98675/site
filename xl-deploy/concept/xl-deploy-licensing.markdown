@@ -12,7 +12,7 @@ tags:
 - upgrade
 ---
 
-If you are using XL Deploy Enterprise Edition, you can download your license at the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/).
+If you are using a paid edition of XL Deploy, you can download your license at the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/).
 
 ## License types
 

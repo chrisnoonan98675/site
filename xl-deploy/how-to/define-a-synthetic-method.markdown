@@ -18,11 +18,13 @@ The CI itself is responsible for implementing the specified method, either in [J
 
 This example shows how to define a control task:
 
-    <type type="tc.DeployedDataSource" extends="generic.ProcessedTemplate" deployable-type="tc.DataSource"
-          container-type="tc.Server">
-        <generate-deployable type="tc.DataSource" extends="generic.Resource"/>
-        ...
-        <method name="ping" description="Test whether the datasource is available"/>
-    </type>
+{% highlight xml %}
+<type type="tc.DeployedDataSource" extends="generic.ProcessedTemplate" deployable-type="tc.DataSource"
+      container-type="tc.Server">
+    <generate-deployable type="tc.DataSource" extends="generic.Resource"/>
+    ...
+    <method name="ping" description="Test whether the datasource is available"/>
+</type>
+{% endhighlight %}
 
 The `ping` method defined above can be invoked on an instance of the `tc.DeployedDataSource` CI through the server REST interface, GUI or CLI. The implementation of the `ping` method is part of the `tc.DeployedDataSource` CI.

@@ -11,7 +11,7 @@ tags:
 - daemon
 - setup
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 To install XL Deploy 5.0.0 or later as a daemon or service:

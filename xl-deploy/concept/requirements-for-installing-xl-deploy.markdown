@@ -18,9 +18,7 @@ tags:
 
 To install the XL Deploy server, you must meet the following requirements:
 
-* **XL Deploy license**:
-    * If you have a customer log-in, you can download your license from [https://dist.xebialabs.com](https://dist.xebialabs.com)
-    * If you are using [XL Deploy Community Edition](https://xebialabs.com/products/xl-deploy/community/), you will automatically receive a license after you [install](/xl-deploy/how-to/install-xl-deploy.html#install-xl-deploy-using-the-installer) and register XL Deploy
+* **XL Deploy license**: If you are using a paid edition of XL Deploy, you can download your [license](/xl-deploy/concept/xl-deploy-licensing.html) from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com)
 * **Operating system**: Microsoft Windows (32-bit or 64-bit) or a Unix-family operating system running Java
 * **Java Runtime Environment**: Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
 * **RAM**: At least 2 GB of RAM available for XL Deploy
@@ -73,13 +71,7 @@ Unix-based middleware servers that XL Deploy interacts with must meet the follow
     * The SSH daemon on AIX is known to hang with certain types of SSH traffic.
     * For security, the SSH account that is used to access a host should have limited rights.
     * A variety of Linux distributions have made SSH require a TTY by default. This setting is incompatible with XL Deploy and is controlled by the `Defaults requiretty` setting in the `sudoers` file.
-* **Credentials**: XL Deploy should be able to log in to the target systems using a usr name and password combination that allows it to perform at least the following Unix commands:
-    * `cp`
-    * `ls`
-    * `mv`
-    * `rm`
-    * `mkdir`
-    * `rmdir`
+* **Credentials**: XL Deploy should be able to log in to the target systems using a user name and password combination that allows it to perform at least the following Unix commands: `cp`, `ls`, `mv`, `rm`, `mkdir`, and `rmdir`.
 
     If the login user cannot perform these actions, XL Deploy can also use a `sudo` user that can execute these commands.
 

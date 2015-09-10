@@ -10,7 +10,7 @@ tags:
 - planning
 - step
 since:
-- 4.5.0
+- XL Deploy 4.5.0
 ---
 
 When preparing a deployment, XL Deploy must determine which actions, or steps, to take for the deployment, and in what order. This happens in three phases:

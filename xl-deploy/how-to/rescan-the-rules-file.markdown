@@ -8,7 +8,7 @@ tags:
 - rules
 - step
 since:
-- 4.5.0
+- XL Deploy 4.5.0
 ---
 
 XL Deploy [rules](/xl-deploy/concept/understanding-xl-deploy-rules.html) allow you to use XML or Jython to specify the steps that belong in a deployment plan and how the steps are configured. You define and disable rules in `xl-rules.xml`, which is stored in the `<XLDEPLOY_HOME>/ext` directory.

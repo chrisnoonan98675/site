@@ -13,7 +13,7 @@ tags:
 - tutorial
 - orchestrator
 since:
-- 5.0.1
+- XL Deploy 5.0.1
 ---
 
 This scenario shows how you can use the `sequential-by-loadbalancer-group` orchestrator to deploy to web servers and application servers.

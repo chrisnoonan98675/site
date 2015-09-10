@@ -7,7 +7,7 @@ tags:
 - api
 - script
 since:
-- 4.5.0
+- XL Release 4.5.0
 ---
 
 XL Release exposes an API that developers can use to manipulate releases and tasks.

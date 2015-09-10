@@ -11,7 +11,7 @@ tags:
 - remoting
 - satellite
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 In XL Deploy, each block at the root level of a deployment plan is called a *phase*. If your deployment plan does not require any satellite servers, it will probably have one phase. If XL Deploy requires at least one satellite server to complete the deployment, the plan will contain additional phases to prepare and clean up the satellite servers.

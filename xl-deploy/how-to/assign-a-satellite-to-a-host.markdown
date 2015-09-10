@@ -10,7 +10,7 @@ tags:
 - satellite
 - host
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 To assign a satellite to a host in XL Deploy:

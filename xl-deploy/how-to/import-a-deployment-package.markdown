@@ -9,7 +9,7 @@ tags:
 - application
 - import
 removed:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 **Tip:** For information about importing a deployment package in XL Deploy 5.0.0 or later, refer to [Add a package to XL Deploy](/xl-deploy/how-to/add-a-package-to-xl-deploy.html).
