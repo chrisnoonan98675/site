@@ -84,8 +84,8 @@ All events should have the following required properties:
 | --- | ---------- | --------- | ----------- |
 | `@result` | String | &#x2714; | No restrictions, but `PASSED`, `FAILED`, or `SKIPPED` is recommended. |
 | `@hierarchy` | list of String | &#x2714; | Structure of test results, used for drilling down in reports. The whole hierarchy should be a unique textual representation of a test and its position in the suite. For example, if a unit test in JUnit was in the class `com.example.PersonTest` and the test was called `test1`, the hierarchy would be `['com','example','PersonTest','test1']` |
-| `@message` | String | | Textual information about the test result. |
 | `@duration` | Integer | | Duration of this test in milliseconds; should be positive. | 
+| `@firstError` | String | | Textual information about the test result. |
 
 ### `performanceResult` event properties
 
