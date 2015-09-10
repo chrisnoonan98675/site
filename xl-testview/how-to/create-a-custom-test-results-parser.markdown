@@ -31,8 +31,9 @@ The general approach to creating a custom test parser is:
 
 You can base your custom test results parser on one of the default test result parsers. The following parsers are useful starting points:
 
+{:.table .table-striped}
 | Script | Tool | Type | Input format |
-| ------ | :----: | :----: | :------------: |
+| ------ | ---- | ---- | ------------ |
 | `junit.py` | JUnit | Functional | XML |
 | `cucumber.py` | Cucumber | Functional | JSON |
 | `gatling.py` | Gatling | Performance | CSV and JSON |
@@ -76,8 +77,9 @@ First, you must define a new test tool configuration in the `ext/synthetic.xml` 
 
 The properties that are available are:
 
+{:.table .table-striped}
 | Property | Required? | Default | Description |
-| -------- | :---------: | :-------: | :-----------: |
+| -------- | --------- | ------- | ----------- |
 | `type` | Yes | N/A | A unique value that identifies the tool. It is recommended that you prefix the value; for example, XL TestView prefixes tools with `xlt`, as in `xlt.SurefireJUnit`. The prefixes `xlt`, `udm` and `overthere` are used by XL TestView and should not be used by custom tools. <br /><br />Be aware that there is a distinction between the *format* that a test tool should produce and the *report generator* of the build tool that you are using. For example, if you are generating JUnit test results, the way the test results file looks depends on your build tool (Maven, Gradle, Ant) and its *generator* (such as Surefire). It is recommended that you indicate these distinctions when creating the type name. |
 | `category` | Yes | N/A | Specifies the type of test results that are generated. Valid values are `functional` (results related to test cases, scenarios, and so on) and `performance` (results related to performance tests, derived from summarized data) |
 | `label` | Yes | N/A | A unique, user-friendly name for the test tool. |
@@ -102,8 +104,9 @@ Other tools, such as Gatling and FitNesse, build up a *history* of test runs. Th
 
 In addition to `files`, the following variables are used to communicate with the rest of the system:
 
+{:.table .table-striped}
 | Attribute | Description |
-| --------- | :-----------: |
+| --------- | ----------- |
 | `files` | The files found in the `working_directory` based on a search pattern provided in the test tool configuration. |
 | `working_directory` | Directory there the test results are stored. |
 | `test_specification` | The test specification that will own the test run. |
