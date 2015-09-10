@@ -75,7 +75,7 @@ All events should have the following required properties:
 {:.table .table-striped}
 | Key | Value type | Mandatory | Description |
 | --- | ---------- | --------- | ----------- |
-| `@duration` | Integer | &#x2714; | The total duration of a run |
+| `@duration` | Integer | &#x2714; | The total duration of a run. For `functionalResult`'s, the duration is calculated as the summation of the duration of the individual test results. |
 
 ### `functionalResult` event properties
 
