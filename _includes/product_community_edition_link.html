@@ -1,7 +1,0 @@
-<h2 id="community-edition">Community Edition</h2>
-
-{% for product in site.data.products %}
-	{% if product.id == page.product-id %}
-		<p>Click <a href="http://xebialabs.com/download/{{ product.id }}/">here</a> to download the free Community Edition of {{ product.name }} today!</p>
-	{% endif %}
-{% endfor %}

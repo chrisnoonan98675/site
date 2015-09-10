@@ -1,5 +1,6 @@
 {% for product in site.data.products %}
 	{% if product.id == page.product-id %}
 		<p>{{ product.blurb }}</p>
+		<p>Click <a href="https://xebialabs.com/download/{{ product.id }}/">here</a> to download your free trial today and click <a href="{{ product.getting-started-link }}">here</a> to get started.</p>
 	{% endif %}
 {% endfor %}

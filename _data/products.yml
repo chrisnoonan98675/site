@@ -1,6 +1,10 @@
+- name: XL Platform
+  id: xl-platform
+  blurb: The XebiaLabs suite of products provides lightweight, plug-and-play delivery automation modules for deployment, environment provisioning, Agile test management, and release coordination to help enterprises deliver higher quality software faster.
 - name: XL Deploy
   id: xl-deploy
   blurb: XL Deploy is the only application release automation solution that is agentless across all target platforms. Connect to Windows and Unix target systems using proven, industry-standard remote protocols; no agent installation and maintenance, no overhead on the target systems, no firewall ports to be opened, and no security reviews.
+  getting-started-link: /xl-deploy/concept/key-xl-deploy-concepts.html
   versions:
     - 5.1.x
     - 5.0.x
@@ -10,6 +14,7 @@
 - name: XL Release
   id: xl-release
   blurb: XL Release is an end-to-end pipeline orchestration tool for Continuous Delivery and DevOps teams. It handles dependencies, release trains, and integration with change and release management.
+  getting-started-link: /xl-release/concept/core-concepts-of-xl-release.html
   versions:
     - 4.7.x
     - 4.6.x
@@ -19,5 +24,6 @@
 - name: XL TestView
   id: xl-testview
   blurb: XL TestView lets you define, execute, and analyze all of the tests relevant to an application's quality. You can easily manage complex test sets and execute tests across a wide spectrum of tools.
+  getting-started-link: /xl-testview/how-to/getting-started.html
   versions:
-    - 1.3.x
+    - 1.2.x
