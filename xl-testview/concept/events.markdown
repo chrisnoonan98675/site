@@ -46,7 +46,7 @@ XL TestView sets these properties on all events. Reports can read them, but test
 For each event, XL TestView makes sure the following properties are set:
 
 {:.table .table-striped}
-| Key | Value type | Mandatory | Description | 
+| Key | Value type | Mandatory | Description |
 | --- | ---------- | --------- | ----------- |
 | `_id` | String | &#x2714; | Identifier of Elasticsearch; not used by test tools. |
 | `@runId` | String | &#x2714; | |
@@ -58,14 +58,14 @@ For each event, XL TestView makes sure the following properties are set:
 All events should have the following required properties:
 
 {:.table .table-striped}
-| Key | Value type | Mandatory | Description | 
+| Key | Value type | Mandatory | Description |
 | --- | ---------- | --------- | ----------- |
 | `@type` | String | &#x2714; | One of `importStarted`, `importFinished`, `functionalResult`, or `performanceResult`. |
 
 ### `importStarted` event properties
 
 {:.table .table-striped}
-| Key | Value type | Mandatory | Description | 
+| Key | Value type | Mandatory | Description |
 | --- | ---------- | --------- | ----------- |
 | `@testedAt` | DateTime | | Time this test was executed; not before 1980-01-01 and not in the future. |
 | `@runKey` | String | | Test specification-specific identifier of this run. This key can be used to determine if a test run has already been imported; see [Detecting duplicate imports](/xl-testview/how-to/detect-duplicate-imports.html). |
@@ -73,7 +73,7 @@ All events should have the following required properties:
 ### `importFinished` event properties
 
 {:.table .table-striped}
-| Key | Value type | Mandatory | Description | 
+| Key | Value type | Mandatory | Description |
 | --- | ---------- | --------- | ----------- |
 | `@duration` | Integer | &#x2714; | The total duration of a run |
 
@@ -84,8 +84,8 @@ All events should have the following required properties:
 | --- | ---------- | --------- | ----------- |
 | `@result` | String | &#x2714; | No restrictions, but `PASSED`, `FAILED`, or `SKIPPED` is recommended. |
 | `@hierarchy` | list of String | &#x2714; | Structure of test results, used for drilling down in reports. The whole hierarchy should be a unique textual representation of a test and its position in the suite. For example, if a unit test in JUnit was in the class `com.example.PersonTest` and the test was called `test1`, the hierarchy would be `['com','example','PersonTest','test1']` |
-| `@duration` | Integer | | Duration of this test in milliseconds; should be positive. | 
 | `@firstError` | String | | Textual information about the test result. |
+| `@duration` | Integer | | Duration of this test in milliseconds; should be positive. |
 
 ### `performanceResult` event properties
 
@@ -97,4 +97,4 @@ All events should have the following required properties:
 | `simulationName` | String | &#x2714; | The name of the performance test; this field is provided on the `importStarted` event. |
 | `numberOfRequests.ok` | Integer | &#x2714; | Number of requests that went okay. |
 | `numberOfRequests.ko` | Integer | &#x2714; | Number of errored requests. |
-| `meanResponseTime.total` | Integer | &#x2714; | The mean response time over the whole test run. | 
+| `meanResponseTime.total` | Integer | &#x2714; | The mean response time over the whole test run. |
