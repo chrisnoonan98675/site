@@ -1,10 +1,11 @@
 ---
-title: Handle exceptions in parsers
+title: Handle exceptions in test result parsers
 categories:
 - xl-testview
 subject:
-- TODO
+- Test results
 tags:
+- extension
 ---
 
 When errors occur during parsing of test results, the parser is expected to throw exceptions which will be handled by XL Testview. The exceptions are java exceptions, which have to be imported.
