@@ -1,5 +1,5 @@
 ---
-title: XL TestView file selection patterns
+title: File selection patterns used to find test results
 categories:
 - xl-testview
 subject:
@@ -9,10 +9,10 @@ tags:
 - import
 ---
 
-Test tool configurations, Active and Executable test specification contain a search pattern. This pattern is used to select the files that have to be imported as part of a test run.
+XL TestView uses file selection patterns in a number of places. The Test tool configuration contains the `defaultSearchPattern`, which is lateron used to in Active and Executable test specification to fill in the initial value of the `searchPattern`. This pattern is used to select the files that have to be imported as part of a test run.
 
 To select files from a file system, XL TestView uses the selection pattern that is also used by the [Apache Ant](https://ant.apache.org/manual/dirtasks.html) build system. The following special characters are used:
- 
+
 * `?`: one character
 * `*`: one or more characters
 * `**`: zero or more directories
