@@ -1,5 +1,5 @@
 ---
-title: XL TestView events
+title: Events
 categories:
 - xl-testview
 subject:
