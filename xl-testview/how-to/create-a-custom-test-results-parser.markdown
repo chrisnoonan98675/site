@@ -231,6 +231,8 @@ result_holder.result = [events] if events else []
 
 ### Writing a performance test results parser
 
+**Note:** Performance result parsers will be changed in the upcoming releases, we will not guarantee backwards compatability at this time.
+
 Writing a performance test results parser is much alike writing a functional test result parser. In this case, the useful functions are located in the `performance.parser` module.
 
 ## Logging
