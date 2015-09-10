@@ -16,8 +16,6 @@ By default, XL TestView supports [a number of test tools](/xl-testview/concept/s
 
 This topic explains the steps required to create your own test result parser. The examples in this topic assume a Python-based parser, which is considered the prefered way of creating new test result parsers. Some knowlegde on XL TestView's [key concepts](/xl-testview/concept/key-concepts.html) and [architecture](/xl-testview/concept/understanding-the-architecture.html) are required to understand this topic.
 
-{% comment %} TODO: Insert plug here for possible cooperation with XebiaLabs to sell support? (like, we can help you with building a plugin for X money?) {% endcomment %}
-
 ## General approach
 
 The general approach to creating a custom test parser is:
@@ -176,6 +174,7 @@ result_holder.result = events
 ```
 
 #### JUnit variants
+
 JUnit has a loose format for test results used by a lot of tools. XL TestView offers several utilities to help parsing these variants.
 
 The `parser.xunit` Python module contains useful functions for processing functional test tool results and ensuring that test results are structured in a way that XL TestView accepts. For example, `parse_last_modified` takes a list of files and extracts the timestamp from `xunit` test result files.
@@ -231,7 +230,7 @@ result_holder.result = [events] if events else []
 
 ### Writing a performance test results parser
 
-**Note:** Performance result parsers will be changed in the upcoming releases, we will not guarantee backwards compatability at this time.
+**Note:** Performance result parsers will be changed in the upcoming releases, we will not guarantee backwards compatibility at this time.
 
 Writing a performance test results parser is much alike writing a functional test result parser. In this case, the useful functions are located in the `performance.parser` module.
 
@@ -248,7 +247,9 @@ logger.info('Parsing the results took {} seconds', time)
 This will log to a logger with the name of the test results parser.
 
 ## Dates
+
 All dates in events are the number milliseconds from 1970-01-01 00:00:00 UTC. The test parser is responsible for any conversions of timezones. Many test tools do not report time zones in the test result files, but keep in mind that it is dangerous to assume that the test system and the XL TestView system are in the same time zone.
 
 ## Exceptions
-Several things might go wrong while parsing test results. See how to [handle exceptions in parsers](handle-exceptions-in-parsers.html) for an explanation of the available exceptions and their use.
+
+Several things might go wrong while parsing test results. See how to [handle exceptions in parsers](/xl-testview/how-to/handle-exceptions-in-parsers.html) for an explanation of the available exceptions and their use.
