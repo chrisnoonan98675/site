@@ -27,8 +27,8 @@ Assume that you have five applications called CustomerProfile, Inventory, Paymen
 | PaymentOptions | `1.1` | No dependencies |
 | | `2.1` | ShoppingCart `[1.5,2.0]` |
 | | `3.5` | ShoppingCart `[1.5,2.0]` |
-| ShoppingCart | `2.0` | WebsiteFront-End `2.0` |
-| | `2.5` | WebsiteFront-End `2.0` |
+| ShoppingCart | `2.0` | WebsiteFront-End `[2.0,2.0]` |
+| | `2.5` | WebsiteFront-End `[2.0,2.0]` |
 | WebsiteFront-End | `1.0` | No dependencies |
 | | `2.0` | No dependencies |
 
