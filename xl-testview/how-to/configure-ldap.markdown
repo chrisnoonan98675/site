@@ -17,8 +17,9 @@ XL TestView supports authentication of users using LDAP. This topic describes ho
 
 To configure LDAP, update the following properties in the `xl-testview.conf` file:
 
+{:.table .table-striped}
 | Property | Description |
-| -------- | :-----------: |
+| -------- | ----------- |
 | `xlt.authentication.method` | Set to `ldap` |
 | `xlt.authentication.ldap.url` | Set to the complete URL of your LDAP server including the port number; for example, `ldap://server.domain:389` |
 | `xlt.authentication.ldap.user-dn` | Set to a distinguished name template that identifies users; for example, `cn={0},ou=people,dc=xebialabs,dc=com`, where `{0}` will be replaced by the user name |
