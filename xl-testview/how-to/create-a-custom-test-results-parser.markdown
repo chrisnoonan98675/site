@@ -9,7 +9,7 @@ tags:
 - test result parsers
 - extension
 since:
-- 1.3.0
+- XL TestView 1.3.0
 ---
 
 By default, XL TestView supports [a number of test tools](/xl-testview/concept/supported-test-tools-and-test-result-formats.html). XL TestView also allows you to write custom test result parsers so you can integrate with tools that are not supported by default. A test results parser is a program that parses several test result files and produces test results in a format that XL TestView can store in its database. You can write parsers in Python or Java.

@@ -7,7 +7,7 @@ subject:
 tags:
 - test result parsers
 since:
-- 1.3.0
+- XL TestView 1.3.0
 ---
 
 XL TestView uses a special key, called a *run-key* to identify individual test runs; this is required to prevent [importing](/xl-testview/how-to/detect-duplicate-imports.html) the same test data multiple times. The run-key is a case-sensitive string. A good run-key has the following properties:

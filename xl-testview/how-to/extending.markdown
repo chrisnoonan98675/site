@@ -8,7 +8,7 @@ tags:
 - api
 - extension
 since:
-- 1.3.x
+- XL TestView 1.3.0
 ---
 
 XL TestView can be extended in multiple ways:

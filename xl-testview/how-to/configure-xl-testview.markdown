@@ -9,7 +9,7 @@ tags:
 - installation
 - configuration
 since:
-- 1.3.0
+- XL TestView 1.3.0
 ---
 
 Depending on the version of XL TestView the configuration is different.
