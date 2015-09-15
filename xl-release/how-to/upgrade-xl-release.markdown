@@ -47,6 +47,7 @@ To upgrade an existing XL Release server installation:
 3. Copy the contents of the `conf` directory from the previous installation into the new installation directory.
 4. Copy the contents of the `ext` directory from the previous installation into the new installation directory.
 4. Copy the entire `repository` directory from the previous installation into the new installation directory.
+4. Copy the entire `archive` directory from the previous installation into the new installation directory.
 5. *Do not* copy the contents of the `hotfix` directory unless you are instructed to do so, because hotfixes are version-specific.
 6. Copy the contents of the `plugins` directory from the previous installation into the new installation directory.
 7. If you have made any changes to the XL Release server startup scripts (`server.sh` or `server.cmd`), manually re-do these changes in the new installation directory.
