@@ -36,13 +36,17 @@ Ensure that you always create a backup of your repository before you upgrade to 
 
 ## Upgrading the repository
 
-If a repository upgrade is required, XL TestView will detect that it is running against an old repository and will automatically execute an upgrade when it is first started. The server log will contain extensive logging of the repository upgrade process. Save this log for future reference.
+If a repository upgrade is required, XL TestView will detect that it is running against an old repository and will exit with a message denoting an upgrade is required. The upgrade is not performed automatically.
 
-## Upgrade logging
+To perform an upgrade, start XL TestView with the `-upgrade` or `-force-upgrades` flag. The `-upgrade` flag will perform an upgrade and exit. 
 
-After running upgrades (using the `-upgrade` flag or `-force-upgrades` flag), all logging that happens during an upgrade step is written into `upgrade.log`
+To perform an upgrade and keep the server running, specify the `-force-upgrades` flag.
+
+All logging that happens during an upgrade step is written into `upgrade.log`.
 
 Some upgrades may take a while to complete (especially when going through the event model which is persisted in Elastic Search). The more test runs you have the more events there are to update. Upgrade progress is also logged in the `upgrade.log`. 
+
+The server log will contain extensive logging of the repository upgrade process. Save this log for future reference.
 
 ## Deprecations
 
