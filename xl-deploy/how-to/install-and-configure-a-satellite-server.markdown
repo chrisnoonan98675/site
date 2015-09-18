@@ -19,7 +19,7 @@ since:
 To install the XL Deploy satellite software:
 
 1. Ensure that Java SE Development Kit 7 (JDK 7) is installed on the satellite server.
-2. Extract the satellite distribution ZIP file in location on the server where you want to install the software.
+2. Extract the satellite distribution ZIP file in the location on the server where you want to install the software.
 
 ## Start the satellite
 
