@@ -1,27 +1,25 @@
 ---
-title: Task life cycle (XL Release 4.8+)
+title: Task life cycle (XL Release 4.7 and earlier)
 categories:
 - xl-release
 subject:
 - Tasks
 tags:
 - task
-since:
-- 4.8.0
+deprecated:
+- 4.7.x
 ---
 
 In an active release, tasks transition through different states. The following diagram shows the lifecycle of a task.
 
-![Task life cycle](../images/task-lifecycle.png)
+![Task life cycle](../images/task-lifecycle-4.7.png)
 
 Tasks start in **planned** state. This means that they are not active yet. All properties can still be edited.
 
 When the release flow reaches a task and it becomes active:
 
 * If a scheduled start date is set and this date has not passed yet, the task is **pending**
-* Otherwise, if some required variables used in a task do not have a value yet, then the task enters the **ask for input** state
-
-When all variables are set and user starts the task (or if no variables were missing), the task [precondition](/xl-release/how-to/set-a-precondition-on-a-task.html) is evaluated (if a precondition has been set on the task)
+* Otherwise, the task [precondition](/xl-release/how-to/set-a-precondition-on-a-task.html) is evaluated (if a precondition has been set on the task)
 
 The next state depends on the result of the precondition script. If it evaluates to:
 
