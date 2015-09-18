@@ -8,7 +8,6 @@ tags:
 - system administration
 - upgrade
 - installation
-- migration
 since:
 - XL Deploy 5.0.0
 ---

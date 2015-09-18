@@ -5,7 +5,6 @@ categories:
 subject:
 - Upgrade
 tags:
-- migration
 - upgrade
 - installation
 - system administration
