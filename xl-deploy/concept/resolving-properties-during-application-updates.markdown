@@ -9,6 +9,7 @@ tags:
 - package
 - placeholder
 - update
+- property
 since:
 - XL Deploy 5.0.0
 ---
