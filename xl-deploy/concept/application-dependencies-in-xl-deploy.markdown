@@ -11,7 +11,7 @@ tags:
 - dependency
 - microservices
 since:
-- XL Deploy 5.0.0
+- XL Deploy 5.1.0
 ---
 
 XL Deploy allows you to define dependencies among different versions of different applications. When you set up the deployment of an application, XL Deploy automatically includes the correct versions of other applications that it depends on and ensures that they are deployed in the correct order.
@@ -34,7 +34,7 @@ Inventory 2.0.1, in turn, requires PaymentOptions version 3.5. To define this de
 
 1. Go to the Repository.
 2. Expand **Applications** > **Inventory** and double-click the 2.0.1 deployment package.
-3. In the **Application Dependencies** section, add the key *PaymentOptions* and the value *3.5*.
+3. In the **Application Dependencies** section, add the key *PaymentOptions* and the value *[3.5,3.5]*.
 
     ![Application with dependencies](images/app-dependencies-example-02.png)
 
