@@ -36,7 +36,7 @@ Inventory 2.0.1, in turn, requires PaymentOptions version 3.5. To define this de
 2. Expand **Applications** > **Inventory** and double-click the 2.0.1 deployment package.
 3. In the **Application Dependencies** section, add the key *PaymentOptions* and the value *3.5*.
 
-    ![Application with dependencies](images/app-dependencies-example-01.png)
+    ![Application with dependencies](images/app-dependencies-example-02.png)
 
 When you set up a deployment of WebsiteFrontEnd 1.0, XL Deploy will automatically include Inventory 2.0.1 and PaymentOptions 3.5.
 
@@ -63,7 +63,7 @@ XL Deploy allows you to define ranges for version dependencies. The range format
 {:.table .table-striped}
 | Format | Description | Example |
 | ------ | ----------- | ------- |
-| `[version1,version2]` | The application depends on any version between `version1` and `version2`, including both versions | AppA depends on AppB `[1.0,2.0]`, so AppA works with AppB `1.0`, `1.5.5`, `1.9`, and `2.0` |
+| `[version1,version2]` | The application depends on any version between `version1` and `version2`, including both versions (note that `version1` and `version2` can be the same value) | AppA depends on AppB `[1.0,2.0]`, so AppA works with AppB `1.0`, `1.5.5`, `1.9`, and `2.0` |
 | `(version1,version2)` | The application depends on any version between `version1` and `version2`, excluding both versions | AppA depends on AppB `(1.0,2.0)`, so AppA works with AppB `1.5.5` and `1.9`, but does not work with AppB `1.0` or `2.0` |
 | `[version1,version2)` | The application depends on any version between `version1` and `version2`, including `version1` and excluding `version2` | AppA depends on AppB `[1.0,2.0)`, so AppA works with AppB `1.0`, `1.5.5`, and `1.9`, but does not work with AppB `2.0` |
 | `(version1,version2]` | The application depends on any version between `version1` and `version2`, excluding `version1` and including `version2` | AppA depends on AppB `(1.0,2.0]`, so AppA works with App B `1.5.5`, `1.9`, and `2.0`, but does not work with AppB `1.0` |
