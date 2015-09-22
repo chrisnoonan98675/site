@@ -68,19 +68,22 @@ In this case, XL Deploy will copy the referred artifact to the target container 
 
 The following placeholders are available for deployment plan steps:
 
-* `${step.uploadedArtifactPath}`
-* `${step.hostFileSeparator}`
-* `${step.localConnection}`
-* `${step.retainRemoteWorkingDirOnCompletion}`
-* `${step.hostLineSeparator}`
-* `${step.scriptTemplatePath}`
-* `${step.class}`
-* `${step.preview}`
-* `${step.remoteWorkingDirPath}`
-* `${step.remoteConnection}`
-* `${step.scriptPath}` 
-* `${step.artifact}` 
-* `${step.remoteWorkingDirectory}` 
+{:.table .table-striped}
+| Placeholder | Description |
+| ----------- | ----------- |
+| `${step.uploadedArtifactPath}` | Path of the uploaded artifact |
+| `${step.hostFileSeparator}` | File separator; depends on the operating system of the target machine |
+| `${step.localConnection}` | Name of the local connection |
+| `${step.retainRemoteWorkingDirOnCompletion}` | Whether to leave the working directory after the action is completed |
+| `${step.hostLineSeparator}` | Line separator; depends on the operating system of the target machine |
+| `${step.scriptTemplatePath}` | Path to the FreeMarker template |
+| `${step.class}` | Step Java class |
+| `${step.preview}` | Preview of the step |
+| `${step.remoteWorkingDirPath}` | Path of the remote working directory |
+| `${step.remoteConnection}` | Name of the remote connection |
+| `${step.scriptPath}` | Path of the script |
+| `${step.artifact}` | Artifact to be uploaded |
+| `${step.remoteWorkingDirectory}` | Remote working directory name |
 
 ## Accessing the ExecutionContext
 
