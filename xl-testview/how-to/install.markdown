@@ -55,7 +55,7 @@ If you do not have a license, fill out the registration form that appears when y
 
 The default username and password are both `admin`. You can change these values in `<XLTESTVIEW_HOME>/conf/users.conf`.
 
-After installation various aspects of the server can be configured. See [Configuring XL TestView](/xl-testview/how-to/configuration.html).
+After installation, various aspects of the server can be configured. See [Configuring XL TestView](/xl-testview/how-to/configure-xl-testview.html).
 
 ## Directory structure
 
