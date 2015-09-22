@@ -48,11 +48,9 @@ You can then configure the port that is opened in the `satellite.port` property.
 
 **Important:** The `satellite.hostname` and `satellite.port` values must *exactly* match the values that you set when you [add the satellite configuration item (CI) to XL Deploy](/xl-deploy/how-to/add-a-satellite-server-to-xl-deploy.html).
 
-### Configure the file streaming
+### Configure the file streaming port
 
-In addition to the command handling, a satellite needs a port to act as a streaming server for incoming files that are needed for a deployment.
-
-This port is automatically exchanged between XL Deploy and the satellite. You do not need to configure it manually.
+In addition to command handling, a satellite needs a port to act as a streaming server for incoming files that are needed for a deployment. This port is automatically exchanged between XL Deploy and the satellite. You do not need to configure it manually. By default, port `8280` is opened on XL Deploy, and port `8480` on the satellite. 
 
 The port is defined by the `satellite.streaming.port` property in `conf/satellite.conf`:
 
@@ -120,4 +118,4 @@ To change the directory where XL Satellite stores task recovery files, change th
             recovery = "<your directory>"
         }
     }
-    
+   
