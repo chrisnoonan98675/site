@@ -11,7 +11,7 @@ tags:
 - scheduling
 ---
 
-XL Deploy allows you to schedule deployment tasks for execution at a specified later moment in time. Scheduled deployment tasks work just like other scheduled tasks; refer to [Understanding tasks in XL Deploy](https://docs.xebialabs.com/xl-deploy/concept/understanding-tasks-in-xl-deploy.html#scheduling) for information about the way XL Deploy handles scheduled tasks, including important information about archiving and failures.
+XL Deploy allows you to schedule deployment tasks for execution at a specified later moment in time. Scheduled deployment tasks work just like other scheduled tasks; refer to [Understanding tasks in XL Deploy](https://docs.xebialabs.com/xl-deploy/concept/understanding-tasks-in-xl-deploy.html#scheduling-tasks) for information about the way XL Deploy handles scheduled tasks, including important information about archiving and failures.
 
 To schedule a deployment using the XL Deploy GUI:
 
