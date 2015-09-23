@@ -24,21 +24,22 @@ By default, the repository is located in `XLDEPLOY_SERVER_HOME/repository`. To c
 
 XL Deploy can also use a database to store its repository. To use a database, you must configure the built-in Jackrabbit JCR implementation, depending on what you want to store in the database:
 
-* Store **only binary artifacts** in a database. This requires configuring the `DataStore` property.
-* Store **only CIs and CI history** in a database. This requires configuring the `PersistenceManager` and `FileSystem` properties.
-* Store **all data** (binary artifacts and CIs and CI history) in a database. This requires configuring the `DataStore`, `PersistenceManager` and `FileSystem` must be configured.
+{:.table .table-striped}
+| Type of data to store in the database | Properties to configure |
+| ------------------------------------- | ----------------------- |
+| Only binary artifacts | `DataStore`|
+| Only CIs and CI history | `PersistenceManager` and `FileSystem` |
+| All data (binary artifacts and CIs and CI history) | `DataStore`, `PersistenceManager` and `FileSystem` |
 
 **Note:** XL Deploy must initialize the repository before it can be used. Run XL Deploy's setup wizard and initialize the repository after making any changes to the repository configuration.
 
 For more information about using a database with Jackrabbit, see the [PersistenceManager FAQ](http://wiki.apache.org/jackrabbit/PersistenceManagerFAQ) and [DataStore FAQ](http://wiki.apache.org/jackrabbit/DataStore).
 
-Below are examples of the required `conf/jackrabbit-repository.xml` configuration for several database vendors.
-
-**Tip:** For information about changing the configuration, refer to [Change the repository database settings](/xl-deploy/how-to/change-the-repository-database-settings.html).
+For information about changing the configuration, refer to [Change the repository database settings](/xl-deploy/how-to/change-the-repository-database-settings.html).
 
 ### Using XL Deploy with MySQL
 
-This is an example of configuring XL Deploy to use [MySQL](http://www.mysql.com/):
+This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration for [MySQL](http://www.mysql.com/):
 
     <DataStore class="org.apache.jackrabbit.core.data.db.DbDataStore">
         <param name="driver" value="com.mysql.jdbc.Driver"/>
@@ -95,7 +96,7 @@ This is an example of configuring XL Deploy to use [MySQL](http://www.mysql.com/
 
 ### Using XL Deploy with DB2
 
-This is an example of configuring XL Deploy to use [DB2](http://www-01.ibm.com/software/data/db2/):
+This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration for [DB2](http://www-01.ibm.com/software/data/db2/):
 
     <DataStore class="org.apache.jackrabbit.core.data.db.DbDataStore">
             <param name="driver" value="com.ibm.db2.jcc.DB2Driver"/>
@@ -151,7 +152,7 @@ This is an example of configuring XL Deploy to use [DB2](http://www-01.ibm.com/s
 
 ### Using XL Deploy with Oracle
 
-This is an example of configuring XL Deploy to use [Oracle](http://www.oracle.com/us/products/database/index.html):
+This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration for [Oracle](http://www.oracle.com/us/products/database/index.html):
 
     <DataStore class="org.apache.jackrabbit.core.data.db.DbDataStore">
         <param name="driver" value="oracle.jdbc.OracleDriver"/>
@@ -208,7 +209,7 @@ This is an example of configuring XL Deploy to use [Oracle](http://www.oracle.co
         </PersistenceManager>
     </Versioning>
 
-If you use the TNSNames Alias syntax to connect to Oracle, you may need to inform the driver where to find the TNSNAMES file. See the Oracle documentation for more information.
+If you use the TNSNames Alias syntax to connect to Oracle, you may need to inform the driver where to find the `TNSNAMES` file. Refer to the Oracle documentation for more information.
 
 ### Using XL Deploy with SQL Server
 
@@ -245,7 +246,7 @@ In the above example, the `directory` property refers to the shared journal. Bot
 
 ### Database repository
 
-The following XML snippet shows a sample clustering configuration for a JCR using Oracle as its repository.
+The following example shows a sample clustering configuration for a JCR using Oracle as its repository.
 
     <Cluster id="101" syncDelay="2000">
         <Journal class="org.apache.jackrabbit.core.journal.OracleDatabaseJournal">
