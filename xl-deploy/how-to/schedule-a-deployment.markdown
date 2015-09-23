@@ -11,7 +11,7 @@ tags:
 - scheduling
 ---
 
-XL Deploy allows you to schedule deployment tasks for execution at a specified later moment in time. Scheduled deployment tasks work just like other scheduled tasks; refer to [Understanding tasks in XL Deploy](https://docs.xebialabs.com/xl-deploy/concept/understanding-tasks-in-xl-deploy.html#scheduling) for important information about the way XL Deploy handles scheduled tasks.
+XL Deploy allows you to schedule deployment tasks for execution at a specified later moment in time. Scheduled deployment tasks work just like other scheduled tasks; refer to [Understanding tasks in XL Deploy](https://docs.xebialabs.com/xl-deploy/concept/understanding-tasks-in-xl-deploy.html#scheduling) for information about the way XL Deploy handles scheduled tasks, including important information about archiving and failures.
 
 To schedule a deployment using the XL Deploy GUI:
 
@@ -26,18 +26,19 @@ To schedule a deployment using the XL Deploy GUI:
 
 1. Click **OK** to schedule the task.
 
-## View scheduled tasks
+## View scheduled deployments
 
-To view scheduled tasks, click the gear icon and select **Task Monitor**. Note that you can only see tasks that you have [permission](/xl-deploy/concept/overview-of-security-in-xl-deploy.html#permissions) to view.
+To view scheduled deployment tasks, click the gear icon and select **Task Monitor**. Note that you can only see deployment tasks that you have [permission](/xl-deploy/concept/overview-of-security-in-xl-deploy.html#permissions) to view.
 
 ![Schedule Task Monitor](images/schedule-task-monitor.png)
 
-**Note:** Although control tasks and discover tasks can also be scheduled, you will not see them in the Task Monitor. They will appear in the Repository.
+**Note:** Although control tasks and discover tasks can also be scheduled, you will not see them in the Task Monitor. They appear in the Repository.
 
-## Reschedule a task
+## Reschedule a deployment
 
-To reschedule a scheduled task:
+To reschedule a scheduled deployment task:
 
-1. Double the task in the Task Monitor to open its execution plan.
+1. Double-click the deployment task in the Task Monitor to open its deployment plan.
 1. Click **Schedule**.
 1. In the Schedule window, select a new date and time. 
+1. Click **OK**.
