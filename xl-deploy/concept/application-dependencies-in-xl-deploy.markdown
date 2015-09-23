@@ -52,7 +52,10 @@ It is also possible to modify the declared dependencies of a deployment package 
 
 ## Versioning requirements
 
-To define application dependencies in XL Deploy, you must use [SemVer 2.0.0](http://semver.org/) for deployment package names.
+To define application dependencies in XL Deploy:
+
+* You must use [Semantic Versioning (SemVer) 2.0.0](http://semver.org/) for deployment package names
+* Deployment package names can only contain numbers and periods (`.`); letters and punctuation marks such as dashes (`-`) or slash marks (`/`) are not supported
 
 In the SemVer versioning scheme, a version number is expressed as `major.minor.patch`. For example, a deployment package can have the name 1.2.3, where 1 is the major version, 2 is the minor version, and 3 is the patch version.
 
