@@ -15,16 +15,20 @@ XL TestView supports authentication of users using LDAP. This topic describes ho
 
 ## Configure unsecure LDAP
 
-To configure LDAP, update the following properties in the `xl-testview.conf` file:
+To configure LDAP, update the following properties in the `<XLTESTVIEW_HOME>/conf/xl-testview.conf` file:
 
 {:.table .table-striped}
-| Property | Description |
-| -------- | ----------- |
-| `xlt.authentication.method` | Set to `ldap` |
-| `xlt.authentication.ldap.url` | Set to the complete URL of your LDAP server including the port number; for example, `ldap://server.domain:389` |
-| `xlt.authentication.ldap.user-dn` | Set to a distinguished name template that identifies users; for example, `cn={0},ou=people,dc=xebialabs,dc=com`, where `{0}` will be replaced by the user name |
+| Property | Description | Example |
+| -------- | ----------- | ------- |
+| `xlt.authentication.method` | Set to `ldap`. |
+| `xlt.authentication.ldap.url` | The complete URL of your LDAP server, including the port number. | `ldap://server.domain:389` |
+| `xlt.authentication.ldap.user-dn` | A distinguished name (DN) template that identifies users; `{0}` will be replaced with the user name.<br /><br />If this property is set, `xlt.authentication.ldap.user-search-base` and `xlt.authentication.ldap.user-search-filter` should be commented out. | `cn={0},ou=developers,ou=persons,dc=nodomain` |
+| `xlt.authentication.ldap.user-search-base` | Base DN to use to search for users.<br /><br />If this property is used, `xlt.authentication.ldap.user-dn` should be commented out.  | `ou=persons,dc=nodomain` |
+| `xlt.authentication.ldap.user-search-filter` | Filter to use when searching for users.<br /><br />If this property is used, `xlt.authentication.ldap.user-dn` should be commented out. | `(&(uid={0})(objectClass=inetOrgPerson))` |
 
-**Note:** Identifying users by properties other than the user name is not currently supported.
+**Note:** If `xlt.authentication.ldap.user-dn`, `xlt.authentication.ldap.user-search-base`, and `xlt.authentication.ldap.user-search-filter` are all uncommented, then `xlt.authentication.ldap.user-dn` will take precedence over the other settings.
+
+Identifying users by properties other than the user name is not currently supported.
 
 After saving the `xl-testview.conf` file, [restart XL TestView](/xl-testview/how-to/start.html) and log in.
 
