@@ -34,11 +34,11 @@ After saving the `xl-testview.conf` file, [restart XL TestView](/xl-testview/how
 
 ## Configure secure LDAP
 
-If your LDAP configuration uses a certificate signed by a certificate authority or a certificate that is trusted in the global Java truststore, you should be able to connect by setting the secure URL (for example, `ldaps://server.domain:636`) in `xlt.authentication.ldap.url`.
+If your LDAP configuration uses a certificate signed by a certificate authority or a certificate that is trusted in the global Java truststore, you should be able to connect by setting the `xlt.authentication.ldap.url` property in `<XLTESTVIEW_HOME>/conf/xl-testview.conf` to the secure URL (for example, `ldaps://server.domain:636`). After saving the `xl-testview.conf` file, [restart XL TestView](/xl-testview/how-to/start.html) and log in.
 
 If you use a self-signed certificate and you cannot add it to the global truststore, you need to configure a local keystore. You can do so using the [`keytool`](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html) utility (part of the Java JDK distribution).
 
-**Note:** Ensure you complete the registration process before you configure LDAP. Registration will not work afterward.
+**Note:** Ensure you complete the XL TestView registration process before you configure LDAP. Registration will not work afterward.
 
 To configure a local keystore:
 
@@ -50,6 +50,6 @@ To configure a local keystore:
 
 4. Type a keystore password twice.
 5. Confirm you trust this account.
-6. In the configuration file, set `xlt.truststore.location` to the absolute file location of the truststore you just created.
+6. In `<XLTESTVIEW_HOME>/conf/xl-testview.conf`, set `xlt.truststore.location` to the absolute file location of the truststore you just created.
 7. Set `xlt.truststore.password` to the password.
-8. After saving the file, [restart XL TestView](/xl-testview/how-to/start.html) and log in.
+8. After saving the `xl-testview.conf` file, [restart XL TestView](/xl-testview/how-to/start.html) and log in.
