@@ -82,13 +82,13 @@ To upgrade an XL TestView server installation:
 
 1. If you added libraries to XL TestView's `lib` directory (such as database drivers), copy the additional libraries from the previous installation to the new installation directory.
 
-1. On unix based operating systems review `/etc/sysconfig/xl-testview` and/or `/etc/default/xl-testview` for changes in configuration settings. See also the [release manual](/xl-testview/latest/releasemanual.html).
-
-1. If you have made any changes to the XL TestView server startup scripts in the `bin` directory, manually re-do these changes in the new installation directory.
-
 1. Verify that libraries in the `lib` directory do not *also* appear in the `plugins` directory, even if their versions are different.
 
     For example, if `lib` contains `guava-16.0.1.jar`, then the `plugins` directory should not contain any `guava-x.x.x.jar` file (such as `guava-13.0.jar`). In this case, you must remove the library from the plugins directory.
+
+1. On Unix-based operating systems, review `/etc/sysconfig/xl-testview` and/or `/etc/default/xl-testview` for changes in configuration settings. Also refer to the [release manual](/xl-testview/latest/releasemanual.html).
+
+1. If you have made any changes to the XL TestView server startup scripts in the `bin` directory, manually re-do these changes in the new installation directory.
 
 1. [Start the XL TestView server interactively](/xl-testview/how-to/start.html) to allow automatic repository upgraders to run.
 

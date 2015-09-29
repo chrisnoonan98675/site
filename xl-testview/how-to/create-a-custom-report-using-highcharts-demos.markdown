@@ -6,6 +6,7 @@ subject:
 - Reports
 tags:
 - report
+- extensibility
 ---
 
 For reports based on the [Highcharts](http://www.highcharts.com/) charting library, XL TestView uses Python scripts. You can use the [demos provided by Highcharts](http://www.highcharts.com/demo) as a basis for Python scripts for custom XL TestView reports.
@@ -14,7 +15,7 @@ Click **View Options** when viewing a Highcharts demo to get sample code in JSON
 
 For example, this is the sample code from the [basic line chart demo](http://www.highcharts.com/demo/line-basic):
 
-{% highlight JavaScript linenos=table %}
+{% highlight JavaScript %}
 $(function () {
     $('#container').highcharts({
         title: {
@@ -67,7 +68,7 @@ $(function () {
 
 First, copy the JSON from the `.highcharts()` method (line 2):
 
-{% highlight python linenos=table %}
+{% highlight python %}
 {
     title: {
         text: 'Monthly Average Temperature',
@@ -124,7 +125,7 @@ Then change the JSON to Python syntax:
 
 This produces:
 
-{% highlight python linenos=table %}
+{% highlight python %}
 {
     'title': {
         'text': 'Monthly Average Temperature',
@@ -171,7 +172,7 @@ This produces:
 
 In your report Python script, replace the method call of `resultHolder.setResult()` with the code above. Your call will look like this:
 
-{% highlight python linenos=table %}
+{% highlight python %}
 resultHolder.setResult({
     'title': {
         'text': 'Monthly Average Temperature',

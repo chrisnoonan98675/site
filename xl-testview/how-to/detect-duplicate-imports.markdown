@@ -3,7 +3,7 @@ title: Detecting duplicate imports
 categories:
 - xl-testview
 subject:
-- Test results
+- Extensibility
 tags:
 - import
 - extension
@@ -32,7 +32,14 @@ The TestRunHistorian is injected in the test parser scripts in the variable `tes
 
 ## Using a *run key*
 
-The *run key* is a unique, deterministic string that represents a run. It can be a timestamp read from a file, a hash of a file, a unique test run number provided by the test tool, or any other string. See [Identifying test runs](/xl-testview/concept/identifying-test-runs.html).
+XL TestView uses a special key called a *run key* to identify individual test runs; this is required to prevent importing the same test data multiple times. The run key is a case-sensitive string. A good run-key has the following properties:
+
+* Deterministic: The result files of a test run will always return the same string.
+* Unique: If a second test run has the same key, it will not be imported. Keys should not repeat over runs. A good run-key is unique in the context of a test specification.
+* Quick to calculate: The earlier the key is known, the earlier a test run can be dismissed if it is already imported.
+* Short: Although there is no maximum length defined, a short string will be faster and save space. Using the whole file is discouraged.
+
+Good candidates for a run key are a timestamp that is in the file or a unique build number. If that is not possible, the hash value of all files is usable; however, it requires reading all files completely. Note that if a test run consists of multiple files, the order of the files is important when calculating the hash value.
 
 To use the run key:
 
@@ -44,9 +51,7 @@ To use the run key:
 
 ## Using a file timestamp
 
-If there is no run key available, you can look at the timestamp of the test results file.
-
-However, note that this is not the preferred method, because files are often transferred and copied to different servers and operating systems, which may affect the timestamp. If the timestamp is in the file itself (instead of the timestamp from the file system), it is better to use the timestamp as a run key.
+If there is no run key available, you can look at the timestamp of the test results file. However, this is not the preferred method, because files are often transferred and copied to different servers and operating systems, which may affect the timestamp. If the timestamp is in the file itself (instead of the timestamp from the file system), it is better to use the timestamp as a run key.
 
 To use the file timestamp:
 

@@ -11,7 +11,7 @@ tags:
 
 To create a test specification in XL TestView:
 
-1. Click **Projects** in the top menu bar.
+1. Click **Projects** in the top navigation bar.
 1. Click on the project in which you want to create the test specification.
 1. Click **Add a test specification to project**. The New test specification screen appears.
 1. Select the type of test specification you want to create:

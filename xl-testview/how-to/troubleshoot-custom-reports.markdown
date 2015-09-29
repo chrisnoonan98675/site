@@ -7,6 +7,7 @@ subject:
 tags:
 - report
 - troubleshooting
+- extension
 ---
 
 ## My report does not appear and I see errors in the browser console

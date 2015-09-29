@@ -3,18 +3,21 @@ title: Handle exceptions in test result parsers
 categories:
 - xl-testview
 subject:
-- Test results
+- Extensibility
 tags:
 - extension
+- test result parsers
+- api
+- import
 since:
 - XL TestView 1.3.0
 ---
 
-When errors occur during parsing of test results, the parser is expected to throw exceptions which will be handled by XL TestView. The exceptions are Java exceptions, which have to be imported.
+If a [custom test results parser](/xl-testview/how-to/create-a-custom-test-results-parser.html) is used, XL TestView expects the parser to throw exceptions that XL TestView will then handle. These are Java exceptions that have to be imported.
 
 ## `UnexpectedFormatException`
 
-`UnexpectedFormatException` should be thrown if the parser encounters a file that is not parseable because it is another format. For example, if a JUnit parser encounters a Cucumber test result file.
+`UnexpectedFormatException` should be thrown if the parser encounters a file that is not parseable because it is in another format. For example, if a JUnit parser encounters a Cucumber test result file.
 
 ### Importing `UnexpectedFormatException`
 
@@ -46,7 +49,7 @@ raise MalformedInputException("Expected to have found a failure reason!")
 
 ## `ImportFailedException`
 
-`ImportFailedException` exception should be thrown if something goes wrong, but no other exception applies.
+`ImportFailedException` should be thrown if something goes wrong, but no other exception applies.
 
 ### Importing `ImportFailedException`
 

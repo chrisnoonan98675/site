@@ -9,14 +9,14 @@ tags:
 - test specification
 ---
 
-XL TestView's configurable qualification possibilities allow for seamless integration with a continuous delivery pipeline. XL TestView automatically analyzes the test results that are available within XL TestView using the specified qualification algorithm. In this way, XL TestView supports tailored automated go/no go decision-making since the qualification can be used by continuous delivery management solutions.
+XL TestView's configurable qualifications allow for seamless integration with a continuous delivery pipeline. XL TestView automatically analyzes the test results using a specified qualification algorithm. In this way, XL TestView supports tailored automated go/no-go decision making, because continuous delivery management solutions can use the qualification.
 
-There are three qualifiers shipped with XL TestView:
+XL TestView includes the following default qualifiers:
 
-* Default Functional Tests Qualifier - Fails if any test in the test run fails
-* Default Performance Tests Qualifier - Fails if more than 10% of tests have a error response or the average response time is greater that 110% of the long term average
-* Regression Qualifier - Fails if there are tests which changed from passed to failed between the previous run and the current run
+* Default functional test qualifier: Fails if any test in the test run fails
+* Default performance test qualifier: Fails if more than 10% of tests contain an error response or the average response time is greater that 110% of the long-term average
+* Regression qualifier: Fails if there are tests that changed from passed to failed between the previous run and the latest run
 
-XL TestView allows you to create custom qualifications in order to suit your specific needs. How to create a custom qualification is described in [Create a custom qualification in XL TestView](/xl-testview/how-to/create-a-custom-qualification.html).
+XL TestView allows you to create custom qualifications to suit your specific needs. Refer to [Create a custom qualification in XL TestView](/xl-testview/how-to/create-a-custom-qualification.html) for more information.
 
-The icon to the next to a test specification on the test specifications screen shows whether the qualification of the most recent execution is passing (tick mark) or failing (exclamation mark). In case of a failed qualification, a reason for failure can be displayed (expand) in the test specifications screen.
+The icon next to a test specification on the test specifications screen shows whether the qualification of the most recent execution passed (check mark) or failed (exclamation mark).

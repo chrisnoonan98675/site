@@ -8,7 +8,7 @@ tags:
 - system administration
 - installation
 - ldap
-- authentication
+- configuration
 ---
 
 XL TestView supports authentication of users using LDAP. This topic describes how to configure LDAP authentication on XL TestView. Some general knowledge about LDAP and your LDAP server in particular is required.
@@ -22,7 +22,7 @@ To configure LDAP, update the following properties in the `<XLTESTVIEW_HOME>/con
 | -------- | ----------- | ------- |
 | `xlt.authentication.method` | Set to `ldap`. |
 | `xlt.authentication.ldap.url` | The complete URL of your LDAP server, including the port number. | `ldap://server.domain:389` |
-| `xlt.authentication.ldap.user-dn` | A distinguished name (DN) template that identifies users; `{0}` will be replaced with the user name.<br /><br />If this property is set, `xlt.authentication.ldap.user-search-base` and `xlt.authentication.ldap.user-search-filter` should be commented out. | `cn={0},ou=developers,ou=persons,dc=nodomain` |
+| `xlt.authentication.ldap.user-dn` | A [distinguished name (DN)](http://www.ietf.org/rfc/rfc2253.txt) template that identifies users; `{0}` will be replaced with the user name.<br /><br />If this property is set, `xlt.authentication.ldap.user-search-base` and `xlt.authentication.ldap.user-search-filter` should be commented out. | `cn={0},ou=developers,ou=persons,dc=nodomain` |
 | `xlt.authentication.ldap.user-search-base` | Base DN to use to search for users.<br /><br />If this property is used, `xlt.authentication.ldap.user-dn` should be commented out.  | `ou=persons,dc=nodomain` |
 | `xlt.authentication.ldap.user-search-filter` | Filter to use when searching for users.<br /><br />If this property is used, `xlt.authentication.ldap.user-dn` should be commented out. | `(&(uid={0})(objectClass=inetOrgPerson))` |
 
@@ -53,3 +53,7 @@ To configure a local keystore:
 6. In `<XLTESTVIEW_HOME>/conf/xl-testview.conf`, set `xlt.truststore.location` to the absolute file location of the truststore you just created.
 7. Set `xlt.truststore.password` to the password.
 8. After saving the `xl-testview.conf` file, [restart XL TestView](/xl-testview/how-to/start.html) and log in.
+
+## Disable authentication
+
+If you do not need XL TestView to authenticate users because it is running in a trusted environment, you can disable authentication. To do so, set `xlt.authentication.method` to `none` in the `<XLTESTVIEW_HOME/conf/xl-testview.conf` file.

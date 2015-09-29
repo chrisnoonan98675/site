@@ -1,21 +1,23 @@
 ---
 title: Install XL TestView as a service
-Subject: Installation
+categories:
+- xl-testview
+subject:
+- Installation
+tags:
+- system administration
+- installation
 ---
 
-XL TestView provides no features out of the box to configure it as a service.
+## Microsoft Windows
 
-For Windows, a service runner can be used.
+To run XL TestView as a service on Microsoft Windows, use a service runner.
 
-# Linux
+## Linux
 
-For Linux, there exist a number of configuration systems.
+To run XL TestView as a service on Linux, use `systemd`. Create user and a group named `xlt`. The directory containing XL TestView (`/opt/xl-testview` in the example below) should be owned by this user/group, along with all of the files it contains.
 
-## Systemd
-
-Create user and a group named `xlt`. The directory containing XL TestView (`/opt/xl-testview` in the example below) should be owned by this user/group, along with all the files it contains.
-
-Create a file `/lib/systemd/system/xl-testview.service` with the following content:
+Create a `/lib/systemd/system/xl-testview.service` file with the following content:
 
     [Unit]
     Description=XL TestView
@@ -32,7 +34,4 @@ Create a file `/lib/systemd/system/xl-testview.service` with the following conte
     [Install]
     WantedBy=multi-user.target
 
-
 Start the service with `systemctl start xl-testview.service`.
-
-

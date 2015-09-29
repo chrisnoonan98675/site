@@ -110,6 +110,10 @@
 /xl-deploy/concept/understanding-orchestrators.html : /xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html
 /xl-deploy/how-to/connect-ldap-or-active-directory.html : /xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html
 /xl-deploy/how-to/define-dependencies-between-versions.html : /xl-deploy/concept/application-dependencies-in-xl-deploy.html
+/xl-testview/concept/test-result-parser.html : /xl-testview/how-to/create-a-custom-test-results-parser.html
+/xl-testview/how-to/handle-exceptions-in-parsers.html : /xl-testview/how-to/handle-exceptions-in-test-results-parsers.html
+/xl-testview/concept/identifying-test-runs.html : /xl-testview/how-to/detect-duplicate-imports.html
+/xl-testview/how-to/disable-authentication.html : /xl-testview/how-to/configure-ldap.html
 
 ##### PRODUCTS THAT HAVE BEEN RENAMED
 

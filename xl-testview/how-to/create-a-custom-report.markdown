@@ -6,6 +6,7 @@ subject:
 - Reports
 tags:
 - report
+- extensibility
 ---
 
 XL TestView generates reports using:
@@ -23,31 +24,26 @@ First, add a custom report type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
 
 1. Copy a `type` element with the `type="xlt.Barchart"` attribute from `<XLTESTVIEW_HOME>/plugins/demo/synthetic.xml`:
 
-{% highlight xml %}
-<type type="xlt.BarChart" extends="xlt.Report">
-    <property name="title" default="Bar chart"/>
-    <property name="scriptLocation" default="reports/BarChart.py"/>
-    <property name="iconName" default="bar-report-icon"/>
-    <property name="userFriendlyDescription" default="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format"/>
-    <property name="reportType" hidden="true" default="highchart"/>
-</type>
-{% endhighlight %}
-    
+        <type type="xlt.BarChart" extends="xlt.Report">
+            <property name="title" default="Bar chart"/>
+            <property name="scriptLocation" default="reports/BarChart.py"/>
+            <property name="iconName" default="bar-report-icon"/>
+            <property name="userFriendlyDescription" default="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format"/>
+            <property name="reportType" hidden="true" default="highchart"/>
+        </type>
+
 1. Change the `type` attribute to use your desired prefix and name; for example, `type="myCompany.myBarChart"`.
 1. Change the `scriptLocation` to the report script that you will create; for example, `MyBarChart.py`.
 
     The result will look like:
     
-{% highlight xml %}
-<type type="myCompany.myBarChart" extends="xlt.Report">
-    <property name="title" default="My Bar Chart"/>
-    <property name="scriptLocation" default="reports/MyBarChart.py"/>
-    <property name="iconName" default="bar-report-icon"/>
-    <property name="userFriendlyDescription"
-          default="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format"/>
-    <property name="reportType" hidden="true" default="highchart"/>
-</type>
-{% endhighlight %}
+        <type type="myCompany.myBarChart" extends="xlt.Report">
+            <property name="title" default="My Bar Chart"/>
+            <property name="scriptLocation" default="reports/MyBarChart.py"/>
+            <property name="iconName" default="bar-report-icon"/>
+            <property name="userFriendlyDescription" default="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format"/>
+            <property name="reportType" hidden="true" default="highchart"/>
+        </type>
 
 1. Save `synthetic.xml` and [restart](/xl-testview/how-to/start.html) XL TestView.
 1. All changes made to `synthetic.xml` require you to restart.

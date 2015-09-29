@@ -3,27 +3,26 @@ title: Extend XL TestView
 categories:
 - xl-testview
 subject:
-- Configuration
+- Extensibility
 tags:
 - api
 - extension
+- test result parsers
 since:
 - XL TestView 1.3.0
 ---
 
-XL TestView can be extended in multiple ways:
+You can extend XL TestView's functionality in several ways:
 
-* By adding [test result parsers](/xl-testview/how-to/create-a-custom-test-results-parser.html) that import data from test tools not supported by default
-* By adding [reports](/xl-testview/how-to/create-a-custom-report.html) to display the information of your interest
-* By adding [qualifications](/xl-testview/how-to/create-a-custom-qualification.html) to make automated go/no go decisions based on test results
+* By creating [custom test result parsers](/xl-testview/how-to/create-a-custom-test-results-parser.html) that import data from test tools and in formats that XL TestView does not support by default
 
-XL TestView includes the following interfaces for extending its functionality:
+* By creating [custom reports](/xl-testview/how-to/create-a-custom-report.html) to display information that you are interested in
 
-To interact with XL TestView from other tools, refer to the [XL TestView REST API reference](/xl-testview/latest/rest-api/index.html).
+* By creating [custom qualifications](/xl-testview/how-to/create-a-custom-qualification.html) to make automated go/no-go decisions based on test results
 
-To extend XL TestView with custom test result parsers consult the [XL TestView Jython API reference](/xl-testview/latest/jython-api/index.html).
+For information about XL TestView's integration points, refer to:
 
-Additional information:
-
-* [XL TestView UDM configuration item (CI) reference](/xl-testview/latest/ci-reference/index.html)
-* [XL TestView Javadoc](/xl-testview/latest/javadoc/index.html)
+* [REST API reference](/xl-testview/latest/rest-api/index.html)
+* [Jython API reference](/xl-testview/latest/jython-api/index.html)
+* [UDM configuration item (CI) reference](/xl-testview/latest/ci-reference/index.html)
+* [Javadoc](/xl-testview/latest/javadoc/index.html)

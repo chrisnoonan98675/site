@@ -16,7 +16,7 @@ Below, please find some tips for your first-time XL TestView experience.
 
 **Tip:** To watch a video version of this guide, click [here](https://www.youtube.com/watch?v=7NaCEJVdCBQ&list=PLIIv46GEoJ7YrOn09FrNB4SV10rTaT9Mt&index=3).
 
-## Step 1. Explore XL TestView
+## Step 1 Explore XL TestView
 
 First, read the [essential background information](/xl-testview/concept/key-concepts.html) about XL TestView's key concepts.
 
@@ -24,8 +24,7 @@ Then, explore [dashboards](/xl-testview/how-to/using-dashboards.html) and [repor
 
 ![Dashboard with sample data](images/getting-started-demo-dashboard.png)
 
-
-## Step 2. Import your test results
+## Step 2 Import your test results
 
 Set up XL TestView to use your existing test results by running the [import wizard](/xl-testview/how-to/import-test-results.html).
 
@@ -33,13 +32,13 @@ Set up XL TestView to use your existing test results by running the [import wiza
 
 If you would like to integrate XL TestView with an existing Jenkins setup, skip to step 3.
 
-## Step 3. Install the XL TestView plugin in Jenkins
+## Step 3 Install the XL TestView plugin in Jenkins
 
 XL TestView can retrieve test results from test jobs that are run with Jenkins. To integrate XL TestView with Jenkins, [install the XL TestView plugin](/xl-testview/how-to/connect-to-a-jenkins-job.html) and add an XL TestView post-build step to an existing job.
 
 ![XL TestView post-build step in Jenkins](images/getting-started-jenkins-post-build-step.png)
 
-## Step 4. Push test results from Jenkins to XL TestView
+## Step 4 Push test results from Jenkins to XL TestView
 
 To see XL TestView and Jenkins in action:
 
@@ -48,7 +47,7 @@ To see XL TestView and Jenkins in action:
 3. Create a [passive test specification](/xl-testview/how-to/create-a-test-specification.html) to which the test results from Jenkins will be added.
 4. Verify that, when you run the jobs, new test runs appear in the test specification in XL TestView.
 
-## Step 5. Qualification of test results
+## Step 5 Qualification of test results
 
 XL TestView can help you take go/no-go decisions through automated qualifications, so you can answer questions such as "Am I okay to go live with the application?".
 

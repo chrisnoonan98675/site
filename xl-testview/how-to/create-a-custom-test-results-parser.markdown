@@ -3,31 +3,36 @@ title: Create a custom test results parser
 categories:
 - xl-testview
 subject:
-- Test results
+- Extensibility
 tags:
-- system administration
 - test result parsers
 - extension
+- api
 since:
 - XL TestView 1.3.0
 ---
 
-By default, XL TestView supports [a number of test tools](/xl-testview/concept/supported-test-tools-and-test-result-formats.html). XL TestView also allows you to write custom test result parsers so you can integrate with tools that are not supported by default. A test results parser is a program that parses several test result files and produces test results in a format that XL TestView can store in its database. You can write parsers in Python or Java.
+By default, XL TestView supports [a number of test tools](/xl-testview/concept/supported-test-tools-and-test-result-formats.html). XL TestView also allows you to write custom test result parsers so you can integrate with tools that are not supported by default. A test results parser is a Python or Java program that:
 
-This topic explains the steps required to create your own test result parser. The examples in this topic assume a Python-based parser, which is considered the prefered way of creating new test result parsers. Some knowlegde on XL TestView's [key concepts](/xl-testview/concept/key-concepts.html) and [architecture](/xl-testview/concept/understanding-the-architecture.html) are required to understand this topic.
+1. Parses test result files produced by a [test tool](/xl-testview/concept/key-concepts.html#test-tools)
+2. Produces individual test results called [events](/xl-testview/concept/events.html), which XL TestView can store in its database
+
+This topic explains how to create your own test results parser. The examples in this topic assume a Python-based parser, which is the preferred way of creating new test result parsers.
+
+Before creating a test results parser, it is recommended that you read about XL TestView's [key concepts](/xl-testview/concept/key-concepts.html) and [architecture](/xl-testview/concept/understanding-the-architecture.html).
 
 ## General approach
 
-The general approach to creating a custom test parser is:
+The general approach to creating a custom test results parser is:
 
-1. Determine the type of results produced by the test tool. XL TestView supports functional and performance test results.
+1. Determine the type of results that the test tool produces. XL TestView supports functional and performance test results.
 2. Define a new test tool configuration in the `synthetic.xml` file. This defines the type of test results and where XL TestView can find the parser.
-3. Write an implementation of the test result parser.
+3. Write a Python or Java implementation of the parser.
 4. Test and repeat from step 2, if needed.
 
-## Using a default test result parser
+## Using a default test results parser
 
-You can base your custom test results parser on one of the default test result parsers. The following parsers are useful starting points:
+You can base your custom test results parser on one of XL TestView's default parsers. The following parsers are useful starting points:
 
 {:.table .table-striped}
 | Script | Tool | Type | Input format |
@@ -38,7 +43,7 @@ You can base your custom test results parser on one of the default test result p
 | `jmeter_csv.py` | JMeter | Performance | CSV |
 | `jmeter_xml.py` | JMeter | Performance | XML |
 
-The implementations can be found in the test tools plugin: `plugins/testtools-plugin-x.y.z.jar`.
+You can find these parser implementations in the test tools plugin, which is located at `<XLTESTVIEW_HOME>/plugins/testtools-plugin-x.y.z.jar`.
 
 ## Determine test result type
 
@@ -48,7 +53,7 @@ Functional test results have a *result*, such as *passed*, *failed*, or any othe
 
 Performance test results are summaries of the performance results from tests.
 
-If the tool you wish to support is not performance-related, you should choose the functional test tool.
+If the tool you wish to support is not performance-related, you should choose the functional test tool format.
 
 ## Define a new test tool configuration in `synthetic.xml`
 
@@ -90,7 +95,7 @@ XL TestView uses the same type system as XL Deploy, although only the properties
 
 ## Write an implementation of the test results parser
 
-Using the search pattern from the test tool configuration, the test results files to be imported will be assembled into one list and fed to the test results parser. The output of the parser is a collection of test runs. Each test run is a collection of [test results](/xl-testview/concept/events.html). Test results are instances of the Java class [`com.xebialabs.xlt.plugin.api.testrun.Event`](/xl-testview/latest/javadoc/Event.html).
+Using the search pattern from the test tool configuration, the test results files to be imported will be assembled into one list and fed to the test results parser. The output of the parser is a collection of test runs. Each test run is a collection of [test results](/xl-testview/concept/events.html). Test results are instances of the [`com.xebialabs.xlt.plugin.api.testrun.Event`](/xl-testview/latest/javadoc/Event.html) Java class.
 
 In pseudocode, this looks like:
 
@@ -98,7 +103,7 @@ In pseudocode, this looks like:
 
 In many cases, all test results that can be found belong to one test run. For example, this is the case for JUnit and Cucumber. One *run* of the test tool generates results, and all of these results belong to the same test run.
 
-Other tools, such as Gatling and FitNesse, build up a *history* of test runs. This means that every *run* of the tool adds test result data, instead of replacing it with new data. This implies that the test results parser will receive the latest and all previous test run data. The parser must deal with this case by identifying runs that have already been imported. See [detecting duplicate imports](/xl-testview/how-to/detect-duplicate-imports.html) for details on how to deal with this.
+Other tools, such as Gatling and FitNesse, build up a *history* of test runs. This means that every *run* of the tool adds test result data, instead of replacing it with new data. This implies that the test results parser will receive the latest and all previous test run data. The parser must deal with this case by identifying runs that have already been imported. Refer to [detecting duplicate imports](/xl-testview/how-to/detect-duplicate-imports.html) for information about handling this.
 
 In addition to `files`, the following variables are used to communicate with the rest of the system:
 
@@ -112,7 +117,7 @@ In addition to `files`, the following variables are used to communicate with the
 | `logger` | An SLF4J logger you can use to log information in greater detail. |
 | `result_holder` | Callback object to return the calculated results|
 
-For usage of the `test_run_historian`, see [detecting duplicate imports](/xl-testview/how-to/detect-duplicate-imports.html).
+For information about using the `test_run_historian`, refer to [detecting duplicate imports](/xl-testview/how-to/detect-duplicate-imports.html).
 
 ### Writing a functional test results parser
 
