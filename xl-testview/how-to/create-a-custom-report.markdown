@@ -6,7 +6,7 @@ subject:
 - Reports
 tags:
 - report
-- extensibility
+- extension
 ---
 
 XL TestView generates reports using:
@@ -16,7 +16,9 @@ XL TestView generates reports using:
 
 The easiest way to create a custom XL TestView report is to copy a built-in report. This topic shows how to create a custom Highcharts report based on the built-in [bar chart](/xl-testview/concept/reports.html#bar-chart) report.
 
-For detailed techincal information about custom reports, refer to [Custom reports in XL TestView](/xl-testview/concept/custom-reports.html).
+You can also create a custom report from scratch using [demos provided by Highcharts](/xl-testview/how-to/create-a-custom-report-using-highcharts-demos.html).
+
+For detailed technical information about custom reports, refer to [Custom reports in XL TestView](/xl-testview/concept/custom-reports.html).
 
 ## Configure the report in `synthetic.xml`
 

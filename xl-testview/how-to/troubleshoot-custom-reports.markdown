@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot custom reports in XL TestView
+title: Troubleshoot custom reports
 categories:
 - xl-testview
 subject:

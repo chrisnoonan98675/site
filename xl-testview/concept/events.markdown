@@ -29,7 +29,9 @@ There are four types of events:
 * `functionalResult`
 * `performanceResult`
 
-A test result parser will always produce a list of events, called a run. A run has the following properties:
+A test result parser will always produce a list of events, called a test run; this is the set of results associated with a single execution of the tests in a test specification.
+
+A run has the following properties:
 
 * Exactly one `importStarted` event
 * Exactly one `importFinished` event
@@ -42,7 +44,7 @@ A test result parser will always produce a list of events, called a run. A run h
 
 XL TestView sets these properties on all events. Reports can read them, but test results parsers do not use them.
 
-For each event, XL TestView makes sure the following properties are set:
+For each event, XL TestView ensures that the following properties are set:
 
 {:.table .table-striped}
 | Key | Value type | Required | Description |
@@ -52,20 +54,12 @@ For each event, XL TestView makes sure the following properties are set:
 | `@createdAt` | DateTime | &#x2714;	| Time of import; always larger than 1980 and not in the future. |
 | `@testSpecification` | String | &#x2714; | |
 
-### Required properties
-
-All events should have the following required properties:
-
-{:.table .table-striped}
-| Key | Value type | Required | Description |
-| --- | ---------- | --------- | ----------- |
-| `@type` | String | &#x2714; | One of `importStarted`, `importFinished`, `functionalResult`, or `performanceResult`. |
-
 ### `importStarted` event properties
 
 {:.table .table-striped}
 | Key | Value type | Required | Description |
 | --- | ---------- | --------- | ----------- |
+| `@type` | String | &#x2714; | One of `importStarted`, `importFinished`, `functionalResult`, or `performanceResult`. |
 | `@testedAt` | DateTime | | Time this test was executed; not before 1980-01-01 and not in the future. |
 | `@runKey` | String | | Test specification-specific identifier of this run. This key can be used to determine if a test run has already been imported; see [Detecting duplicate imports](/xl-testview/how-to/detect-duplicate-imports.html). |
 
@@ -74,6 +68,7 @@ All events should have the following required properties:
 {:.table .table-striped}
 | Key | Value type | Required | Description |
 | --- | ---------- | --------- | ----------- |
+| `@type` | String | &#x2714; | One of `importStarted`, `importFinished`, `functionalResult`, or `performanceResult`. |
 | `@duration` | Integer | &#x2714; | The total duration of a run. For `functionalResult`'s, the duration is calculated as the summation of the duration of the individual test results. |
 
 ### `functionalResult` event properties
@@ -81,6 +76,7 @@ All events should have the following required properties:
 {:.table .table-striped}
 | Key | Value type | Required | Description |
 | --- | ---------- | --------- | ----------- |
+| `@type` | String | &#x2714; | One of `importStarted`, `importFinished`, `functionalResult`, or `performanceResult`. |
 | `@result` | String | &#x2714; | No restrictions, but `PASSED`, `FAILED`, or `SKIPPED` is recommended. |
 | `@hierarchy` | list of String | &#x2714; | Structure of test results, used for drilling down in reports. The whole hierarchy should be a unique textual representation of a test and its position in the suite. For example, if a unit test in JUnit was in the class `com.example.PersonTest` and the test was called `test1`, the hierarchy would be `['com','example','PersonTest','test1']` |
 | `@firstError` | String | | Textual information about the test result. |
@@ -93,6 +89,7 @@ All events should have the following required properties:
 {:.table .table-striped}
 | Key | Value type | Required | Description |
 | --- | ---------- | --------- | ----------- |
+| `@type` | String | &#x2714; | One of `importStarted`, `importFinished`, `functionalResult`, or `performanceResult`. |
 | `simulationName` | String | &#x2714; | The name of the performance test; this field is provided on the `importStarted` event. |
 | `numberOfRequests.ok` | Integer | &#x2714; | Number of requests that went okay. |
 | `numberOfRequests.ko` | Integer | &#x2714; | Number of errored requests. |
