@@ -69,10 +69,6 @@ To upgrade an XL Deploy server installation:
 
 1. [Shut down](/xl-deploy/how-to/shut-down-xl-deploy.html) the XL Deploy server.
 
-1. Copy the license file (`conf/deployit-license.lic`) from the old installation directory to the new installation directory.
-
-    Some versions of XL Deploy require a new version of the license file. Refer to [XL Deploy licensing](/xl-deploy/concept/xl-deploy-licensing.html#license-types) to see if you need a new license. You can download all of your licenses from [https://dist.xebialabs.com/](https://dist.xebialabs.com/).
-
 1. Copy the `repository` directory from the old installation directory to the new installation directory.
 
 1. Copy the contents of the `importablePackages` directory from the old installation directory to the new installation directory.
@@ -87,15 +83,21 @@ To upgrade an XL Deploy server installation:
 
 1. If you added libraries to XL Deploy's `lib` directory (such as database drivers), copy the additional libraries from the old installation directory to the new installation directory.
 
-1. If you have changed files in the `conf` directory, such as [`deployit-security.xml`](/xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html) or [`logback.xml`](/xl-deploy/how-to/using-xl-deploy-logging.html#configure-logging), manually redo those changes in the files in the new installation directory.
+1. Verify that libraries in the `lib` directory do not *also* appear in the `plugins` directory, even if their versions are different.
+
+    For example, if `lib` contains `guava-16.0.1.jar`, then the `plugins` directory should not contain any `guava-x.x.x.jar` file (such as `guava-13.0.jar`). In this case, you must remove the library from the `plugins` directory.
+
+1. Copy the `conf/deployit-license.lic` file from the old installation directory to the new installation directory.
+
+    Some versions of XL Deploy require a new version of the license file. Refer to [XL Deploy licensing](/xl-deploy/concept/xl-deploy-licensing.html#license-types) to see if you need a new license. You can download all of your licenses from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/).
+
+1. Copy the `conf/deployit.conf` and `conf/deployit-defaults.properties` files from the old installation directory to the new installation directory.
+
+1. If you have changed other files in the `conf` directory, such as [`deployit-security.xml`](/xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html) or [`logback.xml`](/xl-deploy/how-to/using-xl-deploy-logging.html#configure-logging), manually redo those changes in the files in the new installation directory.
 
 1. If you have changed the XL Deploy server startup scripts in the `bin` directory, manually redo these changes in the files in the new installation directory.
 
     **Note:** In XL Deploy 4.5.x and earlier, the startup scripts are called `server.sh` and `server.cmd`. In XL Deploy 5.0.0 and later, they are called `run.sh` and `run.cmd`; there are also `install-service.sh` and `install-service.cmd` scripts for running XL Deploy [as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html). If you customized `server.sh` or `server.cmd`, you must redo these changes in `install-service.sh` or `install-service.cmd`.
-
-1. Verify that libraries in the `lib` directory do not *also* appear in the `plugins` directory, even if their versions are different.
-
-    For example, if `lib` contains `guava-16.0.1.jar`, then the `plugins` directory should not contain any `guava-x.x.x.jar` file (such as `guava-13.0.jar`). In this case, you must remove the library from the `plugins` directory. 
 
 1. [Start the XL Deploy server interactively](/xl-deploy/how-to/start-xl-deploy.html) to allow automatic repository upgraders to run.
 
