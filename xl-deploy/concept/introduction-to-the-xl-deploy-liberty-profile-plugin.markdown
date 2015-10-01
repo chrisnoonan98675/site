@@ -60,27 +60,23 @@ The following sample configuration can be used for setting up Liberty profile se
 
 ### server.xml
 
-```
-<server description="new server">
-  <featureManager>
-    <feature>restConnector-1.0</feature>
-  </featureManager>
-	<httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
-  <quickStartSecurity userName="wlpadmin" userPassword="wlpadmin" />
-  <keyStore id="defaultKeyStore" password="mypass" />
-</server>
-```
+    <server description="new server">
+      <featureManager>
+        <feature>restConnector-1.0</feature>
+      </featureManager>
+        <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+      <quickStartSecurity userName="wlpadmin" userPassword="wlpadmin" />
+      <keyStore id="defaultKeyStore" password="mypass" />
+    </server>
 
 ### Security
 
 Based on configuration defined in `server.xml` Liberty profile server will automatically generate `key.jks` in directory `/opt/IBM/wlp/usr/servers/defaultServer/resources/security`. The following commands can be executed to generate trust store which is configured in XL Deploy. The generated `truststore.ts` is copied to `/opt/xl-deploy-server/certs` directory.
 
-```
-keytool -export -alias default -file mycert.crt -keystore key.jks
+    keytool -export -alias default -file mycert.crt -keystore key.jks
 
-keytool -import -trustcacerts -alias default -file mycert.crt -keystore truststore.ts -storepass mypass -noprompt
+    keytool -import -trustcacerts -alias default -file mycert.crt -keystore truststore.ts -storepass mypass -noprompt
 
-```
 
 ### Plugin Configuration
 
@@ -102,12 +98,10 @@ The value of `password` property is `wlpadmin` and `Trust store password` is `my
 
 The server can be configured to accept all hosts and certificates by setting hidden attributes 'trustAllHostnames' and 'trustAllCertificates' to true in `<xl-deploy installation directory>/conf/deployit-defaults.properties`
 
-```
-# Ignores certificate verification checks, use in development environments only.
-wlp.Server.trustAllCertificates=false
-# Ignores host verification checks, use in development environments only.
-wlp.Server.trustAllHostnames=false
-```
+    # Ignores certificate verification checks, use in development environments only.
+    wlp.Server.trustAllCertificates=false
+    # Ignores host verification checks, use in development environments only.
+    wlp.Server.trustAllHostnames=false
 
 **Note:** The settings mentioned above should only be used in development environment.
 
@@ -117,37 +111,35 @@ wlp.Server.trustAllHostnames=false
 
 The plugin works with the standard deployment package of DAR format. The following is a sample `deployit-manifest.xml` file that can be used to create a Liberty profile specific deployment package. It contain declarations for an WAR file (`wlp.WebApplicationSpec`) and datasource (`wlp.GenericDataSourceSpec`) with related driver, fileset, library and connection manager.
 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<udm.DeploymentPackage version="1.0" application="app">
-    <deployables>
-        <wlp.WebApplicationSpec name="sampleWeb" file="sampleWeb/sampleWeb-1.0.war">
-            <scanPlaceholders>false</scanPlaceholders>
-            <location>sampleweb.war</location>
-            <contextRoot>sample</contextRoot>
-        </wlp.WebApplicationSpec>
-        <wlp.GenericDataSourceSpec name="dbDatasource">
-            <jndiName>jdbc/test</jndiName>
-            <jdbcDriverRef>dbDriver</jdbcDriverRef>
-            <connectionManagerRef>dbConnectionManager</connectionManagerRef>
-        </wlp.GenericDataSourceSpec>
-        <wlp.JdbcDriverSpec name="dbDriver">
-            <libraryRef>dbLibrary</libraryRef>
-            <xaDataSource>com.postgres.xa.datasource</xaDataSource>
-        </wlp.JdbcDriverSpec>
-        <wlp.FilesetSpec name="dbFileset">
-            <dir>/tmp/postgres.jar</dir>
-        </wlp.FilesetSpec>
-        <wlp.LibrarySpec name="dbLibrary">
-            <filesetRef>dbFileset</filesetRef>
-        </wlp.LibrarySpec>
-        <wlp.ConnectionManagerSpec name="dbConnectionManager">
-            <maxPoolSize>20</maxPoolSize>
-            <minPoolSize>10</minPoolSize>
-        </wlp.ConnectionManagerSpec>
-    </deployables>
-</udm.DeploymentPackage>
-```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <udm.DeploymentPackage version="1.0" application="app">
+        <deployables>
+            <wlp.WebApplicationSpec name="sampleWeb" file="sampleWeb/sampleWeb-1.0.war">
+                <scanPlaceholders>false</scanPlaceholders>
+                <location>sampleweb.war</location>
+                <contextRoot>sample</contextRoot>
+            </wlp.WebApplicationSpec>
+            <wlp.GenericDataSourceSpec name="dbDatasource">
+                <jndiName>jdbc/test</jndiName>
+                <jdbcDriverRef>dbDriver</jdbcDriverRef>
+                <connectionManagerRef>dbConnectionManager</connectionManagerRef>
+            </wlp.GenericDataSourceSpec>
+            <wlp.JdbcDriverSpec name="dbDriver">
+                <libraryRef>dbLibrary</libraryRef>
+                <xaDataSource>com.postgres.xa.datasource</xaDataSource>
+            </wlp.JdbcDriverSpec>
+            <wlp.FilesetSpec name="dbFileset">
+                <dir>/tmp/postgres.jar</dir>
+            </wlp.FilesetSpec>
+            <wlp.LibrarySpec name="dbLibrary">
+                <filesetRef>dbFileset</filesetRef>
+            </wlp.LibrarySpec>
+            <wlp.ConnectionManagerSpec name="dbConnectionManager">
+                <maxPoolSize>20</maxPoolSize>
+                <minPoolSize>10</minPoolSize>
+            </wlp.ConnectionManagerSpec>
+        </deployables>
+    </udm.DeploymentPackage>
 
 ## Server container
 
@@ -165,35 +157,33 @@ The way an application is deployed to a container can be influenced by modifying
 
 The following sample `deployit-manifest.xml` file creates a XL Deploy deployment package which deploys a Web application with role bindings to the WebSphere Liberty Profile server instance:
 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<udm.DeploymentPackage version="1.0" application="secure">
-    <deployables>
-        <wlp.WebApplicationSpec name="auth" file="auth/auth-war-1.0.war">
-            <location>secure.war</location>
-            <contextRoot>secure</contextRoot>
-            <applicationBindings>
-                <wlp.ApplicationBndSpec name="auth/bnd">
-                    <securityRoles>
-                        <wlp.SecurityRoleSpec name="auth/bnd/samplerole">
-                            <roleName>SampleRole</roleName>
-                            <users>
-                                <wlp.UserRoleSpec name="auth/bnd/samplerole/sampleuser">
-                                    <userName>sampleuser</userName>
-                                    <accessId>sampleuser</accessId>
-                                </wlp.UserRoleSpec>
-                            </users>
-                            <groups/>
-                            <specialSubjects/>
-                            <runAsUsers/>
-                        </wlp.SecurityRoleSpec>
-                    </securityRoles>
-                </wlp.ApplicationBndSpec>
-            </applicationBindings>
-        </wlp.WebApplicationSpec>
-    </deployables>
-</udm.DeploymentPackage>
-```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <udm.DeploymentPackage version="1.0" application="secure">
+        <deployables>
+            <wlp.WebApplicationSpec name="auth" file="auth/auth-war-1.0.war">
+                <location>secure.war</location>
+                <contextRoot>secure</contextRoot>
+                <applicationBindings>
+                    <wlp.ApplicationBndSpec name="auth/bnd">
+                        <securityRoles>
+                            <wlp.SecurityRoleSpec name="auth/bnd/samplerole">
+                                <roleName>SampleRole</roleName>
+                                <users>
+                                    <wlp.UserRoleSpec name="auth/bnd/samplerole/sampleuser">
+                                        <userName>sampleuser</userName>
+                                        <accessId>sampleuser</accessId>
+                                    </wlp.UserRoleSpec>
+                                </users>
+                                <groups/>
+                                <specialSubjects/>
+                                <runAsUsers/>
+                            </wlp.SecurityRoleSpec>
+                        </securityRoles>
+                    </wlp.ApplicationBndSpec>
+                </applicationBindings>
+            </wlp.WebApplicationSpec>
+        </deployables>
+    </udm.DeploymentPackage>
 
 * `wlp.ClassloaderSpec`: This configuration is used to configure references of shared libraries required by an application.
 
