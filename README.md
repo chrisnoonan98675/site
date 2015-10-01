@@ -5,8 +5,8 @@ online-docs-jekyll
 
 1. Clone this repository.
 1. Install Jekyll 2.x and its requirements:
-    * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/)
-    * Windows users, follow [these instructions](http://jekyll-windows.juthilo.com/) (you can skip step #3 there)
+    * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/). **Important:** If you're using OS X 10.11 (El Capitan) or later, [read this important info](http://jekyllrb.com/docs/troubleshooting/#jekyll-amp-mac-os-x-1011)!
+    * Windows users, follow [these instructions](http://jekyll-windows.juthilo.com/) (you can skip step #3 there).
 1. In the directory where you cloned the repository, execute `jekyll serve` or `jekyll serve --watch` (for [watch mode](http://jekyllrb.com/docs/usage/)). Go to `http://localhost:4000` to see the site running locally.
 
 Tips:
