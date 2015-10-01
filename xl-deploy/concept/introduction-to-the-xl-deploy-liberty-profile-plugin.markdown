@@ -61,7 +61,6 @@ The following sample configuration can be used for setting up Liberty profile se
 ### server.xml
 
 ```xml
-
 <server description="new server">
   <featureManager>
     <feature>restConnector-1.0</feature>
@@ -70,14 +69,13 @@ The following sample configuration can be used for setting up Liberty profile se
   <quickStartSecurity userName="wlpadmin" userPassword="wlpadmin" />
   <keyStore id="defaultKeyStore" password="mypass" />
 </server>
-
 ```
+
 ### Security
 
 Based on configuration defined in `server.xml` Liberty profile server will automatically generate `key.jks` in directory `/opt/IBM/wlp/usr/servers/defaultServer/resources/security`. The following commands can be executed to generate trust store which is configured in XL Deploy. The generated `truststore.ts` is copied to `/opt/xl-deploy-server/certs` directory.
 
 ```bash
-
 keytool -export -alias default -file mycert.crt -keystore key.jks
 
 keytool -import -trustcacerts -alias default -file mycert.crt -keystore truststore.ts -storepass mypass -noprompt
@@ -85,10 +83,13 @@ keytool -import -trustcacerts -alias default -file mycert.crt -keystore truststo
 ```
 
 ### Plugin Configuration
+
 **Basic plugin configuration**
+
 ![Basic plugin configuration](images/wlp-basic-properties.png)
 
 **Connector Properties**
+
 ![Connector Properties](images/wlp-connector-properties.png)
 
 The value of `password` property is `wlpadmin` and `Trust store password` is `mypass`.
@@ -96,12 +97,14 @@ The value of `password` property is `wlpadmin` and `Trust store password` is `my
 ### Defaults
 
 The server can be configured to accept all hosts and certificates by setting hidden attributes 'trustAllHostnames' and 'trustAllCertificates' to true in `<xl-deploy installation directory>/conf/deployit-defaults.properties`
+
 ```bash
 # Ignores certificate verification checks, use in development environments only.
 wlp.Server.trustAllCertificates=false
 # Ignores host verification checks, use in development environments only.
 wlp.Server.trustAllHostnames=false
 ```
+
 **Note:** The settings mentioned above should only be used in development environment.
 
 ``deployit-defaults.properties`` can also be used for setting up values for `connectTimeout` and `readTimeout` to resolve connection issues.
@@ -109,6 +112,7 @@ wlp.Server.trustAllHostnames=false
 ## Use in deployment packages
 
 The plugin works with the standard deployment package of DAR format. The following is a sample `deployit-manifest.xml` file that can be used to create a Liberty profile specific deployment package. It contain declarations for an WAR file (`wlp.WebApplicationSpec`) and datasource (`wlp.GenericDataSourceSpec`) with related driver, fileset, library and connection manager.
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <udm.DeploymentPackage version="1.0" application="app">
@@ -140,6 +144,7 @@ The plugin works with the standard deployment package of DAR format. The followi
     </deployables>
 </udm.DeploymentPackage>
 ```
+
 ## Server container
 
 The `wlp.Server` CI defines an instance of a stand-alone Liberty profile server. Use the **Connector** tab on the server configuration to configure the client for the JMX REST connector, the SSL truststore path, and password. Use the **Reloading** attribute to enable reloading of the server configuration when the `server.xml` file is changed (enabled by default).
@@ -185,6 +190,7 @@ The following sample `deployit-manifest.xml` file creates a XL Deploy deployment
     </deployables>
 </udm.DeploymentPackage>
 ```
+
 * `wlp.ClassloaderSpec`: This configuration is used to configure references of shared libraries required by an application.
 
 ## Resources
