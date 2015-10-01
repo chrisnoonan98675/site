@@ -20,17 +20,6 @@ highlighter: pygments
 
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
-asciidoc: asciidoctor
-asciidoc_ext: "asciidoc,adoc,ad"
-asciidoctor:
-  safe: safe
-  attributes:
-    - notitle!
-    - hardbreaks
-    - idprefix=
-    - idseparator=-
-    - linkattrs
-
 jira_dashboard:
   generate: true
   data_file: '' # '_data/development_status.yaml' # use for testing purposes
