@@ -10,10 +10,13 @@ tags:
 - setup
 ---
 
-Before you install XL Release, ensure that you meet the [prerequisites](/xl-release/concept/requirements-for-installing-xl-release.html).
+Before you install XL Release:
 
-<!--**Note:** See **The upgrade process** for instructions on how to upgrade XL Release from a previous version.
--->
+* Read about [XL Release licensing](/xl-release/concept/xl-release-licensing.html)
+* Ensure that you meet the [system requirements](/xl-release/concept/requirements-for-installing-xl-release.html)
+
+## Installation process
+
 To install the XL Release server application:
 
 1. Log in to the server where the XL Release Server will be installed. It is recommended to install XL Release server as a non-root user such as `xl-release`.
