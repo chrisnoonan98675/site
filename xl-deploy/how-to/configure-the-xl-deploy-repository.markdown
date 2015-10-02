@@ -213,17 +213,67 @@ If you use the TNSNames Alias syntax to connect to Oracle, you may need to infor
 
 ### Using XL Deploy with SQL Server
 
-To configure XL Deploy to use [SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server/), follow the examples above, replacing the driver with `org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager`. For example:
+To use XL Deploy with [Microsoft SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server/), ensure that the [Microsoft JDBC driver for SQL Server](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx) JAR file is located in `<XLDEPLOY_HOME>/lib` or on the Java classpath.
 
-    <PersistenceManager class ="org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager">
-        <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-        <param name="url" value="jdbc:sqlserver://<database-host>:1433;DatabaseName=xldeploy" />
-        <param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
-        <param name="user" value="user" />
-        <param name="password" value="pwd" />
-        <param name="schemaObjectPrefix" value="${wsp.name}_" />
-        <param name="externalBLOBs" value="false" />
-    </PersistenceManager>
+This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration for SQL Server:
+
+    <DataStore class="org.apache.jackrabbit.core.data.FileDataStore" />
+
+    <Security appName="Jackrabbit">
+        <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
+        <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
+        <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
+            <param name="anonymousId" value="anonymous" />
+            <param name="adminId" value="admin" />
+        </LoginModule>
+    </Security>
+
+    <Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
+
+    <Workspace name="${wsp.name}">
+        <FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
+          <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+			<param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLDeploy" />
+			<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
+			<param name="user" value="username" />
+			<param name="password" value="password" />
+			<param name="schemaObjectPrefix" value="${wsp.name}_" />
+        </FileSystem>
+
+        <PersistenceManager class ="org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager">
+			<param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+			<param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLDeploy" />
+			<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
+			<param name="user" value="username" />
+			<param name="password" value="password" />
+			<param name="schemaObjectPrefix" value="${wsp.name}_" />
+        </PersistenceManager>
+
+        <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
+            <param name="path" value="${wsp.home}/index" />
+            <param name="supportHighlighting" value="true" />
+        </SearchIndex>
+    </Workspace>
+
+    <Versioning rootPath="${rep.home}/version">
+        <FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
+          <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+			<param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLDeploy" />
+			<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
+			<param name="user" value="username" />
+			<param name="password" value="password" />
+			<param name="schemaObjectPrefix" value="version_"/>
+        </FileSystem>
+
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager">
+          <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+			<param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLDeploy" />
+			<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
+			<param name="user" value="username" />
+			<param name="password" value="password" />
+			<param name="schemaObjectPrefix" value="version_" />
+        </PersistenceManager>
+    </Versioning>
 
 For more information about SQL Server configuration for Jackrabbit, refer to the [Jackrabbit wiki](http://wiki.apache.org/jackrabbit/DataStore#Database_Data_Store). For information about the `MSSqlPersistenceManager` class, refer to the [Jackrabbit documentation](http://jackrabbit.apache.org/api/2.2/org/apache/jackrabbit/core/persistence/db/MSSqlPersistenceManager.html).
 
@@ -233,7 +283,7 @@ It is also possible to run XL Deploy server with its repository shared with othe
 
 ### File-based repository
 
-Add the following snippet to the `jackrabbit-repository.xml` to enable clustering:
+Add the following code to the `jackrabbit-repository.xml` to enable clustering:
 
     <Cluster id="node1">
       <Journal class="org.apache.jackrabbit.core.journal.FileJournal">
