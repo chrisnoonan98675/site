@@ -14,6 +14,7 @@ tags:
 
 To install the XL Release server, the following requirements must be met:
 
+* **XL Release license:** See [XL Release licensing](/xl-release/concept/xl-release-licensing.html)
 * **Operating system:** Microsoft Windows or a Unix-family operating system
 * **Java SE Development Kit (JDK)**: JDK 7 (Oracle or IBM)
 * **RAM:** At least 2 GB of RAM available for XL Release
