@@ -44,14 +44,12 @@ To install XL TestView:
 
 1. Download the XL TestView ZIP file from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com).
 2. Extract the ZIP file to the directory where you want to install XL TestView; for example, `/opt/xebialabs/xl-testview` or `C:\Program Files\XL TestView`. This is referred to as `<XLTESTVIEW_HOME>`.
-3. If you already have a license file, copy it to `<XLTESTVIEW_HOME>/conf/xl-testview-license.lic`. If you do not have a license file, you can request one after XL TestView starts.
+3. If you have a license file, copy it to `<XLTESTVIEW_HOME>/conf/xl-testview-license.lic`. If you do not have a license, you can request one after XL TestView starts.
 4. Open a command prompt and navigate to `<XLTESTVIEW_HOME>/bin`.
 5. Execute one of the following commands to start the setup wizard:
       * On Unix: `<XLTESTVIEW_HOME>/bin/server.sh`
       * On Windows: `<XLTESTVIEW_HOME>/bin/server.cmd`
 6. After XL TestView has started, you will see the message `Starting XL TestView ... done.` and the URL where you can access XL TestView.
-
-If you do not have a license, fill out the registration form that appears when you go to the URL. This license allows you to create [one project](/xl-testview/how-to/add-a-project.html) in addition to the demo project.
 
 **Note:** Because XL TestView can perform file system operations such as scanning the file system, it is strongly advised that you execute XL TestView as a specialized user with limited permissions and minimal access rights.
 
