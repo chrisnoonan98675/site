@@ -17,8 +17,8 @@ You can download your Enterprise Edition license at the [XebiaLabs Software Dist
 There are several versions of the XL Release license:
 
 * **V1:** Required for XL Release 4.0.10 and earlier
-* **V2:** Required for XL Release 4.0.11 through 4.7.x
-* **V3:** Required for XL Release 4.8.0 and later
+* **V2:** Required for XL Release 4.0.11 through 4.7.1
+* **V3:** Required for XL Release 4.7.2 and later
 
 You can also find this information in the `README` file located with your licenses on the XebiaLabs Software Distribution site.
 
