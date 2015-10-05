@@ -52,7 +52,6 @@
 # XL TestView in-product links
 /xl-testview/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new?community_id=public
 /xl-testview/suggest-feature.html : https://support.xebialabs.com/hc/communities/public/questions/new?question%5Btopic_id%5D=200258619
-/xl-testview/license-agreement.html : /xl-testview/xl-testview-community-edition-eula.html
 /xl-testview/help/0001.html : /xl-testview/how-to/create-a-test-specification.html
 /xl-testview/help/0002.html : /xl-testview/how-to/execute-tests.html
 /xl-testview/help/0003.html : /xl-testview/concept/working-with-qualifications.html
@@ -70,7 +69,6 @@
 # Old XL Test in-product links
 /xl-test/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new?community_id=public
 /xl-test/suggest-feature.html : https://support.xebialabs.com/hc/communities/public/questions/new?question%5Btopic_id%5D=200258619
-/xl-test/license-agreement.html : /xl-testview/xl-testview-community-edition-eula.html
 /xl-test/help/0001.html : /xl-testview/how-to/create-a-test-specification.html
 /xl-test/help/0002.html : /xl-testview/how-to/execute-tests.html
 /xl-test/help/0003.html : /xl-testview/concept/working-with-qualifications.html
