@@ -13,7 +13,9 @@ tags:
 - plugin
 ---
 
-The XL Deploy Websphere Liberty profile server (WLP) plugin adds capability for managing deployments and resources on Liberty profile server. It works out of the box for deploying/upgrading/undeploying application artifacts, features, and resources like datasources, libraries and filesets. The plugin is implemented using XL Deploy rules and Jython scripts, so you can easily extend it to support more deployment options and management of new artifacts and resources.
+The XL Deploy WebSphere Liberty profile server (WLP) plugin adds capability for managing deployments and resources on Liberty profile server. It works out of the box for deploying/upgrading/undeploying application artifacts, features, and resources like datasources, libraries and filesets.
+
+The plugin is implemented using XL Deploy rules and Jython scripts, so you can easily extend it to support more deployment options and management of new artifacts and resources.
 
 For information about Liberty profile requirements and the configuration items (CIs) that the plugin supports, refer to the [Liberty Profile Plugin Reference](/xl-deploy/latest/wlpPluginManual.html).
 
@@ -53,12 +55,9 @@ For information about Liberty profile requirements and the configuration items (
 
 The plugin manages the Liberty profile server through the secure Java Management Extensions (JMX) REST connector. To enable the REST connector, include the `restConnector-1.0` feature in the `server.xml` file on the Liberty server. The instructions for configuring REST connector are available at [Configuring secure JMX connection to the Liberty profile](https://www-01.ibm.com/support/knowledgecenter/was_beta_liberty/com.ibm.websphere.wlp.nd.multiplatform.doc/ae/twlp_admin_restconnector.html?cp=was_beta_liberty%2F1-6-1-16-1).
 
-To keep communication confidential, configure SSL certificates on the Liberty profile and on the XL Deploy instance connecting to the server. For information about configuring certificates on the Liberty profile server, refer to [
-Enabling SSL communication for the Liberty profile](https://www-01.ibm.com/support/knowledgecenter/was_beta_liberty/com.ibm.websphere.wlp.nd.multiplatform.doc/ae/twlp_sec_ssl.html?cp=was_beta_liberty).
+To keep communication confidential, configure SSL certificates on the Liberty profile and on the XL Deploy instance connecting to the server. For information about configuring certificates on the Liberty profile server, refer to [Enabling SSL communication for the Liberty profile](https://www-01.ibm.com/support/knowledgecenter/was_beta_liberty/com.ibm.websphere.wlp.nd.multiplatform.doc/ae/twlp_sec_ssl.html?cp=was_beta_liberty).
 
-The following sample configuration can be used for setting up Liberty profile server with the plugin on a `overthere.LocalHost`. Liberty profile server location is `/opt/IBM/wlp/usr/servers/defaultServer` and XL Deploy installation directory is `/opt/xl-deploy-server`
-
-### server.xml
+You can use the following sample `server.xml` configuration to set up the Liberty profile server with the plugin on an `overthere.LocalHost`. The Liberty profile server location is `/opt/IBM/wlp/usr/servers/defaultServer` and the XL Deploy installation directory is `/opt/xl-deploy-server`.
 
     <server description="new server">
       <featureManager>
@@ -71,45 +70,40 @@ The following sample configuration can be used for setting up Liberty profile se
 
 ### Security
 
-Based on configuration defined in `server.xml` Liberty profile server will automatically generate `key.jks` in directory `/opt/IBM/wlp/usr/servers/defaultServer/resources/security`. The following commands can be executed to generate trust store which is configured in XL Deploy. The generated `truststore.ts` is copied to `/opt/xl-deploy-server/certs` directory.
+Based on the configuration defined in `server.xml`, the Liberty profile server will automatically generate `key.jks` in the `/opt/IBM/wlp/usr/servers/defaultServer/resources/security` directory. The following commands can be executed to generate trust store which is configured in XL Deploy. The generated `truststore.ts` is copied to `/opt/xl-deploy-server/certs` directory.
 
     keytool -export -alias default -file mycert.crt -keystore key.jks
 
     keytool -import -trustcacerts -alias default -file mycert.crt -keystore truststore.ts -storepass mypass -noprompt
 
+### Plugin configuration
 
-### Plugin Configuration
-
-
-**Basic plugin configuration**
-
+The basic plugin configuration is:
 
 ![Basic plugin configuration](images/wlp-basic-properties.png)
 
-
-**Connector Properties**
-
+Sample connector properties:
 
 ![Connector Properties](images/wlp-connector-properties.png)
 
-The value of `password` property is `wlpadmin` and `Trust store password` is `mypass`.
+The value of the **Password** property is `wlpadmin`, and the **Trust store password** is `mypass`.
 
 ### Defaults
 
-The server can be configured to accept all hosts and certificates by setting hidden attributes 'trustAllHostnames' and 'trustAllCertificates' to true in `<xl-deploy installation directory>/conf/deployit-defaults.properties`
+The server can be configured to accept all hosts and certificates by setting the hidden attributes `trustAllHostnames` and `trustAllCertificates` to `true` in `<XLDEPLOY_HOME>/conf/deployit-defaults.properties`:
 
     # Ignores certificate verification checks, use in development environments only.
     wlp.Server.trustAllCertificates=false
     # Ignores host verification checks, use in development environments only.
     wlp.Server.trustAllHostnames=false
 
-**Note:** The settings mentioned above should only be used in development environment.
+**Note:** These settings should only be used in development environment.
 
-``deployit-defaults.properties`` can also be used for setting up values for `connectTimeout` and `readTimeout` to resolve connection issues.
+`deployit-defaults.properties` can also be used to define values for `connectTimeout` and `readTimeout` to resolve connection issues.
 
 ## Use in deployment packages
 
-The plugin works with the standard deployment package of DAR format. The following is a sample `deployit-manifest.xml` file that can be used to create a Liberty profile specific deployment package. It contain declarations for an WAR file (`wlp.WebApplicationSpec`) and datasource (`wlp.GenericDataSourceSpec`) with related driver, fileset, library and connection manager.
+The plugin works with the standard deployment package (DAR) format. The following is a sample `deployit-manifest.xml` file that can be used to create a Liberty profile-specific deployment package. It contains declarations for a WAR file (`wlp.WebApplicationSpec`) and a datasource (`wlp.GenericDataSourceSpec`) with the related driver, fileset, library, and connection manager.
 
     <?xml version="1.0" encoding="UTF-8"?>
     <udm.DeploymentPackage version="1.0" application="app">
@@ -151,45 +145,48 @@ Control options such as status, start, and stop are available on the server inst
 
 The way an application is deployed to a container can be influenced by modifying properties of the corresponding deployed. The following deployed properties determine how the application is deployed to the container:
 
-* `location`: The location of the WAR file can be absolute or relative. A relative path is resolved with a reference to the apps directory in the server; for example, for the defaultServer location, tmp/sample.war will be copied to <installation directory>/usr/servers/defaultServer/apps/tmp/sample.war.
+* `location`: The location of the WAR file can be absolute or relative. A relative path is resolved with a reference to the apps directory in the server; for example, for the `defaultServer` location, `tmp/sample.war` will be copied to `<installation directory>/usr/servers/defaultServer/apps/tmp/sample.war`.
+
 * `Restart strategy`: This attribute can be set to `NONE` or `STOP_START`. When the `STOP_START` strategy is used, an existing application will be stopped before undeployment or upgrading, and a new application version will be started after an initial deployment or an upgrade.
+
 * `wlp.ApplicationBndSpec`: This is available as an embedded configuration item on an application. It is used to bind general deployment information included in the application to security roles. There are security role types for users, groups, "special subject", and "run as user".
 
-The following sample `deployit-manifest.xml` file creates a XL Deploy deployment package which deploys a Web application with role bindings to the WebSphere Liberty Profile server instance:
-
-    <?xml version="1.0" encoding="UTF-8"?>
-    <udm.DeploymentPackage version="1.0" application="secure">
-        <deployables>
-            <wlp.WebApplicationSpec name="auth" file="auth/auth-war-1.0.war">
-                <location>secure.war</location>
-                <contextRoot>secure</contextRoot>
-                <applicationBindings>
-                    <wlp.ApplicationBndSpec name="auth/bnd">
-                        <securityRoles>
-                            <wlp.SecurityRoleSpec name="auth/bnd/samplerole">
-                                <roleName>SampleRole</roleName>
-                                <users>
-                                    <wlp.UserRoleSpec name="auth/bnd/samplerole/sampleuser">
-                                        <userName>sampleuser</userName>
-                                        <accessId>sampleuser</accessId>
-                                    </wlp.UserRoleSpec>
-                                </users>
-                                <groups/>
-                                <specialSubjects/>
-                                <runAsUsers/>
-                            </wlp.SecurityRoleSpec>
-                        </securityRoles>
-                    </wlp.ApplicationBndSpec>
-                </applicationBindings>
-            </wlp.WebApplicationSpec>
-        </deployables>
-    </udm.DeploymentPackage>
+	The following sample `deployit-manifest.xml` file creates a XL Deploy deployment package which deploys a Web application with role bindings to the WebSphere Liberty Profile server instance:
+	
+	    <?xml version="1.0" encoding="UTF-8"?>
+	    <udm.DeploymentPackage version="1.0" application="secure">
+	        <deployables>
+	            <wlp.WebApplicationSpec name="auth" file="auth/auth-war-1.0.war">
+	                <location>secure.war</location>
+	                <contextRoot>secure</contextRoot>
+	                <applicationBindings>
+	                    <wlp.ApplicationBndSpec name="auth/bnd">
+	                        <securityRoles>
+	                            <wlp.SecurityRoleSpec name="auth/bnd/samplerole">
+	                                <roleName>SampleRole</roleName>
+	                                <users>
+	                                    <wlp.UserRoleSpec name="auth/bnd/samplerole/sampleuser">
+	                                        <userName>sampleuser</userName>
+	                                        <accessId>sampleuser</accessId>
+	                                    </wlp.UserRoleSpec>
+	                                </users>
+	                                <groups/>
+	                                <specialSubjects/>
+	                                <runAsUsers/>
+	                            </wlp.SecurityRoleSpec>
+	                        </securityRoles>
+	                    </wlp.ApplicationBndSpec>
+	                </applicationBindings>
+	            </wlp.WebApplicationSpec>
+	        </deployables>
+	    </udm.DeploymentPackage>
 
 * `wlp.ClassloaderSpec`: This configuration is used to configure references of shared libraries required by an application.
 
 ## Resources
 
-The deployment and undeployment of resources like fileset, library, connection managers and datasources is supported by the plugin.
+The plugin supports the deployment and undeployment of resources such as fileset, library, connection managers, and datasources.
 
-## Liberty Features
-Liberty features which enable loading of units of functionality in Liberty profile server runtime can also be installed and uninstalled using the plugin.
+## Liberty features
+
+Liberty features that enable loading of units of functionality in Liberty profile server runtime can also be installed and uninstalled using the plugin.
