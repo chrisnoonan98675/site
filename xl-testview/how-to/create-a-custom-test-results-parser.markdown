@@ -141,8 +141,7 @@ The result of a functional test tool is a list of test runs. A test run is a lis
     ],
     "@result": "FAILED",
     "@type": "functionalResult",
-    "fileName": "TEST-com.xebialabs.xltest.reference.p1.Junit.xml",
-    "firstError": "java.lang.AssertionError: \nExpected: is <true>\n     but: was <false>"
+    "@firstError": "java.lang.AssertionError: \nExpected: is <true>\n     but: was <false>"
   },
   {
     "@duration": 43,
