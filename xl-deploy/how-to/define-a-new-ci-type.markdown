@@ -46,8 +46,8 @@ You can also copy default values from the deployed type definition to the genera
 {% highlight xml %}
 <type type="tomcat.DataSource" extends="tomcat.JndiContextElement" deployable-type="jee.DataSourceSpec" description="DataSource installed to a Tomcat Virtual Host or the Common Context">
     <generate-deployable type="tomcat.DataSourceSpec" extends="jee.DataSourceSpec" copy-default-values="true"/>
-    <property name="driverClassName" description="The fully qualified Java class name of the JDBC driver to be used." default="{% raw %}{{DATASOURCE_DRIVER}}{% endraw %}/">
-    <property name="url" description="The connection URL to be passed to our JDBC driver to establish a connection." default="{% raw %}{{DATASOURCE_URL}}{% endraw %}/">
+    <property name="driverClassName" description="The fully qualified Java class name of the JDBC driver to be used." default="{% raw %}{{DATASOURCE_DRIVER}}{% endraw %}"/>
+    <property name="url" description="The connection URL to be passed to our JDBC driver to establish a connection." default="{% raw %}{{DATASOURCE_URL}}{% endraw %}"/>
 </type>
 {% endhighlight %}
 
