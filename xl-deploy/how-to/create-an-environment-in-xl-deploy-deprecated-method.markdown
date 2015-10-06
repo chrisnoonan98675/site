@@ -7,7 +7,6 @@ categories:
 tags:
 - middleware
 - environment
-- container
 since:
 - XL Deploy 3.9.0
 deprecated:

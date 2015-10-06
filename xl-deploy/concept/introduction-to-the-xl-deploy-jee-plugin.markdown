@@ -5,7 +5,6 @@ categories:
 subject:
 - JEE plugin
 tags:
-- jee
 - java
 - plugin
 ---

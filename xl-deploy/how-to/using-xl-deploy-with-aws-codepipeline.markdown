@@ -6,9 +6,8 @@ subject:
 - AWS CodePipeline plugin
 tags:
 - plugin
-- aws
+- aws codepipeline
 - ec2
-- codepipeline
 - deployment
 since:
 - XL Deploy 5.0.1

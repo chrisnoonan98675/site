@@ -8,8 +8,6 @@ tags:
 - work directory
 - task
 - system administration
-- maintenance
-- cleanup
 ---
 
 The `<XLDEPLOY_HOME>/work` directory is a special directory that XL Deploy uses to temporarily store data that cannot be kept in memory. For example, if XL Deploy needs to process a binary artifact that is several gigabytes in size, the file would simply not fit in memory.

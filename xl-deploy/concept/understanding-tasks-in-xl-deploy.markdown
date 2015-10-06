@@ -9,7 +9,7 @@ tags:
 - deployment
 - discovery
 - control task
-- scheduling
+- schedule
 ---
 
 A task is an activity in XL Deploy. When starting a deployment, XL Deploy will create and start a task. The task contains a list of _steps_ that must be executed to successfully complete the task. XL Deploy will execute each of the steps in turn. When all of the steps are successfully executed, the task itself is successfully executed. If one of the steps fails, the task itself is marked failed.
