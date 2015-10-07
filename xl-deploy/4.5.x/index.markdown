@@ -22,7 +22,7 @@ product-id: xl-deploy
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
 * [Java API Manual](xldeployjavaapimanual.html)
-* Jython API Manual
+* [Jython API Manual](/jython-docs/#!/xl-deploy/4.5.x/)
 
 ### Standard plugins
 
@@ -38,7 +38,7 @@ product-id: xl-deploy
 * [Webserver Plugin Manual](webserverPluginManual.html)
 * [Trigger Plugin Manual](triggerPluginManual.html)
 
-## Plugins
+## Plugin documentation
 
 ### Java Middleware
 
@@ -49,12 +49,12 @@ product-id: xl-deploy
 * [WebSphere Application Server plugin](../../xl-deploy-was-plugin/4.5.x/wasPluginManual.html)
 * [WebSphere Process Server plugin](../../xl-deploy-wps-plugin/4.5.x/wpsPluginManual.html)
 * [Tomcat plugin](../../xl-deploy-tomcat-plugin/4.5.x/tomcatPluginManual.html)
-* [GlassFish plugin](../../xl-deploy-glassfish-plugin/4.0.x/glassfishPluginManual.html)
+* [GlassFish plugin](../../xl-deploy-glassfish-plugin/4.5.x/glassfishPluginManual.html)
 
 ### .NET Middleware
 
 * [BizTalk plugin](../../xl-deploy-biztalk-plugin/4.0.x/biztalkPluginManual.html)
-* [IIS plugin](../../xl-deploy-iis-plugin/4.0.x/iisPluginManual.html)
+* [IIS plugin](../../xl-deploy-iis-plugin/4.5.x/iisPluginManual.html)
 * [Windows plugin](../../xl-deploy-windows-plugin/4.0.x/windowsPluginManual.html)
 
 ### Other Middleware
@@ -67,8 +67,14 @@ product-id: xl-deploy
 
 ### Tools
 
-* XL Deploy Maven plugin
+* [XL Deploy Maven plugin](../../deployit-maven-plugin/4.5.x/)
 * [XL Deploy Jenkins plugin](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
-* XL Deploy Bamboo plugin
-* XL Deploy Team Foundation Server plugin
-* XL Deploy Manifest Editor (Windows only)
+* [XL Deploy Bamboo plugin](../../bamboo-xl-deploy-plugin/4.5.x/bambooPluginManual.html)
+* [XL Deploy Team Foundation Server plugin](../../xl-deploy-tfs-plugin/4.5.x/tfsPluginManual.html)
+* [XL Deploy Manifest Editor (Windows only)](../../xl-deploy-tfs-plugin/4.5.x/manifestEditorManual.html)
+
+### XL Scale
+
+* [XL Scale plugin](../../xl-scale-plugin/4.0.x/xlScaleManual.html)
+* [XL Scale EC2 plugin](../../xl-scale-ec2-plugin/4.0.x/ec2PluginManual.html)
+* [XL Scale vSphere plugin](../../xl-scale-vsphere-plugin/4.0.x/vspherePluginManual.html)

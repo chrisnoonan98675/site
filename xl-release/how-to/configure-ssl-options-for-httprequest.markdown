@@ -10,7 +10,7 @@ tags:
 - http
 ---
 
-Version 4.0.10 of XL Release introduced `HttpRequest`, a new underlying base class for HTTP requests which is used in webhooks and is available in custom tasks. `HttpRequest` is based on [Apache HTTP Components](https://hc.apache.org/) (Apache HC). This offers more configuration options around HTTP than Jython's implementation of [`httplib`](http://www.jython.org/docs/library/httplib.html), which was used previously (usually via [the deprecated `XLRequest` base class](support-legacy-use-of-xlrequest-using-httprequest.html)).
+Version 4.0.10 of XL Release introduced `HttpRequest`, a new underlying base class for HTTP requests which is used in webhooks and is available in custom tasks. `HttpRequest` is based on [Apache HTTP Components](https://hc.apache.org/) (Apache HC). This offers more configuration options around HTTP than Jython's implementation of [`httplib`](http://www.jython.org/docs/library/httplib.html), which was used previously (usually via [the deprecated `XLRequest` base class](/xl-release/how-to/support-legacy-use-of-xlrequest-using-httprequest.html)).
 
 Apache HC's default SSL configuration aims for security, failing to accept things like hostname mismatches between a target host and its certificate (some of the default settings cause slightly different behavior when compared to the old `XLRequest` class).
 
@@ -24,11 +24,11 @@ First, create a directory `SERVER_HOME/ext/pythonutil` if it does not already ex
 
 Create a simple "sandbox" release template with a single script task to test the various settings:
 
-!["Sandbox" release template](images/test-script-task.png)
+!["Sandbox" release template](../images/test-script-task.png)
 
 This fails on two counts, as expected: first, it's a self-signed certificate and, secondly, the certificate is for `localhost`, not `nb-aphillips` (the machine's hostname):
 
-![SSL handshake error](images/ssl-handshake-error.png)
+![SSL handshake error](../images/ssl-handshake-error.png)
 
 ## Configure `HttpRequest` to trust self-signed certificates
 
@@ -57,7 +57,7 @@ Note that an additional import statement for the required classes to the initial
 
 Now, there is only a hostname mismatch:
 
-![Hostname mismatch](images/handshake-error.png)
+![Hostname mismatch](../images/handshake-error.png)
 
 ## Configure `HttpRequest` to ignore hostname mismatches
 
@@ -82,10 +82,10 @@ In this case, you can also remove `TrustSelfSignedStrategy` from the `org.apache
 
 With this change, the test task can call the server successfully:
 
-![Successful server call](images/https-call-200.png)
+![Successful server call](../images/https-call-200.png)
 
 Code samples are based on [this useful Stack Overflow post](https://stackoverflow.com/questions/19517538/ignoring-ssl-certificate-in-apache-httpclient-4-3). Thanks, [mavroprovato](https://stackoverflow.com/users/89435/mavroprovato)!
 
 **Note:** In the light of the [POODLE SSL vulnerability](http://googleonlinesecurity.blogspot.nl/2014/10/this-poodle-bites-exploiting-ssl-30.html), another SSL configuration option you may wish to consider is to allow only TLS connections. See the [Javadoc for `SSLConnectionSocketFactory`](https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/conn/ssl/SSLConnectionSocketFactory.html) for information about how to construct the socket factory to achieve this.
 
-**Important:** The code here is sample code only that is not officially supported by XebiaLabs. If you have questions, please [contact our support team](http://support.xebialabs.com/).
+**Important:** The code here is sample code only that is not officially supported by XebiaLabs. If you have questions, please [contact our support team](https://support.xebialabs.com/).

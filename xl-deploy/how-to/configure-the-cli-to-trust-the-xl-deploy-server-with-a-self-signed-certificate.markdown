@@ -1,12 +1,13 @@
 ---
 title: Configure the CLI to trust an XL Deploy server with a self-signed certificate
-subject:
-- CLI
 categories:
 - xl-deploy
+subject:
+- Command-line interface
 tags:
 - system administration
 - security
+- cli
 ---
 
 If you configured your [XL Deploy](http://xebialabs.com/products/xl-deploy) server to use a [self-signed certificate](http://docs.xebialabs.com/releases/latest/xl-deploy/systemadminmanual.html#running-the-server-setup-wizard) (this is fine for development and testing environments, but for production use a properly signed certificate is recommended!), you will notice that trying to connect with a "vanilla" [command-line interface (CLI)](http://docs.xebialabs.com/releases/latest/xl-deploy/climanual.html) configuration will fail:

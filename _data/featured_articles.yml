@@ -1,0 +1,27 @@
+- product: xl-deploy
+  product-id: xl-deploy
+  articles:
+    - title: Install XL Deploy
+      url: /xl-deploy/how-to/install-xl-deploy.html
+    - title: Upgrade XL Deploy
+      url: /xl-deploy/how-to/upgrade-xl-deploy.html
+    - title: Getting started with the satellite feature
+      url: /xl-deploy/concept/getting-started-with-the-satellite-feature.html
+- product: xl-release
+  product-id: xl-release
+  articles:
+    - title: Install XL Release
+      url: /xl-release/how-to/install-xl-release.html
+    - title: Create a release template
+      url: /xl-release/how-to/create-a-release-template.html
+    - title: Restart a phase in an active release
+      url: /xl-release/how-to/restart-a-phase-in-an-active-release.html
+- product: xl-test
+  product-id: xl-test
+  articles:
+    - title: Install XL Test
+      url: /xl-test/how-to/install-xl-test.html
+    - title: Getting started with XL Test
+      url: /xl-test/how-to/getting-started-with-xl-test.html
+    - title: Key XL Test concepts
+      url: /xl-test/concept/key-xl-test-concepts.html

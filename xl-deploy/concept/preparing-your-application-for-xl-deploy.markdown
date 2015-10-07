@@ -10,7 +10,11 @@ tags:
 - deployment
 ---
 
-To deploy an application with XL Deploy, you supply a file called a *deployment package*, or a DAR. A DAR package is a ZIP file that contains application files and a manifest file that describes the package content.
+XL Deploy uses the Unified Deployment Model (UDM) to structure deployments. In this model, deployment packages are containers for complete application distribution. They include application artifacts (EAR files, static content) as well as resource specifications (datasources, topics, queues, and so on) that the application needs to run. 
+
+A Deployment ARchive, or DAR file, is a ZIP file that contains application files and a manifest file that describes the package content. In addition to packages in a compressed archive format, XL Deploy can also import _exploded DARs_ or archives that have been extracted.
+
+Packages should be independent of the target environment and contain customization points (for example, placeholders in configuration files) that supply environment-specific values to the deployed application. This enables a single artifact to make the entire journey from development to production.
 
 ## What's in an application deployment package?
 
@@ -49,7 +53,7 @@ The plugins that are included in your XL Deploy installation determine the CI ty
 Before you create a deployment package, you should explore the CI types that are available. To do so in the XL Deploy interface, first import a sample deployment package:
 
 1. Go to **Deployment**.
-2. Click ![image](/images/button_import_package.png). The Import New Package tab appears.
+2. Click ![image](/images/button_add_package_deployment_workspace.png). The Import New Package tab appears.
 3. Select **Import deployment package from server**.
 4. Select the **PetClinic-ear 1.0** sample package.
 5. Click **Import**. XL Deploy imports the package.
@@ -57,15 +61,11 @@ Before you create a deployment package, you should explore the CI types that are
 7. Go to **Repository**.
 8. Click ![image](/images/button_refresh_repository.png) to refresh the repository.
 9. Expand **Applications** and right-click a deployment package.
-10. Select a CI type to see the properties that are available for it.
-
-![CI type menu](images/ci_type_menu.png)
-
-Alternatively, you can use the XL Deploy command line to explore configuration item types and properties, as described in the [Command Line Interface Manual](http://docs.xebialabs.com/releases/latest/deployit/climanual.html). Or you can read about CI types in the [XL Deploy documentation](http://docs.xebialabs.com/). 
+10. Hover over **New** to see the CI types that are available. To see the properties that are available for a specific CI type, click it.
 
 ### How do I know which type to use?
 
-In most cases, the ci types that you need to use are straightforwardly determined by the components of your application and by the target middleware. XL Deploy also includes types for common application components such as files that simply need to be moved to target servers. 
+In most cases, the CI types that you need to use are straightforwardly determined by the components of your application and by the target middleware. XL Deploy also includes types for common application components such as files that simply need to be moved to target servers. 
 
 For each type, you can specify properties that represent attributes of the artifact or resource to be deployed, such as the target location for a file or a JDBC connection URL for a datasource. If the value of a property is the same for all target environments, you can set the value in the deployment package itself.
 
@@ -113,13 +113,9 @@ When you execute a deployment to this environment, XL Deploy replaces the placeh
 
     jdbc.url=jdbc:oracle:thin:scott/tiger@dbhost:1521:orcl
 
-### Composite packages
-
-XL Deploy supports composite packages; that is, deployment packages that contain other deployment packages. This is an advanced strategy that you can use to aggregate individual components of larger systems. For more information about composite packages, refer to the [Packaging Manual](http://docs.xebialabs.com/releases/latest/deployit/packagingmanual.html).
-
 ### Create a deployment package in the XL Deploy interface
 
-Creating a deployment package in the XL Deploy interface is an easy way to see what makes up a DAR file and what a manifest file looks like. To create a deployment package, follow the steps in the [Create a Deployment Package using the Deployit UI cookbook](http://docs.xebialabs.com/general/cookbook_createpackage.html).
+Creating a deployment package in the XL Deploy interface is an easy way to see what makes up a DAR file and what a manifest file looks like. To create a deployment package, refer to [Create a deployment package using the XL Deploy UI](/xl-deploy/how-to/create-a-deployment-package-using-the-ui.html).
 
 #### Export the deployment package
 
@@ -130,18 +126,18 @@ To open the DAR file, change the file extension to ZIP, then open it with a file
 * General information about the package, such as the application name and version
 * References to all artifacts and resource definitions in the deployment package
 
-For more information about the manifest file format, refer to the [Packaging Manual](http://docs.xebialabs.com/releases/latest/deployit/packagingmanual.html#xml-manifest-format).
+For more information, refer to [XL Deploy manifest format](/xl-deploy/concept/xl-deploy-manifest-format.html).
 
-For Windows environments, there is a Manifest Editor that can help you create and edit `deployit-manifest.xml` files. For information about using this tool, refer to the [Manifest Editor Manual](http://docs.xebialabs.com/releases/latest/tfs-plugin/manifestEditorManual.html).
+For Windows environments, there is a Manifest Editor that can help you create and edit `deployit-manifest.xml` files. For information about using this tool, refer to [Using the XL Deploy Manifest Editor](/xl-deploy/how-to/using-the-xl-deploy-manifest-editor.html).
 
 ### Create a deployment package using an XL Deploy plugin
 
 XL Deploy includes plugins that enable you to automatically build packages as part of your delivery pipeline. Some of the plugins that are available are:
 
-* [Maven](http://tech.xebialabs.com/deployit-maven-plugin/)
-* [Jenkins](http://docs.xebialabs.com/releases/latest/xldeploy-plugin-plugin/jenkinsPluginManual.html)
-* [Bamboo](http://docs.xebialabs.com/releases/latest/bamboo-xl-deploy-plugin/bambooPluginManual.html)
-* [Team Foundation Server (TFS)](http://docs.xebialabs.com/releases/latest/tfs-plugin/tfsPluginManual.html)
+* [Maven](/xl-deploy/latest/maven-plugin/index.html)
+* [Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
+* [Bamboo](/xl-deploy/latest/bamboo-plugin/index.html)
+* [Team Foundation Server (TFS)](/xl-deploy/latest/tfs-plugin/index.html)
 
 ### Create a deployment package using a command line tool
 
@@ -152,8 +148,6 @@ Even if you aren’t using a build tool or CI tool, you can create DARs automati
 * Maven `jar` plugin
 * Ant `jar` task
 
-For detailed information about deployment packages, refer to the [Packaging Manual](http://docs.xebialabs.com/releases/latest/deployit/packagingmanual.html).
-
 ### Import a deployment package
 
 To deploy a package that you have created to a target environment, you must first make the package available to the XL Deploy server. You can do so by publishing the package from a build tool or by manually importing the package.
@@ -162,21 +156,9 @@ The tools listed above can automatically publish deployment packages to an XL De
 
 #### Import a deployment package using the XL Deploy interface
 
-You can import deployment packages from the XL Deploy server or from a location that is accessible via a URL, such as a CI server or an artifact repository like Archiva, Artifactory, or Nexus.
+You can import deployment packages from the XL Deploy server or from a location that is accessible via a URL, such as a CI server or an artifact repository such as Archiva, Artifactory, or Nexus.
 
-To import a deployment package:
-
-1. Copy the deployment package (DAR) to `SERVER_HOME/importablePackages` on the XL Deploy server or to a location that is accessible via a URL.
-2. In the XL Deploy interface, go to **Deployment**.
-3. Click ![image](/images/button_import_package.png). The Import New Package tab appears.
-4. If you copied the DAR file to the XL Deploy server, select **Import deployment package from server** and select your deployment package.
-5. If you copied the deployment package to a location that is accessible via a URL, select **Import a deployment package from url**, and then enter the URL.
-6. Click **Import**. XL Deploy imports the package. If the package represents an application that is not already defined, XL Deploy automatically creates an application for it. If the package represents an application that is already defined, XL Deploy adds it as a new version of the application.
-7. Click **Close**.
-8. Go to **Repository**.
-9. Click ![image](/images/button_refresh_repository.png) to refresh the repository.
-10. Expand **Applications**.
-11. Expand the application that your package represents. Your package appears as a new version of the application.
+For information about importing import a deployment package, refer to [link](/xl-deploy/how-to/import-a-deployment-package.html).
 
 ## Create and verify the deployment plan
 
@@ -192,8 +174,8 @@ To verify the members of your target environment, double-click it and review its
 
 If the infrastructure members that make up your target environment are not available in the Repository, you can add them by either: 
 
-* Using the XL Deploy [Discovery feature](http://docs.xebialabs.com/releases/latest/deployit/guimanual.html#discovery) 
-* Manually [adding the required configuration items](http://docs.xebialabs.com/releases/latest/deployit/guimanual.html#creating-a-new-ci)
+* Using the XL Deploy [Discovery feature](/xl-deploy/how-to/discover-middleware.html) 
+* Manually [adding the required configuration items](/xl-deploy/how-to/working-with-configuration-items.html#create-a-new-ci)
 
 ### Create the deployment plan
 
@@ -222,7 +204,7 @@ You may be able to achieve the desired deployment behavior by:
 * Using different CI types
 * Creating a new CI type
 
-To check the types that are available and their properties, follow the instructions provided in *Exploring CI types*. The [documentation for each plugin](http://docs.xebialabs.com/) describes the actions that are linked to each CI type.
+To check the types that are available and their properties, follow the instructions provided in *Exploring CI types*. The documentation for each plugin describes the actions that are linked to each CI type.
 
 If you cannot find the CI type that you need for a component of your application, you can add types by creating a new plugin.
 
@@ -230,13 +212,13 @@ If you cannot find the CI type that you need for a component of your application
 
 You can configure your plugins to change the deployment steps that it adds to the plan or to add new steps as needed.
 
-For example, say you are going to deploy an application to a JBoss or Tomcat server that you have configured for hot deployments, so you do not need the server to be stopped before the application is deployed or started afterward. In the [JBoss Application Server Plugin Manual](http://docs.xebialabs.com/releases/latest/jbossas-plugin/jbossPluginManual.html) and [Tomcat Plugin Manual](http://docs.xebialabs.com/releases/latest/tomcat-plugin/tomcatPluginManual.html), you’ll find the `restartRequired` property for [jbossas.EarModule](http://docs.xebialabs.com/releases/latest/jbossas-plugin/jbossPluginManual.html#jbossasearmodule), [tomcat.WarModule](http://docs.xebialabs.com/releases/latest/tomcat-plugin/tomcatPluginManual.html#tomcatwarmodule), and other deployable types. The default value of this property is `true`. To change the value:
+For example, say you are going to deploy an application to a JBoss or Tomcat server that you have configured for hot deployments, so you do not need the server to be stopped before the application is deployed or started afterward. In the [JBoss Application Server plugin reference documentation](/xl-deploy/latest/jbossPluginManual.html) and [Tomcat plugin reference documentation](/xl-deploy/latest/tomcatPluginManual.html), you'll find the `restartRequired` property for `jbossas.EarModule`, `tomcat.WarModule`, and other deployable types. The default value of this property is `true`. To change the value:
 
 1. Set `restartRequired` to `false` in the `SERVER_HOME/conf/deployit-defaults.properties` file.
 2. Restart the XL Deploy server to load the new configuration setting.
 3. Create a deployment that will deploy your application to the target environment. You will see that the server stop and start steps do not appear in the deployment plan that is generated.
 
-For more detailed information about the way that XL Deploy creates deployment plans, refer to the [Customization Manual](http://docs.xebialabs.com/releases/latest/deployit/customizationmanual.html). For information about configuring the plugin you are using, refer to its manual in the [XL Deploy documentation](http://docs.xebialabs.com/).
+For more detailed information about the way that XL Deploy creates deployment plans, refer to the [Understanding the packaging phase](/xl-deploy/concept/understanding-the-xl-deploy-planning-phase.html). For information about configuring the plugin you are using, refer to its manual in the XL Deploy documentation.
 
 ### Create a new plugin
 
@@ -245,14 +227,6 @@ You may need to deploy an application to middleware for which XL Deploy does not
 * New container types, which are types of middleware that can be added to a target environment
 * New artifact and resources types that you can add to deployment packages and deploy to new or existing container types
 * Rules that indicate the steps that XL Deploy should execute when you deploy the new artifact and resource types
-* [Control tasks](http://docs.xebialabs.com/releases/latest/deployit/customizationmanual.html#control-tasks) that define housekeeping actions you can perform on new or existing container types
+* [Control tasks](/xl-deploy/concept/understanding-control-tasks-in-xl-deploy.html) that define housekeeping actions you can perform on new or existing container types
 
 You can define rules and control tasks in an XML file. Implementations of new steps use your preferred automation for your target systems. No specialized scripting language is required.
-
-For more information about creating a plugin, refer to the [Customization Manual](http://docs.xebialabs.com/releases/latest/deployit/customizationmanual.html).
-
-### Learn more about extending XL Deploy
-
-To learn more about the ways you can extend XL Deploy functionality through plugins, refer to the [plugin api documentation](http://docs.xebialabs.com/).
-
-Also, you can [browse plugins that other XL Deploy users have created](https://github.com/xebialabs/community-plugins) and connect with other users at [the forums](https://support.xebialabs.com/forums).

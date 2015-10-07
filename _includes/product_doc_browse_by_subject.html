@@ -1,6 +1,6 @@
-<h2>Browse documentation by subject</h2>
+<h2 id="browse-documentation-by-subject">Browse documentation by subject</h2>
 
-{% capture all_page_subjects %}{% for page in site.pages %}{% if page.path contains product-id-to-search-for %}{% for subject in page.subject %}{{ subject }},{% endfor %}{% endif %}{% endfor %}{% endcapture %}
+{% capture all_page_subjects %}{% for page in site.pages %}{% for category in page.categories %}{% if category contains product-id-to-search-for %}{% for subject in page.subject %}{{ subject }},{% endfor %}{% endif %}{% endfor %}{% endfor %}{% endcapture %}
 {% assign sorted_page_subjects = all_page_subjects | split:',' | sort %}
 
 {% assign subjects_used = '' %}
@@ -8,7 +8,7 @@
 
 <div class="listContainer">
 
-	<ul class="expList">
+	<ul class="expList two-col-list">
 		{% for item in sorted_page_subjects %}
 			{% capture subject_to_check %},{{ item }},{% endcapture %}
 			{% unless subjects_used contains subject_to_check %}
@@ -22,9 +22,13 @@
 				<li>{{ subject_to_search_for }}
 					<ul>
 						{% for page in site.pages %}
-							{% if page.subject contains subject_to_search_for and page.path contains product-id-to-search-for %}
-								<li><a href="{{ page.url }}">{{ page.title }}</a></li>
-							{% endif %}
+							{% for category in page.categories %}
+								{% if category contains product-id-to-search-for %}
+									{% if page.subject contains subject_to_search_for %}
+										<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+									{% endif %}
+								{% endif %}
+							{% endfor %}
 						{% endfor %}
 					</ul>	
 				</li>		

@@ -1,0 +1,152 @@
+---
+title: Understanding XL Deploy's architecture
+categories:
+- xl-deploy
+subject:
+- Architecture
+tags:
+- udm
+- plugin
+- ci
+- rules
+- planning
+---
+
+Before you customize XL Deploy functionality, you should understand the XL Deploy architecture. XL Deploy features a modular architecture that allows you to change and extend components while maintaining a consistent system.
+
+This diagram provides a high-level overview of the system architecture:
+
+![XL Deploy Architecture](images/deployit-architecture.png)
+
+XL Deploy's central component is called the _core_ and contains the following functionality:
+
+* The Unified Deployment Engine which determines what is required to perform a deployment
+* Storage and retrieval of deployment packages
+* Executing and storing of deployment tasks
+* Security
+* Reporting
+
+The XL Deploy core is accessed using a REST service. The product ships with two clients of the REST service, a graphical user interface (GUI) that runs in browsers, and a command-line interface (CLI) that interprets Jython.
+
+Support for various middleware platforms is provided in the form of XL Deploy plugins. These plugins add capabilities to XL Deploy and may be delivered by XebiaLabs or custom-built by users of XL Deploy.
+
+## XL Deploy and plugins
+
+A XL Deploy plugin is a component that provides the XL Deploy server with a way to interact with a specific piece of middleware. It allows the XL Deploy core to remain independent of the middleware it connects with. At the same time, it allows plugin writers to extend XL Deploy in a way that seamlessly integrates with the rest of XL Deploy's functionality. Existing XL Deploy plugins can be extended to customize XL Deploy for your environment. It's even possible to write a new XL Deploy plugin from scratch.
+
+To integrate with the XL Deploy core, the plugins adhere to a well-defined interface. This interface specifies the contract between the XL Deploy plugin and the XL Deploy core, making it clear what each can expect of the other. The XL Deploy core is the active party in this collaboration and invokes the plugin whenever needed. For its part, the XL Deploy plugin replies to requests it is sent. When the XL Deploy server starts, it scans the classpath and loads each XL Deploy plugin it finds, readying it for interaction with the XL Deploy core. The XL Deploy core does not change loaded plugins or load any new plugins after it has started.
+
+At runtime, multiple plugins will be active at the same time. It is up to the XL Deploy core to integrate the various plugins and ensure they work together to perform deployments. There is a well-defined process (described below) that invokes all plugins involved in a deployment and turns their contributions into one consistent deployment plan. The execution of the deployment plan is handled by the XL Deploy core.
+
+Plugins can define the following items:
+
+- _Deployable_: Configuration Items (CIs) that are part of a package and that can be deployed
+- _Container_: CIs that are part of an environment and that can be deployed to
+- _Deployed_: CIs that represent the end result of the deployment of a deployable CI to a container CI
+- A recipe describing how to deploy deployable CIs to container CIs
+- Validation rules to validate CIs or properties of CIs
+
+## Preparing and performing deployments in XL Deploy
+
+Performing a deployment in XL Deploy consists of a number of stages that, together, ensure that the deployment package is deployed and configured on the environment. Some of these activities are performed by the XL Deploy core, while others are performed by the plugins.
+
+This is the list of stages:
+
+* Specification: Creates a _deployment specification_ that defines which deployables (deployment package members) are to be deployed to which containers (environment members) and how they should be configured.
+* Delta Analysis: Analyzes the differences between the deployment specification and the current state of the middleware resulting in a _delta specification_, a list of changes to the middleware state that transforms the current situation into the situation described by the deployment specification. The deltas represent operations needed on the deployed items in the deployment. There are four defined operations:
+    * `CREATE` when deploying an item for the first time
+    * `MODIFY` when upgrading an item
+    * `DESTROY` when undeploying an item
+    * `NOOP` when there is no change
+* Orchestration: Splits the delta specification into independent sub-specifications that can be planned and executed in isolation. Creates a _deployment plan_ containing nested _sub-plans_.
+* Planning: Adds _steps_ to each subplan that, when executed, perform the actions needed to execute the actual deployment.
+* Execution: Executes the complete deployment plan to perform the deployment.
+
+## Deployments and plugins
+
+The following diagram depicts the way in which a plugin is involved in a deployment:
+
+![Deployment](images/Deployment-full.png)
+
+The transitions that are covered by a puzzle-piece are the ones that interact with the plugins, while the XL Deploy logo indicates that the transition is handled by the XL Deploy core.
+
+The following sections describe how plugins are involved in the above mentioned activities. The plugin is involved in the specification and planning stages, these will be detailed below.
+
+### The specification stage
+
+In the Specification stage, the deployment to be executed is specified. This includes selecting the deployment package and members to be deployed, as well as mapping each package member to the environment members that they should be deployed to.
+
+#### Specifying CIs
+
+The XL Deploy plugin defines which CIs the XL Deploy core can use to create deployments. When a plugin is loaded into the XL Deploy core, XL Deploy scans the plugin for CIs and adds these to its CI registry. Based on the CI information in the plugin, XL Deploy will categorize each CI as either a deployable CI (defining the *what* of the deployment) or a container CI (defining the *where* of the deployment).
+
+#### Specifying relationships
+
+Where the deployable CI represents the passive resource or artifact, the deployed CI represents the _active_ version of the deployable CI when it has been deployed in a container. By defining deployed CIs, the plugin indicates which combinations of deployable and container are supported.
+
+#### Configuration
+
+Each deployed CI represents a combination of a deployable CI and a container CI. It is important to note that one deployable CI can be deployed to multiple container CIs. For instance, an EAR file can be deployed to two application servers. In a deployment, this is modeled as multiple deployed CIs.
+
+Sometimes it is desirable to configure a deployable CI differently depending on the container CI or environment it is deployed to. This can be done by configuring the properties of the deployed CI differently.
+
+Configuring the deployed CIs is handled in the XL Deploy core. Users perform this task either via the GUI or via the CLI. An XL Deploy plugin can influence this process by providing default values for its properties.
+
+#### Result
+
+The result of the Specification stage is a deployment specification, containing deployed CIs that describe which deployable CIs are mapped to which container CIs with the needed configuration.
+
+### The planning stage
+
+In the Planning stage, the deployment specification and its sub-plans that were created in the Orchestration stage are processed.
+
+During this stage, the XL Deploy core performs the following procedure:
+
+* Preprocessing
+* Contributor processing
+* Postprocessing
+
+During each part of this procedure, the XL Deploy plugin is invoked so it can contribute (add) required deployment steps to the subplan.
+
+#### Pre-processing
+
+Preprocessing allows the plugin to contribute steps to the very beginning of the plan. During preprocessing, all pre-processors defined in the plugin are invoked in turn. Each preprocessor has full access to the delta
+specification. As such, the preprocessor can contribute steps based on the entire deployment. Examples of such steps are sending an email before starting the deployment or performing pre-flight checks on CIs in that deployment.
+
+#### Deployed CI processing
+
+Deployed CIs contain both the data and the behavior to make a deployment happen. Each of the deployed CIs that is part of the deployment can contribute steps to ensure that they are deployed or configured correctly.
+
+Steps in a deployment plan must be specified in the correct order for the deployment to succeed. Furthermore, the order of these steps must be coordinated among an unknown number of plugins. To achieve this, XL Deploy weaves all the separate resulting steps from all the plugins together by looking at the order property (a number) they specify.
+
+For example, suppose we have a container CI representing a WAS application server called WasServer. This CI contains the data describing a WAS server (things like host, application directory, etc.) as well as the behavior to manage it. During a deployment to this WasServer, the WasServer CI contributes steps with order 10 to stop the WasServer. Also, it would contribute steps with order 90 to restart it. In the same deployment, a deployable CI called WasEar (representing the WAS EAR file) contributes steps to install itself with order 40. The resulting plan would weave the install of the EAR file (40) in between the stop (10) and start (90) steps.
+
+This mechanism allows steps (behavior) to be packaged together with the CIs that contribute them. Also, CIs defined by separate plugins can work together to produce a well-ordered plan.
+
+XL Deploy uses the following default orders:
+
+* PRE_FLIGHT (**0**)
+* STOP_ARTIFACTS (**10**)
+* STOP_CONTAINERS (**20**)
+* UNDEPLOY_ARTIFACTS (**30**)
+* DESTROY_RESOURCES (**40**)
+* CREATE_RESOURCES (**60**)
+* DEPLOY_ARTIFACTS (**70**)
+* START_CONTAINERS (**80**)
+* START_ARTIFACTS (**90**)
+* POST_FLIGHT (**100**)
+
+To review the order values of the steps in a plan, set up the deployment, open the Plan Analyzer, and then check the server log. The step order value appears at the beginning of each step in the log.
+
+To change the order of steps in a plan, you can customize XL Deploy's behavior by:
+
+* Creating rules that XL Deploy applies during the planning phase; see the [Rules Manual](http://docs.xebialabs.com/releases/latest/xl-deploy/rulesmanual.html) for more information
+* Developing a server plugin; see the [XL Deploy Java API Manual](http://docs.xebialabs.com/releases/latest/xl-deploy/xldeployjavaapimanual.html) and the [Generic Plugin Manual](http://docs.xebialabs.com/releases/latest/xl-deploy/genericPluginManual.html) for more information
+
+#### Post-processing
+
+Post-processing is similar to preprocessing, but allows a plugin to add one or more steps to the very end of a plan. A post-processor could for instance add a step to send a mail once the deployment has been completed.
+
+#### Result
+
+The Planning stage results in a deployment plan that contains all steps necessary to perform the deployment. The deployment plan is ready to be executed.

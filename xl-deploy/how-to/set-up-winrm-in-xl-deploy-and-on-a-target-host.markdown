@@ -97,6 +97,8 @@ To use the WINRM_INTERNAL or the WINRM_NATIVE connection type, set up <a href="h
 
 		winrm create winrm/config/Listener?Address=*+Transport=HTTPS @{Hostname="HOSTNAME"; CertificateThumbprint="THUMBPRINT"}
 
+    If you are using the WINRM_INTERNAL connection type, add the self-signed certificate to the JVM trusted keystore as described in [this blog post](http://blog.nerdability.com/2013/01/tech-how-to-fix-sslpeerunverifiedexcept.html).
+
 For more information about WinRM, refer to <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa384426(v=vs.85).aspx">the online documentation at Microsoft's DevCenter</a>.
 
 ## Domain accounts

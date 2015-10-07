@@ -24,9 +24,9 @@ This is an example of creating adapters in an XL Release 4.0.10 installation.
 
 First, create the directory `SERVER_HOME/ext/pythonutil` if it does not already exist. Then, extract the `XLRequest.py` and `XLResponse.py` classes, which are in `SERVER_HOME/lib/xl-release-server-<version>.jar`, into that directory. An easy way to do this is to copy the JAR into a temporary directory, open it using a ZIP file browser (change the file extension to `.zip` if necessary), and extract the two files from the `pythonutil` folder. Copy the extracted files to `SERVER_HOME/ext/pythonutil`, where they will override the provided `XLRequest.py` and `XLResponse.py` classes in the JAR file.
 
-![Extract XLRequest.py and XLResponse.py](images/extract-xlreq-xlresp.png)
+![Extract XLRequest.py and XLResponse.py](../images/extract-xlreq-xlresp.png)
 
-Obviously, you can only extract `XLRequest.py` and `XLResponse.py` if you have access to an XL Release version (such as 4.0.10) that still includes these. If you are running a version that no longer provides these, please download an older version from the XebiaLabs download site or [contact our support team](http://support.xebialabs.com/).
+Obviously, you can only extract `XLRequest.py` and `XLResponse.py` if you have access to an XL Release version (such as 4.0.10) that still includes these. If you are running a version that no longer provides these, please download an older version from the XebiaLabs download site or [contact our support team](https://support.xebialabs.com/).
 
 ## Modify `XLRequest` and `XLResponse` to use `HttpRequest` and `HttpResponse`
 
@@ -94,12 +94,12 @@ In other words, all arguments are passed to the XLRequest constructor. `HttpRequ
 
 Now you can verify that, when you use `XLRequest` and `XLResponse` in a script or custom task, you are actually calling the adapters you just created. A quick way to do this is to uncomment the "DEBUG" print statements in the new `XLRequest` and `XLResponse` classes, create a simple script task (or an instance of any of your custom task types that uses `XLRequest` and `XLResponse`), and run it.
 
-![Test script](images/test-xlrequest-script-task.png)
+![Test script](../images/test-xlrequest-script-task.png)
 
-![Test script output](images/test-xlrequest-output.png)
+![Test script output](../images/test-xlrequest-output.png)
 
-[This sample template](sample-scripts/Test_XLRequest_adapter-template.xlr) does exactly that. Also, see [Test an automated task during configuration](test-an-automated-task-during-configuration.html) for more tips on tweaking and debugging tasks.
+[This sample template](sample-scripts/Test_XLRequest_adapter-template.xlr) does exactly that. Also, see [Test an automated task during configuration](/xl-release/how-to/test-an-automated-task-during-configuration.html) for more tips on tweaking and debugging tasks.
 
 **Note:** `HttpRequest` and `HttpResponse`, and `XLRequest` and `XLResponse` before them, are intended as convenient helper classes, nothing more. XL Release certainly does not require that you use them in your scripts or custom tasks: if you'd rather work directly with [`httplib`](http://www.jython.org/docs/library/httplib.html) or [`java.net`](http://docs.oracle.com/javase/tutorial/networking/), you can.
 
-**Important:** The code here is sample code only that is not officially supported by XebiaLabs. If you have questions, please [contact our support team](http://support.xebialabs.com/).
+**Important:** The code here is sample code only that is not officially supported by XebiaLabs. If you have questions, please [contact our support team](https://support.xebialabs.com/).

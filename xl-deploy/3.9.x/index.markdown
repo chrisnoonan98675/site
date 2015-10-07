@@ -3,10 +3,11 @@ title: XL Deploy 3.9.x documentation
 product-id: xl-deploy
 ---
 
+<div class="alert alert-warning" style="width: 60%">As of June 2, 2015, XL Deploy 3.9.x is <a href="https://support.xebialabs.com/hc/en-us/articles/204524829-XL-Deploy-3-9-is-no-longer-officially-supported">no longer officially supported</a>. Please <a href="https://support.xebialabs.com/hc/en-us" target="_new">contact us via our support site</a> if you have any questions.</div>
+
 ## Product documentation
 
 * [Start Here](starthere.html)
-* [Release Notes](releasenotes.html)
 * [Upgrade Manual](upgrademanual.html)
 * [Reference Manual](referencemanual.html)
 * [System Administration Manual](systemadminmanual.html)
@@ -21,8 +22,6 @@ product-id: xl-deploy
 * [Steps Reference](referencesteps.html)
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
-* [Java API Manual](xldeployjavaapimanual.html)
-* Jython API Manual
 
 ### Standard plugins
 
@@ -38,7 +37,7 @@ product-id: xl-deploy
 * [Webserver Plugin Manual](webserverPluginManual.html)
 * [Trigger Plugin Manual](triggerPluginManual.html)
 
-## Plugins
+## Plugin documentation
 
 ### Java Middleware
 
@@ -47,7 +46,6 @@ product-id: xl-deploy
 * [Oracle Service Bus plugin](../../xl-deploy-osb-plugin/3.9.x/osbPluginManual.html)
 * [WebLogic Application Server plugin](../../xl-deploy-wls-plugin/3.9.x/wlsPluginManual.html)
 * [WebSphere Application Server plugin](../../xl-deploy-was-plugin/3.9.x/wasPluginManual.html)
-* [WebSphere Process Server plugin](../../xl-deploy-wps-plugin/3.9.x/wpsPluginManual.html)
 * [Tomcat plugin](../../xl-deploy-tomcat-plugin/3.9.x/tomcatPluginManual.html)
 * [GlassFish plugin](../../xl-deploy-glassfish-plugin/3.9.x/glassfishPluginManual.html)
 
@@ -60,6 +58,9 @@ product-id: xl-deploy
 ### Other Middleware
 
 * [F5 BIG-IP plugin](../../xl-deploy-bigip-plugin/3.9.x/bigipPluginManual.html)
+* [Cloud plugin](/xl-scale-cloud-plugin/3.9.x/cloudPluginManual.html)
+* [EC2 plugin](/xl-scale-ec2-plugin/3.9.x/ec2PluginManual.html)
+* [vSphere plugin](/xl-scale-vsphere-plugin/3.9.x/vspherePluginManual.html)
 * [Database plugin (DB2, MS SQL, MySQL, Oracle)](databasePluginManual.html)
 * [Webserver plugin (Apache HTTP server)](webserverPluginManual.html)
 * [WebSphere MQ plugin](../../xl-deploy-wmq-plugin/3.9.x/wmqPluginManual.html)
@@ -67,8 +68,8 @@ product-id: xl-deploy
 
 ### Tools
 
-* XL Deploy Maven plugin
+* [XL Deploy Maven plugin](../../deployit-maven-plugin/3.9.5/)
 * [XL Deploy Jenkins plugin](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
-* XL Deploy Bamboo plugin
-* XL Deploy Team Foundation Server plugin
-* XL Deploy Manifest Editor (Windows only)
+* [XL Deploy Bamboo plugin](../../bamboo-xl-deploy-plugin/3.9.x/bambooPluginManual.html)
+* [XL Deploy Team Foundation Server plugin](../../xl-deploy-tfs-plugin/3.9.x/tfsPluginManual.html)
+* [XL Deploy Manifest Editor (Windows only)](../../xl-deploy-tfs-plugin/3.9.x/manifestEditorManual.html)

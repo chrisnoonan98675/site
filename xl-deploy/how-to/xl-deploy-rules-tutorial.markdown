@@ -8,7 +8,11 @@ tags:
 - rules
 - deployment
 - tutorial
+since:
+- XL Deploy 4.5.0
 ---
+
+The *rules* system, introduced in XL Deploy 4.5.0, works with the XL Deploy's planning phase and allows you to use XML or Jython to specify the steps that belong in a deployment plan and how the steps are configured.
 
 This tutorial will guide you through the process of using rules to create an XL Deploy plugin from scratch. The plugin will:
 
@@ -18,12 +22,10 @@ This tutorial will guide you through the process of using rules to create an XL 
 
 This tutorial assumes that you:
 
-* Know how to create CI types, as described in [Customizing the XL Deploy Type System](customizationmanual.html#customizing-the-xl-deploy-type-system)
-* Understand the concepts of XL Deploy planning, as described in [Deployments and Plugins](customizationmanual.html#deployments-and-plugins)
+* Know how to create CI types, as described in [Customizing the XL Deploy type system](/xl-deploy/how-to/customizing-the-xl-deploy-type-system.html)
+* Understand the concepts of XL Deploy planning, as described in [Understanding XL Deploy architecture](/xl-deploy/concept/understanding-xl-deploy-architecture.html#deployments-and-plugins)
 
 For reference, you can download the code provided in this tutorial from the XebiaLabs [GitHub](https://github.com/xebialabs/xl-deploy-samples/tree/master/rules-demo-plugin).
-
-For more information about the concepts discussed in this tutorial, see the [Rules Manual](rulesmanual.html). 
 
 ## How to run the examples
 
@@ -59,11 +61,11 @@ After you finish this tutorial, the `ext` folder will look like:
 
 After you change `synthetic.xml`, you must restart the XL Deploy server.
 
-By default, you must also restart the XL Deploy server after you change `xl-rules.xml` and scripts in the `ext` folder. However, you can configure XL Deploy to periodically rescan `xl-rules.xml` and the `ext` folder and apply any changes that it finds. This is useful when you are developing a plugin. Refer to [Rescan the rules file](rulesmanual.html#rescan-the-rules-file) in the Rules Manual for information on how to do this.
+By default, you must also restart the XL Deploy server after you change `xl-rules.xml` and scripts in the `ext` folder. However, you can configure XL Deploy to periodically rescan `xl-rules.xml` and the `ext` folder and apply any changes that it finds. This is useful when you are developing a plugin. Refer to [Rescan the rules file](/xl-deploy/concept/understanding-xl-deploy-rules.html#rescan-the-rules-file) for information on how to do this.
 
 ### Error handling
 
-If you make a mistake in the definition of `synthetic.xml` or `xl-rules.xml`, the server will return an error and may fail to start. Mistakes in the definition of scripts or expressions usually appear in the server log when you execute a deployment. For more information about troubleshooting the rules configuration, refer to the [troubleshooting tips](rulesmanual.html#troubleshooting-and-best-practices) in the Rules Manual.
+If you make a mistake in the definition of `synthetic.xml` or `xl-rules.xml`, the server will return an error and may fail to start. Mistakes in the definition of scripts or expressions usually appear in the server log when you execute a deployment. For more information about troubleshooting the rules configuration, refer to the [troubleshooting tips](/xl-deploy/concept/troubleshooting-and-best-practices-for-rules.html).
 
 ## Deploy an artifact
 
@@ -72,19 +74,20 @@ Let's start with an application that contains one artifact. We want to deploy th
 * Upload the artifact
 * Run a script that installs the artifact in the right place
 
-### synthetic.xml
+### Add type definitions
 
 First, in `synthetic.xml`, add a type definition called `example.ArtifactDeployed` for the application and add a container type named `example.Server`:
 
-      <type type="example.Server" extends="udm.BaseContainer" description="Example server">
-        <property name="host" kind="ci" referenced-type="overthere.Host" as-containment="true"/>
-        <property name="home" description="Home directory for the server"/>
-      </type>
+{% highlight xml %}
+<type type="example.Server" extends="udm.BaseContainer" description="Example server">
+    <property name="host" kind="ci" referenced-type="overthere.Host" as-containment="true"/>
+    <property name="home" description="Home directory for the server"/>
+</type>
 
-      <type type="example.ArtifactDeployed" extends="udm.BaseDeployedArtifact" deployable-type="example.Artifact"
-        container-type="example.Server" description="Artifact that can be deployed to an example server">
-        <generate-deployable type="example.Artifact" extends="udm.BaseDeployableFileArtifact"/>
-      </type>
+<type type="example.ArtifactDeployed" extends="udm.BaseDeployedArtifact" deployable-type="example.Artifact" container-type="example.Server" description="Artifact that can be deployed to an example server">
+    <generate-deployable type="example.Artifact" extends="udm.BaseDeployableFileArtifact"/>
+</type>
+{% endhighlight %}
 
 Notice that:
 
@@ -92,24 +95,24 @@ Notice that:
 * The deployed `example.ArtifactDeployed` extends from `udm.BaseDeployedArtifact`, which contains a `file` property that the step uses.
 * The generated deployable `example.Artifact` extends from `udm.BaseDeployableFileArtifact`.
 
-### xl-rules.xml
+### Define a rule for the artifact
 
 Next, define an XML rule for the CI in `xl-rules.xml`:
 
-    <rule name="example.ArtifactDeployed.CREATE_MODIFY" scope="deployed">
-        <conditions>
-            <type>example.ArtifactDeployed</type>
-            <operation>CREATE</operation>
-            <operation>MODIFY</operation>
-        </conditions>
-        <steps>
-    		<os-script>
-    			<script>scripts/deploy-artifact</script>
-    		</os-script>
-    	</steps>
-    </rule>
-
-### Parts of the rule
+{% highlight xml %}
+<rule name="example.ArtifactDeployed.CREATE_MODIFY" scope="deployed">
+    <conditions>
+        <type>example.ArtifactDeployed</type>
+        <operation>CREATE</operation>
+        <operation>MODIFY</operation>
+    </conditions>
+    <steps>
+        <os-script>
+            <script>scripts/deploy-artifact</script>
+        </os-script>
+    </steps>
+</rule>
+{% endhighlight %}
 
 Notice that:
 
@@ -124,13 +127,20 @@ The following `os-script` parameters are defined automatically:
 * The **order**, which is automatically set to 70 (the default step order for artifacts). You can optionally override the default order.
 * The **target-host** property gets a reference to the host of the container. The step will use this host to run the script.
 
-### Script
+### Script to deploy the artifact
 
 The FreeMarker variable for the `deployed` object is automatically added to the `freemarker-context`. This allows the script to refer to properties of the `deployed` object such as file location.
      
 The `script` parameter refers to scripts for Unix (`deploy-artifact.sh.ftl`) and Windows (`deploy-artifact.bat.ftl`). The step will select the correct script for the operating system that XL Deploy runs on. The scripts are actually script templates processed by FreeMarker. The template can access the variables passed in by the `freemarker-context` parameter of the step.
 
-The Unix script `deploy-artifact.sh.ftl` contains:
+In XL Deploy 4.5.3, 5.0.0, and later, the Unix script `deploy-artifact.sh.ftl` contains:
+
+    echo "Deploying file on Unix"
+    mkdir -p ${deployed.container.home + "/context"}
+    cp ${deployed.file.path} ${deployed.container.home + "/context"}
+    echo "Done"
+
+In XL Deploy 4.5.2 and earlier, the Unix script `deploy-artifact.sh.ftl` contains:
 
     echo "Deploying file on Unix"
     mkdir -p ${deployed.container.home + "/context"}
@@ -139,13 +149,6 @@ The Unix script `deploy-artifact.sh.ftl` contains:
 
 The script accesses the variable `deployed` and uses it to find the location of the server installation and copy the file to the `context` folder. The script also prints progress information in the step log.
 
-For more information about:
-
-* The OS script step, see [os-script](referencesteps.html#os-script) in the Step Reference
-* Parameters that are defined automatically, see the [Rules Manual](rulesmanual.html#calculated-step-parameters)
-* The default step order, see the [Customization Manual](customizationmanual.html#the-planning-stage)
-* FreeMarker, see the [FreeMarker Manual](http://freemarker.org/docs/index.html)
-
 ## Add a wait step
 
 Additionally, we can enrich the plan with an additional step that waits a specific number of seconds before the actual deployment starts.
@@ -153,32 +156,34 @@ Additionally, we can enrich the plan with an additional step that waits a specif
 * While preparing the deployment, the user can set the number of seconds to wait in the deployment properties
 * If the user does not set a number, XL Deploy will not add a wait step to the plan
 
-### synthetic.xml
+### Add a property to type definition
 
 First, we need to store the wait time in the deployment properties by adding the following property to `udm.DeployedApplication` in `synthetic.xml`:
 
-    <type-modification type="udm.DeployedApplication">
-         <property name="waitTime" kind="integer" label="Time in seconds to wait for starting the deployment" required="false"/>
-    </type-modification>
+{% highlight xml %}
+<type-modification type="udm.DeployedApplication">
+     <property name="waitTime" kind="integer" label="Time in seconds to wait for starting the deployment" required="false"/>
+</type-modification>
+{% endhighlight %}
 
-### xl-rules.xml
+### Define a rule to contribute a wait step
 
 Next, we need to define a rule in `xl-rules.xml` to contribute the wait step to the plan:
 
-    <rule name="example.DeployedApplication.wait" scope="pre-plan">
-        <conditions>
-            <expression>specification.deployedOrPreviousApplication.waitTime is not None</expression>
-        </conditions>
-        <steps>
-            <wait>
-                <order>10</order>
-                <description expression="true">"Waiting %i seconds before starting the deployment" % specification.deployedOrPreviousApplication.waitTime</description>
-                <seconds expression="true">specification.deployedOrPreviousApplication.waitTime</seconds>
-            </wait>
-        </steps>
-    </rule>
-
-### Parts of the rule
+{% highlight xml %}
+<rule name="example.DeployedApplication.wait" scope="pre-plan">
+    <conditions>
+        <expression>specification.deployedOrPreviousApplication.waitTime is not None</expression>
+    </conditions>
+    <steps>
+        <wait>
+            <order>10</order>
+            <description expression="true">"Waiting %i seconds before starting the deployment" % specification.deployedOrPreviousApplication.waitTime</description>
+            <seconds expression="true">specification.deployedOrPreviousApplication.waitTime</seconds>
+        </wait>
+    </steps>
+</rule>
+{% endhighlight %}
 
 Notice that:
 
@@ -192,10 +197,7 @@ Notice that:
             * `expression="true"` means that the definition will be evaluated by Jython and the resulting value will be passed to the step. This is required because the definition contains a dynamically constructed string.
     * The `waitTime` value is retrieved from the `DeployedApplication` and passed to the step. You can access the `DeployedApplication` through the `specification` and `deployedOrPreviousApplication`. This automatically selects the correct deployed, which means that this step will work for a `CREATE` or `DESTROY` operation.
 
-For more information about:
-
-* The wait step, see [wait](referencesteps.html#wait) in the Step Reference
-* How to use Jython expressions, see the [Rules Manual](rulesmanual.html)
+For more information about the wait step, see [wait](referencesteps.html#wait).
 
 ### Test the deployment rules
 
@@ -227,21 +229,23 @@ The folder structure should be similar to:
 
 When you create rules to deploy things, you should also define rules to undeploy them. In the case of this plugin, undeployment means removing the artifact that was deployed. The rule will use the state of the deployment to determine which files must be deleted.
 
-### xl-rules.xml
+### Define an undeploy rule
 
 The rule definition in `xl-rules.xml` is:
 
-    <rule name="example.ArtifactDeployed.DESTROY" scope="deployed">
-        <conditions>
-            <type>example.ArtifactDeployed</type>
-            <operation>DESTROY</operation>
-        </conditions>
-        <steps>
-            <os-script>
-                <script>scripts/undeploy-artifact</script>
-            </os-script>
-        </steps>
-    </rule>
+{% highlight xml %}
+<rule name="example.ArtifactDeployed.DESTROY" scope="deployed">
+    <conditions>
+        <type>example.ArtifactDeployed</type>
+        <operation>DESTROY</operation>
+    </conditions>
+    <steps>
+        <os-script>
+            <script>scripts/undeploy-artifact</script>
+        </os-script>
+    </steps>
+</rule>
+{% endhighlight %}
 
 Notice that:
 
@@ -249,9 +253,19 @@ Notice that:
 * XL Deploy automatically sets the `order` and `description`.
 * The step is an `os-script` step. The script behind the step is responsible for deleting the file on the server.
 
-### Script
+### Undeploy script (XL Deploy 4.5.3, 5.0.0, and later)
+
+In XL Deploy 4.5.3, 5.0.0, and later, the FreeMarker variable for the `previousDeployed` object is automatically added to the `freemarker-context`. This allows the script to refer to the properties of the previous deployed object such as file name.
 
 The Unix script `undeploy-artifact.sh.ftl` contains:
+
+    echo "Undeploying file on Unix"
+    rm ${previousDeployed.container.home + "/context/" + previousDeployed.file.name}
+    echo "Done"
+
+### Undeploy script (XL Deploy 4.5.2 or earlier)
+
+If you are using XL Deploy 4.5.2 or earlier, the Unix script `undeploy-artifact.sh.ftl` contains:
 
     echo "Undeploying file on Unix"
     rm ${deployed.container.home + "/context/" + deployed.file.name}
@@ -279,15 +293,15 @@ Note that a full implementation would require four scripts in total:
 * One script that stops the server for Windows
 * One script that starts the server for Windows
 
-### xl-rules.xml
+### Define a restart rule
 
 The script rule is defined in `xl-rules.xml` as follows:
 
-    <rule name="example.Server.startStop" scope="plan">
-        <planning-script-path>planning/start-stop-server.py</planning-script-path>
-    </rule>
-
-### Parts of the rule
+{% highlight xml %}
+<rule name="example.Server.startStop" scope="plan">
+    <planning-script-path>planning/start-stop-server.py</planning-script-path>
+</rule>
+{% endhighlight %}
 
 Notice that:
 
@@ -295,44 +309,46 @@ Notice that:
 * The rule has no conditions because the script will determine if the rule will contribute steps.
 * The rule refers to an external script file in a location that is relative to the plugin definition.
 
-### Script
+### Restart server script
 
 The script `start-stop-server.py` contains:
 
-    from java.util import HashSet
+{% highlight python %}
+from java.util import HashSet
 
-    def containers():
-        result = HashSet()
-        for _delta in deltas.deltas:
-            deployed = _delta.deployedOrPrevious
-            current_container = deployed.container
-            if _delta.operation != "NOOP" and current_container.type == "example.Server":
-                result.add(current_container)
-        return result
+def containers():
+    result = HashSet()
+    for _delta in deltas.deltas:
+        deployed = _delta.deployedOrPrevious
+        current_container = deployed.container
+        if _delta.operation != "NOOP" and current_container.type == "example.Server":
+            result.add(current_container)
+    return result
 
 
-    for container in containers():
-        context.addStep(steps.os_script(
-            description="Stopping server %s" % container.name,
-            order=20,
-            script="scripts/stop",
-            freemarker_context={'container': container},
-            target_host=container.host)
-        )
-        context.addStep(steps.os_script(
-            description="Starting server %s" % container.name,
-            order=80,
-            script="scripts/start",
-            freemarker_context={'container': container},
-            target_host=container.host))
+for container in containers():
+    context.addStep(steps.os_script(
+        description="Stopping server %s" % container.name,
+        order=20,
+        script="scripts/stop",
+        freemarker_context={'container': container},
+        target_host=container.host)
+    )
+    context.addStep(steps.os_script(
+        description="Starting server %s" % container.name,
+        order=80,
+        script="scripts/start",
+        freemarker_context={'container': container},
+        target_host=container.host))
+{% endhighlight %}
+
+Note that `freemarker_context={'container': container}` is required to make the container object available in the FreeMarker context.
 
 The [rules demo plugin](https://github.com/xebialabs/xl-deploy-samples/tree/master/rules-demo-plugin) also contains a dummy script called `start.sh.ftl` that contains:
 
     echo "Starting server on Unix"
 
 In a real implementation, this script would need to contain the commands required to start the server. 
-
-### Parts of the script
 
 * The script starts with:
     * An import statement of an utility class
@@ -353,7 +369,7 @@ In a real implementation, this script would need to contain the commands require
         * We use the `addStep` method to add the constructed step directly to the `context`.
 * If XL Deploy does not find deltas for the sub-plan, the start and stop steps will not be created.
 
-### Test the server restart rules
+### Test the server restart
 
 To test the server restart rules, set up a deployment as described in [Test the deployment rules](#test-the-deployment-rules). The deployment plan should look like:
 
@@ -367,19 +383,12 @@ Notice that steps to start and stop server are added even when application is un
 
 The plugin that you create when following this tutorial does not require any extra work to support rollbacks. This is because XL Deploy automatically generates checkpoints for the last step of each deployed. Therefore, when a user decides to roll back a deployment that has only been partially executed, the rollback plan will contain the steps for the opposite deltas of the deployeds for which all steps have been executed.
 
-If you have more advanced rollback requirements, refer to [Using checkpoints](rulesmanual.html#using-checkpoints).
+If you have more advanced rollback requirements, refer to [Using checkpoints](/xl-deploy/how-to/writing-xml-rules.html#using-checkpoints).
 
 ## What's next
 
 You made it through the entire tutorial, congratulations! You should now have a good understanding of rules-based planning, and you should be able to find the information you need to continue creating deployment rules.
 
-The most important sources for information about rules and deployment planning are:
-
-* [Rules Manual](rulesmanual.html)
-* [Customization Manual](customizationmanual.html)
-* [Reference Manual](referencemanual.html)
-* [API documentation](javadoc/udm-plugin-api/index.html)
-
 The code discussed in this tutorial is available in the rules demo plugin, which you can download from [GitHub](https://github.com/xebialabs/xl-deploy-samples/tree/master/rules-demo-plugin). Also, the demo plugin contains additional examples.
 
-If you would like to change the behavior of an existing plugin, you can disable predefined rules and redefine the behavior with new rules. For more information about this, refer to the [Rules Manual](rulesmanual.html).
+If you would like to change the behavior of an existing plugin, you can disable predefined rules and redefine the behavior with new rules. For more information about this, refer to [Disable a rule](/xl-deploy/how-to/disable-a-rule.html).
