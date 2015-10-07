@@ -7,11 +7,12 @@ online-docs-jekyll
 1. Install Jekyll 2.x and its requirements:
     * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/). **Important:** If you're using OS X 10.11 (El Capitan) or later, [read this important info](http://jekyllrb.com/docs/troubleshooting/#jekyll-amp-mac-os-x-1011)!
     * Windows users, follow [these instructions](http://jekyll-windows.juthilo.com/) (you can skip step #3 there).
-1. In the directory where you cloned the repository, execute `jekyll serve` or `jekyll serve --watch` (for [watch mode](http://jekyllrb.com/docs/usage/)). Go to `http://localhost:4000` to see the site running locally.
+1. In the directory where you cloned the repository, execute `jekyll serve`. Go to `http://localhost:4000` to see the site running locally.
 
 Tips:
 
 * We are using Jekyll 2.x. Jekyll 3.x will not work yet because of changes in the Liquid templating system.
+* As of Jekyll 2.4, the `jekyll serve` starts the server in [watch mode](http://jekyllrb.com/docs/usage/). To disable watch mode, execute `jekyll serve --no-watch`.
 * It's a known issue that generating the site (even in watch mode) is quite slow. Hopefully Jekyll 3.x will fix this.
 * To disable updating of the Development Dashboard while you run Jekyll in watch mode, change the `jira_dashboard` `generate` setting in `_config.yml` to `false`. **Do not commit this change to the repository!**
 * If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
