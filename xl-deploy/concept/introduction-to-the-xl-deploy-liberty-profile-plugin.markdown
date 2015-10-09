@@ -16,7 +16,7 @@ The XL Deploy WebSphere Liberty profile server (WLP) plugin adds capability for 
 
 The plugin is implemented using XL Deploy rules and Jython scripts, so you can easily extend it to support more deployment options and management of new artifacts and resources.
 
-For information about Liberty profile requirements and the configuration items (CIs) that the plugin supports, refer to the [Liberty Profile Plugin Reference](/xl-deploy/latest/wlpPluginManual.html).
+For information about Liberty profile requirements and the configuration items (CIs) that the plugin supports, refer to the [Liberty Profile Plugin Reference](/xl-deploy-wlp-plugin/5.1.x/wlpPluginManual.html).
 
 ## Features
 
