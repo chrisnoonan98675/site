@@ -1,5 +1,4 @@
 ---
-layout: beta
 title: Introduction to the XL Deploy Liberty profile plugin
 categories:
 - xl-deploy
@@ -152,7 +151,7 @@ The way an application is deployed to a container can be influenced by modifying
 * `wlp.ApplicationBndSpec`: This is available as an embedded configuration item on an application. It is used to bind general deployment information included in the application to security roles. There are security role types for users, groups, "special subject", and "run as user".
 
 	The following sample `deployit-manifest.xml` file creates a XL Deploy deployment package which deploys a Web application with role bindings to the WebSphere Liberty Profile server instance:
-	
+
 	    <?xml version="1.0" encoding="UTF-8"?>
 	    <udm.DeploymentPackage version="1.0" application="secure">
 	        <deployables>
