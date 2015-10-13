@@ -50,7 +50,7 @@ You can then configure the port that is opened in the `satellite.port` property.
 
 ### Configure the file streaming port
 
-In addition to command handling, a satellite needs a port to act as a streaming server for incoming files that are needed for a deployment. This port is automatically exchanged between XL Deploy and the satellite. You do not need to configure it manually. By default, port `8280` is opened on XL Deploy, and port `8480` on the satellite. 
+In addition to command handling, a satellite needs a port to act as a streaming server for incoming files that are needed for a deployment. This port is automatically exchanged between XL Deploy and the satellite. You do not need to configure it manually. By default, port `8480` is openned on the satellite for file streaming. 
 
 The port is defined by the `satellite.streaming.port` property in `conf/satellite.conf`:
 
