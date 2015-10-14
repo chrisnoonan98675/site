@@ -2,7 +2,7 @@
 title: Troubleshoot a WAS connection
 subject:
 - WebSphere Application Server plugin
-category:
+categories:
 - xl-deploy
 tags:
 - websphere

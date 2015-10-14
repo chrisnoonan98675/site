@@ -2,7 +2,7 @@
 title: Troubleshoot a CIFS/SMB connection
 subject:
 - Remoting plugin
-category:
+categories:
 - xl-deploy
 tags:
 - connectivity

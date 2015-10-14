@@ -2,7 +2,7 @@
 title: Troubleshoot the XL Deploy CLI
 subject:
 - Command-line interface
-category:
+categories:
 - xl-deploy
 tags:
 - cli
