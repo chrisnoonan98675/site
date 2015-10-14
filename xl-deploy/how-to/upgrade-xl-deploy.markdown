@@ -91,11 +91,11 @@ To upgrade an XL Deploy server installation:
 
     Some versions of XL Deploy require a new version of the license file. Refer to [XL Deploy licensing](/xl-deploy/concept/xl-deploy-licensing.html#license-types) to see if you need a new license. You can download all of your licenses from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/).
 
-1. Copy the `conf/deployit.conf` and `conf/deployit-defaults.properties` files from the old installation directory to the new installation directory.
+1. Copy the `conf/deployit.conf` file, the `conf/deployit-defaults.properties` file, and the `conf/repository-keystore.jceks` file (if it exists) from the old installation directory to the new installation directory.
 
-1. If you have changed other files in the `conf` directory, such as [`deployit-security.xml`](/xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html) or [`logback.xml`](/xl-deploy/how-to/using-xl-deploy-logging.html#configure-logging), manually redo those changes in the files in the new installation directory.
+1. If you have changed other files in the `conf` directory, such as [`deployit-security.xml`](/xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html) or [`logback.xml`](/xl-deploy/how-to/using-xl-deploy-logging.html#configure-logging), do not copy the changed files to the new installation directory. Instead, manually reapply the changes to the files that were provided in the new version of XL Deploy.
 
-1. If you have changed the XL Deploy server startup scripts in the `bin` directory, manually redo these changes in the files in the new installation directory.
+1. If you have changed the XL Deploy server startup script(s) in the `bin` directory, do not copy the changed script(s) to the new installation directory. Instead, manually reapply the changes to the files that were provided in the new version of XL Deploy.
 
     **Note:** In XL Deploy 4.5.x and earlier, the startup scripts are called `server.sh` and `server.cmd`. In XL Deploy 5.0.0 and later, they are called `run.sh` and `run.cmd`; there are also `install-service.sh` and `install-service.cmd` scripts for running XL Deploy [as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html). If you customized `server.sh` or `server.cmd`, you must redo these changes in `install-service.sh` or `install-service.cmd`.
 
