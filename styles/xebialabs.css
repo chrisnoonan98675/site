@@ -210,7 +210,7 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gs
   line-height: normal;
 }
 .gsc-input {
-  width: 300px;
+  width: 400px;
 }
 .gsc-tabsArea div {
   overflow: visible !important;
