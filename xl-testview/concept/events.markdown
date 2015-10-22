@@ -70,6 +70,7 @@ For each event, XL TestView ensures that the following properties are set:
 | --- | ---------- | --------- | ----------- |
 | `@type` | String | &#x2714; | One of `importStarted`, `importFinished`, `functionalResult`, or `performanceResult`. |
 | `@duration` | Integer | &#x2714; | The total duration of a run. For `functionalResult`'s, the duration is calculated as the summation of the duration of the individual test results. |
+| `@size` | Long | The number of events in this run, including started and finished events|
 
 ### `functionalResult` event properties
 
