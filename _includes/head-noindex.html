@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="/styles/xebialabs.css" type="text/css">
     <link rel="stylesheet" href="/styles/syntax.css" type="text/css">
     <link rel="stylesheet" href="/fonts/online-doc-icons/styles.css" type="text/css">
+    <link rel="stylesheet" href="/styles/magnific-popup.css">
     
     <!-- Javascript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -36,6 +37,23 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#toc').toc({ listType: 'ul', noBackToTopLinks: true, showSpeed: 0 });
+		});
+	</script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			$('.magnific').magnificPopup({
+			  type:'image',
+			  removalDelay: 300,
+			  mainClass: 'mfp-fade'
+			});
+			$('.magnific-youtube').magnificPopup({
+			  disableOn: 700,
+			  type: 'iframe',
+			  mainClass: 'mfp-fade',
+			  removalDelay: 300,
+			  preloader: false,
+			  fixedContentPos: false
+			});
 		});
 	</script>
 	

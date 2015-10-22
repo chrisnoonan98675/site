@@ -1,24 +1,47 @@
 - product: xl-deploy
+  name: XL Deploy
   videos:
     - title: A quick look at XL Deploy
-      url: https://www.youtube.com/watch?v=rmbH98YeWck
-    - title: Getting started with XL Deploy (series)
-      url: https://www.youtube.com/playlist?list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1
-    - title: Using XL Deploy with Apache Tomcat
-      url: https://www.youtube.com/watch?v=rNVkeHeVB-Q
-    - title: Using XL Deploy with JBoss Application Server/WildFly
-      url: https://www.youtube.com/watch?v=o_J3ov9jAzI
-    - title: Using XL Deploy with IBM WebSphere
-      url: https://www.youtube.com/watch?v=XEh5QGcpn5U
+      id: rmbH98YeWck
+    - title: Getting started with XL Deploy - Introduction
+      id: gVNEnSr-YQs
+    - title: Getting started with XL Deploy - Defining infrastructure
+      id: ZzYDzql1Iek
+    - title: Getting started with XL Deploy - Defining environments
+      id: LU4NLPcCwlQ
+    - title: Getting started with XL Deploy - Performing an initial deployment
+      id: pw17C9j60xY
+    - title: Getting started with XL Deploy - Understanding packages
+      id: dqeL45WGcKU
+    - title: Getting started with XL Deploy - Performing an update
+      id: S8HuaxCJA00
+    - title: Getting started with XL Deploy - Reverting to a previous version
+      id: zfmu75XocCg
+    - title: How XL Deploy works with Apache Tomcat
+      id: rNVkeHeVB-Q
+    - title: How XL Deploy works with JBoss Application Server/WildFly
+      id: o_J3ov9jAzI
+    - title: How XL Deploy works with IBM WebSphere
+      id: XEh5QGcpn5U
+    - title: Managing application dependencies with XL Deploy
+      id: gMczdievUyg
+    - title: Five unique XL Deploy features that workflow-based tools can't match 
+      id: MozM7bxuT4A
 - product: xl-release
+  name: XL Release
   videos:
     - title: A quick look at XL Release
-      url: https://www.youtube.com/watch?v=Y3tbOveSggA
+      id: Y3tbOveSggA
+    - title: Provisioning, building, deploying, and testing with XL Release
+      id: 6AEv66A293A
 - product: xl-testview
+  name: XL TestView
   videos:
-    - title: Why do I need XL TestView
-      url: https://www.youtube.com/watch?v=_17xKtB3iWU
+    - title: Why do I need XL TestView?
+      id: _17xKtB3iWU
     - title: Key benefits of XL TestView
-      url: https://www.youtube.com/watch?v=H1aQ6uHeIbM
+      id: H1aQ6uHeIbM
     - title: Getting started with XL TestView
-      url: https://www.youtube.com/watch?v=7NaCEJVdCBQ
+      id: 7NaCEJVdCBQ
+    - title: Extending XL TestView
+      id: p8B66UAE9Xg
