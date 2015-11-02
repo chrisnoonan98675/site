@@ -81,4 +81,4 @@ Points to remember:
 * Ensure that `triggerState` is set correctly inside your trigger script; it should be set to a different value from the previous execution exactly when you want the trigger to "fire" and create and start a new release.
 * To disable a trigger, deselect **Enabled** on the trigger configuration page.
 * To delete a trigger, click the **X** on the right side of the trigger configuration page.
-* You can see all releases created by a trigger by clicking **Related releases** on the trigger configuration page.
+* You can see all releases created by a trigger by clicking **Releases linked to this trigger** on the trigger configuration page.
