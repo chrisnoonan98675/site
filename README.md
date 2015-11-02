@@ -219,9 +219,17 @@ Jekyll does not support formatting a block of code by surrounding it with [three
     code goes here
     {% endhighlight %}
 
+## Mini TOC
+
+The mini TOC is an automatically generated table of contents that appears at the top right of pages with more than three headings. To prevent the mini TOC from being added to a page, put `no_mini_toc: true` in the page's front matter.
+
+## Breadcrumbs
+
+Breadcrumbs are automatically generated and appear at the top left of pages that use the `page` layout (by default, all topics). To prevent the breadcrumbs from being added to a page, put `breadcrumbs: false` in the page's front matter.
+
 ## Manual HTML anchors
 
-Do not manually insert HTML anchors directly above headings, like this:
+Do not manually insert HTML anchors directly above headings in Markdown files, like this:
 
       <a name="upgrade_to_450"></a>
       ### Upgrading to XL Deploy 4.5.0 ###
