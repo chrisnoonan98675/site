@@ -1,41 +1,39 @@
 <h2 id="browse-documentation-by-subject">Browse documentation by subject</h2>
 
+<p><button class="btn btn-default btn-xs" type="button" id="expand-all-subjects">Expand all</button>&nbsp;&nbsp;
+<button class="btn btn-default btn-xs" type="button" id="collapse-all-subjects">Collapse all</button></p>
+
 {% capture all_page_subjects %}{% for page in site.pages %}{% for category in page.categories %}{% if category contains product-id-to-search-for %}{% for subject in page.subject %}{{ subject }},{% endfor %}{% endif %}{% endfor %}{% endfor %}{% endcapture %}
 {% assign sorted_page_subjects = all_page_subjects | split:',' | sort %}
 
 {% assign subjects_used = '' %}
 {% assign subject_counter = 0 %}
 
-<div class="listContainer">
-
-	<ul class="expList two-col-list">
-		{% for item in sorted_page_subjects %}
-			{% capture subject_to_check %},{{ item }},{% endcapture %}
-			{% unless subjects_used contains subject_to_check %}
-				{% capture subject_modulus %}{{ subject_counter | mod:10 }}{% endcapture %} 
-				{% if subject_counter != 0 %} 
-					{% if subject_modulus == "0" %} 
-						</ul></li><li><ul> 
-					{% endif %}
+<div id="subject-list" data-collapse="persist">
+	{% for item in sorted_page_subjects %}
+		{% capture subject_to_check %},{{ item }},{% endcapture %}
+		{% unless subjects_used contains subject_to_check %}
+			{% capture subject_modulus %}{{ subject_counter | mod:10 }}{% endcapture %} 
+			{% if subject_counter != 0 %} 
+				{% if subject_modulus == "0" %} 
+					</ul></h6><li><h6> 
 				{% endif %}
-				{% capture subject_to_search_for %}{{ item }}{% endcapture %}
-				<li>{{ subject_to_search_for }}
-					<ul>
-						{% for page in site.pages %}
-							{% for category in page.categories %}
-								{% if category contains product-id-to-search-for %}
-									{% if page.subject contains subject_to_search_for %}
-										<li><a href="{{ page.url }}">{{ page.title }}</a></li>
-									{% endif %}
+			{% endif %}
+			{% capture subject_to_search_for %}{{ item }}{% endcapture %}
+			<h6>{{ subject_to_search_for }}</h6>
+				<ul>
+					{% for page in site.pages %}
+						{% for category in page.categories %}
+							{% if category contains product-id-to-search-for %}
+								{% if page.subject contains subject_to_search_for %}
+									<li><a href="{{ page.url }}">{{ page.title }}</a></li>
 								{% endif %}
-							{% endfor %}
+							{% endif %}
 						{% endfor %}
-					</ul>	
-				</li>		
-				{% capture subjects_used %}{{ subjects_used }}{{ subject_to_check }}{% endcapture %}
-				{% capture subject_counter %}{{ subject_counter | plus: 1 }}{% endcapture %}
-			{% endunless %}
-		{% endfor %}
-	</ul>
-
+					{% endfor %}
+				</ul>	
+			{% capture subjects_used %}{{ subjects_used }}{{ subject_to_check }}{% endcapture %}
+			{% capture subject_counter %}{{ subject_counter | plus: 1 }}{% endcapture %}
+		{% endunless %}
+	{% endfor %}
 </div>

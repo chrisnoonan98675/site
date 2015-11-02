@@ -1,25 +1,26 @@
 <h2 id="browse-documentation-by-tag">Browse documentation by tag</h2>
 
+<p><button class="btn btn-default btn-xs" type="button" id="expand-all-tags">Expand all</button>&nbsp;&nbsp;
+<button class="btn btn-default btn-xs" type="button" id="collapse-all-tags">Collapse all</button></p>
+
 {% capture all_page_tags %}{% for page in site.pages %}{% for category in page.categories %}{% if category contains product-id-to-search-for %}{% for tag in page.tags %}{{ tag }},{% endfor %}{% endif %}{% endfor %}{% endfor %}{% endcapture %}
 {% assign sorted_page_tags = all_page_tags | split:',' | sort %}
 
 {% assign tags_used = '' %}
 {% assign counter = 0 %}
 
-<div class="listContainer">
-
-	<ul class="expList two-col-list">
+<div id="tag-list" data-collapse="persist">
 		{% for item in sorted_page_tags %}
 			{% capture tag_to_check %},{{ item }},{% endcapture %}
 			{% unless tags_used contains tag_to_check %}
 				{% capture modulus %}{{ counter | mod:10 }}{% endcapture %} 
 				{% if counter != 0 %} 
 					{% if modulus == "0" %} 
-						</ul></li><li><ul> 
+						</ul></h6><li><h6> 
 					{% endif %}
 				{% endif %}
 				{% capture tag_to_search_for %}{{ item }}{% endcapture %}
-				<li>{{ tag_to_search_for }}
+				<h6>{{ tag_to_search_for }}</h6>
 					<ul>
 						{% for page in site.pages %}
 							{% for category in page.categories %}
@@ -31,11 +32,8 @@
 							{% endfor %}
 						{% endfor %}
 					</ul>	
-				</li>		
 				{% capture tags_used %}{{ tags_used }}{{ tag_to_check }}{% endcapture %}
 				{% capture counter %}{{ counter | plus: 1 }}{% endcapture %}
 			{% endunless %}
 		{% endfor %}
-	</ul>
-
 </div>

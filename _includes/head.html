@@ -32,7 +32,6 @@
 	<script src="/js/ie10-viewport-bug-workaround.js"></script>
 	<script src="/js/scroll_button_show_hide.js"></script>
 	<script src="/js/scroll_button_scroll_to_top.js"></script>
-	<script src="/js/collapsible_list.js"></script>
 	<script src="/js/toc.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -53,6 +52,24 @@
 			  removalDelay: 300,
 			  preloader: false,
 			  fixedContentPos: false
+			});
+		});
+	</script>
+	<script src="/js/jquery.collapse.js"></script>
+	<script src="/js/jquery.collapse_storage.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#expand-all-subjects").click(function(){
+				$("#subject-list").trigger("open");
+			});
+			$("#collapse-all-subjects").click(function(){
+				$("#subject-list").trigger("close");
+			});
+			$("#expand-all-tags").click(function(){
+				$("#tag-list").trigger("open");
+			});
+			$("#collapse-all-tags").click(function(){
+				$("#tag-list").trigger("close");
 			});
 		});
 	</script>
