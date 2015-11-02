@@ -15,7 +15,7 @@ You can also use triggers, which allow you to create and start new releases base
 
 Polling an SCM is a standard example of a trigger. But you can also easily define and configure your own triggers if you would like to kick off releases based on other events. Here's how:
 
-## Define the trigger in the type system
+## Step 1 Define the trigger in the type system
 
 To start, define a new trigger type in XL Release's type system. You do this by adding the definition to XL Release's type definition file in `<XL_RELEASE_HOME>/ext/synthetic.xml`:
 
@@ -28,7 +28,7 @@ To start, define a new trigger type in XL Release's type system. You do this by 
 
 This example defines a script for the trigger to run, and as a variable that will be set by the trigger, and that you can use when creating a new release. As an example, the [SVN trigger plugin](/xl-release/concept/introduction-to-the-xl-release-svn-trigger-plugin.html) makes the commit ID available in this way.
 
-## Create the trigger script
+## Step 2 Create the trigger script
 
 Next, create the script that will be executed each time the trigger executes. Based on the definition above, save the script as `<XL_RELEASE_HOME>/ext/demo/find-events-to-trigger-release.py`:
 
@@ -49,7 +49,7 @@ Next, create the script that will be executed each time the trigger executes. Ba
 
 Restart the XL Release server to register the new trigger definition.
 
-## Attach the trigger to a template
+## Step 3 Attach the trigger to a template
 
 Now, you can attach the trigger to a release template. In this example, the template has one task, which simply displays the value of `{{triggerValueForUse}}`, as set by the trigger.
 
@@ -64,7 +64,7 @@ Now, you can attach the trigger to a release template. In this example, the temp
 
 1. Save the changes.
 
-## Activate the trigger
+## Step 4 Activate the trigger
 
 To activate the trigger, create one release from the template, using the XL Release UI. Then the trigger will be running in the background (unless you disable it), and it will set the value of `triggerState` each time it is run.
 
