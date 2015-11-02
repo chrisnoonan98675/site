@@ -30,7 +30,7 @@ To configure release properties:
 6. If you want the release to be aborted when a task fails, select **Abort on failure**.
 7. In the **Description** box, optionally enter detailed information about the release. This field allows [Markdown](/xl-release/how-to/use-markdown-in-xl-release.html).
 8. Optionally add attachments by clicking **Choose File** next to **Attachments**. To delete an attachment, click the **X** next to it.
-9. Optionally add tags to the release to make it easier to find in the Release Overview.
+9. Next to **Tags**, optionally add tags to the release to make it easier to find in the release overview.
 10. To publish a link that you can add to a calendar application such as Microsoft Outlook or Apple iCal, select **Publish link**. If the release dates change, the event is automatically updated in your calendar.
 
     **Important:** Everyone who can reach the XL Deploy server can access this link, which may be a security concern.
