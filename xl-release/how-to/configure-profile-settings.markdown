@@ -1,5 +1,5 @@
 ---
-title: Configure XL Release profile settings
+title: Configure profile settings
 categories:
 - xl-release
 subject:

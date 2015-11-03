@@ -1,5 +1,5 @@
 ---
-title: Configure XL Release general settings
+title: Configure general settings
 categories:
 - xl-release
 subject:

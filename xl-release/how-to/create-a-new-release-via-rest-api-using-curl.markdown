@@ -1,5 +1,5 @@
 ---
-title: Create a new release via the XL Release REST API using cURL (XL Release 4.5+)
+title: Create a new release via the REST API using cURL (XL Release 4.5+)
 categories:
 - xl-release
 subject:

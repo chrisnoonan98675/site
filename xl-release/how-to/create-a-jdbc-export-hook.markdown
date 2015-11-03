@@ -1,5 +1,5 @@
 ---
-title: Create a JDBC export hook in XL Release
+title: Create a JDBC export hook
 categories:
 - xl-release
 subject:

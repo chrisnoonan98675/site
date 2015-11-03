@@ -1,5 +1,5 @@
 ---
-title: Configure SMTP servers in XL Release
+title: Configure SMTP server
 categories:
 - xl-release
 subject:
@@ -9,7 +9,7 @@ tags:
 - system administration
 - email
 - smtp
-- server
+- notification
 ---
 
 XL Release sends [notifications](/xl-release/concept/notifications-in-xl-release.html) to users of the system by email. Use the **SMTP server** page to configure the email server that is used to send notifications. This page is only accessible to users with 'admin' permission.

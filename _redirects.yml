@@ -1,5 +1,6 @@
 # Format for redirects is as follows
 # /initial-page/index.html : /destination-page/index.html
+# Don't forget the spaces around the colon!
 
 ####################
 # IN-PRODUCT LINKS #
@@ -111,6 +112,7 @@
 /xl-deploy/concept/understanding-orchestrators.html : /xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html
 /xl-deploy/how-to/connect-ldap-or-active-directory.html : /xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html
 /xl-deploy/how-to/define-dependencies-between-versions.html : /xl-deploy/concept/application-dependencies-in-xl-deploy.html
+/xl-release/how-to/create-a-new-admin-user-for-xl-release.html : /xl-release/how-to/create-a-new-admin-user.html
 
 # XL Release topics
 /xl-release/how-to/migrate-to-xl-release-4.7.0.html : /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470
@@ -126,6 +128,10 @@
 /xl-release/how-to/configure-xl-release-task-access.html : /xl-release/how-to/configure-task-access.html
 /xl-release/how-to/configure-xl-release-user-settings.html : /xl-release/how-to/configure-user-settings.html
 /xl-release/how-to/api-and-scripting-overview.html : /xl-release/concept/api-and-scripting-overview.html
+/xl-release/how-to/create-custom-configuration-types-in-xl-release.html : /xl-release/how-to/create-custom-configuration-types.html
+/xl-release/how-to/configure-smtp-servers-in-xl-release.html : /xl-release/how-to/configure-smtp-server.html
+/xl-release/how-to/enable-low-level-audit-logging.html : /xl-release/how-to/enable-granular-audit-logging.html
+/xl-release/how-to/declare-custom-rest-endpoints-in-xl-release.html : /xl-release/how-to/declare-custom-rest-endpoints.html
 
 # XL TestView topics
 /xl-test/how-to/create-a-test-tool-plugin.html : /xl-testview/concept/understanding-the-architecture.html

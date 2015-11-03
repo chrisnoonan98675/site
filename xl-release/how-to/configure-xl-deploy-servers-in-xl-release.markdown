@@ -1,5 +1,5 @@
 ---
-title: Configure XL Deploy servers in XL Release
+title: Configure XL Deploy servers
 categories:
 - xl-release
 subject:
@@ -8,27 +8,19 @@ tags:
 - settings
 - system administration
 - xl deploy
-- server
 ---
 
-Use the **XL Deploy Servers** page to configure connections to XebiaLabs XL Deploy servers. This page is accessible to users with 'admin' permission. It shows a list of currently known servers and allows you to configure them.
+In XL Release, go to **Settings** > **XL Deploy servers** to configure connections to XebiaLabs XL Deploy servers. This page is accessible to users with the *admin* permission. 
 
 ![XL Deploy Servers](../images/deployit-servers.png)
 
-The overview shows the XL Deploy server name, as used by the [XL Deploy Task](/xl-release/how-to/create-an-xl-deploy-task.html), followed by the connection URL and the name of the XL Deploy user that is used to make the remote connection.
+To add a server:
 
-To add a server, click **New server**. This dialog appears:
+1. Click **New server**.
+2. In the **Server Name** box, enter a name for the server. This is how the server will be identified in XL Release.
+3. In the **URL** box, enter the address at which the server is reachable. This is the same address you use to access the XL Deploy user interface.
+4. In the **Username** and **Password** boxes, enter the credentials of the XL Deploy user that XL Release will use to log in. XL Releases uses this user to query XL Deploy for its available applications and environments, to support code completion in the XL Deploy task and variables section.
 
-![XL Deploy Server Details](../images/deployit-server-details.png)
+    It is recommended that you create an XL Deploy user with read-only rights for XL Release to use. To perform deployments, specify a user and password directly in the XL Deploy task. This provides fine-grained access control from XL Release to XL Deploy. If you do not specify a user in the XL Deploy task, then XL Release will use the user configured on the XL Deploy server to perform deployments (provided that user has deployment rights in XL Deploy).
 
-Enter a symbolic name in the **Server Name** box. In the XL Release application, the XL Deploy Server is referred to by this name.
-
-The connection **URL** is the internet address at which the XL Deploy Server is reachable. It is the same address you use to access the XL Deploy UI.
-
-The **Username** is the login ID of the user in XL Deploy that XL Release will use, followed by the **Password**.
-
-XL Releases uses this user to query XL Deploy for its available applications and environments, to support code completion in the XL Deploy task and variables section.
-
-Click **Test** to test if XL Release can log in to the XL Deploy server with the configured URL and credentials.
-
-It is recommended that you configure a user in XL Deploy that has read-only rights for this. To do deployments, specify a user and password on the XL Deploy task directly. This provides fine-grained access control from XL Release to XL Deploy. If you do not specify a user on the XL Deploy task, then XL Release will use the user configured on the XL Deploy Server to perform deployments, provided that it has deployment rights on the XL Deploy Server.
+5. Click **Test** to test if XL Release can log in to the XL Deploy server with the configured address and credentials.

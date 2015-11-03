@@ -1,5 +1,5 @@
 ---
-title: Configure XL Release roles
+title: Configure roles
 categories:
 - xl-release
 subject:

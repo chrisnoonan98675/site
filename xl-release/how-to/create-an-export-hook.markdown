@@ -1,5 +1,5 @@
 ---
-title: Create an export hook in XL Release
+title: Create an export hook
 categories:
 - xl-release
 subject:

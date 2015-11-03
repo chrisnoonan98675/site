@@ -1,5 +1,5 @@
 ---
-title: Create custom configuration types in XL Release
+title: Create custom configuration types
 categories:
 - xl-release
 subject:

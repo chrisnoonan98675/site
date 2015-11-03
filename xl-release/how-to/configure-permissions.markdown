@@ -1,5 +1,5 @@
 ---
-title: Configure XL Release permissions
+title: Configure permissions
 categories:
 - xl-release
 subject:

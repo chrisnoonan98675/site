@@ -1,5 +1,5 @@
 ---
-title: Configure XL Release task access
+title: Configure task access
 categories:
 - xl-release
 subject:
@@ -8,17 +8,20 @@ tags:
 - settings
 - task
 - system administration
+- security
 ---
 
-On the **Task access**, screen under **Settings**, you can restrict task types access to certain roles.
+In XL Release, go to **Settings** > **Task access** to restrict access to task types based on users' role.
 
 ![Task access](../images/task-access.png)
 
-For each **Task type**, you can set it to be either:
+For each **Task type**, you can either:
 
-* **Available for all users**: all users can create or edit tasks based on this type.
-* Or **Restricted to roles**: only the given roles have access to tasks based on this type.
+* Select **Available for all users** if all users should be able to create or edit tasks of that type
+* Specify the roles that have access to the task type under **Restricted to roles**
 
-If you uncheck **Available for all users** and don't list any roles, the task type will be disabled to all except users who have the **Admin** permission.
+If you clear the **Available for all users** option and you do not add any roles, the task type will be unavailable to all users except those who have the *admin* permission.
 
-Click **Save** to apply your changes. Click **Reset** to discard your changes and reload the current settings from the server.
+Click **Save** to apply your changes.
+
+To discard your changes without saving, click **Reset**.

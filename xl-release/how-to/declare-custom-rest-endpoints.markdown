@@ -1,5 +1,5 @@
 ---
-title: Declare custom REST endpoints in XL Release
+title: Declare custom REST endpoints
 categories:
 - xl-release
 subject:

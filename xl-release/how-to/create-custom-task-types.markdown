@@ -1,5 +1,5 @@
 ---
-title: Create custom task types in XL Release
+title: Create custom task types
 categories:
 - xl-release
 subject:
