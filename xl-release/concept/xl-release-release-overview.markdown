@@ -1,47 +1,52 @@
 ---
-title: XL Release release overview
+title: Using the release overview
 categories:
 - xl-release
 subject:
 - Releases
 tags:
 - release
-- user interface
+- release overview
 ---
 
-In XL Release, go to **Releases** > **Overview** to see the list of currently active releases.
+In XL Release, go to **Releases** > **Overview** to see the list of releases that you have permission to view and that are currently active (including releases that are planned, in progress, and failed). Here, you can see where each release is in its [lifecycle](/xl-release/concept/release-life-cycle.html), as well as status flags that have been set on releases.
 
 ![Release Overview](../images/release-overview.png)
 
-The releases that you have permission to view and that are currently active appear. This includes releases that are planned, in progress and failed. 
+## Release overview actions
 
-Each release appears in a block. The first column contains the release title and the current phase (if the release is active).
+Next to each release, click:
 
-The actions column contains shortcuts to actions that you can perform on a release:
+* **View** to open the release in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html)
+* **Start** to start a release that is in the *planned* state
+* **Abort** to abort the release
 
-* **View**: Open the release details screen on the release flow editor page.
-* **Start**: Start the release; this is only available if the release is in the 'planned' state.
-* **Abort**: Aborts the current release.
+## Dates in the release overview
 
-The status column shows where the release is in its [lifecycle](/xl-release/concept/release-life-cycle.html).
+The **Start date** column shows:
 
-The **Start date** column shows the planned start date if the release is scheduled in the future or the actual start date if it has already started. The **End date** column shows the planned end date if the release is not complete or the actual end date otherwise. In both columns, an overdue date appears in red. **Duration** shows the duration of the release.
+* The planned start date if the release is scheduled in the future
+* The actual start date if the release has already started
 
-If a status flag is set on the release or on one of its tasks, it appears at the bottom of the release box.
+The **End date** column shows:
 
-## Filtering releases
+* The planned end date if the release is not complete
+* The actual end date otherwise
 
-![Release Overview Filtering](../images/release-overview-filter.png)
+Overdue dates appear in red.
 
-Click **Filter options** to toggle the options:
+The **Duration** column shows the duration of the release.
 
-* **All active releases**: Show releases that are currently busy (release state 'in progress', 'failing', or 'failed').
-* **All planned releases**: Show releases that have been created but that have not started yet (release state 'planned')
-* **All completed and aborted releases**: Show releases that are completed or aborted (release states 'completed' and 'aborted').
-* **Only my releases**: Show releases for which you are the release owner.
-* **Only flagged releases**: Only show releases that are flagged with a warning message. Use this option to show releases that are currently at risk.
+## Filtering the release overview
 
+To filter the release overview, click **Filter options** and select:
 
-To filter on release title, use the **Filter by title or tag** box. Enter part of a release title or tag.
+* **All active releases** to show releases that are busy (in the *in progress*, *failing*, or *failed* state)
+* **All planned releases** to show releases that have been created but that have not started yet (in the *planned* state)
+* **All completed and aborted releases** to show releases that are completed or aborted (in the *completed* or *aborted* state)
+* **Only my releases** to show releases for which you are the release owner
+* **Only flagged releases** to show releases that are flagged with a warning message; use this option to see releases that are currently at risk
+
+To filter on the release title, use the **Filter by title or tag** box.
 
 To filter on dates, use the **From** and **To** options.
