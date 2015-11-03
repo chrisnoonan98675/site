@@ -1,7 +1,9 @@
 # Format for redirects is as follows
 # /initial-page/index.html : /destination-page/index.html
 
-##### IN-PRODUCT LINKS
+####################
+# IN-PRODUCT LINKS #
+####################
 
 # XL Release in-product links
 /xl-release/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new
@@ -83,7 +85,9 @@
 /xl-test/help/0012.html : /xl-deploy/how-to/choose-an-overthere-host-type-and-connection-type.html
 /xl-test/help/0013.html : /xl-testview/how-to/using-dashboards.html
 
-##### TOPICS THAT HAVE BEEN RENAMED, MOVED, OR MERGED
+###################################################
+# TOPICS THAT HAVE BEEN RENAMED, MOVED, OR MERGED #
+###################################################
 
 /xl-deploy/how-to/perform-an-update.html : /xl-deploy/how-to/update-a-deployed-application.html
 /xl-deploy/how-to/use-xl-deploy-garbage-collection.html : /xl-deploy/how-to/reclaim-disk-space-on-an-xl-deploy-server.html
@@ -113,7 +117,9 @@
 /xl-testview/concept/identifying-test-runs.html : /xl-testview/how-to/detect-duplicate-imports.html
 /xl-testview/how-to/disable-authentication.html : /xl-testview/how-to/configure-ldap.html
 
-##### PRODUCTS THAT HAVE BEEN RENAMED
+###################################
+# PRODUCTS THAT HAVE BEEN RENAMED #
+###################################
 
 /development-dashboard/xl-test-dashboard.html : /development-dashboard/xl-testview-dashboard.html
 /development-dashboard/xl-test-history.html : /development-dashboard/xl-testview-history.html
@@ -151,7 +157,9 @@
 /xl-test/how-to/using-xl-test-dashboards.html : /xl-testview/how-to/using-dashboards.html
 /xl-test/how-to/view-test-case-details.html : /xl-testview/how-to/view-test-case-details.html
 
-##### LEGACY PAGES THAT ARE NO LONGER USED
+########################################
+# LEGACY PAGES THAT ARE NO LONGER USED #
+########################################
 
 /product-version.html#/deployit/3.9.x/index.html : /xl-deploy/3.9.x/index.html
 /product-version.html#/xl%20deploy/4.0.x/index.html : /xl-deploy/4.0.x/index.html
@@ -166,7 +174,9 @@
 /generated/xl-release/4.0.x/index.html : /xl-release/4.0.x/index.html
 /generated/xl-release/3.0.x/index.html : /xl-release/3.0.x/index.html
 
-##### "LATEST" LINKS, XL DEPLOY
+#############################
+# "LATEST" LINKS, XL DEPLOY #
+#############################
 
 # XL Deploy product doc, new format
 /xl-deploy/latest/index.html : /xl-deploy/5.1.x/index.html
@@ -296,7 +306,9 @@
 /releases/latest/xl-scale-ec2-plugin/ec2PluginManual.html : /xl-scale-ec2-plugin/5.1.x/ec2PluginManual.html
 /releases/latest/xl-scale-vsphere-plugin/vspherePluginManual.html : /xl-scale-vsphere-plugin/5.1.x/vspherePluginManual.html
 
-##### "LATEST" LINKS, XL RELEASE
+##############################
+# "LATEST" LINKS, XL RELEASE #
+##############################
 
 # XL Release product doc, new format
 /xl-release/latest/index.html : /xl-release/4.7.x/index.html
@@ -331,7 +343,9 @@
 /releases/latest/xlr-nexus-plugin/nexusPluginManual.html : /xl-release/concept/introduction-to-the-xl-release-nexus-trigger-plugin.html
 /releases/latest/xlr-time-plugin/timePluginManual.html : /xl-release/concept/introduction-to-the-xl-release-time-trigger-plugin.html
 
-##### "LATEST" LINKS, XL TESTVIEW
+###############################
+# "LATEST" LINKS, XL TESTVIEW #
+###############################
 
 # XL TestView product doc
 /xl-testview/latest/index.html : /xl-testview/1.3.x/index.html
