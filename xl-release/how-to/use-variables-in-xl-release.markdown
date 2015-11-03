@@ -2,9 +2,11 @@
 title: Use variables in XL Release
 categories:
 - xl-release
-subject: Variables
+subject:
+- Variables
 tags:
-- release template
+- release
+- template
 - task
 - variable
 ---
