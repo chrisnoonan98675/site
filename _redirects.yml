@@ -114,6 +114,18 @@
 
 # XL Release topics
 /xl-release/how-to/migrate-to-xl-release-4.7.0.html : /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470
+/xl-release/concept/xl-release-calendar-view.html : /xl-release/how-to/using-the-calendar-view.html
+/xl-release/concept/xl-release-pipeline-view.html : /xl-release/how-to/using-the-pipeline-view.html
+/xl-release/concept/xl-release-release-overview.html : /xl-release/how-to/using-the-release-overview.html
+/xl-release/concept/xl-release-release-summary.html : /xl-release/how-to/using-the-release-summary.html
+/xl-release/concept/xl-release-task-overview.html : /xl-release/how-to/using-the-task-overview.html
+/xl-release/how-to/configure-xl-release-general-settings.html : /xl-release/how-to/configure-general-settings.html
+/xl-release/how-to/configure-xl-release-permissions.html : /xl-release/how-to/configure-permissions.html
+/xl-release/how-to/configure-xl-release-profile-settings.html : /xl-release/how-to/configure-profile-settings.html
+/xl-release/how-to/configure-xl-release-roles.html : /xl-release/how-to/configure-roles.html
+/xl-release/how-to/configure-xl-release-task-access.html : /xl-release/how-to/configure-task-access.html
+/xl-release/how-to/configure-xl-release-user-settings.html : /xl-release/how-to/configure-user-settings.html
+/xl-release/how-to/api-and-scripting-overview.html : /xl-release/concept/api-and-scripting-overview.html
 
 # XL TestView topics
 /xl-test/how-to/create-a-test-tool-plugin.html : /xl-testview/concept/understanding-the-architecture.html

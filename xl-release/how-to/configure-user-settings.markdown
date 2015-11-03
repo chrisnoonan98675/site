@@ -13,7 +13,7 @@ tags:
 - security
 ---
 
-Go to **Settings** > **Users** to view and edit XL Release users. This page is only available to users with the *admin* and *edit security permissions.
+Go to **Settings** > **Users** to view and edit XL Release users. This page is only available to users with the *admin* and *edit security* permissions.
 
 ![Users](../images/users.png)
 
