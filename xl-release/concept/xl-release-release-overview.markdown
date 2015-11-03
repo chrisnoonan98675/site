@@ -9,7 +9,7 @@ tags:
 - release overview
 ---
 
-In XL Release, go to **Releases** > **Overview** to see the list of releases that you have permission to view and that are currently active (including releases that are planned, in progress, and failed). Here, you can see where each release is in its [lifecycle](/xl-release/concept/release-life-cycle.html), as well as status flags that have been set on releases.
+In XL Release, go to **Releases** > **Overview** to see the list of releases that you have permission to view and that are currently active (including releases that are planned, in progress, and failed). Here, you can see the [status](/xl-release/concept/release-life-cycle.html) of each release, as well as any status flags that have been set.
 
 ![Release Overview](../images/release-overview.png)
 
