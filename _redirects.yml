@@ -89,6 +89,7 @@
 # TOPICS THAT HAVE BEEN RENAMED, MOVED, OR MERGED #
 ###################################################
 
+# XL Deploy topics
 /xl-deploy/how-to/perform-an-update.html : /xl-deploy/how-to/update-a-deployed-application.html
 /xl-deploy/how-to/use-xl-deploy-garbage-collection.html : /xl-deploy/how-to/reclaim-disk-space-on-an-xl-deploy-server.html
 /xl-deploy/how-to/reset-admin-password-xl-deploy-server.html : /xl-deploy/how-to/changing-passwords-in-xl-deploy.html
@@ -98,7 +99,6 @@
 /xl-deploy/how-to/common-xl-deploy-cli-tasks.html : /xl-deploy/how-to/using-the-xl-deploy-cli.html
 /xl-deploy/concept/installing-and-removing-xl-deploy-plugins.html : /xl-deploy/how-to/install-or-remove-xl-deploy-plugins.html
 /xl-deploy/how-to/using-the-plan-analyzer.html : /xl-deploy/how-to/preview-the-deployment-plan.html
-/xl-test/how-to/create-a-test-tool-plugin.html : /xl-testview/concept/understanding-the-architecture.html
 /xl-deploy/concept/getting-started-with-the-satellite-feature.html : /xl-deploy/concept/getting-started-with-the-satellite-module.html
 /xl-deploy/how-to/configure-the-satellite-feature-in-xl-deploy.html : /xl-deploy/how-to/configure-the-satellite-module-in-xl-deploy.html
 /xl-deploy/concept/understanding-xl-deploy-rules.html : /xl-deploy/concept/getting-started-with-xl-deploy-rules.html
@@ -106,12 +106,17 @@
 /xl-deploy/how-to/configure-the-satellite-module-in-xl-deploy.html : /xl-deploy/how-to/configure-xl-deploy-to-communicate-with-satellites.html
 /xl-deploy/concept/licensing-in-xl-deploy.html : /xl-deploy/concept/xl-deploy-licensing.html
 /xl-deploy/how-to/perform-a-deployment-using-the-xl-deploy-cli.html : /xl-deploy/how-to/deploy-an-application-using-the-cli.html
-/xl-release/how-to/migrate-to-xl-release-4.7.0.html : /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470
 /xl-deploy/concept/using-tags-to-configure-deployments.html : /xl-deploy/how-to/use-tags-to-configure-deployments.html
 /xl-deploy/concept/authoring-a-new-step-primitive-for-rules.html : /xl-deploy/how-to/create-a-custom-step-for-rules.html
 /xl-deploy/concept/understanding-orchestrators.html : /xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html
 /xl-deploy/how-to/connect-ldap-or-active-directory.html : /xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html
 /xl-deploy/how-to/define-dependencies-between-versions.html : /xl-deploy/concept/application-dependencies-in-xl-deploy.html
+
+# XL Release topics
+/xl-release/how-to/migrate-to-xl-release-4.7.0.html : /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470
+
+# XL TestView topics
+/xl-test/how-to/create-a-test-tool-plugin.html : /xl-testview/concept/understanding-the-architecture.html
 /xl-testview/concept/test-result-parser.html : /xl-testview/how-to/create-a-custom-test-results-parser.html
 /xl-testview/how-to/handle-exceptions-in-parsers.html : /xl-testview/how-to/handle-exceptions-in-test-results-parsers.html
 /xl-testview/concept/identifying-test-runs.html : /xl-testview/how-to/detect-duplicate-imports.html
@@ -121,6 +126,7 @@
 # PRODUCTS THAT HAVE BEEN RENAMED #
 ###################################
 
+# XL Test renamed to XL TestView
 /development-dashboard/xl-test-dashboard.html : /development-dashboard/xl-testview-dashboard.html
 /development-dashboard/xl-test-history.html : /development-dashboard/xl-testview-history.html
 /xl-test/index.html : /xl-testview/index.html
