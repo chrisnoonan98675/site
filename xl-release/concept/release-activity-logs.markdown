@@ -6,7 +6,6 @@ subject:
 - Releases
 tags:
 - release
-- properties
 - logging
 ---
 

@@ -6,8 +6,11 @@ subject:
 - Releases
 tags:
 - release
-- properties
+- template
 - team
+- release summary
+- permission
+- users
 ---
 
 In a release or template, select **Teams** from the **Show** menu to go to the permissions page, where you specify the teams that are defined for the release.
