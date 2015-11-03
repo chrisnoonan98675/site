@@ -34,20 +34,6 @@ If you upgrade to a release candidate (RC), alpha, or beta version, you cannot u
 
 Ensure that you always create a backup of your repository before you upgrade to a new version of XL TestView.
 
-## Upgrading the repository
-
-If a repository upgrade is required, XL TestView will detect that it is running against an old repository and will exit with a message denoting an upgrade is required. The upgrade is not performed automatically.
-
-To perform an upgrade, start XL TestView with the `-upgrade` or `-force-upgrades` flag. The `-upgrade` flag will perform an upgrade and exit. 
-
-To perform an upgrade and keep the server running, specify the `-force-upgrades` flag.
-
-All logging that happens during an upgrade step is written into `upgrade.log`.
-
-Some upgrades may take a while to complete (especially when going through the event model which is persisted in Elastic Search). The more test runs you have the more events there are to update. Upgrade progress is also logged in the `upgrade.log`. 
-
-The server log will contain extensive logging of the repository upgrade process. Save this log for future reference.
-
 ## Deprecations
 
 Each new version may deprecate some functionality or features in favor of newer ways of working. If functionality is marked as deprecated for a specific version, the old functionality is still available (so you can still upgrade hassle-free), but it will be removed in the next version.
@@ -93,3 +79,16 @@ To upgrade an XL TestView server installation:
 1. [Start the XL TestView server interactively](/xl-testview/how-to/start.html) to allow automatic repository upgraders to run.
 
 1. If you normally run the XL TestView server [as a service](/xl-testview/how-to/install-xl-testview-as-a-service.html), shut it down and restart it as you normally do.
+
+### Upgrading the repository
+
+If a repository upgrade is required, when you start XL TestView it detect that it is running against an old repository and will exit with a message indicating that an upgrade is required. The upgrade is not performed automatically.
+
+To perform an upgrade, start XL TestView with one of the following flags:
+
+* `-upgrade`: To perform an upgrade and exit
+* `-force-upgrades`: To perform an upgrade and keep the server running
+
+Upgrade progress and errors are logged in the `upgrade.log` and `xl-testview.log` files.
+
+Some upgrades may take a while to complete (especially when going through the event model that is persisted in Elastic Search). The more test runs you have, the more events there are to upgrade.
