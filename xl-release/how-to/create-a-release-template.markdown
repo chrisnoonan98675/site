@@ -26,57 +26,48 @@ The template overview shows all templates that you have permission to see.
 
 The following options are available (depending on your permissions):
 
-* **View**: Open the template in the Release Flow editor.
-* **New Release from template**: Create a new release based on this template.
-* **Copy**: Create a new template that is a copy of this one. When copying a template that contains release triggers, all the triggers on the copied template will be disabled.
-* **Delete**: Delete this template.
+{:.table .table-striped}
+| Action | Description |
+| ------ | ----------- |
+| View | Open the template in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html) |
+| New Release from Template | Create a new release based on the template |
+| Copy | Create a new template that is a copy of this one; if you copy a template that contains [release triggers](/xl-release/how-to/create-a-release-trigger.html), all triggers on the copied template will be disabled |
+| Delete | Delete the template
 
-## Creating a template
+## Create a template
 
-To create a new, empty template, click **New template**.
+To create a template:
 
-![Create new template](../images/create-new-template.png)
+1. On the template overview, click **New template**.
 
-**Template name** is the name that identifies the template in the overview.
+    ![Create new template](../images/create-new-template.png)
 
-**Scheduled start date and time**, **Due date and time**, and **Duration** set the _planned_ start date, end date and duration of a template. These dates will be used to display the template in the planner. Only the scheduled start date is mandatory, if not set, the due date and the duration will be inferred.
+1. In the **Template Name** box, enter a name to identify the template.
+1. In **Scheduled start date** and **Due date**, set the planned start and end dates of the release. XL Release uses these dates to show the release on the calendar. Only the start date is required.
+1. If you want the release to be aborted when a task fails, select **Abort on failure**.
+1. In the Description box, optionally enter detailed information about the release. This field allows [Markdown](/xl-release/how-to/use-markdown-in-xl-release.html).
+1. In **Run release as user** and **Password for user that runs the release**, enter the user name and password of the XL Release user account that should be used to execute scripts.
+1. Next to **Tags**, optionally add tags to the release to make it easier to find in the release overview.
+1. Click **Create** to create the template
 
-Tick the **Abort on failure** checkbox if you want the release created from this template to be aborted when a task fails.
+To discard your changes without saving, click **Cancel**.
 
-You can enter a **Description** to provide more information about the template. Click the text to edit it. The text editor supports [Markdown syntax](/xl-release/how-to/use-markdown-in-xl-release.html), so you can put styled text and hyperlinks here.
+## Teams in templates
 
-**Run Release As User** and **Password for user that runs the release**: The username and password of the XL Release user account that will be used to execute scripts.
+When you create a template, the *Template Owner* team is automatically created. This team contains everyone who has owning rights on the template. Refer to [Configure teams for a release](/xl-release/how-to/configure-teams-for-a-release.html#predefined-teams) for more information.
 
-**Tags** can be set on the template. The tags are copied to the releases that are created from this template, to make it easier to search for them in the release overview.
-
-## Template details
-
-Editing a template is very similar to editing an actual release. However, there are some differences.
-
-### Teams in templates
-
-When you create a template, a team called **Template owners** is automatically created and populated with the user who created the template. This team has the permissions that are required to edit a template and create a release.
-
-The **Release Admin** team is not available for templates. It is created when a release is created from the template.
-
-### Template permissions
+## Template permissions
 
 Templates have two sets of permissions. The first table shows permissions that apply to the template itself.
 
 ![Template Permissions](../images/template-permissions.png)
 
-* **Create release**: Users can create a release from this template.
-* **View template**: Users can see the template in the template overview.
-* **Edit template**: Users can change the template by adding tasks and phases and changing them.
-* **Edit security**: Users can edit teams and permissions on the template.
+{:.table .table-striped}
+| Permission | Description |
+| ---------- | ----------- |
+| Create Release | Users can create a release from the template |
+| View Template | Users can see the template in the template overview |
+| Edit Template | Users can change the template by adding tasks and phases and changing them |
+| Edit Security | Users can edit teams and permissions on the template |
 
-The second table contains permissions that are copied when creating a release. This allows you to define teams and permissions for the release beforehand. See [Release Permissions](/xl-release/how-to/configure-release-permissions.html) for an overview of these permissions.
-
-## Starting a release from a template
-
-When you create a release from a template, it is first in a 'planned' state. This is an important state, because before the release starts and people are notified by email that tasks are assigned to them, the release owner must do some configuration:
-
-* **Variables**: When starting a release, the Create Release page will ask the release owner to assign values to all variables. 
-* **Teams**: In a planned release, the release owner should populate the teams or revise the members of each team.
-* **Start dates and due dates**: The release owner can optionally set scheduled start dates and due dates on crucial tasks or on all tasks.
-* **Dependencies**: The release owner should revise dependencies on other releases. Dependencies can only be set on active releases, so they should not be specified in the template.
+The second table contains permissions that are copied when creating a release. This allows you to define teams and permissions for the release beforehand. See [Configure release permissions](/xl-release/how-to/configure-permissions-for-a-release.html) for an overview of these permissions.

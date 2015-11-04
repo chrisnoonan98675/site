@@ -7,25 +7,38 @@ subject:
 tags:
 - deployment
 - gui
+- task
+- schedule
 ---
 
-XL Deploy allows you to schedule a task for execution at a specified later moment in time. You should prepare your deployment task like you would normally do. See [Understanding tasks in XL Deploy](https://docs.xebialabs.com/xl-deploy/concept/understanding-tasks-in-xl-deploy.html#scheduling) for all of the possibilities and details of scheduling.
+XL Deploy allows you to schedule deployment tasks for execution at a specified later moment in time. Scheduled deployment tasks work just like other scheduled tasks; refer to [Understanding tasks in XL Deploy](https://docs.xebialabs.com/xl-deploy/concept/understanding-tasks-in-xl-deploy.html#scheduling-tasks) for information about the way XL Deploy handles scheduled tasks, including important information about archiving and failures.
 
-In the XL Deploy GUI, you would perform the following actions to schedule a deployment:
+To schedule a deployment using the XL Deploy GUI:
 
+1. Go to the Deployment Workspace.
 1. Select a deployment package and environment.
-2. Create the desired mappings.
-3. Click Next.
-4. Now instead of clicking Execute, click Schedule.
+1. Click **Advanced**.
+1. Click **Schedule**.
 
-![Schedule Button](images/schedule-button.png)
+    In the Schedule window, select the date and time that you want to execute the deployment task. Specify the time using your local timezone.
 
-The XL Deploy GUI will now show the scheduling window. Here you can configure the date and time you want this task to be scheduled. Notice that you need to specify the time using your local timezone.
+    ![Schedule Window](images/schedule-window.png)
 
-![Schedule Window](images/schedule-window.png)
+1. Click **OK** to schedule the task.
 
-After pressing OK, the task is scheduled and will close. If you want to see all scheduled tasks, you need to open the task monitor. The task monitor will show which tasks are scheduled and when they are scheduled. To reschedule a task, double-click on the task to open it. Now you can change the time and date by using the Schedule button.
+## View scheduled deployments
+
+To view scheduled deployment tasks, click the gear icon and select **Task Monitor**. Note that you can only see deployment tasks that you have [permission](/xl-deploy/concept/overview-of-security-in-xl-deploy.html#permissions) to view.
 
 ![Schedule Task Monitor](images/schedule-task-monitor.png)
 
-Control tasks and discovery tasks can also be scheduled in the same way as deployment tasks. The task monitor will not list control tasks and discovery tasks. These tasks will show up in the repository workspace.
+**Note:** Although control tasks and discover tasks can also be scheduled, you will not see them in the Task Monitor. They appear in the Repository.
+
+## Reschedule a deployment
+
+To reschedule a scheduled deployment task:
+
+1. Double-click the deployment task in the Task Monitor to open its deployment plan.
+1. Click **Schedule**.
+1. In the Schedule window, select a new date and time. 
+1. Click **OK**.

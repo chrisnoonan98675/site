@@ -52,21 +52,42 @@ A special case is when referring to an artifact in a placeholder. For example, w
 
 	${deployed.file}
 
-In this case, XL Deploy will copy the referred artifact to the target container so that the file is available to the executing script. A script containing a command like the following would therefore copy the file represented by the deployable to it's installation path on the remote machine:
+In this case, XL Deploy will copy the referred artifact to the target container so that the file is available to the executing script. A script containing a command like the following would therefore copy the file represented by the deployable to its installation path on the remote machine:
 
 	cp ${deployed.file} /install/path
 
 ### File-related placeholders
 
 {:.table .table-striped}
+| Placeholder | Description | Example |
+| ----------- | ----------- | ------- |
+| `${deployed.file}` | Complete path of the uploaded file | `/tmp/ot-12345/generic_plugin.tmp/PetClinic-1.0.ear` |
+| `${deployed.deployable.file}` | Complete path of the uploaded deployable file (no placeholder replacement) | `/tmp/ot-12345/generic_plugin.tmp/PetClinic-1.0.ear` |
+
+## Deployment plan steps
+
+The following placeholders are available for deployment plan steps:
+
+{:.table .table-striped}
 | Placeholder | Description |
 | ----------- | ----------- |
-| `${deployed.file}` | Complete path of the uploaded file, e.g. `/tmp/ot-12345/generic_plugin.tmp/PetClinic-1.0.ear` |
-| `${deployed.deployable.file}` | Complete path of the uploaded deployable file (no placeholder replacement), e.g. `/tmp/ot-12345/generic_plugin.tmp/PetClinic-1.0.ear` |
+| `${step.uploadedArtifactPath}` | Path of the uploaded artifact |
+| `${step.hostFileSeparator}` | File separator; depends on the operating system of the target machine |
+| `${step.localConnection}` | Name of the local connection |
+| `${step.retainRemoteWorkingDirOnCompletion}` | Whether to leave the working directory after the action is completed |
+| `${step.hostLineSeparator}` | Line separator; depends on the operating system of the target machine |
+| `${step.scriptTemplatePath}` | Path to the FreeMarker template |
+| `${step.class}` | Step Java class |
+| `${step.preview}` | Preview of the step |
+| `${step.remoteWorkingDirPath}` | Path of the remote working directory |
+| `${step.remoteConnection}` | Name of the remote connection |
+| `${step.scriptPath}` | Path of the script |
+| `${step.artifact}` | Artifact to be uploaded |
+| `${step.remoteWorkingDirectory}` | Remote working directory name |
 
 ## Accessing the ExecutionContext
 
-In XL Deploy 4.5.3 and later, the Generic plugin can access the [ExecutionContext](/xl-deploy/4.5.x/javadoc/udm-plugin-api/index.html?com/xebialabs/deployit/plugin/api/flow/ExecutionContext.html) and use it in a FreeMarker template. For example:
+In XL Deploy 4.5.3 and later, the Generic plugin can access the [ExecutionContext](/xl-deploy/latest/javadoc/udm-plugin-api/index.html?com/xebialabs/deployit/plugin/api/flow/ExecutionContext.html) and use it in a FreeMarker template. For example:
 
     <type type="demo.DeployedStuff" extends="generic.ExecutedScript" deployable-type="demo.Stuff" container-type="overthere.SshHost">
       <generate-deployable type="demo.Stuff" extends="generic.Resource"/>

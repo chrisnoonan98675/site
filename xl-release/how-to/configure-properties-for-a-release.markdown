@@ -1,49 +1,47 @@
 ---
-title: Configure properties for a release
+title: Configure release properties
 categories:
 - xl-release
 subject:
 - Releases
 tags:
 - release
+- template
 - properties
+- release summary
 ---
 
-In the release details, select **Properties** from the **Show** menu to go to the release properties page, which provides the metadata of the release.
+In a release or template, select **Properties** from the **Show** menu to go to the release properties page, where you can specify metadata for the release.
 
 ![Release properties](../images/release-properties-part-1.png)
 ![Release properties](../images/release-properties-part-2.png)
 
-The following information is available:
+To configure release properties:
 
-* **Release Name**: Change the name of the release (also allowed on a running release).
+1. In the **Release Name** box, enter the name of the release. If the release is running, you can change its name.
+2. Next to **Flag status**, optionally select a yellow (attention needed) or red (release at risk) icon and enter a status message. Flagged releases are highlighted in overviews.
+3. In **Start date** and **Due date**, set the *planned* start and end dates of the release. XL Release uses these dates to show the release on the calendar.
 
-* **Flag status**: Optionally set a warning message on the release. You can set the alert to amber ("attention needed") or red ("release at risk"). A releases with such a status is highlighted in overviews so it is easy to see.
+    **Note:** These are not the dates that the release actually started or ended.
 
-* **Start date** and **Due date**: Set the _planned_ start and end dates of the release. These dates are used to display the release on the calendar. Note that these are not the dates that the release _actually_ started or ended.
+4. Select the person who is responsible for the release from the **Release Owner** list. This person will receive additional [notifications](/xl-release/concept/notifications-in-xl-release.html) if tasks fail or are flagged.
 
-* **Release Owner**: The person who is responsible for the release and who will receive [notifications](#notifications) if tasks fail or are flagged as being in danger. Release owners are automatically added to the [Release Admin team](#admin-teams) when the release is created. This team has all security permissions on a release. Release owners can also use the **My Releases** filter option in the [Release overview](#filtering-releases).
+    Release owners are automatically added to the Release Admin team when the release is created. This team has all [permissions](/xl-release/how-to/configure-permissions-for-a-release.html) on the release.
 
-* **Run Release As User** and **Password for user that runs the release**: The username and password of the XL Release user account that will be used to execute scripts.
+5. In **Run release as user** and **Password for user that runs the release**, enter the user name and password of the XL Release user account that should be used to execute scripts.
+6. If you want the release to be aborted when a task fails, select **Abort on failure**.
+7. In the **Description** box, optionally enter detailed information about the release. This field allows [Markdown](/xl-release/how-to/use-markdown-in-xl-release.html).
+8. Optionally add attachments by clicking **Choose File** next to **Attachments**. To delete an attachment, click the **X** next to it.
+9. Next to **Tags**, optionally add tags to the release to make it easier to find in the release overview.
+10. To publish a link that you can add to a calendar application such as Microsoft Outlook or Apple iCal, select **Publish link**. If the release dates change, the event is automatically updated in your calendar.
 
-* **Abort on failure**: If ticked, the release will be aborted when a task fails.
+    **Important:** Everyone who can reach the XL Deploy server can access this link, which may be a security concern.
 
-* **Description**: Provides detailed information about the release. To edit the text, click it. The text editor supports [Markdown syntax](markdownsyntax.html), so you can put styled text and hyperlinks here.
+11. To download an ICS file that you can open with a calendar application, click **Download calendar event**.
+12. Under **Variables**, enter values for the variables that have been defined in the release. You must provide values for all variables, or any task that contains a variable without a value will fail.
 
-* **Attachments**: Lists file attachments on the release. To add an attachment, click **Choose File**. To delete an attachment, click the black cross on the right.
+    Auto-completion is available for deployment packages and environments used in XL Deploy tasks.
 
-* **Tags**: Set tags on the release to make it easier to find in the release overview.
+13. Click **Save** to save your changes to the release properties. Changes are not saved automatically.
 
-* **Share calendar**: View the release in a calendar application such as Microsoft Outlook or Apple iCal. The options are:
-	* **Publish link**: Publish a link that you can add to a calendar application. When the release dates change, the event is automatically updated in your calendar. Note that everyone who can reach the XL Release server can access this link, which may be a security concern.
-	* **Download calendar event**: Download an ICS file that you can open with a calendar application. 
-
-* **Variables**: Lists the [Variables](#variables) that are defined in the release. Variables are placeholders that are filled in when the release starts. You can enter variables in most task fields by typing `${..}` around a word or phrase. You specify the values of variables on this page.
-
-	**Note:** You must provide values for all variables, or any task that contains a variable without a value will fail.
-
-Smart auto-completing is available for deployment packages and environments of a XL Deploy task. Start typing and XL Release will retrieve the list of deployment packages or environments that are available in XL Deploy.
-
-Click **Save** to save your changes to the release properties. Changes are not saved automatically.
-
-To discard changes that you've made without saving, click **Reset**.
+To discard your changes without saving, click **Reset**.

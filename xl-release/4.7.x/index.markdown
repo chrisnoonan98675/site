@@ -17,9 +17,10 @@ product-id: xl-release
 * [Remote script plugin](/xl-release/concept/introduction-to-the-xl-release-remote-script-plugin.html)
 * [JIRA plugin](/xl-release/concept/introduction-to-the-xl-release-jira-plugin.html)
 * [Git plugin](/xl-release/concept/introduction-to-the-xl-release-git-trigger-plugin.html)
-* [Nexus plugin](/xl-release/concept/introduction-to-the-xl-release-nexus-plugin.html)
-* [Time plugin](/xl-release/concept/introduction-to-the-xl-release-time-plugin.html)
-* [SVN plugin](/xl-release/concept/introduction-to-the-xl-release-svn-plugin.html)
+* [Nexus plugin](/xl-release/concept/introduction-to-the-xl-release-nexus-trigger-plugin.html)
+* [Time plugin](/xl-release/concept/introduction-to-the-xl-release-time-trigger-plugin.html)
+* [SVN plugin](/xl-release/concept/introduction-to-the-xl-release-svn-trigger-plugin.html)
+* [Jenkins plugin](/xl-release/how-to/create-a-jenkins-task.html)
 * [XL Deploy plugin](/xl-release/how-to/create-an-xl-deploy-task.html)
 
 ## Community plugin documentation

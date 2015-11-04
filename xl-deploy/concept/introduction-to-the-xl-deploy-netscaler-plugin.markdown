@@ -6,7 +6,6 @@ subject:
 - NetScaler plugin
 tags:
 - netscaler
-- citrix
 - plugin
 - load balancer
 ---

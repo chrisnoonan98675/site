@@ -5,12 +5,11 @@ categories:
 subject:
 - Upgrade
 tags:
-- migration
 - upgrade
 - installation
 - system administration
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 With the release of XL Deploy 5.0.0, a number of [deprecated features](/xl-deploy/5.0.x/upgrademanual.html) will be removed. This article will help you migrate to the new way of using XL Deploy.

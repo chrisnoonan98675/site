@@ -67,7 +67,7 @@ First, extract the XL Deploy server archive:
 
 To install the XL Deploy license:
 
-1. If you do not already have a license file (`deployit-license.lic`), download it from [https://dist.xebialabs.com/customer/licenses/](https://dist.xebialabs.com/customer/licenses/).
+1. If you do not already have a license file (`deployit-license.lic`), download it from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/customer/licenses/).
 1. Copy the downloaded file to the `conf` directory. Be sure that you do not modify the license file in any way.
 
 Refer to [XL Deploy licensing](/xl-deploy/concept/xl-deploy-licensing.html) for information about how the XL Deploy license works.
@@ -122,7 +122,7 @@ The setup wizard will ask if you want to initialize the repository. Answer `yes`
 
 ##### Generate an encryption key
 
-If you choose to initialise the repository, the setup wizard will ask if you want to generate an encryption key to protect passwords that you store in the repository. Answer `yes` to generate a new key.
+If you choose to initialize the repository, the setup wizard will ask if you want to generate an encryption key to protect passwords that you store in the repository. Answer `yes` to generate a new key.
 
 If you answer `no`, then you agree to use XL Deploy's own encryption key, or to use a key that you have previously generated.
 
@@ -186,7 +186,7 @@ The setup wizard will ask where you want to store the JCR repository. If the dir
 
 ##### Generate an encryption key
 
-If you choose to initialise the repository, the setup wizard will ask if you want to generate an encryption key to protect passwords that you store in the repository. Answer `yes` to generate a new key.
+If you choose to initialize the repository, the setup wizard will ask if you want to generate an encryption key to protect passwords that you store in the repository. Answer `yes` to generate a new key.
 
 If you answer `no`, then you agree to use XL Deploy's own encryption key, or to use a key that you have previously generated.
 

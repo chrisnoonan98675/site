@@ -6,9 +6,9 @@ categories:
 - xl-deploy
 tags:
 - gui
-- deployment pipeline
 - checklist
 - security
+- dashboard
 ---
 
 Most organizations have a process around releasing software to their environments. Typically, application versions are promoted to a number of environments before being released to production. In each environment, the application version is integrated or tested before being allowed to progress to the next stage. XL Deploy offers the Release Dashboard as a way to get insight into this process.

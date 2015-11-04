@@ -5,7 +5,6 @@ categories:
 subject:
 - Reports
 tags:
-- test results
 - report
 - test specification
 ---
@@ -79,73 +78,24 @@ In a Python script, the following properties are available:
 {:.table .table-striped}
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `testRun` | object | The current test run / the most recent test run given a time span (see [TestRun object](#testrun-object)) |
-| `testRuns` | object | The test runs repository, used to obtain other test runs (see [TestRuns object](#testruns-object)) |
-| `queryParameters` | dictionary | All query (URL) parameters provided
-| `startDate` | integer | Value of the URL parameter `startDate`; defaults to two weeks ago |
-| `endDate` | integer | Value of the URL parameter `endDate`; defaults to the current time |
+| `test_run` | object | The current test run / the most recent test run given a time span (see [TestRun object](#testrun-object)) |
+| `test_runs` | object | The test runs repository, used to obtain other test runs (see [TestRuns object](#testruns-object)) |
+| `query_parameters` | dictionary | All query (URL) parameters provided
+| `start_date` | integer | Value of the URL parameter `startDate`; defaults to two weeks ago |
+| `end_date` | integer | Value of the URL parameter `endDate`; defaults to the current time |
 | `tags` | list of strings | Value of the URL parameter `tags`; defaults to an empty list |
 
 ### TestRun object
 
-The `TestRun` object refers to the test run on which the report should be based. has the following public properties and methods:
+The `test_run` object refers to the test run on which the report should be based. 
 
-{:.table .table-striped}
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `id` | string | Unique ID of the test run |
-| `testSpecificationName` | string | ID of the associated test specification |
-| `finished` | boolean | `True` if the test run has finished |
-| `startTime` | date | Start time of the test run |
-| `finishedTime` | date | Finish time of the test run |
-| `qualificationResult` | boolean | Qualification (passed/failed) for this test run |
-| `failureReason` | string | Reason for failure |
-| `events` | list of events | Test run events associated with this test run |
-
-
-{:.table .table-striped}
-| Method   | Type | Description |
-| -------- | ---- | ----------- |
-| `getEvents(filterParameters)` | list of events | Test run events associated with this test run, only the events that match filter `filterParameters` are returned |
-| `hasParameter(parameterName)` | string | Returns `True` if a parameter exists |
-| `getParameter(parameterName)` | string | Obtain the parameter value, or `None` if it does not exist |
-| `getParameters()` | dictionary | Get all parameters as a dictionary |
-
-The test run parameters are restricted to any parameter that was provided as part of the execution or import process. Parameters of individual test results are not taken into account. 
-
-**Note:** The date objects are actually `java.util.Date` objects.
+The methods available in the `test_run` object are available in the [Java API documentation](https://docs.xebialabs.com/generated/xl-testview/1.3.x/javadoc/com/xebialabs/xlt/plugin/api/testrun/TestRun.html).
 
 ### TestRuns object
 
-The `testRuns` object is used to retrieve (older) test runs from the repository. Its methods range from finding a particular event up to getting a list of test runs.
+The `test_runs` object is used to retrieve (older) test runs from the repository. Its methods range from finding a particular event up to getting a list of test runs.
 
-#### APIs related to test runs
-
-APIs related to test runs:
-
-{:.table .table-striped}
-| Method   | Type | Description |
-| -------- | ---- | ----------- |
-| `getTestRun(testRunId)` | test run | Get a specific test run based on a run ID, which can be a string or a `java.util.UUID` |
-| `getLatestTestRun(testSpecificationName, startTime, endTime)` | test run | Get the most recent test run given a test specification ID and in a time slot |
-| `getLatestTestRun(testSpecificationName, startTime)` | test run | Get the most recent test run given a test specification and a start date (until now) |
-| `getTestRunsBetween(specificationName, startTime, endTime)` | list of test runs | Get all test runs for a specific test specification ID in a particular time period |
-| `getTestRuns(eventProperties, startTime, endTime)` | list of test runs |  Find all test runs that match `eventsProperties` in a given time period |
-| `getPreviousRuns(testRun, max)` | list of test runs | Get up to `max` test runs performed before `testRun` |
-| `getPreviousRuns(testSpecificationName, max)` | list of test runs | Get up to `max` latest test runs for a test specification |
-| `getLaterRuns(testRun, max)` | list of test runs | Get up to `max` test runs performed after `testRun` |
-
-#### APIs related to test result events 
-
-APIs related to test result events:
-
-{:.table .table-striped}
-| Method   | Type | Description |
-| -------- | ---- | ----------- |
-| `getLatestEventOfType(testSpecificationName, eventType, startTime, endTime)` | event | Get the most recent event of a particular time, given a time period |
-| `getLatestEventOfTypeAndRunId(testSpecificationName, eventType, runId, startTime, endTime)` | event | Get the most recent event of a particular event type, given a test run and a time period; `runId` must be a `java.util.UUID` |
-| `getLatestEventWithProperties(eventProperties)` | events | Get the most recent event given a set of properties; this is a more generic version of the APIs above |
-| `getEventsBetween(startTime, endTime, eventProperties)` | list of events | Obtain a list of events given a time period; note that the events can be queried over test specifications |
+The methods available in the `test_runs` object are available in the [Java API documentation](https://docs.xebialabs.com/generated/xl-testview/1.3.x/javadoc/com/xebialabs/xlt/plugin/api/testrun/TestRunsRepository.html).
 
 ## HTML component
 
@@ -171,7 +121,7 @@ The following example of tabular data is a simplified version of the [test run o
 
 	REF_TMPL = '#/testspecifications/%s/report/xltest.TestRunEvents?runId=%s'
 	
-	runs = testRuns.getTestRunsBetween(testRun.testSpecificationName, startDate.getTime(), endDate.getTime())
+	runs = test_runs.getTestRunsBetween(testRun.testSpecificationName, startDate.getTime(), endDate.getTime())
 
 	def rowValues(run):
 	    return [ run.qualificationResult,
@@ -179,7 +129,7 @@ The following example of tabular data is a simplified version of the [test run o
 	               'ref': REF_TMPL % (run.testSpecificationName, run.testRunId) },   ## (1)
 	             run.finished and (run.finishedTime.time - run.startTime.time) or 'in progress']
 
-	resultHolder.setResult({
+	result_holder.result = {
 	    'title':'Test runs',
 	    'description': 'The test runs performed in the period defined.',
 	    'header': [                                                                  ## (2)
@@ -190,7 +140,7 @@ The following example of tabular data is a simplified version of the [test run o
 	    'body': [                                                                    ## (3)
 	        rowValues(run) for run in runs
 	    ]
-	})
+	}
 
 This table has three columns, as described in the header field (note `2`):
 
@@ -206,9 +156,9 @@ The start date field is rendered as a link (note `1`). The qualification result 
 
 The `html` type produces a string of HTML. A trivial example is:
 
-    resultHolder.setResult('''
+    result_holder.result = '''
     <p>This is my custom report.</p>
-    ''')
+    '''
 
 As an advanced feature, you can use any [AngularJS](https://angularjs.org/)-formatted HTML snippet as a render template. Templates must be located in `<XLTESTVIEW_HOME>/ext/web/reports/<reportType>.html`, where `<reportType>` matches the `reportType` defined in `synthetic.xml`.
 
@@ -217,8 +167,7 @@ XL TestView includes the following default templates:
 * `highchart.html`
 * `html.html`
 * `link.html`
-*  `noreport.html`
-*  `qualification.html`
+* `qualification.html`
 
 To show a report in a tile on a dashboard, a similar approach is used, but the report template is named `<XLTESTVIEW_HOME>/ext/web/reports/tiles/<reportType>.html`.
 
@@ -227,4 +176,4 @@ A report template has the following properties:
 {:.table .table-striped}
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-|`report`  | object | The report as provided to the `resultHolder` in the Python script |
+|`report`  | object | The report as provided to the `result_holder` in the Python script |

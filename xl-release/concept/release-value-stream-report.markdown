@@ -10,30 +10,36 @@ tags:
 - release value stream
 ---
 
-To access the XL Release release value stream report, select **Reports** > **Release value stream** from the top menu.
+To access the XL Release release value stream report, select **Reports** > **Release value stream** from the top menu. Use the buttons at the top of the report to select a time period such as "last six months" or a specific date range.
 
-The release value stream report focuses on the quality of *completed* releases.
+The data for this report comes from XL Release's [archive database](/xl-release/concept/how-archiving-works.html). Releases that are completed or aborted but not yet archived do not appear in reports.
+
+The release value stream report focuses on the quality of [completed and aborted](/xl-release/concept/release-life-cycle.html) releases. Releases appear in this report in descending order. Under each phase of a release, you can see its duration and the proportion of the total duration that the phase took.
 
 ![Release Value Stream](../images/release-value-stream.png)
 
-For each phase, an indicator is built based on these metrics:
+## Phase metrics and critical phases
 
-* Flag count: Incremented each time a task is flagged
-* Failure count: Incremented each time a task fails
-* Delayed count: The number of tasks that completed after their due date
+Each release phase can show these criticality metrics:
 
-A phase is considered "critical" when the sum of these three counts is strictly greater than 6 (this value can be customized in the [Reports Settings](/xl-release/how-to/configure-xl-release-general-settings.html#reports) screen). The phase is colored in red and the number of critical phases is displayed in the release header. Each phase also displays its total number of tasks and the value of each criticality metric (if non-zero). At the bottom of the release, the time proportion of each phase is shown, both as a duration and as a percentage of the total release time.
+* Flags: Total number of flags that were added to tasks in the phase
+* Failures: Total number of task failures in the phase
+* Delays: Total number of tasks in the phase that were completed after their due date
 
-## Completed releases
+XL Release marks a phase as "critical" when the sum of these metrics is greater than 6; you can customize this value in the [report settings](/xl-release/how-to/configure-xl-release-general-settings.html#reports). 
 
-Clicking on a release opens its flow editor, which is slightly different for completed releases.
-
-![Completed release](../images/completed-release.png)
-
-Instead of the assignee, each task shows its individual values for the criticality metrics (if non-zero). The failure count is color-coded: yellow if there were at least two failures, and red if there were at least four (these values can be customized in the Reports Settings screen).
+The name of a critical phase appears on a red background. The total number of critical phases in a release is shown in the release header.
 
 ## Filter tasks
 
-Tasks can be filtered by criticality metric (with the fourth option "clean tasks" referring to tasks that have all metrics to zero):
+You can filter tasks by metric; use the **Show clean tasks** option to see tasks for which all metrics are zero.
 
 ![Completed release filter](../images/completed-release-filter.png)
+
+## Open a release
+
+Click a release to open it in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html).
+
+![Completed release](../images/completed-release.png)
+
+Each task shows its individual value for the criticality metrics (if non-zero). The failure count appears in yellow if there were at least two failures and in red if there were at least four failures. You can customize these values in the [report settings](/xl-release/how-to/configure-xl-release-general-settings.html#reports). 

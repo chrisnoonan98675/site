@@ -7,12 +7,9 @@ categories:
 tags:
 - artifacts
 - package
-- maven
-- artifactory
-- nexus
 - application
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 Artifacts are the physical files that make up a specific version of an application; for example, an application binary, configuration files, or web content. When adding an artifact to a deployment package, you can either:
@@ -22,13 +19,17 @@ Artifacts are the physical files that make up a specific version of an applicati
 
 ## Set the URI of a deployable artifact
 
-If you set the `fileUri` property of an artifact to a URI, XL Deploy uses an artifact resolver to resolve the URI at runtime. By default, XL Deploy supports Maven repositories (including Artifactory and Nexus) and HTTP/HTTPS locations. You can also add your own [add a custom artifact resolver](/xl-deploy/how-to/extend-the-external-artifact-storage-feature.html).
+If you set the file URI (`fileUri`) property of an artifact configuration item (CI) to a URI, XL Deploy uses an artifact resolver to resolve the URI at runtime. By default, XL Deploy supports Maven repositories (including Artifactory and Nexus) and HTTP/HTTPS locations. You can also add your own [add a custom artifact resolver](/xl-deploy/how-to/extend-the-external-artifact-storage-feature.html).
 
-**Important:** The value of the `fileUri` property must be a **stable** reference; that is, it must point to the **same** file whenever it is referenced. "Symlink"-style references, such as a link to the "latest" version, are not supported.
+**Important:** The value of the `fileUri` property must be a *stable* reference; that is, it must point to the *same* file whenever it is referenced. "Symlink"-style references, such as a link to the "latest" version, are not supported.
 
 ## Changing the URI of a deployable artifact
 
-XL Deploy performs URI validation, checksum calculation, and placeholder scanning once, after the creation of the artifact configuration item (CI). It does not perform these actions again if the `fileUri` property is changed. Therefore, it is recommended that you do not change the `fileUri` property after you save the CI.
+**Important:** Do not change the file URI property after saving the artifact CI.
+
+XL Deploy performs URI validation, checksum calculation, and placeholder scanning once, after the creation of the artifact configuration item (CI). It does not perform these actions again if the `fileUri` property is changed.
+
+Also, if you are using XL Deploy's internal JCR repository, changing the URI of a saved CI can result in orphaned artifact files that cannot be removed by the garbage collection mechanism.
 
 ## Use a Maven repository URI
 
@@ -38,7 +39,7 @@ The URI of a Maven artifact must start with `maven:`, followed by [Maven coordin
 
 For information about configuring your Maven repository, refer to [Configure XL Deploy to fetch artifacts from a Maven repository](configure-xl-deploy-to-fetch-artifacts-from-a-maven-repository.html).
 
-**Important:** References to SNAPSHOT versions are **not** supported because these are not stable references.
+**Important:** References to SNAPSHOT versions are *not* supported because these are not stable references.
 
 ## Use an HTTP or HTTPS URI
 

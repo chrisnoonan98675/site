@@ -16,9 +16,32 @@ XL Deploy automatically generates the `<XLDEPLOY_HOME>/conf/deployit-defaults.pr
 
 Lines in the file that start with a number sign (`#`) are provided for reference; XL Deploy ignores these lines. To change the value of a property, remove the number sign from that line and set the property to the desired value.
 
-## XL Deploy configuration file
+## Client settings
 
-The `conf/deployit.conf` file allows you to set a number of advanced configuration settings. You must restart the server after changing this file.
+You can configure the following client settings in `<XLDEPLOY_HOME>/conf/deployit.conf`:
+
+{:.table .table-striped}
+| Setting | Description | Default |
+| ------- | ----------- | ------- |
+| `client.automatically.map.all.deployables` | Enable or disable automatic mapping of all deployables when you set up a deployment in the GUI | true (all deployables will be auto-mapped) |
+
+You must restart the server and reload the GUI after changing these settings.
+
+## Client security settings
+
+You can configure the following client security settings in `<XLDEPLOY_HOME>/conf/deployit.conf`:
+
+{:.table .table-striped}
+| Setting | Description | Default |
+| ------- | ----------- | ------- |
+| `client.session.timeout.minutes` | Number of minutes before a user's session is locked when the GUI is idle | 0 (no timeout) |
+| `client.session.remember.enabled` | Show or hide the **Keep me logged in** option on the log-in screen | true (option is shown) |
+
+You must restart the server and reload the GUI after changing these settings.
+
+## Advanced XL Deploy settings
+
+You can configure the following advanced XL Deploy settings in `<XLDEPLOY_HOME>/conf/deployit.conf`:
 
 {:.table .table-striped}
 | Setting | Description | Default |
@@ -28,21 +51,6 @@ The `conf/deployit.conf` file allows you to set a number of advanced configurati
 | `taskThreadPool.keepAliveSeconds` | Number of seconds a task thread is kept alive before destroying it if the number of allocated threads exceeds | |
 | `taskThreadPool.queueCapacity` | Capacity of the queue that holds tasks to be executed if no threads are available | 2147483647 |
 
-## Client security configuration
+You must restart the server after changing these settings.
 
-The `conf/deployit.conf` file allows you to set a number of client security configuration settings. You must restart the server and reload the GUI after changing these settings.
-
-{:.table .table-striped}
-| Setting | Description | Default |
-| ------- | ----------- | ------- |
-| `client.session.timeout.minutes` | Number of minutes before a user's session is locked when the GUI is idle | 0 (no timeout) |
-| `client.session.remember.enabled` | Show or hide the **Keep me logged in** option on the log-in screen | true (option is shown) |
-
-## Client configuration
-
-The `conf/deployit.conf` file allows you to set a number of client configuration settings. You must restart the server and reload the GUI after changing these settings.
-
-{:.table .table-striped}
-| Setting | Description | Default |
-| ------- | ----------- | ------- |
-| `client.automatically.map.all.deployables` | Enable or disable automatic mapping of all deployables when you set up a deployment in the GUI | true (all deployables will be auto-mapped) |
+**Note:** In XL Deploy 5.0.0 and later, the execution engine uses a more advanced mechanism for thread management. Therefore, it should not be necessary to change these advanced settings.

@@ -1,5 +1,5 @@
 ---
-title: Create a new release via the XL Release REST API using cURL (XL Release 4.0 and earlier)
+title: Create a new release via the REST API using cURL (XL Release 4.0 and earlier)
 categories:
 - xl-release
 subject:
@@ -7,7 +7,7 @@ subject:
 tags:
 - api
 deprecated:
-- 4.0.x
+- XL Release 4.0.x
 ---
 _This article uses the internal XL Release REST API. When using XL Release 4.5 or higher, please use the public API and refer to [the updated version of this article](/xl-release/how-to/create-a-new-release-via-rest-api-using-curl.html)._
 

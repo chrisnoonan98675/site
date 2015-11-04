@@ -10,7 +10,7 @@ tags:
 - planning
 - step
 since:
-- 4.5.0
+- XL Deploy 4.5.0
 ---
 
 A script rule adds steps and checkpoints to a plan by running a Jython script that calculates which steps and checkpoints to add.
@@ -34,16 +34,20 @@ Every script is run in isolation; that is, you cannot pass values directly from 
 
 This is an example of a script that is executed for every deployed that is involved in the deployment. The step of type `noop` will only be added for new deployeds (operation is `CREATE`) that derive from the type `udm.BaseDeployedArtifact`, as defined by the `type` element. Creating a step is done through the factory object `steps`. Addition of the step is performed through `context`, which represents the planning context (*not* the execution context).
 
-    <rules xmlns="http://www.xebialabs.com/xl-deploy/rules">
-        <rule name="SuccessBaseDeployedArtifact" scope="deployed">
-            <conditions>
-                <type>udm.BaseDeployedArtifact</type>
-                <operation>CREATE</operation>
-            </conditions>
-            <planning-script-path>planning/SuccessBaseDeployedArtifact.py</planning-script-path>
-        </rule>    
+{% highlight xml %}
+<rules xmlns="http://www.xebialabs.com/xl-deploy/rules">
+    <rule name="SuccessBaseDeployedArtifact" scope="deployed">
+        <conditions>
+            <type>udm.BaseDeployedArtifact</type>
+            <operation>CREATE</operation>
+        </conditions>
+        <planning-script-path>planning/SuccessBaseDeployedArtifact.py</planning-script-path>
+    </rule>
+{% endhighlight %}
 
 Where `planning/SuccessBaseDeployedArtifact.py`, which is stored in the `<XLDEPLOY_HOME>/ext/` directory, has following content:
 
-    step = steps.noop(description = "A dummy step to indicate that some new artifact was created on the target environment", order = 100)
-    context.addStep(step)
+{% highlight python %}
+step = steps.noop(description = "A dummy step to indicate that some new artifact was created on the target environment", order = 100)
+context.addStep(step)
+{% endhighlight %}

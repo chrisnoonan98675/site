@@ -9,11 +9,11 @@ tags:
 - application
 - manifest
 since:
-- 3.5.0
+- XL Deploy 3.5.0
 deprecated:
-- 4.5.0
+- XL Deploy 4.5.0
 removed:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 Before XL Deploy 3.9.x, the deployment package (DAR file) manifest was specified using the `MANIFEST.MF` format described in the [JAR file specification](http://download.oracle.com/javase/6/docs/technotes/guides/jar/jar.html). XL Deploy can still import DAR packages containing this manifest format. This chapter is for reference purposes only as we strongly encourage you to write the manifests in the new XML format.

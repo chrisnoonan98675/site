@@ -10,7 +10,7 @@ tags:
 - system administration
 - configuration
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 ## Enable communicate with satellites
@@ -32,13 +32,9 @@ By default, `conf/system.conf` has the following settings:
        port = 8180
     }
 
-* `hostname` must be set to an IP address or a host name that XL Deploy can bind to. XL Deploy will send this value to the satellites. It must be visible from the network(s) where the satellites are located.
+`hostname` must be set to an IP address or a host name that XL Deploy can bind to. XL Deploy will send this value to the satellites. It must be visible from the network(s) where the satellites are located. Satellites will use this value to re-establish connection with XL Deploy if the initial connection breaks. If you do not provide a value, XL Deploy will resolve it from a network interface that is available, or to a loopback address if no interfaces are available.
 
-    Satellites will use this value to re-establish connection with XL Deploy if the initial connection breaks.
-    
-    If you do not provide a value, XL Deploy will resolve it from a network interface that is available, or to a loopback address if no interfaces are available.
-
-* `port` is the port that XL Deploy binds to. It must also be accessible from the satellites.
+`port` is the port that XL Deploy binds to. It must also be accessible from the satellites. By default, it is set to `8180`.
 
 ## Configure the ping timeout
 
@@ -54,7 +50,7 @@ You can specify the ping timeout in milliseconds, seconds, or minutes. For examp
 
 ## Configure the upload idle timeout
 
-The upload idle timeout occurs when a satellite has accepted an incoming streaming connection but does not seed to accept the uploaded file. This prevents unused TCP connections from remaining open. To configure the upload idle timeout, change the `satellite.timeout.upload.idle` property in the file `conf/system.conf`:
+The upload idle timeout occurs when a satellite has accepted an incoming streaming connection but does not need to accept the uploaded file. This prevents unused TCP connections from remaining open. To configure the upload idle timeout, change the `satellite.timeout.upload.idle` property in the file `conf/system.conf`:
 
     satellite {
       timeout {

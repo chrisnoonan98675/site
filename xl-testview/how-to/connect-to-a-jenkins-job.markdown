@@ -3,16 +3,13 @@ title: Connect XL TestView to a Jenkins job
 categories:
 - xl-testview
 subject:
-- Plugins
+- Jenkins
 tags:
 - jenkins
-- test results
 - import
 ---
 
-If you import test results from Jenkins, XL TestView will automatically create a test specification with the same name as the Jenkins job (if it does not already exist).
-
-To connect them so that Jenkins will send test results to XL TestView, you must install and configure the XL TestView plugin for Jenkins.
+XebiaLabs provides a Jenkins plugin that will send the results of a Jenkins build automatically to XL TestView. This article describes how to install and configure the XL TestView Jenkins plugin.
 
 ## Step 1 Install the XL TestView plugin
 
@@ -38,8 +35,6 @@ To configure the XL TestView plugin:
 
 To connect the XL TestView plugin to a build job, create a [passive test specification](/xl-testview/how-to/create-a-test-specification.html) in XL TestView. This is the specification where Jenkins will send the test results.
 
-You can optionally create this specification in a [new project](/xl-testview/how-to/add-a-project.html).
-
 ## Step 4 Add a post-build step to your job
 
 Configure the XL TestView plugin to send the results to the test specification that you created:
@@ -53,6 +48,7 @@ Configure the XL TestView plugin to send the results to the test specification t
 
    **Note:** The include and exclude patterns depend on the tool that you selected.
 
+1. If Jenkins cannot send test results to XL TestView—for example, because a test specification name was not specified—the plugin can alert you by setting the build status to unstable. Select **Allow the XL TestView plugin to alter your build status** if you want to allow this (supported in XL TestView 1.3.1 and later).
 1. Click **Save** to save the updated configuration.
 
 ## Step 5 Build

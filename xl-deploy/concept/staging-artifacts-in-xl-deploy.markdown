@@ -10,10 +10,16 @@ tags:
 - artifacts
 ---
 
-XL Deploy can stage artifacts to target hosts before deploying them. This ensures that the downtime of your application is minimized. After deployment completes successfully, XL Deploy will clean up the staging directories.
+To ensure that the downtime of your application is limited, XL Deploy can stage artifacts to target hosts before deploying the application.
 
-**Note:** The plugin being used to perform the deployment must support staging.
+When staging is enabled, XL Deploy will copy all artifacts to the host before starting the deployment.
 
-To enable staging, set the **Staging Directory Path** property on the host(s).
+In XL Deploy 5.1.0 and later, if the application [depends on other applications](/xl-deploy/concept/application-dependencies-in-xl-deploy.html), XL Deploy will also copy the artifacts from the dependent applications.
+
+After the deployment completes successfully, XL Deploy will clean up the staging directory.
+
+To enable staging on a host, enter a directory path in the host's **Advanced** > **Staging Directory Path** property.
+
+**Note:** The plugin being used must support staging.
 
 **Tip:** If you set a staging directory on the host(s) but you do not see staging steps in the deployment plan, verify that the `file.DeployedFile.copyDirectlyToTargetPath` and `file.DeployedFile.DeployedFolder` in the `conf/deployit-default.properties` file are set to "false" (their default setting).

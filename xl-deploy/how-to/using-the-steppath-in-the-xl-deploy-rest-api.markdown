@@ -10,7 +10,7 @@ tags:
 - step
 - task
 since:
-- 4.0.x
+- XL Deploy 4.0.x
 ---
 
 The `TaskBlockService` in the XL Deploy [REST API](/xl-deploy/latest/rest-api) allows you to retrieve information about a step in a deployment plan with [`GET /tasks/v2/{taskid}/step/{stepPath}`](/xl-deploy/5.0.x/rest-api/com.xebialabs.deployit.engine.api.TaskBlockService.html#/tasks/v2/{taskid}/step/{stepPath}:GET). For example, in a CLI script, this can be called as:

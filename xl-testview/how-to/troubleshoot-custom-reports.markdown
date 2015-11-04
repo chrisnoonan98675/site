@@ -1,15 +1,13 @@
 ---
-title: Troubleshoot custom reports in XL TestView
+title: Troubleshoot custom reports
 categories:
 - xl-testview
 subject:
 - Reports
 tags:
 - report
-- script
-- python
-- json
-- freemarker
+- troubleshooting
+- extension
 ---
 
 ## My report does not appear and I see errors in the browser console

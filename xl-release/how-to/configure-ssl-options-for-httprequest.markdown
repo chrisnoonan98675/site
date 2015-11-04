@@ -8,6 +8,8 @@ tags:
 - script
 - custom task
 - http
+since:
+- XL Release 4.0.10
 ---
 
 Version 4.0.10 of XL Release introduced `HttpRequest`, a new underlying base class for HTTP requests which is used in webhooks and is available in custom tasks. `HttpRequest` is based on [Apache HTTP Components](https://hc.apache.org/) (Apache HC). This offers more configuration options around HTTP than Jython's implementation of [`httplib`](http://www.jython.org/docs/library/httplib.html), which was used previously (usually via [the deprecated `XLRequest` base class](/xl-release/how-to/support-legacy-use-of-xlrequest-using-httprequest.html)).

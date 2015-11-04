@@ -12,14 +12,14 @@ tags:
 - repository
 - schedule
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 In XL Deploy 5.0.0 and later, you can create a package retention policy (`policy.PackageRetentionPolicy`) removes all deployment packages except the last N packages that match a regular expression that you define. Packages are sorted in lexicographical order.
 
 Deployed packages are never removed by the package retention policy. If a deployed package is part of the packages identified for removal, then it will be skipped (with no impact on the other packages).
 
-**Note**: Executing a package retention policy does not automatically reclaim disk space freed up by removing the packages. Please see [Reclaim disk space on an XL Deploy server](/xl-deploy/how-to-reclaim-disk-space-on-an-xl-deploy-server.html) for more information.
+**Note**: Executing a package retention policy does not automatically reclaim disk space freed up by removing the packages. Please see [Reclaim disk space on an XL Deploy server](/xl-deploy/how-to/reclaim-disk-space-on-an-xl-deploy-server.html) for more information.
 
 ## Automatically purge deployment packages
 

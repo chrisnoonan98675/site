@@ -3,7 +3,7 @@ title: XL Release directory structure
 categories:
 - xl-release
 subject:
-- System administration
+- Installation
 tags:
 - system administration
 - installation

@@ -10,7 +10,7 @@ tags:
 - archiving
 - configuration
 since:
-- 4.7.0
+- XL Release 4.7.0
 ---
 
 Since XL Release 4.7.0, completed releases are exported to the internal reporting database, which is used to generate reports. By default, XL Release uses Apache Derby, with data stored at `XLRELEASE_HOME/archive/db`.

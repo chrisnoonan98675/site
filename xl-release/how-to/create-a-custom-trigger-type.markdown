@@ -15,9 +15,9 @@ You can also use triggers, which allow you to create and start new releases base
 
 Polling an SCM is a standard example of a trigger. But you can also easily define and configure your own triggers if you would like to kick off releases based on other events. Here's how:
 
-## Defining your trigger
+## Step 1 Define the trigger in the type system
 
-To start, you first need to define your new trigger type in XL Release's type system. You do this by adding the definition to XL Release's type definition file in `<XL_RELEASE_HOME>/ext/synthetic.xml`:
+To start, define a new trigger type in XL Release's type system. You do this by adding the definition to XL Release's type definition file in `<XL_RELEASE_HOME>/ext/synthetic.xml`:
 
     <type type="demo.MyFirstTrigger" extends="xlrelease.ReleaseTrigger" >
         <!-- if we omit this property, XL Release will look for 'demo/MyFirstTrigger.py', based on the name of the type -->
@@ -26,9 +26,11 @@ To start, you first need to define your new trigger type in XL Release's type sy
         <property name="triggerValueForUse" category="variables" required="false" />
     </type>
 
-Here, we have defined both a script for the trigger to run, as well as a variable which will be set by the trigger and which we can use when creating the new release. The SVN trigger plugin, for example, makes the commit ID available in this way.
+This example defines a script for the trigger to run, and as a variable that will be set by the trigger, and that you can use when creating a new release. As an example, the [SVN trigger plugin](/xl-release/concept/introduction-to-the-xl-release-svn-trigger-plugin.html) makes the commit ID available in this way.
 
-Next, we need to create the script that is executed each time the trigger executes. Based on the definition above, we will need to save this script as `<XL_RELEASE_HOME>/ext/demo/find-events-to-trigger-release.py`:
+## Step 2 Create the trigger script
+
+Next, create the script that will be executed each time the trigger executes. Based on the definition above, save the script as `<XL_RELEASE_HOME>/ext/demo/find-events-to-trigger-release.py`:
 
     import string
     import random
@@ -45,29 +47,38 @@ Next, we need to create the script that is executed each time the trigger execut
     # value that was set the last time the trigger was invoked
     triggerState = triggerValueForUse
 
-Once we've restarted the server to pick up the new trigger definition, you can create triggers of this new type attached to our templates.
+Restart the XL Release server to register the new trigger definition.
 
-Here, we'll define a trivial template with one task, which simply displays the value of triggerValueForUse set by the trigger. We will do this by defining a regular template variable `${valFromTrigger}`, and by setting its value automatically whenever the trigger kicks off a new release from the template.
+## Step 3 Attach the trigger to a template
 
-![Template variable](../images/task-to-showcase-value.png)
+Now, you can attach the trigger to a release template. In this example, the template has one task, which simply displays the value of `{{triggerValueForUse}}`, as set by the trigger.
 
-We'll configure the trigger by using the dropdown on the template to switch from the Release Flow view to the Triggers view.
+1. Define a template variable called `${valFromTrigger}`.
 
-![Triggers view](../images/create-trigger.png)
+    ![Template variable](../images/task-to-showcase-value.png)
 
-We can now define our new custom trigger. Note how we assign the `${triggerValueForUse}` value set by the trigger to the template variable `${valFromTrigger}`. We could also use `${triggerValueForUse}` in the Release Title field, of course:
+1. Then, choose **Triggers** from the **Show** menu to go to the triggers page.
+1. Under **Template variables**, assign the `${triggerValueForUse}` value (which will be set by the trigger) to the `${valFromTrigger}` template variable. Note that you could also use `${triggerValueForUse}` in the **Release Title** field.
 
-![Trigger definition](../images/trigger-definition.png)
+    ![Trigger definition](../images/trigger-definition.png)
 
-To activate the trigger, we need to create one release from the template via the XL Release UI. Then the trigger will be running in the background (unless we disable it, of course), and will set the value of `triggerState` each time it is run.
+1. Save the changes.
 
-Whenever that value is different from the previous trigger invocation (which in the case of our example should be every time), a new release using our template will be created and started, with the `${valFromTrigger}` template variable set to the value returned from the trigger. In our simple example, the release will finish almost immediately, showing the value set by the trigger:
+## Step 4 Activate the trigger
+
+To activate the trigger, create one release from the template, using the XL Release UI. Then the trigger will be running in the background (unless you disable it), and it will set the value of `triggerState` each time it is run.
+
+Whenever that value is different from the previous trigger invocation (which, in the case of this example, should be every time), a new release using the template will be created and started, with the `${valFromTrigger}` template variable set to the value returned from the trigger.
+
+In this simple example, the release will complete almost immediately, showing the value set by the trigger:
 
 ![Value set by target](../images/values-from-trigger-executing.png)
 
+## Notes
+
 Points to remember:
 
-* Ensure that `triggerState` is set correctly inside your trigger script: it should be set to a different value from the previous execution exactly when you want the trigger to "fire" and create and start a new release.
-* To disable a trigger, simply uncheck the **Enabled** checkbox on the trigger configuration page.
-* To delete a trigger, click the X on the right hand side of the trigger configuration page.
-* You can see all releases created by a trigger by clicking on the **related releases** link on the trigger configuration page
+* Ensure that `triggerState` is set correctly inside your trigger script; it should be set to a different value from the previous execution exactly when you want the trigger to "fire" and create and start a new release.
+* To disable a trigger, deselect **Enabled** on the trigger configuration page.
+* To delete a trigger, click the **X** on the right side of the trigger configuration page.
+* You can see all releases created by a trigger by clicking **Releases linked to this trigger** on the trigger configuration page.

@@ -3,7 +3,7 @@ title: Create a test specification
 categories:
 - xl-testview
 subject:
-- Test specification
+- Test specifications
 tags:
 - test specification
 - project
@@ -11,8 +11,8 @@ tags:
 
 To create a test specification in XL TestView:
 
-1. Click **Projects** in the top menu bar.
-1. Next to the project in which you want to create the test specification, click **Manage**.
+1. Click **Projects** in the top navigation bar.
+1. Click on the project in which you want to create the test specification.
 1. Click **Add a test specification to project**. The New test specification screen appears.
 1. Select the type of test specification you want to create:
     * **Active Test Specification**: A test specification that can retrieve test results.
@@ -21,11 +21,11 @@ To create a test specification in XL TestView:
     * **Test Specification Set**: A group that aggregates the results of multiple test specifications. For information about creating a set, refer to [Create a test specification set](/xl-testview/how-to/create-a-test-specification-set.html).
 1. Enter a unique title in the **Title** box.
 1. Select a qualifier from the **Qualification** list.
-1. Select the test tool for the specification from the **Test Tool Name** list.
+1. Select the test parser for the specification from the **Test Tool Name** list.
 
     If you are creating a passive test specification, click **Create test specification** to finish. Otherwise, continue with the remaining steps.
     
-1. In the **Search Pattern** box, enter the regular expression that XL TestView should use to identify the files that contain the results of test runs. More information on the regular expression pattern can be found [here](/xl-testview/concept/file-selection-patterns.html).
+1. In the **Search Pattern** box, enter the [selection pattern](/xl-testview/concept/file-selection-patterns.html) that XL TestView should use to identify the files that contain the results of test runs.
 1. In the **Working Directory** box, enter the location where the command to run the test specification should be executed.
 1. Select the host where the specification will from from the **Host** list.
 

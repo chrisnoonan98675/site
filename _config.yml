@@ -16,6 +16,8 @@ defaults:
         values:
             layout: "page"
 
+highlighter: pygments
+
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 jira_dashboard:

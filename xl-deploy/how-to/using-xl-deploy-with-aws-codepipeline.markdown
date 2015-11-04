@@ -6,12 +6,11 @@ subject:
 - AWS CodePipeline plugin
 tags:
 - plugin
-- aws
+- aws codepipeline
 - ec2
-- codepipeline
 - deployment
 since:
-- 5.0.1
+- XL Deploy 5.0.1
 ---
 
 [AWS CodePipeline](http://aws.amazon.com/codepipeline/) is Amazon Web Services' continuous delivery service. It allows you to model and automate your software release process.
@@ -129,17 +128,13 @@ After the pipeline is created, you will be redirected to the *petclinic-pipeline
 
 This section describes how to configure XL Deploy to communicate with AWS CodePipeline and execute deployment jobs.
 
-### Step 1 Download and install XL Deploy
+### Step 1 Install XL Deploy
 
-To download and install XL Deploy:
-
-1. Download the [free XL Deploy Community Edition](https://xebialabs.com/products/xl-deploy/community/).
-1. Follow the [installation procedure](https://docs.xebialabs.com/xl-deploy/how-to/install-xl-deploy.html) to install and start XL Deploy. This procedure will also install an Apache Tomcat server that will be used with the sample CodePipeline pipeline.
-1. Follow the in-application procedure to register for your license.
+Follow the [installation procedure](https://docs.xebialabs.com/xl-deploy/how-to/install-xl-deploy.html) to install and start XL Deploy. This procedure will also install an Apache Tomcat server that will be used with the sample CodePipeline pipeline.
 
 ### Step 2 Download and install the XL Deploy AWS CodePipeline plugin
 
-To download and install the XL Deploy AWS CodePipeline plugin:
+To install the XL Deploy AWS CodePipeline plugin:
 
 1. Download the plugin from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/).
 1. Copy the plugin file to the `plugins` directory in your XL Deploy installation.

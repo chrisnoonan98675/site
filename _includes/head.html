@@ -22,19 +22,55 @@
 	<!-- Styles -->
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/styles/xebialabs.css" type="text/css">
+    <link rel="stylesheet" href="/styles/syntax.css" type="text/css">
     <link rel="stylesheet" href="/fonts/online-doc-icons/styles.css" type="text/css">
-    
+    <link rel="stylesheet" href="/styles/magnific-popup.css">
+
     <!-- Javascript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/js/ie10-viewport-bug-workaround.js"></script>
 	<script src="/js/scroll_button_show_hide.js"></script>
 	<script src="/js/scroll_button_scroll_to_top.js"></script>
-	<script src="/js/collapsible_list.js"></script>
 	<script src="/js/toc.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#toc').toc({ listType: 'ul', noBackToTopLinks: true, showSpeed: 0 });
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.magnific').magnificPopup({
+			  type:'image',
+			  removalDelay: 300,
+			  mainClass: 'mfp-fade'
+			});
+			$('.magnific-youtube').magnificPopup({
+			  disableOn: 700,
+			  type: 'iframe',
+			  mainClass: 'mfp-fade',
+			  removalDelay: 300,
+			  preloader: false,
+			  fixedContentPos: false
+			});
+		});
+	</script>
+	<script src="/js/jquery.collapse.js"></script>
+	<script src="/js/jquery.collapse_storage.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#expand-all-subjects").click(function(){
+				$("#subject-list").trigger("open");
+			});
+			$("#collapse-all-subjects").click(function(){
+				$("#subject-list").trigger("close");
+			});
+			$("#expand-all-tags").click(function(){
+				$("#tag-list").trigger("open");
+			});
+			$("#collapse-all-tags").click(function(){
+				$("#tag-list").trigger("close");
+			});
 		});
 	</script>
 	

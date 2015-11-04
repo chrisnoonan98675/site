@@ -8,6 +8,7 @@ tags:
 - deployment
 - application
 - package
+- update
 ---
 
 XL Deploy always works with complete [deployment packages](/xl-deploy/concept/preparing-your-application-for-xl-deploy.html#whats-in-an-application-deployment-package) that contain everything your applications need. You don't have to manually create a delta package to perform an update; instead, XL Deploy’s auto-flow engine calculates the delta between two packages automatically.
@@ -23,7 +24,11 @@ To update a deployed application:
 1. Click **Deployment** in the top bar.
 1. Locate the application under **Packages** and expand it to see the versions (deployment packages).
 1. Locate the environment under **Environments**.
-1. Drag the version of the application that you want to deploy and drop it on the environment where you want to deploy it. The application and environment appear in the **Workspace**. XL Deploy automatically maps the deployables in the application to the appropriate containers in the environment.
+1. Drag the version of the application that you want to deploy and drop it on the environment where you want to deploy it. The application and environment appear in the deployment workspace.
+
+    XL Deploy analyzes the application's [dependencies](/xl-deploy/concept/application-dependencies-in-xl-deploy.html) and the dependencies of the applications in the environment (supported in XL Deploy 5.1.0 and later). If the new version [does not satisfy](/xl-deploy/concept/how-xl-deploy-checks-application-dependencies.html) the dependencies of the applications that are already deployed, then XL Deploy will not deploy it.
+
+    XL Deploy then automatically maps the deployables in the application to the appropriate containers in the environment.
 
     **Note:** If the updated application is missing a deployable that was included in the previous deployment, the corresponding deployed item will appear in red.
 

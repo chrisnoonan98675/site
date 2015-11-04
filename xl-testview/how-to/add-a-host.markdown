@@ -3,11 +3,9 @@ title: Add a host to XL TestView
 categories:
 - xl-testview
 subject:
-- Test specification
+- Test specifications
 tags:
 - host
-- ssh
-- cifs
 ---
 
 A host provides a a generic mechanism to connect to local or remote machines and:

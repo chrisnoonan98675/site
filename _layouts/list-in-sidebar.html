@@ -10,6 +10,10 @@ layout: default
 
 	<h1 class="page-header">{{ page.title }}</h1>
 
+	{% unless page.no_mini_toc %}
+		<div id="toc" class="mini-toc hidden-sm"></div>
+	{% endunless %}
+
 	{{ content }}
 
 </div>

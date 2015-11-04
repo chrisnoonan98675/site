@@ -10,7 +10,7 @@ tags:
 - logging
 - troubleshooting
 since:
-- 4.5.0
+- XL Deploy 4.5.0
 ---
 
 ## Namespace

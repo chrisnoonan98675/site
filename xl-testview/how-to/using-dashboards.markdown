@@ -6,7 +6,6 @@ subject:
 - Dashboards
 tags:
 - dashboard
-- report
 ---
 
 A dashboard is the the primary way to quickly get an overview of the current status of your tests. You can create multiple dashboards, each with the information you want to see. The information on a dashboard is represented in *tiles*, which are small individual reports.

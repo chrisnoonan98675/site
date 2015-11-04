@@ -1,5 +1,5 @@
 ---
-title: Create a JDBC export hook in XL Release
+title: Create a JDBC export hook
 categories:
 - xl-release
 subject:
@@ -11,7 +11,7 @@ tags:
 - archiving
 - purging
 since:
-- 4.7.0
+- XL Release 4.7.0
 ---
 
 [XL Release export hooks](/xl-release/how-to/create-an-export-hook.html) are a powerful mechanism that allows you to define Jython scripts that export information about completed and aborted releases before they are [archived](/xl-release/concept/how-archiving-works.html).
@@ -36,6 +36,10 @@ The Jython script defines actions that you want to perform with release. The sco
 * `logger`: An object of type `org.slf4j.Logger`; see [Javadoc](http://www.slf4j.org/apidocs/org/slf4j/Logger.html)
 
 In the script, you can get the JDBC connection by calling `exportHook.getJdbcConnection()`. You can see this in the example on [GitHub](https://github.com/xebialabs/xl-release-samples/blob/master/mysql-jdbc-export-hook/src/main/resources/acme/MysqlReportingExportHook.py).
+
+**Tip:** It is recommended that you use `logger` instead of `print` for logging.
+
+### Script storage location
 
 Store scripts in the `ext` directory, which is a part of the classpath. By default, the export hook tries to locate `prefix/TypeName.py` on the classpath. In the case of this example, it will be `acme/MysqlReportingExportHook.py`.
 

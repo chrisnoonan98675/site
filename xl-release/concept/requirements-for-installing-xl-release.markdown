@@ -8,6 +8,7 @@ tags:
 - system administration
 - installation
 - setup
+- system requirements
 ---
 
 ## Server requirements
@@ -18,7 +19,7 @@ To install the XL Release server, the following requirements must be met:
 * **Operating system:** Microsoft Windows or a Unix-family operating system
 * **Java SE Development Kit (JDK)**:
     * For XL Release 4.8.0 and later: JDK 8 (Oracle or IBM)
-    * For XL Release 4.7.x. and earlier: JDK 7 (Oracle or IBM)
+    * For XL Release 4.7.x and earlier: JDK 7 (Oracle or IBM)
 * **RAM:** At least 2 GB of RAM available for XL Release
 * **Hard disk space:** At least 2 GB of hard disk space to store the XL Release repository (this depends on your usage of XL Release)
 
@@ -31,7 +32,9 @@ Depending on the environment, the following may also be required:
 
 The following web browsers are supported for the XL Release user interface:
 
-* Internet Explorer 9 or higher
 * Firefox
 * Chrome
 * Safari
+* Internet Explorer 9 or higher
+
+**Note:** Internet Explorer Compatibility View is not supported.

@@ -1,0 +1,105 @@
+---
+title: Events in XL TestView
+categories:
+- xl-testview
+subject:
+- Extensibility
+tags:
+- test result parsers
+- extension
+- api
+since:
+- XL TestView 1.3.0
+---
+
+XL TestView stores all test results in the database as "events", which are key-value maps that represent test results, independent of the tool that generated the results. The keys are strings, while the values are strings, integers, Booleans, floating point values, or lists of those.
+
+Another often-used data type is `DateTime`, which represents a date. In events, this is represented as the number of milliseconds since 1970-01-01 00:00:00 UTC, stored in a 64-bit integer.
+
+Custom test tools must create a list of events, which have a number of requirements. If these requirements are not met, XL TestView will not accept the events. This is required to protect the integrity of the data.
+
+During test results processing, parsers are allowed to insert their own keys and values. All keys used by XL TestView start with an at-sign (`@`) or an underscore (`_`). Test tools cannot use keys starting with `@` or `_`, except for the ones described below.
+
+## Types of events
+
+There are four types of events:
+
+* [`importStarted`](#importstarted-event-properties)
+* [`importFinished`](#importfinished-event-properties)
+* [`functionalResult`](#functionalresult-event-properties)
+* [`performanceResult`](#performanceresult-event-properties)
+
+A [test results parser](/xl-testview/how-to/create-a-custom-test-results-parser.html) will always produce a list of events, which is called a *test run*; this is the set of results associated with a single execution of the tests in a test specification.
+
+A test run has the following properties:
+
+* Exactly one `importStarted` event
+* Exactly one `importFinished` event
+* For functional test tools, any number of `functionalResult` events
+* For performance test tools, any number of `performanceResult` events
+
+**Note:** `functionalResult` and `performanceResult` events cannot be mixed.
+
+## Event properties
+
+XL TestView sets these properties on all events. 
+
+**Note:** Reports can read the `_id`, `@runId`, `@createdAt`, and `@testSpecification` properties, but test results parsers do not use them.
+
+### `importStarted` event properties
+
+{:.table .table-striped}
+| Key | Value type | Required | Description |
+| --- | ---------- | --------- | ----------- |
+| `_id` | String | &#x2714; | Identifier of Elasticsearch; not used by test tools. |
+| `@runId` | String | &#x2714; | |
+| `@createdAt` | DateTime | &#x2714;	| Time of import; always larger than 1980 and not in the future. |
+| `@testSpecification` | String | &#x2714; | |
+| `@type` | String | &#x2714; | One of `importStarted`, `importFinished`, `functionalResult`, or `performanceResult`. |
+| `@testedAt` | DateTime | | Time this test was executed; not before 1980-01-01 and not in the future. |
+| `@runKey` | String | | Test specification-specific identifier of this run. This key can be used to determine if a test run has already been imported; see [Detecting duplicate imports](/xl-testview/how-to/detect-duplicate-imports.html). |
+
+### `importFinished` event properties
+
+{:.table .table-striped}
+| Key | Value type | Required | Description |
+| --- | ---------- | --------- | ----------- |
+| `_id` | String | &#x2714; | Identifier of Elasticsearch; not used by test tools. |
+| `@runId` | String | &#x2714; | |
+| `@createdAt` | DateTime | &#x2714;	| Time of import; always larger than 1980 and not in the future. |
+| `@testSpecification` | String | &#x2714; | |
+| `@type` | String | &#x2714; | One of `importStarted`, `importFinished`, `functionalResult`, or `performanceResult`. |
+| `@duration` | Integer | &#x2714; | The total duration of a run. For `functionalResult`'s, the duration is calculated as the summation of the duration of the individual test results. |
+| `@size` | Long | &#x2714; | The number of events in this run, including started and finished events|
+
+### `functionalResult` event properties
+
+{:.table .table-striped}
+| Key | Value type | Required | Description |
+| --- | ---------- | --------- | ----------- |
+| `_id` | String | &#x2714; | Identifier of Elasticsearch; not used by test tools. |
+| `@runId` | String | &#x2714; | |
+| `@createdAt` | DateTime | &#x2714;	| Time of import; always larger than 1980 and not in the future. |
+| `@testSpecification` | String | &#x2714; | |
+| `@type` | String | &#x2714; | One of `importStarted`, `importFinished`, `functionalResult`, or `performanceResult`. |
+| `@result` | String | &#x2714; | No restrictions, but `PASSED`, `FAILED`, or `SKIPPED` is recommended. |
+| `@hierarchy` | list of String | &#x2714; | Structure of test results, used for drilling down in reports. The whole hierarchy should be a unique textual representation of a test and its position in the suite. For example, if a unit test in JUnit was in the class `com.example.PersonTest` and the test was called `test1`, the hierarchy would be `['com','example','PersonTest','test1']` |
+| `@firstError` | String | | Textual information about the test result. |
+| `@duration` | Integer | | Duration of this test in milliseconds; should be positive. |
+
+### `performanceResult` event properties
+
+`performanceResult` is subject to change in future releases.
+
+{:.table .table-striped}
+| Key | Value type | Required | Description |
+| --- | ---------- | --------- | ----------- |
+| `_id` | String | &#x2714; | Identifier of Elasticsearch; not used by test tools. |
+| `@runId` | String | &#x2714; | |
+| `@createdAt` | DateTime | &#x2714;	| Time of import; always larger than 1980 and not in the future. |
+| `@testSpecification` | String | &#x2714; | |
+| `@type` | String | &#x2714; | One of `importStarted`, `importFinished`, `functionalResult`, or `performanceResult`. |
+| `simulationName` | String | &#x2714; | The name of the performance test; this field is provided on the `importStarted` event. |
+| `numberOfRequests.ok` | Integer | &#x2714; | Number of requests that went okay. |
+| `numberOfRequests.ko` | Integer | &#x2714; | Number of errored requests. |
+| `meanResponseTime.total` | Integer | &#x2714; | The mean response time over the whole test run. |

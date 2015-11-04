@@ -8,7 +8,6 @@ tags:
 - system administration
 - cli
 - installation
-- upgrade
 - hotfix
 ---
 

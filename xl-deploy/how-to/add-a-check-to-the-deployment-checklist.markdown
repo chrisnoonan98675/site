@@ -3,11 +3,12 @@ title: Add a check to the XL Deploy deployment checklist
 categories:
 - xl-deploy
 subject:
-- Deployment
+- Release dashboard
 tags:
 - deployment
 - configuration
 - environment
+- checklist
 ---
 
 This Cookbook entry describes how to add a single check to the Deployment Checklist in the Release Dashboard. We will take an existing pipeline that has Dev, Test, Acceptance and Production environments. We will show how to add a single condition 'Signed off by Release Manager' that will be put on the Production environment.

@@ -1,5 +1,5 @@
 ---
-title: Create an export hook in XL Release
+title: Create an export hook
 categories:
 - xl-release
 subject:
@@ -11,7 +11,7 @@ tags:
 - archiving
 - purging
 since:
-- 4.7.0
+- XL Release 4.7.0
 ---
 
 You can use the *export hook* feature to configure XL Release to run a Jython script for every release that is about to be [archived](/xl-release/concept/how-archiving-works.html).
@@ -34,6 +34,10 @@ The Jython script defines actions that you want to perform with release. The sco
 * `release`: An object of type [Release](/jython-docs/#!/xl-release/4.7.x/service/com.xebialabs.xlrelease.domain.Release)
 * `releaseJson`: A string with serialized release
 * `logger`: An object of type `org.slf4j.Logger`; see [Javadoc](http://www.slf4j.org/apidocs/org/slf4j/Logger.html)
+
+**Tip:** It is recommended that you use `logger` instead of `print` for logging.
+
+### Script storage location
 
 Store scripts in the `ext` directory, which is a part of the classpath. By default, the export hook tries to locate `prefix/TypeName.py` on the classpath. In the case of this example, it will be `acme/ElasticSearchExportHook.py`.
 

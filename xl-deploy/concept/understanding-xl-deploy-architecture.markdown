@@ -10,7 +10,6 @@ tags:
 - ci
 - rules
 - planning
-- specification
 ---
 
 Before you customize XL Deploy functionality, you should understand the XL Deploy architecture. XL Deploy features a modular architecture that allows you to change and extend components while maintaining a consistent system.

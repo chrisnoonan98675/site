@@ -6,6 +6,7 @@ subject:
 - System administration
 tags:
 - system administration
+- shutdown
 ---
 
 If you have administrative permissions, you can shut down the XL Deploy server using the command-line interface (CLI) command:

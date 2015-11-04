@@ -2,7 +2,7 @@
 title: Stopping, aborting, or canceling a deployment
 subject:
 - Deployment
-category:
+categories:
 - xl-deploy
 tags:
 - deployment

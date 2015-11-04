@@ -2,7 +2,7 @@
 title: Useful WinRM commands
 subject:
 - Remoting plugin
-category:
+categories:
 - xl-deploy
 tags:
 - connectivity

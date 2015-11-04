@@ -3,26 +3,27 @@ title: Supported test tools and test result formats
 categories:
 - xl-testview
 subject:
-- Test tool
+- Test results
 tags:
-- test tool
 - plugin
-- test results
+- test result parsers
+- import
 ---
 
 XL TestView supports the following test tools and test result formats:
 
-* [FitNesse](http://www.fitnesse.org/), for test suites executed by FitNesse itself, not through its jUnit runner
-* [Cucumber](http://cukes.info/) report files
-* JUnit compliant output files through the *xUnit* "tool", see below
-* [Selenium](http://www.seleniumhq.org/), executed via xUnit or Cucumber
-* [Gatling](http://gatling.io/) simulation logs
-* [JMeter](http://jmeter.apache.org/) summary reports
-
-*xUnit* output is known to work with the following setups:
-
-* [JUnit](http://junit.org)
-* [Maven](http://maven.apache.org) Surefire
-* [Gradle](http://gradle.org), both [JUnit](http://junit.org/) and [TestNG](http://testng.org/)
-* [Karma](http://karma-runner.github.io), with JUnit reporter
-* [Appium](http://appium.io/)
+{:.table .table-striped}
+| Test tool | Build tool/Executor | Reporter format | Synthetic type | Type |
+| --------- | ------------------- | --------------- | -------------- | ---- |
+| [Cucumber](http://cukes.info/) | | | `xlt.Cucumber` | Functional |
+| [Gatling](http://gatling.io/) | | | `xlt.Gatling` | Performance | |
+| [FitNesse](http://www.fitnesse.org/) | FitNesse | | `xlt.FitNesse` | Functional | 
+| [Jasmine](http://jasmine.github.io/) | [Karma](http://karma-runner.github.io) | JUnit | `xlt.KarmaXunit`          | Functional |
+| [JMeter](http://jmeter.apache.org/) | | CSV | `xlt.JMeterCSV` | Performance | |
+| JMeter | | XML | `xlt.JMeterXML` | Performance | |
+| [JUnit](http://junit.org) | Ant	 | | `xlt.JUnit` | Functional |
+| JUnit | Gradle	| | `xlt.JUnit` | Functional |
+| JUnit | Maven Surefire | | `xlt.SurefireJUnit` | Functional |
+| [TestNG](http://testng.org/) | Ant | JUnit reporter | `xlt.TestNGJUnitReportReporter` | Functional |
+| TestNG | Gradle | | `xlt.TestNGJUnitReportReporter` | Functional |
+| TestNG | Maven Surefire | | `xlt.SurefireJUnit` | Functional |

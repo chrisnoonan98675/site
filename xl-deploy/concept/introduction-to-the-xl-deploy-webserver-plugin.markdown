@@ -7,7 +7,6 @@ subject:
 tags:
 - plugin
 - web server
-- apache
 ---
 
 The XL Deploy Web Server plugin supports the deployment of web content and web server configuration to a web server.

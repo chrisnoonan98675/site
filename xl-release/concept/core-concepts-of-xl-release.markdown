@@ -8,7 +8,6 @@ tags:
 - release
 - phase
 - task
-- release owner
 - template
 - variable
 - team

@@ -2,7 +2,7 @@
 title: Writing Jython scripts for XL Deploy
 subject:
 - Remoting plugin
-category:
+categories:
 - xl-deploy
 tags:
 - jython

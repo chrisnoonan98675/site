@@ -11,7 +11,7 @@ tags:
 - script
 - system administration
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 The `repository` object in the XL Deploy command-line interface (CLI) allows you to export the XL Deploy repository tree to a ZIP file so that it can be imported into the same XL Deploy server or into another XL Deploy server. The resulting ZIP file contains all configuration item (CI) properties, including artifact files. You can use this feature for backup or migration purposes.

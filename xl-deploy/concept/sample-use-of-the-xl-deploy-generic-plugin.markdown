@@ -15,7 +15,7 @@ By defining a container and several other CIs based on CIs from the Generic Mode
 
 ## Defining the container
 
-To use any of the CIs in the Generic Model plugin, they need to be targeted to a #generic.Container. This snippet shows how to define a generic container as a synthetic type:
+To use any of the CIs in the Generic Model plugin, they need to be targeted to a `generic.Container`. This snippet shows how to define a generic container as a synthetic type:
 
 	<type type="tc.Server" extends="generic.Container">
 	    <property name="home" default="/tmp/tomcat"/>

@@ -1,12 +1,12 @@
 <h2 id="videos">Videos</h2>
 
     <p>Watch our videos about {{ page.title }}:</p>
-		<ul>
-			{% for item in site.data.videos %}
-				{% if item.product == page.product-id %}
-					{% for video in item.videos %}
-						<li><a href="{{ video.url }}" target="_blank">{{ video.title }}</a></li>
-					{% endfor %}
-				{% endif %}
-			{% endfor %}
-		</ul>
+    {% for product in site.data.videos %}
+    	{% if product.name == page.title %}
+    		<ul>
+				{% for video in product.videos %}
+					<li><a href="https://www.youtube.com/watch?v={{ video.id }}" class="magnific-youtube">{{ video.title }}</a></li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endfor %}

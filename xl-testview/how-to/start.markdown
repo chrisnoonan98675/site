@@ -17,3 +17,5 @@ To start XL TestView:
       * On a Unix-based operating system: `server.sh`
       * On Microsoft Windows: `server.cmd`
 1. After XL TestView has started, you will see the message `Starting XL TestView ... done.` and the URL where you can access XL TestView.
+
+Alternatively, run the XL TestView server [as a service](/xl-testview/how-to/install-xl-testview-as-a-service.html).

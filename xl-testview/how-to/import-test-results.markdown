@@ -3,15 +3,14 @@ title: Import test results into XL TestView
 categories:
 - xl-testview
 subject:
-- Test specification
+- Test specifications
 tags:
 - test specification
-- test results
 - import
 - project
 ---
 
-You can import results from past test executions into XL TestView. This will automatically create an *active* test specification for you.
+You can import results from past test executions into XL TestView. The import wizard will guide you through the process.
 
 To import results into XL TestView, click **Get started** on the welcome screen or click **Import** in the top menu bar.
 
@@ -19,6 +18,8 @@ To import results into XL TestView, click **Get started** on the welcome screen 
 
 1. Select the tool that was used to generate the results you want to import. Please refer to [the list of supported tools and test result formats](/xl-testview/concept/supported-test-tools-and-test-result-formats.html).
 1. Click **Next**.
+
+**Tip:** Do you want to import results from a test tool or in a format that XL TestView does not support by default? You can do so with a [custom test results parser](/xl-testview/how-to/create-a-custom-test-results-parser.html).
 
 ## Step 2 Locate test results
 

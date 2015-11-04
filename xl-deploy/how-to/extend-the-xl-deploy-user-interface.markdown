@@ -30,11 +30,13 @@ The `xl-ui-plugins.xml` file contains information about the menu items to be add
 
 For example, it could contain:
 
-    <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns="http://www.xebialabs.com/deployit/ui-plugin"
-        xsi:schemaLocation="http://www.xebialabs.com/deployit/ui-plugin xl-ui-plugin.xsd">
-        <menu id="test.demo" label="Demo" uri="demo.html" weight="12" />
-    </plugin>
+{% highlight xml %}
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.xebialabs.com/deployit/ui-plugin"
+    xsi:schemaLocation="http://www.xebialabs.com/deployit/ui-plugin xl-ui-plugin.xsd">
+    <menu id="test.demo" label="Demo" uri="demo.html" weight="12" />
+</plugin>
+{% endhighlight %}
 
 Menus are enclosed in the `<plugin>` tag. The `xl-ui-plugin.xsd` schema verifies the way that menus are defined.
 
@@ -69,14 +71,16 @@ When you are logged in to XL Deploy with the user name and password `admin`, the
 
 The `xl-rest-endpoints.xml` file contains declaration of endpoints which your extension adds to XL Deploy:
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <endpoints xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-               xmlns="http://www.xebialabs.com/deployit/endpoints"
-               xsi:schemaLocation="http://www.xebialabs.com/deployit/endpoints endpoints.xsd">
-        <endpoint path="/test/demo" method="GET" script="demo.py" />
-        <!-- ... more endpoints can be declared in the same way ... -->
-    </endpoints>
-    
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.xebialabs.com/deployit/endpoints"
+           xsi:schemaLocation="http://www.xebialabs.com/deployit/endpoints endpoints.xsd">
+    <endpoint path="/test/demo" method="GET" script="demo.py" />
+    <!-- ... more endpoints can be declared in the same way ... -->
+</endpoints>
+{% endhighlight %}
+
 **Note:** After processing this file, XL Deploy creates a new REST endpoint, which is accessible via `http://{xl-deploy-hostname}:{port}/{[context-path]}/api/extension/test/demo`.    
 
 Every endpoint should be represented with `<endpoint>` element which can contain following attributes:

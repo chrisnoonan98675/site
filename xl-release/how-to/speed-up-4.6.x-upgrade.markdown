@@ -8,7 +8,7 @@ tags:
 - upgrade
 - system administration
 since:
-- 4.6.0
+- XL Release 4.6.0
 ---
 
 Before XL Release 4.6.0, JCR version storage was used for some parts of XL Release functionality. This meant that for every node in active JCR storage (such as Release, Phase, or Trigger), XL Release stored a version history containing zero or more versions, depending on how many times a node was changed.

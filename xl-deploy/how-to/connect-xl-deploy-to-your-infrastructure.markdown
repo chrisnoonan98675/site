@@ -12,7 +12,7 @@ tags:
 - winrm
 - cifs
 deprecated:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 **Tip:** In XL Deploy 5.0.0 and later, you can [connect to your infrastructure and create an environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html) in a single step.

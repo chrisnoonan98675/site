@@ -7,11 +7,10 @@ categories:
 tags:
 - middleware
 - environment
-- container
 since:
-- 3.9.0
+- XL Deploy 3.9.0
 deprecated:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 An environment is a grouping of infrastructure and middleware items such as hosts, servers, clusters, and so on. An environment is used as the target of a deployment, allowing you to map deployables to members of the environment.

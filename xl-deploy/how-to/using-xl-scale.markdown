@@ -2,7 +2,7 @@
 title: Using XL Scale
 subject:
 - XL Scale
-category:
+categories:
 - xl-deploy
 tags:
 - xl scale

@@ -4,20 +4,27 @@ online-docs-jekyll
 # Setting it up locally
 
 1. Clone this repository.
-1. Install Jekyll 2.3.0 and its requirements:
-    * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/)
-    * Windows users, follow [these instructions](http://jekyll-windows.juthilo.com/) (you can skip step #3 there)
-1. Install [Asciidoctor](http://asciidoctor.org/docs/install-toolchain/).
-1. In the directory where you cloned the repository, execute `jekyll serve` or `jekyll serve --watch` (for [watch mode](http://jekyllrb.com/docs/usage/)). Go to `http://localhost:4000` to see the site running locally.
+1. Install Jekyll 2.x and its requirements:
+    * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/). **Important:** If you're using OS X 10.11 (El Capitan) or later, [read this important info](http://jekyllrb.com/docs/troubleshooting/#jekyll-amp-mac-os-x-1011)!
+    * Windows users, follow [these instructions](http://jekyll-windows.juthilo.com/) (you can skip step #3 there).
+1. In the directory where you cloned the repository, execute `jekyll serve`. Go to `http://localhost:4000` to see the site running locally.
 
-Tips:
+Installation tips:
 
-* We are using Jekyll 2.3.0. Newer versions of Jekyll will not work. See [this StackOverflow question](http://stackoverflow.com/questions/24223567/how-can-i-install-an-older-version-of-jekyll) if you need help installing the right version.
-* To disable updating of the Development Dashboard while you run Jekyll in watch mode, change the `jira_dashboard` `generate` setting in `_config.yml` to `false`. **Do not commit this change to the repository!**
+* You may also need to install [Magnific Popup](https://github.com/dimsemenov/Magnific-Popup). You can do this with Bower, npm, or Ruby.
 * If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
-* You may want to download a Markdown editor such as [MacDown](http://macdown.uranusjr.com/) for OS X or [MarkdownPad](http://markdownpad.com/) for Windows.
+* We are using Jekyll 2.x. Jekyll 3.x will not work yet because of changes in the Liquid templating system.
 
-**Tip:** In MacDown, go to **Preferences** > **Rendering** and select **Detect Jekyll front-matter** to have MacDown nicely format the YAML frontmatter in Markdown files.
+Usage tips:
+
+* As of Jekyll 2.4, the `jekyll serve` starts the server in [watch mode](http://jekyllrb.com/docs/usage/). To disable watch mode, execute `jekyll serve --no-watch`.
+* It's a known issue that generating the site (even in watch mode) is quite slow.
+* To disable updating of the Development Dashboard while you run Jekyll in watch mode, change the `jira_dashboard` `generate` setting in `_config.yml` to `false`. **Do not commit this change to the repository!**
+
+Writing tips:
+
+* You may want to download a Markdown editor such as [MacDown](http://macdown.uranusjr.com/) for OS X or [MarkdownPad](http://markdownpad.com/) for Windows.
+* In MacDown, go to **Preferences** > **Rendering** and select **Detect Jekyll front-matter** to see the [YAML front matter](http://jekyllrb.com/docs/frontmatter/) in a nice table.
 
 # Publishing changes to the site
 
@@ -147,9 +154,9 @@ To mark a paragraph, sentence, or table cell as "beta", add the following inline
 
 # Drafts
 
-You can store drafts, images, samples, etc. in `_drafts`. Markdown and AsciiDoc files stored in `_drafts` are never converted to HTML.
+Although draft versions can be put in a `_drafts` folder, it is prefered to use branching instead.
 
-The `_drafts` folder also contains the *documentation template*.
+The `_drafts` folder does contain the *documentation template*.
 
 # Things to know about formatting
 
@@ -204,9 +211,25 @@ To format a block of code, indent each line by at least four spaces.
 
 Jekyll does not support formatting a block of code by surrounding it with [three backticks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks).
 
+## Syntax highlighting and line numbers
+
+[Syntax highlighting](http://jekyllrb.com/docs/templates/#code-snippet-highlighting) is provided by Pygments. To highlight a block of code, surround it with Liquid `{% highlight %}` tags and specify the [language](http://pygments.org/languages/). To include line numbers, add `linenos`.
+
+    {% highlight python linenos %}
+    code goes here
+    {% endhighlight %}
+
+## Mini TOC
+
+The mini TOC is an automatically generated table of contents that appears at the top right of pages with more than three headings. To prevent the mini TOC from being added to a page, put `no_mini_toc: true` in the page's front matter.
+
+## Breadcrumbs
+
+Breadcrumbs are automatically generated and appear at the top left of pages that use the `page` layout (by default, all topics). To prevent the breadcrumbs from being added to a page, put `breadcrumbs: false` in the page's front matter.
+
 ## Manual HTML anchors
 
-Do not manually insert HTML anchors directly above headings, like this:
+Do not manually insert HTML anchors directly above headings in Markdown files, like this:
 
       <a name="upgrade_to_450"></a>
       ### Upgrading to XL Deploy 4.5.0 ###
@@ -214,10 +237,6 @@ Do not manually insert HTML anchors directly above headings, like this:
 This prevents "Upgrading to XL Deploy 4.5.0" from being rendered as a heading.
 
 HTML anchors are automatically created for headings (h1, h2, h3, etc.).
-
-## AsciiDoc
-
-You can use [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/) instead of Markdown to format files. AsciiDoc support is provided by [a Jekyll plugin](https://github.com/asciidoctor/jekyll-asciidoc). If you use it, please carefully review the way that Jekyll renders the HTML file.
 
 # Tags and subjects
 
@@ -243,6 +262,23 @@ To see the tags and subjects that are already in use, visit [https://docs.xebial
 See `_redirects.yml` for a complete list of the redirects that are available.
 
 **Note:** At this time, there is no "latest" link for the Jython API documentation.
+
+**Note also:** If you use absolute URL's, you can check the links from the comfort of your local work environment.
+
+# Development Dashboard
+
+The [Development Dashboard](https://docs.xebialabs.com/development-dashboard/index.html) is generated by a Jekyll plugin that pulls information from JIRA.
+
+To make a release appear on the Development Dashboard, go to the [project versions screen](https://confluence.atlassian.com/display/JIRA/Managing+Versions) and assign a **Release date** to the desired version.
+
+**Tip:** By default, the project name appears in sentence case; for example, *XL TestView* will appear on the Dashboard as *Xl Testview*. To override this, enter the desired project name in the version's **Description** field on the [project versions screen](https://confluence.atlassian.com/display/JIRA/Managing+Versions).
+
+To make a story, improvement, or bug fix to appear on the Dashboard, assign it a **Fix Version** and set its **Public Issue** property must be set to one of the following options:
+
+* Yes - summary only: Only show the issue's title
+* Yes - summary and description: Show the issue's title and description
+
+To refresh the Dashboard so it shows the latest information from JIRA, log in to [Jenkins](https://xebialabs.atlassian.net/wiki/display/Labs/Jenkins) and execute the [Jekyll docs job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/app1/job/Jekyll%20docs/).
 
 # Logical structure of the site
 
@@ -287,7 +323,6 @@ Save drafts of pages in `_drafts`. Drafts are never converted to HTML.
 | Plugin file name | Description | Source | License |
 | ---------------- | ----------- | ------ | ------- |
 | `breadcrumbs.rb` | Creates dynamic breadcrumbs on pages | [Source](http://biosphere.cc/software-engineering/jekyll-breadcrumbs-navigation-plugin/) | None |
-| `asciidoc_plugin.rb` | Enables Jekyll to interpret Asciidoc files | [Source](https://github.com/asciidoctor/jekyll-asciidoc) | MIT |
 | `pageless_redirects.rb` | Allows you to create redirects in `_redirects.yml` | [Source](https://github.com/nquinlan/jekyll-pageless-redirects/pull/7) | MIT |
 | `sitemap_generator.rb` | Generates `sitemap.xml` | [Source](https://github.com/kinnetica/jekyll-plugins) | Creative Commons |
 | `remove_whitespace.rb` | Adds the `{% strip %}` tag, which you can use to remove the empty lines that Liquid loops produce | [Source](https://github.com/aucor/jekyll-plugins/blob/master/strip.rb) | MIT |

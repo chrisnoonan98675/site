@@ -9,8 +9,9 @@ tags:
 - package
 - placeholder
 - update
+- property
 since:
-- 5.0.0
+- XL Deploy 5.0.0
 ---
 
 When you [update a deployed application](/xl-deploy/how-to/update-a-deployed-application.html), XL Deploy resolves the properties for the deployeds in the application.

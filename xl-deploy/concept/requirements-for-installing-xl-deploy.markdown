@@ -10,6 +10,7 @@ tags:
 - license
 - setup
 - requirements
+- system requirements
 - prerequisites
 ---
 
@@ -17,18 +18,21 @@ tags:
 
 To install the XL Deploy server, you must meet the following requirements:
 
-* **XL Deploy license**:
-    * If you have a customer log-in, you can download your license from [https://dist.xebialabs.com](https://dist.xebialabs.com)
-    * If you are using [XL Deploy Community Edition](https://xebialabs.com/products/xl-deploy/community/), you will automatically receive a license after you [install](/xl-deploy/how-to/install-xl-deploy.html#install-xl-deploy-using-the-installer) and register XL Deploy
-* **Operating system**: Microsoft Windows (32-bit or 64-bit) or a Unix-family operating system running Java
-* **Java Runtime Environment**: Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
-* **RAM**: At least 2 GB of RAM available for XL Deploy
-* **Hard disk space**: Sufficient hard disk space to store the XL Deploy repository; see [Determining hard disk space requirements](#determining-hard-disk-space-requirements)
+* **XL Deploy license:** If you are using a paid edition of XL Deploy, you can download your [license](/xl-deploy/concept/xl-deploy-licensing.html) from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com)
+
+* **Operating system:** Microsoft Windows (32-bit or 64-bit) or a Unix-family operating system running Java
+
+* **Java Runtime Environment:** Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
+
+* **RAM:** At least 2 GB of RAM available for XL Deploy
+
+* **Hard disk space:** Sufficient hard disk space to store the XL Deploy repository; see [Determining hard disk space requirements](#determining-hard-disk-space-requirements)
 
 Depending on the environment, the following may also be required: 
 
-* **Database**: XL Deploy's Jackrabbit repository supports a number of different databases; for more information, see [Configure the XL Deploy repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html)
-* **LDAP**: To enable group-based security, an LDAP x.509 compliant registry is needed; for more information, see [Configure the XL Deploy security file](/xl-deploy/how-to/configure-the-xl-deploy-security-file.html)
+* **Database:** XL Deploy's Jackrabbit repository supports a number of different databases; for more information, see [Configure the XL Deploy repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html)
+
+* **LDAP:** To enable group-based security, an LDAP x.509 compliant registry is needed; for more information, see [Configure the XL Deploy security file](/xl-deploy/how-to/configure-the-xl-deploy-security-file.html)
 
 ### Networking requirements
 
@@ -64,54 +68,58 @@ The needed amount of disk space in total is equal to:
 
 If `NumPackages` and `NumDeployments` are expressed per time unit (that is, the number of packages to be imported per month), then the end result represents the space needed per time unit as well.
 
-### Unix middleware server requirements
-
-Unix-based middleware servers that XL Deploy interacts with must meet the following requirements:
-
-* **SSH access**: The target systems should be accessible by SSH from the XL Deploy server; that is, they should run an SSH2 server. It is also possible to handle key-based authorization. Note that:
-    * The SSH daemon on AIX is known to hang with certain types of SSH traffic.
-    * For security, the SSH account that is used to access a host should have limited rights.
-    * A variety of Linux distributions have made SSH require a TTY by default. This setting is incompatible with XL Deploy and is controlled by the `Defaults requiretty` setting in the `sudoers` file.
-* **Credentials**: XL Deploy should be able to log in to the target systems using a usr name and password combination that allows it to perform at least the following Unix commands:
-    * `cp`
-    * `ls`
-    * `mv`
-    * `rm`
-    * `mkdir`
-    * `rmdir`
-
-    If the login user cannot perform these actions, XL Deploy can also use a `sudo` user that can execute these commands.
-
-### Windows middleware server requirements
-
-Windows-based middleware servers that XL Deploy interacts with must meet the following requirements:
-
-* **File system access**: The target file system should be accessible via CIFS from the XL Deploy server.
-* **Host access**: The target host should be accessible from the XL Deploy server via WinRM or Windows Telnet server running in _stream mode_.
-* **Directory shares**: The account used to access a target system should have access to the host's administrative shares such as **C$**.
-* **Ports**: For CIFS connectivity, port 445 on the target system should be accessible from the XL Deploy server. For Telnet connectivity, port 23 should be accessible from the XL Deploy server. For WinRM connectivity, port 5985 (HTTP) or port 5986 (HTTPS) should be accessible from the XL Deploy server.
-
-### Extending middleware support
-
-It is possible to connect XL Deploy to middleware servers that do not support SSH, Telnet, or WinRM. This requires you to use the [Overthere](https://github.com/xebialabs/overthere) remote execution framework to create a custom _access method_ that connects to the server.
-
 ## Client requirements
 
 ### GUI clients
 
 To use the XL Deploy GUI, you must meet the following requirements:
 
-* **Web browser**:
+* **Web browser:**
 	* Firefox
 	* Chrome
 	* Safari
-	* Internet Explorer 10 or later for XL Deploy 5.0.0 or later
-	* Internet Explorer 8, 9, or later for XL Deploy 4.5.x or earlier (note that the [Compare feature](/xl-deploy/how-to/compare-configuration-items.html) requires Internet Explorer 10 or later)
-* **Flash player**: Version 9 or later
+	* For XL Deploy 5.0.0 or later: Internet Explorer 10 or later
+	* For XL Deploy 4.5.x: Internet Explorer 8, 9, or later (Internet Explorer 10 or later if using the [Compare feature](/xl-deploy/how-to/compare-configuration-items.html))
+* **Flash player:** Version 9 or later
+
+**Note:** Internet Explorer Compatibility View is not supported.
 
 ### CLI clients
 
 To use the XL Deploy CLI, you must meet the following requirements:
 
-* **Operating system**: Microsoft Windows or Unix-family operating system running Java
-* **Java Runtime Environment**: Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
+* **Operating system:** Microsoft Windows or Unix-family operating system running Java
+
+* **Java Runtime Environment:** Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
+
+## Middleware server requirements
+
+### Unix middleware server requirements
+
+Unix-based middleware servers that XL Deploy interacts with must meet the following requirements:
+
+* **Credentials:** XL Deploy should be able to log in to the target systems using a user name and password combination that allows it to perform at least the following Unix commands: `cp`, `ls`, `mv`, `rm`, `mkdir`, and `rmdir`. If the login user cannot perform these actions, XL Deploy can also use a `sudo` user that can execute these commands.
+
+* **SSH access:** The target systems should be accessible by SSH from the XL Deploy server; that is, they should run an SSH2 server. It is also possible to handle key-based authorization. Note that:
+    * The SSH daemon on AIX is known to hang with certain types of SSH traffic.
+    * For security, the SSH account that is used to access a host should have limited rights.
+    * A variety of Linux distributions have made SSH require a TTY by default. This setting is incompatible with XL Deploy and is controlled by the `Defaults requiretty` setting in the `sudoers` file.
+
+### Windows middleware server requirements
+
+Windows-based middleware servers that XL Deploy interacts with must meet the following requirements:
+
+* **File system access:** The target file system should be accessible via CIFS from the XL Deploy server
+
+* **Host access:** The target host should be accessible from the XL Deploy server via WinRM or Windows Telnet server running in _stream mode_
+
+* **Directory shares:** The account used to access a target system should have access to the host's administrative shares such as `C$`
+
+* **Ports:**
+    * For CIFS connectivity, port 445 on the target system should be accessible from the XL Deploy server
+    * For Telnet connectivity, port 23 should be accessible from the XL Deploy server
+    * For WinRM connectivity, port 5985 (HTTP) or port 5986 (HTTPS) should be accessible from the XL Deploy server
+
+### Extending middleware support
+
+It is possible to connect XL Deploy to middleware servers that do not support SSH, Telnet, or WinRM. This requires you to use the [Overthere](https://github.com/xebialabs/overthere) remote execution framework to create a custom _access method_ that connects to the server.

@@ -5,8 +5,6 @@ categories:
 subject:
 - Getting started
 tags:
-- test results
-- test tool
 - test specification
 - dashboard
 - report
@@ -25,10 +23,6 @@ First, read the [essential background information](/xl-testview/concept/key-conc
 Then, explore [dashboards](/xl-testview/how-to/using-dashboards.html) and [reports](/xl-testview/concept/reports.html) with the included sample test specifications and results. You can drill down the hierarchy of tests in reports such as the bar chart and duration chart.
 
 ![Dashboard with sample data](images/getting-started-demo-dashboard.png)
-
-Finally, try [executing](/xl-testview/how-to/execute-tests.html) a sample test specification, such as *functionalTestsComponentB*.
-
-![Sample test specification](images/getting-started-sample-test-specification.png)
 
 ## Step 2 Import your test results
 

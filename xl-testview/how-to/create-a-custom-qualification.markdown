@@ -3,13 +3,8 @@ title: Create a custom qualification in XL TestView
 categories:
 - xl-testview
 subject:
-- Qualification
+- Qualifications
 tags:
-- report
-- script
-- python
-- json
-- freemarker
 - qualification
 ---
 
@@ -31,7 +26,7 @@ First, add a custom qualifier type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
 1. Copy a `type` element with attribute `type="xlt.DefaultFunctionalTestsQualifier"` from `<XLTESTVIEW_HOME>/plugins/demo/synthetic.xml` and add it to `<XLTESTVIEW_HOME>/ext/synthetic.xml`. For example:
 
         <type type="xlt.DefaultFunctionalTestsQualifier" extends="generic.Qualification">
-            <property name="scriptLocation" default="functional/qualification.py"/>
+            <property name="scriptLocation" default="qualification/functional.py"/>
         </type> 
 
 1. Change the `type` attribute to your desired prefix and name; for example, `type="myCompany.myFunctionalQualifier"`.
@@ -40,10 +35,11 @@ First, add a custom qualifier type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
     The result will look like:
 
         <type type="myCompany.myFunctionalQualifier" extends="generic.Qualification">
-            <property name="scriptLocation" default="functional/myFunctionalQualifier.py"/>
+            <property name="scriptLocation" default="mycompany/myFunctionalQualifier.py"/>
         </type>
 
-1. Save `synthetic.xml` and restart XL TestView. (All changes made to `synthetic.xml` require you to restart XL TestView.)
+1. Save `synthetic.xml` and restart XL TestView.
+1. All changes made to `synthetic.xml` require you to restart XL TestView.
 1. To verify that your changes took effect:
     1. Click **Test specifications** in the navigation bar.
     1. Locate a functional test specification and click **Edit**.
@@ -53,15 +49,18 @@ First, add a custom qualifier type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
 
 ## Write the script
 
-Next, copy `<XLTESTVIEW_HOME>/plugins/demo/functional/qualification.py` to `ext/functional/myFunctionalQualifier.py`. You can implement the logic that you want to use for qualification in this script. (You do not have to restart XL TestView after changing scripts.)
+Next, copy `<XLTESTVIEW_HOME>/plugins/demo/functional/qualification.py` to `ext/mycompany/myFunctionalQualifier.py`. You can implement the logic that you want to use for qualification in this script. (You do not have to restart XL TestView after changing scripts.)
 
 The default functional qualifier requires all tests to pass for the test run to qualify as passed. This example changes the logic so that only tests with a name that includes the word "Critical" must pass for the test run to qualify as passed. If a test name does not contain the word "Critical", then a failure of that test will not cause the test run to qualify as failed.
 
 This requires changing the `result` dictionary:
 
-    result = {}
+{% highlight python %}
 
-The `success` key must be generated in your qualifier. It can have a value of `True` (for passing/successful qualifications) or `False` (for failing qualifications). You can optionally add a `reason` with text that describes why the test run qualified as passed or failed. Once this is populated we will call `resultHolder.setResult(result)` at the end of the script to submit the qualification result.
+    result = {}
+{% endhighlight %}
+
+The `success` key must be generated in your qualifier. It can have a value of `True` (for passing/successful qualifications) or `False` (for failing qualifications). You can optionally add a `reason` with text that describes why the test run qualified as passed or failed. Once this is populated we will call `result_holder.result = my_result` at the end of the script to submit the qualification result.
 
 The sample qualifier below:
 
@@ -73,30 +72,29 @@ The sample qualifier below:
             1. Set the reason
 1. Return the result
 
-First, to check if the test name includes "Critical":
+As an example, let's create a qualification that only checks critical tests. Critical tests can be identified, because they live in a package (suite) named "Critical".
 
-    if 'CRITICAL' in p.get('name').upper():
+First, to check if the test is in a "Critical" package (suite):
 
-This code retrieves the `name` property of the test, `p.get('name')`. It then uses the `String` method to make the name uppercase (`.upper()`). After this is done, it checks if the text `'CRITICAL'` is in the name. 
+{% highlight python %}
+    if ... and 'Critical' in event.hierarchy:
+{% endhighlight %}
+
+This code retrieves the `hierarchy` property of the test, `p.hierarchy`. It checks if the hierarchy (a list) contains a field named "Critical".
 
 The complete `myFunctionalQualifier.py` script is now:
 
-	result = {}
+{% highlight python %}
+    result = {}
 
-	def successCounters(p):
-	return p.get('result') is None and p.get('wrong') == 0 and p.get('exceptions') == 0
+    if events:
+        result = {'success': True}
+        failures = filter(lambda ev: ev.type == 'functionalResult' and ev.result != 'PASSED' and 'Critical' in ev.hierarchy, events)
+        if failures:
+            result['success'] = False
+            result['reason'] = '%d test%s failed' % (len(failures), len(failures) > 1 and 's' or '')
 
-	if events:
-	    result = {'success': True}
-	    for ev in events:
-	        if ev.type == 'functionalResult':
-	        p = ev.getProperties()
-	            if 'CRITICAL' in p.get('name').upper():
-	                if not (successCounters(p) or (p.get('result') == 'PASSED')):
-	                    result['success'] = False
-                        result['reason'] = 'There is at least one failure with a CRITICAL test'
-	                    break
-
-	resultHolder.setResult(result)
+    result_holder.result = result
+{% endhighlight %}
 
 This example also includes a new value for the `reason` field.
