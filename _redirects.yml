@@ -112,7 +112,6 @@
 /xl-deploy/concept/understanding-orchestrators.html : /xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html
 /xl-deploy/how-to/connect-ldap-or-active-directory.html : /xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html
 /xl-deploy/how-to/define-dependencies-between-versions.html : /xl-deploy/concept/application-dependencies-in-xl-deploy.html
-/xl-release/how-to/create-a-new-admin-user-for-xl-release.html : /xl-release/how-to/create-a-new-admin-user.html
 
 # XL Release topics
 /xl-release/how-to/migrate-to-xl-release-4.7.0.html : /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470
@@ -138,6 +137,8 @@
 /xl-release/concept/introduction-to-the-xl-release-remote-script-plugin.html : /xl-release/concept/remote-script-plugin.html
 /xl-release/concept/introduction-to-the-xl-release-svn-trigger-plugin.html : /xl-release/concept/svn-trigger-plugin.html
 /xl-release/concept/introduction-to-the-xl-release-time-trigger-plugin.html : /xl-release/concept/time-trigger-plugin.html
+/xl-release/how-to/create-a-new-admin-user-for-xl-release.html : /xl-release/how-to/create-a-new-admin-user.html
+/xl-release/how-to/configure-the-reporting-database.html : /xl-release/how-to/configure-the-archive-database.html
 
 # XL TestView topics
 /xl-test/how-to/create-a-test-tool-plugin.html : /xl-testview/concept/understanding-the-architecture.html
