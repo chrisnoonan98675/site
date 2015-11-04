@@ -10,14 +10,14 @@ tags:
 - script
 ---
 
-You can execute control tasks from the XL Deploy command-line interface (CLI). Take, for example, the _start_ control task on a GlassFish server in the [GlassFish plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-glassfish-plugin.html). It can be executed as follows:
+You can execute [control tasks](/xl-deploy/concept/understanding-control-tasks-in-xl-deploy.html) from the XL Deploy command-line interface (CLI). You can find the control tasks that are available in the configuration item (CI) reference documentation for each plugin.
+
+For example, the [`glassfish.StandaloneServer` CI](/xl-deploy-glassfish-plugin/5.0.x/glassfishPluginManual.html#glassfishstandaloneserver) includes a `start` control task that starts the server. To execute it:
 
     deployit> server = repository.read('Infrastructure/demoHost/demoServer')
     deployit> deployit.executeControlTask('start', server)
 
-## Executing a control task manually with parameters
-
-Control tasks can also be executed manually. This allows you to set parameters for the control task, and to have more control over the execution of the task. For example:
+Some control tasks include parameters that you can set. For example:
 
     deployit> server = repository.read('Infrastructure/demoHost/demoServer')
     deployit> control = deployit.prepareControlTask(server, 'methodWithParams')
