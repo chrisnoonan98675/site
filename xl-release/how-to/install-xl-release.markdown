@@ -12,8 +12,6 @@ tags:
 
 Before you install XL Release, ensure that you meet the [prerequisites](/xl-release/concept/requirements-for-installing-xl-release.html).
 
-<!--**Note:** See **The upgrade process** for instructions on how to upgrade XL Release from a previous version.
--->
 To install the XL Release server application:
 
 1. Log in to the server where the XL Release Server will be installed. It is recommended to install XL Release server as a non-root user such as `xl-release`.
@@ -116,7 +114,7 @@ First, the Setup Wizard asks you to provide a password for the built-in `admin` 
 
 The admin user has all permissions (like `root` on a Unix operating system). The admin user is also used to connect to the JCR repository. If you connect to an existing repository, ensure that enter the password that has been used before to connect to the repository; otherwise, the XL Release server will not be able to connect.
 
-### Secure communication configuration**
+### Secure communication configuration
 
 The Setup Wizard shows the following message:
 
