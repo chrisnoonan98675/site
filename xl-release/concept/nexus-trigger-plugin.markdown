@@ -10,49 +10,50 @@ tags:
 - trigger
 ---
 
-The Nexus plugin is an XL Release plugin that allows XL Release to interact with Sonatype Nexus repositories. 
-The plugin uses the Nexus Server REST API to communicate and fetch information from Nexus repositories.
+The XL Release Nexus trigger plugin allows XL Release to interact with Sonatype Nexus repositories. The plugin uses the Nexus Server REST API to communicate and fetch information from Nexus repositories.
+
+A Nexus trigger periodically polls a Nexus server for new versions of a specific artifact and triggers a release if a new version is published to the repository being watched.
 
 ## Features
 
-* Trigger on published artifact
+* Periodically polls a Nexus repository
+* Triggers a release when an artifact is published
 
-## Usage
+## Set up a Nexus server
 
-In order to use the Nexus plugin, you need to create a **Nexus Server**. Nexus Servers are defined globally in the Configuration page.
+To set up a Nexus server:
 
-![Nexus Server](../images/nexus-configuration-details.png)
+1. In XL Release, go to **Settings** > **Configuration** and click **Add Repository** under **Nexus: Server**.
+2. In the **Title** box, enter the name of the Nexus server.
+3. In the **URL** box, enter address where the server is reachable (for example, `http://domain:8081/nexus`).
+4. In the **Username** and **Password** boxes, enter the server log-in user ID and password.
+5. Click **Save** to save the server.
 
-A Nexus Server has the following properties:
+    ![Nexus Server](../images/nexus-configuration-details.png)
 
-* **Title**: The title of the server
-* **Url**: The address where the Nexus application is reachable, e.g. http://domain:8081/nexus
-* **Username**: The login user ID on the server
-* **Password**: The login password on the server
+## Add a Nexus trigger to a template
 
-### Trigger on published artifact
+To create a Nexus trigger:
 
-The trigger periodically polls a Nexus server for new versions of a specific artifact and triggers a release if a new version is published to the repository being watched.
+1. Add a trigger to the template, as described in [Create a release trigger](/xl-release/how-to/create-a-release-trigger.html).
+2. In the **Group Id** box, enter the group ID of the artifact.
+3. In the **Artifact Id** box, enter the artifact ID of the artifact.
+4. In the **Version** box, enter the version of the artifact.
 
-Input properties:
+    Here, you can use `LATEST` (default), `RELEASE`, and snapshot versions (such as `1.0-SNAPSHOT`). Specify `LATEST` to trigger on both release and snapshot versions of a particular artifact. With `RELEASE`, only release versions will be tracked. Triggering on redeployments of release versions (such as 1.0.0) is not supported.
 
-* **Group ID**: Group ID of the artifact (required)
-* **Artifact ID**: Artifact ID of the artifact (required)
-* **Version**: Version of the artifact, supports resolving of 'LATEST'(default), 'RELEASE' and snapshot versions (e.g. '1.0-SNAPSHOT'). Specify 'LATEST' to trigger on both, release and snapshot versions of a particular artifact. With 'RELEASE' only release versions will be tracked. Triggering on re-deployments of release versions (e.g. 1.0.0) is not supported (required)
+5. In the **Packaging** box, optionally enter the packaging type of the artifact (such as `jar` or `war`).
+6. In the **Classifier** box, optionally enter the classifier of the artifact.
+7. In the **Extension** box, optionally enter the artifact's extension.
+8. If you want to suppress errors when an artifact is not found for the given GAV coordinates, select **Trigger On Initial Publish**. Select this option when the artifact was never published to Nexus and you want to trigger a release on the initial publish.
+9. In the **Username** and **Password** boxes, enter the log-in user ID and password to use to connect to the server.  If set, these will override the credentials defined in the Nexus server configuration.
+10. Finish saving the trigger, as described in  [Create a release trigger](/xl-release/how-to/create-a-release-trigger.html).
 
-* **Packaging**: Packaging type of the artifact (e.g. 'jar', 'war')
-* **Classifier**: Classifier of the artifact
-* **Extension**: Extension of the artifact
-* **Trigger On Initial Publish**: Should suppress error when artifact not found for the given GAV coordinates. Set this to true when artifact was never published to Nexus and you want to trigger a release on the initial publish. Default value is 'false'
+## Output properties
 
-* **Server**: Sonatype Nexus server to poll (required)
-* **Repository ID**: Repository ID to watch, e.g. releases, snapshots, apache-snapshots (required)
-* **Username**: Custom login Username to override global server configuration
-* **Password**: Custom login Password to override global server configuration
+The output properties of the Nexus trigger are:
 
-Output properties:
-
-* **Artifact Version**: Latest artifact version retrieved from Nexus repository
-* **Artifact Base Version**: Latest artifact base version retrieved from Nexus repository. For Releases same as 'artifactVersion', for Snapshots base version (i.e. 1.0-SNAPSHOT) without additional qualifiers.
-* **Artifact Snapshot Build Number**: Latest artifact snapshot build number retrieved from Nexus repository
+* **Artifact Version**: Latest artifact version retrieved from the Nexus repository
+* **Artifact Base Version**: Latest artifact base version retrieved from the Nexus repository; for releases, this is the same as the `artifactVersion`, while for snapshots (such as `1.0-SNAPSHOT`), it excludes the additional qualifiers
+* **Artifact Snapshot Build Number**: Latest artifact snapshot build number retrieved from the Nexus repository
 * **Artifact Repository Path**: Artifact path relative to the selected Nexus repository

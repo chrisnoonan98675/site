@@ -9,25 +9,36 @@ tags:
 - svn
 - trigger
 since:
-- XL Release 4.5.x
+- XL Release 4.5.0
 ---
 
-To use the XL Release SVN trigger plugin, you need to create a **SVN Repository**. SVN repositories can be managed from the configuration screen.
+The XL Release SVN trigger plugin periodically polls a Subversion repository and triggers a release when it detects a new commit.
 
-A SVN Repository has the following properties:
+## Features
 
-* **Title**: The title of the repository.
-* **Url**: The address where the server is reachable.
-* **Username**: The login user ID on the server.
-* **Password**: The login user password on the server.
+* Periodically polls a Subversion (SVN) repository
+* Triggers a release when it detects a new commit
 
-For memory, the SVN trigger is used to poll periodically a SVN repository and triggers a release if it detects a new commit. The specific fields of the plugin during its creation are:
+## Set up an SVN repository
 
-* **Svn Repository**: The SVN repository to watch (mandatory)
-* **Branch**: The branch of the repository to used (will be concatenated to the SVN repository URL)
-* **Username**: The username used to connect to this repository (left blank if there is no authentication)
-* **Password**: The password used to connect to this repository (left blank if there is no authentication)
+To set up an SVN repository:
 
-This trigger exposes:
+1. In XL Release, go to **Settings** > **Configuration** and click **Add Repository** under **Svn: Repository**.
+2. In the **Title** box, enter the name of the repository.
+3. In the **URL** box, enter the address where the server is reachable.
+4. In the **Username** and **Password** boxes, enter the server log-in user ID and password.
+5. Click **Save** to save the repository.
 
-* **Commit Id**: Corresponding to the id of the new commit detected
+## Add an SVN trigger to a template
+
+To create an SVN trigger:
+
+1. Add a trigger to the template, as described in [Create a release trigger](/xl-release/how-to/create-a-release-trigger.html).
+2. In the **Svn Repository** box, enter the SVN repository to poll.
+3. In the **Branch** box, optionally enter the branch that the trigger should watch; this will be concatenated to the SVN repository URL.
+4. In the **Username** and **Password** boxes, enter the log-in user ID and password to use to connect to the repository (leave them blank if authentication is not required).
+5. Finish saving the trigger, as described in [Create a release trigger](/xl-release/how-to/create-a-release-trigger.html).
+
+## Output properties
+
+The output of the SVN trigger is a **Commit Id**, which corresponds to the ID of the new commit.
