@@ -38,8 +38,6 @@ If your LDAP configuration uses a certificate signed by a certificate authority 
 
 If you use a self-signed certificate and you cannot add it to the global truststore, you need to configure a local keystore. You can do so using the [`keytool`](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html) utility (part of the Java JDK distribution).
 
-**Note:** Ensure you complete the XL TestView registration process before you configure LDAP. Registration will not work afterward.
-
 To configure a local keystore:
 
 1. Export the certificate of your LDAP server. Please consult the documentation of your LDAP server for instructions.
