@@ -10,31 +10,43 @@ tags:
 - trigger
 ---
 
-To use the XL Release Git trigger plugin, you need to create a **Git Repository**. Git repositories could be managed from the configuration screen.
+The XL Release Git trigger plugin periodically polls a Git repository and triggers a release when it detects a new commit.
 
-A Git Repository has the following properties:
+## Features
 
-* **Title**: The title of the repository.
-* **Url**: The address where the server is reachable.
-* **Username**: The login user ID on the server.
-* **Password**: The login user password on the server.
+* Periodically polls a Git repository
+* Triggers a release when it detects a new commit
 
-The git trigger is used to poll periodically a Git repository and trigger a release if it detects a new commit. The specific fields of the plugin during its creation are:
+## Set up a Git repository
 
-![Git Plugin](../images/git-plugin-fields.png)
+To set up a Git repository:
 
-* **Git Repository**: The Git repository to poll (mandatory)
-* **Branch**: The git branch you want to watch
-* **Username**: The username used to connect to this repository (left blank if there is no authentication)
-* **Password**: The password used to connect to this repository (left blank if there is no authentication)
+1. In XL Release, go to **Settings** > **Configuration** and click **Add Repository** under **Git: Repository**.
+2. In the **Title** box, enter the name of the repository.
+3. In the **URL** box, enter the address where the server is reachable.
+4. In the **Username** and **Password** boxes, enter the server log-in user ID and password.
+5. Click **Save** to save the repository.
 
-This trigger exposes:
+## Add a Git trigger to a template
 
-* **Commit Id**: Corresponding to the SHA1 of the new commit
+To create a Git trigger:
+
+1. Add a trigger to the template, as described in [Create a release trigger](/xl-release/how-to/create-a-release-trigger.html).
+2. In the **Git Repository** box, enter the Git repository to poll.
+3. In the **Branch** box, optionally enter the Git branch that the trigger should watch.
+4. In the **Username** and **Password** boxes, enter the log-in user ID and password to use to connect to the repository (leave them blank if authentication is not required).
+
+    ![Git Plugin](../images/git-plugin-fields.png)
+
+5. Finish saving the trigger, as described in [Create a release trigger](/xl-release/how-to/create-a-release-trigger.html).
+
+## Output properties
+
+The output of the Git trigger is a **Commit Id**, which corresponds to the SHA1 of the new commit.
 
 ## Specific permission
 
-This plugin could require an edition of the `conf/script.policy` file. Ensure that the following line is present:
+The Git trigger plugin may require an edition of the `conf/script.policy` file. Ensure that the following line is present in the file:
 
 	grant {
 	    ...
@@ -44,4 +56,4 @@ This plugin could require an edition of the `conf/script.policy` file. Ensure th
 	    ...
 	};
 
-The XL Release server must be restarted after the `conf/script.policy` file is changed.
+You must restart the XL Release server after changing the `conf/script.policy` file.
