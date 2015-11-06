@@ -1,5 +1,5 @@
 ---
-title: Introduction to the XL Release Nexus trigger plugin
+title: Using the XL Release Nexus trigger plugin
 categories:
 - xl-release
 subject:

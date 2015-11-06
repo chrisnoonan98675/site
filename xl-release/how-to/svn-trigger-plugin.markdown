@@ -1,5 +1,5 @@
 ---
-title: Introduction to the XL Release SVN trigger plugin
+title: Using the XL Release SVN trigger plugin
 categories:
 - xl-release
 subject:

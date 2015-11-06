@@ -1,5 +1,5 @@
 ---
-title: Introduction to the XL Release Git trigger plugin
+title: Using the XL Release Git trigger plugin
 categories:
 - xl-release
 subject:

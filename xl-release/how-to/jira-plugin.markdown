@@ -1,5 +1,5 @@
 ---
-title: Introduction to the XL Release JIRA plugin
+title: Using the XL Release JIRA plugin
 categories:
 - xl-release
 subject:
