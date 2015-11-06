@@ -160,12 +160,12 @@
 /xl-release/how-to/configure-smtp-servers-in-xl-release.html : /xl-release/how-to/configure-smtp-server.html
 /xl-release/how-to/enable-low-level-audit-logging.html : /xl-release/how-to/enable-granular-audit-logging.html
 /xl-release/how-to/declare-custom-rest-endpoints-in-xl-release.html : /xl-release/how-to/declare-custom-rest-endpoints.html
-/xl-release/concept/introduction-to-the-xl-release-git-trigger-plugin.html : /xl-release/concept/git-trigger-plugin.html
-/xl-release/concept/introduction-to-the-xl-release-jira-plugin.html : /xl-release/concept/jira-plugin.html
-/xl-release/concept/introduction-to-the-xl-release-nexus-trigger-plugin.html : /xl-release/concept/nexus-trigger-plugin.html
-/xl-release/concept/introduction-to-the-xl-release-remote-script-plugin.html : /xl-release/concept/remote-script-plugin.html
-/xl-release/concept/introduction-to-the-xl-release-svn-trigger-plugin.html : /xl-release/concept/svn-trigger-plugin.html
-/xl-release/concept/introduction-to-the-xl-release-time-trigger-plugin.html : /xl-release/concept/time-trigger-plugin.html
+/xl-release/concept/introduction-to-the-xl-release-git-trigger-plugin.html : /xl-release/how-to/git-trigger-plugin.html
+/xl-release/concept/introduction-to-the-xl-release-jira-plugin.html : /xl-release/how-to/jira-plugin.html
+/xl-release/concept/introduction-to-the-xl-release-nexus-trigger-plugin.html : /xl-release/how-to/nexus-trigger-plugin.html
+/xl-release/concept/introduction-to-the-xl-release-remote-script-plugin.html : /xl-release/how-to/remote-script-plugin.html
+/xl-release/concept/introduction-to-the-xl-release-svn-trigger-plugin.html : /xl-release/how-to/svn-trigger-plugin.html
+/xl-release/concept/introduction-to-the-xl-release-time-trigger-plugin.html : /xl-release/how-to/time-trigger-plugin.html
 /xl-release/how-to/create-a-new-admin-user-for-xl-release.html : /xl-release/how-to/create-a-new-admin-user.html
 /xl-release/how-to/configure-the-reporting-database.html : /xl-release/how-to/configure-the-archive-database.html
 
