@@ -10,17 +10,17 @@ tags:
 - archive
 ---
 
-In many cases, an application depends on external resources for its configuration. The application accesses these resources from a predefined location or using a predefined mechanism. In the simplest of forms, a resource can be described as a file, an archive (`ZIP`), or a folder (collection of files). The XL Deploy File plugin allows you to define these resources in a deployment package and manage them on a target host.
+In many cases, an application depends on external resources for its configuration. The application accesses these resources from a predefined location or using a predefined mechanism. In the simplest of forms, a resource can be described as a file, an archive (`ZIP`), or a folder (collection of files).
 
-The resources can contain placeholders that the plugin will replace when targeting to the specific host, thus allowing resources to be defined independent of their environment.
+The XL Deploy File plugin allows you to define these resources in a deployment package and manage them on a target host. It can deploy a `file.File`, `file.Folder`, or `file.Archive` configuration item (CI) on an `overthere.Host` CI.
+
+The file, folder, or archive can contain placeholders that the plugin will replace when targeting to the specific host, thus allowing resources to be defined independent of their environment.
 
 ## Features
 
-Deploy, upgrade, and undeploy a file based resource on an `overthere.Host` configuration item (CI).
-
-* `file.File`
-* `file.Folder`
-* `file.Archive`
+* Deploy a file-based resource on a host
+* Upgrade a file-based resource on a host
+* Undeploy a file-based resource on a host
 
 ## Use in deployment packages
 
