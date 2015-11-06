@@ -40,7 +40,7 @@ Some examples of checklist items are:
 
 You need to define the deployment checklist for every environment that you want to use in a deployment pipeline. 
 
-## Release Dashboard and Security
+## Release dashboard and security
 
 The XL Deploy security system determines who can do what in XL Deploy and this also applies to the Release Dashboard. The following items describe how security affects the functioning of the Release Dashboard:
 

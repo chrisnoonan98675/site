@@ -112,6 +112,35 @@
 /xl-deploy/concept/understanding-orchestrators.html : /xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html
 /xl-deploy/how-to/connect-ldap-or-active-directory.html : /xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html
 /xl-deploy/how-to/define-dependencies-between-versions.html : /xl-deploy/concept/application-dependencies-in-xl-deploy.html
+/xl-deploy/concept/introduction-to-the-release-dashboard.html : /xl-deploy/concept/release-dashboard.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-bamboo-plugin.html : /xl-deploy/concept/bamboo-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-biztalk-plugin.html : /xl-deploy/concept/biztalk-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-command-plugin.html : /xl-deploy/concept/command-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-database-plugin.html : /xl-deploy/concept/database-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-f5-big-ip-plugin.html : /xl-deploy/concept/f5-big-ip-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-file-plugin.html : /xl-deploy/concept/file-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-generic-plugin.html : /xl-deploy/concept/generic-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-glassfish-plugin.html : /xl-deploy/concept/glassfish-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-iis-plugin.html : /xl-deploy/concept/iis-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-jboss-application-server-plugin.html : /xl-deploy/concept/jboss-application-server-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-jboss-domain-plugin.html : /xl-deploy/concept/jboss-domain-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-jee-plugin.html : /xl-deploy/concept/jee-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-liberty-profile-plugin.html : /xl-deploy/concept/liberty-profile-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-netscaler-plugin.html : /xl-deploy/concept/netscaler-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-osb-plugin.html : /xl-deploy/concept/osb-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-powershell-plugin.html : /xl-deploy/concept/powershell-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-remoting-plugin.html : /xl-deploy/concept/remoting-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-team-foundation-server-plugin.html : /xl-deploy/concept/team-foundation-server-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-tomcat-plugin.html : /xl-deploy/concept/tomcat-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-trigger-plugin.html : /xl-deploy/concept/trigger-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-weblogic-plugin.html : /xl-deploy/concept/weblogic-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-webserver-plugin.html : /xl-deploy/concept/webserver-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-websphere-application-server-plugin.html : /xl-deploy/concept/websphere-application-server-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-websphere-mq-plugin.html : /xl-deploy/concept/websphere-mq-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-websphere-process-server-plugin.html : /xl-deploy/concept/websphere-process-server-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-deploy-windows-plugin.html : /xl-deploy/concept/windows-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-scale-ec2-plugin.html : /xl-deploy/concept/xl-scale-ec2-plugin.html
+/xl-deploy/concept/introduction-to-the-xl-scale-vsphere-plugin.html : /xl-deploy/concept/xl-scale-vsphere-plugin.html
 
 # XL Release topics
 /xl-release/how-to/migrate-to-xl-release-4.7.0.html : /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470
