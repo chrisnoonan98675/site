@@ -22,7 +22,7 @@ Metadata are properties you would like to attach to an import and that will be a
 
 If you would like to use metadata on a *per build* basis, be sure your test results only contain data for one test run. This way *one build equals one test run*. 
 
-If you provide a history of test-runs that XL TestView does not know about, then XL TestView will import all data into multiple runs and attach the metadata to all those runs. Therefor rendering any *per build* data unusable.
+If you provide a history of test-runs that XL TestView does not know about, then XL TestView will import all data into multiple runs and attach the metadata to all those runs. Therefore rendering any *per build* data unusable.
 
 You can send over any kind of properties you want, with only a few restrictions:
 
@@ -46,5 +46,5 @@ The following properties are used by XL TestView:
 | `ciJobName ` | String | The name of the job within your CI tool.
 | `ciJobUrl ` | String | The (absolute) url to the build job. (assuming a Job has *builds*)
 | `ciServerUrl ` | String | The (absolute) url to the CI server
-| `source ` | String | Value indidicating where the test results came from. Could be any string. Ie `jenkins` is used by the XL TestView jenkins plugin.
+| `source ` | String | Value indicating where the test results came from. Could be any string. For example, the XL TestView plugin uses `jenkins`.
 
