@@ -12,7 +12,7 @@ since:
 - XL Deploy 5.0.0
 ---
 
-After you have [installed XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) and logged in for the first time, follow these instructions to:
+After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) and the [Apache Tomcat plugin](/xl-deploy/latest/tomcatPluginManual.html), log in to XL Deploy and follow these instructions to:
 
 1. Create an environment and add Apache Tomcat 6.x, 7.x, or 8.x containers to it
 1. Import a sample application into XL Deploy
@@ -36,6 +36,9 @@ To create an environment:
 4. Enter a unique name for the environment in the **Environment name** box.
 5. Click **Next**.
 6. From the **Container type** list, select **tomcat.Server**.
+
+    **Tip:** If you do not see the **tomcat** option in the menu, verify that the Tomcat plugin is installed.
+
 7. The first item that you need to create is a connection to the host on which Tomcat is running. To do so, click **Create new** next to **connection (overthere.Host)**. A new window appears.
 8. Enter a unique name for the connection in the **Container name** box.
 9. From the **Container type** list, select the type of connection that XL Deploy should use. If the host is:

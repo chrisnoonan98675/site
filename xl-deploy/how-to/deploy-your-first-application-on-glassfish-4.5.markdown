@@ -12,7 +12,7 @@ deprecated:
 - XL Deploy 4.5.x
 ---
 
-After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) and logged in for the first time, follow these instructions to:
+After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) and the [Oracle GlassFish plugin](/xl-deploy-glassfish-plugin/4.5.x/glassfishPluginManual.html), log in to XL Deploy and follow these instructions to:
 
 1. Connect XL Deploy to a GlassFish installation running on Unix
 1. Add GlassFish middleware containers to the XL Deploy Repository
@@ -36,6 +36,9 @@ Once XL Deploy can communicate with your host, it can scan for middleware contai
 To add a GlassFish domain:
 
 1. Right-click the host that you created and select **Discover** > **glassfish** > **Domain**.
+
+    **Tip:** If you do not see the **glassfish** option in the menu, verify that the GlassFish plugin is installed.
+
 1. In the **Name** box, enter the name of the domain. This must match the domain name in your GlassFish installation.
 1. In the **Home** box, enter the path to `bin/asadmin`; for example, `/opt/glassfish4`.
 1. In the **Administrative port** and **Administrative Host** boxes, optionally set the port and host used to log in to the Domain Administration Server (defaults to 4848 and `localhost`).

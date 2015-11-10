@@ -12,7 +12,7 @@ deprecated:
 - XL Deploy 4.5.x
 ---
 
-After you have installed your version of [XL Deploy](http://xebialabs.com/products/xl-deploy) and logged in for the first time, follow these instructions to:
+After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) and the [IBM WebSphere plugin](/xl-deploy-was-plugin/4.5.x/wasPluginManual.html), log in to XL Deploy and follow these instructions to:
 
 1. Connect XL Deploy to your IBM WebSphere Application Server (WAS) Network Deployment (ND) or Base installation
 1. Add WAS middleware containers to the XL Deploy Repository
@@ -50,6 +50,9 @@ Once XL Deploy can communicate with your host, it can scan for middleware contai
 To add a WebSphere ND cell:
 
 1. Right-click the host that you created and select **Discover** > **was** > **DeploymentManager**.
+
+    **Tip:** If you do not see the **was** option in the menu, verify that the WebSphere plugin is installed.
+
 2. In the **Name** box, enter a name for the cell.
 3. In the **WebSphere Installation Path** box, enter the path to the deployment manager profile; for example, `/opt/ws/6.1/appserver/profiles/AppSrv01`.
 4. In the **Administrative port**, **Administrative username**, and **Administrative password** boxes, optionally enter the TCP port, user name, and password to use when connecting to WebSphere using `wsadmin`.

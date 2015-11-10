@@ -12,7 +12,7 @@ deprecated:
 - XL Deploy 4.5.x
 ---
 
-After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) and logged in for the first time, follow these instructions to:
+After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) and the [Microsoft IIS plugin](/xl-deploy-iis-plugin/4.5.x/iisPluginManual.html), log in to XL Deploy and follow these instructions to:
 
 1. Connect XL Deploy to your Microsoft Internet Information Services (IIS) installation
 1. Add IIS middleware containers to the XL Deploy Repository
@@ -38,6 +38,9 @@ Once XL Deploy can communicate with your host, you can add the IIS server:
 To add an IIS 7.0+ server:
 
 1. Right-click the host that you created and select **New** > **iis** > **Server**.
+
+    **Tip:** If you do not see the **iis** option in the menu, verify that the IIS plugin is installed.
+
 2. In the **Name** box, enter a name for the server.
 
       ![Sample IIS 7.0+ server configuration](images/xl-deploy-trial/xl_deploy_trial_iis_server.png)
