@@ -10,7 +10,7 @@ tags:
 - api
 ---
 
-You can use the [XL TestView API](/xl-testview/latest/rest-api/index.html) to import test results into XL TestView. This is done through a POST request in `multipart/mixed` format, meaning that the POST body contains two parts: metadata in JSON format and test results in zipped format.
+You can use the [XL TestView API](/xl-testview/latest/rest-api/index.html) to import test results into XL TestView. This is done through a POST request in `multipart/mixed` format, meaning that the POST body contains two parts: metadata using `application/json` Content-Type header and test results using `application/zip` Content-Type header.
 
 ## Metadata
 
@@ -27,7 +27,7 @@ You can include any metadata properties that you want, with a few restrictions:
 * Properties cannot start with an at sign (`@`).
 * Properties can start with the `ci` prefix, but note that XL TestView uses this prefix and may use it more extensively in the future.
 
-Note: the `ci` properties where derived, but not limited to, a Jenkins paradigm.
+Note: the `ci` properties where derived, but not limited to, a Jenkins CI implementation. If you happen to use a different CI tool you can do so as long as the value provided for the `ci` properties below reflect their intended meaning.
 
 XL TestView uses the following metadata properties:
 
@@ -42,3 +42,19 @@ XL TestView uses the following metadata properties:
 | `ciJobUrl ` | String | The absolute URL to the build job (assuming a job has *builds*) |
 | `ciServerUrl ` | String | The absolute URL to the CI server |
 | `source ` | String | Any string value that indicates where the test results came from; for example, the XL TestView Jenkins plugin uses `jenkins`  |
+
+This would look like in JSON:
+
+```
+{
+    "ciBuildNumber": "123",
+    "ciBuildResult": "PASSED",
+    "ciBuildUrl": "http://www.myci.com/jobs/all-unit-tests/builds/123",
+    "ciExecutedOn": "slave-3",
+    "ciJobName": "all-unit-tests",
+    "ciJobUrl": "http://www.myci.com/jobs/all-unit-tests",
+    "ciServerUrl": "http://www.myci.com/",
+    "source": "jenkins"
+}
+```
+
