@@ -22,7 +22,9 @@ To install the XL Deploy server, you must meet the following requirements:
 
 * **Operating system:** Microsoft Windows (32-bit or 64-bit) or a Unix-family operating system running Java
 
-* **Java Runtime Environment:** Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
+* **Java Runtime Environment:**
+    * For XL Deploy 5.1.0 and earlier: Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
+    * For XL Deploy 5.1.1: Java Development Kit (JDK) 7 or 8 (Oracle, IBM, or Apple)
 
 * **RAM:** At least 2 GB of RAM available for XL Deploy
 
