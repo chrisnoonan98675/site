@@ -1,11 +1,10 @@
 ---
-title: Import test results using the API
+title: Import test results using the REST API
 categories:
 - xl-testview
 subject:
-- Jenkins
+- Extensibility
 tags:
-- jenkins
 - import
 - api
 ---
