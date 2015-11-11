@@ -117,6 +117,10 @@ ol > li > ol > li > ol > li > ol > li > ol {
 ol > li > ol > li > ol > li > ol > li > ol > li > ol {
   list-style-type: lower-roman;
 }
+li > p
+{
+  margin-top: 10px;
+}
 
 /* Expand and collapse lists */
 
