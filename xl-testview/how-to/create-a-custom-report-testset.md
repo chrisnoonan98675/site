@@ -1,0 +1,157 @@
+---
+title: Create a custom report for test specification sets
+categories:
+- xl-testview
+subject:
+- Reports
+tags:
+- report
+- extension
+- test specification set
+---
+
+Producing reports for Test Specification Sets are mostly the same as you'd do for a normal report. You can create highchart reports for sets as well, there is no difference in that respect.
+
+For detailed technical information about custom reports, refer to [Custom reports in XL TestView](/xl-testview/concept/custom-reports.html).
+
+This how-to will explain how to create a custom specification set report. Since the workings are practically the same as for custom reports on test specifications, this how-to will emphasize the differences between them.
+
+## Configure the report in `synthetic.xml`
+
+Add a custom report type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
+
+1. Like with custom reports for specifications, copy an existing entry of a report. Here we take the bar chart again.
+
+        <type type="xlt.BarChart" extends="xlt.Report" label="Bar chart">
+            <property name="title" default="Bar chart"/>
+            <property name="scriptLocation" default="reports/BarChart.py"/>
+            <property name="iconName" default="bar-report-icon"/>
+            <property name="userFriendlyDescription" default="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format"/>
+            <property name="reportType" hidden="true" default="highchart"/>
+        </type>
+
+2. Change the `type` attribute to use your desired prefix and name; for example, `type="myCompany.myCustomSet"`.
+
+3. Change the `scriptLocation` to the report script that you will create; for example, `MyCustomSetReport.py`.
+
+4. Change the `title` property. Also do not forget `label` and `description` within the main type element. The `title` appears on the report screen ietself. The `label` is used within the select report box.
+
+4. Make sure you add a property named `applicableCatogiries`, the kind should be `set_of_string` and the value should be `set`. This indicates the report is for test specification *sets*. Example:
+
+        <property name="applicableCategories" kind="set_of_string" default="set"/>
+
+    The result will look like:
+    
+        <type type="myCompany.myCustomSet" extends="xlt.Report" label="My Set Report" description="My set report that does things different">
+            <property name="title" default="My Set Report"/>
+            <property name="scriptLocation" default="reports/MyCustomSetReport.py"/>
+            <property name="iconName" default="bar-report-icon"/>
+            <property name="userFriendlyDescription" default="This is a user friendly description used in the report screen"/>
+            <property name="reportType" hidden="true" default="highchart"/>
+	        <property name="applicableCategories" kind="set_of_string" default="set"/>
+        </type>
+
+
+All changes made to a `synthetic.xml` require a [restart](/xl-testview/how-to/start.html) of XL TestView.
+
+To verify that your changes took effect, click **Projects** in the top menu and select a project. On a *test specification*, click **Show report**. It should show the *My Set Report* report:
+
+![Report list with new custom report](images/create-a-custom-report-testset-reports.png)
+
+## Write the report script
+
+Writing a report remains the same as with a 'normal' custom report. However, there are a few differences you have to keep in mind:
+
+1. Since you're reporting about a *specification set* there is no such thing as the *latest run* (`test_run`) available. Instead you can access the `test_specification_set` you are reporting about.
+
+2. You can get *qualification* information from a test run. To make things easier for querying we provide a `test_runs_repository` (which is the same as `test_runs` in non-set reports) and a `qualification_repository`. 
+
+
+### Sample script
+This shows a script that takes all test specifications of a set and counts the passed and failed qualifications. Then, it represents the values in a Pie chart:
+
+{% highlight python %}
+from modules.hierarchy import *
+
+# get all test specifications within this test spec
+# note: this does not go recursively
+testSpecs = test_specification_set.testSpecifications
+	
+# qualification statuses!
+passed = 0
+failed = 0
+	
+# iterate over all test specifications
+for testSpec in testSpecs:
+    qualification = qualification_repository.getLatestQualificationResult(testSpec.name)
+    if qualification.get("result") == "PASSED":
+        passed = passed + 1
+    else:
+        failed = failed + 1
+	
+result_holder.result = {
+    'chart': {
+        'type': 'pie',
+        'plotBackgroundColor': None,
+        'plotBorderWidth': None,
+        'plotShadow': False
+    },
+    'title': 'Passed versus failed test specifications from their latest qualification',
+    'description': 'This report presents the tests that passed and failed during the last execution of the test specification.',
+    'tooltip': {
+        'enabled': False
+    },
+    'legend': {
+        'borderColor': None,
+        'layout': 'vertical',
+        'verticalAlign': 'middle',
+        'symbolHeight': 12,
+        'symbolWidth': 12,
+        'symbolRadius': 6,
+        'itemMarginBottom': 4
+    },
+    'plotOptions': {
+        'series': {
+            'slicedOffset': 0,
+            'point': {
+                'events': {
+                    'click': 'url'
+                }
+            }
+        },
+        'pie': {
+            'allowPointSelect': True,
+            'dataLabels': {
+                'enabled': True,
+                'distance': -15,
+                'format': '{y}'
+            },
+            'innerSize': '70%',
+            'showInLegend': 'True',
+            'animation': False,
+            'states': {
+                'hover': {
+                    'enabled': False
+                }
+            }
+        }
+    },
+    'series': [{
+        'data': [{
+            'name': "Passed ({0})".format(passed),
+            'y': passed
+        },
+            {
+                'name': "Failed ({0})".format(failed),
+                'y': failed
+            }
+        ]
+    }]
+}
+{% endhighlight %}
+
+The end result looks like:
+
+
+
+**Note:** This structure looks similar to JSON, but because this is a Python script, it is actually a `Dictionary` (or `Map` in other languages). This means that the keys should be surrounded by quotation marks (`'` or `"`). If you copy examples from a Highcharts demo, you must adjust the keys accordingly. For an extended example, refer to [Create a custom report using Highcharts demos](/xl-testview/how-to/create-a-custom-report-using-highcharts-demos.html).
