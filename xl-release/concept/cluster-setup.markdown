@@ -81,7 +81,14 @@ All cluster configuration must be provided in the file `conf/xl-release.conf`. T
 
 Let's describe each section separately
 
+#### Enabling cluster
+
+The cluster is enabled with the switch `xl.cluster.enabled` set to `yes`. 
+
+
 #### Archiving (reporting) database
+
+Archiving database must be shared between all nodes when cluster is enabled. Make sure that every node has access to the shared archiving database.  
 
 Section `xl.reporting` must include following parameters:
 
@@ -92,9 +99,16 @@ Section `xl.reporting` must include following parameters:
 
 *Note:* Place the JAR file containing the JDBC driver of the selected database in the XL Release `lib` directory.
 
-#### Enabling cluster
+#### Repository database
 
-The cluster is enabled with the switch `xl.cluster.enabled` set to `yes`.
+Repository database must be shared between all nodes when cluster is enabled. Make sure that every node has access to the shared repository database.
+
+Section `xl.repository` must include following parameters:
+
+* `driverName` must be set to class name of the database driver to be used (example, 'oracle.jdbc.driver.OracleDriver')
+* `jdbcUrl` must be set to jdbc url that describes connection details to a database (example, `"jdbc:oracle:thin:@oracle.hostname.com:1521:SID"`)
+* `username` must be set with the username to be used to login to the database
+* `password` must be set with the password to be used to login to the database (after performing setup, the password will be encrypted and stored in secured format)
 
 #### Node connection details
 
@@ -124,17 +138,8 @@ where:
 * `clusterPort` must be set to port used for cluster wide communications.
 * `repositoryPort` must be set to port used in repository replication mechanism.
 
-#### Shared repository connection details
 
-1. Place the JAR file containing the Oracle JDBC driver `ojdbc6.jar` in the XL Release `plugins` directory. You can download the driver from [Oracle](http://www.oracle.com/technetwork/database/features/jdbc/jdbc-drivers-12c-download-1958347.html).
-1. Modify the `jdbc:connection-pool` element in the `conf/infinispan-cluster-oracle.xml` file as follows:
-  * `connection-url` must be a valid JDBC URL; for example, `jdbc:oracle:thin:@oracle.hostname.com:1521:SID` (use the correct hostname, port, and SID)
-  * `driver` must be a valid Oracle driver; for example, `oracle.jdbc.driver.OracleDriver`
-  * `username` specifies the username to connect to the database
-  * `password` specifies the password to connect to the database
-
-
-## Limitations in the beta release
+## Limitations in the cluster release
 
 ### Limitation on HTTP session sharing
 
@@ -147,3 +152,12 @@ If an XL Release node becomes unavailable:
 * All users that are on that node will be logged out and will lose any work that was not yet persisted to the database.
 
 * Any background tasks running on the node will be lost.
+
+### Single mode vs Cluster mode repository
+
+XL Release is relying on Modeshape JCR implementation when cluster is enabled and it relies on Jackrabbit JCR implementation when cluster is disabled. 
+Because of that, switching from cluster mode to a single mode and vise versa will not migrate data from one JCR repository to another. 
+
+### Limitations on data migration
+
+XL Release Cluster does not support migration of previous production data nor migration from  single mode to cluster mode data (see Single mode vs Cluster mode repository)
