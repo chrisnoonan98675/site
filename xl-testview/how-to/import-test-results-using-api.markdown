@@ -40,7 +40,7 @@ XL TestView uses the following metadata properties:
 | `ciJobName ` | String | The name of the job in your CI tool |
 | `ciJobUrl ` | String | The absolute URL to the build job (assuming a job has *builds*) |
 | `ciServerUrl ` | String | The absolute URL to the CI server |
-| `source ` | String | Any string value that indicates where the test results came from; for example, the XL TestView Jenkins plugin uses `jenkins`  |
+| `ciSource ` | String | Any string value that indicates where the test results came from; for example, the XL TestView Jenkins plugin uses `jenkins`  |
 
 This would look like in JSON:
 
@@ -53,7 +53,7 @@ This would look like in JSON:
     "ciJobName": "all-unit-tests",
     "ciJobUrl": "http://www.myci.com/jobs/all-unit-tests",
     "ciServerUrl": "http://www.myci.com/",
-    "source": "jenkins"
+    "ciSource": "jenkins"
 }
 ```
 
