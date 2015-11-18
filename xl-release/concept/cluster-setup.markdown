@@ -15,6 +15,7 @@ The initial cluster setup is:
 
 ## Tested setup
 XebiaLabs' test setup used: 
+
 * [HAProxy](http://www.haproxy.org/) as a load balancer.  
 * An Oracle 12c as database.
 * XLR Nodes were hosted on unix-based machines
@@ -46,7 +47,7 @@ Read about the [limitations of the cluster release](#limitations-of-cluster).
 
 ### Per node setup
 
-1. Use resulted distribution created in [Preparation of common clustered distribution](#preparation-of-common-clustered-distribution) 
+1. Use distribution created in [Preparation of common clustered distribution](#preparation-of-common-clustered-distribution) 
 1. Perform node specific configuration as described in [Node connection details](#node-connection-details)
 
 ### Starting up cluster
