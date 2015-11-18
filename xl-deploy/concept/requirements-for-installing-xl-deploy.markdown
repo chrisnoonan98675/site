@@ -16,7 +16,7 @@ tags:
 
 ## Server requirements
 
-To install the XL Deploy server, you must meet the following requirements:
+To [install](/xl-deploy/how-to/install-xl-deploy.html) the XL Deploy server, you must meet the following requirements:
 
 * **XL Deploy license:** If you are using a paid edition of XL Deploy, you can download your [license](/xl-deploy/concept/xl-deploy-licensing.html) from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com)
 

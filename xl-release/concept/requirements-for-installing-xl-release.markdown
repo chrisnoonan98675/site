@@ -13,7 +13,7 @@ tags:
 
 ## Server requirements
 
-To install the XL Release server, the following prerequisites must be met:
+To [install](/xl-release/how-to/install-xl-release.html) the XL Release server, the following prerequisites must be met:
 
 * **Operating system:** Microsoft Windows or a Unix-family operating system
 * **Java SE Development Kit (JDK)**: JDK 7 (Oracle or IBM)
