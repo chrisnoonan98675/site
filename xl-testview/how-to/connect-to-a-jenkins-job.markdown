@@ -48,7 +48,7 @@ Configure the XL TestView plugin to send the results to the test specification t
 
    **Note:** The include and exclude patterns depend on the tool that you selected.
 
-1. If Jenkins cannot send test results to XL TestView—for example, because a test specification name was not specified—the plugin can alert you by setting the build status to unstable. Select **Allow the XL TestView plugin to alter your build status** if you want to allow this (supported in XL TestView 1.3.1 and later).
+1. If Jenkins cannot send test results to XL TestView—for example, because a test specification name was not specified—the plugin can alert you by setting the build status to unstable. Select **Mark build as unstable if sending test results fails** if you want to allow this.
 1. Click **Save** to save the updated configuration.
 
 ## Step 5 Build
