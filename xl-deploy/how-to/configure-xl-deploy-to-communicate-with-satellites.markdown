@@ -62,7 +62,7 @@ You can specify the ping timeout in milliseconds, seconds, or minutes. For examp
 
 ## Configure the maximum upload threads per task
 
-In XL Deploy 5.1.2 and later it's possible to configure the maximum threads per upload task. To change it, specify locate `satellite.streaming.max-uploads` in `conf/system.conf` and modify:
+In XL Deploy 5.1.2 and later, you can configure the maximum threads per upload task. To configure this value, change the `satellite.streaming.max-uploads` property in `conf/system.conf`:
 
     satellite {
         streaming {
