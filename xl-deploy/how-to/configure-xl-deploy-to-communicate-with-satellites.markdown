@@ -59,3 +59,13 @@ The upload idle timeout occurs when a satellite has accepted an incoming streami
     }
 
 You can specify the ping timeout in milliseconds, seconds, or minutes. For example, `100 ms` or `10 seconds`.
+
+## Configure the maximum upload threads per task
+
+In XL Deploy 5.1.2 and later it's possible to configure the maximum threads per upload task. To change it, specify locate `satellite.streaming.max-uploads` in `conf/system.conf` and modify:
+
+    satellite {
+        streaming {
+            max-uploads = 5
+        }
+    }
