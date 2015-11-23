@@ -50,7 +50,7 @@ You can specify the ping timeout in milliseconds, seconds, or minutes. For examp
 
 ## Configure the upload idle timeout
 
-The upload idle timeout occurs when a satellite has accepted an incoming streaming connection but does not need to accept the uploaded file. This prevents unused TCP connections from remaining open. To configure the upload idle timeout, change the `satellite.timeout.upload.idle` property in the file `conf/system.conf`:
+The upload idle timeout occurs when a satellite has accepted an incoming streaming connection but does not need to accept the uploaded file. This prevents unused TCP connections from remaining open. To configure the upload idle timeout, change the `satellite.timeout.upload.idle` property in `conf/system.conf`:
 
     satellite {
       timeout {
@@ -59,6 +59,18 @@ The upload idle timeout occurs when a satellite has accepted an incoming streami
     }
 
 You can specify the ping timeout in milliseconds, seconds, or minutes. For example, `100 ms` or `10 seconds`.
+
+## Configure the file streaming timeout
+
+In XL Deploy 5.1.2 and later, you can configure the file streaming timeout. This timeout occurs when XL Deploy attempts to connect to satellites for file transfer. To configure this value, change the `satellite.timeout.streaming` property in `conf/system.conf`:
+
+    satellite {
+      timeout {
+        streaming = "<timeout>"
+      }
+    }
+
+The default timeout is 10 seconds.
 
 ## Configure the maximum upload threads per task
 
