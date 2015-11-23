@@ -30,7 +30,7 @@ To install XL Deploy 5.0.0 or later as a daemon or service:
 
 ## Troubleshoot the XL Deploy service
 
-In XL Deploy 5.1.1 and later, if the XL Deploy service does not start, you can increase the startup timeout. In the `conf/xld-wrapper-linux.conf` file (on Unix) or the `conf\xld-wrapper-win.conf` (on Windows) file, add the following line:
+In XL Deploy 5.1.1 and later, if the XL Deploy service does not start, you can increase the startup timeout. In the `conf/xld-wrapper-linux.conf` (on Unix) or `conf\xld-wrapper-win.conf` (on Windows) file, add the following line:
 
     wrapper.startup.timeout=<timeout>
 
@@ -38,4 +38,4 @@ Where `<timeout>` is the startup timeout in seconds.
 
 ## Uninstall the XL Deploy service
 
-To remove the installed service from the system, use the `<XLDEPLOY_HOME>/bin/uninstall-service.sh` or `<XLDEPLOY_HOME>\bin\uninstall-service.cmd` command.
+To remove the installed service from the system, use the `<XLDEPLOY_HOME>/bin/uninstall-service.sh` (on Unix) or `<XLDEPLOY_HOME>\bin\uninstall-service.cmd` (on Windows) command.
