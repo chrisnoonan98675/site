@@ -168,6 +168,7 @@
 /xl-release/concept/introduction-to-the-xl-release-time-trigger-plugin.html : /xl-release/how-to/time-trigger-plugin.html
 /xl-release/how-to/create-a-new-admin-user-for-xl-release.html : /xl-release/how-to/create-a-new-admin-user.html
 /xl-release/how-to/configure-the-reporting-database.html : /xl-release/how-to/configure-the-archive-database.html
+/xl-release/how-to/create-custom-task-types-in-xl-release.html : /xl-release/how-to/create-custom-task-types.html
 
 # XL TestView topics
 /xl-test/how-to/create-a-test-tool-plugin.html : /xl-testview/concept/understanding-the-architecture.html
