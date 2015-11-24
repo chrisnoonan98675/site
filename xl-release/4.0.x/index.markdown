@@ -19,3 +19,7 @@ product-id: xl-release
 * [Git Plugin Manual](../../xl-release-git-plugin/4.0.x/gitPluginManual.html)
 * [Nexus Plugin Manual](../../xl-release-nexus-plugin/4.0.x/nexusPluginManual.html)
 * [Time Plugin Manual](../../xl-release-time-plugin/4.0.x/timePluginManual.html)
+
+### Community plugins
+
+For information about XL Release community plugins, refer to the [Community page](/community/index.html).

@@ -79,3 +79,7 @@ product-id: xl-deploy
 * [XL Scale plugin](../../xl-scale-plugin/4.0.x/xlScaleManual.html)
 * [XL Scale EC2 plugin](../../xl-scale-ec2-plugin/4.0.x/ec2PluginManual.html)
 * [XL Scale vSphere plugin](../../xl-scale-vsphere-plugin/4.0.x/vspherePluginManual.html)
+
+### Community plugins
+
+For information about XL Deploy community plugins, refer to the [Community page](/community/index.html).
