@@ -10,3 +10,7 @@ product-id: xl-testview
 * [Jython API reference](https://docs.xebialabs.com/generated/jython-docs/#!/xl-testview/1.3.x)
 * [UDM CI reference](https://docs.xebialabs.com/generated/xl-testview/1.3.x/xltestview.html)
 * [Javadoc](https://docs.xebialabs.com/generated/xl-testview/1.3.x/javadoc/index.html)
+
+## Community plugins
+
+For information about XL TestView community plugins, refer to the [Community page](/community/index.html).

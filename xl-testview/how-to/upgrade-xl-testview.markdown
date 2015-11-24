@@ -82,7 +82,7 @@ To upgrade an XL TestView server installation:
 
 ### Upgrading the repository
 
-If a repository upgrade is required, when you start XL TestView it detect that it is running against an old repository and will exit with a message indicating that an upgrade is required. The upgrade is not performed automatically.
+When you start XL TestView, it will detect whether it is running against a repository that must be upgraded. If so, it will exit with a message indicating that a repository upgrade is required. The repository is not upgraded automatically.
 
 To perform an upgrade, start XL TestView with one of the following flags:
 

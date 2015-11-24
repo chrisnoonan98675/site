@@ -12,7 +12,7 @@ deprecated:
 - XL Deploy 4.5.x
 ---
 
-After you have installed your version of [XL Deploy](http://xebialabs.com/products/xl-deploy) and logged in for the first time, follow these instructions to:
+After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) and the [Apache Tomcat plugin](/xl-deploy-tomcat-plugin/4.5.x/tomcatPluginManual.html), log in to XL Deploy and follow these instructions to:
 
 1. Connect XL Deploy to an Apache Tomcat 5.5.x, 6.x, 7.x, or 8.x installation running on Unix or Windows
 1. Add the Tomcat server to the XL Deploy Repository
@@ -47,8 +47,11 @@ Once XL Deploy can communicate with your host, you can add your Tomcat middlewar
 To add the Tomcat server:
 
 1. Right-click the host that you created and select **New** > **tomcat** > **Server**.
+
+    **Tip:** If you do not see the **tomcat** option in the menu, verify that the Tomcat plugin is installed.
+
 2. In the **Name** box, enter a name for the server.
-3. In the 	**Home** box, enter Tomcat home directory; for example, `/opt/apache-tomcat-8.0.9/` on Unix or `C:\Program Files\Tomcat\` on Windows.
+3. In the **Home** box, enter Tomcat home directory; for example, `/opt/apache-tomcat-8.0.9/` on Unix or `C:\Program Files\Tomcat\` on Windows.
 4. In the **Start Command** box, enter the home directory, followed by the OS-specific command to start Tomcat. For example:
       * `service tomcat8 start` on Unix
       * `net start tomcat8` on Windows

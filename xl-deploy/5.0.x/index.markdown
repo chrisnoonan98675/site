@@ -13,6 +13,7 @@ product-id: xl-deploy
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
 * [Jython API Manual](/jython-docs/#!/xl-deploy/5.0.x/)
+* [Javadoc](/xl-deploy/5.0.x/javadoc/udm-plugin-api/index.html)
 
 ## Plugin reference documentation
 
@@ -67,3 +68,7 @@ product-id: xl-deploy
 * [XL Scale plugin](/xl-scale-plugin/5.0.x/xlScaleManual.html)
 * [XL Scale EC2 plugin](/xl-scale-ec2-plugin/5.0.x/ec2PluginManual.html)
 * [XL Scale vSphere plugin](/xl-scale-vsphere-plugin/5.0.x/vspherePluginManual.html)
+
+### Community plugins
+
+For information about XL Deploy community plugins, refer to the [Community page](/community/index.html).

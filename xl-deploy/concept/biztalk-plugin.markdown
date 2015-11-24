@@ -20,14 +20,14 @@ For information about BizTalk requirements and the configuration items (CIs) tha
     * BizTalk Server 2006 R2
     * BizTalk Server 2009
     * BizTalk Server 2010
-    * BizTalk Server 2013.
-* Creates and destroys BizTalk applications in the BizTalk database.
-    * Starts and stops BizTalk applications as necessary.
-* Adds and remove BizTalk and plain assemblies to/from the BizTalk database.
-* Imports BizTalk bindings files into the BizTalk database.
-* Imports BizTalk Business Rule Engine (BRE) vocabularies into the BizTalk database.
-* Imports, deploys and undeploys BRE rules into the BizTalk database.
-* Installs BizTalk and plain assemblies in the Global Assembly Cache (GAC) on every BizTalk server (host).
+    * BizTalk Server 2013
+* Creates and destroys BizTalk applications in the BizTalk database
+    * Starts and stops BizTalk applications as necessary
+* Adds and remove BizTalk and plain assemblies to/from the BizTalk database
+* Imports BizTalk bindings files into the BizTalk database
+* Imports BizTalk Business Rule Engine (BRE) vocabularies into the BizTalk database
+* Imports, deploys, and undeploys BRE rules into the BizTalk database
+* Installs BizTalk and plain assemblies in the Global Assembly Cache (GAC) on every BizTalk server (host)
 
 ## Use in deployment packages
 

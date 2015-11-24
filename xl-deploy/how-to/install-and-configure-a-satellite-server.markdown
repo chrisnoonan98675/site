@@ -10,15 +10,30 @@ tags:
 - satellite
 - configuration
 - system administration
+- installation
 since:
 - XL Deploy 5.0.0
 ---
+
+## Requirements for a satellite server
+
+An [XL Deploy satellite server](/xl-deploy/concept/getting-started-with-the-satellite-module.html) must meet the following requirements:
+
+* **Operating system:** Microsoft Windows (32-bit or 64-bit) or a Unix-family operating system running Java
+
+* **Java Runtime Environment:**
+    * For XL Deploy 5.1.0 and earlier: Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
+    * For XL Deploy 5.1.1: Java Development Kit (JDK) 7 or 8 (Oracle, IBM, or Apple)
+
+* **RAM:** At least 2 GB of RAM available for the XL Deploy satellite module
+
+* **Hard disk space:** Sufficient hard disk space to store the artifacts that will be deployed to this specific satellite server
 
 ## Install the satellite
 
 To install the XL Deploy satellite software:
 
-1. Ensure that Java SE Development Kit 7 (JDK 7) is installed on the satellite server.
+1. Ensure that the satellite server meets the requirements.
 2. Extract the satellite distribution ZIP file in the location on the server where you want to install the software.
 
 ## Start the satellite

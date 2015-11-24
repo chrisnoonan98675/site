@@ -26,11 +26,9 @@ For information about the configuration items (CIs) that the JBoss Application S
 	* Aspect archive (AOP)
 * Resources:
 	* Datasource
-	* JMS Queue**
-	* JMS Topic**
+	* JMS Queue
+	* JMS Topic
 * Discovery
-
-**Note:** When creating JMS resources such as JMS queues and JMS topics for JBoss Application Server 6, only the JNDI name is used. Other properties such as `RedeliveryDelay`, `MaxDeliveryAttempts`, and so on are not used, even if they are defined and set on the configuration item (CI) in `synthetic.xml`. You can define these properties by editing the global server configuration at `%JBOSS_HOME%/server/<configuration/deploy/hornetq/hornetq-jms.xml`.
 
 ## Use in deployment packages
 
@@ -67,4 +65,8 @@ This is a sample `deployit-manifest.xml` file that can be used to create a deplo
 
 ## Deploying applications
 
-By default, XL Deploy deploys the application artifacts and resource specifications (datasource, queues, topics etc) to the `deploy` directory in the server's configuration. Therefore, if the server configuration is set to `default` (which is the default value of the server name), the artifact is copied to `${JBOSS_HOME}/server/default/deploy`. Also, the server is stopped before copying the artifact and then started again. These configurations are customisable to suit specific scenarios.
+By default, XL Deploy deploys the application artifacts and resource specifications (datasource, queues, topics etc) to the `deploy` directory in the server's configuration. Therefore, if the server configuration is set to `default` (which is the default value of the server name), the artifact is copied to `${JBOSS_HOME}/server/default/deploy`. Also, the server is stopped before copying the artifact and then started again. These configurations are customizable to suit specific scenarios.
+
+## Creating JMS resources
+
+When creating JMS resources such as JMS queues and JMS topics for JBoss Application Server 6, only the JNDI name is used. Other properties such as `RedeliveryDelay`, `MaxDeliveryAttempts`, and so on are not used, even if they are defined and set on the configuration item (CI) in `synthetic.xml`. You can define these properties by editing the global server configuration at `%JBOSS_HOME%/server/<configuration/deploy/hornetq/hornetq-jms.xml`.

@@ -55,24 +55,26 @@
 			});
 		});
 	</script>
-	<script src="/js/jquery.collapse.js"></script>
-	<script src="/js/jquery.collapse_storage.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#expand-all-subjects").click(function(){
-				$("#subject-list").trigger("open");
+	{% unless page.path contains "development-dashboard" %}
+		<script src="/js/jquery.collapse.js"></script>
+		<script src="/js/jquery.collapse_storage.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#expand-all-subjects").click(function(){
+					$("#subject-list").trigger("open");
+				});
+				$("#collapse-all-subjects").click(function(){
+					$("#subject-list").trigger("close");
+				});
+				$("#expand-all-tags").click(function(){
+					$("#tag-list").trigger("open");
+				});
+				$("#collapse-all-tags").click(function(){
+					$("#tag-list").trigger("close");
+				});
 			});
-			$("#collapse-all-subjects").click(function(){
-				$("#subject-list").trigger("close");
-			});
-			$("#expand-all-tags").click(function(){
-				$("#tag-list").trigger("open");
-			});
-			$("#collapse-all-tags").click(function(){
-				$("#tag-list").trigger("close");
-			});
-		});
-	</script>
+		</script>
+	{% endunless %}
 	
 	<!-- TypeKit -->
 	<script type="text/javascript" src="//use.typekit.net/hmi0avp.js"></script>

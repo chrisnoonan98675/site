@@ -10,9 +10,7 @@ tags:
 - database
 ---
 
-XL Deploy uses a repository to store all of its data such as configuration items (CIs), deployment packages, logging, etc. XL Deploy can use the filesystem or a database for binary artifacts (deployment packages) and CIs and CI history.
-
-Out of the box, XL Deploy uses the filesystem to store all data in the repository.
+XL Deploy uses a repository to store all of its data such as configuration items (CIs), deployment packages, logging, etc. XL Deploy can use the filesystem or a database for binary artifacts (deployment packages) and CIs and CI history. By default, XL Deploy uses the filesystem to store all data in the repository.
 
 ## Location of the repository
 
@@ -31,11 +29,12 @@ XL Deploy can also use a database to store its repository. To use a database, yo
 | Only CIs and CI history | `PersistenceManager` and `FileSystem` |
 | All data (binary artifacts and CIs and CI history) | `DataStore`, `PersistenceManager` and `FileSystem` |
 
-**Note:** XL Deploy must initialize the repository before it can be used. Run XL Deploy's setup wizard and initialize the repository after making any changes to the repository configuration.
+**Important:** XL Deploy must initialize the repository before it can be used. Run XL Deploy's setup wizard and initialize the repository after making any changes to the repository configuration.
 
-For more information about using a database with Jackrabbit, see the [PersistenceManager FAQ](http://wiki.apache.org/jackrabbit/PersistenceManagerFAQ) and [DataStore FAQ](http://wiki.apache.org/jackrabbit/DataStore).
+For more information about:
 
-For information about changing the configuration, refer to [Change the repository database settings](/xl-deploy/how-to/change-the-repository-database-settings.html).
+* Using a database with Jackrabbit, see the [PersistenceManager FAQ](http://wiki.apache.org/jackrabbit/PersistenceManagerFAQ) and [DataStore FAQ](http://wiki.apache.org/jackrabbit/DataStore)
+* Moving the database or changing its configuration, refer to [Change the repository database settings](/xl-deploy/how-to/change-the-repository-database-settings.html)
 
 ### Using XL Deploy with MySQL
 
@@ -285,7 +284,7 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
 
 For more information about SQL Server configuration for Jackrabbit, refer to the [Jackrabbit wiki](http://wiki.apache.org/jackrabbit/DataStore#Database_Data_Store). For information about the `MSSqlPersistenceManager` class, refer to the [Jackrabbit documentation](http://jackrabbit.apache.org/api/2.2/org/apache/jackrabbit/core/persistence/db/MSSqlPersistenceManager.html).
 
-## Clustering
+## Using clustering
 
 It is also possible to run XL Deploy server with its repository shared with other XL Deploy server instances. For this to happen, the jackrabbit JCR must be configured to run in a [clustered mode](http://wiki.apache.org/jackrabbit/Clustering#Overview). This needs a cluster configuration to be present in the `jackrabbit-repository.xml` file.
 
@@ -322,3 +321,7 @@ The following example shows a sample clustering configuration for a JCR using Or
 {% endhighlight %}
 
 Note that each Jackrabbit cluster node should have a unique value for `id`. For more information on JCR clustering, or ways to configure clustering using other databases, please refer to the Jackrabbit [clustering documentation](http://wiki.apache.org/jackrabbit/Clustering#Overview).
+
+## Moving the database
+
+For important information about moving a repository database or changing its configuration, refer to [Change the repository database settings](/xl-deploy/how-to/change-the-repository-database-settings.html).

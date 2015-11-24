@@ -12,6 +12,7 @@ product-id: xl-deploy
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
 * [Jython API Reference](/jython-docs/#!/xl-deploy/5.1.x/)
+* [Javadoc](/xl-deploy/5.1.x/javadoc/udm-plugin-api/index.html)
 
 ## Plugin reference documentation
 
@@ -34,7 +35,7 @@ product-id: xl-deploy
 * [JBoss Application Server 7 and up plugin](/xl-deploy-jbossdm-plugin/5.0.x/jbossDomainPluginManual.html)
 * [Oracle Service Bus plugin](/xl-deploy-osb-plugin/5.0.x/osbPluginManual.html)
 * [WebLogic Application Server plugin](/xl-deploy-wls-plugin/5.0.x/wlsPluginManual.html)
-* [WebSphere Application Server plugin](/xl-deploy-was-plugin/5.0.x/wasPluginManual.html)
+* [WebSphere Application Server plugin](/xl-deploy-was-plugin/5.1.x/wasPluginManual.html)
 * [WebSphere Process Server plugin](/xl-deploy-wps-plugin/5.0.x/wpsPluginManual.html)
 * [WebSphere Liberty Profile Server plugin](/xl-deploy-wlp-plugin/5.1.x/wlpPluginManual.html)
 * [Tomcat plugin](/xl-deploy-tomcat-plugin/5.0.x/tomcatPluginManual.html)
@@ -67,3 +68,7 @@ product-id: xl-deploy
 * [XL Scale plugin](/xl-scale-plugin/5.0.x/xlScaleManual.html)
 * [XL Scale EC2 plugin](/xl-scale-ec2-plugin/5.0.x/ec2PluginManual.html)
 * [XL Scale vSphere plugin](/xl-scale-vsphere-plugin/5.0.x/vspherePluginManual.html)
+
+### Community plugins
+
+For information about XL Deploy community plugins, refer to the [Community page](/community/index.html).

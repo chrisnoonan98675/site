@@ -13,7 +13,7 @@ tags:
 
 ## Server requirements
 
-To install the XL Release server, the following requirements must be met:
+To [install](/xl-release/how-to/install-xl-release.html) the XL Release server, the following prerequisites must be met:
 
 * **XL Release license:** See [XL Release licensing](/xl-release/concept/xl-release-licensing.html)
 * **Operating system:** Microsoft Windows or a Unix-family operating system

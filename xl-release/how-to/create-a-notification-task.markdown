@@ -16,8 +16,11 @@ The notification task allows you to write emails that are sent automatically whe
 
 The options for the notification task are:
 
-* **To**: A list of email addresses where the message will be sent.
-* **Subject**: The subject of the message.
-* **Body**: The message body, in plain text.
+{:.table .table-striped}
+| Option | Description |
+| ------ | ----------- |
+| To | A list of email addresses where the message will be sent |
+| Subject | The subject of the message |
+| Body | The message body, in plain text |
 
 Click a field to edit it. You can use [variables](/xl-release/concept/variables-in-xl-release.html).

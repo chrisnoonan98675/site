@@ -13,7 +13,7 @@ deprecated:
 - XL Deploy 4.5.x
 ---
 
-After you have installed your version of [XL Deploy](http://xebialabs.com/products/xl-deploy) and logged in for the first time, follow these instructions to:
+After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) and the [JBoss Domain plugin](/xl-deploy-jbossdm-plugin/4.5.x/jbossDomainPluginManual.html), log in to XL Deploy and follow these instructions to:
 
 1. Connect XL Deploy to a JBoss Enterprise Application Platform (EAP) 6 or JBoss Application Server (AS)/WildFly 7.1+ installation
 1. Add JBoss/WildFly middleware containers to the XL Deploy Repository
@@ -42,6 +42,9 @@ Once XL Deploy can communicate with your host, it can scan for middleware contai
 To add containers in a JBoss Domain:
 
 1. Right-click the host that you created and select **Discover** > **jbossdm** > **Domain**.
+
+    **Tip:** If you do not see the **jbossdm** option in the menu, verify that the JBoss Domain plugin is installed.
+
 1. In the **Name** box, enter a name for the domain.
 1. In the **Home** box, enter the JBoss home directory; for example, `/opt/jbossdm-6eap/`
 1. In the **Administrative username** and **Administrative password** boxes, enter the user name and password used to log in to your [JBoss administration](https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6/html-single/Administration_and_Configuration_Guide/index.html#chap-Management_Interfaces).

@@ -16,13 +16,15 @@ tags:
 
 ## Server requirements
 
-To install the XL Deploy server, you must meet the following requirements:
+To [install](/xl-deploy/how-to/install-xl-deploy.html) the XL Deploy server, you must meet the following requirements:
 
 * **XL Deploy license:** If you are using a paid edition of XL Deploy, you can download your [license](/xl-deploy/concept/xl-deploy-licensing.html) from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com)
 
 * **Operating system:** Microsoft Windows (32-bit or 64-bit) or a Unix-family operating system running Java
 
-* **Java Runtime Environment:** Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
+* **Java Runtime Environment:**
+    * For XL Deploy 5.1.0 and earlier: Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
+    * For XL Deploy 5.1.1: Java Development Kit (JDK) 7 or 8 (Oracle, IBM, or Apple)
 
 * **RAM:** At least 2 GB of RAM available for XL Deploy
 

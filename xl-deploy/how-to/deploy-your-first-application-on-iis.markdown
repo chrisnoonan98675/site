@@ -12,7 +12,7 @@ since:
 - XL Deploy 5.0.0
 ---
 
-After you have [installed XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) and logged in for the first time, follow these instructions to:
+After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) and the [Microsoft IIS plugin](/xl-deploy/latest/iisPluginManual.html), log in to XL Deploy and follow these instructions to:
 
 1. Create an environment and add Microsoft Internet Information Services (IIS) middleware containers to it
 1. Import a sample application into XL Deploy
@@ -32,6 +32,9 @@ To create an environment:
 6. From the **Container type** list, select:
     * **iis.Server** for IIS 7.0 or later
     * **iis6.Server** for IIS 6.0
+
+    **Tip:** If you do not see the **iis** options in the menu, verify that the IIS plugin is installed.
+
 7. The first item that you need to create is a connection to the host on which IIS is running. To do so, click **Create new** next to **connection (overthere.Host)**. A new window appears.
 8. Enter a unique name for the connection in the **Container name** box.
 9. From the **Container type** list, select the type of connection that XL Deploy should use. If the host is the same computer on which XL Deploy is running, choose **overthere.LocalHost**. Otherwise, choose **overthere.CifsHost**.

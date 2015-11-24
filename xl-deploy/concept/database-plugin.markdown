@@ -14,9 +14,9 @@ The XL Deploy Database plugin supports deployment of SQL files and folders to a 
 
 ## Features
 
-* Runs on XL Deploy 5.0 and up.
-* Supports deployment to MySQL, PostgreSQL, Oracle, MS SQL and DB/2.
-* Deploys and undeploys SQL files and folders.
+* Works with XL Deploy 5.0 and later
+* Supports deployment to MySQL, PostgreSQL, Oracle, MS SQL and DB/2
+* Deploys and undeploys SQL files and folders
 
 ## SQL scripts
 

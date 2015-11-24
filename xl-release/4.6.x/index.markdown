@@ -22,9 +22,6 @@ product-id: xl-release
 * [SVN plugin](/xl-release/concept/introduction-to-the-xl-release-svn-plugin.html)
 * [XL Deploy plugin](/xl-release/how-to/create-an-xl-deploy-task.html)
 
-## Community plugin documentation
+### Community plugins
 
-* [Apache Derby DB tools](https://github.com/xebialabs-community/xl-apache-derby-tools-plugin)
-* [XL Release Stress tests](https://github.com/xebialabs-community/xl-release-stress-tests)
-* [XL Metrics plugin](https://github.com/xebialabs-community/xl-metrics-plugin)
-* [Hot backup for Apache Derby DB](https://github.com/xebialabs-community/xl-apache-derby-hot-backup)
+For information about XL Release community plugins, refer to the [Community page](/community/index.html).

@@ -18,7 +18,8 @@ For information about the configuration items (CIs) that the BIG-IP plugin provi
 
 ## Features
 
-Allows servers and services to be taken out of the load balancing pool before a deployment and put back after the deployment has been performed.
+* Take servers or services out of the load balancing pool before deployment
+* Put servers or services back into the load balancing pool after deployment is complete
 
 ## Installation
 
