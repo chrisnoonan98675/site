@@ -44,7 +44,7 @@ The initial cluster setup is:
 
 ### Testing setup
 
-In XebiaLabs' test setup: 
+In XebiaLabs' test setup:
 
 * [HAProxy](http://www.haproxy.org/) was used as a load balancer
 * An Oracle 12c database was used
@@ -75,7 +75,11 @@ To set up an active/active cluster, you must do some manual configuration before
 
 ### Step 2 Prepare each node in the cluster
 
-Using the distribution created in [Step 1 Prepare the common cluster configuration](#step-1-prepare-the-common-cluster-configuration), perform the node-specific configuration as described in [Configure node connection details](#configure-node-connection-details).
+1. Archive the distribution which you've already set up in [Step 1 Prepare the common cluster configuration](#step-1-prepare-the-common-cluster-configuration).
+1. Copy this archive to all the other nodes of the cluster and unarchive it there.
+1. For each node, perform the node-specific configuration as described in [Configure node connection details](#configure-node-connection-details).
+
+ Please note that you don't need to run setup again.
 
 ### Step 3 Start the nodes
 
@@ -90,7 +94,7 @@ All cluster configuration settings must be provided in the `<XL_RELEASE_HOME>/co
 
 ### Enable clustering
 
-The clustering functionality is enabled when the `xl.cluster.enabled` switch is set to `yes`. 
+The clustering functionality is enabled when the `xl.cluster.enabled` switch is set to `yes`.
 
 ### Configure the archive database
 
