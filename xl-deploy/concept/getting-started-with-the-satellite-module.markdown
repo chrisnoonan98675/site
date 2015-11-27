@@ -30,7 +30,7 @@ XL Deploy satellites can be used to:
 
 ![image](images/xl-deploy-satellite-feature.png) 
 
-Satellites are stand-alone processes that are located in your infrastructure, close to your hosts. XL Deploy orchestrates your deployments by driving the satellites and uploading files (artifacts) and commands to them. A satellite can be your entry point into a secure subnet; it can cache files and automatically update them.
+Satellites are stand-alone processes that are located in your infrastructure, close to your hosts. XL Deploy orchestrates your deployments by driving the satellites and uploading files (artifacts) and commands to them. You can also use a satellite as an entry point into a secure subnet.
 
 ## Getting started with a satellite
 
