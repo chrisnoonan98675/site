@@ -1,5 +1,5 @@
 ---
-title: Use variables in XL Release
+title: Use variables in XL Release (XL Release 4.7.x and earlier)
 categories:
 - xl-release
 subject:
@@ -9,6 +9,8 @@ tags:
 - template
 - task
 - variable
+removed:
+- XL Release 4.7.x
 ---
 
 When creating your release templates, you will probably be creating tasks that have information that can vary based on the release. Also, you may have one generic release template that can be used for the release process of several of your applications. This reusability is an important feature of of XL Release, since it ensures that you create a template once, and then reuse that template for each application release.

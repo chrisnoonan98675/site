@@ -1,5 +1,5 @@
 ---
-title: Variable usage example
+title: Variable usage example (XL Release 4.7.x and earlier)
 categories:
 - xl-release
 subject:
@@ -7,6 +7,8 @@ subject:
 tags:
 - variable
 - release
+deprecated:
+- XL Release 4.7.x
 ---
 
 For data that may change or that is not known in advance, XL Release provides a placeholder mechanism in the form of [variables](/xl-release/concept/variables-in-xl-release.html).

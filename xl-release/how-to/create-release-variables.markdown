@@ -1,0 +1,66 @@
+---
+title: Create release variables
+categories:
+- xl-release
+subject:
+- Variables
+tags:
+- variable
+- release
+- template
+since:
+- XL Release 4.8.0
+---
+
+You can use release variables to manage release information that you don't know in advance or that may change. Unlike [global variables](/xl-release/how-to/configure-global-variables.html), release variables can only be used in the template or release in which they are created.
+
+There are two ways to create a release variable.
+
+## Create a release variable in the release flow editor
+
+A simple way to create a release variable is to type its name in a task in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), using the `${ }` syntax. For example, typing `${name}` creates a variable called `name`, which you can then edit on the Variables screen.
+
+The variable's type depends on the type of the field where you created the variable. For example, typing `${name}` in a text field means `name` will be of the type *text*, while typing `${name}` in a password field means `name` will be of the type *password*.
+
+Other properties, such as the variable's label and description, will be left blank. You can edit them on the Variables screen.
+
+## Create a release variable on the Variables screen
+
+You can also create release variables using the Variables screen:
+
+1. In a release or template, select **Variables** from the **Show** menu.
+1. Click **New variable**. The Create Variable screen appears.
+1. In the **Variable name** box, enter a name for the variable.
+1. In the **Label** box, optionally enter a user-friendly label for the variable. This will appear next to the fields where users can enter a value for the variable.
+1. Select the variable type from the **Type** list:
+    * **Text**: A string of letters or numbers
+    * **Password**: A password
+    * **List**: A list of values that can be reordered and can contain duplicates
+    * **Set**: A set of values that cannot be reordered and cannot contain duplicates
+    * **Key-value map**: A set of keys and corresponding values
+    * **XL Deploy environment**: An environment defined in an XL Deploy server
+    * **XL Deploy package**: A deployment package defined in an XL Deploy server
+
+    **Tip**: Password variables can only be used in password fields, and other types of variables can only be used in non-password fields.
+
+1. Next to **Default value**, optionally enter a default value(s) for the variable. To add a value to a list or a set, type the value in the box and press ENTER.
+1. In the **Description** box, optionally enter a user-friendly description of the variable. This will appear below the fields where users can enter a value for the variable.
+1. If the variable must have a value, select **Required**.
+1. To allow users to enter or change the variable's value when starting a release, select **Show on Create Release form**.
+
+    ![Create release variable](../images/create-release-variable.png)
+
+1. Click **Create** to create the variable.
+
+### How required variables work
+
+If a variable is required and you selected **Show on Create Release form**, then the variable must have a value before the release can start. This can be the default value that you set for the variable in the template, or a value that the user enters when [starting the release](/xl-release/how-to/start-a-release-from-a-template.html).
+
+If a variable is required and it is used in a task, then the variable must have a value before the task can start. This can be the default value that you set for the variable in the template or release, or a value that the user enters before the task becomes active. If a required variable is missing a value when the task becomes active, then the task remains in the *needs input* state until a user enters a value.
+
+## Edit a release variable
+
+To edit a variable in a template or a running release, select **Variables** from the **Show** menu, then click the desired variable. Note that you cannot change the variable's name or type.
+
+If you change the variable's value, planned tasks that use that variable will reflect the new value.
+Completed, skipped, or failed tasks will reflect the old value (except in the case of user input tasks, which always show the variable's current value).

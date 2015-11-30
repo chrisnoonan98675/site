@@ -17,12 +17,16 @@ On the **Permissions** screen under **Settings**, you can assign permissions to 
 
 For each role, there is a list of permissions that can be enabled or disabled:
 
-* **Admin**: Has all permissions in XL Release.
-* **Login**: Required to log in to XL Release.
-* **Edit security**: Gives access to the Roles and Permissions screens and allows global permission to edit security on releases and templates.
-* **Create Template**: Permission to create a new template
-* **Create Release**: Permission to create a release from any template. See also the [Create release](/xl-release/how-to/configure-permissions-for-a-release.html) permission on a single release.
-* **View Reports**: Permission to view reports.
+{:.table .table-striped}
+| Permission | Description |
+| ---------- | ----------- |
+| Admin | All permissions |
+| Login | Permission to log in to XL Release  |
+| Edit security | Access to the Roles and Permissions screens and permission to edit security on releases and templates |
+| Create Template | Permission to create a new template |
+| Create Release | Permission to create a release from any template; also see the [Create Release](/xl-release/how-to/configure-permissions-for-a-release.html) permission on a single release |
+| View Reports | Permission to review reports |
+| Edit Global Variables | Permission to edit [global variables](/xl-release/how-to/configure-global-variables.html) (available in XL Release 4.8.0 and later) |
 
 Click **Save** to apply your changes. Click **Reset** to discard your changes and reload the current settings from the server.
 
