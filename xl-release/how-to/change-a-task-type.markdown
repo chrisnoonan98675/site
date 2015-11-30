@@ -29,4 +29,7 @@ To change a task's type:
 
     XL Release will copy the values of properties that are shared between the task's previous type and the type that you selected.
 
-**Note:** You cannot change the type of an active, completed, failed, or skipped task.
+Note that:
+
+* You cannot change the type of an active, completed, failed, or skipped task.
+* You can change a task to a parallel group, but you cannot change a parallel group to a different type of task.

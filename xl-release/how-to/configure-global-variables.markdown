@@ -8,7 +8,11 @@ tags:
 - settings
 - system administration
 - variable
+since:
+- XL Release 4.8.0
 ---
+
+XL Release allows you to define variables for information that you don't know in advance or that may change. Global variables, which are available in XL Release 4.8.0 and later, can be used in all templates and releases to manage shared information.
 
 On the **Global variables** screen under **Settings**, you can create, edit, and delete global variables. You must have the *Edit Global Variables* permission to do so.
 
