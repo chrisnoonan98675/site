@@ -15,7 +15,7 @@ since:
 You can change the type of a task in:
 
 * A template
-* A planned release that has not started yet)
+* A planned release that has not started yet
 * An active release, if the task that you want to change has not started yet
 
 To change the type of a task in a template, you need the **Edit Template** permission on the template. To change the type of a task in a release, you need the **Edit Task** permission on the release.
