@@ -82,7 +82,7 @@ Next are the properties. They are defined as nested `<property>` elements. The f
 | `category` | XL Release supports two categories.<br />`input` appear in the task in the XL Release UI and must be specified before the task starts. They are then passed to the Python script.<br />`output` can be set in the Python script. When the script completes, they can be copied into release variables in XL Release. |
 | `label` | Label used in the XL Release UI. If you do not specify a label, XL Release will attempt to make a readable version of the property name. For example, the "issueType" property will appear as "Issue Type" in the UI. |
 | `description` | Help text explaining the property in more detail. This will appear in the UI. |
-| `kind` | The property type, which is `string`, `integer`, `boolean`, or `ci`. If omitted, this attribute defaults to `string`. |
+| `kind` | The property type, which is `string`, `integer`, `boolean`, or `ci`. In XL Release 4.8.0 and later, the `list_of_string`, `set_of_string`, and `map_string_string` property types are also available. If omitted, this attribute defaults to `string`. |
 | `password` | Set this attribute to `true` to instruct XL Release to treat the property as a password. The content of password fields are obscured in the UI and encrypted in network traffic and storage. |
 | `size` | Indicates how much space the UI gives to the property. Supported levels are `default`, `small`, `medium`, and `large`. |
 | `default` | The default value of the property. |

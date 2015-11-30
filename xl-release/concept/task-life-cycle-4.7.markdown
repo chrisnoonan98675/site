@@ -1,5 +1,5 @@
 ---
-title: Task life cycle (XL Release 4.7 and earlier)
+title: Task life cycle (XL Release 4.7.x and earlier)
 categories:
 - xl-release
 subject:
@@ -7,7 +7,7 @@ subject:
 tags:
 - task
 deprecated:
-- 4.7.x
+- XL Release 4.7.x
 ---
 
 In an active release, tasks transition through different states. The following diagram shows the lifecycle of a task.
