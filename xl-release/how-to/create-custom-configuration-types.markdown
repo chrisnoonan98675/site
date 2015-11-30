@@ -33,11 +33,14 @@ Each configuration type must extend the root configuration type `xlrelease.Confi
 
 In the example, the "Jira Server" and "Jenkins Server" types extend `configuration.HttpConnection`, which defines these properties:
 
-* `url`: The address where the server is reachable.
-* `username`: The login user ID on the server.
-* `password`: The login user password on the server.
-* `proxyHost`: The http proxy host
-* `proxyPort` the http proxy port
+{:.table .table-striped}
+| Property | Description |
+| -------- | ----------- |
+| `url` | Address where the server can be reached |
+| `username` | Log-in user ID on the server |
+| `password` | Log-in user password on the server |
+| `proxyHost` | HTTP proxy host |
+| `proxyPort` | HTTP proxy port |
 
 The `virtual="true"` attribute means that this type will not appear in the UI and that we can not create an instance of this type.
 
@@ -53,8 +56,8 @@ To reference a custom configuration type from a custom task, you must add a spec
 
 The required attributes to refer to a custom configuration type are:
 
-* `kind="ci"`: Specifies that this property is a reference.
-* `referenced-type="your.Type"`: Specifies which configuration type can be referenced in this property.
+* `kind="ci"`: Specifies that this property is a reference
+* `referenced-type="your.Type"`: Specifies which configuration type can be referenced in this property
 
 ## Configuration page
 
