@@ -10,14 +10,14 @@ tags:
 - upgrade
 ---
 
-You can download your Enterprise Edition license at the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/). When you log in to the site, you will see all of your current licenses. 
+If you have an Enterprise Edition of XL Release, you can download your license file at the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/) (requires enterprise customer log-in). If you have a Trial Edition of XL Release, you will receive a license key by email.
 
 ## License types
 
-There are several versions of the XL Release license:
+When you log in to the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/), you will see all of your current licenses. There are several versions of the XL Release license:
 
-* **V1:** Required for XL Release 4.0.10 and earlier
-* **V2:** Required for XL Release 4.0.11 through 4.7.1
+* **V1:** Supported for XL Release 4.0.10 and earlier
+* **V2:** Supported for XL Release 4.0.11 through 4.7.1
 * **V3:** Required for XL Release 4.7.2 and later
 
 You can also find this information in the `README` file located with your licenses on the XebiaLabs Software Distribution site.
@@ -26,7 +26,7 @@ You can also find this information in the `README` file located with your licens
 
 ## License installation
 
-For information about installing the license, refer to [Install XL Release](/xl-release/how-to/install-xl-release.html#installing-the-license).
+For information about installing the license, refer to [Install XL Release](/xl-release/how-to/install-xl-release.html#install-the-license).
 
 ## License validation
 
@@ -36,4 +36,8 @@ The server will not start if a valid license is not installed.
 
 ## License extension and renewal
 
-To extend a Trial Edition license or to renew an Enterprise Edition license, [contact XebiaLabs](https://xebialabs.com/contact).
+To renew an Enterprise Edition license or extend a Trial Edition license, [contact XebiaLabs](https://xebialabs.com/contact).
+
+To renew your license using a license file that you download from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/), replace the license file in the `XL_RELEASE_HOME/conf` directory with the new file.
+
+To renew your license using a license key, go to **Help** > **About** in XL Release, click **Renew license**, and enter the new license key.
