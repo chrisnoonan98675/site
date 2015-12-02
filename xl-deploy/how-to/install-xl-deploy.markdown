@@ -11,46 +11,24 @@ tags:
 - setup
 ---
 
-Before you install XL Deploy, ensure that you meet the [prerequisites](/xl-deploy/concept/requirements-for-installing-xl-deploy.html).
+There are two ways to install XL Deploy:
 
-For information about installing XL Deploy as a daemon or service, refer to [Install XL Deploy as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html). If you are upgrading a previously installed version of XL Deploy, refer to [Upgrade XL Deploy](/xl-deploy/how-to/upgrade-xl-deploy.html).
+* [Using the command-line server setup wizard](#install-xl-deploy-using-the-command-line)
+* [Using the installer](#install-xl-deploy-using-the-installer) (only available for some versions of XL Deploy)
 
-## Install XL Deploy using the installer
-
-You can use the installer to install XL Deploy on:
-
-* Microsoft Windows
-* Mac OS X
-
-The installer includes an optional demo environment that you can use to get started with XL Deploy.
-
-To install XL Deploy:
-
-1. Ensure that you meet the [prerequisites](/xl-deploy/concept/requirements-for-installing-xl-deploy.html).
-1. Double-click the installer to run it.
-
-    **Note:** In some versions of Windows, you may receive a warning that the publisher is unknown. This is caused by a missing root certificate in the operating system. You can safely proceed with the installation.
-
-1. Follow the steps in the installer to set up and start the XL Deploy server. If you chose to install the demo environment, the installer will also start the demo server.
-1. Go to [http://localhost:4516/](http://localhost:4516/) to access XL Deploy.
-
-To install the command-line interface, refer to [Install the XL Deploy CLI](#install-the-xl-deploy-cli).
+**Tip:** For information about installing XL Deploy as a daemon or service, refer to [Install XL Deploy as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html). If you are upgrading a previously installed version of XL Deploy, refer to [Upgrade XL Deploy](/xl-deploy/how-to/upgrade-xl-deploy.html).
 
 ## Install XL Deploy using the command line
 
-You can use the command-line server setup wizard to install XL Deploy on:
-
-* Microsoft Windows
-* Mac OS X
-* Any other Unix-based operating system.
-
-The setup wizard allows you to specify advanced configuration options related to security.
+You can use the command-line server setup wizard to install XL Deploy on Microsoft Windows, Mac OS X, or any other Unix-based operating system.
 
 To install XL Deploy:
 
-1. [Extract the XL Deploy server archive](#extract-the-xl-deploy-server-archive).
-1. [Install the license](#install-the-license).
+1. [Ensure that you meet the system requirements.](/xl-deploy/concept/requirements-for-installing-xl-deploy.html)
+1. [Extract the XL Deploy server archive.](#extract-the-xl-deploy-server-archive)
+1. [Install the license.](#install-the-license)
 1. [Run the server setup wizard](#run-the-server-setup-wizard) and select whether to perform a [simple setup](#simple-setup) or [manual setup](#manual-setup).
+1. [Finish the setup process and log in to XL Deploy.](#finish-the-setup-process-and-log-in)
 
 ### Extract the XL Deploy server archive
 
@@ -65,10 +43,9 @@ First, extract the XL Deploy server archive:
 
 ### Install the license
 
-To install the XL Deploy license:
+If you received an XL Deploy license key by email, you will be prompted to enter it after you install and start XL Release.
 
-1. If you do not already have a license file (`deployit-license.lic`), download it from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/customer/licenses/).
-1. Copy the downloaded file to the `conf` directory. Be sure that you do not modify the license file in any way.
+If you do not have an XL Deploy license key, you can download a license file from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com) (requires enterprise customer log-in). Place the license file (`deployit-license.lic`) in the `conf` directory before you install XL Deploy. Be sure that you do not modify the license file in any way.
 
 Refer to [XL Deploy licensing](/xl-deploy/concept/xl-deploy-licensing.html) for information about how the XL Deploy license works.
 
@@ -108,25 +85,25 @@ If you choose the simple setup, XL Deploy will be installed with these settings:
 * The server will use a minimum of 3 and a maximum of 24 threads.
 * Applications can be imported from the `importablePackages` directory.
 
-##### Provide a password for the `admin` user
+##### Step 1 Provide a password for the `admin` user
 
 The setup wizard will promote you to provide a password for the `admin` user. The `admin` user has all permissions and is used to connect to XL Deploy's JCR repository.
 
 To use the default password of `admin`, press ENTER twice. If you plan to connect to an existing repository, enter the password that you already use to connect to that repository.
 
-##### Initialize the repository
+##### Step 2 Initialize the repository
 
 The setup wizard will ask if you want to initialize the repository. Answer `yes` to create the repository, or `no` to connect to an existing repository.
 
 **Warning**: If you choose to initialize the repository and you have installed XL Deploy in the same location before, any information stored in the repository will be lost.
 
-##### Generate an encryption key
+##### Step 3 Generate an encryption key
 
 If you choose to initialize the repository, the setup wizard will ask if you want to generate an encryption key to protect passwords that you store in the repository. Answer `yes` to generate a new key.
 
 If you answer `no`, then you agree to use XL Deploy's own encryption key, or to use a key that you have previously generated.
 
-##### Provide a password for the encryption key
+##### Step 4 Provide a password for the encryption key
 
 If you choose to generate an encryption key, you can also provide a password to secure the key. You will be required to enter this password when XL Deploy starts, either:
 
@@ -136,61 +113,61 @@ If you choose to generate an encryption key, you can also provide a password to 
 
 If you do not want to provide a password, press ENTER twice.
 
-See [Finishing the setup process](#finishing-the-setup-process) to complete the setup process.
+See [Finish the setup process and log in](#finish-the-setup-process-and-log-in) to complete the setup process.
 
 #### Manual setup
 
 Manual setup gives you control over all of XL Deploy's installation settings. 
 
-##### Provide a password for the `admin` user
+##### Step 1 Provide a password for the `admin` user
 
 The setup wizard will promote you to provide a password for the `admin` user. The `admin` user has all permissions and is used to connect to XL Deploy's JCR repository.
 
 To use the default password of `admin`, press ENTER twice. If you plan to connect to an existing repository, enter the password that you already use to connect to that repository.
 
-##### Configure secure communication
+##### Step 2 Configure secure communication
 
 The setup wizard will prompt you to set up secure communication (SSL) between the XL Deploy graphical user interface (GUI) and the XL Deploy server.
 
-##### Generate a self-signed certificate
+##### Step 3 Generate a self-signed certificate
 
 A digital certificate is required for secure communication; normally, certificates are signed by a Certificate Authority (CA). However, if you choose secure communication between the GUI and the server, the setup wizard will ask if you want XL Deploy to generate a self-signed digital certificate. 
 
 **Important:** For security reasons, a self-signed certificate is not recommended for production environments. It may trigger security warnings in some browsers and Flash players. A self-signed certificate can only be used when you access the XL Deploy GUI at `https://localhost:4516`.
 
-##### Use your own keystore
+##### Step 4 Use your own keystore
 
 Instead of using a self-signed digital certificate, you can use your own keystore for secure communication between the GUI and the server. XL Deploy's built-in Jetty server requires a certificate with the name `jetty` to be present in the keystore.
 
 The setup wizard will ask you for the keystore path (for example, `mykeystore.jks`), the keystore password, and the password of the `jetty` certificate in the keystore.
 
-##### Enable mutual SSL
+##### Step 5 Enable mutual SSL
 
 The setup wizard will ask if you want to enable mutual SSL. If you answer yes, it will prompt you for the location and password to your truststore.
 
-##### Set up the HTTP configuration
+##### Step 6 Set up the HTTP configuration
 
 The setup wizard will ask the HTTP bind address, HTTP port number, and web context root where you would like XL Deploy to run. 
 
 **Note**: If you chose to enable secure communication, the default port will be 4517 instead of 4516.
 
-##### Set up the thread configuration
+##### Step 7 Set up the thread configuration
 
 The setup wizard will prompt you for the minimum and maximum number of threads that the XL Deploy server should use to handle incoming connections. 
 
-##### Configure the repository
+##### Step 8 Configure the repository
 
 The setup wizard will ask where you want to store the JCR repository. If the directory does not exist, XL Deploy will create it. The setup wizard will also ask if you want to initialize the repository.
 
 **Warning**: If you choose to initialize the repository and you have installed XL Deploy in the same location before, any information stored in the repository will be lost.
 
-##### Generate an encryption key
+##### Step 9 Generate an encryption key
 
 If you choose to initialize the repository, the setup wizard will ask if you want to generate an encryption key to protect passwords that you store in the repository. Answer `yes` to generate a new key.
 
 If you answer `no`, then you agree to use XL Deploy's own encryption key, or to use a key that you have previously generated.
 
-##### Provide a password for the encryption key
+##### Step 10 Provide a password for the encryption key
 
 If you choose to generate an encryption key, you can also provide a password to secure the key. You will be required to enter this password when XL Deploy starts, either:
 
@@ -200,31 +177,35 @@ If you choose to generate an encryption key, you can also provide a password to 
 
 If you do not want to provide a password, press ENTER twice.
 
-See [Finishing the setup process](#finishing-the-setup-process) to complete the setup process.
+See [Finish the setup process and log in](#finish-the-setup-process-and-log-in) to complete the setup process.
 
-##### Configure the location for importable packages
+##### Step 11 Configure the location for importable packages
 
 By default, you can import deployment packages from the `importablePackages` directory. If you would like to change this, enter a path when the setup wizard prompts you. If the directory does not exist, XL Deploy will create it.
 
-### Finishing the setup process
+### Finish the setup process and log in
 
 After you have configured all options, the setup wizard shows a summary of the configuration that you have selected. Answer `yes` to finish the setup process. Answer `no` to exit setup.
 
-## Start XL Deploy
+If you answer `yes`, the setup wizard will start XL Deploy and show the URL where you can access it; for example, `http://localhost:4516`. Open this URL in a browser and log in with the username *admin* and the password that you provided during the setup process.
 
-To start the XL Deploy server, execute the appropriate command:
+## Install XL Deploy using the installer
 
-{:.table .table-striped}
-| Operating system | XL Deploy version | Command |
-| ---------------- | ----------------- | ------- |
-| Microsoft Windows | XL Deploy 4.5.x or earlier | `server.cmd` |
-| Microsoft Windows | XL Deploy 5.0.0 or later | `run.cmd` |
-| Unix-based systems | XL Deploy 4.5.x or earlier | `server.sh` |
-| Unix-based systems | XL Deploy 5.0.0 or later | `run.sh` |
+Some versions of XL Deploy have an installer (`exe` or `dmg` file). You can use the installer to install XL Deploy on Microsoft Windows or Mac OS X.
 
-If you chose the simple setup, you can access XL Deploy at [http://localhost:4516/](http://localhost:4516/). 
+The installer includes an optional demo environment that you can use to get started with XL Deploy.
 
-If you performed a manual setup and changed the HTTP configuration, you can access XL Deploy at the HTTP bind address,  port number, and web context root that you specified during setup.
+To install XL Deploy:
+
+1. Ensure that you meet the [system requirements](/xl-deploy/concept/requirements-for-installing-xl-deploy.html).
+1. Double-click the installer file to run it.
+
+    **Note:** In some versions of Windows, you may receive a warning that the publisher is unknown. This is caused by a missing root certificate in the operating system. You can safely proceed with the installation.
+
+1. Follow the steps in the installer to set up and start the XL Deploy server. If you chose to install the demo environment, the installer will also start the demo server.
+1. Go to `http://localhost:4516/` to access XL Deploy.
+
+To install the command-line interface, refer to [Install the XL Deploy CLI](#install-the-xl-deploy-cli).
 
 ## Install the XL Deploy CLI
 
@@ -234,6 +215,8 @@ To install the XL Deploy command-line interface (CLI):
 2. Create an installation directory such as `/opt/xebialabs/xl-deploy-cli` or `C:\Program Files\XL Deploy\CLI`.
 3. Copy the XL Deploy CLI archive to the directory.
 3. Extract the archive in the directory.
+
+Refer to [Connect to XL Deploy from the CLI](/xl-deploy/how-to/connect-to-xl-deploy-from-the-cli.html) for more information.
 
 ## High availability setup
 

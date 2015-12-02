@@ -12,19 +12,21 @@ tags:
 - upgrade
 ---
 
-If you are using a paid edition of XL Deploy, you can download your license at the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/).
+If you have an Enterprise Edition of XL Deploy, you can download your license file at the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/) (requires enterprise customer log-in). If you have a Trial Edition of XL Deploy, you will receive a license key by email.
 
 ## License types
 
-When you log in to the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/), you will see all of your current licenses. There are three versions of the XL Deploy license:
+When you log in to the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/), you will see all of your current licenses. There are several versions of the XL Deploy license:
 
-* **V1**: Required for XL Deploy 4.0.x and earlier, XL Deploy 4.5.1, and XL Deploy 4.5.2
-* **V2**: Required for XL Deploy 4.5.3 and later
-* **V3**: Required for XL Deploy 5.0.0 and later
+* **V1:** Required for XL Deploy 4.0.x and earlier, XL Deploy 4.5.1, and XL Deploy 4.5.2
+* **V2:** Required for XL Deploy 4.5.3 and later
+* **V3:** Required for XL Deploy 5.0.0 and later
 
-You can also find this information in the `README` file located with your licenses on the Software Distribution site.
+You can also find this information in the `README` file located with your licenses on the XebiaLabs Software Distribution site.
 
-To check the version of a license, open it in a text editor.
+**Tip:** To check the version of a license (`.lic`) file, open it in a text editor.
+
+## License installation
 
 For information about installing the license, refer to [Install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html#install-the-license).
 
@@ -41,7 +43,7 @@ If XL Deploy finds a license violation while the server is running, the server w
 
 **Note:** After the server is stopped, it might not start again (for example, if the license expiry date has been reached).
 
-## Licensed number of configuration items
+### Licensed number of configuration items
 
 If your license limits the number of CIs that you can create, XL Deploy validates it as follows:
 
@@ -49,4 +51,12 @@ If your license limits the number of CIs that you can create, XL Deploy validate
 * If a CI is a subtype of another type (its *supertype*), the instances of the subtype CI count toward the limit on the supertype. 
 * You can always create instances of CI types that are not limited by your license.
 
-To see how many CI types you have created, go to **Administration** > **About** > **License** in the XL Deploy user interface.
+To see how many CI types you have created, click the gear icon in XL Deploy and select **About** > **License**.
+
+## License extension and renewal
+
+To renew an Enterprise Edition license or extend a Trial Edition license, [contact XebiaLabs](https://xebialabs.com/contact).
+
+To renew your license using a license file that you download from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/), replace the license file in the `XL_DEPLOY_HOME/conf` directory with the new file.
+
+To renew your license using a license key, click the gear icon in XL Deploy, select **Renew license**, and enter the new license key.
