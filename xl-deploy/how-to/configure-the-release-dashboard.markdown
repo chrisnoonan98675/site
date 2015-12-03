@@ -68,19 +68,19 @@ It is also possible to assign security roles to checks. Adding a role to a parti
 
 **Important:** Property names on the `udm.Environment` must use the _requires_ prefix and properties on the `udm.Version` must use the _satisfies_ prefix. If you assign specific roles to checks on `udm.Version`, the property must have the _roles_ prefix. In addition, _roles_ properties should be hidden (i.e. set `hidden="true"`).
 
-## Verification on import
+## Verification on package import
 
-Checks are being stored on the `udm.Version`. When importing an application, checklist properties might be set to an initial `true` value, depending on the value of the property in the manifest of the DAR file. This can be useful, but if not be desired behaviour. XL Deploy can be configured to verify checklist properties on import to apply the same validations it would do on deployment. The hidden property `verifyChecklistPermissionsOnCreate` on `udm.Application` controls the import behaviour.
+The checks in deployment checklists are stored in the `udm.Version` CI. When you import a deployment package (DAR file), checklist properties can be initially set to `true`, depending on their values in the package's manifest file. While this may be desired behavior, you may want XL Deploy to verify checklist properties on package import and to apply the same validations that it would upon deployment.
 
-If you want to configure the behaviour, you should start by unhiding the `verifyChecklistPermissionsOnCreate` property.
+To do so, use the hidden property `verifyChecklistPermissionsOnCreate` on `udm.Application`. Set `hidden` to `false`: 
 
     <type-modification type="udm.Application">
         <property name="verifyChecklistPermissionsOnCreate" kind="boolean" hidden="false" required="false" description="If true, permissions for changing checklist requirements will be checked on import"/>
     </type-modification>
 
-Now you can now control the behaviour by setting the value to `true` or `false` in the repository. `false` is the default behaviour, and `true` means that the validation checks are done during import. Every `udm.Application` can have a different value. 
+Then you can control the behavior by setting the value to `true` or `false` on the application in the repository. `false` is the default behavior, and `true` means that the validation checks are done during import. Every `udm.Application` can have a different value. 
 
-If no applications have yet been imported, you can create a placeholder application under which the versions will be imported and set the value there already.
+**Tip:** If you want to configure this behavior but you have not yet imported any applications, create a placeholder application under which deployment packages will be imported, and set the value there.
 
 ## Complete synthetic.xml example
 
