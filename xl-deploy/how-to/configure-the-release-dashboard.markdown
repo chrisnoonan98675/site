@@ -70,9 +70,11 @@ It is also possible to assign security roles to checks. Adding a role to a parti
 
 ## Verification on package import
 
-The checks in deployment checklists are stored in the `udm.Version` CI. When you import a deployment package (DAR file), checklist properties can be initially set to `true`, depending on their values in the package's manifest file. While this may be desired behavior, you may want XL Deploy to verify checklist properties on package import and to apply the same validations that it would upon deployment.
+The checks in deployment checklists are stored in the `udm.Version` CI. When you import a deployment package (DAR file), checklist properties can be initially set to `true`, depending on their values in the package's manifest file. 
 
-To do so, use the hidden property `verifyChecklistPermissionsOnCreate` on `udm.Application`. Set `hidden` to `false`: 
+While this may be desired behavior, you may want XL Deploy to verify checklist properties on package import and to apply the same validations that it would upon deployment. You can configure XL Deploy to do so in the following releases and later: XL Deploy 4.5.7, XL Deploy 5.0.6, XL Deploy 5.1.2, and XL Deploy 5.5.0.
+
+In the hidden property `verifyChecklistPermissionsOnCreate` on `udm.Application`, set `hidden` to `false`: 
 
     <type-modification type="udm.Application">
         <property name="verifyChecklistPermissionsOnCreate" kind="boolean" hidden="false" required="false" description="If true, permissions for changing checklist requirements will be checked on import"/>
