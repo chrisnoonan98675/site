@@ -68,6 +68,22 @@ It is also possible to assign security roles to checks. Adding a role to a parti
 
 **Important:** Property names on the `udm.Environment` must use the _requires_ prefix and properties on the `udm.Version` must use the _satisfies_ prefix. If you assign specific roles to checks on `udm.Version`, the property must have the _roles_ prefix. In addition, _roles_ properties should be hidden (i.e. set `hidden="true"`).
 
+## Verification on package import
+
+The checks in deployment checklists are stored in the `udm.Version` CI. When you import a deployment package (DAR file), checklist properties can be initially set to `true`, depending on their values in the package's manifest file. 
+
+While this may be desired behavior, you may want XL Deploy to verify checklist properties on package import and to apply the same validations that it would upon deployment. You can configure XL Deploy to do so in the following releases and later: XL Deploy 4.5.7, XL Deploy 5.0.6, XL Deploy 5.1.2, and XL Deploy 5.5.0.
+
+In the hidden property `verifyChecklistPermissionsOnCreate` on `udm.Application`, set `hidden` to `false`: 
+
+    <type-modification type="udm.Application">
+        <property name="verifyChecklistPermissionsOnCreate" kind="boolean" hidden="false" required="false" description="If true, permissions for changing checklist requirements will be checked on import"/>
+    </type-modification>
+
+Then you can control the behavior by setting the value to `true` or `false` on the application in the repository. `false` is the default behavior, and `true` means that the validation checks are done during import. Every `udm.Application` can have a different value. 
+
+**Tip:** If you want to configure this behavior but you have not yet imported any applications, create a placeholder application under which deployment packages will be imported, and set the value there.
+
 ## Complete synthetic.xml example
 
 This is an example of a complete `synthetic.xml` configuration for a Release Dashboard:
