@@ -50,7 +50,8 @@
 /xl-release/help/creating-a-template.html : /xl-release/how-to/create-a-release-template.html#creating-a-template
 /xl-release/help/template-overview.html : /xl-release/how-to/create-a-release-template.html#template-overview
 /xl-release/help/release-value-stream.html : /xl-release/concept/release-value-stream-report.html
-/xl-release/help/variables.html : /xl-release/concept/variables-in-xl-release.html
+/xl-release/help/variables.html : /xl-release/how-to/create-release-variables.html
+/xl-release/help/global-variables.html : /xl-release/how-to/configure-global-variables.html
 
 # XL TestView in-product links
 /xl-testview/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new?community_id=public
