@@ -10,19 +10,19 @@ tags:
 - script
 ---
 
-Jython scripting is a very powerful way to extend or customise XL Deploy. There are several components of XL Deploy that can use such scripts and, although each of them puts different objects on the context of scripting engine, there are some general rules and good practices for writing, organising, and packaging your scripts.
+Jython scripting is a very powerful way to extend or customize XL Deploy. There are several components of XL Deploy that can use such scripts and, although each of them puts different objects on the context of scripting engine, there are some general rules and good practices for writing, organizing, and packaging your scripts.
 
 ## Pointing to a Jython script from configuration files
 
-Usually when you attach a Jython script to an XL Deploy action, event, or component, you specify a relative path to it. In this case the only way XL Deploy can find this script is by attaching the path to the each segment of its own classpath and looking there.
+Usually when you attach a Jython script to an XL Deploy action, event, or component, you specify a relative path to it. In this case, the only way XL Deploy can find this script is by attaching the path to the each segment of its own classpath and looking there.
 
-If we have a configuration snippet like `... script="myproject/run.py"...`, then XL Deploy can find the script at `ext/myproject/run.py` because the `ext` folder is on the classpath.
+If you have a configuration snippet like `... script="myproject/run.py"...`, then XL Deploy can find the script at `ext/myproject/run.py` because the `ext` folder is on the classpath.
 
 Also, the script can be packaged into a JAR and placed in the `plugins` folder; XL Deploy scans it at startup and adds the JARs it finds to the classpath. In this case, the JAR archive in this case should contain the `myproject` folder and `run.py` script.
 
 ## Creating a JAR
 
-Different tools create JARs differently, so it's important to verify that the file paths in the plugin JAR do not start with `./`. You can check this with `jar tf yourfile.jar`. If you package two files and a folder, the output should look like:
+Different tools create JARs differently, so it is important to verify that the file paths in the plugin JAR do not start with `./`. You can check this with `jar tf yourfile.jar`. If you package two files and a folder, the output should look like:
 
     file1.xml 
     file2.xml 
@@ -96,11 +96,11 @@ In each of this cases make sure then they are available on the classpath in the 
 
 ### Develop in directories, run in JARs
 
-While developing and debugging scripts it is convenient to keep the files open in the editor and change them after every iteration. When you're finished development, it is recommended to package them into a JAR file and place it in the `plugins` folder.
+While developing and debugging scripts, it is convenient to keep the files open in the editor and change them after every iteration. After you have finished development, it is recommended to package them into a JAR file and place it in the `plugins` folder.
 
 ### Restarting the server
 
-Normally there is no need to restart the server after changing a Jython script; however, modules are cached by the scripting engine after their first execution. To avoid this effect you can use built-in `reload()` function.
+Normally there is no need to restart the server after changing a Jython script; however, modules are cached by the scripting engine after their first execution. To avoid this effect, you can use built-in `reload()` function.
 
     from myproject.modules import repo
     reload(repo)
@@ -108,4 +108,4 @@ Normally there is no need to restart the server after changing a Jython script; 
 
 ## Examples
 
-You can find an example of scripting in the [UI extension demo plugin](https://github.com/xebialabs/xl-deploy-samples/tree/master/ui-extension-demo-plugin).
+You can find an example of scripting in the UI extension demo plugin, which is available in the `samples` folder of your XL Deploy installation.
