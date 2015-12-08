@@ -10,6 +10,8 @@ tags:
 - service
 - daemon
 - setup
+- satellite
+- restart
 ---
 
 The satellite will require a restart after [Synchronising plugins](/xl-deploy/how-to/synchronize-plugins-with-a-satellite-server.html), or when the connection drops. 
