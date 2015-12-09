@@ -332,6 +332,8 @@
 /xl-deploy/latest/jenkins-plugin/index.html : https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin
 /xl-deploy/latest/bamboo-plugin/index.html : /bamboo-xl-deploy-plugin/5.0.x/bambooPluginManual.html
 /xl-deploy/latest/tfs-plugin/index.html : /xl-deploy-tfs-plugin/5.0.x/tfsPluginManual.html
+/xl-deploy/latest/xld-chef-plugin/index.html : /xl-deploy-xld-chef-plugin/5.1.x/chefPluginManual.html
+/xl-deploy/latest/xld-puppet-plugin/index.html : /xl-deploy-xld-puppet-plugin/5.1.x/puppetPluginManual.html
 
 # XL Deploy non-bundled plugin doc, legacy format
 /releases/latest/jbossas-plugin/jbossPluginManual.html : /xl-deploy-jbossas-plugin/5.0.x/jbossPluginManual.html

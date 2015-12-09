@@ -15,7 +15,6 @@ XebiaLabs community plugins and tools are open-source software that is free for 
 | Plugin | Features |
 | ------ | -------- |
 | [XL Deploy Atlassian JIRA plugin](https://github.com/xebialabs-community/xld-jira-plugin) | Check whether an [Atlassian JIRA](https://www.atlassian.com/software/jira/) ticket exists, change the state of a JIRA ticket, or add a comment to a JIRA ticket |
-| [XL Deploy Chef plugin](https://github.com/xebialabs-community/xld-chef-plugin) | Deploy a [Chef](https://www.chef.io/chef/) recipe on a host |
 | [XL Deploy CloudFoundry plugin](https://github.com/xebialabs-community/xld-cloud-foundry-plugin) | Deploy an application to [CloudFoundry](https://www.cloudfoundry.org/) |
 | [XL Deploy Docker plugin](https://github.com/xebialabs-community/xld-docker-plugin) | Deploy an application to a [Docker](https://www.docker.com/) container |
 | [XL Deploy Elasticsearch plugin](https://github.com/xebialabs-community/xld-elasticsearch-plugin) | Deploy an [Elasticsearch](https://www.elastic.co/products/elasticsearch) index configuration |
@@ -29,7 +28,6 @@ XebiaLabs community plugins and tools are open-source software that is free for 
 | [XL Deploy MongoDB plugin](https://github.com/xebialabs-community/xld-mongodb-plugin) | Execute scripts on a [MongoDB](https://www.mongodb.org/) instance |
 | [XL Deploy Mule Management Console plugin](https://github.com/xebialabs-community/xld-mule-mc-plugin) |  Deploy an application to [Mule](https://developer.mulesoft.com/) |
 | [XL Deploy Oracle SOA plugin](https://github.com/xebialabs-community/xld-oracle-soa-plugin) | Deploy SOA composites to [Oracle Fusion](https://www.oracle.com/middleware/index.html) |
-| [XL Deploy Puppet plugin](https://github.com/xebialabs-community/xld-puppet-plugin) | Deploy a [Puppet](https://puppetlabs.com/) manifest on a host |
 | [XL Deploy Red Hat OpenShift plugin](https://github.com/xebialabs-community/xld-openshift-plugin) | Deploy an application to [Red Hat OpenShift](https://www.openshift.com/) |
 | [XL Deploy RPM plugin](https://github.com/xebialabs-community/xld-rpm-plugin) | Package and deploy [RPM files](https://en.wikipedia.org/wiki/RPM_Package_Manager) |
 | [XL Deploy Tibco BusinessWorks plugin](https://github.com/xebialabs-community/xld-tibcobw-plugin) | Deploy an application to [Tibco BusinessWorks](http://www.tibco.com/products/automation/application-integration/activematrix-businessworks) |
