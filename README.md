@@ -4,27 +4,29 @@ online-docs-jekyll
 # Setting it up locally
 
 1. Clone this repository.
-1. Install Jekyll 2.x and its requirements:
+1. Install Jekyll 2.5.x and its requirements:
     * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/). **Important:** If you're using OS X 10.11 (El Capitan) or later, [read this important info](http://jekyllrb.com/docs/troubleshooting/#jekyll-amp-mac-os-x-1011)!
     * Windows users, follow [these instructions](http://jekyll-windows.juthilo.com/) (you can skip step #3 there).
 1. In the directory where you cloned the repository, execute `jekyll serve`. Go to `http://localhost:4000` to see the site running locally.
 
-Installation tips:
+Installation notes:
 
+* We are using Jekyll 2.5.x. Jekyll 3.x.x will not work yet because of changes in the Liquid templating system.
+* You can install a specific version of Jekyll with [`gem install jekyll -v 2.5.3`](http://stackoverflow.com/questions/17026441/how-to-install-a-specific-version-of-a-ruby-gem). If you also have Jekyll 3.x installed, you can remove it with `gem uninstall jekyll`; Ruby will then ask which version you want to uninstall.
 * You may also need to install [Magnific Popup](https://github.com/dimsemenov/Magnific-Popup). You can do this with Bower, npm, or Ruby.
 * If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
-* We are using Jekyll 2.x. Jekyll 3.x will not work yet because of changes in the Liquid templating system.
 
 Usage tips:
 
-* As of Jekyll 2.4, the `jekyll serve` starts the server in [watch mode](http://jekyllrb.com/docs/usage/). To disable watch mode, execute `jekyll serve --no-watch`.
-* It's a known issue that generating the site (even in watch mode) is quite slow.
+* As of Jekyll 2.4, `jekyll serve` starts the server in [watch mode](http://jekyllrb.com/docs/usage/). To disable watch mode, execute `jekyll serve --no-watch`.
+* It's a known issue that generating the site is quite slow. This is caused by the plugins we use, and hopefully will improve in the future.
 * To disable updating of the Development Dashboard while you run Jekyll in watch mode, change the `jira_dashboard` `generate` setting in `_config.yml` to `false`. **Do not commit this change to the repository!**
 
 Writing tips:
 
 * You may want to download a Markdown editor such as [MacDown](http://macdown.uranusjr.com/) for OS X or [MarkdownPad](http://markdownpad.com/) for Windows.
 * In MacDown, go to **Preferences** > **Rendering** and select **Detect Jekyll front-matter** to see the [YAML front matter](http://jekyllrb.com/docs/frontmatter/) in a nice table.
+* Be sure to spell check your work. Set your spell checker to **U.S. English**.
 
 # Publishing changes to the site
 
