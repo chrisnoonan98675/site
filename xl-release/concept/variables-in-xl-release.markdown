@@ -9,7 +9,9 @@ tags:
 - release
 ---
 
-XL Release allows you to define variables for information that you don't know in advance or that may change. You can use variables to manage information that:
+When creating release templates, you will probably create tasks that contain information that varies based on the release. For example, you might have one generic release template that is used for the release process of several applications. Different releases based on this template would require different application names.
+
+XL Release allows you to use variables for this kind of information. You can use variables to manage information that:
 
 * Is not known when designing a template, such as the name of the application
 * Is used in several places in the release, such as the name of the application, which you might want to use in task descriptions and email notifications
@@ -26,14 +28,14 @@ In XL Release, you can create variables with different scopes:
 
 ## How to create a global variable
 
-If you have the *Edit Global Variables* permission, you can create global variables in **Settings** > **Global variables**. For information about creating, editing, and deleting global variables, refer to [Configure global variables](/xl-release/how-to/configure-global-variables.html).
+If you have the *Edit Global Variables* permission, you can create global variables in **Settings** > **Global variables** (available in XL Release 4.8.0 and later). For information about creating, editing, and deleting global variables, refer to [Configure global variables](/xl-release/how-to/configure-global-variables.html).
 
 ## How to create a release variable
 
 If you have the *Edit Template* or *Edit Release* permission on a template or a release, respectively, you can create a release variable by:
 
 * Typing the variable name in a field in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html) (using the `${ }` syntax)
-* Using the [Variables screen](/xl-release/how-to/create-release-variables.html)
+* Using the [Variables screen](/xl-release/how-to/create-release-variables.html) (available in XL Release 4.8.0 and later)
 
 For more information about creating, editing, and deleting release variables, refer to [Create release variables](/xl-release/how-to/create-release-variables.html).
 

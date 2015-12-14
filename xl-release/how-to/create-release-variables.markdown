@@ -26,7 +26,7 @@ Other properties, such as the variable's label and description, will be left bla
 
 ## Create a release variable on the Variables screen
 
-You can also create release variables using the Variables screen:
+In XL Release 4.8.0 and later, you can also create release variables using the Variables screen:
 
 1. In a release or template, select **Variables** from the **Show** menu.
 1. Click **New variable**. The Create Variable screen appears.
@@ -57,6 +57,8 @@ You can also create release variables using the Variables screen:
 If a variable is required and you selected **Show on Create Release form**, then the variable must have a value before the release can start. This can be the default value that you set for the variable in the template, or a value that the user enters when [starting the release](/xl-release/how-to/start-a-release-from-a-template.html).
 
 If a variable is required and it is used in a task, then the variable must have a value before the task can start. This can be the default value that you set for the variable in the template or release, or a value that the user enters before the task becomes active. If a required variable is missing a value when the task becomes active, then the task is not started, but remains in the *needs input* state until a user enters a value.
+
+**Note:** In XL Release 4.7.x and earlier, all release variables must have a value before the release can start.
 
 ## Edit a release variable
 
