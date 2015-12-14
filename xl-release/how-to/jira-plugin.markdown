@@ -54,7 +54,7 @@ The following properties are available in the **Jira: Query** task type:
 
 * **Query**: A JQL query that finds the issues that will be updated in this task
 
-The output of the task is `issues`, a key-value map containing all found issues
+The output of the task is `issues`, a key-value map consisting of the issue ID and summary (title) of all found issues
 
 ![JIRA task](../images/jira-query-issues-task-details.png)
 
@@ -79,7 +79,7 @@ The following properties are available in the **Jira: Update issues** task type:
 * **Issues**: A key-value map consisting of the issue ID and the summary(title) of the issue. Optionally this summary can be updated in Jira
 * **New Status**: The new status of the issue; refer to the [JIRA Workflow documentation](https://confluence.atlassian.com/display/JIRA/What+is+Workflow) for a complete list
 * **Comment**: The text of a comment to add to the issue
-* **updateSummaries**: A checkbox indicating whether or not to change the issue summaries in Jira
+* **Update Summaries**: A checkbox indicating whether or not to change the issue summaries in Jira
 
 ![JIRA task](../images/jira-update-issues-task-details.png)
 
@@ -93,6 +93,6 @@ The following properties are available in the **Jira: Update issues by query** t
 * **New Status**: The new status of the issue; refer to the [JIRA Workflow documentation](https://confluence.atlassian.com/display/JIRA/What+is+Workflow) for a complete list
 * **Comment**: The text of a comment to add to the issue
 
-The output of the task is `issues`, a key-value map containing all updated issues
+The output of the task is `issues`, a key-value map consisting of the issue ID and summary (title) of all updated issues
 
 ![JIRA task](../images/jira-update-issues-by-query-task-details.png)
