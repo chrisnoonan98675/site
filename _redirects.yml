@@ -142,6 +142,7 @@
 /xl-deploy/concept/introduction-to-the-xl-deploy-windows-plugin.html : /xl-deploy/concept/windows-plugin.html
 /xl-deploy/concept/introduction-to-the-xl-scale-ec2-plugin.html : /xl-deploy/concept/xl-scale-ec2-plugin.html
 /xl-deploy/concept/introduction-to-the-xl-scale-vsphere-plugin.html : /xl-deploy/concept/xl-scale-vsphere-plugin.html
+/xl-release/how-to/configure-properties-for-a-release.html : /xl-release/how-to/configure-release-properties.html
 
 # XL Release topics
 /xl-release/how-to/migrate-to-xl-release-4.7.0.html : /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470
