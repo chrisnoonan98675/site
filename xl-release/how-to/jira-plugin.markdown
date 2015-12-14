@@ -47,6 +47,17 @@ The output of the task is `issueId`, the ID of the created JIRA issue.
 
 ![JIRA task](../images/jira-create-issue-task-details.png)
 
+
+## Query
+
+The following properties are available in the **Jira: Query** task type:
+
+* **Query**: A JQL query that finds the issues that will be updated in this task
+
+The output of the task is `issues`, a key-value map containing all found issues
+
+![JIRA task](../images/jira-query-issues-task-details.png)
+
 ## Update issue
 
 The following properties are available in the **Jira: Update issue** task type:
@@ -58,3 +69,30 @@ The following properties are available in the **Jira: Update issue** task type:
 * **Comment**: The text of a comment to add to the issue
 
 ![JIRA task](../images/jira-update-issue-task-details.png)
+
+## Update issues
+
+The following properties are available in the **Jira: Update issues** task type:
+
+* **Server**: The JIRA server that will be used
+* **Username** and **Password**: The server log-in user ID and password; if set, these will override the credentials defined in the JIRA server configuration
+* **Issues**: A key-value map consisting of the issue ID and the summary(title) of the issue. Optionally this summary can be updated in Jira
+* **New Status**: The new status of the issue; refer to the [JIRA Workflow documentation](https://confluence.atlassian.com/display/JIRA/What+is+Workflow) for a complete list
+* **Comment**: The text of a comment to add to the issue
+* **updateSummaries**: A checkbox indicating whether or not to change the issue summaries in Jira
+
+![JIRA task](../images/jira-update-issues-task-details.png)
+
+## Update issues by query
+
+The following properties are available in the **Jira: Update issues by query** task type:
+
+* **Server**: The JIRA server that will be used
+* **Username** and **Password**: The server log-in user ID and password; if set, these will override the credentials defined in the JIRA server configuration
+* **Query**: A JQL query that finds the issues that will be updated in this task
+* **New Status**: The new status of the issue; refer to the [JIRA Workflow documentation](https://confluence.atlassian.com/display/JIRA/What+is+Workflow) for a complete list
+* **Comment**: The text of a comment to add to the issue
+
+The output of the task is `issues`, a key-value map containing all updated issues
+
+![JIRA task](../images/jira-update-issues-by-query-task-details.png)
