@@ -44,5 +44,5 @@ To reset the password for the `admin` user in XL Release:
         admin.password=NEW_PASSWORD
 
 1. Save the file and start the XL Release server. This registers and encrypts the new password.
-1. Remove the JAR file form the `hotfix` directory.
+1. Remove the JAR file from the `hotfix` directory.
 1. Restart the XL Release server.

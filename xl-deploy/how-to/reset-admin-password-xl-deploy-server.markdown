@@ -12,26 +12,24 @@ since:
 - XL Deploy 3.9.5
 ---
 
-[Changing passwords in XL Deploy](/xl-deploy/how-to/changing-passwords-in-xl-deploy.html#change-the-admin-password) describes how to change the password for the built-in admin user.
+[Changing passwords in XL Deploy](/xl-deploy/how-to/changing-passwords-in-xl-deploy.html#change-the-admin-password) describes how to change the password for the built-in `admin` user. However, if you have forgotten the password for the `admin` user and you do not have the password for another user with administrative permissions, then you cannot log in to the XL Deploy server to change the admin password.
 
-However, if you've forgotten the password for that user and you don't know the password for another user with the admin permission, you cannot log in to the system to change that password.
+To resolve this situation, you can use a hotfix that disables all password checks. This allows you to log in as the `admin` user with any password and the follow the standard procedure to change it to a known password. You could compare it to rebooting a Unix server in single user mode when you forget the password for the root user.
 
-To help you get out of this situation, we have developed a hotfix that disables all password checks. This allows you to log in as the admin user with any password and the follow the standard procedure to change it to a known password. You could compare it to rebooting a Unix server in single user mode when you forget the password for the root user.
+Note that:
 
-Please follow the instructions below to reset the password for the admin user in XL Deploy:
+* This hotfix has been tested with Deployit 3.9.5, XL Deploy 4.0.2, and XL Deploy 4.5.1.
+* You must back up your XL Deploy instance before resetting the password.
+* It is important that you remove the hotfix after you are finished.
+
+To reset the password for the `admin` user in XL Deploy:
 
 1. Stop the XL Deploy server.
 1. Back up your XL Deploy configuration and repository.
-1. Copy [this JAR file](sample-scripts/hotfix-disable-password-check.jar) to the `hotfix` directory of the XL Deploy server.
+1. Download [this JAR file](sample-scripts/hotfix-disable-password-check.jar) and copy it to the `hotfix` directory of the XL Deploy server.
 1. Start the XL Deploy server.
-1. Log in to the XL Deploy interface as the admin user with any password.
-1. Follow [the standard procedure](/xl-deploy/how-to/changing-passwords-in-xl-deploy.html#change-the-admin-password) to change the password for the admin user.
+1. Log in to the XL Deploy interface as the `admin` user with any password.
+1. Follow [the standard procedure](/xl-deploy/how-to/changing-passwords-in-xl-deploy.html#change-the-admin-password) to change the password for the `admin` user.
 1. Stop the XL Deploy server.
-1. Remove the hotfix.
-1. Start the XL Deploy server.
-
-Some important caveats:
-
-* This hotfix has been tested with Deployit 3.9.5, XL Deploy 4.0.2, and XL Deploy 4.5.1.
-* Do not forget to back up your XL Deploy configuration and repository.
-* Most importantly: Do not forget to remove the hotfix after you are done! It disables all password checks, which means that anyone can access the system.
+1. Remove the JAR file from the `hotfix` directory.
+1. Restart the XL Deploy server.
