@@ -12,7 +12,7 @@ since:
 - XL Release 4.8.0
 ---
 
-XL Release allows you to define variables for information that you don't know in advance or that may change. Global variables, which are available in XL Release 4.8.0 and later, can be used in all templates and releases to manage shared information.
+You can use [variables](/xl-release/concept/variables-in-xl-release.html) to manage information that you don't know in advance or that may change. Global variables can be used in all templates and releases to manage shared information (unlike [release variables](/xl-release/how-to/create-release-variables.html), which are limited to a single release or template). Global variables are available in XL Release 4.8.0 and later.
 
 On the **Global variables** screen under **Settings**, you can create, edit, and delete global variables. You must have the *Edit Global Variables* permission to do so.
 
@@ -28,6 +28,8 @@ To create a global variable:
 1. Select the variable type from the **Type** list:
     * **Text**: A string of letters or numbers
     * **Password**: A password
+    * **Checkbox**: A true or false value (Boolean)
+    * **Number**: An integer
     * **List**: A list of values that can be reordered and can contain duplicates
     * **Set**: A set of values that cannot be reordered and cannot contain duplicates
     * **Key-value map**: A set of keys and corresponding values

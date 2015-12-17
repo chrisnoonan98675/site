@@ -12,7 +12,7 @@ since:
 - XL Release 4.8.0
 ---
 
-You can use release variables to manage information that you don't know in advance or that may change. Release variables can only be used in the template or release in which they are created (unlike [global variables](/xl-release/how-to/configure-global-variables.html)). There are two ways to create a release variable.
+You can use [variables](/xl-release/concept/variables-in-xl-release.html) to manage information that you don't know in advance or that may change. Release variables can only be used in the template or release in which they are created (unlike [global variables](/xl-release/how-to/configure-global-variables.html)). There are two ways to create a release variable.
 
 ## Create a release variable in the release flow editor
 
@@ -35,7 +35,7 @@ In XL Release 4.8.0 and later, you can also create release variables using the V
 1. Select the variable type from the **Type** list:
     * **Text**: A string of letters or numbers
     * **Password**: A password
-    * **Checkbox**: A Boolean variable that can be true or false
+    * **Checkbox**: A true or false value (Boolean)
     * **Number**: An integer
     * **List**: A list of values that can be reordered and can contain duplicates
     * **Set**: A set of values that cannot be reordered and cannot contain duplicates
