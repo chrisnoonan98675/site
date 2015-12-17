@@ -17,7 +17,7 @@ XL Release allows you to use variables for this kind of information. You can use
 * Is used in several places in the release, such as the name of the application, which you might want to use in task descriptions and email notifications
 * May change during the release, such as the version number of the release that is being pushed to production
 
-Variables are identified by the `${ }` syntax. XL Release supports several types of variable, such as *text*, *password*, *list*, *set*, and *key-value map*.
+Variables are identified by the `${ }` syntax. XL Release supports several types of variable; for example, *text*, *password*, *number*, and *list*.
 
 ## Variable scope
 
