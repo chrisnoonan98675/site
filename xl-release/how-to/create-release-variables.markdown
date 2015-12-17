@@ -35,6 +35,8 @@ In XL Release 4.8.0 and later, you can also create release variables using the V
 1. Select the variable type from the **Type** list:
     * **Text**: A string of letters or numbers
     * **Password**: A password
+    * **Checkbox**: A Boolean variable that can be true or false
+    * **Number**: An integer
     * **List**: A list of values that can be reordered and can contain duplicates
     * **Set**: A set of values that cannot be reordered and cannot contain duplicates
     * **Key-value map**: A set of keys and corresponding values
