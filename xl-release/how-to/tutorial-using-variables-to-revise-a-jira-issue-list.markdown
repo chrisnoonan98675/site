@@ -131,7 +131,13 @@ You can check the result of your actions by opening the Variables page again and
 
 ## Updating the issues in JIRA
 
-One thing left to do: adding a comment to the selected issues in JIRA. Let's go back to the template. Now add a task of type **Update issues**, call it "Update issues in JIRA" and move it under **Check JIRA issues**. Open the task to configure it.
+One thing left to do: adding a comment to the selected issues in JIRA. Let's go back to the template. Now add a task of type **Update issues**, call it "Update issues in JIRA" and move it under **Check JIRA issues**. 
+
+Your template should now look like this:
+
+![Full template](../images/jira-variables/full-template.png)
+
+Open the task to configure it.
 
 We use the same JIRA server as before.
 
