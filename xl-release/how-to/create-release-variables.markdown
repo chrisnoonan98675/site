@@ -20,7 +20,7 @@ A simple way to create a release variable is to type its name in a task in the [
 
 The variable's type depends on the type of the field where you created the variable. For example, typing `${name}` in a text field means `name` will be of the type *text*, while typing `${name}` in a password field means `name` will be of the type *password*.
 
-Other properties, such as the variable's label and description, will be left blank. You can edit them on the Variables screen.
+Other properties, such as the variable's label and description, will be left blank. In XL Release 4.8.0 and later, you can edit them on the Variables screen.
 
 **Note:** If you enter a password in the `${variable}` format, XL Release will treat it as a variable, so you cannot use this format for the text of the password itself.
 
@@ -68,3 +68,19 @@ To edit a variable in a template or a running release, select **Variables** from
 
 If you change the variable's value, planned tasks that use that variable will reflect the new value.
 Completed, skipped, or failed tasks will reflect the old value (except in the case of user input tasks, which always show the variable's current value).
+
+## Delete or replace a release variable
+
+To delete or replace a variable in a template or a running release, select **Variables** from the **Show** menu, then click **Delete/Replace** next to the desired variable.
+
+If the variable is not being used in the template or release, simply confirm that you want to delete it.
+
+If the variable is still in use, XL Release allows you to choose how it will replace the variable wherever it appears in the template or release. You can replace the variable with:
+
+* A static value
+* A different variable (in `${ }` format)
+* A blank space
+
+![Delete and replace variable](../images/variable-delete-and-replace.png)
+
+After XL Release replaces all occurrences of the variable, it deletes the variable.
