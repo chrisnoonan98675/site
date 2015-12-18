@@ -28,6 +28,6 @@ You use the release flow editor for templates, planned releases, and active rele
 | Export to Excel | Download the current release in Microsoft Excel format (.xlsx) | Planned release<br />Active release |
 | Export | Download the template in ZIP format; you can [import a template](/xl-release/how-to/import-a-release-template.html) in the Template Overview | Template |
 
-**Note:** In an active release, an orange arrow indicates the current task. Also, completed tasks appear in grey, and you cannot move or edit them.
+In an active release, an orange arrow indicates the current task. Also, completed tasks appear in grey, and you cannot move or edit them.
 
-For more information, refer to [Add a phase to a release or template](http://localhost:4000/xl-release/how-to/add-a-phase-to-a-release-or-template.html) and [Add a task to a phase in a release or template](http://localhost:4000/xl-release/how-to/add-a-task-to-a-phase.html).
+**Tip:** In XL Release 4.8.0 and later, you can take action on a task in the release flow editor without opening it by clicking ![Task action menu](/images/menu_three_dots.png) on the task. For example, you can assign a task to yourself, change its type, or complete, skip, fail, duplicate, or delete the task.

@@ -82,7 +82,7 @@ Next are the properties. They are defined as nested `<property>` elements. The f
 | `category` | XL Release supports two categories.<br />`input` appear in the task in the XL Release UI and must be specified before the task starts. They are then passed to the Python script.<br />`output` can be set in the Python script. When the script completes, they can be copied into release variables in XL Release. |
 | `label` | Label used in the XL Release UI. If you do not specify a label, XL Release will attempt to make a readable version of the property name. For example, the "issueType" property will appear as "Issue Type" in the UI. |
 | `description` | Help text explaining the property in more detail. This will appear in the UI. |
-| `kind` | The property type, which is `string`, `integer`, `boolean`, or `ci`. If omitted, this attribute defaults to `string`. |
+| `kind` | The property type, which is `string`, `integer`, `boolean`, or `ci`. In XL Release 4.8.0 and later, the `list_of_string`, `set_of_string`, and `map_string_string` property types are also available. If omitted, this attribute defaults to `string`. |
 | `password` | Set this attribute to `true` to instruct XL Release to treat the property as a password. The content of password fields are obscured in the UI and encrypted in network traffic and storage. |
 | `size` | Indicates how much space the UI gives to the property. Supported levels are `default`, `small`, `medium`, and `large`. |
 | `default` | The default value of the property. |
@@ -100,7 +100,7 @@ This is how the above task definition looks like in the task details window:
 
 ## Python scripts
 
-When the custom task becomes active, it triggers the Python script that is associated with it. For information about the script, refer to [API and scripting overview](/xl-release/how-to/api-and-scripting-overview.html)
+When the custom task becomes active, it triggers the Python script that is associated with it. For information about the script, refer to [API and scripting overview](/xl-release/how-to/api-and-scripting-overview.html).
 
 Store scripts in a directory that has the same name as the prefix of the task type definition. The script file name has the same name as the name of the task, followed by the `.py` extension. For example, the Python script for the `jira.CreateIssue` task must be stored in `jira/CreatePython.py`.
 
@@ -163,121 +163,11 @@ else:
     sys.exit(1)
 {% endhighlight %}
 
-Note that since XL Release 4.7.0, in contrary to [Script tasks](/xl-release/how-to/create-a-script-task.html), Jython scripts of custom task types are not run in a sandboxed environment and do not have any restrictions. So you do not have to update the `script.policy` file of your XL Release installation if you need additional access such as to filesystem or network from your custom task type. You still need to do this for versions prior to 4.7.0.
+Note that since XL Release 4.7.0, in contrast to [Script tasks](/xl-release/how-to/create-a-script-task.html), Jython scripts of custom task types are not run in a sandboxed environment and do not have any restrictions. So you do not have to update the `script.policy` file of your XL Release installation if you need additional access such as to filesystem or network from your custom task type. You still need to do this for versions prior to 4.7.0.
 
 #### HttpRequest
 
-`HttpRequest` is a class provided by XL Release that is used to perform HTTP calls. It has the following API:
-
-{% highlight python linenos=table %}
-class HttpRequest:
-    def __init__(self, params, username = None, password = None):
-        """
-        Builds an HttpRequest
-
-        :param params: an HttpConnection
-        :param username: the username
-            (optional, it will override the credentials defined on the HttpConnection object)
-        :param password: an password
-            (optional, it will override the credentials defined on the HttpConnection object)
-        """
-
-    def doRequest(self, **options):
-        """
-        Performs an HTTP Request
-
-        :param options: A keyword arguments object with the following properties :
-            method: the HTTP method : 'GET', 'PUT', 'POST', 'DELETE'
-                (optional: GET will be used if empty)
-            context: the context url
-                (optional: the url on HttpConnection will be used if empty)
-            body: the body of the HTTP request for PUT & POST calls
-                (optional: an empty body will be used if empty)
-            contentType: the content type to use
-                (optional, no content type will be used if empty)
-            headers: a dictionary of headers key/values
-                (optional, no headers will be used if empty)
-        :return: an HttpResponse instance
-        """
-
-    def get(self, context, **options):
-        """
-        Performs an Http GET Request
-
-        :param context: the context url
-        :param options: the options keyword argument described in doRequest()
-        :return: an HttpResponse instance
-        """
-
-    def post(self, context, body, **options):
-        """
-        Performs an Http POST Request
-
-        :param context: the context url
-        :param body: the body of the HTTP request
-        :param options: the options keyword argument described in doRequest()
-        :return: an HttpResponse instance
-        """
-
-    def put(self, context, body, **options):
-        """
-        Performs an Http PUT Request
-
-        :param context: the context url
-        :param body: the body of the HTTP request
-        :param options: the options keyword argument described in doRequest()
-        :return: an HttpResponse instance
-        """
-
-    def delete(self, context, **options):
-        """
-        Performs an Http DELETE Request
-
-        :param context: the context url
-        :param options: the options keyword argument described in doRequest()
-        :return: an HttpResponse instance
-        """
-
-    def patch(self, context, body, **options):
-        """
-        Performs an Http PATCH Request
-
-        :param context: the context url
-        :param body: the body of the HTTP request
-        :param options: the options keyword argument described in doRequest()
-        :return: an HttpResponse instance
-        """
-
-class HttpResponse:
-    def getStatus(self):
-        """
-        Gets the status code
-        :return: the http status code
-        """
-
-    def getResponse(self):
-        """
-        Gets the response content
-        :return: the reponse as text
-        """
-
-    def isSuccessful(self):
-        """
-        Checks if request successful
-        :return: true if successful, false otherwise
-        """
-
-    def getHeaders(self):
-        """
-        Returns the response headers
-        :return: a dictionary of all response headers
-        """
-
-    def errorDump(self):
-        """
-        Dumps the whole response
-        """
-{% endhighlight %}
+`HttpRequest` is a class provided by XL Release that is used to perform HTTP calls. Refer to the [Jython API](/jython-docs/#!/xl-release/4.7.x//service/HttpRequest.HttpRequest) for more information.
 
 ### Examples
 
@@ -331,14 +221,13 @@ content = response.getResponse()
 status = response.getStatus()
 {% endhighlight %}
 
-`HttpRequest` will then use the settings of the HttpConnection
+`HttpRequest` will then use the settings of the HttpConnection.
 
 ### XL Release API
 
-The [XL Release API](/xl-release/latest/rest-api/) is available in scripts : You can view the [Jython API Manual](/jython-docs/#!/xl-release/4.6.x/) to find a complete description of the methods you can call.
+The [XL Release API](/xl-release/latest/rest-api/) is available for scripts. Refer to the [Jython API reference](/jython-docs/#!/xl-release/4.7.x/) to find a complete description of the methods you can call.
 
-For an extended example, refer to [Creating XL Release Tasks Dynamically Using Jython API](http://blog.xebialabs.com/2015/08/11/creating-xl-release-tasks-dynamically-using-jython-api/).
-
+For an extended example, refer to [Creating XL Release tasks dynamically using Jython API](http://blog.xebialabs.com/2015/08/11/creating-xl-release-tasks-dynamically-using-jython-api/).
 
 ## Further customization
 

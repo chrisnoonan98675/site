@@ -12,94 +12,100 @@ tags:
 - user management
 ---
 
-XL Release cookies store security information that is provided by the [Spring Security](http://projects.spring.io/spring-security/) framework. XL Release does not store any additional information in cookies.
+You can configure XL Release to use an LDAP repository to authenticate users and retrieve role (group) membership. LDAP users and groups are used as principals in XL Release and can be mapped to XL Release roles. Role membership and rights assigned to roles are always stored in the JCR repository.
 
-XL Release can be configured to use an LDAP repository to authenticate users and to retrieve role (group) membership. The LDAP users and groups are used as principals in XL Release and can be mapped to XL Release roles. Role membership and rights assigned to roles are always stored in the JCR repository.
+XL Release treats the LDAP repository as *read-only*. This means that XL Release will use the information from the LDAP repository, but it cannot make changes to that information.
 
-XL Release treats the LDAP repository as **read-only**. This means that XL Release will use the information from the LDAP repository, but it cannot make changes to that information.
-
-To configure XL Release to use an LDAP repository, modify the `xl-release-security.xml` security configuration file. For a step-by-step procedure, refer to [How to connect to your LDAP or Active Directory](/xl-deploy/how-to/connect-ldap-or-active-directory.html).
-
-**Note:** You must restart the XL Release server after you configure LDAP access.
+**Note:** XL Release cookies store security information that is provided by the [Spring Security](http://projects.spring.io/spring-security/) framework. XL Release does not store any additional information in cookies.
 
 ## Sample XL Release security file
 
-This is an example of a working `xl-release-security.xml` file that uses LDAP:
+To configure XL Release to use an LDAP repository, modify the `xl-release-security.xml` security configuration file. This is an example of a `xl-release-security.xml` file that uses LDAP. Values that you must provide are highlighted.
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<pre>
+    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:security="http://www.springframework.org/schema/security"
         xsi:schemaLocation="
             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
             http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
-        ">
+        "&gt;
 
-        <bean id="ldapServer" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
-            <constructor-arg value="LDAP_SERVER_URL" />
-            <property name="userDn" value="MANAGER_DN" />
-            <property name="password" value="MANAGER_PASSWORD" />
-            <property name="baseEnvironmentProperties">
-                <map>
-                    <entry key="java.naming.referral">
-                        <value>ignore</value>
-                    </entry>
-                </map>
-            </property>
-        </bean>
+        &lt;bean id="ldapServer" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource"&gt;
+            &lt;constructor-arg value="<mark>LDAP_SERVER_URL</mark>" /&gt;
+            &lt;property name="userDn" value="<mark>MANAGER_DN</mark>" /&gt;
+            &lt;property name="password" value="<mark>MANAGER_PASSWORD</mark>" /&gt;
+            &lt;property name="baseEnvironmentProperties"&gt;
+                &lt;map&gt;
+                    &lt;entry key="java.naming.referral"&gt;
+                        &lt;value&gt;ignore&lt;/value&gt;
+                    &lt;/entry&gt;
+                &lt;/map&gt;
+            &lt;/property&gt;
+        &lt;/bean&gt;
 
-        <bean id="ldapProvider" class="com.xebialabs.xlrelease.security.authentication.LdapAuthenticationProvider">
-            <constructor-arg>
-                <bean class="org.springframework.security.ldap.authentication.BindAuthenticator">
-                    <constructor-arg ref="ldapServer" />
-                    <property name="userSearch">
-                        <bean id="userSearch" class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
-                            <constructor-arg index="0" value="USER_SEARCH_BASE" />
-                            <constructor-arg index="1" value="USER_SEARCH_FILTER" />
-                            <constructor-arg index="2" ref="ldapServer" />
-                        </bean>
-                    </property>
-                </bean>
-            </constructor-arg>
-            <constructor-arg>
-                <bean class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator">
-                    <constructor-arg ref="ldapServer" />
-                    <constructor-arg value="GROUP_SEARCH_BASE" />
-                    <property name="groupSearchFilter" value="GROUP_SEARCH_FILTER" />
-                    <property name="rolePrefix" value="" />
-                    <property name="searchSubtree" value="true" />
-                    <property name="convertToUpperCase" value="false" />
-                </bean>
-            </constructor-arg>
-        </bean>
+        &lt;bean id="ldapProvider" class="com.xebialabs.xlrelease.security.authentication.LdapAuthenticationProvider"&gt;
+            &lt;constructor-arg&gt;
+                &lt;bean class="org.springframework.security.ldap.authentication.BindAuthenticator"&gt;
+                    &lt;constructor-arg ref="ldapServer" /&gt;
+                    &lt;property name="userSearch"&gt;
+                        &lt;bean id="userSearch" class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch"&gt;
+                            &lt;constructor-arg index="0" value="<mark>USER_SEARCH_BASE</mark>" /&gt;
+                            &lt;constructor-arg index="1" value="<mark>USER_SEARCH_FILTER</mark>" /&gt;
+                            &lt;constructor-arg index="2" ref="ldapServer" /&gt;
+                        &lt;/bean&gt;
+                    &lt;/property&gt;
+                &lt;/bean&gt;
+            &lt;/constructor-arg&gt;
+            &lt;constructor-arg&gt;
+                &lt;bean class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator"&gt;
+                    &lt;constructor-arg ref="ldapServer" /&gt;
+                    &lt;constructor-arg value="<mark>GROUP_SEARCH_BASE</mark>" /&gt;
+                    &lt;property name="groupSearchFilter" value="<mark>GROUP_SEARCH_FILTER</mark>" /&gt;
+                    &lt;property name="rolePrefix" value="" /&gt;
+                    &lt;property name="searchSubtree" value="true" /&gt;
+                    &lt;property name="convertToUpperCase" value="false" /&gt;
+                &lt;/bean&gt;
+            &lt;/constructor-arg&gt;
+        &lt;/bean&gt;
 
-        <bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/>
+        &lt;bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/&gt;
 
-        <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/>
+        &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider"/&gt;
 
-        <security:authentication-manager alias="authenticationManager">
-            <security:authentication-provider ref="rememberMeAuthenticationProvider" />
-            <security:authentication-provider ref="ldapProvider" />
-            <security:authentication-provider ref="jcrAuthenticationProvider"/>
-        </security:authentication-manager>
+        &lt;security:authentication-manager alias="authenticationManager"&gt;
+            &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt;
+            &lt;security:authentication-provider ref="ldapProvider" /&gt;
+            &lt;security:authentication-provider ref="jcrAuthenticationProvider"/&gt;
+        &lt;/security:authentication-manager&gt;
 
-    </beans>
+    &lt;/beans&gt;
+</pre>
 
-The XML fragment above contains placeholders for the following values:
+**Note:** This sample may differ from your `xl-release-security.xml` file, depending on your version of XL Release and any other customizations that have been done. It is recommended that you only add the highlighted items, instead of copying the entire sample.
+
+## Required LDAP information
+
+Update `xl-release-security.xml` with information about your LDAP setup:
 
 {:.table .table-striped}
 | Placeholder | Description | Example |
 | ----------- | ----------- | ------- |
-| `LDAP_SERVER_URL` | The LDAP URL to connect to | `ldap://localhost:1389/` |
-| `MANAGER_DN` | The principal to perform the initial bind to the LDAP server | `"cn=admin,dc=example,dc=com"` |
-| `MANAGER_PASSWORD` | The credentials to perform the initial bind to the LDAP server; see [Configure custom passwords](/xl-release/how-to/changing-passwords-in-xl-release.html#configure-custom-passwords) for information about encrypting this password | `"secret"` |
-| `USER_SEARCH_FILTER` | The LDAP filter to determine the LDAP DN for the user who is logging in; `{0}` will be replaced with the user name | `"(&amp;(uid={0})(objectClass=inetOrgPerson))"` |
-| `USER_SEARCH_BASE` | The LDAP filter that is the base for searching for users | `"dc=example,dc=com"` |
-| `GROUP_SEARCH_FILTER` | The LDAP filter to determine the group memberships for the user; `{0}` will be replaced with the DN of the user | `"(memberUid={0})"` |
-| `GROUP_SEARCH_BASE` | The LDAP filter that is the base for searching for groups | `"ou=groups,dc=example,dc=com"` |
+| `LDAP_SERVER_URL` | LDAP URL to connect to | `ldap://localhost:1389/` |
+| `MANAGER_DN` | Principal to perform the initial bind to the LDAP server | `cn=admin,dc=example,dc=com` |
+| `MANAGER_PASSWORD` | Credentials to perform the initial bind to the LDAP server; see [Configure custom passwords](/xl-release/how-to/changing-passwords-in-xl-release.html#configure-custom-passwords) for information about encrypting this password | `secret` |
+| `USER_SEARCH_FILTER` | LDAP filter to determine the LDAP `dn` for the user who is logging in; `{0}` will be replaced with the user name | `(&amp;(uid={0})(objectClass=inetOrgPerson))` |
+| `USER_SEARCH_BASE` | LDAP filter to use as a basis for searching for users | `dc=example,dc=com` |
+| `GROUP_SEARCH_FILTER` | LDAP filter to determine the group memberships of the user; `{0}` will be replaced with the `dn` of the user | `(memberUid={0})` |
+| `GROUP_SEARCH_BASE` | LDAP filter to use as a basis for searching for groups | `ou=groups,dc=example,dc=com` |
+
+After you enter your values, restart the XL Release server. Add the user and group as principals in the XL Release interface and assign them permission to log in.
+
+**Tip:** Use an LDAP browser such as [JXplorer](http://jxplorer.org/) to verify that the credentials are correct.
 
 ## Escaping special characters
 
-Because `xl-release-security.xml` is an XML file, you must escape certain characters in the values that will replace placeholders.
+Because `xl-release-security.xml` is an XML file, you must escape certain characters in the values that will replace placeholders:
 
 {:.table .table-striped}
 | Character | Escape with |
@@ -115,9 +121,9 @@ Because `xl-release-security.xml` is an XML file, you must escape certain charac
 In the `xl-release-security.xml` file, you can configure:
 
 * An LDAP setup in which there is not a group that contains all XL Release users
-* You want to use such a group in the default `JcrAuthenticationProvider`
+* You want to use such a group in the default `XlAuthenticationProvider` (`JcrAuthenticationProvider` in XL Release 4.7.x and earlier)
 
-The code below sets up an group called `everyone` that is assigned to each user who is authenticated (the group name can be anything you want). You can then link this group to a XL Release role and assign 'login' privileges to it.
+The code below sets up an group called `everyone` that is assigned to each user who is authenticated (the group name can be anything you want). You can then link this group to a XL Release role and assign log-in privileges to it.
 
     <beans>
         ...
@@ -130,7 +136,7 @@ The code below sets up an group called `everyone` that is assigned to each user 
             <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
         </bean>
 
-        <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider">
+        <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider">
             <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
         </bean>
 

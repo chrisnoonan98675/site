@@ -9,34 +9,47 @@ tags:
 - release
 ---
 
-For data that may change or that is not known in advance, XL Release provides a placeholder mechanism in the form of variables. You can use variables to manage information that:
+When creating release templates, you will probably create tasks that contain information that varies based on the release. For example, you might have one generic release template that is used for the release process of several applications. Different releases based on this template would require different application names.
+
+XL Release allows you to use variables for this kind of information. You can use variables to manage information that:
 
 * Is not known when designing a template, such as the name of the application
 * Is used in several places in the release, such as the name of the application, which you might want to use in task descriptions and email notifications
 * May change during the release, such as the version number of the release that is being pushed to production
 
-Variables are snippets of text in a text field surrounded by `${ }`. For example, you can define a variable called `name` by typing `${name}` in a text field.
+Variables are identified by the `${ }` syntax. XL Release supports several types of variable; for example, *text*, *password*, *number*, and *list*.
 
-You can combine normal text with one or more variables, although in the case of XL Deploy, it is recommended that you use a dedicated variable for the entire field, because this will allow auto-completion later on.
+## Variable scope
 
-## Variable support
+In XL Release, you can create variables with different scopes:
 
-Variables are supported in:
+* *Release variables* can only be used in a specific template or release
+* *Global variables* can be used in all templates and releases (available in XL Release 4.8.0 and later)
 
-* Titles of phases and tasks
-* Descriptions of tasks, phases and releases
-* Task owners
-* XL Deploy fields
-* Notification task fields
-* Gate conditions
-* Scripts
-* Password fields. When entering a password that uses the ${variable} syntax, it is treated as a variable, therefore you can not use such passwords in XL Release.
+## How to create a global variable
 
-You are required to provide values for all variables when starting a release. Values are filled in the task when the task starts. You can change the values of variables during an active release, although doing so will only affect the tasks that are in a 'planned' state and have yet to be executed.
+If you have the *Edit Global Variables* permission, you can create global variables in **Settings** > **Global variables** (available in XL Release 4.8.0 and later). For information about creating, editing, and deleting global variables, refer to [Configure global variables](/xl-release/how-to/configure-global-variables.html).
 
-## Special variables
+## How to create a release variable
 
-Special variables can be used to access release properties:
+If you have the *Edit Template* or *Edit Release* permission on a template or a release, respectively, you can create a release variable by:
+
+* Typing the variable name in a field in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html) (using the `${ }` syntax)
+* Using the [Variables screen](/xl-release/how-to/create-release-variables.html) (available in XL Release 4.8.0 and later)
+
+For more information about creating, editing, and deleting release variables, refer to [Create release variables](/xl-release/how-to/create-release-variables.html).
+
+## Where variables can be used
+
+You can use variables in almost any field in XL Release; for example, in the titles of phases and tasks, in descriptions of phases, tasks, and releases, and in conditions and scripts.
+
+You can create release variables that must be filled in before a release or task can start; refer to [Create release variables](/xl-release/how-to/create-release-variables.html#how-required-variables-work) for more information.
+
+You can change the values of variables in an active release, although doing so will only affect tasks that are in a *planned* state.
+
+## Special release variables
+
+You can use the following special release variables to access the properties of a release:
 
 * `${release.id}`
 * `${release.title}`

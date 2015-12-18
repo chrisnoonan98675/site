@@ -18,6 +18,7 @@
   key-concepts-link: /xl-release/concept/core-concepts-of-xl-release.html
   installation-link: /xl-release/how-to/install-xl-release.html
   versions:
+    - 4.8.x
     - 4.7.x
     - 4.6.x
     - 4.5.x
