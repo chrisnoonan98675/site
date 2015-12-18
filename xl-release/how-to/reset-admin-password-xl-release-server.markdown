@@ -19,11 +19,12 @@ Note that:
 * You must back up your XL Release instance before resetting the password.
 * It is important that you remove the hotfix after you are finished.
 
-To reset the password for the `admin` user in XL Release:
+To reset the password for the `admin` user:
 
-1. Stop the XL Release server.
+1. [Contact the XebiaLabs support team](https://support.xebialabs.com/hc/en-us/requests/new) to request the hotfix. They will send you the required file.
+1. After you have the hotfix, stop the XL Release server.
 1. Back up your XL Release instance.
-1. Download [this JAR file](sample-scripts/hotfix-disable-password-check.jar) and copy it to the `hotfix` directory of the XL Release server.
+1. Copy the hotfix to the `hotfix` directory of the XL Release server.
 1. Start the XL Release server. Note that security is now disabled.
 1. Create a temporary file called `user.xml` with the following content. Replace `NEW_PASSWORD` with your desired password. Note that the new password cannot be `admin`.
 
@@ -44,5 +45,5 @@ To reset the password for the `admin` user in XL Release:
         admin.password=NEW_PASSWORD
 
 1. Save the file and start the XL Release server. This registers and encrypts the new password.
-1. Remove the JAR file from the `hotfix` directory.
-1. Restart the XL Release server.
+1. Remove the hotfix from the `hotfix` directory.
+1. Start the XL Release server.
