@@ -16,6 +16,7 @@
   blurb: XL Release is an end-to-end pipeline orchestration tool for Continuous Delivery and DevOps teams. It handles dependencies, release trains, and integration with change and release management.
   getting-started-link: /xl-release/concept/core-concepts-of-xl-release.html
   versions:
+    - 4.8.x
     - 4.7.x
     - 4.6.x
     - 4.5.x
