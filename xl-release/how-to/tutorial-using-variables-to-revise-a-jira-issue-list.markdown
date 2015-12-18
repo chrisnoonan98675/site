@@ -15,7 +15,12 @@ since:
 
 This tutorial will show you how to use the extended variable mechanism (available in XL Release 4.8 and higher) to create a release that will retrieve a list a of JIRA tickets, have a user revise them and then update the list in JIRA.
 
-In order to do this tutorial, you need access to a JIRA server and sufficient rights on the XL Release server to create a template and to configure a JIRA server.
+In order to do this tutorial, you need access to a JIRA server. In XL Release you will need the following global rights:
+
+* **Admin** in order to configure the JIRA server. 
+* **Create Template** for the rest of the tutorial.
+
+For more information on global permissions, see [Configure Permissions](/xl-release/how-to/configure-permissions.html)
 
 ## Setup
 
@@ -69,9 +74,9 @@ Now use JIRA itself to develop a query that works for your project and paste it 
 
 Before we go on, let's test the first step to see if it works.
 
-When testing releases, it's good practive to put a simple Gate task at the end that prevents the release from finishing automatically.
+When testing releases, it's good practice to put a simple Gate task at the end that prevents the release from finishing automatically.
 
-Add a Gate task labeld "OK?" to the template.
+Add a Gate task labeled "OK?" to the template.
 
 ![Gate task at the end](../images/jira-variables/test-first-task.png)
 
@@ -79,7 +84,7 @@ Now create a new release and name it "Test 1". Start the release and wait for th
 
 ![Query result](../images/jira-variables/query-result.png)
 
-On the completed task, you can see the result in two places: First, after the label 'Issues' in the Output properties section. We will use this later on the put the result of the query in a variable that can be used in another task. Second, the issues are displayed in the Log Ouput in the Comments section. Clicking on the hyperlinks will open the issues in JIRA.
+On the completed task, you can see the result in two places: First, after the label 'Issues' in the Output properties section. We will use this later on the put the result of the query in a variable that can be used in another task. Second, the issues are displayed in the Log Output in the Comments section. Clicking on the hyperlinks will open the issues in JIRA.
 
 ## Revise the issue list
 
@@ -91,9 +96,13 @@ Open the **Query JIRA** task and go to the **Output properties** section. This i
 
 A new variable `${queryResultVar}` has been created and the result of the JIRA query will be stored in it. We can now use it in another task.
 
-Add a task of type **User Input** named "Check JIRA issues" and move it below the **Query JIRA** task. The User Input task is used during the release process to ask a human for some information. We do this by adding variables to this task. During a release, the user that this task is assigned to, needs to enter a value for these variables or check if they are correct. In this case, we will configure it to ask the user to confirm the list of issues before continuing with the release process. 
+The **User Input task** is used during the release process to ask a human for some information. We do this by adding variables to this task. During a release, the user that this task is assigned to, needs to enter a value for these variables or check if they are correct. In this case, we will configure it to ask the user to confirm the list of issues before continuing with the release process. 
 
-We are now on the template, and we need to configure the **Check JIRA issues** to display the contents of the `queryResultVar` variable, which containers the issue list.
+Add a task of type **User Input** named "Check JIRA issues" and move it below the **Query JIRA** task. Your release should look like this now:
+
+ ![Template with user input task](../images/jira-variables/added-user-input-task.png)
+
+We are now on the template, and we will configure the **Check JIRA issues** to display the contents of the `queryResultVar` variable, which containers the issue list.
 
 Open the task and press the button **Edit variable list**. This will open the 'edit mode' of the User Input task.
 
@@ -101,7 +110,7 @@ Open the task and press the button **Edit variable list**. This will open the 'e
 
 From the dropdown, select `${queryResultVar}` and press **Save**.
 
-The result is a not-so-impressive form. First of all, since we are in a template there is no query result, so no JIRA issues are displayed. Second, the description and variable feel rather generic and techy. 
+The result is a not-so-impressive form. First of all, since we are in a template there is no query result, so no JIRA issues are displayed. Second, the description and variable feel rather generic and technical. 
 
 ![Default form](../images/jira-variables/user-input-form-template.png)
 
@@ -159,7 +168,7 @@ The **Update issues** task supports issue transitions in JIRA, updating the summ
 
 We're done with our template, let's test again. Start a release and see that it runs until the end. 
 
-In the Log ouput comments of the **Update issues in JIRA** task you will see which issues have been updated. Click on the links to see the results in JIRA.
+In the Log output comments of the **Update issues in JIRA** task you will see which issues have been updated. Click on the links to see the results in JIRA.
 
 ![Output of update task](../images/jira-variables/log-output-update-issues.png)
 
@@ -167,14 +176,9 @@ You will be able to see the result in JIRA:
 
 ![Comment in JIRA](../images/jira-variables/comment-in-jira.png)
 
-## Generalizing the template?
-
-*[Question: shall I go on and tell how you can use variables for query and comment and put them on the Create Release form, or would that be overkill?]*
-
-
 ## Conclusion
 
-By using variables, XL Release allows you to connect steps in your release procedure together. It's a pwoerful mechanism that works for automated tasks, but can also be used to interact with people in a user-friendly way.
+By using variables, XL Release allows you to connect steps in your release procedure together. It's a powerful mechanism that works for automated tasks, but can also be used to interact with people in a user-friendly way.
 
 
    
