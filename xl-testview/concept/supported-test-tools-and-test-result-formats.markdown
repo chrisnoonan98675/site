@@ -14,13 +14,12 @@ tags:
 XL TestView supports the following test tools and test result formats:
 
 {:.table .table-striped}
-
 | Test tool | Build tool/Executor | Reporter format | Synthetic type | Type |
 | --------- | ------------------- | --------------- | -------------- | ---- |
 | Cucumber | N/A | N/A | `xlt.Cucumber` | Functional |
 | Gatling | N/A | N/A | `xlt.Gatling` | Performance |
 | [FitNesse](#fitnesse) | FitNesse | N/A | `xlt.FitNesse` | Functional | 
-| Jasmine | Karma | JUnit | `xlt.KarmaXunit`          | Functional |
+| Jasmine | Karma | JUnit | `xlt.KarmaXunit` | Functional |
 | JMeter | N/A | CSV | `xlt.JMeterCSV` | Performance |
 | JMeter | N/A | XML | `xlt.JMeterXML` | Performance |
 | JUnit | Ant | N/A | `xlt.JUnit` | Functional |
@@ -33,19 +32,19 @@ XL TestView supports the following test tools and test result formats:
 | [MSTest](#mstest) | N/A | TRX | `xlt.Trx` | Functional | 
 
 
-Notes
------
+## Notes
 
-#### FitNesse
-* The test results must be inside a folder named `FitNesseRoot`.
+### FitNesse
 
+* The test results must be in a folder named `FitNesseRoot`.
 
-#### MSTest
-* Tests which result in a timeout will be reported by XL TestView as failed. This is in-line with the behaviour of VSTest.console.
+### MSTest
+
+* Tests that result in a timeout will be reported by XL TestView as failed. This is inline with the behavior of VSTest.console.
 * MSTest does not output ignored tests.
 
-Additional information
-----------------------
+## Additional information
+
 For information about the different test and build tools, see the following:
 
 * [Cucumber](http://cukes.info/)
