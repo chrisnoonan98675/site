@@ -14,22 +14,22 @@ tags:
 XL TestView supports the following test tools and test result formats:
 
 {:.table .table-striped}
-| Test tool | Build tool/Executor | Reporter format | Synthetic type | Type |
-| --------- | ------------------- | --------------- | -------------- | ---- |
-| Cucumber | N/A | N/A | `xlt.Cucumber` | Functional |
-| Gatling | N/A | N/A | `xlt.Gatling` | Performance |
-| [FitNesse](#fitnesse) | FitNesse | N/A | `xlt.FitNesse` | Functional | 
-| Jasmine | Karma | JUnit | `xlt.KarmaXunit` | Functional |
-| JMeter | N/A | CSV | `xlt.JMeterCSV` | Performance |
-| JMeter | N/A | XML | `xlt.JMeterXML` | Performance |
-| JUnit | Ant | N/A | `xlt.JUnit` | Functional |
-| JUnit | Gradle | N/A | `xlt.JUnit` | Functional |
-| JUnit | Maven Surefire | N/A | `xlt.SurefireJUnit` | Functional |
-| TestNG | Ant | JUnit reporter | `xlt.TestNGJUnitReportReporter` | Functional |
-| TestNG | Gradle | N/A | `xlt.TestNGJUnitReportReporter` | Functional |
-| TestNG | Maven Surefire | N/A | `xlt.SurefireJUnit` | Functional |
-| VSTest.console | N/A | TRX | `xlt.Trx` | Functional |
-| [MSTest](#mstest) | N/A | TRX | `xlt.Trx` | Functional | 
+| Test tool | Build tool/Executor | Reporter format | Synthetic type | Type | Since |
+| --------- | ------------------- | --------------- | -------------- | ---- | ----- |
+| Cucumber | N/A | N/A | `xlt.Cucumber` | Functional | | 
+| Gatling | N/A | N/A | `xlt.Gatling` | Performance | |
+| [FitNesse](#fitnesse) | FitNesse | N/A | `xlt.FitNesse` | Functional | | 
+| Jasmine | Karma | JUnit | `xlt.KarmaXunit` | Functional | |
+| JMeter | N/A | CSV | `xlt.JMeterCSV` | Performance | |
+| JMeter | N/A | XML | `xlt.JMeterXML` | Performance | |
+| JUnit | Ant | N/A | `xlt.JUnit` | Functional | | 
+| JUnit | Gradle | N/A | `xlt.JUnit` | Functional | |
+| JUnit | Maven Surefire | N/A | `xlt.SurefireJUnit` | Functional | |
+| TestNG | Ant | JUnit reporter | `xlt.TestNGJUnitReportReporter` | Functional | |
+| TestNG | Gradle | N/A | `xlt.TestNGJUnitReportReporter` | Functional | | 
+| TestNG | Maven Surefire | N/A | `xlt.SurefireJUnit` | Functional | | 
+| VSTest.console | N/A | TRX | `xlt.Trx` | Functional | 1.4.0 |
+| [MSTest](#mstest) | N/A | TRX | `xlt.Trx` | Functional | 1.4.0 | 
 
 
 ## Notes
