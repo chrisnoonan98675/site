@@ -9,6 +9,8 @@ tags:
 - installation
 - ldap
 - configuration
+since:
+- XL TestView 1.3.0
 ---
 
 XL TestView supports authentication of users using LDAP. This topic describes how to configure LDAP authentication on XL TestView. Some general knowledge about LDAP and your LDAP server in particular is required.
