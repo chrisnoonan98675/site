@@ -21,25 +21,25 @@ The following table lists the possible configuration options.
 {:.table .table-striped}
 | Property | Default | Description |
 | -------- | ------- | ----------- |
-| `xlt.authentication.ldap.url` | `""` | Complete url to the LDAP server including port number. For example: ldaps://localhost:636. |
-| `xlt.authentication.ldap.user-dn` | `""` | The placeholder {0} is used to substitute the common name of the user. For example, cn={0},ou=people,dc=xebialabs,dc=com. <br/>**Note: Either use the user-dn property or user-search-base + user-search-filter.** |
-| `xlt.authentication.ldap.user-search-base` | `""` | Base DN to search for users. <br/>**Note: Either use the user-dn property or user-search-base + user-search-filter.** |
-| `xlt.authentication.ldap.user-search-filter` | `""` | User search filter. <br/>**Note: Either use the user-dn property or user-search-base + user-search-filter.** |
-| `xlt.authentication.method` | `file` | Method used to authenticate users. Possible values are "file", "ldap" and "none". |
-| `xlt.data` | `data` | Allows relocating the location where Elasticsearch and JCR create their databases. This can be convenient for backup and or upgrade scenarios. <br/>**Since 1.4.0.** |
-| `xlt.elasticsearch.data` | `data` | Relative path where Elasticsearch saves its data. <br/>**Deprecated and ignored in 1.4.0. See the `xlt.data` property.** |
-| `xlt.elasticsearch.http` | `false` | Enable the Elasticsearch HTTP server. This allows access to the Elasticsearch database over the network. No access control is set up on Elasticsearch. <br/>**Important: Do not enable this option on production instances.** |
-| `xlt.elasticsearch.port-range` | 9200-9300 | Restrict which ports the Elasticsearch HTTP server uses. When a port in the range is unavailable, another port in the range is tried. |
+| `xlt.authentication.ldap.url` | `""` | Complete url to the LDAP server including port number. For example: `ldaps://localhost:636`. |
+| `xlt.authentication.ldap.user-dn` | `""` | The placeholder `{0}` is used to substitute the common name of the user. For example, `cn={0},ou=people,dc=xebialabs,dc=com`. <br/>**Note**: Either use the `user-dn` property or `user-search-base` and `user-search-filter`. |
+| `xlt.authentication.ldap.user-search-base` | `""` | Base DN to search for users. <br/>**Note**: Either use the `user-dn` property or `user-search-base` and `user-search-filter`. |
+| `xlt.authentication.ldap.user-search-filter` | `""` | User search filter. <br/>**Note**: Either use the `user-dn` property or `user-search-base` and `user-search-filter`. |
+| `xlt.authentication.method` | `file` | Method used to authenticate users. Possible values are `file`, `ldap` and `none`. |
+| `xlt.data` | `data` | Allows relocating the location where Elasticsearch and JCR create their databases. This can be convenient for backup and or upgrade scenarios. <br/>This is supported in XL TestView 1.4.0 and later. |
+| `xlt.elasticsearch.data` | `data` | Relative path where Elasticsearch saves its data. <br/>This is deprecated and ignored as of XL TestView 1.4.0. Use the `xlt.data` property instead. |
+| `xlt.elasticsearch.http` | `false` | Enable the Elasticsearch HTTP server. This allows access to the Elasticsearch database over the network. No access control is set up on Elasticsearch. <br/>**Important**: Do not enable this option on production instances. |
+| `xlt.elasticsearch.port-range` | `9200`-`9300` | Restrict the ports that the Elasticsearch HTTP server uses. When a port in the range is unavailable, another port in the range is tried. |
 | `xlt.load-demo-data` | `true` | XL TestView includes a rich set of demonstration data to show all features. Set this property to `false` to start with a clean database. This feature only works on the first startup, to prevent overwriting existing data. |
-| `xlt.server.host` | `0.0.0.0` | IP address of the interface the server should listen on. The value '0.0.0.0' means that XL TestView will listen on all network interfaces. |
+| `xlt.server.host` | `0.0.0.0` | IP address of the interface the server should listen on. The value `0.0.0.0` means that XL TestView will listen on all network interfaces. |
 | `xlt.server.port` | `6516` | Port to run XL TestView on. On Unix, the port must be greater than 1024 unless the server is running as root (which is not recommended). |
 | `xlt.server.root` |`""` | Context root of the XL TestView service. Must start with a forward slash (`/`). |
-| `xlt.server.secure-cookie` | `false` | Send only cookies if using a secure connection. Set this to true if you are running your server on HTTPS. |
+| `xlt.server.secure-cookie` | `false` | Send only cookies if using a secure connection. Set this to `true` if you are running your server on HTTPS. |
 | `xlt.server.session-cookie-name` | `XLT_SESSION_ID` | Name for the session cookie. Should be unique among all applications on a server or reverse proxy to prevent affecting each others sessions. |
-| `xlt.server.session-timeout` | `30 minutes` | Time to allow browser sessions to live. See [Human-Optimized Config Object Notation (HOCON) format](https://github.com/typesafehub/config/blob/master/HOCON.md#duration-format) for the format). |
+| `xlt.server.session-timeout` | `30 minutes` | Time to allow browser sessions to live. See [the HOCON format](https://github.com/typesafehub/config/blob/master/HOCON.md#duration-format) for more information. |
 | `xlt.server.threadpool.max` | `20` | Configure the maximum number of worker threads for handling web requests. |
 | `xlt.server.threadpool.min` | `10` | Configure the minimum number of worker threads for handling web requests. |
-| `xlt.truststore.location` | `""` | Absolute path to the trust store. To prevent errors, this must be empty or a valid java key store file. |
+| `xlt.truststore.location` | `""` | Absolute path to the trust store. To prevent errors, this must be empty or a valid Java keystore file. |
 
 ## Configure LDAP
 
@@ -57,7 +57,7 @@ You can configure the Java virtual machine (JVM) as follows:
 
 Configuration is split between memory settings for the JVM in `XLT_SERVER_MEM_OPTS` and other settings in `XLT_SERVER_OPTS`.
 
-`XLT_SERVER_MEM_OPTS` has a default of `-Xmx1024m -XX:MaxPermSize=256m`; refer to your Java Runtime Documentation for details on these settings. As a result of using Java 8 starting with version 1.4.0 the ``MaxPermSize`` setting is not needed anymore and gives a warning when starting up the server.
+`XLT_SERVER_MEM_OPTS` has a default of `-Xmx1024m -XX:MaxPermSize=256m`; refer to your Java Runtime Documentation for information about these settings. XL TestView 1.4.0 and later uses Java 8, which means that the `MaxPermSize` setting is no longer required and will result in a warning when starting the server.
 
 ### Memory configuration examples
 
@@ -65,7 +65,7 @@ For example, increasing the amount of memory the server has available can be don
 
     XLT_SERVER_MEM_OPTS="-Xmx4096m -XX:MaxPermSize=256m" ./server.sh
 
-On Windows, you can do this as follows:
+On Microsoft Windows, you can do this as follows:
 
     set XLT_SERVER_MEM_OPTS=-Xmx4096m -XX:MaxPermSize=256m
     server.cmd
