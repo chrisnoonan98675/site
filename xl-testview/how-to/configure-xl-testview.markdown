@@ -57,7 +57,7 @@ You can configure the Java virtual machine (JVM) as follows:
 
 Configuration is split between memory settings for the JVM in `XLT_SERVER_MEM_OPTS` and other settings in `XLT_SERVER_OPTS`.
 
-`XLT_SERVER_MEM_OPTS` has a default of `-Xmx1024m -XX:MaxPermSize=256m`; refer to your Java Runtime Documentation for details on these settings.
+`XLT_SERVER_MEM_OPTS` has a default of `-Xmx1024m -XX:MaxPermSize=256m`; refer to your Java Runtime Documentation for details on these settings. As a result of using Java 8 starting with version 1.4.0 the ``MaxPermSize`` setting is not needed anymore and gives a warning when starting up the server.
 
 ### Memory configuration examples
 
@@ -70,6 +70,6 @@ On Windows, you can do this as follows:
     set XLT_SERVER_MEM_OPTS=-Xmx4096m -XX:MaxPermSize=256m
     server.cmd
 
-This is an example for a `/etc/sysconfig/xl-testview` or `/etc/default/xl-testview` file:
+To make the memory change persistent you can add the setting to the `/etc/sysconfig/xl-testview` or `/etc/default/xl-testview` file. This would look like:
 
     export XLT_SERVER_MEM_OPTS="-Xmx4096m -XX:MaxPermSize=256m"
