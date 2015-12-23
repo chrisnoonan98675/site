@@ -56,7 +56,7 @@ The output of the task is `issueId`, the ID of the JIRA issue that was created.
 
 ## Query
 
-The **Jira: Query** task type executes a [JQL](https://confluence.atlassian.com/jira/advanced-searching-179442050.html) query on a JIRA server to retrieve a list of issues and their summaries (titles).
+The **Jira: Query** task type executes a [JQL](https://confluence.atlassian.com/jira/advanced-searching-179442050.html) query on a JIRA server to retrieve a list of issues and their summaries (titles). It is supported in XL Release 4.8.0 and later.
 
 The following properties are available:
 
@@ -82,7 +82,7 @@ The following properties are available:
 
 ## Update issues
 
-The **Jira: Update Issues** task type updates multiple issues in JIRA.
+The **Jira: Update Issues** task type updates multiple issues in JIRA. It is supported in XL Release 4.8.0 and later.
 
 The following properties are available:
 
@@ -102,7 +102,7 @@ The following properties are available:
 
 ## Update issues by query
 
-The **Jira: Update Issues by Query** task type updates issues that are located by a [JQL](https://confluence.atlassian.com/jira/advanced-searching-179442050.html) query.
+The **Jira: Update Issues by Query** task type updates issues that are located by a [JQL](https://confluence.atlassian.com/jira/advanced-searching-179442050.html) query. It is supported in XL Release 4.8.0 and later.
 
 The following properties are available:
 
