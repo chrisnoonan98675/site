@@ -12,25 +12,28 @@ tags:
 - api
 ---
 
-Additional to the [Jython API](https://docs.xebialabs.com/jython-docs/#!/xl-release/4.6.x/), the following helper functions are also available in Script tasks and Python scripts for plugin tasks.
+In addition to the [Jython API](/jython-docs/#!/xl-release/4.8.x/), the following helper functions are available in [Script tasks](/xl-release/how-to/create-a-script-task.html) and Python scripts for plugin tasks.
 
 ### getCurrentTask()
+
 Returns the current task.
     
 **Returns:** a Task object
 
 ### getCurrentPhase()
+
 Returns the current phase.
     
 **Returns:** a Phase object
 
 ### getCurrentRelease()
+
 Returns the current release.
 
 **Returns:** a Release object
 
-
 ### getTasksByTitle(taskTitle, phaseTitle = None, releaseId = None)
+
 Finds tasks by title.
 
 **taskTitle:** The task title to search.
