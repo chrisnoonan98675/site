@@ -15,14 +15,12 @@ For general information about XebiaLabs documentation, refer to [Technical docum
 To generate the Jekyll-based part of the documentation site locally:
 
 1. Clone this repository.
-1. Install Jekyll 3.x and its requirements:
+1. Install Jekyll 3.0.1 and its requirements:
     * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/). **Important:** If you're using OS X 10.11 (El Capitan) or later, [read this important info](http://jekyllrb.com/docs/troubleshooting/#jekyll-amp-mac-os-x-1011)!
     * Windows users, follow [these instructions](http://jekyll-windows.juthilo.com/)
 1. In the directory where you cloned the repository, execute `jekyll serve`. Go to `http://localhost:4000` to see the site running locally.
 
 ## Installation tips
-
-You can install a specific version of Jekyll with [`gem install jekyll -v 1.2.3`](http://stackoverflow.com/questions/17026441/how-to-install-a-specific-version-of-a-ruby-gem), where `1.2.3` is the version you want to install. You can remove a specific version with `gem uninstall jekyll`; Ruby will then ask which version you want to uninstall.
 
 You may also need to install:
 
@@ -43,7 +41,7 @@ Initial generation of the site in development mode takes about 25 seconds.
 
 If you use `jekyll serve`, the site is regenerated every time you make a change (except in `_config.yml`). You can prevent this by using `jekyll serve --incremental`. This means Jekyll will only regenerate the files that you change, which usually takes less than 1 second.
 
-Note that this is an experimental feature; incremental builds don't always pick up changes in Liquid code or changes that affect the various lists of topics that Jekyll generates. If you're using incremental builds and you don't see the output you expected, stop Jekyll (with CTRL+C) and run `jekyll build`. This will regenerate the whole site and clean up the `_site` directory; you can then try using incremental builds again.
+Note that this is an experimental feature; incremental builds don't always pick up changes in Liquid code or changes that affect the various lists of topics that Jekyll generates. If you're using incremental builds and you don't see the output you expected, stop Jekyll (with CTRL+C) and run `jekyll serve` or `jekyll build`. This will regenerate the whole site and clean up the `_site` directory; you can then try using incremental builds again.
 
 Alternatively, you can disable regeneration completely by executing `jekyll serve --no-watch`.
 
@@ -121,7 +119,7 @@ You can specify front matter options in any order. The keys *must* match the key
 
 # How page weights work
 
-Lists of topics are ordered by the `weight` value in their front matter. Topics without a weight are ordered alphabetically (ascending) by file name.
+***NEW!*** Lists of topics are ordered by the `weight` value in their front matter. Topics without a weight are ordered alphabetically (ascending) by file name.
 
 To help prevent weight clashes, these ranges are used for topics:
 
@@ -131,7 +129,7 @@ To help prevent weight clashes, these ranges are used for topics:
 | XL Release | 400 - 699 |
 | XL TestView | 700 - 999 |
 
-Weights over 999 do not work.
+**Note:** Weights over 999 do not work.
 
 **Tip:** To see the weights of all topics, go to [https://docs.xebialabs.com/topic-weights.html](https://docs.xebialabs.com/topic-weights.html).
 
