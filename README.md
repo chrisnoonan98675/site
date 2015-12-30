@@ -97,27 +97,51 @@ The naming convention for documentation site files is `your-file-name-here.markd
 
 You can specify front matter options in any order. The keys *must* match the keys listed below.
 
-| Key | Required? | More than one value allowed? | Description | Capitalization | Spaces allowed? | Example |
-| --- | --------- | ---------------------------- | ----------- | -------------- | --------------- | ------- |
-| `title` | Yes | No | The title of the page. | Sentence case | Yes | Create a new role |
-| `categories` | Yes | Yes | The product(s) that the page applies to. | Lowercase | No | xl-deploy, xl-release |
-| `subject` | Yes | No | The subject is like a high-level tag. It helps users who are used to reading documentation in manuals. | Sentence case | Yes | Security |
-| `tags` | Yes | Yes | Tags help users browse posts and improve search results. Try to use tags that are already in use. You can add new tags, but do so with caution. | Lowercase | Yes | role, permissions, user management |
-| `since` | No | No | This is the version in which the functionality described in the page was introduced. It isn't required, but it is recommended. | Not applicable | Yes | XL Deploy 3.9.x |
-| `deprecated` | No | No | This is the version in which the functionality described in the page was deprecated. | Not applicable | Yes | XL Release 4.6.0 |
-| `removed` | No | No | This is the version in which the functionality described in the page was removed. | Not applicable | Yes | XL TestView 1.2.0 |
-| `weight` | No | No | This determines a topic's position in various lists. | Not applicable | No | 204 |
-| `beta` ***NEW!*** | No | No | Set this to `true` to insert a warning at the top of the topic that indicates that the information is in beta. | Lowercase | No | true |
-| `pre_rules` ***NEW!*** | No | No | Set this to `true` to insert a note at the top of the topic that indicates that the information applies to Java-based plugins instead of XL Deploy rules. | Lowercase | No | true |
-| `no_index` ***NEW!*** | No | No | Set this to `true` to prevent search engines from indexing the page. | Lowercase | No | true |
-| `no_mini_toc` ***NEW!*** | No | No | Set this to `true` to prevent Jekyll from generating a mini table of contents at the top right of the topic | Lowercase | No | true |
-| `no_breadcrumbs` ***NEW!*** | No | No | Set this to `true` to prevent Jekyll from generating breadcrumbs at the top left of the topic | Lowercase | No | true |
-| `list_in_sidebar` ***NEW!*** | No | No | Set to `true` to list the page in the menu on the left side of the documentation site. | Lowercase | No | true |
-| `sidebar_weight` ***NEW!*** | No | No | This determines the order of the pages that are listed in the menu on the left side of the documentation site. | Not applicable | No | 10 |
+| Key | Required? | Multiple values allowed? | Capitalization | Spaces allowed? | Description |
+| --- | --------- | ------------------------ | -------------- | --------------- | ----------- |
+| `title` | Yes | No | Sentence case | Yes | Title of the page. |
+| `categories` | See below | Yes | Lowercase | No | Product(s) that the page applies to. |
+| `subject` | See below | No | Sentence case | Yes | Subject of the page; this is like a tag, but only one subject is allowed. Try to use [subjects that are already in use](https://docs.xebialabs.com/tags-and-subjects.html). |
+| `tags` | See below | Yes | Lowercase | Yes | Tags to help users browse posts. Try to use [tags that are already in use](https://docs.xebialabs.com/tags-and-subjects.html). |
+| `since` | No | No | Not applicable | Yes | Version in which the functionality described in the page was introduced, in `Product Name X.Y.Z` format (for example, `XL Deploy 5.0.0`). |
+| `deprecated` | No | No | Not applicable | Yes | Version in which the functionality described in the page was deprecated, in the same format as `since`. |
+| `removed` | No | No | Not applicable | Yes | Version in which the functionality described in the page was removed, in the same format as `since`. |
+| `weight` | No | No | Not applicable | No | Determines the page's position in various lists. |
+| `beta` ***NEW!*** | No | No | Lowercase | No | Set to `true` to insert a warning indicating that the page's information is in beta. |
+| `pre_rules` ***NEW!*** | No | No | Lowercase | No | Set to `true` to insert a note indicating that the page's information applies to Java-based plugins instead of XL Deploy rules. |
+| `no_index` ***NEW!*** | No | No | Lowercase | No | Set to `true` to prevent search engines from indexing the page. |
+| `no_mini_toc` ***NEW!*** | No | No | Lowercase | No | Set to `true` to prevent Jekyll from generating a mini table of contents in the topic. |
+| `no_breadcrumbs` ***NEW!*** | No | No | Lowercase | No | Set to `true` to prevent Jekyll from generating breadcrumbs in the topic. |
+| `list_in_sidebar` ***NEW!*** | No | No | Lowercase | No | Set to `true` to list the page in the site sidebar. |
+| `sidebar_weight` ***NEW!*** | No | No | Not applicable | No | Determines the page's position in the site sidebar. |
 
 **Tip:** To see the tags and subjects that are in use, go to [https://docs.xebialabs.com/tags-and-subjects.html](https://docs.xebialabs.com/tags-and-subjects.html).
 
-# How page weights work
+## Categories, subject, and tags
+
+The `categories`, `subject`, and `tags` front matter options are almost always required for topics. The exception is a topic that you don't want to appear in lists like [this](https://docs.xebialabs.com/xl-release/#browse-documentation-by-subject) and [this](https://docs.xebialabs.com/xl-testview/concept/). We occasionally do this for beta documentation that we want to make available to a limited number of customers.
+
+If a topic doesn't appear in lists where you expect it, double-check the `categories`, `subject`, and `tags`.
+
+## Single values vs. multiple values
+
+If a front matter option only allows a single value, then specify the value on the same line as the key:
+
+    title: Sample topic title
+    no_mini_toc: true
+
+If a front matter option allows multiple values, then specify the values in a list:
+
+    categories:
+    - xl-deploy
+    - xl-release
+    tags:
+    - tag 1
+    - tag 2
+
+If a topic doesn't appear in lists where you expect it, double-check the formatting of the front matter options.
+
+## How page weights work
 
 ***NEW!*** Lists of topics are ordered by the `weight` value in their front matter. Topics without a weight are ordered alphabetically (ascending) by file name.
 
