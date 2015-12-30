@@ -1,5 +1,4 @@
 ---
-layout: satellite
 title: Create a custom step on a satellite
 categories:
 - xl-deploy

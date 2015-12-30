@@ -1,8 +1,9 @@
 ---
+list_in_sidebar: true
 no_mini_toc: true
-layout: list-in-sidebar
 title: Videos
-weight: 5
+sidebar_weight: 5
+no_breadcrumbs: true
 ---
 
 Click a link below to watch a video in a pop-up window, or visit the [XebiaLabs YouTube channel](https://www.youtube.com/user/xebialabs) to browse all of our videos.

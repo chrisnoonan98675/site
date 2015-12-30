@@ -1,5 +1,4 @@
 ---
-layout: satellite
 title: Configure secure communication with a satellite server (XL Deploy 5.0.0)
 categories:
 - xl-deploy

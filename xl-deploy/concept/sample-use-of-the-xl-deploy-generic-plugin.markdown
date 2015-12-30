@@ -7,6 +7,7 @@ subject:
 tags:
 - generic
 - plugin
+weight: 114
 ---
 
 This is an example of using the Generic Model plugin to implement support for a simple middleware platform. Deployment to this platform is done by simply copying a WAR archive to the right directory on the container. Resources are created by copying configuration files into the container's configuration directory. The Tomcat application server works in a very similar manner.

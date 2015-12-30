@@ -1,6 +1,7 @@
 ---
-layout: beta-noindex
 title: Using the XL Release cluster functionality
+beta: true
+no_index: true
 ---
 
 XL Release 4.8.0 includes a preview of support for cluster configurations. You can use this preview to test the clustering functionality. This topic describes the required setup procedure for XL Release clustering.

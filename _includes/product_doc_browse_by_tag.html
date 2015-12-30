@@ -3,7 +3,7 @@
 <p><button class="btn btn-default btn-xs" type="button" id="expand-all-tags">Expand all</button>&nbsp;&nbsp;
 <button class="btn btn-default btn-xs" type="button" id="collapse-all-tags">Collapse all</button></p>
 
-{% capture all_page_tags %}{% for page in site.pages %}{% for category in page.categories %}{% if category contains product-id-to-search-for %}{% for tag in page.tags %}{{ tag }},{% endfor %}{% endif %}{% endfor %}{% endfor %}{% endcapture %}
+{% capture all_page_tags %}{% for page in site.weighted_pages %}{% for category in page.categories %}{% if category contains product-id-to-search-for %}{% for tag in page.tags %}{{ tag }},{% endfor %}{% endif %}{% endfor %}{% endfor %}{% endcapture %}
 {% assign sorted_page_tags = all_page_tags | split:',' | sort %}
 
 {% assign tags_used = '' %}
@@ -22,7 +22,7 @@
 				{% capture tag_to_search_for %}{{ item }}{% endcapture %}
 				<h6>{{ tag_to_search_for }}</h6>
 					<ul>
-						{% for page in site.pages %}
+						{% for page in site.weighted_pages %}
 							{% for category in page.categories %}
 								{% if category contains product-id-to-search-for %}
 									{% if page.tags contains tag_to_search_for %}

@@ -1,6 +1,6 @@
 {% assign product-id-to-search-for = page.product-id %}
 
-{% capture all_page_subjects %}{% for page in site.pages %}{% for category in page.categories %}{% if category contains product-id-to-search-for and page.path contains 'how-to' %}{% for subject in page.subject %}{{ subject }},{% endfor %}{% endif %}{% endfor %}{% endfor %}{% endcapture %}
+{% capture all_page_subjects %}{% for page in site.weighted_pages %}{% for category in page.categories %}{% if category contains product-id-to-search-for and page.path contains 'how-to' %}{% for subject in page.subject %}{{ subject }},{% endfor %}{% endif %}{% endfor %}{% endfor %}{% endcapture %}
 {% assign sorted_page_subjects = all_page_subjects | split:',' | sort %}
 
 {% assign subjects_used = '' %}
@@ -19,7 +19,7 @@
 			{% capture subject_to_search_for %}{{ item }}{% endcapture %}
 			<li>{{ subject_to_search_for }}
 				<ul>
-					{% for page in site.pages %}
+					{% for page in site.weighted_pages %}
 						{% for category in page.categories %}
 							{% if category contains product-id-to-search-for %}
 								{% if page.subject contains subject_to_search_for and page.path contains 'how-to' %}

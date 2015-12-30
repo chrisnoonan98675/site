@@ -1,5 +1,5 @@
 ---
-layout: pre-rules
+pre_rules: true
 title: Sample Java-based XL Deploy plugin
 categories:
 - xl-deploy

@@ -67,6 +67,16 @@ h5, .h5 {
     padding-top: 25px;
 }
 
+/* Highlighted code with line numbers enabled */
+
+.lineno {
+	border: 0;
+	border-right: 1px solid #CCC;
+}
+td > pre {
+	border: 0;
+}
+
 /* Mini TOC */
 
 .mini-toc {

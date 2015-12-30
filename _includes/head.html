@@ -8,6 +8,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	<meta name="author" content="XebiaLabs Inc.">
 	<meta name="keywords" content="XL Deploy, Deployit, XLD, XL Release, XLR, XL Scale, XLS, XL TestView, XLT, XLTV, XebiaLabs{% if page.tags %}, {% include page_tag_list.html %}{% endif %}">
+	{% if page.no_index %}
+		<meta name="robots" content="noindex">
+	{% endif %}
 	
 	<link rel="icon" type="image/ico" href="/images/favicon.ico"/>
 

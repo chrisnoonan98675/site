@@ -1,5 +1,5 @@
 ---
-layout: pre-rules
+pre_rules: true
 title: Add a checkpoint to a custom plugin
 categories:
 - xl-deploy

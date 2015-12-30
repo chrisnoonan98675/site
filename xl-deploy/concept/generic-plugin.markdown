@@ -7,6 +7,7 @@ subject:
 tags:
 - plugin
 - generic
+weight: 110
 ---
 
 XL Deploy supports a number of middleware platforms. Sometimes, though, it is necessary to extend XL Deploy with new middleware support. The Generic Model plugin provides a way to do this, without having to write Java code. Instead, using XL Deploy's flexible type system and the base CIs from the Generic Model plugin, new CIs can be defined by writing XML and providing scripts for functionality.

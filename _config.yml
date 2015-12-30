@@ -6,6 +6,7 @@ url: https://docs.xebialabs.com
 sitemap:
     exclude:
         - "/tags-and-subjects.html"
+        - "/topic-weights.html"
         - "/xl-deploy/in-product-help.html"
 
 defaults:
@@ -15,8 +16,6 @@ defaults:
             type: "pages"
         values:
             layout: "page"
-
-highlighter: pygments
 
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 

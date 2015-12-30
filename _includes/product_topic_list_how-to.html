@@ -5,7 +5,7 @@
 <span class="hidden">{% increment how-to-counter %}</span>
 
 <ul>
-{% for page in site.pages %}
+{% for page in site.weighted_pages %}
 	{% if page.categories contains product-id-to-search-for %}
 		{% if page.path contains 'how-to' %}
 			{% unless page.path contains 'index' %}

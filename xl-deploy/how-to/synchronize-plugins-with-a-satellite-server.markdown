@@ -1,5 +1,4 @@
 ---
-layout: satellite
 title: Synchronize plugins with a satellite server
 categories:
 - xl-deploy
