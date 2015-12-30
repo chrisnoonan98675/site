@@ -48,6 +48,9 @@ XL TestView supports the following test tools and test result formats:
 
 * Only unit test results are supported.
 
+### JUnit with Gradle
+* The [`Enclosed`](http://junit.org/apidocs/org/junit/experimental/runners/Enclosed.html) runner may create duplicate results when used in conjuction with Gradle to execute tests in inner classes, and is not supported.
+
 ## Additional information
 
 For information about the different test and build tools, see the following:
