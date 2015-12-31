@@ -33,29 +33,36 @@ If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encoun
 
 If you run into problems, first check that you have the right version of Jekyll with `jekyll --version`.
 
-### Speed up site generation
+### Development mode
 
-***NEW!*** By default, `jekyll serve` and `jekyll build` both run Jekyll in "development" mode. This means that certain navigation elements (Google search box, sidebar menu, breadcrumbs) are disabled to reduce the time it takes to generate the site.
+***NEW!*** By default, `jekyll serve` and `jekyll build` both run Jekyll in "development" mode. This means that:
+
+* Some navigation elements (such as the Google search box, the sidebar menu, and breadcrumbs) are disabled to reduce the time it takes to generate the site
+* An "Edit this page" link is available at the bottom of each topic
 
 Initial generation of the site in development mode takes about 25 seconds.
 
-If you use `jekyll serve`, the site is regenerated every time you make a change (except in `_config.yml`). You can prevent this by using `jekyll serve --incremental`. This means Jekyll will only regenerate the files that you change, which usually takes less than 1 second.
+Keep in mind that a site generated in development mode will not look exactly like the live documentation site because of the disabled elements.
+
+### Speed up site generation
+
+***NEW!*** If you use `jekyll serve`, the site is regenerated every time you make a change (except in `_config.yml`). You can prevent this by using `jekyll serve --incremental`. This means Jekyll will only regenerate the files that you change, which usually takes less than 1 second.
 
 Note that this is an experimental feature; incremental builds don't always pick up changes in Liquid code or changes that affect the various lists of topics that Jekyll generates. If you're using incremental builds and you don't see the output you expected, stop Jekyll (with CTRL+C) and run `jekyll serve` or `jekyll build`. This will regenerate the whole site and clean up the `_site` directory; you can then try using incremental builds again.
 
 Alternatively, you can disable regeneration completely by executing `jekyll serve --no-watch`.
 
-### Disable the Development Dashboard
-
-Another way to speed up site generation is to disable the Development Dashboard plugin. It is recommended that you do this if you want to run the site locally without internet access, because the plugin has to access the JIRA API.
-
-Change the `jira_dashboard` `generate` setting in `_config.yml` to `false`, then start Jekyll. *Do not commit this change to the repository!*
-
-### Run locally in "production" mode
+### Production mode
 
 ***NEW!*** In "production" mode, Jekyll will generate the sidebar menu and breadcrumbs. Generating the site in production mode takes 80 to 90 seconds.
 
-To generate the site locally in production mode, execute `JEKYLL_ENV=production jekyll serve` or `JEKYLL_ENV=production jekyll serve --incremental`.
+The [Jenkins job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/xldoc/job/Jekyll%20docs/) for the documentation site generates the site in production mode. To generate the site locally in production mode, execute `JEKYLL_ENV=production jekyll serve` or `JEKYLL_ENV=production jekyll serve --incremental`.
+
+### Disable the Development Dashboard
+
+Another way to speed up site generation is to disable the Development Dashboard plugin. It is recommended that you do this if you want to run the site locally without internet access, because the plugin accesses the JIRA API.
+
+Change the `jira_dashboard` `generate` setting in `_config.yml` to `false`, then start Jekyll. *Do not commit this change to the repository!*
 
 ## Writing tips
 
