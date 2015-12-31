@@ -67,6 +67,17 @@ h5, .h5 {
     padding-top: 25px;
 }
 
+/* Page edit link */
+
+.edit-this-page {
+	padding-top: 20px;
+	font-size: 80%;
+	color: #888;
+}
+.edit-this-page a {
+	color: #888;
+}
+
 /* Highlighted code with line numbers enabled */
 
 .lineno {

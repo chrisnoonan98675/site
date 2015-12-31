@@ -28,9 +28,6 @@ layout: default
 	<!-- Page tags -->
 	<!-- {% include page_tag_list.html %} -->
 	
-	<!-- Page location -->
-	<!-- https://github.com/xebialabs/online-docs-jekyll/edit/master/{{ page.path }} -->
-	
 	<div class="page-header">
 		<h1 class="page-title">{{ page.title }}</h1>
 	</div>
@@ -41,8 +38,14 @@ layout: default
 
 	{{ content }}
 	
-	{% if page.subject == "Satellite" %}
-		<p class="satellite-message"><strong>Note:</strong> Satellite is an add-on module for XL Deploy. Please <a href="https://xebialabs.com/contact/" target="_blank">contact us</a> for pricing information.</p>
-	{% endif %}
+	{% for subject in page.subject %}
+		{% if subject contains "Satellite" %}
+			<p class="satellite-message"><strong>Note:</strong> Satellite is an add-on module for XL Deploy. Please <a href="https://xebialabs.com/contact/" target="_blank">contact us</a> for pricing information.</p>
+		{% endif %}
+	{% endfor %}
+	
+	{% unless jekyll.environment == "production" %}
+		{% include edit-link.html %}
+	{% endunless %}
 		
 </div>
