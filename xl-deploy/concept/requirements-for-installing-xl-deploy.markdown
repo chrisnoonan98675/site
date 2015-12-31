@@ -9,9 +9,7 @@ tags:
 - installation
 - license
 - setup
-- requirements
 - system requirements
-- prerequisites
 ---
 
 ## Server requirements
