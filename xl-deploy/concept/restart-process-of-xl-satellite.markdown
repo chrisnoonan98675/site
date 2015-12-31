@@ -1,31 +1,30 @@
 ---
-title: The restart process of XL Satellite
+title: Satellite restart process
 subject:
-- Installation
+- Satellite
 categories:
 - xl-deploy
 tags:
-- system administration
-- installation
-- service
-- daemon
-- setup
 - satellite
-- restart
+- remoting
+- plugin
+- extension
+since:
+- XL Deploy 5.0.0
 ---
 
-The satellite will require a restart after [Synchronising plugins](/xl-deploy/how-to/synchronize-plugins-with-a-satellite-server.html), or when the connection drops. 
+After you [synchronize plugins](/xl-deploy/how-to/synchronize-plugins-with-a-satellite-server.html) on an XL Deploy satellite, or if the connection between XL Deploy and a satellite breaks, the satellite must be restarted.
 
-This is necessary because:
+This is required because:
 
-* The Java classes, scripts, rules and other resources of the synchronised plugins need to be loaded into JVM.
-* The internal state of the satellite needs to be reset.
+* The Java classes, scripts, rules, and other resources of the synchronized plugins need to be loaded into the Java virtual machine (JVM)
+* The internal state of the satellite must be reset
 
 ## How the restart process works
 
-The java process of the satellite uses a special exit code `242` to indicate it requires a restart. The startup script or service that bootstraps the satellite process is responsible for checking for this exit code and restarting the satellite when requested.
+The satellite Java process uses a special exit code, `242`, to indicate it requires a restart. The startup script or service that bootstraps the satellite process is responsible for checking for this exit code and restarting the satellite when requested.
 
-In XL Satellite we provide a startup script that does this. The following fragment is an example and based on the linux startup script that can be found here: `bin/run.sh`
+The satellite module includes a startup script that does this. The following code fragment is an example based on the Linux startup script that can be found in `<SATELLITE_HOME>/bin/run.sh`:
 
     RESTART_EXIT_CODE=242
     
@@ -45,11 +44,11 @@ In XL Satellite we provide a startup script that does this. The following fragme
         start_xl_satellite
     done
 
-Explanation of the shell script fragment: 
+In this example: 
     
-1. The `start_xl_satellite` method will start the satellite java process
-1. The method will be called initially to start the satellite the first time
-1. The reboot loop `while` will inspect the exit code, if the exit code is `242` it means that the satellite requests a restart. The script will start the satellite
+1. The `start_xl_satellite` method starts the satellite Java process.
+1. The method will be called initially to start the satellite the first time.
+1. The `while` reboot loop will inspect the exit code; if the exit code is `242`, it means that the satellite requests a restart. The script will start the satellite.
 1. Otherwise, the loop will end and the satellite is terminated.
 
-If you do not use the provided shell scripts but you are using an alternative startup script, service wrapper or daemon process to run XL Satellite, this is something to keep in mind.    
+If you want to use an alternative startup script, service wrapper, or daemon process instead of the startup scripts that are provided with the satellite module, be sure to take the restart process into account.
