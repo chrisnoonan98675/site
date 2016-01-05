@@ -5,88 +5,92 @@ no_breadcrumbs: true
 no_mini_toc: true
 ---
 
-<table class="table table-condensed">
-	<thead>
-		<tr>
-			<th>Topics</th>
-			<th>Weight range allowed</th>
-		</th>
-	</thead>
-	<tbody>
-		<tr>
-			<td><a href="#xl-deploy-topics">XL Deploy topics</a></td>
-			<td>100 - 399</td>
-		</tr>
-		<tr>
-			<td><a href="#xl-release-topics">XL Release topics</a></td>
-			<td>400 - 699<td>
-		</tr>
-		<tr>
-			<td><a href="#xl-testview-topics">XL TestView topics</a></td>
-			<td>700 - 999</td>
-		</tr>
-	</tbody>
-</table>
+{% unless jekyll.environment == "lightweight" %}
 
-<a name="xl-deploy-topics"></a><h1><a name="xl-deploy-topics"></a>XL Deploy topics</h1>
+	<table class="table table-condensed">
+		<thead>
+			<tr>
+				<th>Topics</th>
+				<th>Weight range allowed</th>
+			</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td><a href="#xl-deploy-topics">XL Deploy topics</a></td>
+				<td>100 - 399</td>
+			</tr>
+			<tr>
+				<td><a href="#xl-release-topics">XL Release topics</a></td>
+				<td>400 - 699<td>
+			</tr>
+			<tr>
+				<td><a href="#xl-testview-topics">XL TestView topics</a></td>
+				<td>700 - 999</td>
+			</tr>
+		</tbody>
+	</table>
 
-<table class="table table-condensed">
-	<thead>
-		<tr>
-			<th>Page</th>
-			<th>Weight</th>
-		</th>
-	</thead>
-	<tbody>
-		{% for page in site.weighted_pages %}
-			{% if page.categories contains 'xl-deploy' %}
-				<tr>
-					<td><a href="{{ page.url }}">{{ page.title }}</a></td>
-					<td>{{ page.weight }}</td>
-				</tr>
-			{% endif %}
-		{% endfor %}
-	</tbody>
-</table>
+	<a name="xl-deploy-topics"></a><h1><a name="xl-deploy-topics"></a>XL Deploy topics</h1>
 
-<a name="xl-release-topics"></a><h1>XL Release topics</h1>
+	<table class="table table-condensed">
+		<thead>
+			<tr>
+				<th>Page</th>
+				<th>Weight</th>
+			</th>
+		</thead>
+		<tbody>
+			{% for page in site.weighted_pages %}
+				{% if page.categories contains 'xl-deploy' %}
+					<tr>
+						<td><a href="{{ page.url }}">{{ page.title }}</a></td>
+						<td>{{ page.weight }}</td>
+					</tr>
+				{% endif %}
+			{% endfor %}
+		</tbody>
+	</table>
 
-<table class="table table-condensed">
-	<thead>
-		<tr>
-			<th>Page</th>
-			<th>Weight</th>
-		</th>
-	</thead>
-	<tbody>
-		{% for page in site.weighted_pages %}
-			{% if page.categories contains 'xl-release' %}
-				<tr>
-					<td><a href="{{ page.url }}">{{ page.title }}</a></td>
-					<td>{{ page.weight }}</td>
-				</tr>
-			{% endif %}
-		{% endfor %}
-	</tbody>
-</table>
+	<a name="xl-release-topics"></a><h1>XL Release topics</h1>
 
-<a name="xl-testview-topics"></a><h1>XL TestView topics</h1>
+	<table class="table table-condensed">
+		<thead>
+			<tr>
+				<th>Page</th>
+				<th>Weight</th>
+			</th>
+		</thead>
+		<tbody>
+			{% for page in site.weighted_pages %}
+				{% if page.categories contains 'xl-release' %}
+					<tr>
+						<td><a href="{{ page.url }}">{{ page.title }}</a></td>
+						<td>{{ page.weight }}</td>
+					</tr>
+				{% endif %}
+			{% endfor %}
+		</tbody>
+	</table>
 
-<table class="table table-condensed">
-	<thead>
-		<tr>
-			<th>Page</th>
-			<th>Weight</th>
-		</th>
-	</thead>
-	<tbody>
-		{% for page in site.weighted_pages %}
-			{% if page.categories contains 'xl-testview' %}
-				<tr>
-					<td><a href="{{ page.url }}">{{ page.title }}</a></td>
-					<td>{{ page.weight }}</td>
-				</tr>
-			{% endif %}
-		{% endfor %}
-	</tbody>
-</table>
+	<a name="xl-testview-topics"></a><h1>XL TestView topics</h1>
+
+	<table class="table table-condensed">
+		<thead>
+			<tr>
+				<th>Page</th>
+				<th>Weight</th>
+			</th>
+		</thead>
+		<tbody>
+			{% for page in site.weighted_pages %}
+				{% if page.categories contains 'xl-testview' %}
+					<tr>
+						<td><a href="{{ page.url }}">{{ page.title }}</a></td>
+						<td>{{ page.weight }}</td>
+					</tr>
+				{% endif %}
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endunless %}
