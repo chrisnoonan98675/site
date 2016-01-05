@@ -181,6 +181,8 @@ After you have configured all options, the setup wizard shows a summary of the c
 
 If you answer `yes`, the setup wizard will start XL Deploy and show the URL where you can access it; for example, `http://localhost:4516`. Open this URL in a browser and log in with the username *admin* and the password that you provided during the setup process.
 
+**Tip:** For information about starting XL Deploy in the future, refer to [Start XL Deploy](/xl-deploy/how-to/start-xl-deploy.html).
+
 ## Install the XL Deploy CLI
 
 To install the XL Deploy command-line interface (CLI):
