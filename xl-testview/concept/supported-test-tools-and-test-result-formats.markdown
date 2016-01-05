@@ -23,13 +23,13 @@ XL TestView supports the following test tools and test result formats:
 | JMeter | N/A | CSV | `xlt.JMeterCSV` | Performance | |
 | JMeter | N/A | XML | `xlt.JMeterXML` | Performance | |
 | JUnit | Ant | N/A | `xlt.JUnit` | Functional | |
-| JUnit | Gradle | N/A | `xlt.JUnit` | Functional | |
+| [JUnit](#junit-with-gradle) | Gradle | N/A | `xlt.JUnit` | Functional | |
 | JUnit | Maven Surefire | N/A | `xlt.SurefireJUnit` | Functional | |
 | TestNG | Ant | JUnit reporter | `xlt.TestNGJUnitReportReporter` | Functional | |
 | TestNG | Gradle | N/A | `xlt.TestNGJUnitReportReporter` | Functional | |
 | TestNG | Maven Surefire | N/A | `xlt.SurefireJUnit` | Functional | |
-| [VSTest.console](#vstestconsole) | N/A | TRX | `xlt.Trx` | Functional | 1.4.0 |
 | [MSTest](#mstest) | N/A | TRX | `xlt.Trx` | Functional | 1.4.0 |
+| [VSTest.console](#vstestconsole) | N/A | TRX | `xlt.Trx` | Functional | 1.4.0 |
 
 
 ## Notes
@@ -37,6 +37,9 @@ XL TestView supports the following test tools and test result formats:
 ### FitNesse
 
 * The test results must be in a folder named `FitNesseRoot`.
+
+### JUnit with Gradle
+* The [`Enclosed`](http://junit.org/apidocs/org/junit/experimental/runners/Enclosed.html) runner may create duplicate results when used in conjuction with Gradle to execute tests in inner classes, and is not supported.
 
 ### MSTest
 
@@ -47,9 +50,6 @@ XL TestView supports the following test tools and test result formats:
 ### VSTest.console
 
 * Only unit test results are supported.
-
-### JUnit with Gradle
-* The [`Enclosed`](http://junit.org/apidocs/org/junit/experimental/runners/Enclosed.html) runner may create duplicate results when used in conjunction with Gradle to execute tests in inner classes, and is not supported.
 
 ## Additional information
 
