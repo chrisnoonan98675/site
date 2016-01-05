@@ -33,32 +33,60 @@ If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encoun
 
 If you run into problems, first check that you have the right version of Jekyll with `jekyll --version`.
 
-### Development mode
+### Jekyll environments
 
-***NEW!*** By default, `jekyll serve` and `jekyll build` both run Jekyll in "development" mode. This means that:
+***NEW!*** There are three Jekyll environments that you can use.
+
+* **Development**: Default environment when you execute `jekyll serve` or `jekyll build`
+* **Lightweight**: Used to generate the site locally as quickly as possible
+* **Production**: Used to generate pages for the live documentation site
+
+#### Development environment
+
+***NEW!*** By default, `jekyll serve` and `jekyll build` both run Jekyll in a "development environment". This means that:
 
 * Some navigation elements (such as the Google search box, the sidebar menu, and breadcrumbs) are disabled to reduce the time it takes to generate the site
-* An "Edit this page" link is available at the bottom of each topic
+* An *Edit this page* link is available at the bottom of each topic
 
 Initial generation of the site in development mode takes about 25 seconds.
 
 Keep in mind that a site generated in development mode will not look exactly like the live documentation site because of the disabled elements.
 
-### Speed up site generation
+#### Lightweight environment
 
-***NEW!*** If you use `jekyll serve`, the site is regenerated every time you make a change (except in `_config.yml`). You can prevent this by using `jekyll serve --incremental`. This means Jekyll will only regenerate the files that you change, which usually takes less than 1 second.
+***NEW!*** The "lightweight environment" has the same features as the development environment, but with even more elements disabled.
+
+Initial generation of the site in lightweight mode takes about 7 seconds.
+
+Keep in mind that a site generated in lightweight mode will look very different form the live documentation site. It is recommended that you use this mode if you only plan to work with a few specific topics.
+
+To use the lightweight environment, start Jekyll with:
+
+    JEKYLL_ENV=lightweight jekyll serve
+
+You can combine this with the `--incremental` or `--no-watch` options (see below).
+
+#### Production environment
+
+***NEW!*** The "production environment" generates the site including all elements that are needed for the live documentation site (menus, lists, breadcrumbs, etc.). The [Jenkins job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/xldoc/job/Jekyll%20docs/) for the documentation site uses the production environment.
+
+Initial generation of the site in production mode takes 80 to 90 seconds.
+
+To use the production environment, start Jekyll with:
+
+    JEKYLL_ENV=production jekyll serve
+
+You can combine this with the `--incremental` or `--no-watch` options (see below).
+
+## Speed up site regeneration
+
+***NEW!*** If you execute `jekyll serve`, the site is regenerated every time you make a change (except in `_config.yml`). You can prevent this by using the `--incremental` option. This means Jekyll will only regenerate the files that you change, which usually takes less than 1 second.
 
 Note that this is an experimental feature; incremental builds don't always pick up changes in Liquid code or changes that affect the various lists of topics that Jekyll generates. If you're using incremental builds and you don't see the output you expected, stop Jekyll (with CTRL+C) and run `jekyll serve` or `jekyll build`. This will regenerate the whole site and clean up the `_site` directory; you can then try using incremental builds again.
 
 Alternatively, you can disable regeneration completely by executing `jekyll serve --no-watch`.
 
-### Production mode
-
-***NEW!*** In "production" mode, Jekyll will generate the sidebar menu and breadcrumbs. Generating the site in production mode takes 80 to 90 seconds.
-
-The [Jenkins job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/xldoc/job/Jekyll%20docs/) for the documentation site generates the site in production mode. To generate the site locally in production mode, execute `JEKYLL_ENV=production jekyll serve` or `JEKYLL_ENV=production jekyll serve --incremental`.
-
-### Disable the Development Dashboard
+## Disable the Development Dashboard
 
 Another way to speed up site generation is to disable the Development Dashboard plugin. It is recommended that you do this if you want to run the site locally without internet access, because the plugin accesses the JIRA API.
 
@@ -67,9 +95,7 @@ Change the `jira_dashboard` `generate` setting in `_config.yml` to `false`, then
 ## Writing tips
 
 * You may want to use a Markdown editor such as [MacDown](http://macdown.uranusjr.com/) for OS X or [MarkdownPad](http://markdownpad.com/) for Windows.
-
 * In MacDown, go to **Preferences** > **Rendering** and select **Detect Jekyll front-matter** to see the [YAML front matter](http://jekyllrb.com/docs/frontmatter/) in a nice table.
-
 * Be sure to spell check your work! Set your spell checker to *U.S. English*.
 
 # Publishing changes to the site
