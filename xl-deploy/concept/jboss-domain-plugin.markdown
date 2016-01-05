@@ -71,6 +71,12 @@ Artifacts (WAR, EAR) can be targeted to either a domain (`jbossdm.Domain`) or se
 
 Resources (datasources, queues, topics, and so on) can be targeted to either a domain (`jbossdm.Domain`) or profile (`jbossdm.Profile`). When targeted to a domain, the resources are (un)installed in the "default" profile. For specific targeting of resources to certain profiles, you can define the profiles in your environment.
 
+## Using WildFly 8 with Microsoft Windows
+
+WildFly 8 scripts for Microsoft Windows end with "Press any key to continue ..." and require user interaction to dismiss the message. This causes XL Deploy to hang while it waits on a response from the WildFly CLI.
+
+To prevent the CLI from waiting for user interaction, set the NOPAUSE variable as described in [the WildFly documentation](https://docs.jboss.org/author/display/WFLY8/CLI+Recipes?_sscc=t#CLIRecipes-Windowsand%22Pressanykeytocontinue...%22issue).
+
 ## Discovery
 
 The plugin supports the discovery of profiles and server groups in a domain.
