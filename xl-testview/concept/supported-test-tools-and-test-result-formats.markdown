@@ -57,7 +57,7 @@ For information about the different test and build tools, see the following:
 
 * [Cucumber](http://cukes.info/)
 * [Gatling](http://gatling.io/)
-* [Fitnesse](http://www.fitnesse.org/)
+* [FitNesse](http://fitnesse.org/)
 * [Jasmine](http://jasmine.github.io/)
 * [Karma](http://karma-runner.github.io)
 * [JMeter](http://jmeter.apache.org/)
