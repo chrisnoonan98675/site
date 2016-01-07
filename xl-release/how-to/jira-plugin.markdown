@@ -19,6 +19,7 @@ The XL Release JIRA plugin allows XL Release to interact with an Atlassian JIRA 
 * **Jira: Update Issues by Query** (XLR 4.8+): Update JIRA issues based on a query
 
 See also the tutorial [Using variables to revise a JIRA issue list](/xl-release/how-to/tutorial-using-variables-to-revise-a-jira-issue-list.html).
+
 ## Features
 
 * Create a new JIRA issue
