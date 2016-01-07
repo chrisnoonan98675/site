@@ -13,11 +13,12 @@ tags:
 The XL Release JIRA plugin allows XL Release to interact with an Atlassian JIRA server. It includes the following task types:
 
 * **Jira: Create Issue**: Create a new JIRA issue
-* **Jira: Query**: Query JIRA using [JQL](https://confluence.atlassian.com/jira/advanced-searching-179442050.html)
+* **Jira: Query** (XLR 4.8+): Query JIRA using [JQL](https://confluence.atlassian.com/jira/advanced-searching-179442050.html)
 * **Jira: Update Issue**: Update a single JIRA issue to change its status or post a comment
-* **Jira: Update Issues**: Update multiple JIRA issues
-* **Jira: Update Issues by Query**: Update JIRA issues based on a query
+* **Jira: Update Issues** (XLR 4.8+): Update multiple JIRA issues
+* **Jira: Update Issues by Query** (XLR 4.8+): Update JIRA issues based on a query
 
+See also the tutorial [Using variables to revise a JIRA issue list](/xl-release/how-to/tutorial-using-variables-to-revise-a-jira-issue-list.html).
 ## Features
 
 * Create a new JIRA issue
