@@ -10,7 +10,7 @@ tags:
 - test specification set
 ---
 
-Producing reports for Test Specification Sets are mostly the same as you'd do for a normal report. You can create highchart reports for sets as well, there is no difference in that respect.
+Producing reports for Test Specification Sets is mostly the same as you'd do for a normal report. You can create highchart reports for sets as well, there is no difference in that respect.
 
 For detailed technical information about custom reports, refer to [Custom reports in XL TestView](/xl-testview/concept/custom-reports.html).
 
@@ -26,7 +26,6 @@ Add a custom report type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
             <property name="title" default="Bar chart"/>
             <property name="scriptLocation" default="reports/BarChart.py"/>
             <property name="iconName" default="bar-report-icon"/>
-            <property name="userFriendlyDescription" default="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format"/>
             <property name="reportType" hidden="true" default="highchart"/>
         </type>
 
@@ -34,9 +33,9 @@ Add a custom report type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
 
 3. Change the `scriptLocation` to the report script that you will create; for example, `MyCustomSetReport.py`.
 
-4. Change the `title` property. Also do not forget `label` and `description` within the main type element. The `title` appears on the report screen ietself. The `label` is used within the select report box.
+4. Change the `title` property. Also do not forget `label` and `description` within the main type element. The `title` appears on the report screen itself. The `label` is used within the select report box.
 
-4. Make sure you add a property named `applicableCatogiries`, the kind should be `set_of_string` and the value should be `set`. This indicates the report is for test specification *sets*. Example:
+4. Make sure you add a property named `applicableCategories`, the kind should be `set_of_string` and the value should be `set`. This indicates the report is for test specification *sets*. Example:
 
         <property name="applicableCategories" kind="set_of_string" default="set"/>
 
@@ -46,7 +45,6 @@ Add a custom report type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
             <property name="title" default="My Set Report"/>
             <property name="scriptLocation" default="reports/MyCustomSetReport.py"/>
             <property name="iconName" default="bar-report-icon"/>
-            <property name="userFriendlyDescription" default="This is a user friendly description used in the report screen"/>
             <property name="reportType" hidden="true" default="highchart"/>
 	        <property name="applicableCategories" kind="set_of_string" default="set"/>
         </type>
@@ -68,7 +66,8 @@ Writing a report remains the same as with a 'normal' custom report. However, the
 
 
 ### Sample script
-This shows a script that takes all test specifications of a set and counts the passed and failed qualifications. Then, it represents the values in a Pie chart:
+This shows a script that takes all test specifications of a set and counts the passed and failed qualifications. Then, it represents the values in a Pie chart. Store
+this file as `MyCustomSetReport.py` under `ext/reports` (You may need to create the reports folder if it doesn't exist):
 
 {% highlight python %}
 from modules.hierarchy import *
@@ -150,8 +149,10 @@ result_holder.result = {
 }
 {% endhighlight %}
 
-The end result looks like:
+The end result should look like this:
+
+![Report example](images/create-a-custom-report-testset-reports_report_example.png)
 
 
 
-**Note:** This structure looks similar to JSON, but because this is a Python script, it is actually a `Dictionary` (or `Map` in other languages). This means that the keys should be surrounded by quotation marks (`'` or `"`). If you copy examples from a Highcharts demo, you must adjust the keys accordingly. For an extended example, refer to [Create a custom report using Highcharts demos](/xl-testview/how-to/create-a-custom-report-using-highcharts-demos.html).
+**Note:** While the report syntax looks similar to JSON, this is in fact a Python script, and it is actually a `Dictionary` (or `Map` in other languages). This means that the keys should be surrounded by quotation marks (`'` or `"`). If you copy examples from a Highcharts demo, you must adjust the keys accordingly. For an extended example, refer to [Create a custom report using Highcharts demos](/xl-testview/how-to/create-a-custom-report-using-highcharts-demos.html).
