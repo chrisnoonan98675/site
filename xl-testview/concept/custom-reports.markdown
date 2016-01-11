@@ -1,7 +1,7 @@
 ---
 title: Custom reports in XL TestView
 categories:
-- xl-test
+- xl-testview
 subject:
 - Reports
 tags:
@@ -25,15 +25,23 @@ Custom reports are registered in `<XLTESTVIEW_HOME>/ext/synthetic.xml`.
 
 For example, this is the type definition of the default bar chart in `synthetic.xml`:
 
-    <type type="xlt.BarChart" extends="xlt.Report">
-        <property name="title" default="Bar chart"/>
+    <type type="xlt.BarChart" extends="xlt.Report" label="Bar chart" description="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format">
         <property name="scriptLocation" default="reports/BarChart.py"/>
         <property name="iconName" default="bar-report-icon"/>
-        <property name="userFriendlyDescription" default="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format"/>
         <property name="reportType" hidden="true" default="highchart"/>
     </type>
 
 The `type` attribute (`xlt.BarChart`) should be changed to a custom name. A type name consists of a namespace (`xlt`) and a type name (`BarChart`). The namespace `xlt` is reserved for XL TestView internal reports. It is recommended to use a custom namespace; for example, `custom` or your company name. All reports should extend the `xlt.Report` type.
+
+### Report attributes
+
+A report has the following attributes in `synthetic.xml`:
+
+{:.table .table-striped}
+| Attribute | Description |
+| --------- | ----------- |
+| `label` | Report label that appears in the **Show report** dialog on the project page |
+| `description ` | Description that appears next to the chart on the project page |
 
 ### Report properties
 
@@ -42,8 +50,6 @@ A report has the following properties in `synthetic.xml`:
 {:.table .table-striped}
 | Property | Description |
 | -------- | ----------- |
-| `title` | Report title that appears in the **Show report** dialog on the project page |
-| `userFriendlyDescription` | Description that appears next to the chart on the project page |
 | `iconName` | A name that refers to an SVG icon in `<XLTESTVIEW_HOME>/ext/web/images/sprite-icons/<iconName>.svg` |
 | `scriptLocation` | Location of the Python script containing the report generation logic |
 | `reportType` | Report type that instructs the front end how to render the report |
