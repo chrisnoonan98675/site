@@ -24,6 +24,8 @@ To [install](/xl-deploy/how-to/install-xl-deploy.html) the XL Deploy server, you
     * For XL Deploy 5.1.0 and earlier: Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
     * For XL Deploy 5.1.1: Java Development Kit (JDK) 7 or 8 (Oracle, IBM, or Apple)
 
+    **Warning:** It is a known issue that using XL Deploy 5.1.1 or later with JDK 8 may prevent pending tasks from being recovered after the XL Deploy server is restarted. This will be fixed in a future release. To prevent this issue, use JDK 7. Note that XL Deploy 5.1.0 and earlier should not be used with JDK 8.
+
 * **RAM:** At least 2 GB of RAM available for XL Deploy
 
 * **Hard disk space:** Sufficient hard disk space to store the XL Deploy repository; see [Determining hard disk space requirements](#determining-hard-disk-space-requirements)
