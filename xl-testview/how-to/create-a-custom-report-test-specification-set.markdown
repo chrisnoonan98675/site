@@ -44,7 +44,7 @@ Add a custom report type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
         <property name="applicableCategories" kind="set_of_string" default="set"/>
 
     The result will look like:
-    
+
         <type type="myCompany.myCustomSet" extends="xlt.Report" label="My Set Report" description="My set report that does things differently">
             <property name="title" default="My Set Report"/>
             <property name="scriptLocation" default="reports/MyCustomSetReport.py"/>
@@ -65,7 +65,7 @@ To write the report script, follow the process described in [Create a custom rep
 
 * Because you are going to report on a *test specification set*, there is no such thing as the *latest run* (`test_run`). Instead, you can access the `test_specification_set` you are reporting on.
 
-* You can get *qualification* information from a test run. You can query a a `test_runs_repository` (which is the same as `test_runs` in non-set reports) and a `qualification_repository`. 
+* You can get *qualification* information from a test run. You can query a a `test_runs_repository` (which is the same as `test_runs` in non-set reports) and a `qualification_repository`.
 
 ### Sample script
 
@@ -77,11 +77,11 @@ from modules.hierarchy import *
 # get all test specifications within this test spec
 # note: this does not go recursively
 testSpecs = test_specification_set.testSpecifications
-	
+
 # qualification statuses!
 passed = 0
 failed = 0
-	
+
 # iterate over all test specifications
 for testSpec in testSpecs:
     qualification = qualification_repository.getLatestQualificationResult(testSpec.name)
@@ -89,7 +89,7 @@ for testSpec in testSpecs:
         passed = passed + 1
     else:
         failed = failed + 1
-	
+
 result_holder.result = {
     'chart': {
         'type': 'pie',
@@ -151,10 +151,8 @@ result_holder.result = {
 }
 {% endhighlight %}
 
+**Note:** While the value assigned to `result_holder.result` looks similar to JSON, this is in fact a Python `Dictionary` (or `Map` in other languages). This means that the keys should be surrounded by quotation marks (`'` or `"`). If you copy examples from a Highcharts demo, you must adjust the keys accordingly. For an extended example, refer to [Create a custom report using Highcharts demos](/xl-testview/how-to/create-a-custom-report-using-highcharts-demos.html).
+
 The end result should look like:
 
 ![Report example](images/create-a-custom-report-testset-reports_report_example.png)
-
-
-
-**Note:** While the report syntax looks similar to JSON, this is in fact a Python script, and it is actually a `Dictionary` (or `Map` in other languages). This means that the keys should be surrounded by quotation marks (`'` or `"`). If you copy examples from a Highcharts demo, you must adjust the keys accordingly. For an extended example, refer to [Create a custom report using Highcharts demos](/xl-testview/how-to/create-a-custom-report-using-highcharts-demos.html).
