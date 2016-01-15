@@ -108,7 +108,7 @@ Input properties are available as variables in the Python script. You can set ou
 
 For example, this is a possible implementation of the `jira.CreateIssue` task in Python:
 
-{% highlight python linenos=table %}
+{% highlight python %}
 import sys, string
 import com.xhaus.jyson.JysonCodec as json
 
@@ -163,7 +163,7 @@ else:
     sys.exit(1)
 {% endhighlight %}
 
-Note that since XL Release 4.7.0, in contrast to [Script tasks](/xl-release/how-to/create-a-script-task.html), Jython scripts of custom task types are not run in a sandboxed environment and do not have any restrictions. So you do not have to update the `script.policy` file of your XL Release installation if you need additional access such as to filesystem or network from your custom task type. You still need to do this for versions prior to 4.7.0.
+**Note:** Since XL Release 4.7.0, Jython scripts of custom task types are not run in a sandboxed environment and do not have any restrictions (in contrast to [Script tasks](/xl-release/how-to/create-a-script-task.html)). You do not have to update the `script.policy` file of your XL Release installation if you need additional access from your custom task type (such as to the filesystem or network). You still need to do this for versions prior to 4.7.0.
 
 #### HttpRequest
 
@@ -244,6 +244,10 @@ You can add the following properties to the `<type>` element to further customiz
 * `scriptLocation`: Specifies a custom script location that overrides the default rules.
 * `iconLocation`: Location of an icon file (PNG or GIF format) that is used in the UI for this task.
 * `taskColor`: The color to use for the task in the UI, specified in HTML hexadecimal RGB format.
+
+## Changing or removing customizations
+
+Before changing or removing a custom task type or one of the properties of a custom task type, ensure that the type is not used in any releases or templates. Changing or removing a type that is in use may result in errors.
 
 ## Packaging
 
