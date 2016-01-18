@@ -41,6 +41,16 @@ For more information about:
 This is a sample `<XLRELEASE_HOME>/conf/jackrabbit-repository.xml` configuration for [MySQL](http://www.mysql.com/):
 
 {% highlight xml %}
+
+<Security appName="Jackrabbit">
+    <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
+    <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
+    <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
+        <param name="anonymousId" value="anonymous" />
+        <param name="adminId" value="admin" />
+    </LoginModule>
+</Security>
+
 <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
     <param name="driver" value="com.mysql.jdbc.Driver"/>
     <param name="url" value="jdbc:mysql://localhost:3306/xlrelease"/>
@@ -57,6 +67,8 @@ This is a sample `<XLRELEASE_HOME>/conf/jackrabbit-repository.xml` configuration
     <param name="user" value="xlrelease" />
     <param name="password" value="XL Release" />
 </DataStore>
+
+<Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
 
 <Workspace name="${wsp.name}">
     <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
@@ -109,6 +121,15 @@ This is a sample `<XLRELEASE_HOME>/conf/jackrabbit-repository.xml` configuration
 This is a sample `<XLRELEASE_HOME>/conf/jackrabbit-repository.xml` configuration for [DB2](http://www-01.ibm.com/software/data/db2/):
 
 {% highlight xml %}
+<Security appName="Jackrabbit">
+    <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
+    <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
+    <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
+        <param name="anonymousId" value="anonymous" />
+        <param name="adminId" value="admin" />
+    </LoginModule>
+</Security>
+
 <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
     <param name="driver" value="com.ibm.db2.jcc.DB2Driver"/>
     <param name="url" value="jdbc:db2://localhost:50002/xlrelease"/>
@@ -125,6 +146,8 @@ This is a sample `<XLRELEASE_HOME>/conf/jackrabbit-repository.xml` configuration
     <param name="user" value="xlrelease" />
     <param name="password" value="XL Release" />
 </DataStore>
+
+<Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
 
 <Workspace name="${wsp.name}">
     <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
@@ -176,6 +199,15 @@ This is a sample `<XLRELEASE_HOME>/conf/jackrabbit-repository.xml` configuration
 This is a sample `<XLRELEASE_HOME>/conf/jackrabbit-repository.xml` configuration for [Oracle](http://www.oracle.com/us/products/database/index.html):
 
 {% highlight xml %}
+<Security appName="Jackrabbit">
+    <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
+    <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
+    <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
+        <param name="anonymousId" value="anonymous" />
+        <param name="adminId" value="admin" />
+    </LoginModule>
+</Security>
+
 <FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
     <param name="driver" value="oracle.jdbc.OracleDriver"/>
     <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
@@ -192,6 +224,8 @@ This is a sample `<XLRELEASE_HOME>/conf/jackrabbit-repository.xml` configuration
     <param name="user" value="xlrelease" />
     <param name="password" value="XL Release" />
 </DataStore>
+
+<Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
 
 <Workspace name="${wsp.name}">
     <FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
