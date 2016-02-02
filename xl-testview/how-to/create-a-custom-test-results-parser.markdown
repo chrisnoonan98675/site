@@ -155,10 +155,10 @@ A test run has at least three events: an `importStarted` event, an `importFinish
 * In line 3 is the `@testedAt` property. This is the moment the test was executed, in milliseconds after 1970-01-01 00:00:00 UTC.
 * In line 4, 17 and 23 are the event types. There is always exactly one `importStarted` event, one `importFinished` event and one or more `functionalResult` or `performanceResult` events.
 * Line 8 is the duration of this specific test
-* Lines 9 to 15 is the hierarchy of the test. Tests are usually structured in some kind of tree, for example grouping suites, scenarios or test cases. In JUnit the tests are typically structured by package, class name and method name, but this can vary between test tools. The `@hierarchy` property is a list of strings, uniquely identifying a test and its place in relation to other tests. It is used to drill down on tests in reports, and identifying tests when comparing to previous runs of the same test.
-* Line 16 is the test result. Typically this is either `PASSED` or `FAILED`, but more values are allowed.
+* Lines 9 to 15 is the hierarchy of the test. Tests are usually structured in some kind of tree, for example grouping suites, scenarios or test cases. In JUnit the tests are typically structured by package, class name and method name, but this can vary between test tools. The `@hierarchy` property is a list of strings, uniquely identifying a test and its place in relation to other tests. It is used to drill down on tests in reports, and identifying tests when comparing to previous runs of the same test. It is important to ensure the hierarchy is unique within a test run: the hierarchy is used as the key that relates test results over time.
+* Line 16 is the test result. Typically this is either `PASSED`, `FAILED` or `OTHER`, but more values are allowed.
 * Line 19 is the error message of this failed test.
-* Line 22 is the duration of the complete run
+* Line 22 is the duration of the complete run.
 
 Additional properties can be added by tools if required, but the property names cannot start with either `@` or `_`. These are reserved for XL TestView use.
 
