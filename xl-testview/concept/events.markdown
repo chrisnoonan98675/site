@@ -82,6 +82,7 @@ For each event, XL TestView ensures that the following properties are set:
 | `@hierarchy` | list of String | &#x2714; | Structure of test results, used for drilling down in reports. The whole hierarchy should be a unique textual representation of a test and its position in the suite -- the hierarchy must be unique in the context of a test run. For example, if a unit test in JUnit was in the class `com.example.PersonTest` and the test was called `test1`, the hierarchy would be `['com','example','PersonTest','test1']`. |
 | `@firstError` | String | | Textual information about the test result. This field typically contains a message in case of a failed test result. |
 | `@duration` | Integer | | Duration of this test in milliseconds; should be positive. |
+| `@mergedEvents` | list of dictionary | | In case where events have been found in the same test run with the same `@hierarchy`, the events are merged into one event. The original events can be added to the `@mergedEvents` property for later reference. |
 
 ### `performanceResult` event properties
 
