@@ -41,7 +41,6 @@ For more information about:
 This is a sample `<XLRELEASE_HOME>/conf/jackrabbit-repository.xml` configuration for [MySQL](http://www.mysql.com/):
 
 {% highlight xml %}
-
 <Security appName="Jackrabbit">
     <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
     <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
