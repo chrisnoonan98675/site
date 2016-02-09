@@ -6,11 +6,9 @@ categories:
 subject:
 - Variables
 tags:
-- variables
+- variable
 - script
 - jython
-- plugin
-- customization
 ---
 
 To get a value from a release variable of type key-value map and use it in a text field, you can add a [script task](/xl-release/how-to/create-a-script-task.html) that gets the value and stores it in another variable.
