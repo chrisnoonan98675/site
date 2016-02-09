@@ -68,7 +68,7 @@ After you install the XL TestView server, this directory structure exists in `<X
 * `lib`: Contains libraries that the server needs
 * `log`: Contains server log files
 * `plugins`: Contains modules for extending XL TestView's functionality
-* `service`: Contains service scripts (since 1.4.1)
+* `service`: Contains service scripts (since XL TestView 1.4.1)
 
 Additional information:
 

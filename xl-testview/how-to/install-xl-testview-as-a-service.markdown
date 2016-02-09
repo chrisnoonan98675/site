@@ -11,19 +11,27 @@ tags:
 
 ## Install as a service after XL TestView 1.4.0
 
-As of XL TestView 1.4.1 some scripts are provided to install XL TestView as a service on both windows as unix systems using or `upstart` or `systemd`. We do not provide a System V init script at this point.
+In XL TestView 1.4.1 and later, scripts are included to install XL TestView as a service on both Microsoft Windows and Unix systems using `upstart` or `systemd`.
+
+To install XL TestView as a service:
 
 1. Follow the installation procedure described in [Install XL Deploy](/xl-testview/how-to/install.html). You can skip the step to run `server.sh` or `server.cmd`.
 
-2. The following steps have to be performed as root (on Unix) or an administrator (on Windows). Execute `<XLTESTVIEW_HOME>/bin/install-service.sh` (on Unix) or `<XLTESTVIEW_HOME>\bin\install-service.cmd` (on Windows). This command will install the service.
+2. As root (on Unix) or an administrator (on Windows), execute:
+    * `<XLTESTVIEW_HOME>/bin/install-service.sh` (on Unix)
+    * `<XLTESTVIEW_HOME>\bin\install-service.cmd` (on Windows)
 
-    On a windows system this installs a service wrapper and a service `XL TestView` configured to run on the local system account. For production use it is recommended to create a dedicated user. And configure the service to log on as this dedicated user.
+    This command will install the service.
 
-    The Unix install-service.sh script will, install a service user `xl-testview`, tighten the permissions on the installation and install or `upstart` or `systemd` service script.
+    On Windows, this installs a service wrapper and a service called `XL TestView`, configured to run on the local system account. For production use it is recommended that you create a dedicated user and configure the service to log on as this dedicated user.
+
+    The Unix `install-service.sh` script will install a service user called `xl-testview`, tighten the permissions on the installation, and install an `upstart` or `systemd` service script.
+
+**Note:** A System V init script is not provided with XL TestView.
 
 ### Uninstall the XL TestView service
 
-To remove the installed service from windows run the `<XLTESTVIEW_HOME>\bin\uninstall-service.cmd` command. On unix run `<XLTESTVIEW_HOME>\bin\uninstall-service.sh`.
+To remove the installed service from Windows, run the `<XLTESTVIEW_HOME>\bin\uninstall-service.cmd` command. On Unix, run `<XLTESTVIEW_HOME>\bin\uninstall-service.sh`.
 
 ## Install as a service before XL TestView 1.4.1
 
