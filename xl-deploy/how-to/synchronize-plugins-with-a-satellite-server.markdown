@@ -42,7 +42,7 @@ To synchronize a satellite server:
 1. Click **Repository** in XL Deploy.
 1. Under **Infrastructure**, right-click the satellite and select **Synchronize plugins satellite**.
 
-    Before synchronizing, the satellite will wait for all executing tasks to complete. It will then synchronize and restart.
+    Before synchronizing, the satellite will wait for all executing tasks to complete. It will then synchronize and restart. Read more about the [restart process](/xl-deploy/concept/restart-process-of-xl-satellite.html) of XL Satellite.
 
 1. In the **Max Attempts** box, enter the number of times that XL Deploy should attempt to ping the satellite.
 1. In the **Delay** box, enter the number of seconds that XL Deploy should wait between attempts to ping the satellite.

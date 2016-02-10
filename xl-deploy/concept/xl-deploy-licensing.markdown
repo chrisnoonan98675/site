@@ -51,8 +51,6 @@ If your license limits the number of CIs that you can create, XL Deploy validate
 * If a CI is a subtype of another type (its *supertype*), the instances of the subtype CI count toward the limit on the supertype. 
 * You can always create instances of CI types that are not limited by your license.
 
-To see how many CI types you have created, click the gear icon in XL Deploy and select **About** > **License**.
-
 ## License extension and renewal
 
 To renew an Enterprise Edition license or extend a Trial Edition license, [contact XebiaLabs](https://xebialabs.com/contact).

@@ -60,6 +60,7 @@ Before you upgrade:
 
 * Carefully read the [release manual](/xl-deploy/latest/releasemanual.html) and note any changes that may apply to your situation.
 * Review any files that you have customized, such as `conf/deployit-security.xml` or `conf/logback.xml`. You will need to redo these changes in the new files.
+* Check whether there are any hotfixes installed in the `hotfix` directory. If hotfixes are installed, [contact the XebiaLabs support team](https://support.xebialabs.com/hc/en-us/requests/new) before upgrading.
 
 ## Upgrade the server
 
@@ -78,8 +79,6 @@ To upgrade an XL Deploy server installation:
     **Tip:** Check the [release manual](/xl-deploy/latest/releasemanual.html) for information about plugin incompatibility.
 
 1. Copy the contents of the `ext` directory from the old installation directory to the new installation directory.
-
-    **Note:** Do not copy the contents of the `hotfix` directory unless instructed to do so (because hotfixes are version-specific).
 
 1. If you added libraries to XL Deploy's `lib` directory (such as database drivers), copy the additional libraries from the old installation directory to the new installation directory.
 
