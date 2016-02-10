@@ -5,9 +5,9 @@ weight: 6
 breadcrumbs: false
 ---
 
-XebiaLabs community plugins and tools are open-source software that is free for you to use and adapt. Below are a few examples of community plugins; for a complete list, refer to [the XebiaLabs community on GitHub](https://github.com/xebialabs-community).
+XebiaLabs community plugins and tools are open-source software that you can freely use, adapt, and enhance. Below are a few examples of popular community plugins; for a complete list, visit the [XebiaLabs community on GitHub](https://github.com/xebialabs-community).
 
-**Note:** XebiaLabs does not guarantee the functionality or compatibility of community plugins, and they are not supported by XebiaLabs' [customer support team](https://support.xebialabs.com).
+Note that XebiaLabs does not guarantee the functionality or compatibility of community plugins, and they are not supported by our [customer support team](https://support.xebialabs.com). For information about XebiaLabs-supported plugins, visit our [Plugins page](https://xebialabs.com/plugins/).
 
 ## Community plugins for XL Deploy
 
