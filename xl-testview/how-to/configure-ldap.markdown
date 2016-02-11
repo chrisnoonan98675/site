@@ -25,17 +25,47 @@ To configure LDAP, update the following properties in the `<XLTESTVIEW_HOME>/con
 | -------- | ----------- | ------- |
 | `xlt.authentication.method` | Set to `ldap`. |
 | `xlt.authentication.ldap.url` | The complete URL of your LDAP server, including the port number. | `ldap://server.domain:389` |
-| `xlt.authentication.ldap.user-dn` | A [distinguished name (DN)](http://www.ietf.org/rfc/rfc2253.txt) template that identifies users; `{0}` will be replaced with the user name.<br /><br />If this property is set, `xlt.authentication.ldap.user-search-base` and `xlt.authentication.ldap.user-search-filter` should be commented out. | `cn={0},ou=developers,ou=persons,dc=nodomain` |
+| **Bind authentication** |
+| `xlt.authentication.ldap.user-dn` | A [distinguished name (DN)](http://www.ietf.org/rfc/rfc2253.txt) template that identifies users; `{0}` will be replaced with the user name.<br /><br />If this property is set, `xlt.authentication.ldap.user-search-base` and `xlt.authentication.ldap.user-search-filter` will be ignored. | `cn={0},ou=developers,ou=persons,dc=nodomain` |
+| **Search filter**|
 | `xlt.authentication.ldap.user-search-base` | Base DN to use to search for users.<br /><br />If this property is used, `xlt.authentication.ldap.user-dn` should be commented out.  | `ou=persons,dc=nodomain` |
 | `xlt.authentication.ldap.user-search-filter` | Filter to use when searching for users.<br /><br />If this property is used, `xlt.authentication.ldap.user-dn` should be commented out. | `(&(uid={0})(objectClass=inetOrgPerson))` |
-| `xlt.authentication.ldap.admin-dn` | To use search filters, some LDAP instances (such as Active Directory) require authentication prior to the search. Define a full admin DN. | `CN=xltv-admin,CN=Users,DC=example,DC=corp` |
+| `xlt.authentication.ldap.admin-dn` | To use search filters, some LDAP instances (such as Active Directory) require authentication prior to the search. Define a full admin DN. | `CN=xltv-admin,CN=Users,DC=nodomain` |
 | `xlt.authentication.ldap.admin-password` | Password for the `admin-dn` account. The password is in plain text. | `secret` |
 
 **Note:** If `xlt.authentication.ldap.user-dn`, `xlt.authentication.ldap.user-search-base`, and `xlt.authentication.ldap.user-search-filter` are all uncommented, then `xlt.authentication.ldap.user-dn` will take precedence over the other settings.
 
-Identifying users by properties other than the user name is not currently supported.
-
 After saving the `xl-testview.conf` file, [restart XL TestView](/xl-testview/how-to/start.html) and log in.
+
+### Bind authentication
+
+With LDAP bind authentication, the user is verified by logging on to the LDAP server. If the log on succeeds, the user/password combination is valid and the user is authenticated by XL TestView.
+
+    ldap {
+      url = "ldap://ldap.nodomain:389"
+
+      user-dn = "cn={0},ou=developers,ou=persons,dc=nodomain"
+    }
+
+The placeholder `{0}` is substituted by the user name.
+
+Identifying users by properties other than the user name is currently not supported.
+
+### Search filter
+
+LDAP authentication can also be done by doing a search for a user before performing authentication. For this setup you need to define a `user-search-base` and a `user-search-filter`. A search should result in one unique object to which will be authenticated.
+
+    ldap {
+      url = "ldap://ldap.nodomain:389"
+
+      user-search-base = "CN=Users,DC=example,DC=com"
+
+      user-search-filter = "(&(uid={0})(objectClass=inetOrgPerson))"
+    }
+
+The placeholder `{0}` is substituted by the user name.
+
+It might be possible that XL TestView first needs to authenticate itself to the LDAP server before a search can be performed. To achieve this, you can add `admin-dn` and `admin-password`. For an example, have a look at the Active Directory example below.
 
 ## Connecting to Active Directory
 
@@ -44,11 +74,11 @@ Active Directory authentication is supported as of XL TestView 1.4.1.
 To authenticate with Active Directory, configure LDAP as shown below.
 
     ldap {
-      admin-dn = "CN=xltv-admin,CN=Users,DC=example,DC=com"
+      admin-dn = "CN=xltv-admin,CN=Users,DC=nodomain"
      
       admin-password = "secret"
 	 
-      url = "ldap://ad-master.example.com:389"
+      url = "ldap://ad-master.nodomain:389"
 
       user-search-base = "CN=Users,DC=example,DC=com"
 
