@@ -21,8 +21,6 @@ XL Deploy recognizes placeholders using the following format:
 
 	{% raw %}{{ PLACEHOLDER_KEY }}{% endraw %}
 
-If you want to use delimiters other than {% raw %}`{{`{% endraw %} and {% raw %}`}}`{% endraw %} in artifacts of a specific configuration item (CI) type, [modify the CI type](/xl-deploy/how-to/customize-an-existing-ci-type.html) and change the hidden property `delimiters`. This property is a five-character string that consists of two characters identifying the leading delimiter, a space, and two characters identifying the closing delimiter; for example, `%% %%`.
-
 ## File placeholders
 
 _File_ placeholders are used in artifacts in a deployment package. XL Deploy scans packages that it imports for text files and searches these text files for file placeholders. The following items are scanned:
@@ -32,6 +30,10 @@ _File_ placeholders are used in artifacts in a deployment package. XL Deploy sca
 * Archive-type CIs
 
 Before a deployment can be performed, a value must be specified for **all** file placeholders in the deployment.
+
+### Using different file placeholder delimiters
+
+If you want to use delimiters other than {% raw %}`{{`{% endraw %} and {% raw %}`}}`{% endraw %} in artifacts of a specific configuration item (CI) type, [modify the CI type](/xl-deploy/how-to/customize-an-existing-ci-type.html) and change the hidden property `delimiters`. This property is a five-character string that consists of two characters identifying the leading delimiter, a space, and two characters identifying the closing delimiter; for example, `%% %%`.
 
 ### Special file placeholder values
 
