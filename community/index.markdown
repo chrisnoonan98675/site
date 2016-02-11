@@ -9,7 +9,11 @@ XebiaLabs community plugins and tools are open-source software that you can free
 
 You are welcome to contribute enhancements to community plugins and tools; visit the [XebiaLabs community on github.io](http://xebialabs-community.github.io/) for information about submitting your changes.
 
-Note that XebiaLabs does not guarantee the functionality or compatibility of community plugins and tools, and they are not supported by our [customer support team](https://support.xebialabs.com). For information about the plugins that XebiaLabs supports, visit our [Plugins page](https://xebialabs.com/plugins/).
+Note that XebiaLabs does not guarantee the functionality or compatibility of community plugins and tools, and they are not supported by our customer support team.
+
+## XebiaLabs-supported plugins
+
+For information about the plugins that are supported by the XebiaLabs customer support team, visit our [Plugins page](https://xebialabs.com/plugins/).
 
 ## Community plugins for XL Deploy
 
