@@ -15,12 +15,11 @@ since:
 
 XL TestView supports authentication of users using LDAP. This topic describes how to configure LDAP authentication on XL TestView. Some general knowledge about LDAP and your LDAP server in particular is required.
 
-## Configure unsecure LDAP
+## Configure unsecured LDAP
 
-To configure LDAP, update the following properties in the `<XLTESTVIEW_HOME>/conf/xl-testview.conf` file:
+To configure unsecured LDAP, update the following properties in the `<XLTESTVIEW_HOME>/conf/xl-testview.conf` file:
 
-{:.table .table-striped}
-
+{:.table}
 | Property | Description | Example |
 | -------- | ----------- | ------- |
 | `xlt.authentication.method` | Set to `ldap`. |
@@ -28,10 +27,10 @@ To configure LDAP, update the following properties in the `<XLTESTVIEW_HOME>/con
 | **Bind authentication** |
 | `xlt.authentication.ldap.user-dn` | A [distinguished name (DN)](http://www.ietf.org/rfc/rfc2253.txt) template that identifies users; `{0}` will be replaced with the user name.<br /><br />If this property is set, `xlt.authentication.ldap.user-search-base` and `xlt.authentication.ldap.user-search-filter` will be ignored. | `cn={0},ou=developers,ou=persons,dc=nodomain` |
 | **Search filter**|
-| `xlt.authentication.ldap.user-search-base` | Base DN to use to search for users.<br /><br />If this property is used, `xlt.authentication.ldap.user-dn` should be commented out.  | `ou=persons,dc=nodomain` |
-| `xlt.authentication.ldap.user-search-filter` | Filter to use when searching for users.<br /><br />If this property is used, `xlt.authentication.ldap.user-dn` should be commented out. | `(&(uid={0})(objectClass=inetOrgPerson))` |
+| `xlt.authentication.ldap.user-search-base` | Base DN to use to search for users.<br /><br />If this property is set, `xlt.authentication.ldap.user-dn` should be commented out.  | `ou=persons,dc=nodomain` |
+| `xlt.authentication.ldap.user-search-filter` | Filter to use when searching for users.<br /><br />If this property is set, `xlt.authentication.ldap.user-dn` should be commented out. | `(&(uid={0})(objectClass=inetOrgPerson))` |
 | `xlt.authentication.ldap.admin-dn` | To use search filters, some LDAP instances (such as Active Directory) require authentication prior to the search. Define a full admin DN. | `CN=xltv-admin,CN=Users,DC=nodomain` |
-| `xlt.authentication.ldap.admin-password` | Password for the `admin-dn` account. The password is in plain text. | `secret` |
+| `xlt.authentication.ldap.admin-password` | Password for the `admin-dn` account. The password is stored in plain text. | `secret` |
 
 **Note:** If `xlt.authentication.ldap.user-dn`, `xlt.authentication.ldap.user-search-base`, and `xlt.authentication.ldap.user-search-filter` are all uncommented, then `xlt.authentication.ldap.user-dn` will take precedence over the other settings.
 
@@ -39,53 +38,44 @@ After saving the `xl-testview.conf` file, [restart XL TestView](/xl-testview/how
 
 ### Bind authentication
 
-With LDAP bind authentication, the user is verified by logging on to the LDAP server. If the log on succeeds, the user/password combination is valid and the user is authenticated by XL TestView.
+With LDAP bind authentication, the user is verified by logging on to the LDAP server. If the log-on succeeds, then the user/password combination is valid and XL TestView authenticates the user. For example:
 
     ldap {
       url = "ldap://ldap.nodomain:389"
-
       user-dn = "cn={0},ou=developers,ou=persons,dc=nodomain"
     }
 
-The placeholder `{0}` is substituted by the user name.
+The placeholder `{0}` is replaced by the user name.
 
-Identifying users by properties other than the user name is currently not supported.
+**Note:** Identifying a user by properties other than the user name is currently not supported.
 
 ### Search filter
 
-LDAP authentication can also be done by doing a search for a user before performing authentication. For this setup you need to define a `user-search-base` and a `user-search-filter`. A search should result in one unique object to which will be authenticated.
+LDAP authentication can also be done by doing a search for a user before performing authentication. This requires you to define a `user-search-base` and a `user-search-filter`. A search should result in one unique object that will be authenticated.
 
     ldap {
       url = "ldap://ldap.nodomain:389"
-
       user-search-base = "CN=Users,DC=example,DC=com"
-
       user-search-filter = "(&(uid={0})(objectClass=inetOrgPerson))"
     }
 
-The placeholder `{0}` is substituted by the user name.
+The placeholder `{0}` is replaced by the user name.
 
-It might be possible that XL TestView first needs to authenticate itself to the LDAP server before a search can be performed. To achieve this, you can add `admin-dn` and `admin-password`. For an example, have a look at the Active Directory example below.
+It is possible that XL TestView first needs to authenticate itself with the LDAP server before a search can be performed. To achieve this, add `admin-dn` and `admin-password`. For an example, refer to [Connect to Active Directory](#connect-to-active-directory).
 
-## Connecting to Active Directory
+## Connect to Active Directory
 
-Active Directory authentication is supported as of XL TestView 1.4.1.
-
-To authenticate with Active Directory, configure LDAP as shown below.
+Active Directory authentication is supported in XL TestView 1.4.1 and later. To authenticate with Active Directory, configure LDAP as shown below.
 
     ldap {
       admin-dn = "CN=xltv-admin,CN=Users,DC=nodomain"
-     
       admin-password = "secret"
-	 
       url = "ldap://ad-master.nodomain:389"
-
       user-search-base = "CN=Users,DC=example,DC=com"
-
       user-search-filter = "(&(SamAccountName={0})(objectClass=user))"
     }
-    
-With Active Directory you need to configure the search filter option to find a user. The `SamAccountName` property usually contains the user name. To perform the search XL TestView needs to authenticate itself. The `admin-dn` and `admin-password` properties provide for that. 
+
+When using Active Directory, you need to configure the search filter option to find a user. The `SamAccountName` property usually contains the user name. To perform the search, XL TestView needs to authenticate itself. The `admin-dn` and `admin-password` properties are provided for that. 
 
 ## Configure secure LDAP
 
