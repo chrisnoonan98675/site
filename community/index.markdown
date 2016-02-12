@@ -73,6 +73,7 @@ For information about the plugins that are supported by the XebiaLabs customer s
 {:.table}
 | Plugin | Features |
 | ------ | -------- |
+| [XL Deploy Manifest Editor](https://github.com/xebialabs-community/xld-manifest-editor) | Create and edit deployment package manifest files |
 | [Apache Derby database tools](https://github.com/xebialabs-community/xl-apache-derby-tools-plugin) | Manage an XL Deploy or XL Release [Apache Derby](https://db.apache.org/derby/) database |
 | [Apache Derby database hot backup tools](https://github.com/xebialabs-community/xl-apache-derby-hot-backup) | Perform a hot backup of an XL Deploy or XL Release Apache Derby database |
 | [XL metrics tools](https://github.com/xebialabs-community/xl-metrics-plugin) | Gather metrics about an XL Deploy or XL Release server |
