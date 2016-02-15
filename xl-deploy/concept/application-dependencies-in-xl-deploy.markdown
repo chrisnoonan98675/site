@@ -83,7 +83,11 @@ This allows you to import applications even before all dependencies can be met; 
 
 It is also possible to modify the declared dependencies of a deployment package even after it has been deployed. In that case, XL Deploy will not perform any validation. It is not recommended to modify dependencies after deployment.
 
-## Permissions
+## How does XL Deploy check dependencies?
+
+For detailed information on the way XL Deploy verifies dependencies, refer to [How XL Deploy checks application dependencies](/xl-deploy/concept/how-xl-deploy-checks-application-dependencies.html).
+
+## Dependencies and permissions
 
 When you set up a deployment, XL Deploy checks the permissions of all applications that will be deployed because of dependencies. You must at least have `read` permission on all dependent applications.
 
