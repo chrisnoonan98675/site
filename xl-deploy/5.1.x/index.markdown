@@ -63,6 +63,7 @@ product-id: xl-deploy
 * [XL Deploy Puppet plugin](/xl-deploy-xld-puppet-plugin/5.1.x/puppetPluginManual.html)
 * [XL Deploy Chef plugin](/xl-deploy-xld-chef-plugin/5.1.x/chefPluginManual.html)
 * [XL Deploy Team Foundation Server plugin](/xl-deploy-tfs-plugin/5.0.x/tfsPluginManual.html)
+* [XL Deploy Team Foundation 2015 Server plugin](/xl-deploy-vsts-plugin/5.0.x/vstsPluginManual.html)
 * [XL Deploy Manifest Editor (Windows only)](/xl-deploy-tfs-plugin/4.5.x/manifestEditorManual.html)
 
 ### XL Scale
