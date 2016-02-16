@@ -48,6 +48,7 @@ The XL Deploy (and maybe XL Platform) repositories need to be set up to generate
 * Jython API reference
 * Javadoc?
 
-## Other ideas
+## Other ideas and reminders
 
-There are demo plugins for the rules and UI extension features in the `XLDEPLOY_HOME/samples` directory. It would be nice to provide something here for cloud.
+* There are demo plugins for the rules and UI extension features in the `XLDEPLOY_HOME/samples` directory. It would be nice to provide something here for cloud.
+* Important limitation to document: An already existing security group (for AMIs) needs to be selected. You need to create one manually if you want a new one. That is: we don't support the "create a new environment using AMIs you haven't use before" use case.
