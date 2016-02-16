@@ -17,7 +17,7 @@ To create a backup of XL Release, several components may need to be backed up de
 * Repository:
     * Built-in repository: Create a backup of the built-in JCR repository by backing up the files in the `repository` directory.
     * Database repository: Create a backup of the files in the `repository` directory, and the database (using the tools provided by your database vendor).
-* Archive (XL Release 4.7 and higher): Create a backup of the local reporting archive by backing up the files in the `archive` directory.
+* Archive (XL Release 4.7 and higher): Create a backup of the local archive database by backing up the files in the `archive` directory.
 * Configuration: Create a backup of the XL Release configuration by backing up the files in the `conf` directory in the installation directory.
 
 **Important:** XL Release must not be running when you are making a backup. Schedule backups outside planned deployment hours to ensure the server is not being used.

@@ -5,7 +5,7 @@ categories:
 subject:
 - Configuration
 tags:
-- configuration
+- configuration object
 - python
 - plugin
 - customization
