@@ -224,51 +224,51 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
 
 {% highlight xml %}
 <Repository>
-
     <FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
-           <param name="driver" value="oracle.jdbc.OracleDriver"/>
-           <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
-           <param name="schemaObjectPrefix" value="${wsp.name}_" />
-           <param name="schema" value="oracle" />
-           <param name="user" value="xld_user" />
-           <param name="password" value="test" />
-        </FileSystem>
+       <param name="driver" value="oracle.jdbc.OracleDriver"/>
+       <param name="url" value="jdbc:oracle:thin:@DKNPWS15769970:1521/XE"/>
+       <param name="schemaObjectPrefix" value="fs_" />
+       <param name="schema" value="oracle" />
+       <param name="user" value="deployit" />
+       <param name="password" value="deployit" />
+    </FileSystem>
 
-        <DataStore class="org.apache.jackrabbit.core.data.db.DbDataStore">
-         <param name="driver" value="oracle.jdbc.OracleDriver"/>
-            <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
-            <param name="databaseType" value="oracle"/>
-            <param name="user" value="xld_user" />
-            <param name="password" value="test" />
-        </DataStore>
+    <DataStore class="org.apache.jackrabbit.core.data.db.DbDataStore">
+        <param name="driver" value="oracle.jdbc.OracleDriver"/>
+        <param name="url" value="jdbc:oracle:thin:@DKNPWS15769970:1521/XE"/>
+        <param name="databaseType" value="oracle"/>
+        <param name="user" value="deployit" />
+        <param name="password" value="deployit" />
+    </DataStore>
 
-        <Security appName="Jackrabbit">
-            <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
-            <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
+    <Security appName="Jackrabbit">
+        <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
+        <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
 
-            <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
-                <param name="anonymousId" value="anonymous" />
-                <param name="adminId" value="admin" />
-            </LoginModule>
-        </Security>
+        <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
+            <param name="anonymousId" value="anonymous" />
+            <param name="adminId" value="admin" />
+        </LoginModule>
+    </Security>
 
-        <Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
+    <Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
 
-       <Workspace name="${wsp.name}">
-        <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
+    <Workspace name="${wsp.name}">
+        <FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
             <param name="driver" value="oracle.jdbc.OracleDriver"/>
-            <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+            <param name="url" value="jdbc:oracle:thin:@DKNPWS15769970:1521/XE"/>
             <param name="schemaObjectPrefix" value="${wsp.name}_" />
             <param name="schema" value="oracle" />
-            <param name="user" value="xld_user" />
-            <param name="password" value="test" />
+            <param name="user" value="deployit" />
+            <param name="password" value="deployit" />
         </FileSystem>
 
-        <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.BundleDbPersistenceManager">
-            <param name="driver" value="oracle.jdbc.OracleDriver"/>
-            <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl" />
-            <param name="user" value="xld_user" />
-            <param name="password" value="test" />
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.OraclePersistenceManager">
+            <param name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+            <param name="url" value="jdbc:oracle:thin:@DKNPWS15769970:1521/XE"/>
+            <param name="databaseType" value="oracle" />
+            <param name="user" value="deployit" />
+            <param name="password" value="deployit" />
             <param name="schemaObjectPrefix" value="${wsp.name}_" />
         </PersistenceManager>
 
@@ -276,32 +276,32 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
             <param name="path" value="${wsp.home}/index" />
             <param name="supportHighlighting" value="true" />
         </SearchIndex>
-
     </Workspace>
 
     <Versioning rootPath="${rep.home}/version">
         <FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
             <param name="driver" value="oracle.jdbc.OracleDriver"/>
-            <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+            <param name="url" value="jdbc:oracle:thin:@DKNPWS15769970:1521/XE"/>
             <param name="schemaObjectPrefix" value="version_" />
             <param name="schema" value="oracle" />
-            <param name="user" value="xld_user" />
-            <param name="password" value="test" />
+            <param name="user" value="deployit" />
+            <param name="password" value="deployit" />
         </FileSystem>
 
-        <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.BundleDbPersistenceManager">
-            <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl" />
-            <param name="user" value="xld_user" />
-            <param name="password" value="test" />
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.OraclePersistenceManager">
+            <param name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+            <param name="url" value="jdbc:oracle:thin:@DKNPWS15769970:1521/XE"/>
+            <param name="databaseType" value="oracle" />
+            <param name="user" value="deployit" />
+            <param name="password" value="deployit" />
             <param name="schemaObjectPrefix" value="version_" />
         </PersistenceManager>
     </Versioning>
 
-        <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
-            <param name="path" value="${rep.home}/repository/index" />
-            <param name="supportHighlighting" value="true" />
-        </SearchIndex>
-
+    <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
+        <param name="path" value="${rep.home}/repository/index" />
+        <param name="supportHighlighting" value="true" />
+    </SearchIndex>
 </Repository>
 {% endhighlight %}
 
@@ -380,7 +380,7 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
             <param name="password" value="test" />
         </FileSystem>
 
-        <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.BundleDbPersistenceManager">
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager">
             <param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLDeploy" />
             <param name="user" value="xld_user" />
             <param name="password" value="test" />
