@@ -51,10 +51,6 @@ XL TestView supports the following test tools and test result formats:
 
 * Only unit test results are supported.
 
-### NUnit 2.x
-
-* Support for the Theory attribute is limited to reporting the underlying test results, not the Theory itself.
-
 ## Additional information
 
 For information about the different test and build tools, see the following:
