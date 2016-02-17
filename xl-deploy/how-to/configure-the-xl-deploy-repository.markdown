@@ -226,7 +226,7 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
 <Repository>
     <FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
        <param name="driver" value="oracle.jdbc.OracleDriver"/>
-       <param name="url" value="jdbc:oracle:thin:@DKNPWS15769970:1521/XE"/>
+       <param name="url" value="jdbc:oracle:thin:@ABCD1234:1522:1521/XLD"/>
        <param name="schemaObjectPrefix" value="fs_" />
        <param name="schema" value="oracle" />
        <param name="user" value="deployit" />
@@ -235,7 +235,7 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
 
     <DataStore class="org.apache.jackrabbit.core.data.db.DbDataStore">
         <param name="driver" value="oracle.jdbc.OracleDriver"/>
-        <param name="url" value="jdbc:oracle:thin:@DKNPWS15769970:1521/XE"/>
+        <param name="url" value="jdbc:oracle:thin:@ABCD1234:1522/XLD"/>
         <param name="databaseType" value="oracle"/>
         <param name="user" value="deployit" />
         <param name="password" value="deployit" />
@@ -256,7 +256,7 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
     <Workspace name="${wsp.name}">
         <FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
             <param name="driver" value="oracle.jdbc.OracleDriver"/>
-            <param name="url" value="jdbc:oracle:thin:@DKNPWS15769970:1521/XE"/>
+            <param name="url" value="jdbc:oracle:thin:@ABCD1234:1522/XLD"/>
             <param name="schemaObjectPrefix" value="${wsp.name}_" />
             <param name="schema" value="oracle" />
             <param name="user" value="deployit" />
@@ -265,7 +265,7 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
 
         <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.OraclePersistenceManager">
             <param name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-            <param name="url" value="jdbc:oracle:thin:@DKNPWS15769970:1521/XE"/>
+            <param name="url" value="jdbc:oracle:thin:@ABCD1234:1522/XLD"/>
             <param name="databaseType" value="oracle" />
             <param name="user" value="deployit" />
             <param name="password" value="deployit" />
@@ -281,7 +281,7 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
     <Versioning rootPath="${rep.home}/version">
         <FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
             <param name="driver" value="oracle.jdbc.OracleDriver"/>
-            <param name="url" value="jdbc:oracle:thin:@DKNPWS15769970:1521/XE"/>
+            <param name="url" value="jdbc:oracle:thin:@ABCD1234:1522/XLD"/>
             <param name="schemaObjectPrefix" value="version_" />
             <param name="schema" value="oracle" />
             <param name="user" value="deployit" />
@@ -290,7 +290,7 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
 
         <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.OraclePersistenceManager">
             <param name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-            <param name="url" value="jdbc:oracle:thin:@DKNPWS15769970:1521/XE"/>
+            <param name="url" value="jdbc:oracle:thin:@ABCD1234:1522/XLD"/>
             <param name="databaseType" value="oracle" />
             <param name="user" value="deployit" />
             <param name="password" value="deployit" />
