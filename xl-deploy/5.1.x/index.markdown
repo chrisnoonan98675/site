@@ -44,7 +44,7 @@ product-id: xl-deploy
 ### .NET middleware plugins
 
 * [BizTalk plugin](/xl-deploy-biztalk-plugin/5.0.x/biztalkPluginManual.html)
-* [IIS plugin](/xl-deploy-iis-plugin/5.0.x/iisPluginManual.html)
+* [IIS plugin](/xl-deploy-iis-plugin/5.1.x/iisPluginManual.html)
 * [Windows plugin](/xl-deploy-windows-plugin/5.0.x/windowsPluginManual.html)
 
 ### Other middleware plugins
