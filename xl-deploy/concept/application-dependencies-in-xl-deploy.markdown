@@ -55,23 +55,15 @@ You can use parentheses and square brackets to version dependency ranges. The ra
 
 ## Simple dependency example
 
-Assume that you have three applications called WebsiteFrontEnd, Inventory, and PaymentOptions. WebsiteFrontEnd version 1.0.0 requires Inventory version 2.0.1. To define this dependency in the XL Deploy interface, you would:
+Assume that you have two applications called WebsiteFrontEnd and WebsiteBackEnd. WebsiteFrontEnd version 1.0.0 requires WebsiteBackEnd version 2.0.0. To define this dependency in the XL Deploy interface, you would:
 
 1. Go to the Repository.
-2. Expand **Applications** > **WebsiteFrontEnd** and double-click the 1.0.0 deployment package.
-3. In the **Application Dependencies** section, add the key `Inventory` and the value `[2.0.1,2.0.1]`. This is the [Semantic Versioning (SemVer)](http://semver.org/) format that indicates that WebsiteFrontEnd 1.0.0 depends on Inventory 2.0.1, and only 2.0.1 (not any older or newer version).
+1. Expand **Applications** > **WebsiteFrontEnd** and double-click the 1.0.0 deployment package.
+1. In the **Application Dependencies** section, add the key `WebsiteBackEnd` and the value `[2.0.0,2.0.0]`. This is the [Semantic Versioning (SemVer)](http://semver.org/) format that indicates that WebsiteFrontEnd 1.0.0 depends on WebsiteBackEnd 2.0.0, and only 2.0.0 (not any older or newer version).
 
     ![Application with dependencies](images/app-dependencies-example-01.png)
 
-Inventory 2.0.1, in turn, requires PaymentOptions version 3.5.2-final. To define this dependency, you would:
-
-1. Go to the Repository.
-2. Expand **Applications** > **Inventory** and double-click the 2.0.1 deployment package.
-3. In the **Application Dependencies** section, add the key `PaymentOptions` and the value `[3.5.2-final,3.5.2-final]`.
-
-    ![Application with dependencies](images/app-dependencies-example-02.png)
-
-When you set up a deployment of WebsiteFrontEnd 1.0.0, XL Deploy will automatically include Inventory 2.0.1 and PaymentOptions 3.5.2-final.
+When you set up a deployment of WebsiteFrontEnd 1.0.0, XL Deploy will automatically include WebsiteBackEnd 2.0.0.
 
 For an extended example of dependencies, refer to [Advanced application dependencies example](/xl-deploy/concept/advanced-application-dependencies-example.html).
 
@@ -101,6 +93,6 @@ For the environment, you must have one or more of the following permissions:
 
 Composite packages cannot declare dependencies on other applications. However, a deployment package can declare a dependency on a composite package. In this case, the actual composite package must to be installed, not just its constituents. 
 
-For example, you want to deploy a deployment package that declares a dependency on composite package `AppC` version `[1.0.0,1.0.0]`. `AppC` version `1.0.0` consists of deployment packages `AppD` version `3.1.0` and `AppE` version `5.2.2`. If `AppD` `3.1.0` and `AppE` `5.2.2` are deployed on the environment but `AppC` `1.0.0` is not, then you will not be able to deploy the package.
+For example, you want to deploy a deployment package that declares a dependency on composite package AppC version `[1.0.0,1.0.0]`. AppC version 1.0.0 consists of deployment packages AppD version 3.1.0 and AppE version 5.2.2. If AppD 3.1.0 and AppE 5.2.2 are deployed on the environment but AppC 1.0.0 is not, then you will not be able to deploy the package.
 
-When you deploy a composite package, the dependency check is skipped. This means that if its constituents declare any dependencies, these will not be checked. That is, in the above situation, if `AppD` version `3.1.0` declares any dependencies, the composite package can still be deployed to an empty environment.
+When you deploy a composite package, the dependency check is skipped. This means that if its constituents declare any dependencies, these will not be checked. That is, in the above situation, if AppD version 3.1.0 declares any dependencies, the composite package can still be deployed to an empty environment.
