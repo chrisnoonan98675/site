@@ -21,6 +21,8 @@ The build template extends a default build template with an XL Deploy-specific p
 
 For version-specific information about the TFS 2015 plugin, refer to the [Team Foundation Server 2015 Plugin Reference](/xl-deploy-tfs-2015-plugin/5.0.x/tfs2015PluginManual.html).
 
+For information about the XL Deploy plugin for earlier versions of TFS, refer to [Introduction to the Team Foundation Server plugin](/xl-deploy/concept/team-foundation-server-plugin.html).
+
 ## Features
 
 - Create a deployment package (DAR file)
