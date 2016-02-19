@@ -14,7 +14,29 @@ since:
 - XL Deploy 4.5.0
 ---
 
-The plugins that are bundled with XL Deploy contain predefined steps that you can use in rules.
+XL Deploy [rules](/xl-deploy/concept/getting-started-with-xl-deploy-rules.html) allow you to use XML or Jython to specify the steps that belong in a deployment plan and how the steps are configured. Several XL Deploy plugins include predefined rules that you can use when writing rules.
+
+## Predefined steps in standard plugins
+
+The standard XL Deploy plugins contain the following predefined steps:
+
+* `delete`: Deletes a file or directory on a remote host
+* `jython`: Executes a Python script locally on the XL Deploy server
+* `manual`: Allows you to incorporate a manual process as part of a deployment
+* `noop`: A "dummy" step that does not perform any actions
+* `os-script`: Executes a script on a remote host
+* `powershell`: Executes a PowerShell script on the remote Microsoft Windows host
+* `template`: Generates a file based on a FreeMarker template and uploads the file to a remote host
+* `upload`: Copies a `udm.Artifact` to an `overthere.Host`
+* `wait`: Freezes the deployment plan execution for a specified number of seconds
+
+For information about step parameters and examples, refer to the [Steps Reference](/xl-deploy/latest/referencesteps.html).
+
+## Predefined steps in other plugins
+
+Other XL Deploy plugins can contain predefined steps; for example, the IBM WebSphere Application Server (WAS) plugin contains a [`wsadmin`](/xl-deploy-was-plugin/5.1.x/wasPluginManual.html#wsadmin) step that can execute a Python script via the Python terminal of a `was.Cell`.
+
+For information about predefined steps that are included with other XL Deploy plugins, refer to the [reference manual](/xl-deploy/latest/) for the plugin that you are interested in.
 
 ## Calculated step parameters
 
@@ -52,7 +74,7 @@ The `target-host` parameter of a step is calculated as follows:
     * `deployed.container` has a property called `host`, the value of which is of type `overthere.Host`; then `target-host` is set to this value.
 * In other cases, `target-host` cannot be calculated automatically and must be specified manually.
 
-For more information about `overthere` CIs, refer to the [Remoting Plugin Reference](/xl-deploy/5.0.x/remotingPluginManual.html).
+For more information about `overthere` CIs, refer to the [Remoting Plugin Reference](/xl-deploy/latest/remotingPluginManual.html).
 
 ### Artifact
 
@@ -74,8 +96,8 @@ Some steps have contexts such as `freemarker-context`, `jython-context` or `powe
 
 In XL Deploy 4.5.3, XL Deploy 5.0.0, and later, the context of a step is enriched with calculated variables as follows:
 
-* If the scope is `deployed`, the context is enriched with a <a href="/xl-deploy/4.5.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/Delta.html#getDeployed%28%29">deployed</a> instance that is accessible in a FreeMarker template by name `deployed`.
-* If the scope is `deployed`, the context is enriched with a <a href="/xl-deploy/4.5.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/Delta.html#getPrevious%28%29">previousDeployed</a> instance that is accessible in a FreeMarker template by name `previousDeployed`.
+* If the scope is `deployed`, the context is enriched with a <a href="/xl-deploy/5.1.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/Delta.html#getDeployed%28%29">deployed</a> instance that is accessible in a FreeMarker template by name `deployed`.
+* If the scope is `deployed`, the context is enriched with a <a href="/xl-deploy/5.1.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/Delta.html#getPrevious%28%29">previousDeployed</a> instance that is accessible in a FreeMarker template by name `previousDeployed`.
 * In other cases, the context is not calculated automatically.
 
 Note that depending on the operation, the `deployed` or `previousDeployed` might not be initialized. For example, if the operation is `CREATE`, the `deployed` is set, but `previousDeployed` is not set.
