@@ -84,7 +84,7 @@ Similarly, if the deployed application needs to be upgraded using the *side by s
 * `deployment strategy` = `SIDE_BY_SIDE` (or in the XL Deploy user interface, choose SIDE_BY_SIDE from the drop-down list)
 * `retire timeout` = Interval (in seconds) if a timeout period is needed for retiring the previous version of the application
 
-## Shared libraries
+## Updating shared libraries
 
 When updating a shared library (`wls.SharedLibraryWarModule` or `wls.SharedLibraryJarModule`), the plugin will query the repository to find all the applications (`wls.Ear` and `wls.War`, property `sharedLibraries`) that depends on it. For each of them, the plugins will add stop, undeploy, deploy, and start steps before and after the library update.
 
@@ -95,11 +95,11 @@ For example, a deployed EAR module wants to link two deployed shared libraries, 
 * `SHARED_LIBRARIES`=`{% raw %}{{TARGET}}{% endraw %}/libfoo,{% raw %}{{TARGET}}{% endraw %}/libbar`
 * `TARGET`=`/Infrastructure/wlsDomain-103/cluster-1`
 
-## Non-versioned and versioned artifacts
+## Deploying non-versioned artifacts
 
 The plugin allows to deploy non-versioned artifacts (EAR, WAR, EJBJAR) as a versioned artifact. In this case, the plugin automatically computes the version using this pattern: `Application-VersionOfThePackage`. Of course, if the artifact is packaged with a version (for example, a shared library), the version will be read from the manifest file.
 
-## Targeting to multiple containers
+## Targeting multiple containers
 
 Certain deployables can be targeted to multiple containers. For example, an EAR file can be targeted to two clusters. Similarly, a datasource can be targeted to two clusters.
 
