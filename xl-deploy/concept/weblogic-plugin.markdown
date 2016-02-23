@@ -102,6 +102,16 @@ For example, a deployed EAR module wants to link two deployed shared libraries, 
 
 The plugin allows you to deploy non-versioned artifacts (such as EAR, WAR, and EJBJAR files) as versioned artifacts. In this case, the plugin automatically computes the version using the pattern `Application-VersionOfThePackage`. If the artifact is packaged with a version (for example, a shared library), the version will be read from the manifest file.
 
+These CI properties are related to versioning:
+
+* `automaticVersioning`: If set to "true" (its default), the plugin creates a unique version for the deployed. This means that any value that you explicitly set for the `versionIdentifier` property will be ignored.
+* `versioned`: If set to "true" (its default), the artifact will be deployed as a versioned artifact.
+* `versionExpression`: This is the [FreeMarker](http://freemarker.incubator.apache.org/) expression that the plugin uses to build the artifact version based on the manifest file. It applies if both `automaticVersioning` and `versioned` are set to "true".
+
+    You can override `versionExpression` in the `<XLDEPLOY_HOME>/conf/deployit-defaults.properties` file; for example, `wls.WarModule.versionExpression=${manifestAttributes['Weblogic-Application-Version']}`.
+
+For more information about artifact CI properties, refer to the [WebLogic Plugin Reference](/xl-deploy/latest/wlsPluginManual.html).
+
 ## Targeting multiple containers
 
 Certain deployables can be targeted to multiple containers. For example, an EAR file can be targeted to two clusters. Similarly, a datasource can be targeted to two clusters.
