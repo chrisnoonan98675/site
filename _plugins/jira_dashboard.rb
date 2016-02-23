@@ -156,7 +156,7 @@ module Jira
       log "Gathering upcoming releases for product #{product.title}"
 
       upcoming_releases = gel_all_product_releases(product).select { |release|
-        !release.archived and !release.released and release.release_date
+        !release.archived and !release.released and release.release_date and release.release_type != 'Major'
       }
 
       return upcoming_releases unless upcoming_releases.any?
