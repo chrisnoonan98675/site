@@ -101,6 +101,9 @@ h5, .h5 {
 .since-deprecated-removed p {
 	margin-bottom: 0;
 }
+.dashboard-disclaimer {
+	margin-bottom: 0;
+}
 
 /* Mini TOC */
 
