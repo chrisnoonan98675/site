@@ -142,9 +142,8 @@
 /xl-deploy/concept/introduction-to-the-xl-deploy-windows-plugin.html : /xl-deploy/concept/windows-plugin.html
 /xl-deploy/concept/introduction-to-the-xl-scale-ec2-plugin.html : /xl-deploy/concept/xl-scale-ec2-plugin.html
 /xl-deploy/concept/introduction-to-the-xl-scale-vsphere-plugin.html : /xl-deploy/concept/xl-scale-vsphere-plugin.html
-/xl-release/how-to/configure-properties-for-a-release.html : /xl-release/how-to/configure-release-properties.html
-/xl-release/how-to/use-variables-in-xl-release.html : /xl-release/concept/variables-in-xl-release.html
 /xl-deploy/concept/troubleshooting-and-best-practices-for-rules.html : /xl-deploy/concept/best-practices-for-rules.html
+/xl-deploy/how-to/refer-from-one-ci-to-another-in-an-xl-deploy-manifest-file.html : /xl-deploy/concept/xl-deploy-manifest-format.html
 
 # XL Release topics
 /xl-release/how-to/migrate-to-xl-release-4.7.0.html : /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470
@@ -174,6 +173,8 @@
 /xl-release/how-to/configure-the-reporting-database.html : /xl-release/how-to/configure-the-archive-database.html
 /xl-release/how-to/create-custom-task-types-in-xl-release.html : /xl-release/how-to/create-custom-task-types.html
 /xl-release/how-to/configure-the-reporting-database.html : /xl-release/how-to/configure-the-archive-database.html
+/xl-release/how-to/configure-properties-for-a-release.html : /xl-release/how-to/configure-release-properties.html
+/xl-release/how-to/use-variables-in-xl-release.html : /xl-release/concept/variables-in-xl-release.html
 
 # XL TestView topics
 /xl-test/how-to/create-a-test-tool-plugin.html : /xl-testview/concept/understanding-the-architecture.html
