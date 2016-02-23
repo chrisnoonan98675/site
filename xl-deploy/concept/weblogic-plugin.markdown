@@ -74,15 +74,15 @@ The WebLogic plugin works with the standard deployment package (DAR) format. The
 
 You can influence the way an application is deployed to a container by modifying the properties of the corresponding deployed. For example, if an EAR file is to be deployed as a *versioned* application using *nostage* mode, you can specify these properties in the deployed EAR module (`wls.EarModule`):
 
-* `versioned` = true (or in the XL Deploy user interface, check the checkbox)
-* `stage mode` = `NoStage` (or in the XL Deploy user interface, choose NoStage from the drop-down list)
-* `staging directory` = Absolute path of the directory where EAR file should be uploaded
+* `versioned` = True (in the XL Deploy user interface, check the checkbox)
+* `stage mode` = `NoStage` (in the XL Deploy user interface, choose NoStage from the drop-down list)
+* `staging directory` = Absolute path of the directory where the EAR file should be uploaded
 
 Similarly, if the deployed application needs to be upgraded using the *side by side* deployment strategy, modify these properties in the deployed EAR module (`wls.EarModule`):
 
 * `staging directory` = New path of the directory where the new version of EAR will be uploaded
-* `deployment strategy` = `SIDE_BY_SIDE` (or in the XL Deploy user interface, choose SIDE_BY_SIDE from the drop-down list)
-* `retire timeout` = Interval (in seconds) if a timeout period is needed for retiring the previous version of the application
+* `deployment strategy` = `SIDE_BY_SIDE` (in the XL Deploy user interface, choose SIDE_BY_SIDE from the drop-down list)
+* `retire timeout` = Interval (in seconds) if a timeout period is needed to retire the previous version of the application
 
 ## Updating shared libraries
 
@@ -92,12 +92,15 @@ The `wls.War` and `wls.Ear` types have a `SharedLibraries` property whose defaul
 
 For example, a deployed EAR module wants to link two deployed shared libraries, `libfoo` and `libbar`. The target is a `wls.Cluster` (`/Infrastructure/wlsDomain-103/cluster-1`). The dictionary can be set up as follows:
 
-* `SHARED_LIBRARIES`=`{% raw %}{{TARGET}}{% endraw %}/libfoo,{% raw %}{{TARGET}}{% endraw %}/libbar`
-* `TARGET`=`/Infrastructure/wlsDomain-103/cluster-1`
+{:.table}
+| Key | Value |
+| --- | ----- |
+| `SHARED_LIBRARIES` | `{% raw %}{{TARGET}}{% endraw %}/libfoo,{% raw %}{{TARGET}}{% endraw %}/libbar` |
+| `TARGET`| `/Infrastructure/wlsDomain-103/cluster-1` |
 
 ## Deploying non-versioned artifacts
 
-The plugin allows to deploy non-versioned artifacts (EAR, WAR, EJBJAR) as a versioned artifact. In this case, the plugin automatically computes the version using this pattern: `Application-VersionOfThePackage`. Of course, if the artifact is packaged with a version (for example, a shared library), the version will be read from the manifest file.
+The plugin allows you to deploy non-versioned artifacts (such as EAR, WAR, and EJBJAR files) as versioned artifacts. In this case, the plugin automatically computes the version using the pattern `Application-VersionOfThePackage`. If the artifact is packaged with a version (for example, a shared library), the version will be read from the manifest file.
 
 ## Targeting multiple containers
 
@@ -130,13 +133,13 @@ When deploying `wls.Ear`, `wls.War`, `wls.EjbJar`, and shared library artifacts 
 
 ### Multi-target deployment mode
 
-The WebLogic also supports targeting multiple managed servers in one command by setting the `Deployment mode` on the `wls.Domain` to `MULTI_TARGET`. In this case, the plugin will generate a deployment plan containing only one deployment step for all target servers in the domain. For example:
+The WebLogic also supports targeting multiple managed servers in one command by setting the dDeployment mode on the `wls.Domain` to `MULTI_TARGET`. In this case, the plugin will generate a deployment plan containing only one deployment step for all target servers in the domain. For example:
 
 1. Deploy PetClinic-1.0.ear on wldomain: wlserver-1, wlserver-2
 
 ## Creating resources
 
-XL Deploy handles the creation of resources in the same way it handles deploying an application. If needed, you can trigger a restart by setting the `restartTarget` parameter to true.
+XL Deploy handles the creation of resources in the same way it handles deploying an application. If needed, you can trigger a restart by setting the `restartTarget` parameter to "true".
 
 ## Copying files
 
