@@ -98,17 +98,24 @@ For example, a deployed EAR module wants to link two deployed shared libraries, 
 | `SHARED_LIBRARIES` | `{% raw %}{{TARGET}}{% endraw %}/libfoo,{% raw %}{{TARGET}}{% endraw %}/libbar` |
 | `TARGET`| `/Infrastructure/wlsDomain-103/cluster-1` |
 
-## Deploying non-versioned artifacts
+## Deploying versioned and non-versioned artifacts
 
-The plugin allows you to deploy non-versioned artifacts (such as EAR, WAR, and EJBJAR files) as versioned artifacts. In this case, the plugin automatically computes the version using the pattern `Application-VersionOfThePackage`. If the artifact is packaged with a version (for example, a shared library), the version will be read from the manifest file.
+The plugin allows you to deploy non-versioned artifacts (such as EAR, WAR, and EJBJAR files) as versioned artifacts. In this case, the plugin automatically computes the version using the pattern `Application-VersionOfThePackage`.
 
-These CI properties are related to versioning:
+If the artifact is packaged with a version (for example, a shared library), the version will be read from the manifest file.
 
-* `automaticVersioning`: If set to "true" (its default), the plugin creates a unique version for the deployed. This means that any value that you explicitly set for the `versionIdentifier` property will be ignored.
-* `versioned`: If set to "true" (its default), the artifact will be deployed as a versioned artifact.
-* `versionExpression`: This is the [FreeMarker](http://freemarker.incubator.apache.org/) expression that the plugin uses to build the artifact version based on the manifest file. It applies if both `automaticVersioning` and `versioned` are set to "true".
+For example, to configure XL Deploy to get the version of a WAR file from the manifest, you would open the `<XLDEPLOY_HOME>/conf/deployit-defaults.properties` and change the [`wls.WarModule` CI](/xl-deploy-wls-plugin/5.1.x/wlsPluginManual.html#wlswarmodule) defaults as follows:
+    
+    wls.WarModule.manifestVersionProperty=Weblogic-Application-Version
+    wls.WarModule.versionExpression=${manifestAttributes['Weblogic-Application-Version']}
 
-    You can override `versionExpression` in the `<XLDEPLOY_HOME>/conf/deployit-defaults.properties` file; for example, `wls.WarModule.versionExpression=${manifestAttributes['Weblogic-Application-Version']}`.
+Save the file and restart the XL Deploy server. 
+
+On the [`wls.WAR` CI](/xl-deploy-wls-plugin/5.1.x/wlsPluginManual.html#wlswar), the `versioned` and `automaticVersioning` properties must be set to "true". The `versionIdentifier` can be empty (XL Deploy will ignore its value when `automaticVersioning` is enabled). You can configure these properties in the manifest of a deployment package (DAR file) before importing it, on the CI in the Repository, or in the properties of the mapped `wls.WarModule` deployed. This is the result:
+
+![Sample wls.WarModule deployed versioning properties](images/wls-versioned-war-example.png)
+
+**Note:** Ensure that the WAR file manifest contains the `Weblogic-Application-Version` property.
 
 For more information about artifact CI properties, refer to the [WebLogic Plugin Reference](/xl-deploy/latest/wlsPluginManual.html).
 
