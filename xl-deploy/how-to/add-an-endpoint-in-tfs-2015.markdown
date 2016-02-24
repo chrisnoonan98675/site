@@ -26,7 +26,7 @@ You create endpoints on a per-project basis. To create an XL Deploy endpoint:
     ![Add a new generic connection](images/tfs_2015_plugin_new_endpoint.png)
 
 1. In the **Connection Name** box, enter a meaningful connection name such as *XL Deploy Server*.
-1. In the **Server URL** box, enter a URL such as *http://xld.westeurope.cloudapp.azure.com:4516/*. Ensure that the URL includes the correct port number.
+1. In the **Server URL** box, enter a URL such as *http://my.xld.instance.com:4516/*. Ensure that the URL includes the correct port number.
 1. In the **User name** and **Password/Token Key** boxes, enter the user name and password that should be used to authenticate with XL Deploy.
 1. Click **OK**.
 
