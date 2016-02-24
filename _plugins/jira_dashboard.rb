@@ -156,7 +156,7 @@ module Jira
       log "Gathering upcoming releases for product #{product.title}"
 
       upcoming_releases = gel_all_product_releases(product).select { |release|
-        !release.archived and !release.released and release.release_date and release.release_type != 'Major'
+        !release.archived and !release.released and release.release_date
       }
 
       return upcoming_releases unless upcoming_releases.any?
@@ -242,7 +242,7 @@ module Jekyll
       self.process(@name)
       self.read_yaml(File.join(base, '_layouts'), 'release_dashboard.html')
       self.data['product'] = product
-      self.data['title'] = "#{product.title} Development dashboard"
+      self.data['title'] = "#{product.title} Fix Tracker"
     end
   end
 
