@@ -55,8 +55,6 @@ To install the XL Deploy server, go to a command line or terminal window and exe
 
 To stop the setup wizard at any time, enter `exitsetup`. All changes to the configuration will be discarded.
 
-**Tip:** To quickly install XL Deploy, replace the `-setup` option with the `-setup-defaults VAL` option. Replace `VAL` with the location of a file that contains default values for configuration properties.
-
 ### Select a setup method
 
 The setup wizard shows the welcome message. You can:
@@ -182,6 +180,16 @@ After you have configured all options, the setup wizard shows a summary of the c
 If you answer `yes`, the setup wizard will start XL Deploy and show the URL where you can access it; for example, `http://localhost:4516`. Open this URL in a browser and log in with the username *admin* and the password that you provided during the setup process.
 
 **Tip:** For information about starting XL Deploy in the future, refer to [Start XL Deploy](/xl-deploy/how-to/start-xl-deploy.html).
+
+## Automatically install XL Deploy with default values
+
+You can automate the installation of XL Deploy with a set of default values that you save in a file. This is useful, for example, when setting up XL Deploy using a tool such as Puppet or Ansible.
+
+To install XL Deploy, use the following commands:
+
+    bin/run.sh -setup -reinitialize -force -setup-defaults /path/to/deployit.conf
+
+Where the `deployit.conf` file contains the installation values that you want to use.
 
 ## Install the XL Deploy CLI
 

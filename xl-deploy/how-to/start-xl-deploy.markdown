@@ -50,3 +50,5 @@ Start the server with the `-help` flag to see the options it supports. They are:
 | `-setup-defaults VAL` | Specifies a file that contains default values for configuration properties in the setup wizard. |
 
 Any options you want to give the XL Deploy server when it starts can be specified in the `XLDEPLOY_SERVER_OPTS` environment variable.
+
+**Tip:** For information about the `-setup-defaults` option, refer to [Install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html#automatically-install-xl-deploy-with-default-values).
