@@ -238,7 +238,7 @@ module Jekyll
       @site = site
       @base = base
       @dir = dir
-      @name = "#{product.name}-dashboard.html"
+      @name = "#{product.name}-tracker.html"
       self.process(@name)
       self.read_yaml(File.join(base, '_layouts'), 'release_dashboard.html')
       self.data['product'] = product
