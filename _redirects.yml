@@ -188,8 +188,6 @@
 ###################################
 
 # XL Test renamed to XL TestView
-/development-dashboard/xl-test-dashboard.html : /development-dashboard/xl-testview-dashboard.html
-/development-dashboard/xl-test-history.html : /development-dashboard/xl-testview-history.html
 /xl-test/index.html : /xl-testview/index.html
 /xl-test/concept/index.html : /xl-testview/concept/index.html
 /xl-test/concept/key-xl-test-concepts.html : /xl-testview/concept/key-concepts.html
@@ -223,6 +221,16 @@
 /xl-test/how-to/troubleshoot-custom-reports-in-xl-test.html : /xl-testview/how-to/troubleshoot-custom-reports.html
 /xl-test/how-to/using-xl-test-dashboards.html : /xl-testview/how-to/using-dashboards.html
 /xl-test/how-to/view-test-case-details.html : /xl-testview/how-to/view-test-case-details.html
+
+################################################
+# DEVELOPMENT DASHBOARD RENAMED TO FIX TRACKER #
+################################################
+
+/development-dashboard/index.html : /tracker/index.html
+/development-dashboard/xl-deploy-dashboard.html : /tracker/xl-deploy-tracker.html
+/development-dashboard/xl-release-dashboard.html : /tracker/xl-release-tracker.html
+/development-dashboard/xl-testview-dashboard.html : /tracker/xl-testview-tracker.html
+/development-dashboard/xl-test-dashboard.html : /tracker/xl-testview-tracker.html
 
 ########################################
 # LEGACY PAGES THAT ARE NO LONGER USED #
