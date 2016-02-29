@@ -13,7 +13,7 @@ since:
 - XL Deploy 5.0.0
 ---
 
-Before you start to use the XL Deploy [Microsoft Team Foundation Server (TFS) 2015 plugin](/xl-deploy/concept/vsts-plugin.html), you must upload the XL Deploy build task to your Microsoft Visual Studio Team Services (VSTS) server or on-premises Team Foundation Server.
+Before you start to use the [XL Deploy extension for Microsoft Team Foundation Server 2015](/xl-deploy/concept/vsts-plugin.html), you must upload the XL Deploy build task to your on-premises Team Foundation Server (TFS) or to your Microsoft Visual Studio Team Services (VSTS) server.
 
 ## Install the XL Deploy build task
 
@@ -25,7 +25,7 @@ After installing NodeJS, install the Command Line Interface with the following c
 
 Next, you can log in using either:
 
-* Personal access tokens for VSO
+* Personal access tokens for Visual Studio Online (VSO)
 * Basic authentication for on-premises TFS
 
 ## Log in to VSO

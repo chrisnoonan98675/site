@@ -13,7 +13,9 @@ since:
 - XL Deploy 5.0.0
 ---
 
-In Microsoft Team Foundation Server (TFS) 2015 and Visual Studio Team Server (VSTS), endpoints are managed in a common place. This means you do not have to create endpoints in build tasks multiple times, making maintenance and centralized credentials management easier.
+The [XL Deploy extension for Microsoft Team Foundation Server (TFS) 2015](/xl-deploy/concept/team-foundation-server-2015-plugin.html) provides automated deployment functionality through an XL Deploy build task for Microsoft TFS 2015 and Visual Studio Team Services (VSTS), which is also known as Visual Studio Online.
+
+To get started, you must [upload the XL Deploy build task](/xl-deploy/how-to/install-a-build-task-in-tfs-2015.html) to your on-premises TFS or to your VSTS server. This task connects to XL Deploy through an endpoint. In TFS 2015 and VSTS/VSO, endpoints are managed in a common place. This means you do not have to create endpoints in build tasks multiple times, making maintenance and centralized credentials management easier.
 
 You create endpoints on a per-project basis. To create an XL Deploy endpoint: 
 
@@ -32,4 +34,4 @@ You create endpoints on a per-project basis. To create an XL Deploy endpoint:
 
 Now you can refer to this endpoint from an XL Deploy build task.
 
-For more information about the XL Deploy TFS 2015 plugin, refer to [Introduction to the XL Deploy Team Foundation Server 2015 plugin](/xl-deploy/concept/tfs-2015-plugin.html).
+For more information, refer to [Introduction to the Team Foundation Server 2015 plugin](/xl-deploy/concept/tfs-2015-plugin.html).

@@ -1,5 +1,5 @@
 ---
-title: Introduction to the XL Deploy Team Foundation Server 2015 plugin
+title: Introduction to the Team Foundation Server 2015 plugin
 categories:
 - xl-deploy
 subject:
@@ -13,7 +13,7 @@ since:
 - XL Deploy 5.0.0
 ---
 
-The XL Deploy Microsoft Team Foundation Server (TFS) 2015 plugin provides automated deployment functionality through an XL Deploy build task for [Microsoft TFS 2015](https://msdn.microsoft.com/en-us/Library/vs/alm/Build/feature-overview) and [Visual Studio Team Services](https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx) (VSTS), which is also known as Visual Studio Online.
+The XL Deploy extension for Microsoft Team Foundation Server (TFS) 2015 provides automated deployment functionality through an XL Deploy build task for [Microsoft TFS 2015](https://msdn.microsoft.com/en-us/Library/vs/alm/Build/feature-overview) and [Visual Studio Team Services](https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx) (VSTS), which is also known as Visual Studio Online.
 
 The plugin provides custom build activities to interface with XL Deploy, a sample build template, and an editor to help you modify the build script with custom build actions.
 
