@@ -57,13 +57,13 @@ product-id: xl-deploy
 
 ### Tools
 
-* [XL Deploy Maven plugin](/xldeploy-maven-plugin/5.0.x/)
-* [XL Deploy Jenkins plugin](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
-* [XL Deploy Bamboo plugin](/bamboo-xl-deploy-plugin/5.0.x/bambooPluginManual.html)
-* [XL Deploy Puppet plugin](/xl-deploy-xld-puppet-plugin/5.1.x/puppetPluginManual.html)
-* [XL Deploy Chef plugin](/xl-deploy-xld-chef-plugin/5.1.x/chefPluginManual.html)
-* [XL Deploy Team Foundation Server plugin](/xl-deploy-tfs-plugin/5.0.x/tfsPluginManual.html)
-* [XL Deploy Manifest Editor (Windows only)](/xl-deploy-tfs-plugin/4.5.x/manifestEditorManual.html)
+* [XL Deploy plugin for Maven](/xldeploy-maven-plugin/5.0.x/)
+* [XL Deploy plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
+* [XL Deploy plugin for Bamboo](/bamboo-xl-deploy-plugin/5.0.x/bambooPluginManual.html)
+* [Puppet plugin for XL Deploy](/xl-deploy-xld-puppet-plugin/5.1.x/puppetPluginManual.html)
+* [Chef plugin for XL Deploy](/xl-deploy-xld-chef-plugin/5.1.x/chefPluginManual.html)
+* [XL Deploy plugin for Team Foundation Server](/xl-deploy-tfs-plugin/5.0.x/tfsPluginManual.html)
+* [XL Deploy Manifest Editor (Microsoft Windows only)](/xl-deploy/how-to/using-the-xl-deploy-manifest-editor.html)
 
 ### XL Scale
 

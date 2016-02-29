@@ -3,6 +3,8 @@ title: XL Deploy 4.0.x documentation
 product-id: xl-deploy
 ---
 
+<div class="alert alert-warning" style="width: 60%">As of August 29, 2015, XL Deploy 4.0.x is <a href="https://support.xebialabs.com/hc/en-us/articles/206273075-XL-Deploy-4-0-is-no-longer-officially-supported">no longer officially supported</a>. Please <a href="https://support.xebialabs.com/hc/en-us" target="_new">contact us via our support site</a> if you have any questions.</div>
+
 ## Product documentation
 
 * [Start Here](starthere.html)
@@ -62,11 +64,11 @@ product-id: xl-deploy
 
 ### Tools
 
-* [XL Deploy plugin for Maven](../../deployit-maven-plugin/4.0.1/)
-* [XL Deploy plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
-* [XL Deploy plugin for Bamboo](../../bamboo-xl-deploy-plugin/4.0.x/bambooPluginManual.html)
-* [XL Deploy plugin for Team Foundation Server](../../xl-deploy-tfs-plugin/4.0.x/tfsPluginManual.html)
-* [XL Deploy Manifest Editor (Microsoft Windows only)](../../xl-deploy-tfs-plugin/4.0.x/manifestEditorManual.html)
+* [XL Deploy Maven plugin](../../deployit-maven-plugin/4.0.1/)
+* [XL Deploy Jenkins plugin](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
+* [XL Deploy Bamboo plugin](../../bamboo-xl-deploy-plugin/4.0.x/bambooPluginManual.html)
+* [XL Deploy Team Foundation Server plugin](../../xl-deploy-tfs-plugin/4.0.x/tfsPluginManual.html)
+* [XL Deploy Manifest Editor (Windows only)](../../xl-deploy-tfs-plugin/4.0.x/manifestEditorManual.html)
 
 ### XL Scale
 
