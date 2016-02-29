@@ -336,7 +336,7 @@
 /xl-deploy/latest/wpsPluginManual.html : /xl-deploy-wps-plugin/5.0.x/wpsPluginManual.html
 /xl-deploy/latest/tomcatPluginManual.html : /xl-deploy-tomcat-plugin/5.0.x/tomcatPluginManual.html
 /xl-deploy/latest/glassfishPluginManual.html : /xl-deploy-glassfish-plugin/5.0.x/glassfishPluginManual.html
-/xl-deploy/latest/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/5.0.x/biztalkPluginManual.html
+/xl-deploy/latest/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/5.1.x/biztalkPluginManual.html
 /xl-deploy/latest/iisPluginManual.html : /xl-deploy-iis-plugin/5.1.x/iisPluginManual.html
 /xl-deploy/latest/windowsPluginManual.html : /xl-deploy-windows-plugin/5.0.x/windowsPluginManual.html
 /xl-deploy/latest/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.0.x/bigipPluginManual.html
@@ -359,7 +359,7 @@
 /releases/latest/wps-plugin/wpsPluginManual.html : /xl-deploy-wps-plugin/5.0.x/wpsPluginManual.html
 /releases/latest/tomcat-plugin/tomcatPluginManual.html : /xl-deploy-tomcat-plugin/5.0.x/tomcatPluginManual.html
 /releases/latest/glassfish-plugin/glassfishPluginManual.html : /xl-deploy-glassfish-plugin/5.0.x/glassfishPluginManual.html
-/releases/latest/biztalk-plugin/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/5.0.x/biztalkPluginManual.html
+/releases/latest/biztalk-plugin/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/5.1.x/biztalkPluginManual.html
 /releases/latest/iis-plugin/iisPluginManual.html : /xl-deploy-iis-plugin/5.1.x/iisPluginManual.html
 /releases/latest/windows-plugin/windowsPluginManual.html : /xl-deploy-windows-plugin/5.0.x/windowsPluginManual.html
 /releases/latest/bigip-plugin/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.0.x/bigipPluginManual.html
