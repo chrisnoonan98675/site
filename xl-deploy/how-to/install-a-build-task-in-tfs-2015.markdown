@@ -15,6 +15,8 @@ since:
 
 Before you start to use the [XL Deploy extension for Microsoft Team Foundation Server 2015](/xl-deploy/concept/vsts-plugin.html), you must upload the XL Deploy build task to your on-premises Team Foundation Server (TFS) or to your Microsoft Visual Studio Team Services (VSTS) server.
 
+**Tip:** You can use the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=xebialabs.tfs2015-xl-deploy-plugin) to install the XL Deploy extension in VSTS.
+
 ## Install the XL Deploy build task
 
 The Microsoft tool for uploading build tasks is the [TFS Cross Platform Command Line Interface](https://github.com/Microsoft/tfs-cli). This application requires [NodeJS](http://nodejs.org/), [npm](https://www.npmjs.com/) (which is included with the NodeJS installer), and Java Runtime.
