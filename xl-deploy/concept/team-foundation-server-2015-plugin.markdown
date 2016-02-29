@@ -1,5 +1,5 @@
 ---
-title: Introduction to the Team Foundation Server 2015 plugin
+title: Introduction to the Team Foundation Server 2015 XL Deploy plugin
 categories:
 - xl-deploy
 subject:
