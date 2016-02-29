@@ -1,5 +1,5 @@
 ---
-title: Introduction to the XL Deploy Bamboo plugin
+title: Introduction to the Bamboo XL Deploy plugin
 categories:
 - xl-deploy
 subject:
@@ -9,9 +9,14 @@ tags:
 - plugin
 ---
 
-The XL Deploy Bamboo plugin enables two tasks: **Publish to XL Deploy** and **Deploy with XL Deploy**. These tasks can be executed separately or combined sequentially.
+The XL Deploy plugin for [Atlassian Bamboo](https://www.atlassian.com/software/bamboo) enables two tasks:
 
-For information about BizTalk requirements and the configuration items (CIs) that the plugin supports, refer to the [Bamboo Plugin Reference](/xl-deploy/latest/bamboo-plugin/index.html). 
+* Publish to XL Deploy
+* Deploy with XL Deploy
+
+These tasks can be executed separately or combined sequentially.
+
+For information about Bamboo requirements and the configuration items (CIs) that the plugin supports, refer to the [Bamboo Plugin Reference](/xl-deploy/latest/bamboo-plugin/index.html). 
 
 ## Features
 

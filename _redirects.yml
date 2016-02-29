@@ -144,6 +144,7 @@
 /xl-deploy/concept/introduction-to-the-xl-scale-vsphere-plugin.html : /xl-deploy/concept/xl-scale-vsphere-plugin.html
 /xl-deploy/concept/troubleshooting-and-best-practices-for-rules.html : /xl-deploy/concept/best-practices-for-rules.html
 /xl-deploy/how-to/refer-from-one-ci-to-another-in-an-xl-deploy-manifest-file.html : /xl-deploy/concept/xl-deploy-manifest-format.html
+/xl-deploy/concept/xl-deploy-jenkins-plugin.html : /xl-deploy/concept/jenkins-xl-deploy-plugin.html
 
 # XL Release topics
 /xl-release/how-to/migrate-to-xl-release-4.7.0.html : /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470
