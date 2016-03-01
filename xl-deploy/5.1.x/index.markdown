@@ -57,7 +57,7 @@ product-id: xl-deploy
 
 ### Tools
 
-* [XL Deploy plugin for Maven](/xldeploy-maven-plugin/5.0.x/)
+* [XL Deploy plugin for Maven](/xldeploy-maven-plugin/5.1.x/)
 * [XL Deploy plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
 * [XL Deploy plugin for Bamboo](/bamboo-xl-deploy-plugin/5.1.x/bambooPluginManual.html)
 * [Puppet plugin for XL Deploy](/xl-deploy-xld-puppet-plugin/5.1.x/puppetPluginManual.html)
