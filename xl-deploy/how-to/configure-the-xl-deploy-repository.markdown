@@ -398,44 +398,6 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
 
 For more information about SQL Server configuration for Jackrabbit, refer to the [Jackrabbit wiki](http://wiki.apache.org/jackrabbit/DataStore#Database_Data_Store). For information about the `MSSqlPersistenceManager` class, refer to the [Jackrabbit documentation](http://jackrabbit.apache.org/api/2.2/org/apache/jackrabbit/core/persistence/db/MSSqlPersistenceManager.html).
 
-## Using clustering
-
-It is also possible to run XL Deploy server with its repository shared with other XL Deploy server instances. For this to happen, the jackrabbit JCR must be configured to run in a [clustered mode](http://wiki.apache.org/jackrabbit/Clustering#Overview). This needs a cluster configuration to be present in the `jackrabbit-repository.xml` file.
-
-### File-based repository
-
-Add the following code to the `jackrabbit-repository.xml` to enable clustering:
-
-{% highlight xml %}
-<Cluster id="node1">
-  <Journal class="org.apache.jackrabbit.core.journal.FileJournal">
-    <param name="revision" value="${rep.home}/revision.log" />
-    <param name="directory" value="/nfs/myserver/myjournal" />
-  </Journal>
-</Cluster>
-{% endhighlight %}
-
-In the above example, the `directory` property refers to the shared journal. Both XL Deploy instances must be able to write to the same journal.
-
-### Database repository
-
-The following example shows a sample clustering configuration for a JCR using Oracle as its repository.
-
-{% highlight xml %}
-<Cluster id="101" syncDelay="2000">
-    <Journal class="org.apache.jackrabbit.core.journal.OracleDatabaseJournal">
-        <param name="revision" value="${rep.home}/revision" />
-        <param name="driver" value="oracle.jdbc.driver.OracleDriver" />
-        <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl" />
-        <param name="user" value="deployit" />
-        <param name="password" value="deployit" />
-        <param name="schemaObjectPrefix" value="JOURNAL_" />
-    </Journal>
-</Cluster>
-{% endhighlight %}
-
-Note that each Jackrabbit cluster node should have a unique value for `id`. For more information on JCR clustering, or ways to configure clustering using other databases, please refer to the Jackrabbit [clustering documentation](http://wiki.apache.org/jackrabbit/Clustering#Overview).
-
 ## Moving the database
 
 For important information about moving a repository database or changing its configuration, refer to [Change the repository database settings](/xl-deploy/how-to/change-the-repository-database-settings.html).

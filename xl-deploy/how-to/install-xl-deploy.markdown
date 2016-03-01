@@ -206,4 +206,4 @@ Refer to [Connect to XL Deploy from the CLI](/xl-deploy/how-to/connect-to-xl-dep
 
 XL Deploy can be configured to ensure maximum uptime of the application. In such a high availability setup, two instances of XL Deploy are running in an active/passive configuration. At any one time, only one XL Deploy instance is active but as soon as a failure is detected, the passive XL Deploy instance is activated and the failed instance is taken down for repair.
 
-To configure XL Deploy for high availability, the XL Deploy repository must be used in clustering mode. This means that each XL Deploy node writes changes to a shared journal, in addition to applying the change to its own repository. See [Configure the XL Deploy repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html) for more information on setting up clustering.
+You can use XL Deploy in an active/passive configuration with a database. Refer to [Configure the XL Deploy repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html) for more information.
