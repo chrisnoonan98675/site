@@ -1,5 +1,5 @@
 ---
-title: Introduction to the IIS plugin
+title: Introduction to the XL Deploy IIS plugin
 categories:
 - xl-deploy
 subject:

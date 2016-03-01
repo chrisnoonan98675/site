@@ -55,8 +55,6 @@ To install the XL Deploy server, go to a command line or terminal window and exe
 
 To stop the setup wizard at any time, enter `exitsetup`. All changes to the configuration will be discarded.
 
-**Tip:** To quickly install XL Deploy, replace the `-setup` option with the `-setup-defaults VAL` option. Replace `VAL` with the location of a file that contains default values for configuration properties.
-
 ### Select a setup method
 
 The setup wizard shows the welcome message. You can:
@@ -183,6 +181,16 @@ If you answer `yes`, the setup wizard will start XL Deploy and show the URL wher
 
 **Tip:** For information about starting XL Deploy in the future, refer to [Start XL Deploy](/xl-deploy/how-to/start-xl-deploy.html).
 
+## Automatically install XL Deploy with default values
+
+You can automate the installation of XL Deploy with a set of default values that you save in a file. This is useful, for example, when setting up XL Deploy using a tool such as Puppet or Ansible.
+
+To install XL Deploy, use the following commands:
+
+    bin/run.sh -setup -reinitialize -force -setup-defaults /path/to/deployit.conf
+
+Where the `deployit.conf` file contains the installation values that you want to use.
+
 ## Install the XL Deploy CLI
 
 To install the XL Deploy command-line interface (CLI):
@@ -198,4 +206,4 @@ Refer to [Connect to XL Deploy from the CLI](/xl-deploy/how-to/connect-to-xl-dep
 
 XL Deploy can be configured to ensure maximum uptime of the application. In such a high availability setup, two instances of XL Deploy are running in an active/passive configuration. At any one time, only one XL Deploy instance is active but as soon as a failure is detected, the passive XL Deploy instance is activated and the failed instance is taken down for repair.
 
-To configure XL Deploy for high availability, the XL Deploy repository must be used in clustering mode. This means that each XL Deploy node writes changes to a shared journal, in addition to applying the change to its own repository. See [Configure the XL Deploy repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html) for more information on setting up clustering.
+You can use XL Deploy in an active/passive configuration with a database. Refer to [Configure the XL Deploy repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html) for more information.

@@ -7,8 +7,8 @@
 ####################
 
 # XL Release in-product links
-/xl-release/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new
-/xl-release/suggest-feature.html : https://support.xebialabs.com/hc/communities/public/questions/new?question%5Btopic_id%5D=200267505
+/xl-release/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=30145
+/xl-release/suggest-feature.html : https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=94473
 /releases/3.0/xl-release/index.html : /xl-release/3.0.x/index.html
 /releases/4.0/xl-release/index.html : /xl-release/4.0.x/index.html
 /releases/4.5/xl-release/index.html : /xl-release/4.5.x/index.html
@@ -54,8 +54,8 @@
 /xl-release/help/global-variables.html : /xl-release/how-to/configure-global-variables.html
 
 # XL TestView in-product links
-/xl-testview/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new?community_id=public
-/xl-testview/suggest-feature.html : https://support.xebialabs.com/hc/communities/public/questions/new?question%5Btopic_id%5D=200258619
+/xl-testview/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=30145
+/xl-testview/suggest-feature.html : https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=94473
 /xl-testview/help/0001.html : /xl-testview/how-to/create-a-test-specification.html
 /xl-testview/help/0002.html : /xl-testview/how-to/execute-tests.html
 /xl-testview/help/0003.html : /xl-testview/concept/working-with-qualifications.html
@@ -71,8 +71,8 @@
 /xl-testview/help/0013.html : /xl-testview/how-to/using-dashboards.html
 
 # Old XL Test in-product links
-/xl-test/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new?community_id=public
-/xl-test/suggest-feature.html : https://support.xebialabs.com/hc/communities/public/questions/new?question%5Btopic_id%5D=200258619
+/xl-test/support-request.html : https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=30145
+/xl-test/suggest-feature.html : https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=94473
 /xl-test/help/0001.html : /xl-testview/how-to/create-a-test-specification.html
 /xl-test/help/0002.html : /xl-testview/how-to/execute-tests.html
 /xl-test/help/0003.html : /xl-testview/concept/working-with-qualifications.html
@@ -142,8 +142,9 @@
 /xl-deploy/concept/introduction-to-the-xl-deploy-windows-plugin.html : /xl-deploy/concept/windows-plugin.html
 /xl-deploy/concept/introduction-to-the-xl-scale-ec2-plugin.html : /xl-deploy/concept/xl-scale-ec2-plugin.html
 /xl-deploy/concept/introduction-to-the-xl-scale-vsphere-plugin.html : /xl-deploy/concept/xl-scale-vsphere-plugin.html
-/xl-release/how-to/configure-properties-for-a-release.html : /xl-release/how-to/configure-release-properties.html
-/xl-release/how-to/use-variables-in-xl-release.html : /xl-release/concept/variables-in-xl-release.html
+/xl-deploy/concept/troubleshooting-and-best-practices-for-rules.html : /xl-deploy/concept/best-practices-for-rules.html
+/xl-deploy/how-to/refer-from-one-ci-to-another-in-an-xl-deploy-manifest-file.html : /xl-deploy/concept/xl-deploy-manifest-format.html
+/xl-deploy/concept/xl-deploy-jenkins-plugin.html : /xl-deploy/concept/jenkins-xl-deploy-plugin.html
 
 # XL Release topics
 /xl-release/how-to/migrate-to-xl-release-4.7.0.html : /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470
@@ -172,6 +173,9 @@
 /xl-release/how-to/create-a-new-admin-user-for-xl-release.html : /xl-release/how-to/create-a-new-admin-user.html
 /xl-release/how-to/configure-the-reporting-database.html : /xl-release/how-to/configure-the-archive-database.html
 /xl-release/how-to/create-custom-task-types-in-xl-release.html : /xl-release/how-to/create-custom-task-types.html
+/xl-release/how-to/configure-the-reporting-database.html : /xl-release/how-to/configure-the-archive-database.html
+/xl-release/how-to/configure-properties-for-a-release.html : /xl-release/how-to/configure-release-properties.html
+/xl-release/how-to/use-variables-in-xl-release.html : /xl-release/concept/variables-in-xl-release.html
 
 # XL TestView topics
 /xl-test/how-to/create-a-test-tool-plugin.html : /xl-testview/concept/understanding-the-architecture.html
@@ -185,8 +189,6 @@
 ###################################
 
 # XL Test renamed to XL TestView
-/development-dashboard/xl-test-dashboard.html : /development-dashboard/xl-testview-dashboard.html
-/development-dashboard/xl-test-history.html : /development-dashboard/xl-testview-history.html
 /xl-test/index.html : /xl-testview/index.html
 /xl-test/concept/index.html : /xl-testview/concept/index.html
 /xl-test/concept/key-xl-test-concepts.html : /xl-testview/concept/key-concepts.html
@@ -220,6 +222,16 @@
 /xl-test/how-to/troubleshoot-custom-reports-in-xl-test.html : /xl-testview/how-to/troubleshoot-custom-reports.html
 /xl-test/how-to/using-xl-test-dashboards.html : /xl-testview/how-to/using-dashboards.html
 /xl-test/how-to/view-test-case-details.html : /xl-testview/how-to/view-test-case-details.html
+
+################################################
+# DEVELOPMENT DASHBOARD RENAMED TO FIX TRACKER #
+################################################
+
+/development-dashboard/index.html : /tracker/index.html
+/development-dashboard/xl-deploy-dashboard.html : /tracker/xl-deploy-tracker.html
+/development-dashboard/xl-release-dashboard.html : /tracker/xl-release-tracker.html
+/development-dashboard/xl-testview-dashboard.html : /tracker/xl-testview-tracker.html
+/development-dashboard/xl-test-dashboard.html : /tracker/xl-testview-tracker.html
 
 ########################################
 # LEGACY PAGES THAT ARE NO LONGER USED #
@@ -324,17 +336,18 @@
 /xl-deploy/latest/wpsPluginManual.html : /xl-deploy-wps-plugin/5.0.x/wpsPluginManual.html
 /xl-deploy/latest/tomcatPluginManual.html : /xl-deploy-tomcat-plugin/5.0.x/tomcatPluginManual.html
 /xl-deploy/latest/glassfishPluginManual.html : /xl-deploy-glassfish-plugin/5.0.x/glassfishPluginManual.html
-/xl-deploy/latest/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/5.0.x/biztalkPluginManual.html
-/xl-deploy/latest/iisPluginManual.html : /xl-deploy-iis-plugin/5.0.x/iisPluginManual.html
+/xl-deploy/latest/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/5.1.x/biztalkPluginManual.html
+/xl-deploy/latest/iisPluginManual.html : /xl-deploy-iis-plugin/5.1.x/iisPluginManual.html
 /xl-deploy/latest/windowsPluginManual.html : /xl-deploy-windows-plugin/5.0.x/windowsPluginManual.html
 /xl-deploy/latest/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.0.x/bigipPluginManual.html
 /xl-deploy/latest/wmqPluginManual.html : /xl-deploy-wmq-plugin/5.0.x/wmqPluginManual.html
 /xl-deploy/latest/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/5.0.x/netscalerPluginManual.html
-/xl-deploy/latest/maven-plugin/index.html : /xldeploy-maven-plugin/5.0.x/index.html
-/xl-deploy/latest/xldeploy-maven-plugin/index.html : /xldeploy-maven-plugin/5.0.x/index.html
+/xl-deploy/latest/maven-plugin/index.html : /xldeploy-maven-plugin/5.1.x/index.html
+/xl-deploy/latest/xldeploy-maven-plugin/index.html : /xldeploy-maven-plugin/5.1.x/index.html
 /xl-deploy/latest/jenkins-plugin/index.html : https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin
-/xl-deploy/latest/bamboo-plugin/index.html : /bamboo-xl-deploy-plugin/5.0.x/bambooPluginManual.html
+/xl-deploy/latest/bamboo-plugin/index.html : /bamboo-xl-deploy-plugin/5.1.x/bambooPluginManual.html
 /xl-deploy/latest/tfs-plugin/index.html : /xl-deploy-tfs-plugin/5.0.x/tfsPluginManual.html
+/xl-deploy/latest/tfs-2015-plugin/index.html : /xl-deploy-tfs-2015-plugin/5.0.x/tfs2015PluginManual.html
 /xl-deploy/latest/xld-chef-plugin/index.html : /xl-deploy-xld-chef-plugin/5.1.x/chefPluginManual.html
 /xl-deploy/latest/xld-puppet-plugin/index.html : /xl-deploy-xld-puppet-plugin/5.1.x/puppetPluginManual.html
 
@@ -347,15 +360,15 @@
 /releases/latest/wps-plugin/wpsPluginManual.html : /xl-deploy-wps-plugin/5.0.x/wpsPluginManual.html
 /releases/latest/tomcat-plugin/tomcatPluginManual.html : /xl-deploy-tomcat-plugin/5.0.x/tomcatPluginManual.html
 /releases/latest/glassfish-plugin/glassfishPluginManual.html : /xl-deploy-glassfish-plugin/5.0.x/glassfishPluginManual.html
-/releases/latest/biztalk-plugin/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/5.0.x/biztalkPluginManual.html
-/releases/latest/iis-plugin/iisPluginManual.html : /xl-deploy-iis-plugin/5.0.x/iisPluginManual.html
+/releases/latest/biztalk-plugin/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/5.1.x/biztalkPluginManual.html
+/releases/latest/iis-plugin/iisPluginManual.html : /xl-deploy-iis-plugin/5.1.x/iisPluginManual.html
 /releases/latest/windows-plugin/windowsPluginManual.html : /xl-deploy-windows-plugin/5.0.x/windowsPluginManual.html
 /releases/latest/bigip-plugin/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.0.x/bigipPluginManual.html
 /releases/latest/wmq-plugin/webserverPluginManual.html : /xl-deploy-wmq-plugin/5.0.x/wmqPluginManual.html
 /releases/latest/netscaler-plugin/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/5.0.x/netscalerPluginManual.html
-/deployit-maven-plugin/index.html : /xldeploy-maven-plugin/5.0.x/index.html
-/xldeploy-maven-plugin/index.html : /xldeploy-maven-plugin/5.0.x/index.html
-/releases/latest/bamboo-xl-deploy-plugin/bambooPluginManual.html : /bamboo-xl-deploy-plugin/5.0.x/bambooPluginManual.html
+/deployit-maven-plugin/index.html : /xldeploy-maven-plugin/5.1.x/index.html
+/xldeploy-maven-plugin/index.html : /xldeploy-maven-plugin/5.1.x/index.html
+/releases/latest/bamboo-xl-deploy-plugin/bambooPluginManual.html : /bamboo-xl-deploy-plugin/5.1.x/bambooPluginManual.html
 
 # XL Scale product doc, new format
 /xl-scale/latest/index.html : /xl-deploy/5.0.x/index.html#xl-scale

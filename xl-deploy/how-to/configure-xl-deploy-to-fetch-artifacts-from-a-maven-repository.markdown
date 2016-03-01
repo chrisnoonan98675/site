@@ -106,4 +106,4 @@ The remaining Maven configuration in `settings.xml` does not apply to XL Deploy.
 
 ## Step 3 Restart XL Deploy
 
-You must restart XL Deploy server for changes in `maven.conf` to be applied.
+You must restart the XL Deploy server for changes in `maven.conf` to be applied.

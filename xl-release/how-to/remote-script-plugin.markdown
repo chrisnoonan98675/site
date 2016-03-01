@@ -22,6 +22,8 @@ The Remote Script plugin includes two task types:
 * Execute shell scripts on Unix hosts
 * Execute batch scripts on Microsoft Windows hosts
 
+**Tip:** The [XL Release Overthere community plugin](https://github.com/xebialabs-community/xlr-overthere-plugin) offers additional advanced remote script options. Note that XebiaLabs does not guarantee the functionality or compatibility of community plugins.
+
 ## Unix remote script
 
 The following properties are available in the **Remote Script: Unix** task type:

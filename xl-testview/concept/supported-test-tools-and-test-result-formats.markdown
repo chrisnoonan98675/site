@@ -30,7 +30,6 @@ XL TestView supports the following test tools and test result formats:
 | TestNG | Maven Surefire | N/A | `xlt.SurefireJUnit` | Functional | |
 | [MSTest](#mstest) | N/A | TRX | `xlt.Trx` | Functional | 1.4.0 |
 | [VSTest.console](#vstestconsole) | N/A | TRX | `xlt.Trx` | Functional | 1.4.0 |
-| [NUnit 2.x](#nunit2) | N/A | NUnit | `xlt.NUnit2` | Functional | 1.5.0 |
 
 
 ## Notes
@@ -52,10 +51,6 @@ XL TestView supports the following test tools and test result formats:
 
 * Only unit test results are supported.
 
-### NUnit 2.x
-
-* Support for the Theory attribute is limited to reporting the underlying test results, not the Theory itself.
-
 ## Additional information
 
 For information about the different test and build tools, see the following:
@@ -73,4 +68,3 @@ For information about the different test and build tools, see the following:
 * [TestNG](http://testng.org/)
 * [VSTest.console](http://msdn.microsoft.com/en-us/library/jj155800.aspx)
 * [MSTest](http://msdn.microsoft.com/en-us/library/jj155804.aspx)
-* [NUnit 2.x](http://www.nunit.org/)

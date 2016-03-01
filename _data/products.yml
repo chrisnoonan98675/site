@@ -3,7 +3,7 @@
   blurb: The XebiaLabs suite of products provides lightweight, plug-and-play delivery automation modules for deployment, environment provisioning, Agile test management, and release coordination to help enterprises deliver higher quality software faster.
 - name: XL Deploy
   id: xl-deploy
-  blurb: XL Deploy is the only application release automation solution that is agentless across all target platforms. Connect to Windows and Unix target systems using proven, industry-standard remote protocols; no agent installation and maintenance, no overhead on the target systems, no firewall ports to be opened, and no security reviews.
+  blurb: <a href="https://xebialabs.com/products/xl-deploy/">XL Deploy</a> is the only application release automation solution that is agentless across all target platforms. Connect to Windows and Unix target systems using proven, industry-standard remote protocols; no agent installation and maintenance, no overhead on the target systems, no firewall ports to be opened, and no security reviews.
   key-concepts-link: /xl-deploy/concept/key-xl-deploy-concepts.html
   installation-link: /xl-deploy/how-to/install-xl-deploy.html
   versions:

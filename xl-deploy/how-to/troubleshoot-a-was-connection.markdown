@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot a WAS connection
+title: Troubleshoot a WebSphere Application Server connection
 subject:
 - WebSphere Application Server plugin
 categories:
@@ -9,11 +9,7 @@ tags:
 - middleware
 ---
 
-XL Deploy uses the `wsadmin` tool to perform tasks in IBM WebSphere Application Server (WAS).
-
-When XL Deploy starts `wsadmin` on a server for the first time, you must interactively accept the `dmgr` certificate. XL Deploy cannot do that, so it will hang.
-
-This is the output that appears in the step log:
+The [XL Deploy WebSphere Application Server (WAS) plugin](/xl-deploy/concept/websphere-application-server-plugin.html) uses the `wsadmin` tool to perform tasks. When XL Deploy starts `wsadmin` on a server for the first time, you must interactively accept the `dmgr` certificate. XL Deploy cannot do that, so it will hang if you do not accept the certificate. This is an example of the output that appears in the step log:
 
     =================================================================
 

@@ -5,9 +5,15 @@ sidebar_weight: 6
 no_breadcrumbs: true
 ---
 
-XebiaLabs community plugins and tools are open-source software that you can freely use, adapt, and enhance. Below are a few examples of popular community plugins; for a complete list, visit the [XebiaLabs community on GitHub](https://github.com/xebialabs-community).
+XebiaLabs community plugins and tools are open-source software that you can freely use, adapt, and enhance. To download them, visit the [XebiaLabs community on GitHub](https://github.com/xebialabs-community).
 
-Note that XebiaLabs does not guarantee the functionality or compatibility of community plugins, and they are not supported by our [customer support team](https://support.xebialabs.com). For information about XebiaLabs-supported plugins, visit our [Plugins page](https://xebialabs.com/plugins/).
+You are welcome to contribute enhancements to community plugins and tools; visit the [XebiaLabs community on github.io](http://xebialabs-community.github.io/) for information about submitting your changes.
+
+Note that XebiaLabs does not guarantee the functionality or compatibility of community plugins and tools, and they are not supported by our customer support team.
+
+## XebiaLabs-supported plugins
+
+For information about the plugins that are supported by the XebiaLabs customer support team, visit our [Plugins page](https://xebialabs.com/plugins/).
 
 ## Community plugins for XL Deploy
 
@@ -67,6 +73,7 @@ Note that XebiaLabs does not guarantee the functionality or compatibility of com
 {:.table}
 | Plugin | Features |
 | ------ | -------- |
+| [XL Deploy Manifest Editor](https://github.com/xebialabs-community/xld-manifest-editor) | Create and edit deployment package manifest files |
 | [Apache Derby database tools](https://github.com/xebialabs-community/xl-apache-derby-tools-plugin) | Manage an XL Deploy or XL Release [Apache Derby](https://db.apache.org/derby/) database |
 | [Apache Derby database hot backup tools](https://github.com/xebialabs-community/xl-apache-derby-hot-backup) | Perform a hot backup of an XL Deploy or XL Release Apache Derby database |
 | [XL metrics tools](https://github.com/xebialabs-community/xl-metrics-plugin) | Gather metrics about an XL Deploy or XL Release server |

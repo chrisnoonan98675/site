@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot the Tomcat plugin
+title: Troubleshoot the XL Deploy Tomcat plugin
 categories:
 - xl-deploy
 subject:
@@ -27,7 +27,7 @@ If you are running Tomcat on Unix and you find that the Tomcat server does not r
 
 ## Disabling management of `context.xml`
 
-If you find that the Tomcat plugin deploys additional files that cause conflicts, you may need to disable its management of the `context.xml` file, as described in the [deployed actions table](tomcatPluginManual.html#deployed-actions-table). To disable management, locate the following line in the `<XLDEPLOY_HOME>/conf/deployit-defaults.properties` file:
+If you find that the Tomcat plugin deploys additional files that cause conflicts, you may need to disable its management of the `context.xml` file, as described in the [deployed actions table](/xl-deploy-tomcat-plugin/5.0.x/tomcatPluginManual.html#deployed-actions-table). To disable management, locate the following line in the `<XLDEPLOY_HOME>/conf/deployit-defaults.properties` file:
 
     #tomcat.manageContextXml=true
 
@@ -35,4 +35,7 @@ Change the line to:
 
     tomcat.manageContextXml=false
 
-For more information about the Tomcat plugin, refer to [Introduction to the XL Deploy Tomcat plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-tomcat-plugin.html).
+For more information about the Tomcat plugin, refer to:
+
+* [Introduction to the XL Deploy Tomcat plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-tomcat-plugin.html)
+* [Tomcat Plugin Reference](/xl-deploy/latest/tomcatPluginManual.html)

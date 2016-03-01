@@ -16,7 +16,7 @@ Before you customize XL Deploy functionality, you should understand the XL Deplo
 
 This diagram provides a high-level overview of the system architecture:
 
-![XL Deploy Architecture](images/deployit-architecture.png)
+![XL Deploy Architecture](images/xl-deploy-architecture.png)
 
 XL Deploy's central component is called the _core_ and contains the following functionality:
 

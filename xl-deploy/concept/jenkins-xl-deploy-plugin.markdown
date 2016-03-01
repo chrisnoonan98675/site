@@ -1,5 +1,5 @@
 ---
-title: Introduction to the XL Deploy Jenkins plugin
+title: Introduction to the Jenkins XL Deploy plugin
 categories:
 - xl-deploy
 subject:
