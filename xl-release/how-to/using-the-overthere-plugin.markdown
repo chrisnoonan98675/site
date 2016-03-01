@@ -6,7 +6,7 @@ subject:
 - Task types
 tags:
 - plugin
-- remote script
+- script
 - windows
 - unix
 since:
