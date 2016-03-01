@@ -1,5 +1,5 @@
 ---
-title: Advanced Remote Scripting using the Overthere plugin
+title: Advanced remote scripting using the Overthere plugin
 categories:
 - xl-release
 subject:
@@ -9,100 +9,100 @@ tags:
 - remote script
 - windows
 - unix
+since:
+- XL Release 4.8.1
 ---
 
-## Introduction
+Out of the box, XL Release has two task types that you can use to run scripts on other hosts: [**Remote Script: Unix** and **Remote Script: Windows**](/xl-release/how-to/remote-script-plugin.html). While these task types are useful, they do not cover all use cases; for example, they do not support all SSH and WinRM connection options.
 
-Out of the box, XL Release ships with two task types that can be used to un scripts on a another host: **Remote Script: Unix** and **Remote Script: Windows**.
+The [XL Release Overthere plugin](https://github.com/xebialabs/xlr-overthere-plugin) exposes all of the functionality of [Overthere](https://github.com/xebialabs/overthere), XebiaLabs' acclaimed remote scripting library that supports the agentless technology of [XL Deploy](/xl-deploy/index.html). It adds a script task type that you can use for Unix, Microsoft Windows, and z/OS hosts.
 
-Fine as they are, these scripts do not cover all use cases to connect to a remote host. For example, not all SSH or WinRM connection options are exposed.
+This topic explains how to install and configure the plugin, so you can use it to run remote scripts on any host. The example in this topic will create a script that checks the status of a remote server.
 
-In short what we need is a Remote Script task that exposes all functionality of [Overthere](https://github.com/xebialabs/overthere), XebiaLabs' acclaimed remote scripting library that underpins the agentless technology of XL Deploy.
-
-Fortunately, the [xlr-overthere-plugin](https://github.com/xebialabs/xlr-overthere-plugin) just does that! This how-to explains how to install and use the plugin to take advantage of remote scripting using the Overthere library.
-
-This article shows you how to install and configure the plugin, so you cna ue it to run remote scripts on any host. As an example we will create a script that checks the status of a remote server.
-
-## Installing the Overthere plugin
+## Install the Overthere plugin
 
 ### Requirements
- * XL Release 4.8.1 or higher
+
+ * XL Release 4.8.1 or later
 
 ### Installation steps
-1. Download the latest `xlr-overthere-plugin` jar from [Github](https://github.com/xebialabs/xlr-overthere-plugin/releases) 
-2. Copy the jar file into the `plugins` folder of your XL Release server.
+
+1. Download the latest `xlr-overthere-plugin` JAR file from [GitHub](https://github.com/xebialabs/xlr-overthere-plugin/releases) .
+2. Copy the JAR file to the `plugins` folder of your XL Release server.
 3. Restart the server.
 
-The installation was successful if you now see the **Script (advanced)** task under the **Remote Script** category when adding a new task.
+To verify that the installation succeeded, add a new task and look for the **Script (advanced)** type in the **Remote Script** category.
 
 ![Remote Script: Script (advanced)](../images/xlr-overthere-plugin/add-task.png)
 
-## Configuration
+## Configure a host
 
-To use the new **Script** task, we first need to configure the host to connect to. This is different form the old **Windows** and **Unix** tasks where you could simply enter a host address. Also note that the **Script** task is universal: it can be used for Unix hosts, Windows hosts and even Z/OS hosts.
+To use the **Script (advanced)** task, you must configure a host to which it will connect. This is different from the Remote Script: Unix and Remote Script: Windows tasks, in which you can simply enter a host address.
 
-**Hosts** are defined on the **Settings** > **Configuration** screen. You need the **admin** role to add servers on this page. 
+You define hosts in **Settings** > **Configuration**. This requires the *admin* role.
 
-Hosts are platform specific. This table shows you which host type to choose given the operating system.
+Hosts are platform-specific. To choose a host type:
 
-| Connecting to...        | Use                          |
-|-------------------------|------------------------------|
-| Linux                   | **SSH host** with OS=Unix    |
-| Windows                 | **Cifs Host**                |
-| Windows with SSH server | **SSH host** with OS=Windows |
-| Z/OS                    | **SSH Host** with OS=ZOS     |
+{:.table .table-striped}
+| Connecting to...        | Use                      |
+|-------------------------|--------------------------|
+| Linux                   | SSH host with OS=Unix    |
+| Windows                 | CIFS host                |
+| Windows with SSH server | SSH host with OS=Windows |
+| Z/OS                    | SSH host with OS=ZOS     |
 
-### Unix
+**Note:** The hosts that you configure here are available to all templates and releases in XL Release. To protect their credentials, it is recommended that you define the connections here, but leave the username and credentials empty. You can then enter the credentials on the task level.
 
-To connect to a Unix server, find the **RemoteScript: Ssh host** heading and click the **Add Ssh host** link.
+### Configure a Unix host
 
-You will now be presented with a wealth of options to configure access to the machine.
+To configure a Unix host:
 
-![SSH host configuraiton](../images/xlr-overthere-plugin/ssh-configuration.png)
+1. From the top navigation menu, select **Settings** > **Configuration**.
+1. Under **RemoteScript: Ssh host**, click **Add Ssh host**.
+1. In the **Title** box, enter a name for the host.
+1. Enter the connection information in the **Address**, **Port**, **Username**, and **Password** boxes.
 
-First of all, you can configure which machine to connect to and as which user. 
+    ![SSH host configuration](../images/xlr-overthere-plugin/ssh-configuration.png)
 
-If a simple username / password connection over SSH won't cut it, all sorts of other options are supported
+#### Advanced options
 
+If a simple username/password connection over SSH is not sufficient, you can use additional connection options:
+    
 * Private key file authentication
-* Connection methods: SFTP, SCP, SUDO, etc.
+* Connection methods such as SFTP, SCP, and SUDO
 * Jumpstations (tunneling)
-* [Any option exposed by the Overthere library](https://github.com/xebialabs/overthere#common-connection-options)
+* [Any option exposed by the Overthere library](https://github.com/xebialabs/overthere#common-connection-options)  
 
 ![SSH host configuration](../images/xlr-overthere-plugin/ssh-configuration-advanced.png)
 
-Please note that the configuration of this server is available to all templates and releases in XL Release. To protect credentials from leaking, it is good practice to define the connections here, but leave the username and its credentials empty. These can be configured on the task level.
+### Configure a Microsoft Windows host
 
+To configure a Microsoft Windows host:
 
-### Windows
+1. From the top navigation menu, select **Settings** > **Configuration**.
+1. Under **RemoteScript: Cifs host**, click **Add Cifs host** ([CIFS](https://en.wikipedia.org/wiki/Server_Message_Block), also known as SMB, is the protocol used to connect to a Windows machine).
+1. In the **Title** box, enter a name for the host.
+1. Enter the connection information. The options are similar to the options for a Unix host.
 
-To connect to a Windows server, find the **RemoteScript: Cifs host** heading and click the **Add Cifs host** link. ('Cifs' is the name of the protocol used to connect to a Windows machine, better known as 'Smb').
+**Tip:** The easiest way to connect to a Windows host is to use the WINRM_INTERNAL connection type. This requires that the XL Release server is also running on Windows.
 
-This screen is similar to the SSH host configuration.
+All scripts on a Windows host will be interpreted as batch files. PowerShell is currently not supported.
 
-One thing to note here is that to connect to a Windows machine, by far the easiest way to get the configuration right is to select **Connection type: WINRM_INTERNAL**. Note that this only works if the XL Release server itself is running on a Windows host.
+## Sample advanced script task
 
-All scripts on a Windows host will be interpreted as batch files. PowerShell is currently not supported. 
+As an example of an advanced script task:
 
-## Example task
+1. Create an SSH host for a Unix host called *XLR production*.
+1. Create a [release template](/xl-release/how-to/create-a-release-template.html) with one phase. Add a **Script (advanced)** task to the phase. For example:
 
-With the host definition in place, let's run a little example. Create a template with one Phase and add a **Script** task. Create an SSH host for a machine you can connect to and set it on the task. You can now specify the command to execute on the remote host in the **Script** property of the task.
+    ![Task configuration](../images/xlr-overthere-plugin/task-definition.png)
+    
+    The `df` command will be executed on the *XLR production* machine. The user that connects to it is *labrat*. The password for *labrat* is defined on the task, but it could also be set to a [release variable](/xl-release/how-to/create-release-variables.html) of type *password*.
 
-Here's an example:
+1. Add a [gate task](/xl-release/how-to/create-a-gate-task.html) to the end of the phase so the release won't terminate immediately.
 
-![Task configuration](../images/xlr-overthere-plugin/task-definition.png)
+    ![Task configuration](../images/xlr-overthere-plugin/release-flow.png)
 
-The command `df` will be executed on the **XLR production** machine. The user that connects to it is `labrat`. The password for `labrat` is defined on the task, but could also be a release variable of type password.
+1. Start a release from the template. When XL Release runs the script task, it captures the output of the script in the **Output** property of the task. You can see it under **Comments**:
 
-We add a **Gate task** in the flow so the release won't terminate immediately.
-
-![Task configuration](../images/xlr-overthere-plugin/release-flow.png)
-
-When running the task, the output of the script is captured both in the output property **Output** of the task and on is printed in the comment section of the task:
-
-![Task configuration](../images/xlr-overthere-plugin/task-output.png)
-
-
-
-
-
+    ![Task configuration](../images/xlr-overthere-plugin/task-output.png)
