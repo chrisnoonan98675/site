@@ -18,7 +18,9 @@ These tasks can be executed separately or combined sequentially.
 
 For information about Bamboo requirements and the configuration items (CIs) that the plugin supports, refer to the [Bamboo Plugin Reference](/xl-deploy/latest/bamboo-plugin/index.html). 
 
-In order for the Bamboo server to be in sync with the XL Deploy server, please don't forget to restart the Bamboo server after each upgrade of the XL Deploy server.
+To download the plugin, visit the [Atlassian Marketplace](https://marketplace.atlassian.com/plugins/com.xebialabs.deployit.plugin.bamboo-deployit-plugin/server/overview).
+
+**Tip:** To ensure that the Bamboo server stays in sync with the XL Deploy server, restart the Bamboo server after each upgrade of the XL Deploy server.
 
 ## Features
 
