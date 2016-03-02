@@ -145,6 +145,14 @@
 /xl-deploy/concept/troubleshooting-and-best-practices-for-rules.html : /xl-deploy/concept/best-practices-for-rules.html
 /xl-deploy/how-to/refer-from-one-ci-to-another-in-an-xl-deploy-manifest-file.html : /xl-deploy/concept/xl-deploy-manifest-format.html
 /xl-deploy/concept/xl-deploy-jenkins-plugin.html : /xl-deploy/concept/jenkins-xl-deploy-plugin.html
+/xl-deploy/concept/understanding-control-tasks-in-xl-deploy.html : /xl-deploy/how-to/using-control-tasks-in-xl-deploy.html
+/xl-deploy/how-to/execute-a-control-task-from-the-xl-deploy-cli.html : /xl-deploy/how-to/using-control-tasks-in-xl-deploy.html
+/xl-deploy/how-to/add-a-control-task-to-an-existing-type.html : /xl-deploy/how-to/using-control-tasks-in-xl-deploy.html
+/xl-deploy/concept/understanding-xl-deploy-architecture.html : /xl-deploy/concept/xl-deploy-architecture.html
+/xl-deploy/concept/overview-of-security-in-xl-deploy.html : /xl-deploy/concept/roles-and-permissions-in-xl-deploy.html
+/xl-deploy/how-to/xl-deploy-security-setup-example.html : /xl-deploy/how-to/set-up-roles-and-permissions.html
+/xl-deploy/how-to/set-up-xl-deploy-security-using-the-cli.html : /xl-deploy/how-to/set-up-roles-and-permissions-using-the-cli.html
+/xl-deploy/how-to/set-up-xl-deploy-security-using-the-gui.html : /xl-deploy/how-to/set-up-roles-and-permissions.html
 
 # XL Release topics
 /xl-release/how-to/migrate-to-xl-release-4.7.0.html : /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470

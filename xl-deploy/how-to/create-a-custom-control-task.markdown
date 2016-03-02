@@ -3,7 +3,7 @@ title: Create a custom control task
 categories:
 - xl-deploy
 subject:
-- Customization
+- Control task
 tags:
 - control task
 - java
@@ -11,15 +11,18 @@ tags:
 - discovery
 ---
 
-CIs can also define _control tasks_. Control tasks allow actions to be executed on CIs and can be invoked from the GUI or the CLI. Control tasks specify a list of steps to be executed in order. Control tasks can be parameterized in two ways:
+You can define [control tasks](/xl-deploy/how-to/using-control-tasks-in-xl-deploy.html) on configuration items (CIs) that allow you to execute actions from the XL Deploy GUI or CLI. Control tasks specify a list of steps to be executed in order. You can parameterize control tasks in two ways:
 
 * By specifying _arguments_ to the control task in the control task _configuration_
 * By allowing the user to specify _parameters_ to the control task during control task _execution_
 
 Arguments are configured in the control task definition in the `synthetic.xml` file. Arguments are specified as attributes on the synthetic method definition XML and are passed as-is to the control task. 
-Parameters are specified by defining a parameters CI type. See the next section for more information about defining and using control task parameters.
 
-Control tasks can be implemented in different ways. One way is in Java, as methods annotated with the `@ControlTask` annotation. The method returns a `List<Step>` that the server will execute when it is invoked:
+Parameters are specified by defining a parameters CI type.
+
+## Implement a control task as a method
+
+You can implement a control task in Java as a method annotated with the `@ControlTask` annotation. The method returns a `List<Step>` that the server will execute when it is invoked:
 
 {% highlight java %}
 @ControlTask(description = "Start the Apache webserver")
@@ -29,7 +32,9 @@ public List<Step> start() {
 }
 {% endhighlight %}
 
-Another way is in Java as a *delegate* that is bound via synthetic XML. Delegate is an object with a default constructor which contains one or more methods annotated with `@Delegate`. Those can be used to generate steps for control tasks.
+## Implement a control task as a delegate
+
+Another way to implement a control task in Java is to use a delegate that is bound via synthetic XML. A delegate is an object with a default constructor that contains one or more methods annotated with `@Delegate`. Those can be used to generate steps for control tasks.
 
 {% highlight java %}
 class MyControlTasks {

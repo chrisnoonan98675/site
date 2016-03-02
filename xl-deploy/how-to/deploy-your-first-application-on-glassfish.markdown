@@ -1,5 +1,5 @@
 ---
-title: Deploy your first application on GlassFish (XL Deploy 5.0.0 or later)
+title: Deploy your first application on GlassFish
 subject:
 - Getting started
 categories:
