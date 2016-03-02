@@ -1,6 +1,6 @@
 ---
-layout: beta-noindex
 title: Advanced remote scripting using the Overthere plugin
+no_index: true
 ---
 
 Out of the box, XL Release has two task types that you can use to run scripts on other hosts: [**Remote Script: Unix** and **Remote Script: Windows**](/xl-release/how-to/remote-script-plugin.html). While these task types are useful, they do not cover all use cases; for example, they do not support all SSH and WinRM connection options.
