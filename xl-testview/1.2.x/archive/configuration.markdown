@@ -2,7 +2,7 @@
 title: Configure XL TestView 1.2.x
 ---
 
-**Note**: For information about configuring XL TestView 1.3.x and later, refer to [Configure XL TestView](http://localhost:4000/xl-testview/how-to/configure-xl-testview.html).
+**Note:** This information is deprecated. For XL TestView 1.3.0 and later, refer to [Configure XL TestView](/xl-testview/how-to/configure-xl-testview.html).
 
 Configuration can be done by:
 
