@@ -153,6 +153,12 @@
 /xl-deploy/how-to/xl-deploy-security-setup-example.html : /xl-deploy/how-to/set-up-roles-and-permissions.html
 /xl-deploy/how-to/set-up-xl-deploy-security-using-the-cli.html : /xl-deploy/how-to/set-up-roles-and-permissions-using-the-cli.html
 /xl-deploy/how-to/set-up-xl-deploy-security-using-the-gui.html : /xl-deploy/how-to/set-up-roles-and-permissions.html
+/xl-deploy/how-to/deploy-your-first-application-on-glassfish-4.5.html : /xl-deploy/how-to/deploy-your-first-application-on-glassfish.html
+/xl-deploy/how-to/deploy-your-first-application-on-iis-4.5.html : /xl-deploy/how-to/deploy-your-first-application-on-iis.html
+/xl-deploy/how-to/deploy-your-first-application-on-tomcat-4.5.html : /xl-deploy/how-to/deploy-your-first-application-on-tomcat.html
+/xl-deploy/how-to/deploy-your-first-application-on-weblogic-4.5.html : /xl-deploy/how-to/deploy-your-first-application-on-weblogic.html
+/xl-deploy/how-to/deploy-your-first-application-on-websphere-4.5.html : /xl-deploy/how-to/deploy-your-first-application-on-websphere.html
+/xl-deploy/how-to/deploy-your-first-application-on-wildfly-4.5.html : /xl-deploy/how-to/deploy-your-first-application-on-wildfly.html
 
 # XL Release topics
 /xl-release/how-to/migrate-to-xl-release-4.7.0.html : /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470
