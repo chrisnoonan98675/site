@@ -19,9 +19,11 @@ The plugin provides custom build activities to interface with XL Deploy, a sampl
 
 The build template extends a default build template with an XL Deploy-specific part that packages your software in an XL Deploy deployment package (DAR file), uploads the DAR file to an XL Deploy server, and allows XL Deploy to deploy the software to an environment. You can reuse these custom activities in your own variants of the build template.
 
-For version-specific information about TFS 2015 plugin releases, refer to the [Team Foundation Server 2015 Plugin Reference](/xl-deploy-tfs-2015-plugin/5.0.x/tfs2015PluginManual.html).
+Also refer to:
 
-For information about the XL Deploy plugin for earlier versions of TFS, refer to [Introduction to the Team Foundation Server plugin](/xl-deploy/concept/team-foundation-server-plugin.html).
+* [Team Foundation Server 2015 Plugin Reference](/xl-deploy-vsts-xld-plugin/5.1.x/tfs2015PluginManual.html)
+* [The XL Deploy plugin on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=xebialabs.tfs2015-xl-deploy-plugin)
+* [Introduction to the Team Foundation Server plugin](/xl-deploy/concept/team-foundation-server-plugin.html) for the XL Deploy plugin for TFS 2010, TFS 2012, and TFS 2013 
 
 ## Features
 
