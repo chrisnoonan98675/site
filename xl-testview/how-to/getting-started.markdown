@@ -1,5 +1,5 @@
 ---
-title: Getting started with XL TestView
+title: Get started with XL TestView
 categories:
 - xl-testview
 subject:
