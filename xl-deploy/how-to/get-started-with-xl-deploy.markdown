@@ -31,7 +31,7 @@ To learn the basics of XL Deploy, check out:
 * [Understanding XL Deploy's architecture](/xl-deploy/concept/xl-deploy-architecture.html)
 * [Key XL Deploy concepts](/xl-deploy/concept/key-xl-deploy-concepts.html)
 * [Deployment overview and the Unified Deployment Model (UDM)](/xl-deploy/concept/deployment-overview-and-unified-deployment-model.html)
-* [Our video series about getting started with XL Deploy](/videos)
+* [Our video series about getting started with XL Deploy](/videos/index.html#xl-deploy)
 
 Application developers should read:
 
