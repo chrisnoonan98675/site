@@ -159,6 +159,7 @@
 /xl-deploy/how-to/deploy-your-first-application-on-weblogic-4.5.html : /xl-deploy/how-to/deploy-your-first-application-on-weblogic.html
 /xl-deploy/how-to/deploy-your-first-application-on-websphere-4.5.html : /xl-deploy/how-to/deploy-your-first-application-on-websphere.html
 /xl-deploy/how-to/deploy-your-first-application-on-wildfly-4.5.html : /xl-deploy/how-to/deploy-your-first-application-on-wildfly.html
+/xl-deploy/concept/the-deployment-process-from-package-to-deployment.html : /xl-deploy/concept/deployment-overview-and-unified-deployment-model.html
 
 # XL Release topics
 /xl-release/how-to/migrate-to-xl-release-4.7.0.html : /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470
