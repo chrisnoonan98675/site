@@ -193,14 +193,7 @@ Where the `deployit.conf` file contains the installation values that you want to
 
 ## Install the XL Deploy CLI
 
-To install the XL Deploy command-line interface (CLI):
-
-1. Log in to the computer where you want to install the XL Deploy CLI.
-2. Create an installation directory such as `/opt/xebialabs/xl-deploy-cli` or `C:\Program Files\XL Deploy\CLI`.
-3. Copy the XL Deploy CLI archive to the directory.
-3. Extract the archive in the directory.
-
-Refer to [Connect to XL Deploy from the CLI](/xl-deploy/how-to/connect-to-xl-deploy-from-the-cli.html) for more information.
+For information about installing the XL Deploy command-line interface (CLI), refer to [Install the XL Deploy CLI](/xl-deploy/how-to/install-the-xl-deploy-cli.html).
 
 ## High availability setup
 
