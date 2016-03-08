@@ -39,7 +39,7 @@ For each CI, you must specify a `type`. Any property that is modified is listed 
 | `enum-class` | No | The enumeration class that contains the possible values for this property. | Only relevant for properties of kind `enum`. |
 | `referenced-type` | No | The type of the referenced CI. | Only relevant for properties of kind `ci`, `set_of_ci`, or `list_of_ci`. |
 | `as-containment` | No | Indicates whether the property is modeled as containment in the repository. If true, the referenced CI or CIs are stored under the parent CI. | Only relevant for properties of kind `ci`, `set_of_ci`, or `list_of_ci`. |
-| `hidden` | No | Indicates whether the property is hidden. Hidden properties do not appear in the XL Deploy GUI. | A hidden property must have a default value. |
+| `hidden` | No | Indicates whether the property is hidden, which means that it does not appear in the  XL Deploy GUI and cannot be set by the manifest or by the Jenkins, Maven, or Bamboo plugin. | A hidden property must have a default value. |
 | `transient` | No | Indicates whether the property is persisted in the repository or not. | |
 | `inspectionProperty` | No | Indicates that this property is used for inspection (discovery). | |
 

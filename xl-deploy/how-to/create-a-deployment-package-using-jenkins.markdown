@@ -37,6 +37,8 @@ The XL Deploy Jenkins plugin allows you to provide the contents of your deployme
 
 The XL Deploy post-build action can create an XL Deploy Deployment ARchive (DAR file). First, provide basic information about the application. You can use Jenkins variables in the fields; for example, the version is typically linked to the Jenkins `$BUILD_TAG` variable, as in `1.0.$BUILD_TAG`.
 
+**Note:** The Jenkins XL Deploy plugin cannot set values for hidden CI properties.
+
 To add deployables to the package, select **Package Application**.
 
 ![image](images/jenkins-basic-information.png)

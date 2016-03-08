@@ -22,6 +22,8 @@ To download the plugin, visit the [Atlassian Marketplace](https://marketplace.at
 
 **Tip:** To ensure that the Bamboo server stays in sync with the XL Deploy server, restart the Bamboo server after each upgrade of the XL Deploy server.
 
+**Note:** The Bamboo XL Deploy plugin cannot set values for hidden CI properties.
+
 ## Features
 
 * Publish DAR package to XL Deploy
