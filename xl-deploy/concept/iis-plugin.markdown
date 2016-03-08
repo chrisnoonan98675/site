@@ -23,16 +23,16 @@ For IIS requirements and configuration items (CIs) that the plugin supports, ref
     * IIS 7.5 (Windows Server 2008 R2)
     * IIS 8.0 (Windows Server 2012)
     * IIS 8.5 (Windows Server 2012 R2)
-* Deploys and undeploys IIS web content
-* Creates, modifies and destroys IIS configuration elements:
+* Deploy and undeploy IIS web content
+* Create, modify, and destroy IIS configuration elements:
     * Websites
     * Application pools
     * Applications
     * Virtual directories
-* Supports setting options on IIS configuration elements:
+* Set options on IIS configuration elements:
     * Authentication modes
     * Directory browsing
-* Stops and starts websites and application pools as necessary
+* Stop and start websites and application pools as necessary
 
 ## Use in deployment packages
 

@@ -14,11 +14,10 @@ The XL Deploy IBM WebSphere MQ (WMQ) plugin adds the capability to manage MQ res
 
 ## Features
 
-* Resources
+* Deploy resources:
 	* Local queue
 	* Alias queue
-* Control tasks
-	* Start/Stop queue manager
+* Control task to start and stop queue managers
 
 ## Use in deployment packages
 

@@ -17,19 +17,19 @@ For information about WebLogic requirements and the configuration items (CIs) th
 
 ## Features
 
-* Deployment units
+* Deploy applications:
 	* Enterprise application (EAR)
 	* Web application (WAR)
 	* Enterprise JavaBean (EJB)
 	* J2EE Shared library
-* Staging modes
+* Staging modes:
 	* Stage 
 	* NoStage
-* Deployment strategies
+* Deployment strategies:
 	* Classical
 	* Versioned
 	* Side by side
-* Resources
+* Deploy resources:
 	* Datasource
 	* JMS Queue
 	* JMS Topic
@@ -38,8 +38,8 @@ For information about WebLogic requirements and the configuration items (CIs) th
 	* JMS connection factory
 	* Mail Session
 	* Persistence Store (file and JDBC)
-* Files and folders
-* Discovery
+* Deploy files and folders
+* Discover middleware containers
 
 ## Use in deployment packages
 

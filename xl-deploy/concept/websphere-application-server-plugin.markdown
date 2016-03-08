@@ -18,12 +18,12 @@ For information about the configuration items (CIs) that the WAS plugin provides
 
 ## Features
 
-* Deploys and undeploys Java EE application artifacts:
+* Deploy and undeploy Java EE application artifacts:
     * Enterprise applications (EAR)
     * Web applications (WAR)
     * Enterprise JavaBeans (EJB JAR)
-* Updates global web server plug-in configuration
-* Creates, updates, and removes Java EE resources:
+* Update global web server plug-in configuration
+* Create, update, and remove Java EE resources:
     * JMS resources
         * V5 default JMS resources: queues, topics and connection factories
         * WebSphere MQ JMS resources: queues, topics, connection factories and activation specifications
@@ -49,7 +49,7 @@ For information about the configuration items (CIs) that the WAS plugin provides
     * Resource environment
         * Resource environment providers
         * Resource environment entries
-* Creates, updates, and removes WAS configuration elements:
+* Create, update, and remove WAS configuration elements:
     * Shared libraries
     * Virtual hosts
     * Name space bindings
@@ -58,7 +58,7 @@ For information about the configuration items (CIs) that the WAS plugin provides
     * WebSphere variables
     * Health policies
     * Service policies
-* Configures application server components
+* Configure application server components:
     * Session management
     * Application server settings
     * Web container settings
@@ -76,10 +76,10 @@ For information about the configuration items (CIs) that the WAS plugin provides
     * Ports
     + Performance Monitoring Infrastructure (PMI)
     * Logging and tracing
-* Discovers WAS topologies: cells, nodes, clusters, server, web servers
-* Discovers all Java EE and WAS configuration resources
-* Controls the state of cells, nodes, clusters and servers
-* Creates clusters and servers from template
+* Discover WAS topologies: cells, nodes, clusters, server, web servers
+* Discover all Java EE and WAS configuration resources
+* Control the state of cells, nodes, clusters and servers
+* Create clusters and servers from template
 
 ## Use in deployment packages
 

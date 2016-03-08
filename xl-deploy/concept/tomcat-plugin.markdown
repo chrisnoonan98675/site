@@ -16,10 +16,10 @@ For information about Tomcat requirements and the configuration items (CIs) it s
 
 ## Features
 
-* Deployment of web applications (WAR) to a Tomcat virtual host
-* Deployment of resources to an application context on a Tomcat virtual host
-* Deployment of resources to the common Tomcat context (that is, `$TOMCAT_HOME/conf/context.xml`)
-* Deployment of resource links
+* Deploy web applications (WAR) to a Tomcat virtual host
+* Deploy resources to an application context on a Tomcat virtual host
+* Deploy resources to the common Tomcat context (that is, `$TOMCAT_HOME/conf/context.xml`)
+* Deploy resource links
 * Supported JEE resources:
 	* Datasource
 	* JMS Queue
@@ -27,13 +27,13 @@ For information about Tomcat requirements and the configuration items (CIs) it s
 	* JMS Topic
 	* JMS Topic Connection Factory
 	* Mail Session
-* Supported Messaging Middleware
+* Supported Messaging Middleware:
     * ActiveMQ
     * WebSphere MQ
 * Support for Tomcat Database Connection Pool (DBCP) configurations
-* Stopping and starting a Tomcat server via control tasks
-* Deployment of configuration files to a Tomcat server
-* Deployment of libraries files to a Tomcat server
+* Support for stopping and starting a Tomcat server via control tasks
+* Deploy configuration files to a Tomcat server
+* Deploy libraries files to a Tomcat server
 
 ## Tomcat topology
 

@@ -16,7 +16,7 @@ For information about the configuration items (CIs) that the WPS plugin provides
 
 ## Features
 
-* Deploys and undeploys WPS Enterprise applications (EAR)
+* Deploy and undeploy WPS Enterprise applications (EAR)
 * Start and stop templates
 * Start and stop applications
 * Compatible with IBM Business Process Manager (BPM) 8.5.5

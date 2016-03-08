@@ -18,21 +18,21 @@ For information about the configuration items (CIs) that the GlassFish plugin pr
 
 ## Features
 
-* Deploying to Domain, Standalone servers or clusters
-* Deployment of application artifacts
+* Deploy to domains, standalone servers, or clusters
+* Deploy application artifacts
 	* Enterprise application (EAR)
 	* Web application (WAR)
 	* Enterprise Java beans (EJB)
 	* Artifact references
-* Deployment of resources
+* Deploy resources
     * JDBC Connection Pools
 	* JDBC Resources
 	* JMS Connection Factories
 	* JMS Queues
 	* JMS Topics
 	* Resource references
-* Control tasks to create, destroy, start and stop domains and standalone servers
-* Discovery of Domains, Clusters and Standalone servers
+* Use control tasks to create, destroy, start, and stop domains and standalone servers
+* Discover domains, standalone servers, and clusters
 
 ## Use in Deployment Packages
 

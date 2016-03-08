@@ -25,15 +25,15 @@ For information about JBoss/WildFly requirements and the configuration items (CI
 
 ## Features
 
-* Domain and stand-alone mode support
-* Deployment of application artifacts
+* Supports domain and stand-alone mode
+* Deploy application artifacts:
     * Enterprise application (EAR)
     * Web application (WAR)
-* Deployment of resources
+* Deploy resources:
     * Datasource including XA Datasource
     * JMS Queue
     * JMS Topic
-* Discovery of profiles and server groups in domain
+* Discover profiles and server groups in domain
 
 ## Use in deployment packages
 
