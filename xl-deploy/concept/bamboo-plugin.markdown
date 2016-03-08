@@ -33,26 +33,26 @@ To download the plugin, visit the [Atlassian Marketplace](https://marketplace.at
 
 ## Publish to XL Deploy
 
-The publish task can be used to publish a DAR package to XL Deploy.
+You can use the publish task to publish a deployment package (DAR file) to XL Deploy. The following properties can be configured:
 
-* **Server URL (required)**
-* **XL Deploy Username (required)**
-* **XL Deploy Password (required)**
-* **DAR file pattern (required)** File pattern where the DAR file could be found. The result should be exactly one file. Example: `**/*.dar` searches for any file in any subfolder that has `.dar` extension.
-* **Work directory** This optional parameter changes the work directory location. By default it is the work directory of the task.
+* Server URL (required): Address of the XL Deploy server.
+* XL Deploy Username (required): User ID to use when logging in to the XL Deploy server.
+* XL Deploy Password (required): Password for the XL Deploy user.
+* DAR file pattern (required): File pattern where the DAR file could be found. The result should be exactly one file. Example: `**/*.dar` searches for any file in any subfolder that has the `.dar` extension.
+* Work directory (optional): Changes the work directory location (by default, the work directory of the task is used).
 
 ## Deploy with XL Deploy
 
-The deploy task can be used to deploy an application with XL Deploy. The application must already be published to XL Deploy. You can use the "Publish to XL Deploy" step for this.
+You can use the deploy task to deploy an application with XL Deploy. The application must already be published to XL Deploy (you can do so with the Publish to XL Deploy task).
 
 The following properties can be configured:
 
-* **Server URL (required)**
-* **XL Deploy Username (required)**
-* **XL Deploy Password (required)**
-* **Environment (required)** Specify the environment the application will be deployed to.
-* **Application (required)** Specify the Deployment Package.
-* **Version (required)** Specify the Version of the Deployment Package.
-* **Orchestrators** With this optional parameter you can change the orchestrators. Default orchestrator is `default`. Use comma (,) as a separator to specify multiple orchestrators.
-* **Update deployeds** Enabling this will update the deployeds and mappings on an update. This will keep any previous deployeds present in the deployment object that are already present, unless they cannot be deployed with regards to their tags. It will add all the deployeds that are still missing.
-* **Action on failure** Select the action to perform on failure. You can choose to cancel the task (this is the default), to rollback the task, or to do nothing. If you do nothing, the task will stay in XL Deploy, and you can manually review, cancel or rollback the task from XL Deploy.
+* Server URL (required): Address of the XL Deploy server.
+* XL Deploy Username (required): User ID to use when logging in to the XL Deploy server.
+* XL Deploy Password (required): Password for the XL Deploy user.
+* Environment (required): The environment to which the application will be deployed.
+* Application (required): The deployment package (DAR file).
+* Version (required): The version of the deployment package.
+* Orchestrators (optional): [Orchestrator](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) to use (by default, XL Deploy's default orchestrator is used). Use a comma (`,`) as a separator when specifying multiple orchestrators.
+* Update deployeds (optional): Update the deployeds and mappings on an update. This will keep any previous deployeds present in the deployment object that are already present, unless they cannot be deployed with regards to their tags. It will add all deployeds that are still missing.
+* Action on failure (optional): The action to perform on failure. You can choose to cancel the task (this is the default), to rollback the task, or to do nothing. If you do nothing, the task will stay in XL Deploy, and you can manually review, cancel, or roll back the task from XL Deploy.
