@@ -43,8 +43,11 @@ If a step in the deployment fails, XL Deploy stops executing the deployment and 
 ## Mapping tips
 
 * Instead of dragging-and-dropping a deployment package on the environment, you can right-click the deployment package and select **Deploy**, then right-click the environment and select **Deploy to**.
-* You can manually map deployables by dragging and dropping them on containers in the Workspace. The cursor will indicate whether the deployable type can be mapped to the container type.
+
+* You can manually map deployables by dragging and dropping them on containers in the Workspace. The cursor will indicate whether it is possible to map the deployable type to the container type.
+
 * To remove a deployable from all containers where it is mapped, select it in the left side of the Workspace and click ![Remove deployed from all containers](/images/remove_deployed.png).
+
 * To remove one mapped deployable from a container, select it in the right side of the Workspace and click ![Remove deployed](/images/button_remove_deployed.png).
 
 ## Skip a deployment step
