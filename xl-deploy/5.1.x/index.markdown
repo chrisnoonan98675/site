@@ -36,7 +36,7 @@ product-id: xl-deploy
 * [Oracle Service Bus plugin](/xl-deploy-osb-plugin/5.1.x/osbPluginManual.html)
 * [WebLogic Application Server plugin](/xl-deploy-wls-plugin/5.1.x/wlsPluginManual.html)
 * [WebSphere Application Server plugin](/xl-deploy-was-plugin/5.1.x/wasPluginManual.html)
-* [WebSphere Process Server plugin](/xl-deploy-wps-plugin/5.0.x/wpsPluginManual.html)
+* [WebSphere Process Server plugin](/xl-deploy-wps-plugin/5.1.x/wpsPluginManual.html)
 * [WebSphere Liberty Profile Server plugin](/xl-deploy-wlp-plugin/5.1.x/wlpPluginManual.html)
 * [Tomcat plugin](/xl-deploy-tomcat-plugin/5.0.x/tomcatPluginManual.html)
 * [GlassFish plugin](/xl-deploy-glassfish-plugin/5.0.x/glassfishPluginManual.html)
