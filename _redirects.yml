@@ -344,7 +344,7 @@
 
 # XL Deploy non-bundled plugin doc, new format
 /xl-deploy/latest/jbossPluginManual.html : /xl-deploy-jbossas-plugin/5.0.x/jbossPluginManual.html
-/xl-deploy/latest/jbossDomainPluginManual.html : /xl-deploy-jbossdm-plugin/5.0.x/jbossDomainPluginManual.html
+/xl-deploy/latest/jbossDomainPluginManual.html : /xl-deploy-jbossdm-plugin/5.1.x/jbossDomainPluginManual.html
 /xl-deploy/latest/osbPluginManual.html : /xl-deploy-osb-plugin/5.1.x/osbPluginManual.html
 /xl-deploy/latest/wlsPluginManual.html : /xl-deploy-wls-plugin/5.1.x/wlsPluginManual.html
 /xl-deploy/latest/wasPluginManual.html : /xl-deploy-was-plugin/5.1.x/wasPluginManual.html
@@ -368,7 +368,7 @@
 
 # XL Deploy non-bundled plugin doc, legacy format
 /releases/latest/jbossas-plugin/jbossPluginManual.html : /xl-deploy-jbossas-plugin/5.0.x/jbossPluginManual.html
-/releases/latest/jbossdm-plugin/jbossDomainPluginManual.html : /xl-deploy-jbossdm-plugin/5.0.x/jbossDomainPluginManual.html
+/releases/latest/jbossdm-plugin/jbossDomainPluginManual.html : /xl-deploy-jbossdm-plugin/5.1.x/jbossDomainPluginManual.html
 /releases/latest/osb-plugin/osbPluginManual.html : /xl-deploy-osb-plugin/5.1.x/osbPluginManual.html
 /releases/latest/wls-plugin/wlsPluginManual.html : /xl-deploy-wls-plugin/5.1.x/wlsPluginManual.html
 /releases/latest/was-plugin/wasPluginManual.html : /xl-deploy-was-plugin/5.1.x/wasPluginManual.html

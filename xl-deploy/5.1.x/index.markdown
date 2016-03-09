@@ -32,7 +32,7 @@ product-id: xl-deploy
 ### Java middleware plugins
 
 * [JBoss Application Server 5 and 6 plugin](/xl-deploy-jbossas-plugin/5.0.x/jbossPluginManual.html)
-* [JBoss Application Server 7 and up plugin](/xl-deploy-jbossdm-plugin/5.0.x/jbossDomainPluginManual.html)
+* [JBoss Application Server 7 and up plugin](/xl-deploy-jbossdm-plugin/5.1.x/jbossDomainPluginManual.html)
 * [Oracle Service Bus plugin](/xl-deploy-osb-plugin/5.1.x/osbPluginManual.html)
 * [WebLogic Application Server plugin](/xl-deploy-wls-plugin/5.1.x/wlsPluginManual.html)
 * [WebSphere Application Server plugin](/xl-deploy-was-plugin/5.1.x/wasPluginManual.html)
