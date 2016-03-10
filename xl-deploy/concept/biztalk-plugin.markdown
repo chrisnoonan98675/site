@@ -16,11 +16,6 @@ For information about BizTalk requirements and the configuration items (CIs) tha
 
 ## Features
 
-* Supports BizTalk Server versions:
-    * BizTalk Server 2006 R2
-    * BizTalk Server 2009
-    * BizTalk Server 2010
-    * BizTalk Server 2013
 * Create and destroy BizTalk applications in the BizTalk database
     * Start and stop BizTalk applications as necessary
 * Add and remove BizTalk and plain assemblies to/from the BizTalk database
