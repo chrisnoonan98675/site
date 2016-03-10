@@ -41,15 +41,15 @@ The Tomcat plugin allows for the modeling of a Tomcat installation into the XL D
 
 ### Tomcat server (`tomcat.Server`)
 
-`tomcat.Server` models a Tomcat installation running on a host. This container must be defined under any [Host](#overthere.Host) in the XL Deploy infrastructure. The container supports operating system-specific stop and start commands used to control the stopping and starting of the Tomcat server. In addition, stop and start wait times can be specified. XL Deploy will wait for the specified amount of time to elapse after the execution of a stop/start command.
+`tomcat.Server` models a Tomcat installation running on a host. This container must be defined under any `overthere.Host` in the XL Deploy infrastructure. The container supports operating system-specific stop and start commands used to control the stopping and starting of the Tomcat server. In addition, stop and start wait times can be specified. XL Deploy will wait for the specified amount of time to elapse after the execution of a stop/start command.
 
 ### Tomcat common context (`tomcat.CommonContext`)
 
-`tomcat.CommonContext` models the `context.xml` file present in the `$TOMCAT_HOME/conf` directory. This container must be defined under a [Tomcat Server](#tomcat.Server) container. Only a single instance should be defined. Any [Tomcat Resource](#tomcat.JndiContextElement) can be deployed to this container.
+`tomcat.CommonContext` models the `context.xml` file present in the `$TOMCAT_HOME/conf` directory. This container must be defined under a `tomcat.Server` container. Only a single instance should be defined. Any Tomcat resource can be deployed to this container.
 
 ### Tomcat virtual host (`tomcat.VirtualHost`)
 
-`tomcat.VirtualHost` models a Tomcat virtual host definition (that is, `$TOMCAT_HOME/conf/[enginename]/[hostname]`). This container must be defined under a [Tomcat Server](#tomcat.Server) container. Multiple instances can be defined. [Web Applications](#jee.War) and [Tomcat Resource](#tomcat.JndiContextElement) can be deployed to this container.
+`tomcat.VirtualHost` models a Tomcat virtual host definition (that is, `$TOMCAT_HOME/conf/[enginename]/[hostname]`). This container must be defined under a `tomcat.Server` container. Multiple instances can be defined. Web applications and tomcat resources can be deployed to this container.
 
 ## Deploying web applications
 
@@ -63,7 +63,7 @@ When left blank, the plugin can default the value to that of the WAR in the curr
 
 ## Use in deployment packages
 
-The plugin works with the standard deployment package of DAR format. Please see the _Packaging Manual_ for more details about the DAR format and the ways to compose one.
+The plugin works with the standard deployment package of DAR format.
 
 The following is a sample `deployit-manifest.xml` file that can be used to create a Tomcat specific deployment package. It contain declarations for a WAR (`jee.War`), a datasource (`tomcat.DataSourceSpec`), and a couple of JMS resources.
 
