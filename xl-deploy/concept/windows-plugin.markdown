@@ -15,12 +15,6 @@ For information about the configuration items (CIs) that the Windows plugin prov
 
 ## Features
 
-* Supports Microsoft Windows Server 2003 R2 or higher:
-    * Windows Server 2003 R2
-    * Windows Server 2008
-    * Windows Server 2008 R2
-    * Windows Server 2012
-    * Windows Server 2012 R2
 * Install and uninstall MSI files
 * Import Windows registry files
 * Create and destroy Windows services
