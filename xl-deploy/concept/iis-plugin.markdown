@@ -17,12 +17,6 @@ For IIS requirements and configuration items (CIs) that the plugin supports, ref
 
 ## Features
 
-* Supports Internet Information Services version 6.0 or higher:
-    * IIS 6.0 (Windows Server 2003 R2)
-    * IIS 7.0 (Windows Server 2008)
-    * IIS 7.5 (Windows Server 2008 R2)
-    * IIS 8.0 (Windows Server 2012)
-    * IIS 8.5 (Windows Server 2012 R2)
 * Deploy and undeploy IIS web content
 * Create, modify, and destroy IIS configuration elements:
     * Websites
