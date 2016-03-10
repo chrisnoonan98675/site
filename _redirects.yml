@@ -355,7 +355,7 @@
 /xl-deploy/latest/iisPluginManual.html : /xl-deploy-iis-plugin/5.1.x/iisPluginManual.html
 /xl-deploy/latest/windowsPluginManual.html : /xl-deploy-windows-plugin/5.0.x/windowsPluginManual.html
 /xl-deploy/latest/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.0.x/bigipPluginManual.html
-/xl-deploy/latest/wmqPluginManual.html : /xl-deploy-wmq-plugin/5.0.x/wmqPluginManual.html
+/xl-deploy/latest/wmqPluginManual.html : /xl-deploy-wmq-plugin/5.1.x/wmqPluginManual.html
 /xl-deploy/latest/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/5.0.x/netscalerPluginManual.html
 /xl-deploy/latest/maven-plugin/index.html : /xldeploy-maven-plugin/5.1.x/index.html
 /xl-deploy/latest/xldeploy-maven-plugin/index.html : /xldeploy-maven-plugin/5.1.x/index.html
@@ -379,7 +379,7 @@
 /releases/latest/iis-plugin/iisPluginManual.html : /xl-deploy-iis-plugin/5.1.x/iisPluginManual.html
 /releases/latest/windows-plugin/windowsPluginManual.html : /xl-deploy-windows-plugin/5.0.x/windowsPluginManual.html
 /releases/latest/bigip-plugin/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.0.x/bigipPluginManual.html
-/releases/latest/wmq-plugin/webserverPluginManual.html : /xl-deploy-wmq-plugin/5.0.x/wmqPluginManual.html
+/releases/latest/wmq-plugin/webserverPluginManual.html : /xl-deploy-wmq-plugin/5.1.x/wmqPluginManual.html
 /releases/latest/netscaler-plugin/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/5.0.x/netscalerPluginManual.html
 /deployit-maven-plugin/index.html : /xldeploy-maven-plugin/5.1.x/index.html
 /xldeploy-maven-plugin/index.html : /xldeploy-maven-plugin/5.1.x/index.html
