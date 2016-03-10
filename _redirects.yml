@@ -387,18 +387,18 @@
 
 # XL Scale product doc, new format
 /xl-scale/latest/index.html : /xl-deploy/5.0.x/index.html#xl-scale
-/xl-scale/latest/xlScaleManual.html : /xl-scale-plugin/5.1.x/xlScaleManual.html
+/xl-scale/latest/xlScaleManual.html : /xl-scale-plugin/5.0.x/xlScaleManual.html
 
 # XL Scale product doc, legacy format
-/releases/latest/xl-scale-plugin/xlScaleManual.html : /xl-scale-plugin/5.1.x/xlScaleManual.html
+/releases/latest/xl-scale-plugin/xlScaleManual.html : /xl-scale-plugin/5.0.x/xlScaleManual.html
 
 # XL Scale plugin doc, new format
-/xl-scale/latest/ec2PluginManual.html : /xl-scale-ec2-plugin/5.1.x/ec2PluginManual.html
-/xl-scale/latest/vspherePluginManual.html : /xl-scale/4.0.x/xl-scale-vsphere-plugin/vspherePluginManual.html
+/xl-scale/latest/ec2PluginManual.html : /xl-scale-ec2-plugin/5.0.x/ec2PluginManual.html
+/xl-scale/latest/vspherePluginManual.html : /xl-scale-vsphere-plugin/5.0.x/vspherePluginManual.html
 
 # XL Scale plugin doc, legacy format
-/releases/latest/xl-scale-ec2-plugin/ec2PluginManual.html : /xl-scale-ec2-plugin/5.1.x/ec2PluginManual.html
-/releases/latest/xl-scale-vsphere-plugin/vspherePluginManual.html : /xl-scale-vsphere-plugin/5.1.x/vspherePluginManual.html
+/releases/latest/xl-scale-ec2-plugin/ec2PluginManual.html : /xl-scale-ec2-plugin/5.0.x/ec2PluginManual.html
+/releases/latest/xl-scale-vsphere-plugin/vspherePluginManual.html : /xl-scale-vsphere-plugin/5.0.x/vspherePluginManual.html
 
 ##############################
 # "LATEST" LINKS, XL RELEASE #
