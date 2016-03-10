@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy IIS plugin
 categories:
 - xl-deploy
 subject:
-- IIS plugin
+- Microsoft IIS
 tags:
 - iis
 - microsoft

@@ -3,7 +3,7 @@ title: Extend the XL Deploy GlassFish plugin
 categories:
 - xl-deploy
 subject:
-- GlassFish plugin
+- GlassFish
 tags:
 - glassfish
 - middleware
@@ -12,7 +12,7 @@ tags:
 - extension
 ---
 
-The GlassFish plugin is designed to be extended through XL Deploy's Plugin API type system and Jython. The plugin wraps the GlassFish command-line interface (CLI) with a Jython runtime environment, thus allowing extenders to interact with GlassFish and XL Deploy from the script. Note that the Jython script is executed on the XL Deploy Server itself and has full access to the following XL Deploy objects:
+The [XL Deploy GlassFish plugin](/xl-deploy/concept/glassfish-plugin.html) is designed to be extended through XL Deploy's plugin API type system and Jython. The plugin wraps the GlassFish command-line interface (CLI) with a Jython runtime environment, thus allowing extenders to interact with GlassFish and XL Deploy from the script. Note that the Jython script is executed on the XL Deploy Server itself and has full access to the following XL Deploy objects:
 
 * `deployed`: The current deployed object on which the operation has been triggered.
 * `step`: The step object that the script is being executed from. Exposes an Overthere remote connection for file manipulation and a method to execute GlassFish CLI commands.

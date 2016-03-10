@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy BizTalk plugin
 categories:
 - xl-deploy
 subject:
-- BizTalk plugin
+- BizTalk
 tags:
 - biztalk
 - middleware

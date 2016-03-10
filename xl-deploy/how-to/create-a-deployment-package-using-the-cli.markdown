@@ -3,7 +3,7 @@ title: Create a deployment package using the CLI
 categories:
 - xl-deploy
 subject:
-- Packaging
+- Command-line interface
 tags:
 - package
 - application

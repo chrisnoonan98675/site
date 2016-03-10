@@ -3,7 +3,7 @@ title: Introduction to the Bamboo XL Deploy plugin
 categories:
 - xl-deploy
 subject:
-- Bamboo plugin
+- Bamboo
 tags:
 - bamboo
 - plugin

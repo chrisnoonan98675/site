@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy NetScaler plugin
 categories:
 - xl-deploy
 subject:
-- NetScaler plugin
+- NetScaler
 tags:
 - netscaler
 - plugin

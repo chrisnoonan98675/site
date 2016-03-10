@@ -3,7 +3,7 @@ title: Create a deployment package using Jenkins
 categories:
 - xl-deploy
 subject:
-- Packaging
+- Jenkins
 tags:
 - package
 - application

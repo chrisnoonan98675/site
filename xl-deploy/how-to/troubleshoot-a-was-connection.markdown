@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot a WebSphere Application Server connection
 subject:
-- WebSphere Application Server plugin
+- WebSphere
 categories:
 - xl-deploy
 tags:

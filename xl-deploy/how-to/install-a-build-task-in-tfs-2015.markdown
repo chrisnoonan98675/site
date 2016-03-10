@@ -3,14 +3,14 @@ title: Install a build task in Team Foundation Server 2015
 categories:
 - xl-deploy
 subject:
-- Team Foundation Server plugin
+- Team Foundation Server
 tags:
 - tfs
 - vsts
 - microsoft
 - middleware
 since:
-- XL Deploy 5.0.0
+- XL Deploy 5.1.0
 ---
 
 Before you start to use the [XL Deploy extension for Microsoft Team Foundation Server 2015](/xl-deploy/concept/vsts-plugin.html), you must upload the XL Deploy build task to your on-premises Team Foundation Server (TFS) or to your Microsoft Visual Studio Team Services (VSTS) server.

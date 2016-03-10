@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy GlassFish plugin
 categories:
 - xl-deploy
 subject:
-- GlassFish plugin
+- GlassFish
 tags:
 - glassfish
 - middleware

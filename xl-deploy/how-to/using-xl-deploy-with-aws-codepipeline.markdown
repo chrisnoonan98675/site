@@ -3,7 +3,7 @@ title: Using XL Deploy with AWS CodePipeline
 categories:
 - xl-deploy
 subject:
-- AWS CodePipeline plugin
+- AWS CodePipeline
 tags:
 - plugin
 - aws codepipeline

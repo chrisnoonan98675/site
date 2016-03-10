@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy WebSphere Application Server plugin
 categories:
 - xl-deploy
 subject:
-- WebSphere Application Server plugin
+- WebSphere
 tags:
 - websphere
 - middleware

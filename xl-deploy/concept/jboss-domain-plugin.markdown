@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy JBoss Domain plugin
 categories:
 - xl-deploy
 subject:
-- JBoss Domain plugin
+- JBoss EAP/WildFly
 tags:
 - jboss
 - wildfly

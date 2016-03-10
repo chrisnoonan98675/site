@@ -3,7 +3,7 @@ title: Extend the XL Deploy Tomcat plugin
 categories:
 - xl-deploy
 subject:
-- Tomcat plugin
+- Tomcat
 tags:
 - tomcat
 - middleware

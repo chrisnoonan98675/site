@@ -1,7 +1,7 @@
 ---
 title: Create a deployment package using Ant
 subject:
-- Packaging
+- Ant
 categories:
 - xl-deploy
 tags:

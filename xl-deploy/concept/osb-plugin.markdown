@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy OSB plugin
 categories:
 - xl-deploy
 subject:
-- Oracle Service Bus plugin
+- WebLogic
 tags:
 - osb
 - oracle

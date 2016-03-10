@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy WebSphere Liberty profile plugin
 categories:
 - xl-deploy
 subject:
-- WebSphere Liberty profile plugin
+- WebSphere
 tags:
 - liberty
 - profile

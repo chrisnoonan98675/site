@@ -3,7 +3,7 @@ title: Extend the XL Deploy JBoss Domain plugin
 categories:
 - xl-deploy
 subject:
-- JBoss Domain plugin
+- JBoss EAP/WildFly
 tags:
 - jboss
 - wildfly
@@ -14,7 +14,7 @@ tags:
 - control task
 ---
 
-The XL deploy plugin for JBoss Enterprise Application Platform (EAP) 6 and JBoss Application Server (AS)/WildFly 7.1+ is designed to be extended through XL Deploy's plugin API type system and Jython. 
+The [XL Deploy plugin for JBoss Enterprise Application Platform (EAP) 6 and JBoss Application Server (AS)/WildFly 7.1+](/xl-deploy/concept/jboss-domain-plugin.html) is designed to be extended through XL Deploy's plugin API type system and Jython. 
 
 The plugin wraps the JBoss CLI with a Jython runtime environment, thus allowing extenders to interact with JBoss and XL Deploy from the script. The Jython script is executed on the XL Deploy server itself and has full access to the following XL Deploy objects:
 

@@ -3,14 +3,14 @@ title: Introduction to the XL Deploy WebSphere Process Server plugin
 categories:
 - xl-deploy
 subject:
-- WebSphere Process Server plugin
+- WebSphere
 tags:
 - websphere
 - middleware
 - plugin
 ---
 
-The IBM WebSphere Process Server (WPS) plugin adds capability for managing deployments and resources on an existing WebSphere Process Server server. It offers out-of-the-box support for deploying/undeploying applications (EAR files). See the *Features* section below for details. It can easily be extended to support more deployment options or management of new artifacts/resources on WPS.
+The XL Deploy IBM WebSphere Process Server (WPS) plugin adds capability for managing deployments and resources on an existing WebSphere Process Server server. It offers out-of-the-box support for deploying/undeploying applications (EAR files). It can easily be extended to support more deployment options or management of new artifacts/resources on WPS.
 
 For information about the configuration items (CIs) that the WPS plugin provides, refer to the [WebSphere Process Server Plugin Reference](/xl-deploy/latest/wpsPluginManual.html).
 

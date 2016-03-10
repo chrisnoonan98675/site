@@ -3,7 +3,7 @@ title: Introduction to the Jenkins XL Deploy plugin
 categories:
 - xl-deploy
 subject:
-- Jenkins plugin
+- Jenkins
 tags:
 - jenkins
 - package

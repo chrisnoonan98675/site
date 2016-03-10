@@ -3,7 +3,7 @@ title: Introduction to the Team Foundation Server XL Deploy plugin
 categories:
 - xl-deploy
 subject:
-- Team Foundation Server plugin
+- Team Foundation Server
 tags:
 - tfs
 - microsoft

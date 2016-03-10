@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy F5 BIG-IP plugin
 categories:
 - xl-deploy
 subject:
-- F5 BIG-IP plugin
+- F5 BIG-IP
 tags:
 - f5
 - big-ip

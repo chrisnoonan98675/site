@@ -3,7 +3,7 @@ title: Create a deployment package using Maven
 categories:
 - xl-deploy
 subject:
-- Packaging
+- Maven
 tags:
 - package
 - application
