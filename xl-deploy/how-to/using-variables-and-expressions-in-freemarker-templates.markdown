@@ -34,12 +34,11 @@ The processor will automatically detect and sanitize variables for each operatin
 * For Windows: `.bat.ftl`, `.cmd.ftl`, `.bat`, `.cmd`
 * For Unix: `.sh.ftl`, `.sh`
 
-If the extension is not matched, then the processor will not modify the variable.
+It uses the `${sanitize(password)}` expression to do so (where `password` is an example of a variable name). If the extension is not matched, then the processor will not modify the variable.
 
-Also, you can use the following expressions to sanitize variables in a specific function call:
+When auto-detection based on the file extension is not possible, you can use the following expressions to sanitize variables for each operating system:
 
 * `${sanitizeForWindows(password)}`
 * `${sanitizeForUnix(password)}`
-* `${sanitize(password)}`
 
 Where `password` is an example of a variable name.
