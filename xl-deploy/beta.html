@@ -1,0 +1,13 @@
+---
+title: XL Deploy beta documentation
+product-id: xl-deploy
+---
+
+<ul>
+{% for page in site.pages %}
+	{% if page.categories contains 'xl-deploy' %}
+		{% if page.layout == 'beta-noindex' %}
+			<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+		{% endif %}
+	{% endif %}
+{% endfor %}

@@ -1,11 +1,12 @@
 ---
-title: Cloud
+layout: beta-noindex
+title: Provisioning environments with XL Deploy
 categories:
 - xl-deploy
 subject:
-- Cloud
+- Provisioning
 tags:
-- cloud
+- provisioning
 since:
 - XL Deploy 5.5.0
 ---
