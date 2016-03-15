@@ -26,7 +26,9 @@ You can configure the following client settings in `<XLDEPLOY_HOME>/conf/deployi
 {:.table .table-striped}
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
-| `client.automatically.map.all.deployables` | Controls automatic mapping of all deployables when you set up an initial or update deployment in the GUI | true (all deployables will be auto-mapped) |
+| `client.automatically.map.all.deployables` | When set to "true", all deployables will be auto-mapped to containers when you set up an initial or update deployment in the GUI, and XL Deploy will ignore the `map.all.deployables.on.initial` and `map.all.deployables.on.update` settings | true |
+| `client.automatically.map.all.deployables.on.initial` | When set to "true", all deployables will be auto-mapped to containers only when you set up an initial deployment in the GUI (supported in XL Deploy 5.1.4, 5.5.0, and later) | false |
+| `client.automatically.map.all.deployables.on.update` | When set to "true", all deployables will be auto-mapped to containers only when you set up an update deployment (supported in XL Deploy 5.1.4, 5.5.0, and later) | false |
 
 You must restart the server and reload the GUI after changing these settings.
 
