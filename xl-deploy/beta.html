@@ -6,10 +6,19 @@ product-id: xl-deploy
 
 <ul>
 {% for page in site.pages %}
-	{% if page.path contains 'xl-deploy' %}
-		{% if page.layout == 'beta-noindex' %}
+	{% if page.path contains 'xl-deploy' and page.layout == 'beta-noindex' %}
+		{% unless page.path contains 'beta' %}
 			<li><a href="{{ page.url }}">{{ page.title }}</a></li>
-		{% endif %}
+		{% endunless %}
 	{% endif %}
 {% endfor %}
+</ul>
+
+<p>Coming soon:</p>
+
+<ul>
+	<li>CI reference</li>
+	<li>REST API reference</li>
+	<li>Jython API reference</li>
+	<li>Javadoc</li>
 </ul>
