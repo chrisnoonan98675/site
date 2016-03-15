@@ -43,30 +43,3 @@ To get started with XL Deploy provisioning:
 ## Limitations
 
 When creating an Amazon EC2 AMI (`aws.ec2.AMI`) configuration item, you can only enter an AWS security group that already exists. To use a new security group, you must first create it manually in AWS.
-
-## Checkist
-
-* Cloud concepts
-    * Terminology
-    * Step-by-step process; what happens when I deploy to cloud? What steps does XLD take?
-* How to get started with cloud
-    * Do I need something special in my license? (like with satellite)
-    * Do I need to install a plugin?
-    * Maybe provide a sample package that they can deploy to a cloud environment, so they can quickly see it in action (after they set up the infra CIs)
-* Set up cloud infrastructure
-    * What CIs you need to create
-    * What data you need to get from your cloud host (AMI IDs, etc.)
-    * Do you still need to create an environment the normal way? Which CIs go in the environment? Can an environment contain a mix of cloud and non-cloud CIs?
-* Create a provisioning package
-* Deploy an application to a cloud environment
-* Undeploy an application from a cloud environment?
-    * How is the environment taken down?
-
-* Troubleshooting cloud functionality
-* What about:
-    * Cloud + staging
-    * Cloud + satellites
-    * Cloud + plugins (w/ examples)
-    * Cloud + rules (w/ examples)
-
-There are demo plugins for the rules and UI extension features in the `XLDEPLOY_HOME/samples` directory. It would be nice to provide something here for cloud.
