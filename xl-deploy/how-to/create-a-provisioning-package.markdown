@@ -18,9 +18,20 @@ To create a provisioning package:
     1. Click **Save**.
 1. Right-click the blueprint that you just created and select **New** > **Provisioning Package**.
 1. In the **Name** box, enter a unique name for the provisioning package.
-1. In the **Environment Id** box, enter the 
+1. In the **Environment Id** box, enter an XL Deploy environment that should contain the CIs that XL Deploy creates based on the templates in the package.
 
+    For example, a package could contain templates that create `overthere.SshHost`, `tomcat.Server`, and `tomcat.VirtualHost` CIs. XL Deploy can assign these CIs to an environment so you can immediately use them in a deployment.
 
+1. Click **Save**.
 
-## Create a provisioning package in other ways
+## Import a provisioning package
 
+***To be written***
+
+## Create a provisionable
+
+***To be written***
+
+## Create a template
+
+***To be written***
