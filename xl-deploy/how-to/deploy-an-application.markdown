@@ -36,6 +36,8 @@ You can also optionally:
 * Click **Preview** to preview the deployment plan that XL Deploy generates. You can double-click each step to see the script that XL Deploy will use to execute the step.
 * Click **Advanced** if you want to adjust the deployment plan by skipping steps or inserting pauses.
 
+**Note:** Double-clicking the **Advanced** button causes XL Deploy to generate two deployment tasks instead of one. This is a known issue. To remove the unneeded task, go to the [Task Monitor](/xl-deploy/how-to/monitor-and-reassign-deployment-tasks.html), open the pending task, and cancel it.
+
 If the server does not have the capacity to immediately start executing the plan, the plan will be in a `QUEUED` state until the server has sufficient capacity. 
 
 If a step in the deployment fails, XL Deploy stops executing the deployment and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
