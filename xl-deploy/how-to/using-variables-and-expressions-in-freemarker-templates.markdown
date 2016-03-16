@@ -42,3 +42,5 @@ When auto-detection based on the file extension is not possible, you can use the
 * `${sanitizeForUnix(password)}`
 
 Where `password` is an example of a variable name.
+
+This functionality is supported as of XL Deploy 4.5.9, 5.0.8, 5.1.4, and 5.5.0.
