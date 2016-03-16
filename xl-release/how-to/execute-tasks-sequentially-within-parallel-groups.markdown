@@ -13,6 +13,8 @@ XL Release supports parallel groups of tasks in phases, which allow you to execu
 
 Actually, though, parallel groups can do more than that! By defining dependencies between tasks in a parallel group, you can "chain" some or all of the tasks in a parallel group into a sequence. A parallel group, in effect, is actually a "task group" that supports fully parallel and fully sequential execution, as well as any combination in between.
 
+Note that since XL Release 5.0.0 there is also a new task type "sequential group" which can be used if you want children tasks to be executed sequentially.
+
 For example, a question was asked how XL Release could execute deployments to multiple servers in parallel, with the tasks on each server executing sequentially. Here's how:
 
 Inside the Deploy phase below, I have an outer parallel group Concurrent Server Deployments, which groups the tasks for the server. I have two sequential tasks per server: deploy and then check results.
