@@ -31,7 +31,7 @@ The following options are available (depending on your permissions):
 | ------ | ----------- |
 | View | Open the template in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html) |
 | New Release from Template | Create a new release based on the template |
-| Copy | Create a new template that is a copy of this one; if you copy a template that contains [release triggers](/xl-release/how-to/create-a-release-trigger.html), all triggers on the copied template will be disabled |
+| Copy | Create a new template that is a copy of this one; if you copy a template that contains [release triggers](/xl-release/how-to/create-a-release-trigger.html), all triggers on the copied template will be disabled. You will be added as an owner of this new template. However, if you did not have edit permissions to the original template then all password fields and variables will be stripped. |
 | Delete | Delete the template
 
 ## Create a template
