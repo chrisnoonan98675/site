@@ -85,7 +85,9 @@ When selected extra options are shown. By selecting it, you are setting your bui
 
 ![Deploy options](images/tfs_2015_plugin_deploy_options.png)
 
-In **Target Environment** box, enter the name of the environment to use for deployment. If you want XL Deploy to roll back the deployment if it fails, select **Rollback on deployment failure**.
+In **Target Environment** box, enter the name of the environment to use for deployment, without the *Environments* root; for example, *Production/PROD01*.
+
+If you want XL Deploy to roll back the deployment if it fails, select **Rollback on deployment failure**.
 
 ## Advanced options
 
