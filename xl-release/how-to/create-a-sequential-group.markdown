@@ -7,9 +7,11 @@ subject:
 tags:
 - task
 - sequential group
+since:
+- XL Release 5.0.0
 ---
 
-A sequential group is a container for tasks that should be executed in sequence. 
+A sequential group is a container for tasks that should be executed in sequence. A sequential group works in the same way as a series of tasks in a phase; however, sequential groups are a useful way to group related tasks within a phase. For example, you could configure a precondition on the group so that all of its sub-tasks will be skipped under certain conditions. You can also collapse sequential groups for better readability of the release.
 
 ## Add a sequential group in the release editor
 
@@ -17,6 +19,4 @@ In the release editor, click **Add task** to add a sequential group. You can the
 
 ![Sequential group](../images/sequential-group.png)
 
-In this example, the "Prepare release notes" task has already started; when it finishes then the next task "QA prerequisites" will start. The sequential group "Manual checks" will finish together with its last sub-task: "Check JIRA version".
-
-Sequential group works in the same way as if its sub-tasks would just appear on the phase level. But it is a good way to group related tasks together in a phase. For example, you could configure a precondition on the group so that all sub-tasks would be skipped in certain conditions. Or you could collapse a sequential group for better readability of the release.
+In this example, the "Prepare release notes" task has already started; when it finishes, then the "QA prerequisites" task will start. The "Manual checks" sequential group will finish with its last sub-task, "Check JIRA version".

@@ -42,7 +42,13 @@ In a task:
 
 ## Add a task to a parallel or sequential group
 
-[Parallel group](/xl-release/how-to/create-a-parallel-group.html) and [sequential group](/xl-release/how-to/create-a-sequential-group.html) are containers for other tasks. All tasks inside the parallel group are started simultaneously and the parallel group task will finish when all of its children are complete. In a sequential group the tasks would be executed in order, and sequential group will finish when its last child task is complete. To add a task to a task group, click **Add task** at the bottom of the group. To move a task into a task group, drag and drop it. To collapse or expand a task group, click its arrow.
+[Parallel groups](/xl-release/how-to/create-a-parallel-group.html) and [sequential groups](/xl-release/how-to/create-a-sequential-group.html) are containers for other tasks. 
+
+Within a parallel group, all tasks are started simultaneously. The parallel group task finishes when all of its children are complete.
+
+Within a sequential group, tasks are executed in order. The sequential group task finishes when its last child is complete. The sequential group task is available in XL Release 5.0.0 and later.
+
+To add a task to a task group, click **Add task** at the bottom of the group. To move a task into a task group, drag and drop it. To collapse or expand a task group, click its arrow.
 
 ![Add parallel task](../images/add-parallel-task.png)
 
