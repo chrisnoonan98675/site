@@ -54,7 +54,3 @@ When strings need to support Unicode, it is recommended to make proper unicode s
     print dic.entries
 
 If values come from a database or other web service, you should be aware of the encoding and take care of properly converting the values to Unicode.
-
-## CLI examples
-
-For CLI examples, download the XL Deploy demo plugin from [https://github.com/xebialabs/community-plugins/](https://github.com/xebialabs/community-plugins/).
