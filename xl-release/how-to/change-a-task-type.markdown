@@ -32,4 +32,4 @@ To change a task's type:
 Note that:
 
 * You cannot change the type of an active, completed, failed, or skipped task.
-* You can change a task to a parallel group, but you cannot change a parallel group to a different type of task.
+* You can change a task to a parallel or sequential group, but you cannot change a parallel or sequential group to a different type of task.
