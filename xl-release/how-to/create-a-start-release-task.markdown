@@ -7,20 +7,27 @@ subject:
 tags:
 - task
 - start release
-- sub-release
 - subrelease
+since:
+- XL Release 5.0.0
 ---
 
-A **start release** task is an automatic task which starts a release from a configured template.
+A **start release** task is an automatic task that creates and starts a release based on a configured template.
 
 ![Start release task details](../images/start-release-task-details.png)
 
-In this example when the task executes, it will create and start a new release from template "_Front office services release template_", with title "_Release front office services 2.1_" and value "_2.1_" of the variable "_version_". When the release is created, it will be automatically added as a dependency of gate "_Wait for front office services 2.1 to be released_", so that execution of the parent release will stop until the sub-release is finished. 
+The options for the start release task are:
 
-As you can see on the screenshot, when configuring this task you have to select following required properties:
+{:.table .table-striped}
+| Option | Description |
+| ------ | ----------- |
+| Template | The template from which to start a release |
+| New release title | The title to use for the newly created release |
+| Wait at Gate | An upcoming gate task in the current release (optional) |
+| Variables | Variables from the template that must be filled in (if applicable) |
 
-* _Template_ - the template from which to start a release.
-* _New release title_ - the title given to the newly created release.
-* _Variables_ - you have to fill in template variables, depending on which template you chose.
+When the new release starts, XL Release adds a [dependency](/xl-release/how-to/create-a-gate-task.html#dependencies) to the gate task selected in **Wait at Gate**. This allows you to start a subrelease from the main release and then have the main release wait for the subrelease to finish. If you do not select a gate task, then the main release will proceed normally while the subrelease runs.
 
-Additionally you can set the _Wait at Gate_ property to a gate within the same release. When the new release is started from the Start Release task, a dependency to it will be added to the selected gate. In this way you can start a sub-release from your main release, and wait for that sub-release to complete using the gate in your main release. If you don't specify any gates, then your main release will proceed normally while the sub-release runs.
+The example above shows a task that will create and start a new release based on the "Front office services release template" template. The new release's title will be "Release front office services 2.1", and the value of the template variable `version` will be set to 2.1.
+
+When the "Release front office services 2.1" release is created, XL Release will add it as a dependency on the "Wait for front office services 2.1 to be released" gate task. The main release will wait at this gate until "Release front office services 2.1" finishes.
