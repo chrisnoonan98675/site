@@ -21,12 +21,12 @@ The options for the start release task are:
 {:.table .table-striped}
 | Option | Description |
 | ------ | ----------- |
+| Release title | The title to use for the newly created release |
 | Template | The template from which to start a release |
-| New release title | The title to use for the newly created release |
-| Wait at Gate | An upcoming gate task in the current release (optional) |
+| Wait at gate task | An upcoming gate task in the current release (optional) |
 | Variables | Variables from the template that must be filled in (if applicable) |
 
-When the new release starts, XL Release adds a [dependency](/xl-release/how-to/create-a-gate-task.html#dependencies) to the gate task selected in **Wait at Gate**. This allows you to start a subrelease from the main release and then have the main release wait for the subrelease to finish. If you do not select a gate task, then the main release will proceed normally while the subrelease runs.
+When the new release starts, XL Release adds a [dependency](/xl-release/how-to/create-a-gate-task.html#dependencies) to the gate task selected in **Wait at gate task**. This allows you to start a subrelease from the main release and then have the main release wait for the subrelease to finish. If you do not select a gate task, then the main release will proceed normally while the subrelease runs.
 
 The example above shows a task that will create and start a new release based on the "Front office services release template" template. The new release's title will be "Release front office services 2.1", and the value of the template variable `version` will be set to 2.1.
 
