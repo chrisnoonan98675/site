@@ -11,7 +11,9 @@ tags:
 - release summary
 ---
 
-In a release or template, select **Planner** from the **Show** menu to go to the planner page, where you can use an interactive Gantt chart to view and edit the timing of phases and tasks on the level that you desire. The Gantt chart is a combined timeline of the release, its phases, and the tasks within.
+The XL Release planner allows you to use an interactive Gantt chart to view and edit the timing of the phases and tasks in a release or template. The Gantt chart is a combined timeline of the template or release, its phases, and the tasks within.
+
+To access in the planner in XL Release 5.0.0 or later, click **Planner** at the top of the release flow page. In earlier versions of XL Release, select **Planner** from the **Show** menu.
 
 ![Planner: phases overview](../images/planner-phases.png)
 
