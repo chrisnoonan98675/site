@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy JBoss Application Server plugin
 categories:
 - xl-deploy
 subject:
-- JBoss Application Server plugin
+- JBoss Application Server
 tags:
 - jboss
 - middleware
@@ -16,19 +16,19 @@ For information about the configuration items (CIs) that the JBoss Application S
 
 ## Features
 
-* Application artifacts:
+* Deploy application artifacts:
 	* Enterprise application (EAR)
 	* Web application (WAR)
-* JBoss-specific artifacts:
+* Deploy JBoss-specific artifacts:
 	* Service Archive (SAR)
 	* Resource Archive (RAR)
 	* Hibernate Archive (HAR)
 	* Aspect archive (AOP)
-* Resources:
+* Deploy resources:
 	* Datasource
 	* JMS Queue
 	* JMS Topic
-* Discovery
+* Discover middleware containers
 
 ## Use in deployment packages
 

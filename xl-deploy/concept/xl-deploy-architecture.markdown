@@ -40,9 +40,9 @@ At runtime, multiple plugins will be active at the same time. It is up to the XL
 
 Plugins can define the following items:
 
-- _Deployable_: Configuration Items (CIs) that are part of a package and that can be deployed
-- _Container_: CIs that are part of an environment and that can be deployed to
-- _Deployed_: CIs that represent the end result of the deployment of a deployable CI to a container CI
+- Deployable: Configuration Items (CIs) that are part of a package and that can be deployed
+- Container: CIs that are part of an environment and that can be deployed to
+- Deployed: CIs that represent the end result of the deployment of a deployable CI to a container CI
 - A recipe describing how to deploy deployable CIs to container CIs
 - Validation rules to validate CIs or properties of CIs
 
@@ -140,8 +140,8 @@ To review the order values of the steps in a plan, set up the deployment, open t
 
 To change the order of steps in a plan, you can customize XL Deploy's behavior by:
 
-* Creating rules that XL Deploy applies during the planning phase; see the [Rules Manual](http://docs.xebialabs.com/releases/latest/xl-deploy/rulesmanual.html) for more information
-* Developing a server plugin; see the [XL Deploy Java API Manual](http://docs.xebialabs.com/releases/latest/xl-deploy/xldeployjavaapimanual.html) and the [Generic Plugin Manual](http://docs.xebialabs.com/releases/latest/xl-deploy/genericPluginManual.html) for more information
+* Creating rules that XL Deploy applies during the planning phase; see [Getting started with XL Deploy rules](/xl-deploy/concept/getting-started-with-xl-deploy-rules.html) for more information
+* Developing a server plugin; see [Create an XL Deploy plugin](/xl-deploy/how-to/create-an-xl-deploy-plugin.html) and [Introduction to the Generic plugin](/xl-deploy/concept/generic-plugin.html) for more information
 
 #### Post-processing
 

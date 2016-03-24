@@ -66,6 +66,8 @@ You can restrict a dictionary so that XL Deploy will only apply it to specific c
 1. Under **Restrict to applications**, select one or more applications and click ![Add button](/images/button_add_container.png) to move them to the **Members** list.
 1. Click **Save** to save the dictionary.
 
+**Note:** An unrestricted dictionary cannot refer to entries in a restricted dictionary.
+
 ### Restricted dictionary example
 
 When you restrict a dictionary, it affects the way XL Deploy resolves placeholders at deployment time. For example, assume you have the following setup:

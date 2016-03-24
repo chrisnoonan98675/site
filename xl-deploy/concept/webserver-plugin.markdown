@@ -13,12 +13,12 @@ The XL Deploy Web Server plugin supports the deployment of web content and web s
 
 ## Features
 
-* Supports deployment to Apache and IHS web servers
-* Deploys and undeploys web server artifacts:
+* Deploy to Apache and IHS web servers
+* Deploy and undeploy web server artifacts:
     * Web content (HTML pages, images, and so on)
     * Virtual host configuration
     * Any configuration fragment
-* Supports starting, stopping, and restarting web servers as control tasks
+* Start, stop, and restart web servers as control tasks
 
 ## Using the `www.ApacheVirtualHost` configuration item
 

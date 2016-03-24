@@ -4,6 +4,15 @@ layout: default
 
 <div class="page">
 
+	<!-- PAGE SUBJECT -->
+	<!-- {% for subject in page.subject %}{{ page.subject }}{% endfor %} -->
+
+	<!-- PAGE TAGS -->
+	<!-- {% include page_tag_list.html %} -->
+	
+	<!-- PAGE LOCATION -->
+	<!-- https://github.com/xebialabs/online-docs-jekyll/edit/master/{{ page.path }} -->
+
 	{% if jekyll.environment == "production" %}
 		{% unless page.no_breadcrumbs %}
 			{% include breadcrumbs.html %}
@@ -18,16 +27,6 @@ layout: default
 			<div class="alert alert-info" role="alert">XL Deploy 4.5.0 introduced a new, easy-to-use rules system for customizing deployment plans. Refer to <a href="/xl-deploy/concept/understanding-xl-deploy-rules.html">Understanding XL Deploy rules</a> to learn more.</div>
 	{% endif %}
 
-	<!-- Page subject -->
-	<!-- 
-		{% for subject in page.subject %}
-			{{ page.subject }}
-		{% endfor %}
-	-->
-
-	<!-- Page tags -->
-	<!-- {% include page_tag_list.html %} -->
-	
 	<div class="page-header">
 		<h1 class="page-title">{{ page.title }}</h1>
 	</div>

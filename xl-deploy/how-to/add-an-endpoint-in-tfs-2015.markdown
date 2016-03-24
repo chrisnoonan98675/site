@@ -3,14 +3,14 @@ title: Add an endpoint in Team Foundation Server 2015
 categories:
 - xl-deploy
 subject:
-- Team Foundation Server plugin
+- Team Foundation Server
 tags:
 - tfs
 - vsts
 - microsoft
 - middleware
 since:
-- XL Deploy 5.0.0
+- XL Deploy 5.1.0
 ---
 
 The [XL Deploy extension for Microsoft Team Foundation Server (TFS) 2015](/xl-deploy/concept/team-foundation-server-2015-plugin.html) provides automated deployment functionality through an XL Deploy build task for Microsoft TFS 2015 and Visual Studio Team Services (VSTS), which is also known as Visual Studio Online.

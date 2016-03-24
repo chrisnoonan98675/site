@@ -14,7 +14,7 @@ since:
 
 In XL TestView 1.3.0 and later, configuration is done in the `<XLTESTVIEW_HOME>/conf/xl-testview.conf` file. This file uses the [Human-Optimized Config Object Notation (HOCON) format](https://github.com/typesafehub/config/blob/master/HOCON.md).
 
-For information about configuring an older version of XL TestView, refer to [Configure XL TestView 1.2.x](/xl-testview/1.2.x/configuration.html).
+For information about configuring an older version of XL TestView, refer to [Configure XL TestView 1.2.x](/xl-testview/1.2.x/archive/configuration.html).
 
 The following table lists the possible configuration options.
 

@@ -3,14 +3,14 @@ title: Introduction to the Team Foundation Server 2015 XL Deploy plugin
 categories:
 - xl-deploy
 subject:
-- Team Foundation Server plugin
+- Team Foundation Server
 tags:
 - tfs
 - vsts
 - microsoft
 - middleware
 since:
-- XL Deploy 5.0.0
+- XL Deploy 5.1.0
 ---
 
 The XL Deploy extension for Microsoft Team Foundation Server (TFS) 2015 provides automated deployment functionality through an XL Deploy build task for [Microsoft TFS 2015](https://msdn.microsoft.com/en-us/Library/vs/alm/Build/feature-overview) and [Visual Studio Team Services](https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx) (VSTS), which is also known as Visual Studio Online.
@@ -19,9 +19,11 @@ The plugin provides custom build activities to interface with XL Deploy, a sampl
 
 The build template extends a default build template with an XL Deploy-specific part that packages your software in an XL Deploy deployment package (DAR file), uploads the DAR file to an XL Deploy server, and allows XL Deploy to deploy the software to an environment. You can reuse these custom activities in your own variants of the build template.
 
-For version-specific information about TFS 2015 plugin releases, refer to the [Team Foundation Server 2015 Plugin Reference](/xl-deploy-tfs-2015-plugin/5.0.x/tfs2015PluginManual.html).
+Also refer to:
 
-For information about the XL Deploy plugin for earlier versions of TFS, refer to [Introduction to the Team Foundation Server plugin](/xl-deploy/concept/team-foundation-server-plugin.html).
+* [Team Foundation Server 2015 Plugin Reference](/xl-deploy-vsts-xld-plugin/5.1.x/tfs2015PluginManual.html)
+* [The XL Deploy plugin on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=xebialabs.tfs2015-xl-deploy-plugin)
+* [Introduction to the Team Foundation Server plugin](/xl-deploy/concept/team-foundation-server-plugin.html) for the XL Deploy plugin for TFS 2010, TFS 2012, and TFS 2013 
 
 ## Features
 
@@ -83,7 +85,9 @@ When selected extra options are shown. By selecting it, you are setting your bui
 
 ![Deploy options](images/tfs_2015_plugin_deploy_options.png)
 
-In **Target Environment** box, enter the name of the environment to use for deployment. If you want XL Deploy to roll back the deployment if it fails, select **Rollback on deployment failure**.
+In **Target Environment** box, enter the name of the environment to use for deployment, without the *Environments* root; for example, *Production/PROD01*.
+
+If you want XL Deploy to roll back the deployment if it fails, select **Rollback on deployment failure**.
 
 ## Advanced options
 

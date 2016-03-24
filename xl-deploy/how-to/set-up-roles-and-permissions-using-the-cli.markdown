@@ -1,5 +1,5 @@
 ---
-title: Set up XL Deploy security using the CLI
+title: Set up roles and permissions using the XL Deploy CLI
 categories:
 - xl-deploy
 subject:
@@ -8,14 +8,16 @@ tags:
 - security
 - system administration
 - cli
+- roles
+- permissions
+- principals
 ---
 
-After a fresh installation of XL Deploy, no permissions are granted to any user. The only users that have any permissions granted to them, are the `administrator` users and they will, by default, have **all** permissions granted to them. XL Deploy ships with one predefined administrator user called `admin`, with default password `admin`.
+After a fresh installation of XL Deploy, no [permissions](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html) are granted to any user. The only users that have any permissions granted to them, are the `administrator` users and they will, by default, have **all** permissions granted to them. XL Deploy ships with one predefined administrator user called `admin`, with default password `admin`.
 
 So the first task an `admin` user should do is change the default password to something hard to guess and keep this password private. 
 
-The next tasks should consist of adding users to XL Deploy's repository (if no other credentials store is in use, or
-possibly in addition to another credentials store that will be used) and granting permissions to users that will work with XL Deploy, starting with the (global) permission to login.
+The next tasks should consist of adding users to XL Deploy's repository (if no other credentials store is in use, or possibly in addition to another credentials store that will be used) and granting permissions to users that will work with XL Deploy, starting with the (global) permission to login.
 
 ## Change the `admin` user's password
 

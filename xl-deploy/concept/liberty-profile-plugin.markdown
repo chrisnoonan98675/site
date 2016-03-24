@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy WebSphere Liberty profile plugin
 categories:
 - xl-deploy
 subject:
-- WebSphere Liberty profile plugin
+- WebSphere
 tags:
 - liberty
 - profile
@@ -20,30 +20,30 @@ For information about Liberty profile requirements and the configuration items (
 
 ## Features
 
-* Applications
+* Deploy applications:
 	* Web application (WAR)
 	* Enterprise application (EAR)
 	* Enterprise JavaBean (EJB)
-* Security Roles
+* Deploy security roles:
     * Users
     * Groups
     * Special subject
     * Run As User
-* Resources
-	* library
+* Deploy resources:
+	* Library
 	* Fileset
 	* Connection Manager
-* Datasources
-	* GenericDataSource
+* Deploy datasources:
+    * GenericDataSource
     * DB2DataSource
     * MicrosoftSQLServerDataSource
     * OracleDataSource
     * SybaseDataSource
-* Liberty features
-* Restart strategies
+* Deploy Liberty features
+* Restart strategies:
 	* None
 	* Stop Start
-* Control Tasks
+* Run control tasks:
 	* Server status
 	* Start/Stop server
 	* Create/Delete server

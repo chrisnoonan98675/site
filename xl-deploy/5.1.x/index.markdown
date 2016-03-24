@@ -32,11 +32,11 @@ product-id: xl-deploy
 ### Java middleware plugins
 
 * [JBoss Application Server 5 and 6 plugin](/xl-deploy-jbossas-plugin/5.0.x/jbossPluginManual.html)
-* [JBoss Application Server 7 and up plugin](/xl-deploy-jbossdm-plugin/5.0.x/jbossDomainPluginManual.html)
+* [JBoss Application Server 7 and up plugin](/xl-deploy-jbossdm-plugin/5.1.x/jbossDomainPluginManual.html)
 * [Oracle Service Bus plugin](/xl-deploy-osb-plugin/5.1.x/osbPluginManual.html)
 * [WebLogic Application Server plugin](/xl-deploy-wls-plugin/5.1.x/wlsPluginManual.html)
 * [WebSphere Application Server plugin](/xl-deploy-was-plugin/5.1.x/wasPluginManual.html)
-* [WebSphere Process Server plugin](/xl-deploy-wps-plugin/5.0.x/wpsPluginManual.html)
+* [WebSphere Process Server plugin](/xl-deploy-wps-plugin/5.1.x/wpsPluginManual.html)
 * [WebSphere Liberty Profile Server plugin](/xl-deploy-wlp-plugin/5.1.x/wlpPluginManual.html)
 * [Tomcat plugin](/xl-deploy-tomcat-plugin/5.0.x/tomcatPluginManual.html)
 * [GlassFish plugin](/xl-deploy-glassfish-plugin/5.0.x/glassfishPluginManual.html)
@@ -52,7 +52,7 @@ product-id: xl-deploy
 * [F5 BIG-IP plugin](/xl-deploy-bigip-plugin/5.0.x/bigipPluginManual.html)
 * [Database plugin (DB2, MS SQL, MySQL, Oracle)](databasePluginManual.html)
 * [Webserver plugin (Apache HTTP server)](webserverPluginManual.html)
-* [WebSphere MQ plugin](/xl-deploy-wmq-plugin/5.0.x/wmqPluginManual.html)
+* [WebSphere MQ plugin](/xl-deploy-wmq-plugin/5.1.x/wmqPluginManual.html)
 * [NetScaler plugin](/xl-deploy-netscaler-plugin/5.0.x/netscalerPluginManual.html)
 
 ### Tools

@@ -23,4 +23,4 @@ XL Release sends emails when certain events happen in a release. The emails are:
 
 * **Release flagged**: The release owner is notified when a user adds a flag status message to a task or the release to indicate that attention is needed or that the release is at risk.
 
-See [Configure SMTP servers in XL Release](/how-to/configure-smtp-servers-in-xl-release.html) for information about configuring the email server and sender for these messages.
+See [Configure SMTP servers in XL Release](/xl-release/how-to/configure-smtp-server.html) for information about configuring the email server and sender for these messages.

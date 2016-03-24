@@ -16,26 +16,30 @@ tags:
 
 ## Interacting with XL Deploy
 
-You can interact with XL Deploy in two ways. 
+You can interact with XL Deploy in two ways:
 
-Performing tasks interactively is possible using the graphical user interface (GUI). The GUI is a Flash application running inside a browser. After logging in, you can configure and perform deployments, view the release pipeline of the different applications, view and edit the repository, view reports, and view or edit security settings (provided that you have permission to access to these components).
-
-The command-line interface (CLI) is used to automate XL Deploy tasks. The CLI is a Jython application that you can access remotely. In addition to configuring and performing deployments, you can also set up middleware in the CLI. In general, the CLI is used to perform administrative tasks or automate deployment tasks.
+* The graphical user interface (GUI), which is a Flash application running in a browser. After logging in to the GUI, you can:
+    * [Connect XL Deploy to your infrastructure](/xl-deploy/how-to/connect-xl-deploy-to-your-infrastructure.html)
+    * [Define your environments](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html)
+    * [Import or create deployment packages](/xl-deploy/how-to/add-a-package-to-xl-deploy.html)
+    * [Deploy applications to environments](/xl-deploy/how-to/deploy-an-application.html)
+    * [Define permissions for users](/xl-deploy/how-to/set-up-xl-deploy-security-using-the-gui.html)
+* The [command-line interface (CLI)](/xl-deploy/how-to/using-the-xl-deploy-cli.html), which is a Jython application that you can access [remotely](/xl-deploy/how-to/connect-to-xl-deploy-from-the-cli.html). Generally, the CLI is used to perform administrative tasks or to automate XL Deploy tasks.
 
 ### Security
 
-XL Deploy supports a role-based access control scheme to ensure the security of your middleware and deployments. The security mechanism is based on the concepts of roles and permissions. 
+XL Deploy has a role-based access control scheme that ensures the security of your middleware and deployments. The security mechanism is based on the concepts of roles and [permissions](/xl-deploy/concept/overview-of-security-in-xl-deploy.html). 
 
-A role is a functional group of principals (security users or groups) that can be authenticated and that can be assigned rights over resources in XL Deploy. These rights can be either:
+A role is a functional group of principals (security users or groups) that can be authenticated and assigned rights over resources in XL Deploy. These rights can be either:
 
-* Global; that is, they apply to all of XL Deploy, such as login permission
-* Relevant for a particular configuration item (CI) or set of CIs; for instance, the permission to read certain CIs in the repository
+* Global; that is, they apply to all of XL Deploy, such as permission to log in
+* Relevant to a particular configuration item (CI) or set of CIs; for instance, the permission to read certain CIs in the repository
 
 The security system uses the same permissions whether the system is accessed via the GUI or the CLI.
 
 ### Plugins
 
-A plugin is a self-contained piece of functionality that adds capabilities to the XL Deploy system. A plugin is packaged in a JAR file and installed in XL Deploy's `plugins` directory. Plugins can contain:
+A [plugin](/xl-deploy/how-to/install-or-remove-xl-deploy-plugins.html) is a self-contained piece of functionality that adds capabilities to the XL Deploy system. A plugin is packaged in a JAR or XLDP file and installed in XL Deploy's `plugins` directory. Plugins can contain:
 
 * Functionality to connect to specific middleware
 * Host connection methods
@@ -53,7 +57,7 @@ For example, a CI of type `udm.DeploymentPackage` represents a deployment packag
 
 A directory is a CI used for grouping other CIs. Directories exist directly below the repository root nodes and may be nested. Directories are also used to group security settings.
 
-For example, you could create the directories Administrative, Web and Financial under the **Applications** node in the repository to group the available applications in these categories.
+For example, you could create directories called Administrative, Web, and Financial under the **Applications** node in the repository to group the available applications in these categories.
 
 ### Embedded CIs
 
@@ -63,7 +67,7 @@ Embedded CIs, like regular CIs, have a type and properties and are stored in the
 
 ### Type system
 
-XL Deploy features a configurable type system that allows modification and addition of CI types. This makes it possible to extend your installation of XL Deploy with new types or change existing types. Types defined in this manner are referred to as synthetic types. The type system is configured using XML files called `synthetic.xml`. All files containing synthetic types are read when the XL Deploy server starts and are available in the system afterwards.
+XL Deploy features a configurable type system that allows [modification and addition of CI types](/xl-deploy/how-to/customizing-the-xl-deploy-type-system.html). This makes it possible to extend your installation of XL Deploy with new types or change existing types. Types defined in this manner are referred to as synthetic types. The type system is configured using XML files called `synthetic.xml`. All files containing synthetic types are read when the XL Deploy server starts and are available in the system afterward.
 
 Synthetic types are first-class citizens in XL Deploy and can be used in the same way that the built-in types are used. This means they can be included in deployment packages, used to specify your middleware topology and used to define and execute deployments. Synthetic types can also be edited in the XL Deploy GUI, including new types and added properties.
 
@@ -87,7 +91,7 @@ Artifacts are files containing application resources such as code or images. The
 * An EAR file
 * A folder containing static content such as HTML pages or images
 
-An artifact has a property called checksum that can be overridden during or after import. If it is not given, XL Deploy will calculate a SHA-1 sum of the binary content of the artifact, which is used during deployments to determine whether the artifact's binary content has changed or not.
+An artifact has a property called `checksum` that can be overridden during or after import. If it is not given, XL Deploy will calculate a SHA-1 sum of the binary content of the artifact, which is used during deployments to determine whether the artifact's binary content has changed or not.
 
 #### Resource specifications
 
@@ -121,19 +125,21 @@ Deploying a composite package works the same as deploying a regular package. Not
 
 ## Dictionaries
 
-A dictionary is a CI that contains environment-specific entries for placeholder resolution. Entries can be added in the GUI or using the CLI. This allows the deployment package to remain environment-independent so it can be deployed unchanged to multiple environments.
+A [dictionary](/xl-deploy/how-to/create-a-dictionary.html) is a CI that contains environment-specific entries for placeholder resolution. Entries can be added in the GUI or using the CLI. This allows the deployment package to remain environment-independent so it can be deployed unchanged to multiple environments.
 
 A dictionary value can refer to another dictionary entry. This is accomplished by using the {% raw %}`{{..}}`{% endraw %} placeholder syntax.
 
 For example:
 
 {:.table}
-| APPNAME | XL Deploy|
-| MESSAGE |Welcome to {% raw %}{{APPNAME}}{% endraw %}!
+| Key     | Value     |
+| ------- | --------- |
+| APPNAME | XL Deploy |
+| MESSAGE | Welcome to {% raw %}{{APPNAME}}{% endraw %}! |
 
-The value belonging to key MESSAGE will be "Welcome to XL Deploy!". Placeholders may refer to keys from any dictionary in the same environment.
+The value belonging to key `MESSAGE` will be "Welcome to XL Deploy!". Placeholders may refer to keys from any dictionary in the same environment.
 
-If a dictionary is associated with an environment this means that, by default, values from the dictionary are applied to all deployments targeting the environment. It is also possible to restrict the dictionary values to deployments to specific containers within the environment or to deployments of specific applications to the environment. These restrictions can be specified on the dictionary's Restrictions tab. A deployment must meet **all** restrictions for the dictionary values to be applied.
+If a dictionary is associated with an environment this means that, by default, values from the dictionary are applied to all deployments targeting the environment. It is also possible to [restrict](/xl-deploy/how-to/create-a-dictionary.html#restrict-a-dictionary-to-containers-or-applications) the dictionary values to deployments to specific containers within the environment or to deployments of specific applications to the environment. These restrictions can be specified on the dictionary's Restrictions tab. A deployment must meet **all** restrictions for the dictionary values to be applied.
 
 **Note:** An unrestricted dictionary cannot refer to entries in a restricted dictionary.
 
@@ -141,9 +147,9 @@ Dictionaries are evaluated in the order in which they appear in the GUI. The fir
 
 ### Encrypted dictionaries
 
-**Note:** Encrypted dictionaries are deprecated as of XL Deploy 5.0.0. In XL Deploy 5.0.0 and later, encrypted key-value pairs are stored in normal dictionaries.
-
 An encrypted dictionary is a dictionary that stores sensitive information and for which all contained values are encrypted by XL Deploy. Encrypted dictionaries store key-value pairs and are associated with environments just like regular dictionaries. When a value from an encrypted dictionary is used in a CI property or placeholder, the XL Deploy CLI and GUI will only show the encrypted values. Once the value is used in a deployment, the value is decrypted and can be used by XL Deploy and the plugins. For security reasons the value of an encrypted dictionary will be blank when used in a CI property that is not password enabled.
+
+**Note:** Encrypted dictionaries are deprecated as of XL Deploy 5.0.0. In XL Deploy 5.0.0 and later, encrypted key-value pairs are stored in normal dictionaries.
 
 ## Containers
 
@@ -155,16 +161,17 @@ An environment is a grouping of infrastructure items, such as hosts, servers, cl
 
 In addition to physical environments, XL Deploy also allows definition of a cloud environment, which is an environment containing members that run on a cloud platform. Cloud environments are defined using an environment template. Environment templates can be instantiated causing one or more instances to be launched on the target cloud platform and resulting in a cloud environment available as a deployment target. See the cloud platform specific manuals for details.
 
-**Note**: Cloud environments require XL Scale to be installed.
+**Note:** Cloud environments require XL Scale to be installed.
 
 ## Deploying an application
 
 The process of deploying an application installs a particular application version (represented by a deployment package) on an environment. XL Deploy copies all necessary files and makes all configuration changes to the target middleware that are necessary for the application to run.
 
-### Plan optimisation
+### Plan optimization
 
-During planning, XL Deploy will try to simplify and optimise the plan. The simplifications and optimisations will be performed after the ordinary planning phase.
-Simplification is needed to remove intermediate plans that are not necessary. Optimisation is performed to split large step plans into smaller plans. This will give a better overview of how many steps there are, and decreases the amount of network traffic needed to transfer the task state during execution.
+During planning, XL Deploy will try to simplify and optimize the plan. The simplifications and optimizations will be performed after the ordinary planning phase.
+
+Simplification is needed to remove intermediate plans that are not necessary. Optimization is performed to split large step plans into smaller plans. This will give a better overview of how many steps there are, and decreases the amount of network traffic needed to transfer the task state during execution.
 
 Simplification can be switched on and off by switching the `optimizePlan` property of the deployed application. Turning this property off will only disable the simplification, but not the splitting of large plans.
 
@@ -190,8 +197,8 @@ The process of upgrading an application replaces an application deployed to an e
 
 ## Control tasks
 
-Control tasks are actions that can be performed on middleware or middleware resources.
+[Control tasks](/xl-deploy/how-to/using-control-tasks-in-xl-deploy.html) are actions that you can perform on middleware or middleware resources. For example, a control task could start or stop an Apache web server.
 
-Control tasks are defined on a particular type and can be executed on a specific instance of that type. When a control task is invoked, XL Deploy starts a task that executes the steps associated with the control task. XL Deploy users can use them to interact directly with the underlying middleware. An example of a control task is starting or stopping of an Apache web server.
+A control task is defined on a particular CI type and can be executed on a specific instance of that type. When you invoke a control task, XL Deploy starts a task that executes the steps that are associated with the control task.
 
-Control tasks can be defined in Java or XML, or using scripts.
+You can define control tasks in Java or XML, or by using scripts.

@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy OSB plugin
 categories:
 - xl-deploy
 subject:
-- Oracle Service Bus plugin
+- WebLogic
 tags:
 - osb
 - oracle
@@ -24,8 +24,8 @@ When you use the XL Deploy user interface to upload an `osb.Configuration` artif
 
 ## Features
 
-* OSB configuration (import and delete)
-* OSB customization files (during import) with placeholder replacement
+* Import and delete OSB configuration
+* Import OSB customization files with placeholder replacement
 
 ## Use in deployment packages
 

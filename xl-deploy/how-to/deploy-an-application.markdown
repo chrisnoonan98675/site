@@ -36,6 +36,8 @@ You can also optionally:
 * Click **Preview** to preview the deployment plan that XL Deploy generates. You can double-click each step to see the script that XL Deploy will use to execute the step.
 * Click **Advanced** if you want to adjust the deployment plan by skipping steps or inserting pauses.
 
+**Note:** Double-clicking the **Advanced** button causes XL Deploy to generate two deployment tasks instead of one. This is a known issue. To remove the unneeded task, go to the [Task Monitor](/xl-deploy/how-to/monitor-and-reassign-deployment-tasks.html), open the pending task, and cancel it.
+
 If the server does not have the capacity to immediately start executing the plan, the plan will be in a `QUEUED` state until the server has sufficient capacity. 
 
 If a step in the deployment fails, XL Deploy stops executing the deployment and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
@@ -43,8 +45,11 @@ If a step in the deployment fails, XL Deploy stops executing the deployment and 
 ## Mapping tips
 
 * Instead of dragging-and-dropping a deployment package on the environment, you can right-click the deployment package and select **Deploy**, then right-click the environment and select **Deploy to**.
-* You can manually map deployables by dragging and dropping them on containers in the Workspace. The cursor will indicate whether the deployable type can be mapped to the container type.
+
+* You can manually map deployables by dragging and dropping them on containers in the Workspace. The cursor will indicate whether it is possible to map the deployable type to the container type.
+
 * To remove a deployable from all containers where it is mapped, select it in the left side of the Workspace and click ![Remove deployed from all containers](/images/remove_deployed.png).
+
 * To remove one mapped deployable from a container, select it in the right side of the Workspace and click ![Remove deployed](/images/button_remove_deployed.png).
 
 ## Skip a deployment step

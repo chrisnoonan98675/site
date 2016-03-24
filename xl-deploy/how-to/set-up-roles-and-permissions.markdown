@@ -1,5 +1,5 @@
 ---
-title: XL Deploy security setup example
+title: Set up roles and permissions in XL Deploy
 categories:
 - xl-deploy
 subject:
@@ -7,18 +7,22 @@ subject:
 tags:
 - security
 - system administration
-- gui
+- permissions
+- roles
+- principals
 ---
 
-XL Deploy provides fine-grained security settings based on roles and permissions that you can configure through the command-line interface (CLI) and in the GUI. To configure security in the GUI, click the **Admin** tab.
+XL Deploy provides fine-grained security settings based on [roles and permissions](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html) that you can configure in the GUI and through the command-line interface (CLI). To configure security in the GUI, click **Admin** in the top menu bar.
 
-In XL Deploy, you can only set security permissions on *directories*. You cannot set permissions on individual configuration item (CI) nodes such as Applications or Environments.
+## Assign principals to roles
 
-The security settings on a lower level overwrite all permissions from a higher level. There is no inheritance from higher levels, combining settings from various directories.
+Use the **Roles** tab to create and maintain roles in XL Deploy. To add a role, click ![Add role](/images/button_add_security_role.png). To delete a role, click ![Remove role](/images/button_remove_security_role.png).
 
-If there are no permissions set on a directory, the permission settings from the parent are taken (recursively). So if you have a deep hierarchy of nested directories, but you do not set any permissions on them, XL Deploy will take the permissions set on the root node.
+*Principals* are assigned to roles. To assign a principal to the role, double-click the **Principals** column and type the principal name. Separate principals with commas. To delete a principal, double-click the column and delete the principal name.
 
-All directories higher up in a hierarchy must provide read permission for the roles defined in the lowest directory. Otherwise the permissions themselves cannot be read. This analogous to file permissions on Unix directories.
+Be sure to click **Save** to save the roles and principals.
+
+![Roles on the Admin screen](images/admin-screen-roles.png)
 
 ## Assign global permissions to roles
 
@@ -28,13 +32,16 @@ Use the **Global permissions** tab to assign global permissions to *roles* in XL
 2. Select the permissions that you want to assign to the role.
 3. Click **Save** to save the permissions.
 
-## Assign principals to roles
+    ![Global Permissions on the Admin screen](images/admin-screen-global-permissions.png)
 
-Use the **Roles** tab to create and maintain roles in XL Deploy. To add a role, click ![Add role](/images/button_add_security_role.png). To delete a role, click ![Remove role](/images/button_remove_security_role.png).
+## Assign local permissions to roles
 
-*Principals* are assigned to roles. To assign a principal to the role, double-click the **Principals** column and type the principal name. Separate principals with commas. To delete a principal, double-click the column and delete the principal name.
+Use the **Repository** to assign local permissions to roles. To add local permissions to a role:
 
-Be sure to click **Save** to save the roles and principals.
+1. Right-click a root node (such as Applications or Environments) or a directory and select **Permissions**.
+1. Select the role from the **Select to add role** list.
+2. Select the permissions that you want to assign to the role.
+3. Click **Save** to save the permissions.
 
 ## Sample security set up
 

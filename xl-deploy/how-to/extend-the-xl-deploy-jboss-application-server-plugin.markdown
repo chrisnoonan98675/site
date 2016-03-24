@@ -3,7 +3,7 @@ title: Extend the XL Deploy JBoss Application Server plugin
 categories:
 - xl-deploy
 subject:
-- JBoss Application Server plugin
+- JBoss Application Server
 tags:
 - jboss
 - middleware

@@ -3,7 +3,7 @@ title: Extend the XL Deploy WebLogic plugin
 categories:
 - xl-deploy
 subject:
-- WebLogic plugin
+- WebLogic
 tags:
 - weblogic
 - oracle

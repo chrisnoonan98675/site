@@ -9,6 +9,7 @@ tags:
 - cli
 - schedule
 - repository
+- purge
 ---
 
 When you delete a deployment package from XL Deploy, XL Deploy initially only deletes the reference to the package. This helps optimize performance. You can reclaim disk space on an XL Deploy server by using garbage collection to delete the actual deployment package at a later time.

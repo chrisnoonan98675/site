@@ -3,20 +3,20 @@ title: Create a deployment package using Maven
 categories:
 - xl-deploy
 subject:
-- Packaging
+- Maven
 tags:
 - package
 - application
 - maven
 ---
 
-## Using the Maven XL Deploy plugin
-
 To enable continuous deployment, the [Maven XL Deploy plugin](/xl-deploy/latest/maven-plugin/index.html) enables you to integrate XL Deploy with the Maven build system. Specifically, the plugin supports:
 
 * Creating a deployment package containing artifacts from the build
 * Performing a deployment to a target environment
 * Undeploying a previously deployed application
+
+**Note:** The Maven XL Deploy plugin cannot set values for hidden CI properties.
 
 ## Using the Maven `jar` plugin
 

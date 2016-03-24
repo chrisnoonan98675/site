@@ -1,27 +1,29 @@
 ---
-title: Install a build task in Team Foundation Server 2015
+title: Install an XL Deploy build task in Team Foundation Server 2015
 categories:
 - xl-deploy
 subject:
-- Team Foundation Server plugin
+- Team Foundation Server
 tags:
 - tfs
 - vsts
 - microsoft
 - middleware
 since:
-- XL Deploy 5.0.0
+- XL Deploy 5.1.0
 ---
 
-Before you start to use the [XL Deploy extension for Microsoft Team Foundation Server 2015](/xl-deploy/concept/vsts-plugin.html), you must upload the XL Deploy build task to your on-premises Team Foundation Server (TFS) or to your Microsoft Visual Studio Team Services (VSTS) server.
+Before you start to use the [XL Deploy extension for Microsoft Team Foundation Server 2015](/xl-deploy/concept/team-foundation-server-2015-plugin.html), you must install the XL Deploy build task in your on-premises Team Foundation Server (TFS) or in Microsoft Visual Studio Team Services (VSTS) server, which is also known as Visual Studio Online (VSO).
 
-**Tip:** You can use the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=xebialabs.tfs2015-xl-deploy-plugin) to install the XL Deploy extension in VSTS.
+## Install the build task using the Visual Studio Marketplace
 
-## Install the XL Deploy build task
+If you use Visual Studio Team Services (VSTS), it is recommended that you install the XL Deploy extension through the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=xebialabs.tfs2015-xl-deploy-plugin).
 
-The Microsoft tool for uploading build tasks is the [TFS Cross Platform Command Line Interface](https://github.com/Microsoft/tfs-cli). This application requires [NodeJS](http://nodejs.org/), [npm](https://www.npmjs.com/) (which is included with the NodeJS installer), and Java Runtime.
+## Install the build task using the TFS CLI
 
-After installing NodeJS, install the Command Line Interface with the following command:
+If you use on-premises TFS or VSTS/VSO, you can use the [Microsoft TFS Cross Platform Command Line Interface (CLI)](https://github.com/Microsoft/tfs-cli) to upload the XL Deploy build task. This application requires [NodeJS](http://nodejs.org/), [npm](https://www.npmjs.com/) (which is included with the NodeJS installer), and Java Runtime.
+
+After installing NodeJS, install the TFS CLI with the following command:
 
     npm install -g tfx-cli
 
@@ -54,7 +56,7 @@ To log in to on-premises Team Foundation Server (TFS) 2015:
 
 ## Upload the XL Deploy build task
 
-To upload the XL Deploy build task, specify the directory (fully qualified or relative) that contains the files. Go to the `vsts-xld-buildtask` folder and execute the following command:
+Before uploading the XL Deploy build task, download the TFS 2015 XL Deploy ZIP file from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/public/xl-deploy/ci/tfs/tfs2015-xl-deploy-plugin/) and unzip it. Then, specify the directory (fully qualified or relative) that contains the files. Go to the `vsts-xld-buildtask` folder and execute the following command:
 
     tfx build tasks upload --task-path xld
 

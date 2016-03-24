@@ -2,6 +2,8 @@
 title: Configure XL TestView 1.2.x
 ---
 
+**Note:** This information is deprecated. For XL TestView 1.3.0 and later, refer to [Configure XL TestView](/xl-testview/how-to/configure-xl-testview.html).
+
 Configuration can be done by:
 
 * Setting the environment variables `XLT_SERVER_OPTS` and/or `XLT_SERVER_MEM_OPTS` before `server.sh` or `server.cmd` is executed.
