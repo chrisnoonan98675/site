@@ -58,7 +58,7 @@ When doing a deployment, we will see that the step has been added:
 
 Don't start the deployment just yet; we want to to move the step to the end, so we will see the disk usage *after* deployment.
 
-The steps in the step list are ordered by weight. As described in the [Steplist section](http://docs.xebialabs.com/releases/latest/deployit/referencemanual.html#steplist) of the Reference manual, plugins contribute steps with order values between 0 and 100. So if we want to move the step to the end of the list, we have to change the order value to 100.
+The steps in the step list are ordered by weight. Plugins contribute steps with order values between 0 and 100. So if we want to move the step to the end of the list, we have to change the order value to 100.
 
 Go to the Repository tab and open the Log Disk Usage command. Change Order to '100' and save. Now redo the deployment and we will see that the step has moved:
 
@@ -71,8 +71,6 @@ When executing the deployment, we will see the output of the `df` command in the
 ## Adding the command to the manifest
 
 We did our changes in the UI, because it's easier to see what's going on and the development cycle (edit-test-refine) is faster. But now we want to make the changes more permanent, so other versions of the same application can use it as well. We do this by editing the Manifest.MF file, that is used to create the application package DAR file. 
-
-**Note:** For extensive coverage on how to create XL Deploy DARs, see the [Packaging Manual](http://docs.xebialabs.com/releases/latest/deployit/packagingmanual.html)
 
 This is how the above example looks like in Manifest format:
 
