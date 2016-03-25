@@ -254,3 +254,6 @@ Redirect 301 /general/community.html http://xebialabs-community.github.io/
 Redirect 301 /faq/index.html /index.html
 Redirect 301 /generated/xl-release/4.0.x/index.html /xl-release/4.0.x/index.html
 Redirect 301 /generated/xl-release/3.0.x/index.html /xl-release/3.0.x/index.html
+
+# LINKS USED FOR TESTING
+Redirect 301 /xl-deploy/concept/step-reference-5.1.x.html /xl-deploy/5.1.x/referencesteps.html
