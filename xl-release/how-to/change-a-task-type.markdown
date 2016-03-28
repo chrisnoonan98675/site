@@ -12,7 +12,7 @@ since:
 - XL Release 4.8.0
 ---
 
-You can change the type of a task in:
+You can change the [type of a task](/xl-release/concept/types-of-tasks-in-xl-release.html) in:
 
 * A template
 * A planned release that has not started yet
@@ -32,4 +32,4 @@ To change a task's type:
 Note that:
 
 * You cannot change the type of an active, completed, failed, or skipped task.
-* You can change a task to a parallel group, but you cannot change a parallel group to a different type of task.
+* You can change a task to a Parallel Group, but you cannot change a Parallel Group to a different type of task.

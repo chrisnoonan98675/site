@@ -9,7 +9,7 @@ tags:
 - system administration
 ---
 
-Use the **General Settings** to configure some of XL Release features. This page is only accessible to users with 'admin' permission. Click **Save** to apply your changes.
+To configure XL Release, select **Settings** > **General settings** from the top menu. The General settings page is only available to users with the [*Admin*](/xl-release/how-to/configure-permissions.html) permission.
 
 ## Reports
 

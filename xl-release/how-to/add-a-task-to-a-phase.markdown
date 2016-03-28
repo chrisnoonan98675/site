@@ -13,10 +13,11 @@ tags:
 - release flow
 ---
 
-In a release or template, select **Release Flow** from the **Show** menu to go to the release flow editor. The release flow editor shows the phases and tasks in the release and allows you to add, move, edit, and delete them.
+In XL Release, the activities in a template or release are modeled as tasks, which are logically grouped in phases. To add a task to phase to a template or release, use the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html); it shows the phases and tasks in the release and allows you to add, move, edit, and delete them.
 
-Phases by themselves do not do very much; they are simply logical groupings of all activities in a release. The activities are modeled as _tasks_. To add a task to a phase:
+To add a task to a phase:
 
+1. In the template or release, select **Release Flow** from the **Show** menu.
 1. Click **Add task** at the bottom of the phase.
 
     ![New Phase](../images/add-task.png)
@@ -40,9 +41,9 @@ In a task:
     * An alert icon, if action is needed
 * The task due date appears at the lower right (if a date is set)
 
-## Add a task to a parallel group
+## Add a task to a Parallel Group
 
-A [parallel group](/xl-release/how-to/create-a-parallel-group.html) is a container for other tasks. All tasks inside the parallel group are started simultaneously and the parallel group task will finish when all of its children are complete. To add a task to a parallel group, click **Add task** at the bottom of the group. To move a task into a parallel group, drag and drop it. To collapse or expand a parallel group, click its arrow.
+The [Parallel Group task type](/xl-release/how-to/create-a-parallel-group.html) is a container for other tasks. All tasks inside the parallel group are started simultaneously and the parallel group task will finish when all of its children are complete. To add a task to a parallel group, click **Add task** at the bottom of the group. To move a task into a parallel group, drag and drop it. To collapse or expand a parallel group, click its arrow.
 
 ![Add parallel task](../images/add-parallel-task.png)
 

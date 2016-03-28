@@ -25,26 +25,26 @@ There are several ways to interact with third-party systems and automate tasks t
 
 ### Webhook
 
-The easiest way to interact with a third-party system is to use the [webhook task](/xl-release/how-to/create-a-webhook-task.html). It allows you to connect to any system that has an HTTP endpoint; for example, SOAP or REST API.
+The easiest way to interact with a third-party system is to use the [Webhook task type](/xl-release/how-to/create-a-webhook-task.html). It allows you to connect to any system that has an HTTP endpoint; for example, SOAP or REST API.
 
 You can send a request and parse the result into an XL Release variable for use in subsequent tasks. No scripting is needed.
 
 ### Remote shell scripting
 
-The [remote script task](/xl-release/concept/introduction-to-the-xl-release-remote-script-plugin.html) allows you to execute a shell script on a remote host. Both Unix and Windows are supported.
+The [Remote Script task type](/xl-release/concept/introduction-to-the-xl-release-remote-script-plugin.html) allows you to execute a shell script on a remote host. Both Unix and Windows are supported.
 
 ### Script tasks
 
-[Script tasks](/xl-release/how-to/create-a-script-task.html) allow you to provide a script that is executed when the task becomes active. XL Release users with sufficient permission can write a script on the template or release level.
+The [Script task type](/xl-release/how-to/create-a-script-task.html) allows you to provide a script that is executed when the task becomes active. XL Release users with sufficient permission can write a script on the template or release level.
 
 The scripting language used is [Jython](http://www.jython.org/), which is a [Python](https://www.python.org/) dialect that runs on the Java VM. XL Release 4.6.x and earlier uses Jython 2.5, while XL Release 4.7.0 and later uses Jython 2.7. Because it runs on a Java VM, the complete API of Java 7 can also be used.
 
-Script tasks have access to the XL Release through the [XL Release Jython API](/jython-docs/#!/xl-release/4.7.x/). This API is equivalent to the REST API.
+Script tasks have access to the XL Release through the [XL Release Jython API](/jython-docs/#!/xl-release/4.8.x/). This API is equivalent to the REST API.
 
 ### Plugin tasks
 
 You can use the task plugin mechanism to create [custom task types](/xl-release/how-to/create-custom-task-types-in-xl-release.html). These tasks will appear in the **Add task** menu in the XL Release user interface. This is convenient for reusable bits of functionality, such as "Create JIRA ticket" or "Start Jenkins Job". 
 
-In fact, the JIRA and Jenkins tasks, and most other standard tasks in XL Release, are plugin tasks.
+In fact, the JIRA and Jenkins task types, as well as most other standard tasks in XL Release, are plugin tasks.
 
-Like script tasks, plugin tasks are written in Jython and have access to the XL Release API. Plugins are installed on the XL Release server.
+Like Script tasks, plugin tasks are written in Jython and have access to the XL Release API. Plugins are installed on the XL Release server.

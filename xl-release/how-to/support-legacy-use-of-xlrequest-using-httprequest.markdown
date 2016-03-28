@@ -10,7 +10,7 @@ tags:
 - http
 ---
 
-Prior to XL Release 4.0.10, HTTP requests from XL Release to target systems—whether via webhooks, scripts or custom tasks—were executed via Jython's [`httplib`](http://www.jython.org/docs/library/httplib.html) implementation and thus ultimately by the standard Java networking stack. This was fine in most situations, but made it hard or impossible to handle certain advanced use cases such as complex proxy setups in a user-accessible way: the configuration that would have to be changed was part of Jython's internals.
+Prior to XL Release 4.0.10, HTTP requests from XL Release to target systems—whether via Webhooks, Scripts or custom tasks—were executed via Jython's [`httplib`](http://www.jython.org/docs/library/httplib.html) implementation and thus ultimately by the standard Java networking stack. This was fine in most situations, but made it hard or impossible to handle certain advanced use cases such as complex proxy setups in a user-accessible way: the configuration that would have to be changed was part of Jython's internals.
 
 To allow users to handle such cases and generally have as much control as possible over the HTTP stack for calls to target systems, XL Release 4.0.10 moved to [Apache HTTP Components](https://hc.apache.org/) and added convenience wrappers called `HttpRequest` and `HttpResponse`. These will replace the previous convenience classes `XLRequest` and `XLResponse` (basically thin wrappers around [`httplib.HTTPConnection`](http://www.jython.org/docs/library/httplib.html#httpconnection-objects) and [`httplib.HttpResponse`](http://www.jython.org/docs/library/httplib.html#httpconnection-objects)), which are now deprecated.
 

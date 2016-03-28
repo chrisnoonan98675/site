@@ -26,7 +26,7 @@ To start, define a new trigger type in XL Release's type system. You do this by 
         <property name="triggerValueForUse" category="variables" required="false" />
     </type>
 
-This example defines a script for the trigger to run, and as a variable that will be set by the trigger, and that you can use when creating a new release. As an example, the [SVN trigger plugin](/xl-release/concept/introduction-to-the-xl-release-svn-trigger-plugin.html) makes the commit ID available in this way.
+This example defines a script for the trigger to run, and as a variable that will be set by the trigger, and that you can use when creating a new release. As an example, the [SVN Trigger plugin](/xl-release/concept/introduction-to-the-xl-release-svn-trigger-plugin.html) makes the commit ID available in this way.
 
 ## Step 2 Create the trigger script
 

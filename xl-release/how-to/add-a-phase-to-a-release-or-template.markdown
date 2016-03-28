@@ -12,10 +12,11 @@ tags:
 - release flow
 ---
 
-In a release or template, select **Release Flow** from the **Show** menu to go to the release flow editor. The release flow editor shows the phases and tasks in the release and allows you to add, move, edit, and delete them.
+In XL Release, the phases in a template or release represent blocks of work that happen in succession. To add a phase to a template or release, use the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html); it shows the phases and tasks in the release and allows you to add, move, edit, and delete them.
 
-Phases represent blocks of work that happen in succession. To add a phase:
+To add a phase:
 
+1. In the template or release, select **Release Flow** from the **Show** menu.
 1. Click **Add Phase**. A new phase with title 'New Phase' appears.
 
     ![New Phase](../images/new-phase.png)

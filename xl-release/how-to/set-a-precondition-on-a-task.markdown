@@ -36,7 +36,7 @@ If you need a more complicated script, you must set the **result** variable. For
     
     result = True
 
-## Disabling precondition
+## Disabling preconditions
 
 You can disable precondition on certain task types. For example, to disable precondition on parallel groups, modify `synthetic.xml` as follows:
 

@@ -1,5 +1,5 @@
 ---
-title: Create a parallel group
+title: Create a Parallel Group
 categories:
 - xl-release
 subject:
@@ -9,17 +9,17 @@ tags:
 - parallel group
 ---
 
-A parallel group is a container for tasks that should be executed simultaneously. 
+A Parallel Group is a container for tasks that should be executed simultaneously. 
 
-## Add a parallel group in the release editor
+## Add a Parallel Group in the release editor
 
-In the release editor, click **Add task** to add a parallel group. You can then drag existing tasks into the parallel group or click **Add task** in the group to create a new task.
+In the release editor, click **Add task** to add a Parallel Group. You can then drag existing tasks into the Parallel Group or click **Add task** in the group to create a new task.
 
-![Parallel group](../images/parallel-group.png)
+![Parallel Group](../images/parallel-group.png)
 
-In this example, the XL Deploy tasks and the "Divide test cases" task will start simultaneously and the parallel group "Deploy to ACC" will not complete until all tasks are complete. Then will XL Release start the next task ("Notify QA installation").
+In this example, the XL Deploy tasks and the "Divide test cases" task will start simultaneously and the Parallel Group "Deploy to ACC" will not complete until all tasks are complete. Then will XL Release start the next task ("Notify QA installation").
 
-## Adjust parallel groups in the planner
+## Adjust Parallel Groups in the planner
 
 By default, all tasks in a parallel are started when the group is started and are executed in parallel. The planner tool allows you to do planning on a detailed level and explicitly express dependencies between tasks.
 
@@ -35,4 +35,4 @@ As a result, Task 2 will start at the due date of Task 1.
 
 ![Task 1 and 2 connected](../images/planner-parallel-dependency-3.png)
 
-Task 3 is not connected and because it is inside a parallel group, it will start at the same time as Task 1 (when the parallel group starts).
+Task 3 is not connected and because it is inside a Parallel Group, it will start at the same time as Task 1 (when the Parallel Group starts).
