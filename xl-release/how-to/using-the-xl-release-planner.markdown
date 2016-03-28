@@ -8,7 +8,6 @@ tags:
 - release
 - template
 - planner
-- release summary
 ---
 
 The XL Release planner allows you to use an interactive Gantt chart to view and edit the timing of the phases and tasks in a release or template. The Gantt chart is a combined timeline of the template or release, its phases, and the tasks within.
