@@ -246,26 +246,11 @@ To see the tags and subjects that are already in use, visit [https://docs.xebial
 
 # "Latest" links
 
-"Latest" links point to the latest version of the *versioned* documentation for each product. There are two formats; the new format is preferred, but the legacy format is also supported.
+"Latest" links point to the latest version of the *versioned* documentation for each product. Simply replace the version in the URL with the word "latest". For example: `https://docs.xebialabs.com/xl-deploy/latest/rest-api/index.html`.
 
-**New format:** `/<product-id>/latest/<doc-file-name.html>`
+"Latest" links are maintained manually in the `_redirects.yml` file in this repository. If you release a new minor version of a plugin, you need to update the "latest" link.
 
-**Legacy formats:**
-
-| Documentation | Pattern |
-| --------------| ------- |
-| XL Deploy and bundled plugins | `/releases/latest/deployit/<doc-file-name.html>` |
-| XL Deploy non-bundled plugins | `/releases/latest/<plugin-name>/<doc-file-name.html>` |
-| XL Release | `/releases/latest/xl-release/<doc-file-name.html>` |
-| XL Release plugins | `/releases/latest/<plugin-name>/<doc-file-name.html>` |
-| XL Scale | `/releases/latest/xl-scale-plugin/<doc-file-name.html>` |
-| XL Scale plugins | `/releases/latest/<plugin-name>/<doc-file-name.html>` |
-
-See `_redirects.yml` for a complete list of the redirects that are available.
-
-**Note:** At this time, there is no "latest" link for the Jython API documentation.
-
-**Note also:** If you use absolute URL's, you can check the links from the comfort of your local work environment.
+At this time, "latest" links are not available for the XL Deploy and XL Release Jython API documentation for technical reasons.
 
 # Fix Tracker (formerly Development Dashboard)
 
