@@ -43,6 +43,10 @@ To arrange tiles on the release summary:
 1. To resize a tile, drag its lower right corner.
 1. Click **View mode** to save your changes.
 
+## View detailed information for a tile
+
+Many tiles have a detail view that offers additional information. To go to the detail view, click the tile. To return to the release summary, click **Back to release summary**.
+
 ## Remove a tile from the release summary
 
 To remove a tile from the release summary:
