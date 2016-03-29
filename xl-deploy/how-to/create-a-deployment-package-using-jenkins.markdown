@@ -3,37 +3,41 @@ title: Create a deployment package using Jenkins
 categories:
 - xl-deploy
 subject:
-- Packaging
+- Jenkins
 tags:
 - package
 - application
 - jenkins
 ---
 
-To enable continuous integration, XL Deploy can be integrated with [Jenkins CI server](https://jenkins-ci.org/). The [XL Deploy Jenkins plugin](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin) enables you to integrate Maven and XL Deploy. Specifically, the plugin supports:
+To enable continuous integration, XL Deploy can work with [Jenkins CI server](https://jenkins-ci.org/) through the [Jenkins XL Deploy plugin](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin). The plugin supports:
 
 * Creating a deployment package containing artifacts from a build
 * Publishing the package to an XL Deploy server
 * Performing a deployment of the package to a target environment
 
-## Configuring the Jenkins plugin
+## Configure the Jenkins plugin
 
-After you have installed the Jenkins plugin in your CI server, you must configure it:
+After you install the XL Deploy plugin in Jenkins:
 
-1. In Jenkins, go to **Manage Jenkins** > **Cofigure System**.
-2. In the **XL Deploy** section, enter information about your XL Deploy server and test the connection.
+1. Go to **Manage Jenkins** > **Configure System**.
+2. In the **XL Deploy** section, enter credentials for your XL Deploy server and test the connection.
 
-![image](images/jenkins-set-xld-server.png)
+    ![image](images/jenkins-set-xld-server.png)
+    
+    Note that you can add multiple XL Deploy credentials.
 
-## Using the Jenkins plugin
+## Build a deployment package
 
-In XL Deploy, a [deployment package](/xl-deploy/concept/preparing-your-application-for-xl-deploy.html#whats-in-an-application-deployment-package) contains the components that form your application; for example, web content, webserver configuration, database scripts, compiled binaries such as .NET applications and Java Enterprise Edition (JEE) Enterprise Archive (EAR) files, and so on.
+In XL Deploy, a [deployment package](/xl-deploy/concept/preparing-your-application-for-xl-deploy.html#whats-in-an-application-deployment-package) contains the components that form your application; for example, web content, web server configuration, database scripts, compiled binaries such as .NET applications and Java Enterprise Edition (JEE) Enterprise Archive (EAR) files, and so on.
 
 The XL Deploy Jenkins plugin allows you to provide the contents of your deployment package, and therefore define your application. This is done as a post-build action. Select the **Deploy with XL Deploy** post-build action:
 
 ![image](images/jenkins-post-build-action.png)
 
-This allows you to create an XL Deploy Deployment ARchive (DAR file). First, provide basic information about the application. You can use Jenkins variables in the fields; for example, the version is typically linked to the Jenkins `$BUILD_TAG` variable, as in `1.0.$BUILD_TAG`.
+The XL Deploy post-build action can create an XL Deploy Deployment ARchive (DAR file). First, provide basic information about the application. You can use Jenkins variables in the fields; for example, the version is typically linked to the Jenkins `$BUILD_TAG` variable, as in `1.0.$BUILD_TAG`.
+
+**Note:** The Jenkins XL Deploy plugin cannot set values for hidden CI properties.
 
 To add deployables to the package, select **Package Application**.
 
@@ -49,8 +53,16 @@ You can add additional properties that are required for each artifact or resourc
 
 ![image](images/jenkins-add-property.png) 
 
-To publish the package to XL Deploy, select **Deploy application**. You can can select the generated package or a package from another location (that is, from the file system or from an artifact repository). Note that the application must exist in XL Deploy before you can publish a package.
+### Updating configuration item types
 
-Select the target environment where you want to deploy the package.
+If you modify existing configuration item (CI) types or add new ones in XL Deploy (for example, by installing a new plugin), be sure to click **Reload types for credential** in the post-build action. This reloads the CI types for the XL Deploy server that you have selected for the action. This prevents errors by ensuring that the most up-to-date CI types are available to the Jenkins job.
+
+## Publish the deployment package to XL Deploy
+
+To publish the package to XL Deploy, select **Publish package to XL Deploy**. You can can select the generated package or a package from another location (that is, from the file system or from an artifact repository). Note that the application must exist in XL Deploy before you can publish a package.
+
+## Deploy the application
+
+To deploy the application with XL Deploy, select the target environment and deployment options.
 
 ![image](images/jenkins-deploy-application.png)

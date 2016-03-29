@@ -31,6 +31,8 @@ XL Deploy performs URI validation, checksum calculation, and placeholder scannin
 
 Also, if you are using XL Deploy's internal JCR repository, changing the URI of a saved CI can result in orphaned artifact files that cannot be removed by the garbage collection mechanism.
 
+If you want to change the file URI, create a new CI for the artifact.
+
 ## Use a Maven repository URI
 
 The URI of a Maven artifact must start with `maven:`, followed by [Maven coordinates](http://maven.apache.org/pom.html#Maven_Coordinates). For example:

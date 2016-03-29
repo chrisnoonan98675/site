@@ -28,6 +28,8 @@ To install XL Deploy 5.0.0 or later as a daemon or service:
 
     On a Unix-based system, you will be asked for the user name under which you installed the XL Deploy server when you executed `run.sh`.
 
+**Tip:** For information about starting the XL Deploy service, refer to [Start XL Deploy](/xl-deploy/how-to/start-xl-deploy.html).
+
 ## Troubleshoot the XL Deploy service
 
 In XL Deploy 5.1.1 and later, if the XL Deploy service does not start, you can increase the startup timeout. In the `conf/xld-wrapper-linux.conf` (on Unix) or `conf\xld-wrapper-win.conf` (on Windows) file, add the following line:

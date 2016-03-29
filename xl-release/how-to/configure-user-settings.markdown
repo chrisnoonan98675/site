@@ -13,14 +13,14 @@ tags:
 - security
 ---
 
-Go to **Settings** > **Users** to view and edit XL Release users. This page is only available to users with the *admin* and *edit security* permissions.
-
-![Users](../images/users.png)
-
 There are two kind of users in XL Release:
 
 * Internal users are managed by XL Release and can be added and removed by an administrator.
 * External users are maintained in an external system such as Active Directory; see [Configure LDAP security for XL Release](/xl-release/how-to/configure-ldap-security-for-xl-release.html) for more information.
+
+To view and edit XL Release users, select **Settings** > **Users** from the top menu. The Users page is only available to users with the *Admin* and *Edit Security* permissions.
+
+![Users](../images/users.png)
 
 ## Create an internal user
 

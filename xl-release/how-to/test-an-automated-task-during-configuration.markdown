@@ -12,13 +12,13 @@ tags:
 - customization
 ---
 
-When you're configuring an automated task such as a webhook, script, or custom task, for the first time while creating a release template in XL Release, you usually need to test and tweak it a few times before the configuration is correct.
+When you're configuring an automated task such as a Webhook, Script, or custom task, for the first time while creating a release template in XL Release, you usually need to test and tweak it a few times before the configuration is correct.
 
 That's easy, no? Simply make your task the only task in a dummy template, start a release from the template and your task will run!
 
 ![Simple template to test task](../images/simple-dummy-template-to-test-task.png)
 
-Well... yes, that will work, but it's only really useful if your task either does exactly the right thing first time around (in which case, good for you!), or if it totally fails, such as when a webhook returns a non-2xx response code.
+Well... yes, that will work, but it's only really useful if your task either does exactly the right thing first time around (in which case, good for you!), or if it totally fails, such as when a Webhook returns a non-2xx response code.
 
 ![Retry failed task](../images/modify-and-retry-failed-task.png)
 

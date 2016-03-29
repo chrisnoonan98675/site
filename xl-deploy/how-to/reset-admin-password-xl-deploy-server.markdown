@@ -18,7 +18,7 @@ To resolve this situation, you can use a hotfix that disables all password check
 
 Note that:
 
-* The hotfix has been tested with Deployit 3.9.5, XL Deploy 4.0.2, and XL Deploy 4.5.1.
+* The hotfix has been tested with Deployit 3.9.5, XL Deploy 4.0.2, XL Deploy 4.5.1, and XL Deploy 5.0.7. It is not supported for XL Deploy 5.1.x.
 * You must back up your XL Deploy instance before resetting the password.
 * It is important that you remove the hotfix after you are finished.
 
@@ -28,7 +28,7 @@ To reset the password for the `admin` user:
 1. After you have the hotfix, stop the XL Deploy server.
 1. Stop the XL Deploy server.
 1. Back up your XL Deploy configuration and repository.
-1. Copy the hotfix to the `hotfix` directory of the XL Deploy server.
+1. If you are using XL Deploy 4.5.x or earlier, copy the hotfix to the `hotfix` directory of the XL Deploy server. If you are using XL Deploy 5.0.x, copy the hotfix to the `hotfix/lib` directory.
 1. Start the XL Deploy server.
 1. Log in to the XL Deploy interface as the `admin` user with any password.
 1. Follow [the standard procedure](/xl-deploy/how-to/changing-passwords-in-xl-deploy.html#change-the-admin-password) to change the password for the `admin` user.

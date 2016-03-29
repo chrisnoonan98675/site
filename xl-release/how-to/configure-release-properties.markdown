@@ -11,7 +11,7 @@ tags:
 - release summary
 ---
 
-In a release or template, select **Properties** from the **Show** menu to go to the release properties page, where you can specify metadata for the release.
+To specify metadata for a release or template, select **Properties** from the **Show** menu to go to the release properties page.
 
 ![Release properties](../images/release-properties-part-1.png)
 

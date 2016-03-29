@@ -27,10 +27,9 @@ To import results into XL TestView, click **Get started** on the welcome screen 
     * The XL TestView server
     * A remote computer running a Unix-based operating system
     * A remote computer running Microsoft Windows
-    * A Jenkins server
-1. If you select a remote computer or Jenkins server, provide the connection information that XL TestView should use to retrieve the results.
+1. If you select a remote computer provide the connection information that XL TestView should use to retrieve the results.
 1. In the **Location of the test results** box, enter the directory where the test results are located; for example, `/Users/johndoe/fitnesse/results/` or `C:\Program Files\Cucumber\results\`. XL TestView will search this directory and any subdirectories.
-1. In the **Test result file name pattern** box, enter the regular expression that XL TestView should use to match test result files. For more information about the regular expression pattern, refer to [XL TestView file selection patterns](/xl-testview/concept/file-selection-patterns.html).
+1. In the **Test result file name pattern** box, enter the ANT pattern that XL TestView should use to match test result files. For more information about the pattern, refer to [XL TestView file selection patterns](/xl-testview/concept/file-selection-patterns.html).
 1. Click **Next**.
 
 ## Step 3 Verify import
@@ -40,7 +39,7 @@ XL TestView shows the test result files that it found. Verify that they are corr
 ## Step 4 Import
 
 1. Select an existing project where the test specification should be added, or enter a unique name to create a new project.
-2. Enter an unique name for the test specification. 
+2. Enter an unique name for the test specification.
 3. Click **Next** to import the results and save the specification.
 
 ## Step 5 Finish

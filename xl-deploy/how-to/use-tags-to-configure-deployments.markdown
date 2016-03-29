@@ -17,6 +17,8 @@ For information about how XL Deploy matches tagged deployables and containers, r
 
 To perform a deployment using tags, you assign tags to deployables and containers. You can do so in an imported deployment package or in the XL Deploy user interface.
 
+**Note:** It is not possible to use an environment variable in a tag.
+
 ## Setting tags in the manifest file
 
 This is an example of assigning a tag to a deployable in the `deployit-manifest.xml` file in a deployment package (DAR file):

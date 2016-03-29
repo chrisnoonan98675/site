@@ -1,0 +1,256 @@
+# For information about this file, see _plugins/pageless_redirects.rb
+ 
+# IN-PRODUCT LINKS
+
+# XL Release in-product links
+
+Redirect 301 /xl-release/support-request.html https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=30145
+Redirect 301 /xl-release/suggest-feature.html https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=94473
+Redirect 301 /releases/3.0/xl-release/index.html /xl-release/3.0.x/index.html
+Redirect 301 /releases/4.0/xl-release/index.html /xl-release/4.0.x/index.html
+Redirect 301 /releases/4.5/xl-release/index.html /xl-release/4.5.x/index.html
+Redirect 301 /xl-release/4.6.x/reference_manual.html /xl-release/index.html
+Redirect 301 /xl-release/help/index.html /xl-release/index.html
+Redirect 301 /xl-release/help/markdownsyntax.html /xl-release/how-to/use-markdown-in-xl-release.html
+Redirect 301 /xl-release/help/calendar.html /xl-release/concept/xl-release-calendar-view.html
+Redirect 301 /xl-release/help/custom-configuration-types.html /xl-release/how-to/create-custom-configuration-types-in-xl-release.html
+Redirect 301 /xl-release/help/xl-deploy-servers.html /xl-release/how-to/configure-xl-deploy-servers-in-xl-release.html
+Redirect 301 /xl-release/help/profile.html /xl-release/how-to/configure-xl-release-profile-settings.html
+Redirect 301 /xl-release/help/activity-logs.html /xl-release/concept/release-activity-logs.html
+Redirect 301 /xl-release/help/pipeline.html /xl-release/concept/xl-release-pipeline-view.html
+Redirect 301 /xl-release/help/release-flow-editor.html /xl-release/how-to/using-the-release-flow-editor.html
+Redirect 301 /xl-release/help/release-properties.html /xl-release/how-to/configure-properties-for-a-release.html
+Redirect 301 /xl-release/help/release-overview.html /xl-release/concept/xl-release-release-overview.html
+Redirect 301 /xl-release/help/teams.html /xl-release/how-to/configure-teams-for-a-release.html
+Redirect 301 /xl-release/help/teams-in-templates.html /xl-release/how-to/create-a-release-template.html#teams-in-templates
+Redirect 301 /xl-release/help/planner.html /xl-release/how-to/using-the-xl-release-planner.html
+Redirect 301 /xl-release/help/release-summary.html /xl-release/concept/xl-release-release-summary.html
+Redirect 301 /xl-release/help/reports.html /xl-release/concept/reports-in-xl-release.html
+Redirect 301 /xl-release/help/global-permissions.html /xl-release/how-to/configure-xl-release-permissions.html
+Redirect 301 /xl-release/help/release-permissions.html /xl-release/how-to/configure-permissions-for-a-release.html
+Redirect 301 /xl-release/help/roles.html /xl-release/how-to/configure-xl-release-roles.html
+Redirect 301 /xl-release/help/task-access.html /xl-release/how-to/configure-xl-release-task-access.html
+Redirect 301 /xl-release/help/template-permissions.html /xl-release/how-to/create-a-release-template.html#template-permissions
+Redirect 301 /xl-release/help/users.html /xl-release/how-to/configure-xl-release-user-settings.html
+Redirect 301 /xl-release/help/general-settings.html /xl-release/how-to/configure-xl-release-general-settings.html
+Redirect 301 /xl-release/help/smtp-server.html /xl-release/how-to/configure-smtp-servers-in-xl-release.html
+Redirect 301 /xl-release/help/task-overview.html /xl-release/concept/xl-release-task-overview.html
+Redirect 301 /xl-release/help/triggers.html /xl-release/how-to/create-a-release-trigger.html
+Redirect 301 /xl-release/help/creating-custom-trigger.html /xl-release/how-to/create-a-custom-trigger-type.html
+Redirect 301 /xl-release/help/creating-a-template.html /xl-release/how-to/create-a-release-template.html#creating-a-template
+Redirect 301 /xl-release/help/template-overview.html /xl-release/how-to/create-a-release-template.html#template-overview
+Redirect 301 /xl-release/help/release-value-stream.html /xl-release/concept/release-value-stream-report.html
+Redirect 301 /xl-release/help/variables.html /xl-release/how-to/create-release-variables.html
+Redirect 301 /xl-release/help/global-variables.html /xl-release/how-to/configure-global-variables.html
+
+# XL TestView in-product links
+
+Redirect 301 /xl-testview/support-request.html https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=30145
+Redirect 301 /xl-testview/suggest-feature.html https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=94473
+Redirect 301 /xl-testview/help/0001.html /xl-testview/how-to/create-a-test-specification.html
+Redirect 301 /xl-testview/help/0002.html /xl-testview/how-to/execute-tests.html
+Redirect 301 /xl-testview/help/0003.html /xl-testview/concept/working-with-qualifications.html
+Redirect 301 /xl-testview/help/0004.html /xl-testview/concept/reports.html
+Redirect 301 /xl-testview/help/0005.html /xl-testview/how-to/create-a-custom-report.html
+Redirect 301 /xl-testview/help/0006.html /xl-testview/how-to/add-a-host.html
+Redirect 301 /xl-testview/help/0007.html /xl-testview/how-to/create-a-dashboard.html
+Redirect 301 /xl-testview/help/0008.html /xl-testview/how-to/duplicate-a-dashboard.html
+Redirect 301 /xl-testview/help/0009.html /xl-testview/how-to/import-test-results.html
+Redirect 301 /xl-testview/help/0010.html /xl-testview/concept/supported-test-tools-and-test-result-formats.html
+Redirect 301 /xl-testview/help/0011.html /xl-testview/concept/file-selection-patterns.html
+Redirect 301 /xl-testview/help/0012.html /xl-deploy/how-to/choose-an-overthere-host-type-and-connection-type.html
+Redirect 301 /xl-testview/help/0013.html /xl-testview/how-to/using-dashboards.html
+ 
+# Old XL Test in-product links
+
+Redirect 301 /xl-test/support-request.html https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=30145
+Redirect 301 /xl-test/suggest-feature.html https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=94473
+Redirect 301 /xl-test/help/0001.html /xl-testview/how-to/create-a-test-specification.html
+Redirect 301 /xl-test/help/0002.html /xl-testview/how-to/execute-tests.html
+Redirect 301 /xl-test/help/0003.html /xl-testview/concept/working-with-qualifications.html
+Redirect 301 /xl-test/help/0004.html /xl-testview/concept/reports.html
+Redirect 301 /xl-test/help/0005.html /xl-testview/how-to/create-a-custom-report.html
+Redirect 301 /xl-test/help/0006.html /xl-testview/how-to/add-a-host.html
+Redirect 301 /xl-test/help/0007.html /xl-testview/how-to/create-a-dashboard.html
+Redirect 301 /xl-test/help/0008.html /xl-testview/how-to/duplicate-a-dashboard.html
+Redirect 301 /xl-test/help/0009.html /xl-testview/how-to/import-test-results.html
+Redirect 301 /xl-test/help/0010.html /xl-testview/concept/supported-test-tools-and-test-result-formats.html
+Redirect 301 /xl-test/help/0011.html /xl-testview/concept/file-selection-patterns.html
+Redirect 301 /xl-test/help/0012.html /xl-deploy/how-to/choose-an-overthere-host-type-and-connection-type.html
+Redirect 301 /xl-test/help/0013.html /xl-testview/how-to/using-dashboards.html
+
+# TOPICS THAT HAVE BEEN RENAMED, MOVED, OR MERGED
+ 
+# XL Deploy topics
+
+Redirect 301 /xl-deploy/how-to/perform-an-update.html /xl-deploy/how-to/update-a-deployed-application.html
+Redirect 301 /xl-deploy/how-to/use-xl-deploy-garbage-collection.html /xl-deploy/how-to/reclaim-disk-space-on-an-xl-deploy-server.html
+Redirect 301 /xl-deploy/how-to/reset-admin-password-xl-deploy-server.html /xl-deploy/how-to/changing-passwords-in-xl-deploy.html
+Redirect 301 /xl-deploy/concept/xl-deploy-remoting-plugin.html /xl-deploy/concept/introduction-to-the-xl-deploy-remoting-plugin.html
+Redirect 301 /xl-deploy/how-to/perform-an-initial-deployment.html /xl-deploy/how-to/deploy-an-application.html
+Redirect 301 /xl-deploy/concept/advanced-xl-deploy-configuration.html /xl-deploy/how-to/advanced-xl-deploy-configuration.html
+Redirect 301 /xl-deploy/how-to/common-xl-deploy-cli-tasks.html /xl-deploy/how-to/using-the-xl-deploy-cli.html
+Redirect 301 /xl-deploy/concept/installing-and-removing-xl-deploy-plugins.html /xl-deploy/how-to/install-or-remove-xl-deploy-plugins.html
+Redirect 301 /xl-deploy/how-to/using-the-plan-analyzer.html /xl-deploy/how-to/preview-the-deployment-plan.html
+Redirect 301 /xl-deploy/concept/getting-started-with-the-satellite-feature.html /xl-deploy/concept/getting-started-with-the-satellite-module.html
+Redirect 301 /xl-deploy/how-to/configure-the-satellite-feature-in-xl-deploy.html /xl-deploy/how-to/configure-the-satellite-module-in-xl-deploy.html
+Redirect 301 /xl-deploy/concept/understanding-xl-deploy-rules.html /xl-deploy/concept/getting-started-with-xl-deploy-rules.html
+Redirect 301 /xl-deploy/how-to/define-rule-behavior.html /xl-deploy/concept/objects-and-properties-available-to-rules.html
+Redirect 301 /xl-deploy/how-to/configure-the-satellite-module-in-xl-deploy.html /xl-deploy/how-to/configure-xl-deploy-to-communicate-with-satellites.html
+Redirect 301 /xl-deploy/concept/licensing-in-xl-deploy.html /xl-deploy/concept/xl-deploy-licensing.html
+Redirect 301 /xl-deploy/how-to/perform-a-deployment-using-the-xl-deploy-cli.html /xl-deploy/how-to/deploy-an-application-using-the-cli.html
+Redirect 301 /xl-deploy/concept/using-tags-to-configure-deployments.html /xl-deploy/how-to/use-tags-to-configure-deployments.html
+Redirect 301 /xl-deploy/concept/authoring-a-new-step-primitive-for-rules.html /xl-deploy/how-to/create-a-custom-step-for-rules.html
+Redirect 301 /xl-deploy/concept/understanding-orchestrators.html /xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html
+Redirect 301 /xl-deploy/how-to/connect-ldap-or-active-directory.html /xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html
+Redirect 301 /xl-deploy/how-to/define-dependencies-between-versions.html /xl-deploy/concept/application-dependencies-in-xl-deploy.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-release-dashboard.html /xl-deploy/concept/release-dashboard.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-bamboo-plugin.html /xl-deploy/concept/bamboo-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-biztalk-plugin.html /xl-deploy/concept/biztalk-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-command-plugin.html /xl-deploy/concept/command-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-database-plugin.html /xl-deploy/concept/database-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-f5-big-ip-plugin.html /xl-deploy/concept/f5-big-ip-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-file-plugin.html /xl-deploy/concept/file-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-generic-plugin.html /xl-deploy/concept/generic-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-glassfish-plugin.html /xl-deploy/concept/glassfish-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-iis-plugin.html /xl-deploy/concept/iis-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-jboss-application-server-plugin.html /xl-deploy/concept/jboss-application-server-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-jboss-domain-plugin.html /xl-deploy/concept/jboss-domain-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-jee-plugin.html /xl-deploy/concept/jee-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-liberty-profile-plugin.html /xl-deploy/concept/liberty-profile-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-netscaler-plugin.html /xl-deploy/concept/netscaler-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-osb-plugin.html /xl-deploy/concept/osb-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-powershell-plugin.html /xl-deploy/concept/powershell-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-remoting-plugin.html /xl-deploy/concept/remoting-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-team-foundation-server-plugin.html /xl-deploy/concept/team-foundation-server-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-tomcat-plugin.html /xl-deploy/concept/tomcat-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-trigger-plugin.html /xl-deploy/concept/trigger-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-weblogic-plugin.html /xl-deploy/concept/weblogic-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-webserver-plugin.html /xl-deploy/concept/webserver-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-websphere-application-server-plugin.html /xl-deploy/concept/websphere-application-server-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-websphere-mq-plugin.html /xl-deploy/concept/websphere-mq-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-websphere-process-server-plugin.html /xl-deploy/concept/websphere-process-server-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-deploy-windows-plugin.html /xl-deploy/concept/windows-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-scale-ec2-plugin.html /xl-deploy/concept/xl-scale-ec2-plugin.html
+Redirect 301 /xl-deploy/concept/introduction-to-the-xl-scale-vsphere-plugin.html /xl-deploy/concept/xl-scale-vsphere-plugin.html
+Redirect 301 /xl-deploy/concept/troubleshooting-and-best-practices-for-rules.html /xl-deploy/concept/best-practices-for-rules.html
+Redirect 301 /xl-deploy/how-to/refer-from-one-ci-to-another-in-an-xl-deploy-manifest-file.html /xl-deploy/concept/xl-deploy-manifest-format.html
+Redirect 301 /xl-deploy/concept/xl-deploy-jenkins-plugin.html /xl-deploy/concept/jenkins-xl-deploy-plugin.html
+Redirect 301 /xl-deploy/concept/understanding-control-tasks-in-xl-deploy.html /xl-deploy/how-to/using-control-tasks-in-xl-deploy.html
+Redirect 301 /xl-deploy/how-to/execute-a-control-task-from-the-xl-deploy-cli.html /xl-deploy/how-to/using-control-tasks-in-xl-deploy.html
+Redirect 301 /xl-deploy/how-to/add-a-control-task-to-an-existing-type.html /xl-deploy/how-to/using-control-tasks-in-xl-deploy.html
+Redirect 301 /xl-deploy/concept/understanding-xl-deploy-architecture.html /xl-deploy/concept/xl-deploy-architecture.html
+Redirect 301 /xl-deploy/concept/overview-of-security-in-xl-deploy.html /xl-deploy/concept/roles-and-permissions-in-xl-deploy.html
+Redirect 301 /xl-deploy/how-to/xl-deploy-security-setup-example.html /xl-deploy/how-to/set-up-roles-and-permissions.html
+Redirect 301 /xl-deploy/how-to/set-up-xl-deploy-security-using-the-cli.html /xl-deploy/how-to/set-up-roles-and-permissions-using-the-cli.html
+Redirect 301 /xl-deploy/how-to/set-up-xl-deploy-security-using-the-gui.html /xl-deploy/how-to/set-up-roles-and-permissions.html
+Redirect 301 /xl-deploy/how-to/deploy-your-first-application-on-glassfish-4.5.html /xl-deploy/how-to/deploy-your-first-application-on-glassfish.html
+Redirect 301 /xl-deploy/how-to/deploy-your-first-application-on-iis-4.5.html /xl-deploy/how-to/deploy-your-first-application-on-iis.html
+Redirect 301 /xl-deploy/how-to/deploy-your-first-application-on-tomcat-4.5.html /xl-deploy/how-to/deploy-your-first-application-on-tomcat.html
+Redirect 301 /xl-deploy/how-to/deploy-your-first-application-on-weblogic-4.5.html /xl-deploy/how-to/deploy-your-first-application-on-weblogic.html
+Redirect 301 /xl-deploy/how-to/deploy-your-first-application-on-websphere-4.5.html /xl-deploy/how-to/deploy-your-first-application-on-websphere.html
+Redirect 301 /xl-deploy/how-to/deploy-your-first-application-on-wildfly-4.5.html /xl-deploy/how-to/deploy-your-first-application-on-wildfly.html
+Redirect 301 /xl-deploy/concept/the-deployment-process-from-package-to-deployment.html /xl-deploy/concept/deployment-overview-and-unified-deployment-model.html
+Redirect 301 /xl-deploy/concept/variables-available-in-freemarker-templates /xl-deploy/how-to/using-variables-and-expressions-in-freemarker-templates.html
+
+# XL Release topics
+
+Redirect 301 /xl-release/how-to/migrate-to-xl-release-4.7.0.html /xl-release/4.7.x/upgrademanual.html#upgrading-to-xl-release-470
+Redirect 301 /xl-release/concept/xl-release-calendar-view.html /xl-release/how-to/using-the-calendar-view.html
+Redirect 301 /xl-release/concept/xl-release-pipeline-view.html /xl-release/how-to/using-the-pipeline-view.html
+Redirect 301 /xl-release/concept/xl-release-release-overview.html /xl-release/how-to/using-the-release-overview.html
+Redirect 301 /xl-release/concept/xl-release-release-summary.html /xl-release/how-to/using-the-release-summary.html
+Redirect 301 /xl-release/concept/xl-release-task-overview.html /xl-release/how-to/using-the-task-overview.html
+Redirect 301 /xl-release/how-to/configure-xl-release-general-settings.html /xl-release/how-to/configure-general-settings.html
+Redirect 301 /xl-release/how-to/configure-xl-release-permissions.html /xl-release/how-to/configure-permissions.html
+Redirect 301 /xl-release/how-to/configure-xl-release-profile-settings.html /xl-release/how-to/configure-profile-settings.html
+Redirect 301 /xl-release/how-to/configure-xl-release-roles.html /xl-release/how-to/configure-roles.html
+Redirect 301 /xl-release/how-to/configure-xl-release-task-access.html /xl-release/how-to/configure-task-access.html
+Redirect 301 /xl-release/how-to/configure-xl-release-user-settings.html /xl-release/how-to/configure-user-settings.html
+Redirect 301 /xl-release/how-to/api-and-scripting-overview.html /xl-release/concept/api-and-scripting-overview.html
+Redirect 301 /xl-release/how-to/create-custom-configuration-types-in-xl-release.html /xl-release/how-to/create-custom-configuration-types.html
+Redirect 301 /xl-release/how-to/configure-smtp-servers-in-xl-release.html /xl-release/how-to/configure-smtp-server.html
+Redirect 301 /xl-release/how-to/enable-low-level-audit-logging.html /xl-release/how-to/enable-granular-audit-logging.html
+Redirect 301 /xl-release/how-to/declare-custom-rest-endpoints-in-xl-release.html /xl-release/how-to/declare-custom-rest-endpoints.html
+Redirect 301 /xl-release/concept/introduction-to-the-xl-release-git-trigger-plugin.html /xl-release/how-to/git-trigger-plugin.html
+Redirect 301 /xl-release/concept/introduction-to-the-xl-release-jira-plugin.html /xl-release/how-to/jira-plugin.html
+Redirect 301 /xl-release/concept/introduction-to-the-xl-release-nexus-trigger-plugin.html /xl-release/how-to/nexus-trigger-plugin.html
+Redirect 301 /xl-release/concept/introduction-to-the-xl-release-remote-script-plugin.html /xl-release/how-to/remote-script-plugin.html
+Redirect 301 /xl-release/concept/introduction-to-the-xl-release-svn-trigger-plugin.html /xl-release/how-to/svn-trigger-plugin.html
+Redirect 301 /xl-release/concept/introduction-to-the-xl-release-time-trigger-plugin.html /xl-release/how-to/time-trigger-plugin.html
+Redirect 301 /xl-release/how-to/create-a-new-admin-user-for-xl-release.html /xl-release/how-to/create-a-new-admin-user.html
+Redirect 301 /xl-release/how-to/configure-the-reporting-database.html /xl-release/how-to/configure-the-archive-database.html
+Redirect 301 /xl-release/how-to/create-custom-task-types-in-xl-release.html /xl-release/how-to/create-custom-task-types.html
+Redirect 301 /xl-release/how-to/configure-the-reporting-database.html /xl-release/how-to/configure-the-archive-database.html
+Redirect 301 /xl-release/how-to/configure-properties-for-a-release.html /xl-release/how-to/configure-release-properties.html
+Redirect 301 /xl-release/how-to/use-variables-in-xl-release.html /xl-release/concept/variables-in-xl-release.html
+Redirect 301 /xl-release/4.0.x/rest-api /xl-release/latest/rest-api
+
+# XL TestView topics
+
+Redirect 301 /xl-test/how-to/create-a-test-tool-plugin.html /xl-testview/concept/understanding-the-architecture.html
+Redirect 301 /xl-testview/concept/test-result-parser.html /xl-testview/how-to/create-a-custom-test-results-parser.html
+Redirect 301 /xl-testview/how-to/handle-exceptions-in-parsers.html /xl-testview/how-to/handle-exceptions-in-test-results-parsers.html
+Redirect 301 /xl-testview/concept/identifying-test-runs.html /xl-testview/how-to/detect-duplicate-imports.html
+Redirect 301 /xl-testview/how-to/disable-authentication.html /xl-testview/how-to/configure-ldap.html
+
+# PRODUCTS THAT HAVE BEEN RENAMED
+
+# XL Test renamed to XL TestView
+
+Redirect 301 /xl-test/index.html /xl-testview/index.html
+Redirect 301 /xl-test/concept/index.html /xl-testview/concept/index.html
+Redirect 301 /xl-test/concept/key-xl-test-concepts.html /xl-testview/concept/key-concepts.html
+Redirect 301 /xl-test/concept/supported-test-tools-and-test-result-formats.html /xl-testview/concept/supported-test-tools-and-test-result-formats.html
+Redirect 301 /xl-test/concept/understanding-xl-test-architecture.html /xl-testview/concept/understanding-the-architecture.html
+Redirect 301 /xl-test/concept/working-with-qualifications.html /xl-testview/concept/working-with-qualifications.html
+Redirect 301 /xl-test/concept/xl-test-boot-properties.html /xl-testview/concept/boot-properties.html
+Redirect 301 /xl-test/concept/xl-test-file-selection-patterns.html /xl-testview/concept/file-selection-patterns.html
+Redirect 301 /xl-test/concept/xl-test-reports.html /xl-testview/concept/reports.html
+Redirect 301 /xl-test/how-to/index.html /xl-testview/how-to/index.html
+Redirect 301 /xl-test/how-to/add-a-host-to-xl-test.html /xl-testview/how-to/add-a-host.html
+Redirect 301 /xl-test/how-to/add-a-project-to-xl-test.html /xl-testview/how-to/add-a-project.html
+Redirect 301 /xl-test/how-to/add-a-tag-to-a-test-case.html /xl-testview/how-to/add-a-tag-to-a-test-case.html
+Redirect 301 /xl-test/how-to/connect-xl-test-to-a-jenkins-job.html /xl-testview/how-to/connect-to-a-jenkins-job.html
+Redirect 301 /xl-test/how-to/create-a-custom-qualification-in-xl-test.html /xl-testview/how-to/create-a-custom-qualification.html
+Redirect 301 /xl-test/how-to/create-a-custom-report-in-xl-test.html /xl-testview/how-to/create-a-custom-report.html
+Redirect 301 /xl-test/how-to/create-a-custom-report-using-highcharts-demos.html /xl-testview/how-to/create-a-custom-report-using-highcharts-demos.html
+Redirect 301 /xl-test/how-to/create-a-dashboard.html /xl-testview/how-to/create-a-dashboard.html
+Redirect 301 /xl-test/how-to/create-a-test-specification-set.html /xl-testview/how-to/create-a-test-specification-set.html
+Redirect 301 /xl-test/how-to/create-a-test-specification.html /xl-testview/how-to/create-a-test-specification.html
+Redirect 301 /xl-test/how-to/customize-test-run-overview.html /xl-testview/how-to/customize-test-run-overview.html
+Redirect 301 /xl-test/how-to/duplicate-a-dashboard.html /xl-testview/how-to/duplicate-a-dashboard.html
+Redirect 301 /xl-test/how-to/edit-a-dashboard.html /xl-testview/how-to/edit-a-dashboard.html
+Redirect 301 /xl-test/how-to/execute-tests-from-xl-test.html /xl-testview/how-to/execute-tests.html
+Redirect 301 /xl-test/how-to/filter-a-report-by-tag.html /xl-testview/how-to/filter-a-report-by-tag.html
+Redirect 301 /xl-test/how-to/getting-started-with-xl-test.html /xl-testview/how-to/getting-started.html
+Redirect 301 /xl-test/how-to/import-test-results.html /xl-testview/how-to/import-test-results.html
+Redirect 301 /xl-test/how-to/install-xl-test-plugins.html /xl-testview/how-to/install-plugins.html
+Redirect 301 /xl-test/how-to/install-xl-test.html /xl-testview/how-to/install.html
+Redirect 301 /xl-test/how-to/start-xl-test.html /xl-testview/how-to/start.html
+Redirect 301 /xl-test/how-to/troubleshoot-custom-reports-in-xl-test.html /xl-testview/how-to/troubleshoot-custom-reports.html
+Redirect 301 /xl-test/how-to/using-xl-test-dashboards.html /xl-testview/how-to/using-dashboards.html
+Redirect 301 /xl-test/how-to/view-test-case-details.html /xl-testview/how-to/view-test-case-details.html
+
+# DEVELOPMENT DASHBOARD RENAMED TO FIX TRACKER
+
+Redirect 301 /development-dashboard/index.html /tracker/index.html
+Redirect 301 /development-dashboard/xl-deploy-dashboard.html /tracker/xl-deploy-tracker.html
+Redirect 301 /development-dashboard/xl-release-dashboard.html /tracker/xl-release-tracker.html
+Redirect 301 /development-dashboard/xl-testview-dashboard.html /tracker/xl-testview-tracker.html
+Redirect 301 /development-dashboard/xl-test-dashboard.html /tracker/xl-testview-tracker.html
+ 
+# LEGACY PAGES THAT ARE NO LONGER USED
+
+Redirect 301 /product-version.html#/deployit/3.9.x/index.html /xl-deploy/3.9.x/index.html
+Redirect 301 /product-version.html#/xl%20deploy/4.0.x/index.html /xl-deploy/4.0.x/index.html
+Redirect 301 /product-version.html#/xl%20deploy/4.5.x/index.html /xl-deploy/4.5.x/index.html
+Redirect 301 /product-version.html#/xl%20release/3.0.x/index.html /xl-release/3.0.x/index.html
+Redirect 301 /product-version.html#/xl%20release/4.0.x/index.html /xl-release/4.0.x/index.html
+Redirect 301 /product-version.html#/xl%20scale/4.0.x /xl-deploy/4.0.x/index.html#xl-scale
+Redirect 301 /general/cookbook.html /index.html
+Redirect 301 /general/faq.html /faq/index.html
+Redirect 301 /general/community.html http://xebialabs-community.github.io/
+Redirect 301 /faq/index.html /index.html
+Redirect 301 /generated/xl-release/4.0.x/index.html /xl-release/4.0.x/index.html
+Redirect 301 /generated/xl-release/3.0.x/index.html /xl-release/3.0.x/index.html

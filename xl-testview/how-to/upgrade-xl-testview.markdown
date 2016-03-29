@@ -22,11 +22,13 @@ Briefly, the process of upgrading XL TestView is:
 
 You can find release notes and version-specific upgrade notes on the page for each version; for example, [XL TestView 1.2.x](/xl-testview/1.2.x/).
 
-## Skipping versions
+## About upgrading
+
+### Skipping versions
 
 When upgrading, you can skip XL TestView versions. XL TestView will sequentially apply upgrades for the intermediate versions. However, you may be required to take manual actions for the intermediate versions; you can find these in the [release manual](/xl-testview/latest/releasemanual.html).
 
-## Upgrading and downgrading
+### Upgrading and downgrading
 
 After you upgrade to a new version of XL TestView, you cannot downgrade to an older version.
 
@@ -34,17 +36,20 @@ If you upgrade to a release candidate (RC), alpha, or beta version, you cannot u
 
 Ensure that you always create a backup of your repository before you upgrade to a new version of XL TestView.
 
-## Deprecations
+### Deprecations
 
 Each new version may deprecate some functionality or features in favor of newer ways of working. If functionality is marked as deprecated for a specific version, the old functionality is still available (so you can still upgrade hassle-free), but it will be removed in the next version.
 
 In the [release manual](/xl-testview/latest/releasemanual.html), there is information about how to migrate to the new way of working. This gives you the time and opportunity to migrate to the new situation before upgrading to a still newer version that will no longer have the old functionality. Be sure to read the deprecation information for each release you're upgrading to, so you know what will change in upcoming versions.
 
-## Performing the upgrade
+## Before you upgrade
 
-Before upgrading, carefully read the [**release manual**](/xl-testview/latest/releasemanual.html). Note anything that may apply to your situation.
+Before you upgrade:
 
-### Upgrading the server
+* Carefully read the [release manual](/xl-testview/latest/releasemanual.html) and note any changes that may apply to your situation.
+* Check whether there are any hotfixes installed in the `hotfix` directory. If hotfixes are installed, [contact the XebiaLabs support team](https://support.xebialabs.com/hc/en-us/requests/new) before upgrading.
+
+## Upgrade the server
 
 To upgrade an XL TestView server installation:
 
@@ -80,7 +85,7 @@ To upgrade an XL TestView server installation:
 
 1. If you normally run the XL TestView server [as a service](/xl-testview/how-to/install-xl-testview-as-a-service.html), shut it down and restart it as you normally do.
 
-### Upgrading the repository
+## Upgrade the repository
 
 When you start XL TestView, it will detect whether it is running against a repository that must be upgraded. If so, it will exit with a message indicating that a repository upgrade is required. The repository is not upgraded automatically.
 

@@ -54,3 +54,35 @@ To assign a dictionary to an environment:
 4. Click **Save** to save the environment.
 
 You can assign multiple dictionaries to an environment. Dictionaries are evaluated in order; XL Deploy resolves each [placeholder](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) using the first value that it finds.
+
+## Restrict a dictionary to containers or applications
+
+You can restrict a dictionary so that XL Deploy will only apply it to specific containers, specific applications, or both. To restrict a dictionary:
+
+1. Click **Repository** in the top menu.
+1. Expand **Environments** and double-click the desired dictionary.
+1. Go to the **Restrictions** tab.
+1. Under **Restrict to containers**, select one or more containers and click ![Add button](/images/button_add_container.png) to move them to the **Members** list.
+1. Under **Restrict to applications**, select one or more applications and click ![Add button](/images/button_add_container.png) to move them to the **Members** list.
+1. Click **Save** to save the dictionary.
+
+**Note:** An unrestricted dictionary cannot refer to entries in a restricted dictionary.
+
+### Restricted dictionary example
+
+When you restrict a dictionary, it affects the way XL Deploy resolves placeholders at deployment time. For example, assume you have the following setup:
+
+* A dictionary called DICT1 has an entry with the key `key1`. DICT1 is restricted to a container called CONT1.
+* A dictionary called DICT2 has an entry with the key `key2` and value `key1`.
+* An environment has CONT1 as a member. DICT1 and DICT2 are both assigned to this environment.
+* An application called APP1 has a deployment package that contains a [`file.File`](/xl-deploy/latest/filePluginManual.html) CI. The artifact attached to the CI contains the placeholder `{{key2}}`.
+
+When you try to deploy the package to the environment, mapping of the CI will fail with the error *Cannot expand placeholder {{key1}} because it references an unknown key key1*.
+
+This has to do with the fact that, when XL Deploy resolves placeholders from a dictionary, it requires  that *all* keys in the dictionary be resolved. In this scenario, XL Deploy tries to resolve `{{key2}}` with the value from `key1`, but `key1` is missing because DICT1 is restricted to CONT1. The restriction means that DICT1 is not available to APP1.
+
+There are a few ways you can resolve or work around this scenario:
+
+* Restrict DICT1 to APP1 (in addition to CONT1)
+* Add `key1` to DICT2 and give it a "dummy" value (so the mapping will succeed)
+* Create another unrestricted dictionary that will provide a default value for `key1`

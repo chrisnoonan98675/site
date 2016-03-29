@@ -3,7 +3,7 @@ title: Discovery in the XL Deploy WebLogic plugin
 categories:
 - xl-deploy
 subject:
-- WebLogic plugin
+- WebLogic
 tags:
 - weblogic
 - oracle
@@ -12,7 +12,7 @@ tags:
 - discovery
 ---
 
-After you specify the host and domain of a server running Oracle WebLogic, you can use the XL Deploy WebLogic plugin to discover the following middleware containers:
+After you specify the host and domain of a server running Oracle WebLogic, you can use the [XL Deploy WebLogic (WLS) plugin](/xl-deploy/concept/weblogic-plugin.html) to discover the following middleware containers:
 
 * Cluster (`wls.Cluster`)
 * Server (`wls.Server`)
@@ -20,20 +20,20 @@ After you specify the host and domain of a server running Oracle WebLogic, you c
 
 ## Discovery in the user interface
 
-To discover a domain from the user interface, do the following:
+To discover a domain from the XL Deploy user interface:
 
-* Create a `overthere.Host` under the Infrastructure node (in the Repository tab) with the appropriate connection credentials.
-* Right-click the Infrastructure node and choose **Discover** > **wls** > **wls.Domain**.
-* Configure the needed properties for the `wls.Domain` and follow the steps in the wizard.
+1. Go to the Repository.
+1. Under **Infrastructure**, create an `overthere.Host` configuration item (CI) with the appropriate connection credentials.
+1. Right-click **Infrastructure** and select **Discover** > **wls** > **wls.Domain**.
+1. Configure the required properties for the `wls.Domain` and follow the steps in the discovery wizard.
 
 ## Discovery with the CLI
 
-This is an sample XL Deploy command-line interface (CLI) script which discovers a sample WLS domain:
+This is an sample XL Deploy command-line interface (CLI) script that discovers a sample WebLogic domain:
 
 	adminServerHost = repository.create(factory.configurationItem('Infrastructure/adminServerHost','overthere.SshHost', {'os':'UNIX','connectionType':'SFTP', 'address':'wls-103', 'username':'demo-user', 'password':'demo-password'}))
 
 	wlsDomain = factory.configurationItem('Infrastructure/demoWlsDomain', 'wls.Domain', {'wlHome':'/opt/bea-10.3/wlserver_10.3', 'domainHome':'/opt/bea-10.3/user_projects/domains/demoWlsDomain', 'port':'7001', 'username':'weblogic', 'password':'weblogic', 'adminServerName':'adminServer', 'startMode':'NodeManager', 'host':'Infrastructure/adminServerHost'})
-
 
 
     taskId = deployit.createDiscoveryTask(wlsDomain)
@@ -48,4 +48,4 @@ This is an sample XL Deploy command-line interface (CLI) script which discovers 
 
 ## Limitations
 
-The WLS topology discovery does not discover/associate the Host associated with the managed servers (`wls.Server`). So if a `wls.Cluster` is spanned on multiple Hosts, the creation of the managed server's Host and its association with the server is a manual process. This can be done using the CLI or more easily, using the UI. This may be needed for certain deployment scenarios where knowledge of the server's host is needed (like NoStage deployments) . 
+The WebLogic topology discovery does not discover/associate the host associated with the managed servers (`wls.Server`). So if a `wls.Cluster` is spanned on multiple hosts, you must manually create the managed server's hosts and its association with the server. You can do this using the CLI or the user interface. This may be needed for certain deployment scenarios where knowledge of the server's host is needed (such as NoStage deployments). 

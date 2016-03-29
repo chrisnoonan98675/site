@@ -3,7 +3,7 @@ title: Extend the XL Deploy WebSphere MQ plugin
 categories:
 - xl-deploy
 subject:
-- WebSphere MQ plugin
+- WebSphere
 tags:
 - websphere
 - middleware

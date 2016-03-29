@@ -10,7 +10,7 @@ tags:
 - release summary
 ---
 
-In a release, select **Activity logs** from the **Show** menu to go to the activity logs page, which shows everything that has happened to a release. This is an audit trail of who did what, and when.
+The activity log shows everything that happens in a release. It provides an audit trail of who did what, and when. To open the activity log, select **Activity logs** from the **Show** menu.
 
 This is an example of an activity log:
 

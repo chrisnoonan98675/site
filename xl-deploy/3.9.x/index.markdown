@@ -68,8 +68,8 @@ product-id: xl-deploy
 
 ### Tools
 
-* [XL Deploy Maven plugin](../../deployit-maven-plugin/3.9.5/)
-* [XL Deploy Jenkins plugin](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
-* [XL Deploy Bamboo plugin](../../bamboo-xl-deploy-plugin/3.9.x/bambooPluginManual.html)
-* [XL Deploy Team Foundation Server plugin](../../xl-deploy-tfs-plugin/3.9.x/tfsPluginManual.html)
-* [XL Deploy Manifest Editor (Windows only)](../../xl-deploy-tfs-plugin/3.9.x/manifestEditorManual.html)
+* [XL Deploy plugin for Maven](../../deployit-maven-plugin/3.9.5/)
+* [XL Deploy plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
+* [XL Deploy plugin for Bamboo](../../bamboo-xl-deploy-plugin/3.9.x/bambooPluginManual.html)
+* [XL Deploy plugin for Team Foundation Server](../../xl-deploy-tfs-plugin/3.9.x/tfsPluginManual.html)
+* [XL Deploy Manifest Editor (Microsoft Windows only)](../../xl-deploy-tfs-plugin/3.9.x/manifestEditorManual.html)

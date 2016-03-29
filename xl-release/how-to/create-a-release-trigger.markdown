@@ -31,10 +31,13 @@ To see the triggers on a template, select **Triggers** from the **Show** menu in
 1. In the **Title** box, enter a name that identifies the trigger.
 1. In the **Release Title** box, enter a name for releases that will be created by this trigger. This field can contain [variables](/xl-release/concept/variables-in-xl-release.html).
 1. Select a polling interval from the **Poll type** list. This can be a repeatable interval in seconds (for example, every 10 seconds) or a [cron](https://en.wikipedia.org/wiki/Cron#CRON_expression) expression.
+
+    For important information about using cron expressions, refer to [Time zone for cron jobs](/xl-release/how-to/time-trigger-plugin.html#time-zone-for-cron-jobs).
+
 1. In the **Poll interval** box, enter the number of seconds between each execution of the trigger or cron expression.
 1. To make the trigger active, select **Enabled**.
 1. Configure the remaining properties, which are specific to the trigger type.
-1. Next to **Tags**, optionally add tags that will be added to releases created by the trigger. This field can contain [variables](/xl-release/concept/variables-in-xl-release.html).
+1. Next to **Tags**, optionally add tags that will be added to releases created by the trigger. This field can contain variables.
 1. Under **Template Variables**, define values to use for template variables in releases created by the trigger.
 
     By default, all template variables with the same name as a trigger variable are automatically bound. For example, a template variable named `commitId` will have the value `${commitId}`, which will be replaced by the corresponding value of the trigger variable. You can also specify static values or other variables.

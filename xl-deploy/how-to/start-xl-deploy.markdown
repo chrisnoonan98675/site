@@ -10,7 +10,7 @@ tags:
 - installation
 ---
 
-To start the XL Deploy server, open a command line, go to the `XLDEPLOY_SERVER_HOME/bin` directory, and execute the appropriate command:
+To start the XL Deploy server, open a command prompt or terminal, go to the `<XLDEPLOY_SERVER_HOME>/bin` directory, and execute the appropriate command:
 
 {:.table .table-striped}
 | Operating system | XL Deploy version | Command |
@@ -31,6 +31,10 @@ To run the XL Deploy server as a background process:
     * On Unix, use `nohup bin/run.sh &`
     * On Windows, run XL Deploy [as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html)
 
+If you have installed XL Deploy [as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html), you must ensure that the XL Deploy server is configured so that it can start without user interaction. For example, the server should not [require a password](/xl-deploy/how-to/install-xl-deploy.html#step-10-provide-a-password-for-the-encryption-key) for the encryption key that protects passwords in the repository. Alternatively, you can store the password in the `<XLDEPLOY_HOME>/conf/deployit.conf file` as follows:
+
+    repository.keystore.password=MY_PASSWORD
+
 ## Server options
 
 Start the server with the `-help` flag to see the options it supports. They are:
@@ -46,3 +50,5 @@ Start the server with the `-help` flag to see the options it supports. They are:
 | `-setup-defaults VAL` | Specifies a file that contains default values for configuration properties in the setup wizard. |
 
 Any options you want to give the XL Deploy server when it starts can be specified in the `XLDEPLOY_SERVER_OPTS` environment variable.
+
+**Tip:** For information about the `-setup-defaults` option, refer to [Install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html#automatically-install-xl-deploy-with-default-values).

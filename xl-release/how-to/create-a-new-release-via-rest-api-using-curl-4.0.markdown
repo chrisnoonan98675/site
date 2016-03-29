@@ -1,5 +1,5 @@
 ---
-title: Create a new release via the REST API using cURL (XL Release 4.0 and earlier)
+title: Create a new release via the REST API using cURL (XL Release 4.0.x and earlier)
 categories:
 - xl-release
 subject:
@@ -9,7 +9,8 @@ tags:
 deprecated:
 - XL Release 4.0.x
 ---
-_This article uses the internal XL Release REST API. When using XL Release 4.5 or higher, please use the public API and refer to [the updated version of this article](/xl-release/how-to/create-a-new-release-via-rest-api-using-curl.html)._
+
+_This article uses the internal XL Release REST API. When using XL Release 4.5.0 or later, please use the public API and refer to [the updated version of this article](/xl-release/how-to/create-a-new-release-via-rest-api-using-curl.html)._
 
 If you're looking to automate XL Release, e.g. to trigger a release/pipeline run from an upstream system, the XL Release REST API is good way to do this. Here we'll describe how to kick off a new release based on a release template using [cURL](http://curl.haxx.se/docs/manpage.html).
 

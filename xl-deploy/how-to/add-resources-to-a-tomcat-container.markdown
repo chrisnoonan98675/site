@@ -3,7 +3,7 @@ title: Add resources to an Apache Tomcat container
 categories:
 - xl-deploy
 subject:
-- Tomcat plugin
+- Tomcat
 tags:
 - tomcat
 - middleware

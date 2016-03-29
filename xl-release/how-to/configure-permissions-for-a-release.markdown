@@ -10,7 +10,7 @@ tags:
 - permission
 ---
 
-In a release or template, select **Permissions** from the **Show** menu to go to the permissions page, where you specify who can do what on a release. This page is only available to users who have the Edit Security permission, either on the release or as a [global permission](/xl-release/how-to/configure-xl-release-permissions.html).
+Release permissions determine who can do what on a release. To set release permissions, select **Permissions** from the **Show** menu in a template or release. The Permissions page is only available to users with the *Edit Security* permission on the release or as a [global permission](/xl-release/how-to/configure-xl-release-permissions.html)
 
 ![Release Permissions](../images/release-permissions.png)
 

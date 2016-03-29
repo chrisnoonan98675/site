@@ -10,9 +10,9 @@ tags:
 - release automation
 ---
 
-To access the XL Release release automation report, select **Reports** > **Release automation** from the top menu. Use the buttons at the top of the report to select a time period such as "last six months" or a specific date range.
+The XL Release release automation report shows the level of automation used in your releases. The data for this report comes from XL Release's [archive database](/xl-release/concept/how-archiving-works.html). Releases that are completed but not yet archived do not appear in reports.
 
-The data for this report comes from XL Release's [archive database](/xl-release/concept/how-archiving-works.html). Releases that are completed but not yet archived do not appear in reports.
+To access the report, select **Reports** > **Release automation** from the top menu. Use the buttons at the top of the report to select a time period such as "last six months" or a specific date range.
 
 ## Release duration and automation
 

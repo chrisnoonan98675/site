@@ -5,9 +5,15 @@ weight: 6
 breadcrumbs: false
 ---
 
-XebiaLabs community plugins and tools are open-source software that is free for you to use and adapt. Below are a few examples of community plugins; for a complete list, refer to [the XebiaLabs community on GitHub](https://github.com/xebialabs-community).
+XebiaLabs community plugins and tools are open-source software that you can freely use, adapt, and enhance. To download them, visit the [XebiaLabs community on GitHub](https://github.com/xebialabs-community).
 
-**Note:** XebiaLabs does not guarantee the functionality or compatibility of community plugins, and they are not supported by XebiaLabs' [customer support team](https://support.xebialabs.com).
+You are welcome to contribute enhancements to community plugins and tools; visit the [XebiaLabs community on github.io](http://xebialabs-community.github.io/) for information about submitting your changes.
+
+Note that XebiaLabs does not guarantee the functionality or compatibility of community plugins and tools, and they are not supported by our customer support team.
+
+## XebiaLabs-supported plugins
+
+For information about the plugins that are supported by the XebiaLabs customer support team, visit our [Plugins page](https://xebialabs.com/plugins/).
 
 ## Community plugins for XL Deploy
 
@@ -47,11 +53,12 @@ XebiaLabs community plugins and tools are open-source software that is free for 
 | [XL Release GitHub plugin](https://github.com/xebialabs-community/xlr-github-plugin) | Use the [GitHub API](https://github.com/) in XL Release script tasks and automatically squash the commits of a pull request |
 | [XL Release GitLab plugin](https://github.com/xebialabs-community/xlr-gitlab-plugin) | Create or merge a pull request in [GitLab](https://about.gitlab.com/) |
 | [XL Release HP LoadRunner plugin](https://github.com/xebialabs-community/xlr-loadrunner-plugin) | Execute [HP LoadRunner](http://www8.hp.com/us/en/software-solutions/loadrunner-load-testing/) scenarios from XL Release |
-| [XL Release HP QuickTest Professional (QTP) plugin](https://github.com/xebialabs-community/xlr-qtp-plugin) | Run tests in HP QuickTest Professional (QTP), now called [HP Unified Functional Testing (UFT)](http://www8.hp.com/us/en/software-solutions/unified-functional-automated-testing/) |
+| [XL Release HP Unified Functional Testing (UFT) plugin](https://github.com/xebialabs-community/xlr-qtp-plugin) | Run tests in [HP Unified Functional Testing (UFT)](http://www8.hp.com/us/en/software-solutions/unified-functional-automated-testing/), formerly called HP QuickTest Professional (QTP) |
 | [XL Release Microsoft Team Foundation Server (TFS) plugin](https://github.com/xebialabs-community/xlr-tfs-plugin) | Create, get, or update a work item in [Microsoft Team Foundation Server (TFS)](https://www.visualstudio.com/en-us/products/tfs-overview-vs.aspx) |
 | [XL Release Rally plugin](https://github.com/xebialabs-community/xlr-rally-plugin) | Update properties in [Rally](https://www.rallydev.com/) |
 | [XL Release TeamCity plugin](https://github.com/xebialabs-community/xlr-teamcity-plugin) | Trigger a build in [JetBrains TeamCity](https://www.jetbrains.com/teamcity/) |
 | [XL Release ServiceNow plugin](https://github.com/xebialabs-community/xlr-servicenow-plugin) | Create records, check a status, request approval, or update CMDB in [ServiceNow](https://www.servicenow.com/) |
+| [XL Release VersionOne plugin](https://github.com/xebialabs-community/xlr-versionone-plugin) | Create issues in [VersionOne](https://www.versionone.com/) |
 | [XL Release XL Deploy plugin](https://github.com/xebialabs-community/xlr-xldeploy-plugin) | Start a control task, start a deployment, migrate a deployment package to a different server, or get the latest version of an application from XL Deploy |
 | [XL Release XL TestView plugin](https://github.com/xebialabs-community/xlr-xltestview-plugin) | Execute a test specification or check a qualification in XL TestView |
 
@@ -67,6 +74,7 @@ XebiaLabs community plugins and tools are open-source software that is free for 
 {:.table}
 | Plugin | Features |
 | ------ | -------- |
+| [XL Deploy Manifest Editor](https://github.com/xebialabs-community/xld-manifest-editor) | Create and edit deployment package manifest files |
 | [Apache Derby database tools](https://github.com/xebialabs-community/xl-apache-derby-tools-plugin) | Manage an XL Deploy or XL Release [Apache Derby](https://db.apache.org/derby/) database |
 | [Apache Derby database hot backup tools](https://github.com/xebialabs-community/xl-apache-derby-hot-backup) | Perform a hot backup of an XL Deploy or XL Release Apache Derby database |
 | [XL metrics tools](https://github.com/xebialabs-community/xl-metrics-plugin) | Gather metrics about an XL Deploy or XL Release server |

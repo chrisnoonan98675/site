@@ -3,7 +3,7 @@ title: Using XL Deploy with AWS CodePipeline
 categories:
 - xl-deploy
 subject:
-- AWS CodePipeline plugin
+- AWS CodePipeline
 tags:
 - plugin
 - aws codepipeline
@@ -15,13 +15,13 @@ since:
 
 [AWS CodePipeline](http://aws.amazon.com/codepipeline/) is Amazon Web Services' continuous delivery service. It allows you to model and automate your software release process.
 
-The XL Deploy AWS CodePipeline plugin enables XL Deploy to function as an additional deployment option for AWS CodePipeline, allowing CodePipeline users to leverage XL Deploy's leading capabilities for deployments of existing enterprise applications to on-demand, on-premises, and hybrid cloud environments hosted in [Amazon EC2](http://aws.amazon.com/ec2/) and other clouds.
+The AWS CodePipeline plugin for XL Deploy enables XL Deploy to function as an additional deployment option for AWS CodePipeline, allowing CodePipeline users to leverage XL Deploy's leading capabilities for deployments of existing enterprise applications to on-demand, on-premises, and hybrid cloud environments hosted in [Amazon EC2](http://aws.amazon.com/ec2/) and other clouds.
 
 This topic describes how to use XL Deploy with AWS CodePipeline.
 
 ## Create a sample pipeline in AWS CodePipeline
 
-This section describes how to create a sample pipeline in AWS CodePipeline to demonstrate a deployment action using XL Deploy
+This section describes how to create a sample pipeline in AWS CodePipeline to demonstrate a deployment action using XL Deploy.
 
 ### Step 1 Log in to AWS CodePipeline
 

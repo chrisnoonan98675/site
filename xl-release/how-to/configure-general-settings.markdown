@@ -9,7 +9,7 @@ tags:
 - system administration
 ---
 
-Use the **General Settings** to configure some of XL Release features. This page is only accessible to users with 'admin' permission. Click **Save** to apply your changes.
+To configure XL Release, select **Settings** > **General settings** from the top menu. The General settings page is only available to users with the [*Admin*](/xl-release/how-to/configure-permissions.html) permission.
 
 ## Reports
 
@@ -35,7 +35,7 @@ In XL Release 4.7.0 and later, the [archiving feature](/xl-release/how-to/config
 
 ## Archiving
 
-In XL Release 4.7.0 and later, you can configure XL Release to archive finished (that is, completed and aborted) releases. These releases are moved to a separate "reporting" database so that the active repository can be kept relatively small. 
+In XL Release 4.7.0 and later, you can configure XL Release to archive finished (that is, completed and aborted) releases. These releases are moved to a separate internal *archive database* so that the active repository can be kept relatively small. 
 
 Archived releases are available in reports and you can search for them from them Release Value Stream Mapping screen. However, you cannot search for them in the Release Overview screen.
 
@@ -43,4 +43,6 @@ You can configure the time after which XL Release will archive a completed relea
 
 ![Archiving Settings](../images/archiving-settings.png)
 
-**Note:** XL Release reports related to finished releases only use data from the reporting database. Therefore, if you configure a very long period before releases are archived, then your reports will not be up-to-date. Also, having a large number of releases that are not archived negatively affects performance. For more information about the configuration of the reporting database, refer to [Configure the reporting database](/xl-release/how-to/configure-the-reporting-database.html).
+For more information, refer to [How archiving works](/xl-release/concept/how-archiving-works.html).
+
+**Note:** XL Release reports related to finished releases only use data from the archive database. Therefore, if you configure a very long period before releases are archived, then your reports will not be up-to-date. Also, having a large number of releases that are not archived negatively affects performance. For more information about the configuration of the database, refer to [Configure the archive database](/xl-release/how-to/configure-the-archive-database.html).

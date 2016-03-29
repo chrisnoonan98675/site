@@ -11,7 +11,9 @@ tags:
 - system administration
 ---
 
-The **Roles** and **Permissions** screens allow you to set global permissions; that is, security settings that apply across the entire system. These pages are only available to users with 'admin' and 'edit security' permissions.
+In XL Release, you group users by role and then assign [global permissions](/xl-release/how-to/configure-permissions.html) to roles. Global permissions apply across the entire XL Release system.
+
+To configure roles, select **Settings** > **Permissions** from the top menu. The Roles page is only available to users with the *Admin* and *Edit Security* permissions.
 
 ![Roles](../images/roles.png)
 

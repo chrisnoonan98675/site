@@ -3,23 +3,23 @@ title: Introduction to the XL Deploy Tomcat plugin
 categories: 
 - xl-deploy
 subject:
-- Tomcat plugin
+- Tomcat
 tags:
 - plugin
 - tomcat
 - middleware
 ---
 
-The Tomcat plugin is an XL Deploy plugin that adds capability for managing deployments and resources to a Tomcat Server. Standard support includes deploying and undeploying web applications, datasources, mail sessions, resource links, ActiveMQ and WebSphere MQ resources. The plugin can easily be extended to support more deployment options or management of new artifacts and resources on Tomcat.
+The XL Deploy Apache Tomcat plugin allows you to manage deployments on a Tomcat server. Standard support includes deploying and undeploying web applications, datasources, mail sessions, resource links, ActiveMQ, and WebSphere MQ resources. The plugin can easily be extended to support more deployment options or management of new artifacts and resources on Tomcat.
 
 For information about Tomcat requirements and the configuration items (CIs) it supports, refer to the [Tomcat Plugin Manual](/xl-deploy/latest/tomcatPluginManual.html).
 
 ## Features
 
-* Deployment of web applications (WAR) to a Tomcat virtual host
-* Deployment of resources to an application context on a Tomcat virtual host
-* Deployment of resources to the common Tomcat context (that is, `$TOMCAT_HOME/conf/context.xml`)
-* Deployment of resource links
+* Deploy web applications (WAR) to a Tomcat virtual host
+* Deploy resources to an application context on a Tomcat virtual host
+* Deploy resources to the common Tomcat context (that is, `$TOMCAT_HOME/conf/context.xml`)
+* Deploy resource links
 * Supported JEE resources:
 	* Datasource
 	* JMS Queue
@@ -27,13 +27,13 @@ For information about Tomcat requirements and the configuration items (CIs) it s
 	* JMS Topic
 	* JMS Topic Connection Factory
 	* Mail Session
-* Supported Messaging Middleware
+* Supported Messaging Middleware:
     * ActiveMQ
     * WebSphere MQ
 * Support for Tomcat Database Connection Pool (DBCP) configurations
-* Stopping and starting a Tomcat server via control tasks
-* Deployment of configuration files to a Tomcat server
-* Deployment of libraries files to a Tomcat server
+* Support for stopping and starting a Tomcat server via control tasks
+* Deploy configuration files to a Tomcat server
+* Deploy libraries files to a Tomcat server
 
 ## Tomcat topology
 
@@ -41,15 +41,15 @@ The Tomcat plugin allows for the modeling of a Tomcat installation into the XL D
 
 ### Tomcat server (`tomcat.Server`)
 
-`tomcat.Server` models a Tomcat installation running on a host. This container must be defined under any [Host](#overthere.Host) in the XL Deploy infrastructure. The container supports operating system-specific stop and start commands used to control the stopping and starting of the Tomcat server. In addition, stop and start wait times can be specified. XL Deploy will wait for the specified amount of time to elapse after the execution of a stop/start command.
+`tomcat.Server` models a Tomcat installation running on a host. This container must be defined under any `overthere.Host` in the XL Deploy infrastructure. The container supports operating system-specific stop and start commands used to control the stopping and starting of the Tomcat server. In addition, stop and start wait times can be specified. XL Deploy will wait for the specified amount of time to elapse after the execution of a stop/start command.
 
 ### Tomcat common context (`tomcat.CommonContext`)
 
-`tomcat.CommonContext` models the `context.xml` file present in the `$TOMCAT_HOME/conf` directory. This container must be defined under a [Tomcat Server](#tomcat.Server) container. Only a single instance should be defined. Any [Tomcat Resource](#tomcat.JndiContextElement) can be deployed to this container.
+`tomcat.CommonContext` models the `context.xml` file present in the `$TOMCAT_HOME/conf` directory. This container must be defined under a `tomcat.Server` container. Only a single instance should be defined. Any Tomcat resource can be deployed to this container.
 
 ### Tomcat virtual host (`tomcat.VirtualHost`)
 
-`tomcat.VirtualHost` models a Tomcat virtual host definition (that is, `$TOMCAT_HOME/conf/[enginename]/[hostname]`). This container must be defined under a [Tomcat Server](#tomcat.Server) container. Multiple instances can be defined. [Web Applications](#jee.War) and [Tomcat Resource](#tomcat.JndiContextElement) can be deployed to this container.
+`tomcat.VirtualHost` models a Tomcat virtual host definition (that is, `$TOMCAT_HOME/conf/[enginename]/[hostname]`). This container must be defined under a `tomcat.Server` container. Multiple instances can be defined. Web applications and tomcat resources can be deployed to this container.
 
 ## Deploying web applications
 
@@ -63,7 +63,7 @@ When left blank, the plugin can default the value to that of the WAR in the curr
 
 ## Use in deployment packages
 
-The plugin works with the standard deployment package of DAR format. Please see the _Packaging Manual_ for more details about the DAR format and the ways to compose one.
+The plugin works with the standard deployment package of DAR format.
 
 The following is a sample `deployit-manifest.xml` file that can be used to create a Tomcat specific deployment package. It contain declarations for a WAR (`jee.War`), a datasource (`tomcat.DataSourceSpec`), and a couple of JMS resources.
 

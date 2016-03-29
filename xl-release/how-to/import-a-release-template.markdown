@@ -11,9 +11,7 @@ tags:
 - export
 ---
 
-Templates are like blueprints for releases. You use them to model the ideal process of a release flow. 
-
-You can import a template from a ZIP file that was previously [exported](/xl-release/how-to/using-the-release-flow-editor.html) from XL Release.
+Templates are like blueprints for releases. You use them to model the ideal process of a release flow. 	You can import a template from a ZIP file that was previously [exported](/xl-release/how-to/using-the-release-flow-editor.html) from XL Release.
 
 To import a template:
 

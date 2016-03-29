@@ -3,7 +3,7 @@ title: Deploy an application using the sequential-by-loadbalancer-group orchestr
 categories:
 - xl-deploy
 subject:
-- F5 BIG-IP plugin
+- F5 BIG-IP
 tags:
 - f5
 - big-ip

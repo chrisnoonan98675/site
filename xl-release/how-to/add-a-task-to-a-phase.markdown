@@ -13,10 +13,11 @@ tags:
 - release flow
 ---
 
-In a release or template, select **Release Flow** from the **Show** menu to go to the release flow editor. The release flow editor shows the phases and tasks in the release and allows you to add, move, edit, and delete them.
+In XL Release, the activities in a template or release are modeled as tasks, which are logically grouped in phases. To add a task to phase to a template or release, use the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html); it shows the phases and tasks in the release and allows you to add, move, edit, and delete them.
 
-Phases by themselves do not do very much; they are simply logical groupings of all activities in a release. The activities are modeled as _tasks_. To add a task to a phase:
+To add a task to a phase:
 
+1. In the template or release, select **Release Flow** from the **Show** menu.
 1. Click **Add task** at the bottom of the phase.
 
     ![New Phase](../images/add-task.png)
@@ -42,15 +43,15 @@ In a task:
 
 ## Add a task to a parallel or sequential group
 
-[Parallel groups](/xl-release/how-to/create-a-parallel-group.html) and [sequential groups](/xl-release/how-to/create-a-sequential-group.html) are containers for other tasks. 
+[Parallel Groups](/xl-release/how-to/create-a-parallel-group.html) and [Sequential Groups](/xl-release/how-to/create-a-sequential-group.html) are containers for other tasks. 
 
-Within a parallel group, all tasks are started simultaneously. The parallel group task finishes when all of its children are complete.
+Within a Parallel Group, all tasks are started simultaneously. The Parallel Group task finishes when all of its children are complete.
 
-Within a sequential group, tasks are executed in order. The sequential group task finishes when its last child is complete. The sequential group task is available in XL Release 5.0.0 and later.
+Within a Sequential Group, tasks are executed in order. The Sequential Group task finishes when its last child is complete. The Sequential Group task is available in XL Release 5.0.0 and later.
 
 To add a task to a task group, click **Add task** at the bottom of the group. To move a task into a task group, drag and drop it. To collapse or expand a task group, click its arrow.
 
-![Add parallel task](../images/add-parallel-task.png)
+![Add Parallel Group task](../images/add-parallel-task.png)
 
 ## Copy a task
 

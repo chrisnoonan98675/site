@@ -1,7 +1,7 @@
 ---
 title: Connect XL Deploy to your infrastructure
 subject:
-- Host
+- Remoting plugin
 categories:
 - xl-deploy
 tags:

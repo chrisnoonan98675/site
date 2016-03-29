@@ -3,7 +3,7 @@ title: Automatically run a control task according to a schedule
 categories:
 - xl-deploy
 subject:
-- System administration
+- Control task
 tags:
 - system administration
 - schedule

@@ -32,19 +32,19 @@ product-id: xl-deploy
 ### Java middleware plugins
 
 * [JBoss Application Server 5 and 6 plugin](/xl-deploy-jbossas-plugin/5.0.x/jbossPluginManual.html)
-* [JBoss Application Server 7 and up plugin](/xl-deploy-jbossdm-plugin/5.0.x/jbossDomainPluginManual.html)
-* [Oracle Service Bus plugin](/xl-deploy-osb-plugin/5.0.x/osbPluginManual.html)
-* [WebLogic Application Server plugin](/xl-deploy-wls-plugin/5.0.x/wlsPluginManual.html)
+* [JBoss Application Server 7 and up plugin](/xl-deploy-jbossdm-plugin/5.1.x/jbossDomainPluginManual.html)
+* [Oracle Service Bus plugin](/xl-deploy-osb-plugin/5.1.x/osbPluginManual.html)
+* [WebLogic Application Server plugin](/xl-deploy-wls-plugin/5.1.x/wlsPluginManual.html)
 * [WebSphere Application Server plugin](/xl-deploy-was-plugin/5.1.x/wasPluginManual.html)
-* [WebSphere Process Server plugin](/xl-deploy-wps-plugin/5.0.x/wpsPluginManual.html)
+* [WebSphere Process Server plugin](/xl-deploy-wps-plugin/5.1.x/wpsPluginManual.html)
 * [WebSphere Liberty Profile Server plugin](/xl-deploy-wlp-plugin/5.1.x/wlpPluginManual.html)
 * [Tomcat plugin](/xl-deploy-tomcat-plugin/5.0.x/tomcatPluginManual.html)
 * [GlassFish plugin](/xl-deploy-glassfish-plugin/5.0.x/glassfishPluginManual.html)
 
 ### .NET middleware plugins
 
-* [BizTalk plugin](/xl-deploy-biztalk-plugin/5.0.x/biztalkPluginManual.html)
-* [IIS plugin](/xl-deploy-iis-plugin/5.0.x/iisPluginManual.html)
+* [BizTalk plugin](/xl-deploy-biztalk-plugin/5.1.x/biztalkPluginManual.html)
+* [IIS plugin](/xl-deploy-iis-plugin/5.1.x/iisPluginManual.html)
 * [Windows plugin](/xl-deploy-windows-plugin/5.0.x/windowsPluginManual.html)
 
 ### Other middleware plugins
@@ -52,18 +52,19 @@ product-id: xl-deploy
 * [F5 BIG-IP plugin](/xl-deploy-bigip-plugin/5.0.x/bigipPluginManual.html)
 * [Database plugin (DB2, MS SQL, MySQL, Oracle)](databasePluginManual.html)
 * [Webserver plugin (Apache HTTP server)](webserverPluginManual.html)
-* [WebSphere MQ plugin](/xl-deploy-wmq-plugin/5.0.x/wmqPluginManual.html)
+* [WebSphere MQ plugin](/xl-deploy-wmq-plugin/5.1.x/wmqPluginManual.html)
 * [NetScaler plugin](/xl-deploy-netscaler-plugin/5.0.x/netscalerPluginManual.html)
 
 ### Tools
 
-* [XL Deploy Maven plugin](/xldeploy-maven-plugin/5.0.x/)
-* [XL Deploy Jenkins plugin](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
-* [XL Deploy Bamboo plugin](/bamboo-xl-deploy-plugin/5.0.x/bambooPluginManual.html)
-* [XL Deploy Puppet plugin](/xl-deploy-xld-puppet-plugin/5.1.x/puppetPluginManual.html)
-* [XL Deploy Chef plugin](/xl-deploy-xld-chef-plugin/5.1.x/chefPluginManual.html)
-* [XL Deploy Team Foundation Server plugin](/xl-deploy-tfs-plugin/5.0.x/tfsPluginManual.html)
-* [XL Deploy Manifest Editor (Windows only)](/xl-deploy-tfs-plugin/4.5.x/manifestEditorManual.html)
+* [XL Deploy plugin for Maven](/xldeploy-maven-plugin/5.1.x/)
+* [XL Deploy plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
+* [XL Deploy plugin for Bamboo](/bamboo-xl-deploy-plugin/5.1.x/bambooPluginManual.html)
+* [Puppet plugin for XL Deploy](/xl-deploy-xld-puppet-plugin/5.1.x/puppetPluginManual.html)
+* [Chef plugin for XL Deploy](/xl-deploy-xld-chef-plugin/5.1.x/chefPluginManual.html)
+* [XL Deploy plugin for Team Foundation Server](/xl-deploy-tfs-plugin/5.0.x/tfsPluginManual.html)
+* [XL Deploy plugin for Team Foundation Server 2015](/xl-deploy-vsts-xld-plugin/5.1.x/tfs2015PluginManual.html)
+* [XL Deploy Manifest Editor (Microsoft Windows only)](/xl-deploy/how-to/using-the-xl-deploy-manifest-editor.html)
 
 ### XL Scale
 

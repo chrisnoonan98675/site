@@ -3,6 +3,8 @@ title: XL Deploy 4.0.x documentation
 product-id: xl-deploy
 ---
 
+<div class="alert alert-warning" style="width: 60%">As of August 29, 2015, XL Deploy 4.0.x is <a href="https://support.xebialabs.com/hc/en-us/articles/206273075-XL-Deploy-4-0-is-no-longer-officially-supported">no longer officially supported</a>. Please <a href="https://support.xebialabs.com/hc/en-us" target="_new">contact us via our support site</a> if you have any questions.</div>
+
 ## Product documentation
 
 * [Start Here](starthere.html)

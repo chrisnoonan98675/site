@@ -9,7 +9,7 @@ tags:
 - task overview
 ---
 
-In XL Release, go to **Tasks** to see the list of active tasks that are assigned to you or to a team that you are in, grouped by release. Here, you can see the [status](/xl-release/concept/task-life-cycle.html) of each task, as well as any status flags that have been set.
+In XL Release, select **Tasks** from the top bar to see the list of active tasks that are assigned to you or to a team that you are in, grouped by release. Here, you can see the [status](/xl-release/concept/task-life-cycle.html) of each task, as well as any status flags that have been set.
 
 An orange triangle indicates an active task, and a clock icon indicates a pending task.
 

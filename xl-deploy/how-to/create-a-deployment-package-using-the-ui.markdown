@@ -1,5 +1,5 @@
 ---
-title: Create a deployment package using the XL Deploy UI
+title: Create a deployment package using the XL Deploy GUI
 subject:
 - Packaging
 categories:

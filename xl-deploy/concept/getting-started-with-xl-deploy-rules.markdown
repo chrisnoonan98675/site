@@ -19,9 +19,9 @@ When preparing a deployment, XL Deploy must determine which actions, or steps, t
 2. *Orchestration* determines the order in which deployments of the deployables should happen (serially, in parallel, or interleaved).
 3. *Planning* determines the specific steps that must be taken for the deployment of each deployable in the interleaved plan.
 
-XL Deploy's *rules* system works with the planning phase. Rules allow you to use XML or Jython to specify the steps that belong in a deployment plan and how the steps are configured.
+XL Deploy's *rules* system works with the [planning phase](/xl-deploy/concept/understanding-the-xl-deploy-planning-phase.html). Rules allow you to use XML or Jython to specify the steps that belong in a deployment plan and how the steps are configured.
 
-## Orchestration
+## Rules and orchestration
 
 [Orchestration](/xl-deploy/concept/understanding-orchestrators.html) is important in the planning of a deployment. Orchestration is not part of the planning phase itself; rather, it happens immediately before the planning phase and after the delta analysis phase, and its output is used as input for how planning is done.
  
@@ -39,7 +39,7 @@ Planning provides steps for an interleaved plan, and this is done by invoking ru
 
 A step is a concrete action that XL Deploy performs to accomplish a task, such as *delete a file* or *execute a PowerShell script*. The plugins that are installed on the XL Deploy server define several step types and may also define rules that contribute steps to the plan. If you define your own rules, you can reuse the step types defined by the plugins.
 
-You can also disable rules defined by the plugins.
+You can also [disable rules](/xl-deploy/how-to/disable-a-rule.html) defined by the plugins.
 
 Each step type is identified by a name. When you create a rule, you can add a step by referring to the step type's name. 
 
@@ -64,8 +64,8 @@ Rules are applied one after another, depending on the [scope](/xl-deploy/concept
 
 There are two types of rules:
 
-* **XML rules** allow you to define a rule using common conditions such as deployed types, operations, or the result of evaluating an expression. XML rules also allow you to define how a step must be instantiated by only writing XML.
-* **Script rules** allow you to express rule logic in a Jython script. You can provide the same conditions as you can in XML rules. Depending on the scope of a script rule, it has access to the deltas or to the delta specification and the planning context.
+* [XML rules](/xl-deploy/how-to/writing-xml-rules.html) allow you to define a rule using common conditions such as deployed types, operations, or the result of evaluating an expression. XML rules also allow you to define how a step must be instantiated by only writing XML.
+* [Script rules](/xl-deploy/how-to/writing-script-rules.html) allow you to express rule logic in a Jython script. You can provide the same conditions as you can in XML rules. Depending on the scope of a script rule, it has access to the deltas or to the delta specification and the planning context.
 
 The rule types are comparable in functionality. XML rules are more convenient because they define frequently used concepts in a simple way. Script steps are more powerful because they can include additional logic.
  

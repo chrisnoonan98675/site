@@ -47,6 +47,19 @@ The cron pattern is a list of six fields representing second, minute, hour, day,
 | Month | 1-12 or JAN-DEC | `, - * /` |
 | Day of the week | 1-7 or SUN-SAT | `, - * ?` |
 
+### Time zone for cron jobs
+
+In XL Release 4.7.0 and earlier, the time zone of the XL Release server is used for all cron jobs. In XL Release 4.8.0 and later, the default time zone for cron jobs is Coordinated Universal Time (UTC). To set a different time zone:
+
+1. Open `<XLRELEASE_SERVER_HOME>/conf/reference.conf`, or create the file if it does not exist.
+1. Set the `akka.quartz.defaultTimezone` property to the desired time zone. For example, to use Eastern Standard Time, set:
+
+        akka.quartz {
+            defaultTimezone = EST
+        }
+
+1. Save the file and restart XL Release.
+
 ### Special characters
 
 {:.table .table-striped}

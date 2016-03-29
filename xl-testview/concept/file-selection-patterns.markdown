@@ -10,11 +10,12 @@ tags:
 
 XL TestView uses file selection patterns to select test results files that should be imported as part of a [test run](/xl-testview/concept/key-concepts.html#test-runs). For example, the configuration of a test tool contains a `defaultSearchPattern` that is used as the initial value of the `searchPattern` property in *active* and *executable* [test specifications](/xl-testview/concept/key-concepts.html#test-specifications).
 
-To select files from a file system, XL TestView uses the same selection pattern as in the [Apache Ant](https://ant.apache.org/manual/dirtasks.html) build system. The following special characters are used:
+To select files from a file system, XL TestView uses the same selection pattern as in the [Apache Ant](https://ant.apache.org/manual/dirtasks.html) build system. Patterns are using Unix style path separators: `/`. The following special characters are used:
 
 {:.table .table-striped}
 | Special character | Meaning |
 | ----------------- | ------- |
+| `/` | Directory separator |
 | `?` | One character |
 | `*` | One or more characters |
 | `**` | Zero or more directories |
