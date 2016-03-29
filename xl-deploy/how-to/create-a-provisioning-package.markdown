@@ -5,9 +5,9 @@ since:
 - XL Deploy 5.5.0
 ---
 
-In XL Deploy, a provisioning package represents a specific version of a blueprint. It contains provisionables, which are the details that are needed to set up the environment. A provisionable can contain provisioners that define actions to take after the environment is set up.
+In XL Deploy, a *provisioning package* represents a specific version of a *blueprint*. The package contains *provisionables*, which define the settings that are needed to set up the environment. A provisionable can contain *provisioners* that define actions to take after the environment is set up.
 
-In addition to provisionables, a provisioning package can contain templates that define configuration items (CIs) that XL Deploy should create based on the results of the provisioners.
+In addition to provisionables, a provisioning package can contain *templates* that define the configuration items (CIs) that XL Deploy should create based on the results of the provisioners.
 
 To create a provisioning package:
 
@@ -24,14 +24,31 @@ To create a provisioning package:
 
 1. Click **Save**.
 
-## Import a provisioning package
+## Add a provisionable to a package
 
-***To be written***
+To add a provisionable to a provisioning package:
 
-## Create a provisionable
+1. Click **Repository** in the top bar.
+1. Expand **Blueprints**, then expand the desired blueprint to see its provisioning packages.
+1. Right-click the desired provisioning package, select **New**, then select the type of provisionable that you want to add. For example, to add an Amazon Web Services EC2 AMI, select **aws** > **ec2.ami**.
+1. Fill in the configuration for the provisionable.
+1. Click **Save**.
 
-***To be written***
+### Add a provisioner to a provisionable
 
-## Create a template
+To add a provisioner to a provisionable:
 
-***To be written***
+1. Click **Repository** in the top bar.
+1. Expand **Blueprints**, then expand the desired blueprint to see its provisioning packages.
+1. Expand the desired provisioning package to see its provisionables.
+1. Right-click the desired provisionable, select **New**, then select the type of provisioner that you want to add. For example, to add a Puppet manifest, select **Manifest**.
+1. Fill in the configuration for the provisioner.
+1. Click **Save**.
+
+## Add a template to a package
+
+To add a template to a provisioning package:
+
+1. Click **Repository** in the top bar.
+1. Expand **Blueprints**, then expand the desired blueprint to see its provisioning packages.
+1. Right-click the desired provisioning package and _________
