@@ -9,6 +9,8 @@ In XL Deploy, a *provisioning package* represents a specific version of a *bluep
 
 In addition to provisionables, a provisioning package can contain *templates* that define the configuration items (CIs) that XL Deploy should create based on the results of the provisioners.
 
+## Create a provisioning package
+
 To create a provisioning package:
 
 1. Click **Repository** in the top bar.
@@ -51,4 +53,10 @@ To add a template to a provisioning package:
 
 1. Click **Repository** in the top bar.
 1. Expand **Blueprints**, then expand the desired blueprint to see its provisioning packages.
-1. Right-click the desired provisioning package and _________
+1. Right-click the desired provisioning package, select **New** > **Template**, then select the type of template that you want to add. For example, if your provisioning package will result in the installation of an Apache Tomcat server, you can automatically create a Tomcat virtual host CI by selecting **tomcat.VirtualHost**.
+1. Fill in the configuration for the template.
+1. Click **Save**.
+
+## Next steps
+
+After you create a provisioning package and add provisionables, providers, and templates, you can [provision the package to an ecosystem](/xl-deploy/how-to/provision-a-package-to-an-ecosystem.html).

@@ -1,6 +1,6 @@
 ---
 layout: beta-noindex
-title: Provisioning environments with XL Deploy
+title: Provisioning ecosystems with XL Deploy
 since:
 - XL Deploy 5.5.0
 ---
@@ -20,7 +20,7 @@ Each blueprint contains *provisioning packages* that represent specific versions
 
 A provisionable can contain *provisioners* that define actions to take after the environment is set up, such as running a Puppet script to install Apache Tomcat.
 
-In addition to provisionables, a provisioning package can contain *templates*. Templates define configuration items (CIs) that XL Deploy should create based on the results of the provisioners. For example, after a Puppet script installs Apache Tomcat, XL Deploy can automatically create `overthere.SshHost`, `tomcat.Server`, and `tomcat.VirtualHost` CIs with the right properties, as well as an XL Deploy environment that contains them. This allows you to immediately use these CIs in deployments.
+In addition to provisionables, a provisioning package can contain *templates*. Templates define configuration items (CIs) that XL Deploy should create based on the results of the provisioners. For example, after a Puppet script installs Apache Tomcat, XL Deploy can automatically create `overthere.SshHost`, `tomcat.Server`, and `tomcat.VirtualHost` CIs with the right properties and assign them to an XL Deploy [environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html). This allows you to immediately use these CIs in deployments.
 
 In addition to blueprints and provisioning packages, you need to define *ecosystems*, which are logical groupings of *providers*. A provider is a set of credentials needed to connect to a cloud technology such as Amazon EC2.
 
@@ -28,7 +28,7 @@ When you map a provisioning package to an ecosystem, XL Deploy creates a *provis
 
 ## Provisioning example
 
-***Add an example with screenshots of the repository and a mapping***
+***TO DO: Add an example with screenshots of the repository and a mapping***
 
 ## Get started with provisioning
 
@@ -37,8 +37,9 @@ To get started with XL Deploy provisioning:
 1. [Upgrade to XL Deploy 5.5.0 or later](/xl-deploy/5.5.x/releasemanual.html).
 1. [Create a blueprint and a provisioning package](/xl-deploy/how-to/create-a-provisioning-package.html).
 1. [Create an ecosystem and a provider](/xl-deploy/how-to/create-an-ecosystem.html).
-1. [Provision the environment and deploy to it](/xl-deploy/how-to/provision-an-environment.html).
-1. [Deprovision the environment]().
+1. [Provision the environment](/xl-deploy/how-to/provision-an-ecosystem.html).
+1. [Deploy to the provisioned environment](/xl-deploy/how-to/deploy-to-a-provisioned-ecosystem.html).
+1. [Deprovision an ecosystem](/xl-deploy/how-to/deprovision-an-ecosystem.html).
 
 ## Limitations
 
