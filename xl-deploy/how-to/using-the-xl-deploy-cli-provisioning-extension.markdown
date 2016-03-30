@@ -140,13 +140,13 @@ PyList: []
 
 ## Step 7 Preview provisioning task
 
-Provisioning CLI allows you to preview the provisioning plan that XL Deploy generated based on the provisioning configuration. To view the plan, you can use the `preview` method of `provisioner` object as shown below.
+The CLI provisioning extension allows you to preview the provisioning plan that XL Deploy generated based on the provisioning configuration. To view the plan, you can use the `preview` method of `provisioner` object as shown below.
 
 {% highlight python %}
 task_preview = provisioner.preview(p)
 {% endhighlight %}
 
-You can also preview a step by passing it blockId and step number as shown below.
+You can also preview a step by passing it a blockId and step number as shown below.
 
 {% highlight python %}
 step_preview = provisioner.preview(p,"0_1_1_1","1")
