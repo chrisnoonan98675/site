@@ -58,6 +58,7 @@ You can then perform following operations using the `provisioner` object:
 provisioner.initial_provisioning()
 provisioner.validate()
 provisioner.provisioning_task()
+provisioner.preview()
 provisioner.deprovision()
 {% endhighlight %}
 
@@ -137,7 +138,21 @@ admin > p.validationErrors
 PyList: []
 {% endhighlight %}
 
-## Step 7 Invoke the provisioning task
+## Step 7 Preview provisioning task
+
+The CLI provisioning extension allows you to preview the provisioning plan that XL Deploy generated based on the provisioning configuration. To view the plan, you can use the `preview` method of `provisioner` object as shown below.
+
+{% highlight python %}
+task_preview = provisioner.preview(p)
+{% endhighlight %}
+
+You can also preview a step by passing it a blockId and step number as shown below.
+
+{% highlight python %}
+step_preview = provisioner.preview(p,"0_1_1_1","1")
+{% endhighlight %}
+
+## Step 8 Invoke the provisioning task
 
 After you perform the initial provisioning, you can request that XL Deploy create a provisioning task.
 
@@ -152,7 +167,7 @@ admin > task.id
 577c51e2-1225-41cb-9a6d-8f44829d407a
 {% endhighlight %}
 
-## Step 8 Start and wait for provisioning to finish
+## Step 9 Start and wait for provisioning to finish
 
 After the task is created, you can use the `deployit` object to start it and wait for it to finish.
 
@@ -162,7 +177,7 @@ deployit.startTaskAndWait(task.id)
 
 After the task finishes successfully, you will have a new environment provisioned.
 
-## Step 9 Deprovision the environment
+## Step 10 Deprovision the environment
 
 To deprovision the created environment, you can use the `deprovision` method, passing it the ID of the environment you want to deprovision. Thsi will destroy the environment and all related configuration items.
 
