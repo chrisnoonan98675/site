@@ -147,6 +147,8 @@ You can specify front matter options in any order. The keys *must* match the key
 | `no_breadcrumbs` ***NEW!*** | No | No | Lowercase | No | Set to `true` to prevent Jekyll from generating breadcrumbs in the topic. |
 | `list_in_sidebar` ***NEW!*** | No | No | Lowercase | No | Set to `true` to list the page in the site sidebar. |
 | `sidebar_weight` ***NEW!*** | No | No | Not applicable | No | Determines the page's position in the site sidebar. |
+| `placeholder` ***NEW!*** | No | No | Lowercase | No | Set to `true` if the page is a placeholder that should be redirected to versioned documentation. |
+| `destination` ***NEW!*** | No | No | Lowercase | No | URL that the placeholder page should redirect to (ignored unless `placeholder` is `true` |
 
 **Tip:** To see the tags and subjects that are in use, go to [https://docs.xebialabs.com/tags-and-subjects.html](https://docs.xebialabs.com/tags-and-subjects.html).
 

@@ -11,6 +11,10 @@
 	{% if page.no_index %}
 		<meta name="robots" content="noindex">
 	{% endif %}
+	{% if page.placeholder %}
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="refresh" content="0; url={{ page.destination }}" />
+	{% endif %}
 	
 	<link rel="icon" type="image/ico" href="/images/favicon.ico"/>
 
