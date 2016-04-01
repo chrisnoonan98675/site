@@ -25,7 +25,7 @@ To configure release properties:
 
     Release owners are automatically added to the Release Admin team when the release is created. This team has all [permissions](/xl-release/how-to/configure-permissions-for-a-release.html) on the release.
 
-1. In **Run scripts as user** and **Password**, enter the user name and password of the XL Release user account that should be used to execute scripts in this release.
+1. In **Run automated tasks as user** and **Password**, enter the user name and password of the XL Release user account that should be used to execute scripts in this release.
 1. If you want the release to be aborted when a task fails, select **Abort on failure**.
 1. Next to **Tags**, optionally add tags to the release to make it easier to find in the release overview.
 1. Optionally add attachments by clicking **Choose File** next to **Attachments**. To delete an attachment, click the **X** next to it.
