@@ -11,6 +11,6 @@ To do so, you need to add the middleware containers that result from the provisi
 
 After the environment is set up as desired, follow the instructions in [Deploy an application](/xl-deploy/how-to/deploy-an-application.html) to deploy an application to it.
 
-You can also [update](/xl-deploy/how-to/update-a-deployed-application.html) or [undeploy](/xl-deploy/how-to/undeploy-an-application.html) a deployed application.
+## Next steps
 
-***TO DO: Add an example***
+After you deploy an application to an ecosystem, you can [update the application to another version](/xl-deploy/how-to/update-a-deployed-application.html) or [undeploy it](/xl-deploy/how-to/undeploy-an-application.html).
