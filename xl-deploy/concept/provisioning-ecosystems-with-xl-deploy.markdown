@@ -26,10 +26,6 @@ In addition to blueprints and provisioning packages, you need to define *ecosyst
 
 When you map a provisioning package to an ecosystem, XL Deploy creates a *provisioned blueprint* that contains *provisioneds*. These are the actual properties, manifests, scripts, and so on that XL Deploy will use to provision the environment.
 
-## Provisioning example
-
-***TO DO: Add an example with screenshots of the repository and a mapping***
-
 ## Get started with provisioning
 
 To get started with XL Deploy provisioning:
