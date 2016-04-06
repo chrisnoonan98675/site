@@ -30,7 +30,7 @@ You can also optionally:
 
 If the server does not have the capacity to immediately start executing the plan, the plan will be in a QUEUED state until the server has sufficient capacity.
 
-If a step in the provisioning fails, XL Deploy stops executing the provisioning and marks the step as FAILED. Click the step to see information about the failure in the output log. 
+If a step in the provisioning fails, XL Deploy stops executing the provisioning and marks the step as FAILED. Click the step to see information about the failure in the output log.
 
 ## Provision an ecosystem using the CLI
 
@@ -40,4 +40,4 @@ For information about provisioning an ecosystem using the XL Deploy command-line
 
 After you provision an ecosystem using XL Deploy, you can [deploy an application to it](/xl-deploy/how-to/deploy-to-a-provisioned-ecosystem.html).
 
-You can also use XL Deploy to [deprovision an ecosystem](/xl-deploy/how-to/deprovision-an-environment.html).
+You can also use XL Deploy to [deprovision an ecosystem](/xl-deploy/how-to/deprovision-an-ecosystem.html).
