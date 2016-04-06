@@ -26,6 +26,8 @@ The options for the Start Release task are:
 | Wait at Gate task | An upcoming Gate task in the current release (optional) |
 | Variables | Variables from the template that must be filled in (if applicable) |
 
+**Note:** In order to succesfully start a release, the release which contains the task needs to be configured with an automated tasks user. The user needs to have `Create Release` permissions on the template which is specified in the Start Release task. See [how to configure release properties](/xl-release/how-to/configure-release-properties.markdown) on how to configure this user.
+
 When the new release starts, XL Release adds a [dependency](/xl-release/how-to/create-a-gate-task.html#dependencies) to the Gate task selected in **Wait at Gate task**. This allows you for example to start a subrelease from the main release and then have the main release wait for the subrelease to finish. If you do not select a Gate task, then the main release will proceed normally while the subrelease runs.
 
 The example above shows a task that will create and start a new release based on the "Front office services release template" template. The new release's title will be "Release front office services 2.1", and the value of the template variable `version` will be set to 2.1.
