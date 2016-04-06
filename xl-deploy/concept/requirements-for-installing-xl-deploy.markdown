@@ -16,7 +16,9 @@ tags:
 
 To [install](/xl-deploy/how-to/install-xl-deploy.html) the XL Deploy server, you must meet the following requirements:
 
-* **XL Deploy license:** If you are using a paid edition of XL Deploy, you can download your [license](/xl-deploy/concept/xl-deploy-licensing.html) from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com)
+* **XL Deploy [license](/xl-deploy/concept/xl-deploy-licensing.html):**
+    * If you are using a paid edition of XL Deploy, you can download your license from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com)
+    * If you are using a free trial edition of XL Deploy, your license will be sent to you by email
 
 * **Operating system:** Microsoft Windows (32-bit or 64-bit) or a Unix-family operating system running Java
 
@@ -30,7 +32,7 @@ To [install](/xl-deploy/how-to/install-xl-deploy.html) the XL Deploy server, you
 
 * **Hard disk space:** Sufficient hard disk space to store the XL Deploy repository; see [Determining hard disk space requirements](#determining-hard-disk-space-requirements)
 
-Depending on the environment, the following may also be required: 
+Depending on the environment, the following may also be required:
 
 * **Database:** XL Deploy's Jackrabbit repository supports a number of different databases; for more information, see [Configure the XL Deploy repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html)
 
