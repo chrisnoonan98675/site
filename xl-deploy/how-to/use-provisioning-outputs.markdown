@@ -5,11 +5,9 @@ since:
 - XL Deploy 5.5.0
 ---
 
-In XL Deploy, a [*provisioning package*](/xl-deploy/how-to/create-a-provisioning-package.html) represents a specific version of a *blueprint*. The package contains *provisionables*, which define the settings that are needed to set up the environment. A provisionable can contain *provisioners* that define actions to take after the environment is set up.
+In XL Deploy, a [*provisioning package*](/xl-deploy/how-to/create-a-provisioning-package.html) represents a specific version of a *blueprint*. The package contains *provisionables*, which define the settings that are needed to set up the environment. A provisionable can contain *provisioners* that define actions to take after the environment is set up. In addition to provisionables, a provisioning package can contain *templates* that define the configuration items (CIs) that XL Deploy should create based on the results of the provisioners.
 
-In addition to provisionables, a provisioning package can contain *templates* that define the configuration items (CIs) that XL Deploy should create based on the results of the provisioners.
-
-Some provisionables have *output properties* that XL Deploy will populate after provisioning is complete. For example, after you provision an Amazon EC2 AMI, the `aws.ec2.InstanceSpec` configuration item (CI) will contain its instance ID, public IP address, and public host name. You can see these values on the **Output** tab of the CI.
+Some provisionables have *output properties* that XL Deploy will populate after provisioning is complete. For example, after you provision an [Amazon Elastic Compute Cloud (EC2)](https://aws.amazon.com/ec2/) AMI, the `aws.ec2.InstanceSpec` configuration item (CI) will contain its instance ID, public IP address, and public host name. You can see these values on the **Output** tab of the CI.
 
 To refer to these output properties in templates and dictionaries, you use output property placeholders. The format for these placeholders is `{% raw %}{{% ... %}}{% endraw %}`.
 
@@ -17,9 +15,7 @@ To refer to these output properties in templates and dictionaries, you use outpu
 
 ## Sample provisioning output usage
 
-Assume that you want to provision an Amazon EC2 AMI and then apply a [Puppet manifest](https://puppetlabs.com/) to it. The Puppet manifest requires a host, but you will not know the host's address until the AMI is provisioned.
-
-To use a placeholder for the host address:
+Assume that you want to provision an Amazon EC2 AMI and then apply a [Puppet manifest](https://puppetlabs.com/) to it. The Puppet manifest requires a host, but you will not know the host's address until the AMI is provisioned, so you need to use a placeholder for it:
 
 1. Click **Repository** in the top bar.
 1. Expand **Blueprints**, then expand the desired blueprint.
@@ -29,4 +25,6 @@ To use a placeholder for the host address:
 
     **Tip:** You can define Puppet modules on the Puppet manifest by right-clicking the `puppet.Manifest` CI that you created and selecting **New** > **ModuleSpec**.
 
-1. [Provision the provisioning package to an ecosystem](/xl-deploy/how-to/provision-a-package-to-an-ecosystem.html) that contains an Amazon EC2 [provider](/xl-deploy/how-to/create-a-provider.html). XL Deploy will create an `overthere.SshHost` CI based on the template that you created. Its address will be the public host name of the provisioned AMI.
+1. [Provision the provisioning package to an ecosystem](/xl-deploy/how-to/provision-a-package-to-an-ecosystem.html) that contains an Amazon EC2 [provider](/xl-deploy/how-to/create-a-provider.html). During provisioning, XL Deploy will create an SSH host, using the public host name of the provisioned AMI as its address.
+
+You could also have XL Deploy save the SSH host as an `overthere.SshHost` CI in its repository by adding the `template.overthere.SshHost` CI to the list of **Bound Templates** on the provisioning package or on a provisionable. Bound templates selected in a provisioning package are automatically added to an [XL Deploy environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html) that you specify.
