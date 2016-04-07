@@ -19,7 +19,7 @@ This topic describes the release summary page as it appears in XL Release 4.8.x 
 
 The **Timeline** section shows a timeline of the release. The complete timeline appears in orange, with lines indicating the phases within it. The current phase and currently active tasks appear below the timeline.
 
-![Release Summary Timeline](../images/summary-timeline.png)
+![Release Summary Timeline](../images/summary-timeline-4.8.png)
 
 The timeline start and end dates appear as follows:
 
@@ -37,13 +37,13 @@ If other releases depend on this release, then they appear below the release in 
 
 The **Task overview** section shows upcoming tasks, tasks that are currently active, and tasks that need to be done. You can view the task overview for teams or for users.
 
-![Release Summary Task overview](../images/summary-tasks.png)
+![Release Summary Task overview](../images/summary-tasks-4.8.png)
 
 ## Alerts
 
 The **Alerts** section shows release warnings.
 
-![Release Summary Task overview](../images/summary-alerts.png)
+![Release Summary Task overview](../images/summary-alerts-4.8.png)
 
 There are several types of warnings:
 
