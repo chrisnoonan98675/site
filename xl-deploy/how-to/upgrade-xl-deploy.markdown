@@ -14,13 +14,13 @@ Briefly, the process of upgrading XL Deploy is:
 
 1. Obtain a new version of the XL Deploy software and, if necessary, a new license from [XebiaLabs](https://dist.xebialabs.com/).
 1. Read the [release manual](/xl-deploy/latest/releasemanual.html) so you are aware of the new functionality and possible upgrade considerations.
-1. Stop the current version of XL Deploy if it is running and ensure that there are no running tasks active.
+1. Stop the current version of XL Deploy if it is running and ensure that there are no active tasks.
 1. Extract the new XL Deploy release into a directory for the new version of XL Deploy (so the old version will still be available in case of problems).
 1. Copy data from the old installation directory to the new installation directory. This ensures that you have a backup of your repository.
 1. Redo custom changes that you made to configuration files and startup scripts.
 1. Start the new version of XL Deploy.
 
-You can find release notes and version-specific upgrade notes on the page for each version; for example, [XL Deploy 4.5.x](/xl-deploy/4.5.x/).
+You can find release notes and version-specific upgrade notes on the page for each version; for example, [XL Deploy 5.1.x](/xl-deploy/5.1.x/).
 
 ## About upgrading
 
@@ -68,13 +68,15 @@ To upgrade an XL Deploy server installation:
 
 1. Extract the server archive. It creates an installation directory called, for example, `xl-deploy-5.1.0-server`.
 
+1. Log in to XL Deploy as an administrator, click the gear icon and select **Task Monitor**, then select **All Tasks**. If there are any failing or failed tasks, cancel them. If there are any executing tasks, wait for them to complete or cancel them. To open a task from the Task Monitor, double-click it.
+
 1. [Shut down](/xl-deploy/how-to/shut-down-xl-deploy.html) the XL Deploy server.
 
 1. Copy the `repository` directory from the old installation directory to the new installation directory.
 
 1. Copy the contents of the `importablePackages` directory from the old installation directory to the new installation directory.
 
-1. Copy the contents of the `plugins` directory from the old installation directory to the new installation directory (unless new versions of your plugins were provided with the new XL Deploy version). 
+1. Copy the contents of the `plugins` directory from the old installation directory to the new installation directory (unless new versions of your plugins were provided with the new XL Deploy version).
 
     **Tip:** Check the [release manual](/xl-deploy/latest/releasemanual.html) for information about plugin incompatibility.
 
