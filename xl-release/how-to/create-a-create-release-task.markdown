@@ -43,5 +43,5 @@ The example above shows a task that will create and start a new release based on
 The new release's title will be "Release front office services 2.1", and the value of the template variable `version` will be bound 
 to the release variable `frontOfficeVersion`.
 
-When the "Release front office services 2.1" release is created, XL Release will put value of the created releaes ID into variable `frontOfficeVersion`.
+When the "Release front office services 2.1" release is created, XL Release will put value of the created release ID into variable `frontOfficeVersion`.
 You can configure a [gate task](/xl-release/how-to/create-a-gate-task.html) to wait until this release is finished or use it like any other text variable.
