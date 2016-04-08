@@ -6,7 +6,6 @@ subject:
 - System administration
 tags:
 - system administration
-- cli
 - schedule
 - repository
 - purge

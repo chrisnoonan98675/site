@@ -182,11 +182,27 @@ If you answer `yes`, the setup wizard will start XL Deploy and show the URL wher
 
 **Tip:** For information about starting XL Deploy in the future, refer to [Start XL Deploy](/xl-deploy/how-to/start-xl-deploy.html).
 
+## XL Deploy server directory structure
+
+After you install XL Deploy, it will have the following directory structure:
+
+* `bin`: Contains the server binaries
+* `conf`: Contains server configuration files and the XL Deploy license
+* `doc`: Contains the XL Deploy product documentation
+* `ext`: Contains server extensions
+* `hotfix`: Contains hotfixes (XL Deploy 4.5.x and earlier only)
+* `hotfix/lib`: Contains hotfixes that fix issues with the server software (XL Deploy 5.0.0 and later)
+* `hotfix/plugins`: Contains hotfixes that fix issues with the plugin software (XL Deploy 5.0.0 and later)
+* `importablePackages`: Default location for importable deployment packages
+* `lib`: Contains libraries that the server needs
+* `log`: Contains server log files (this directory is only present once you have started XL Deploy server)
+* `plugins`: Contains XL Deploy middleware plugins
+* `recovery.dat`: Stores tasks that are in progress for recovery purposes (this file is only present after you have started XL Deploy server)
+* `samples`: Contains sample plugins and configuration snippets
+
 ## Automatically install XL Deploy with default values
 
-You can automate the installation of XL Deploy with a set of default values that you save in a file. This is useful, for example, when setting up XL Deploy using a tool such as Puppet or Ansible.
-
-To install XL Deploy, use the following commands:
+You can automate the installation of XL Deploy with a set of default values that you save in a file. This is useful, for example, when setting up XL Deploy using a tool such as Puppet or Ansible. To install XL Deploy, use the following command:
 
     bin/run.sh -setup -reinitialize -force -setup-defaults /path/to/deployit.conf
 

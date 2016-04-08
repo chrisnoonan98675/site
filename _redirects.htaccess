@@ -1,5 +1,5 @@
 # For information about this file, see _plugins/pageless_redirects.rb
- 
+
 # IN-PRODUCT LINKS
 
 # XL Release in-product links
@@ -60,7 +60,7 @@ Redirect 301 /xl-testview/help/0010.html /xl-testview/concept/supported-test-too
 Redirect 301 /xl-testview/help/0011.html /xl-testview/concept/file-selection-patterns.html
 Redirect 301 /xl-testview/help/0012.html /xl-deploy/how-to/choose-an-overthere-host-type-and-connection-type.html
 Redirect 301 /xl-testview/help/0013.html /xl-testview/how-to/using-dashboards.html
- 
+
 # Old XL Test in-product links
 
 Redirect 301 /xl-test/support-request.html https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=30145
@@ -80,7 +80,7 @@ Redirect 301 /xl-test/help/0012.html /xl-deploy/how-to/choose-an-overthere-host-
 Redirect 301 /xl-test/help/0013.html /xl-testview/how-to/using-dashboards.html
 
 # TOPICS THAT HAVE BEEN RENAMED, MOVED, OR MERGED
- 
+
 # XL Deploy topics
 
 Redirect 301 /xl-deploy/how-to/perform-an-update.html /xl-deploy/how-to/update-a-deployed-application.html
@@ -152,6 +152,9 @@ Redirect 301 /xl-deploy/how-to/deploy-your-first-application-on-websphere-4.5.ht
 Redirect 301 /xl-deploy/how-to/deploy-your-first-application-on-wildfly-4.5.html /xl-deploy/how-to/deploy-your-first-application-on-wildfly.html
 Redirect 301 /xl-deploy/concept/the-deployment-process-from-package-to-deployment.html /xl-deploy/concept/deployment-overview-and-unified-deployment-model.html
 Redirect 301 /xl-deploy/concept/variables-available-in-freemarker-templates /xl-deploy/how-to/using-variables-and-expressions-in-freemarker-templates.html
+Redirect 301 /xl-deploy/how-to/troubleshoot-the-xl-deploy-cli.html /xl-deploy/how-to/using-the-xl-deploy-cli.html
+Redirect 301 /xl-deploy/how-to/extend-the-xl-deploy-cli.html /xl-deploy/how-to/using-the-xl-deploy-cli.html
+Redirect 301 http://localhost:4000/xl-deploy/concept/xl-deploy-directory-structure.html /xl-deploy/how-to/install-xl-deploy.html
 
 # XL Release topics
 
@@ -239,7 +242,7 @@ Redirect 301 /development-dashboard/xl-deploy-dashboard.html /tracker/xl-deploy-
 Redirect 301 /development-dashboard/xl-release-dashboard.html /tracker/xl-release-tracker.html
 Redirect 301 /development-dashboard/xl-testview-dashboard.html /tracker/xl-testview-tracker.html
 Redirect 301 /development-dashboard/xl-test-dashboard.html /tracker/xl-testview-tracker.html
- 
+
 # LEGACY PAGES THAT ARE NO LONGER USED
 
 Redirect 301 /product-version.html#/deployit/3.9.x/index.html /xl-deploy/3.9.x/index.html
