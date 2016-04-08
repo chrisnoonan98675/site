@@ -154,7 +154,7 @@ Redirect 301 /xl-deploy/concept/the-deployment-process-from-package-to-deploymen
 Redirect 301 /xl-deploy/concept/variables-available-in-freemarker-templates /xl-deploy/how-to/using-variables-and-expressions-in-freemarker-templates.html
 Redirect 301 /xl-deploy/how-to/troubleshoot-the-xl-deploy-cli.html /xl-deploy/how-to/using-the-xl-deploy-cli.html
 Redirect 301 /xl-deploy/how-to/extend-the-xl-deploy-cli.html /xl-deploy/how-to/using-the-xl-deploy-cli.html
-Redirect 301 http://localhost:4000/xl-deploy/concept/xl-deploy-directory-structure.html /xl-deploy/how-to/install-xl-deploy.html
+Redirect 301 /xl-deploy/concept/xl-deploy-directory-structure.html /xl-deploy/how-to/install-xl-deploy.html
 
 # XL Release topics
 
