@@ -22,6 +22,8 @@ To provision an ecosystem using the XL Deploy GUI:
 
 1. Click **Execute** to immediately start the provisioning.
 
+    ![Provision an ecosystem](images/provisioning-provision-an-ecosystem.png)
+
 You can also optionally:
 
 * View or edit the properties of a mapped provisioned by double-clicking it.

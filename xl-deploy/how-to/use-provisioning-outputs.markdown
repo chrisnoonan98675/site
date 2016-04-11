@@ -23,6 +23,9 @@ Say you want to provision an Amazon EC2 AMI and then apply a [Puppet manifest](h
 1. Expand **Blueprints**, then expand the desired blueprint.
 1. Right-click the desired provisioning package and select **New** > **aws** > **ec2.InstanceSpec** to create an `aws.ec2.InstanceSpec` provisionable. Fill in the required properties and save the CI.
 1. Right-click the provisioning package and select **New** > **template** > **overethere.SshHost** to create a `template.overthere.SshHost` template. Fill in the required properties, setting the **Address** property to `{% raw %}{{%publicHostname%}}{% endraw %}`. Save the CI.
+
+    ![Sample template with contextual placeholder](images/provisioning-create-new-template.png)
+
 1. Right-click the `aws.ec2.InstanceSpec` CI and select **New** > **Manifest** to create a `puppet.Manifest` provisioner. Fill in the required properties, setting the **Host Template** property to the `template.overthere.SshHost` CI that you created. Save the CI.
 
     **Tip:** You can define Puppet modules on the manifest by right-clicking the `puppet.Manifest` CI that you created and selecting **New** > **ModuleSpec**.

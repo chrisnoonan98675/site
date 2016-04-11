@@ -14,6 +14,9 @@ To create an ecosystem:
 1. In the **Name** box, enter a unique name for the ecosystem.
 1. Under **Providers**, select one or more providers and click ![Right arrow button](/images/button_add_container.png) to move them to the **Members** list.
 1. Under **Dictionaries**, select one or more dictionaries and click ![Right arrow button](/images/button_add_container.png) to move them to the **Members** list.
+
+   ![Create an ecosystem](images/provisioning-create-new-ecosystem.png)
+
 1. Click **Save**.
 
 ## Next steps

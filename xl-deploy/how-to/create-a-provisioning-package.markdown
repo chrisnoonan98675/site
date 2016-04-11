@@ -17,12 +17,17 @@ To create a provisioning package:
 1. If the blueprint does not exist yet:
     1. Right-click **Blueprints** and select **New** > **Blueprint**.
     1. In the **Name** box, enter a unique name for the blueprint.
+
+        ![Create new blueprint](images/provisioning-create-new-blueprint.png)
+
     1. Click **Save**.
 1. Right-click the blueprint that you just created and select **New** > **Provisioning Package**.
 1. In the **Name** box, enter a unique name for the provisioning package.
 1. In the **Environment Id** box, enter an XL Deploy environment that should contain the CIs that XL Deploy creates based on the templates in the package.
 
     For example, a package could contain templates that create `overthere.SshHost`, `tomcat.Server`, and `tomcat.VirtualHost` CIs. XL Deploy can assign these CIs to an environment so you can immediately use them in a deployment.
+
+    ![Create new provisioning package](images/provisioning-create-new-provisioning-package.png)
 
 1. Click **Save**.
 
@@ -32,8 +37,11 @@ To add a provisionable to a provisioning package:
 
 1. Click **Repository** in the top bar.
 1. Expand **Blueprints**, then expand the desired blueprint to see its provisioning packages.
-1. Right-click the desired provisioning package, select **New**, then select the type of provisionable that you want to add. For example, to add an Amazon Web Services EC2 AMI, select **aws** > **ec2.ami**.
+1. Right-click the desired provisioning package, select **New**, then select the type of provisionable that you want to add. For example, to add an Amazon Web Services EC2 AMI, select **aws** > **ec2.InstanceSpec**.
 1. Fill in the configuration for the provisionable.
+
+    ![Create new provisionable (aws.ec2.InstanceSpec)](images/provisioning-create-new-provisionable.png)
+
 1. Click **Save**.
 
 ### Add a provisioner to a provisionable
@@ -45,6 +53,9 @@ To add a provisioner to a provisionable:
 1. Expand the desired provisioning package to see its provisionables.
 1. Right-click the desired provisionable, select **New**, then select the type of provisioner that you want to add. For example, to add a Puppet manifest, select **Manifest**.
 1. Fill in the configuration for the provisioner.
+
+    ![Create new provisioner (puppet.Manifest)](images/provisioning-create-new-provisioner.png)
+
 1. Click **Save**.
 
 ## Add a template to a package
@@ -55,6 +66,9 @@ To add a template to a provisioning package:
 1. Expand **Blueprints**, then expand the desired blueprint to see its provisioning packages.
 1. Right-click the desired provisioning package, select **New** > **Template**, then select the type of template that you want to add. For example, if your provisioning package will result in the installation of an Apache Tomcat server, you can automatically create a Tomcat virtual host CI by selecting **tomcat.VirtualHost**.
 1. Fill in the configuration for the template.
+
+    ![Create new template (template.overthere.SshHost)](images/provisioning-create-new-template.png)
+
 1. Click **Save**.
 
 ## Next steps
