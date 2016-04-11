@@ -15,6 +15,8 @@ To see an overview of important information about a template or release, select 
 
 In XL Release 5.0.0 and later, the release summary is a customizable dashboard. You can add, configure, move, and remove tiles that show planning information and details about the release status. For information about the tiles that are available, refer to [Overview of release summary tiles](/xl-release/concept/release-summary-tiles.html).
 
+![Release summary](../images/release-summary.png)
+
 ## Add a tile to the release summary
 
 To add a tile to the release summary:
