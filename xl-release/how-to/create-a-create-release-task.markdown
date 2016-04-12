@@ -33,4 +33,4 @@ When the new release is created, XL Release stores its ID in the Create Release 
 
 If you do not set **Created release ID** to a variable, then the release will proceed normally, but you will not be able to refer to the created release in other tasks.
 
-The example above shows a task that will create and start a new release based on the "Front office services release template" template. The new release's title will be "Release front office services 2.1", and the value of the template variable `version` will be bound to the release variable `frontOfficeVersion`. When the "Release front office services 2.1" release is created, XL Release will store its ID in the `frontOfficeServiceReleaseId` variable.
+The example above shows a task that will create and start a new release based on the "Front office services release template" template. The new release's title will be "Release front office services 2.1", and the value of the `${version}` template variable will be set to "2.1". When the "Release front office services 2.1" release is created, XL Release will store its unique ID in the `${frontOfficeServiceReleaseId}` variable.
