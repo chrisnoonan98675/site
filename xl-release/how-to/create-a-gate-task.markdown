@@ -37,4 +37,8 @@ When the Gate contains dependencies and no conditions, it completes _automatical
 
 When a dependent task or release fails, the Gate does not fail. It waits until the release is restarted and the task is completed or skipped. A Gate fails if a release it depends on is aborted.
 
-Since XL Release 5.0 you can also use variables instead of direct release dependencies by clicking on the "Switch to variables" button. There you can select a variable of type Text. When the Gate starts, XL Release will search for a release, phase or task by the ID given in the corresponding variable value. If the ID is valid, then the variable dependency will be replaced by a normal dependency and will proceed as usual. If the ID is not valid, does not exist or is empty, then the Gate will fail. This feature can be useful also in combination with [create release task](/xl-release/how-to/create-a-create-release-task.html).
+### Using variables in dependencies
+
+In XL Release 5.0.0 and later, you can use variables instead of direct release dependencies by clicking ![Switch to variable](/images/button_switch_to_variable.png) and selecting a variable of type *text*. XL Release will search for a release, phase, or task with the ID stored in the variable. If the ID is valid, then the variable dependency will be replaced with a normal dependency and the release will proceed as usual. If the ID is not valid, does not exist, or is empty, then the Gate task will fail.
+
+You can use this feature in combination with the [Create Release task](/xl-release/how-to/create-a-create-release-task.html) to start a release and require the initial release to wait at the Gate until the new release is compete.

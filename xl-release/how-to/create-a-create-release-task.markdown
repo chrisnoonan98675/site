@@ -7,7 +7,6 @@ subject:
 tags:
 - task
 - create release
-- start release
 - subrelease
 since:
 - XL Release 5.0.0
@@ -28,20 +27,10 @@ The options for the Create Release task are:
 | Variables                    | Variables from the template that must be filled in (if applicable)            |
 | Created release ID           | Output property bound to the variable that contains ID of the created release |
 
-**Note:** In order to successfully create a release, the release which contains the task needs to be configured with an automated tasks user. 
-The user needs to have `Create Release` permissions on the template which is specified in the Create Release task. 
-See [how to configure release properties](/xl-release/how-to/configure-release-properties.html) on how to configure this user.
+**Note:** To create a release, the release that contains the Create Release task must be configured with an automated tasks user who has the [*Create Release* permission](/xl-release/how-to/configure-permissions.html) on the template that is specified in the Create Release task. For information about configuring the automated tasks user, refer to [Configure release properties](/xl-release/how-to/configure-release-properties.html).
 
-When the new release is created, XL Release stores the ID of the created release into the `Created release ID` output property. 
-This allows you for example to create and start a release from the main release and then wait for the started release to finish in a 
-[gate task](/xl-release/how-to/create-a-gate-task.html).
+When the new release is created, XL Release stores its ID in the Create Release task's **Created release ID** output property. If you configure this property to be a variable, then you can use the variable in other tasks. For example, you can use the variable in a [Gate task](/xl-release/how-to/create-a-gate-task.html) so the initial release will wait at the Gate until the new release is complete.
 
-If you do not select variable in the Created release ID field, then the main release will proceed normally but you will not be able to reference it later 
-in the release.
+If you do not set **Created release ID** to a variable, then the release will proceed normally, but you will not be able to refer to the created release in other tasks.
 
-The example above shows a task that will create and start a new release based on the "Front office services release template" template. 
-The new release's title will be "Release front office services 2.1", and the value of the template variable `version` will be bound 
-to the release variable `frontOfficeVersion`.
-
-When the "Release front office services 2.1" release is created, XL Release will put value of the created release ID into variable `frontOfficeVersion`.
-You can configure a [gate task](/xl-release/how-to/create-a-gate-task.html) to wait until this release is finished or use it like any other text variable.
+The example above shows a task that will create and start a new release based on the "Front office services release template" template. The new release's title will be "Release front office services 2.1", and the value of the template variable `version` will be bound to the release variable `frontOfficeVersion`. When the "Release front office services 2.1" release is created, XL Release will store its ID in the `frontOfficeServiceReleaseId` variable.
