@@ -72,11 +72,11 @@ All tasks that the handler creates or skips are assigned to the handler's design
 
 To use the handler in a release, you add an "onFailure" phase (usually at the end of the release) and add any desired cleanup tasks to that phase.
 
-![onFailure phase](../images/on-failure-handler/on-failure-handler-onFailure-phase.png)
+![onFailure phase](../images/failure-handler/failure-handler-onFailure-phase.png)
 
 It is recommended that you ensure that the cleanup tasks are not inadvertently executed if the release does not fail by adding them to a group in the onFailure phase that checks the `releaseFailed` variable in a precondition.
 
-![onFailure precondition](../images/on-failure-handler/on-failure-handler-onFailure-phase-precondition.png)
+![onFailure precondition](../images/failure-handler/failure-handler-onFailure-phase-precondition.png)
 
 ## Configure the failure handler in XL Release
 
@@ -84,11 +84,11 @@ To add the failure handler to your XL Release installation:
 
 1. Log in to XL Release and create an internal user called `onFailure_user`. This user only requires sufficient permissions to modify the releases on which it will be invoked.
 
-    ![onFailure_user user](../images/on-failure-handler/on-failure-handler-user.png)
+    ![onFailure_user user](../images/failure-handler/failure-handler-user.png)
 
-    ![onFailure_user role](../images/on-failure-handler/on-failure-handler-role.png)
+    ![onFailure_user role](../images/failure-handler/failure-handler-role.png)
 
-    ![onFailure_user permission](../images/on-failure-handler/on-failure-handler-permission.png)
+    ![onFailure_user permission](../images/failure-handler/failure-handler-permission.png)
 
 1. Stop the XL Release server.
 
@@ -104,13 +104,13 @@ To add the failure handler to your XL Release installation:
 
 1. Add a [custom password property](/xl-release/how-to/changing-passwords-in-xl-release.html#configure-custom-passwords) `onFailureHandler.password` to `XLRELEASE_SERVER_HOME/conf/xl-release-server.conf`. Set its value to the password of the `onFailure_user` user that you created. This value will be securely encrypted when the server starts.
 
-    ![onFailure password](../images/on-failure-handler/on-failure-handler-custom-password.png)
+    ![onFailure password](../images/failure-handler/failure-handler-custom-password.png)
 
 1. Start the XL Release server.
 
 1. Add a [global variable](/xl-release/how-to/configure-global-variables.html) called `${global.onFailureHandlerPath}`. Set its value to the path of the custom endpoint. The default value in the endpoint definition is `/api/extension/on-failure`.
 
-    ![onFailure variable](../images/on-failure-handler/on-failure-handler-variable.png)
+    ![onFailure variable](../images/failure-handler/failure-handler-variable.png)
 
 Now, if you create a release with an "onFailure" phase, the handler will trigger if one of the tasks fails. The release will skip the failed and remaining tasks and go to the first task in the onFailure phase.
 
@@ -118,15 +118,15 @@ Now, if you create a release with an "onFailure" phase, the handler will trigger
 
 You can download [this sample template](https://gist.github.com/xlcommunity/93b63a414df15798fd2d/raw/5b89898382399c5ed78c36f192f9143ae5b4593d/sample-template.xlr) to try the handler.
 
-![](../images/on-failure-handler/on-failure-handler-sample-template-01.png)
+![](../images/failure-handler/failure-handler-sample-template-01.png)
 
 When you create a new release from this template, the indicated tasks should fail, upon which the handler will kick in and cause the release to "jump" to the conditional group in the last phase.
 
-![](../images/on-failure-handler/on-failure-handler-sample-template-02.png)
+![](../images/failure-handler/failure-handler-sample-template-02.png)
 
 Note that the skipped tasks are all assigned to `onFailure_user`. In a release in which no tasks fail, the conditional group in the onFailure phase means that the tasks are simply ignored.
 
-![](../images/on-failure-handler/on-failure-handler-sample-template-03.png)
+![](../images/failure-handler/failure-handler-sample-template-03.png)
 
 ## Logging for the event listener and endpoint
 
