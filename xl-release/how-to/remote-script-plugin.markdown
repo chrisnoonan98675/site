@@ -35,7 +35,7 @@ The following properties are common to all Remote Script task types:
 * **Temporary Directory Path**: Where to store temp files. This directory will be removed on connection close
 
 #### Remote host connection
-* **Jumpstation**: Which of the configured jumpstations to use, if any. See [Configuring an SSH Jumpstation](configure-a-jumpstation.html) for details.
+* **Jumpstation**: Which of the configured SSH jumpstations or HTTP proxies to use, if any. See [Configuring a jumpstation](configure-a-jumpstation.html) for details.
 * **Address** and **Port**: Address and SSH port (or Telnet or WinRM port for Windows) of the remote host (required)
 * **Connection type**: The SSH connection type to use:
     - For **UNIX** this can be one of: SCP, SFTP, SU, SUDO, INTERACTIVE_SUDO, SFTP_CYGWIN, SFTP_WINSSHD.
@@ -78,7 +78,6 @@ The following properties are available in the **Remote Script: Windows** task ty
 * **Windows path to Windows share mappings**: Mapping from Windows paths to Windows share names, e.g. C:\IBM\WebSphere -> WebSphereShare
 * **Timeout**: The WinRM timeout in [XML schema duration format](http://www.w3.org/TR/xmlschema-2/#isoformats); the default value is `PT60.000S`
 * **Enable HTTPS for WinRM**: Check this if the remote Windows host supports encypted connections
-* **Winrs proxy**: Where to run the `winrs` command (only on WINRM_NATIVE connection type)
 
 
 ## Unleashing the full power of Overthere
