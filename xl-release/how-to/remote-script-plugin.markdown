@@ -11,7 +11,7 @@ tags:
 - connectivity
 ---
 
-The XL Release Remote Script plugin allows XL Release to execute commands on remote hosts. It does so by using the [Overthere](https://github.com/xebialabs/overthere) framework, Java library for manipulating files and executing processes on remote hosts.
+The XL Release Remote Script plugin allows XL Release to execute commands on remote hosts. It does so by using the [Overthere](https://github.com/xebialabs/overthere) framework, a Java library for manipulating files and executing processes on remote hosts.
 
 The Remote Script plugin includes four task types:
 
@@ -22,72 +22,123 @@ The Remote Script plugin includes four task types:
 
 ## Features
 
-* Execute shell scripts on Unix, z/OS or Microsoft Windows (via Cygwin or WinSSHD) hosts
+* Execute shell scripts on Unix, z/OS, or Microsoft Windows (via Cygwin or WinSSHD) hosts
 * Execute batch scripts on Microsoft Windows hosts
 
 ## Common properties
 
-The following properties are common to all Remote Script task types:
+The following properties are common to all Remote Script task types.
 
 #### Remote script execution details
-* **Script**: The shell script to execute on the remote host (required)
-* **Remote Path**: The path on the remote host where the script should be executed (required)
-* **Temporary Directory Path**: Where to store temp files. This directory will be removed on connection close
+
+{:.table .table-striped}
+| Property | Description |
+| -------- | ----------- |
+| Script | The shell script to execute on the remote host (required) |
+| Remote Path | The path on the remote host where the script should be executed (required) |
+| Temporary Directory Path | Where to store temporary files; this directory will be removed on connection close |
 
 #### Remote host connection
-* **Jumpstation**: Which of the configured SSH jumpstations or HTTP proxies to use, if any. See [Configuring a jumpstation](configure-a-jumpstation.html) for details.
-* **Address** and **Port**: Address and SSH port (or Telnet or WinRM port for Windows) of the remote host (required)
-* **Connection type**: The SSH connection type to use:
-    - For **UNIX** this can be one of: SCP, SFTP, SU, SUDO, INTERACTIVE_SUDO, SFTP_CYGWIN, SFTP_WINSSHD.
-    - For **Windows** this can be one of: TELNET, WINRM_INTERNAL, WINRM_NATIVE
-    - For **Windows (SSH)** this can be one of:  SFTP_CYGWIN, SFTP_WINSSHD
-    - For **z/OS** this option is not present, and SFTP will be used (unless overridden in `deployit-defaults.properties`, setting `remoteScript.Zos.connectionType`)
+
+<table class="table table-striped">
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jumpstation</td>
+<td>The <a href="/xl-release/how-to/configure-a-jumpstation.html">SHH jumpstation or HTTP proxy</a> to use</td>
+</tr>
+<tr>
+<td>Address and Port</td>
+<td>Address and SSH port (or Telnet or WinRM port for Windows) of the remote host (required)</td>
+</tr>
+<tr>
+<td>Connection type</td>
+<td>The SSH connection type to use:<br /><br />
+<ul>
+<li>UNIX: SCP, SFTP, SU, SUDO, INTERACTIVE_SUDO, SFTP_CYGWIN, or SFTP_WINSSHD</li>
+<li>Windows: TELNET, WINRM_INTERNAL, or WINRM_NATIVE</li>
+<li>Windows (SSH): SFTP_CYGWIN, or SFTP_WINSSHD</li>
+<li>z/OS: This option is not present, and SFTP will be used (unless overridden in the <code>remoteScript.Zos.connectionType</code> setting in the <code>deployit-defaults.properties</code> file)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
 
 #### Command output
+
 The following output properties are available:
 
-* **Output**: The variable in which the standard output will be stored
-* **Err**: The variable in which the error output will be stored
-
+{:.table .table-striped}
+| Property | Description |
+| -------- | ----------- |
+| Output | The variable in which the standard output will be stored |
+| Err | The variable in which the error output will be stored |
 
 ## Unix remote script
 
-The following properties are available in the **Remote Script: Unix**, **Remote Script: Windows (SSH)** and **Remote Script: z/OS** task types:
+The following properties are available in the **Remote Script: Unix**, **Remote Script: Windows (SSH)**, and **Remote Script: z/OS** task types.
 
 #### Credentials
-* **Username**: The Unix host user log-in ID (required)
-* **Password**: The Unix host user password -or-
-* **Private key**: The private key to use (verbatim) for authentication -or-
-* **Private key file**, and **Passphrase**: The file containing a private key, and an (optional) passphrase for the key it contains
+
+{:.table .table-striped}
+| Property | Description |
+| -------- | ----------- |
+| Username | The Unix host user log-in ID (required) |
+| Password | The Unix host user password |
+| Private key | The private key to use (verbatim) for authentication |
+| Private key file and Passphrase | The file containing a private key, and an optional passphrase for the key it contains |
+
+You can use a password, a private key, or a private key file and passphrase.
 
 #### Privilege Elevation
-* **SUDO username**: Access files and commands after `sudo`'ing to this user
-* **SU username** and **SU password**: Access files and commands after `su`'ing to this user
-* **Sudo**: (UNIX only; deprecated) Checking this box effectively means setting SUDO username to root. This option is provided only for backwards compatibility. It is deprecated since 5.0.0 and will be removed in future.
+
+{:.table .table-striped}
+| Property | Description |
+| -------- | ----------- |
+| SUDO username | Access files and commands after `sudo`'ing to this user |
+| SU username and SU password | Access files and commands after `su`'ing to this user |
+| Sudo (UNIX only; deprecated) | Checking this box effectively means setting the SUDO username to `root`. This option is provided only for backward compatibility. It is deprecated since XL Release 5.0.0 and will be removed in future. |
 
 ## Windows remote script
 
-The following properties are available in the **Remote Script: Windows** task type:
+The following properties are available in the **Remote Script: Windows** task type.
 
 #### Credentials
-* **Username** and **Password**: The Windows host user log-in ID and password
-* **Allow credential delegation**: If checked, allow the user's credentials to be used to access e.g. remote shares. (Only on WINRM_NATIVE connection type)
+
+{:.table .table-striped}
+| Property | Description |
+| -------- | ----------- |
+| Username and Password | The Windows host user log-in ID and password |
+| Allow credential delegation | If checked, allow the user's credentials to be used to access, for example, remote shares (only on WINRM_NATIVE connection type) |
 
 #### Connectivity
-* **CIFS Port**: The port on which the CIFS (SMB) server runs
-* **Windows path to Windows share mappings**: Mapping from Windows paths to Windows share names, e.g. C:\IBM\WebSphere -> WebSphereShare
-* **Timeout**: The WinRM timeout in [XML schema duration format](http://www.w3.org/TR/xmlschema-2/#isoformats); the default value is `PT60.000S`
-* **Enable HTTPS for WinRM**: Check this if the remote Windows host supports encypted connections
 
+{:.table .table-striped}
+| Property | Description |
+| -------- | ----------- |
+| CIFS Port | The port on which the CIFS (SMB) server runs |
+| Windows path to Windows share mappings | Mapping from Windows paths to Windows share names; for example, `C:\IBM\WebSphere` &#8594; `WebSphereShare` |
+| Timeout | The WinRM timeout in [XML schema duration format](http://www.w3.org/TR/xmlschema-2/#isoformats); the default value is `PT60.000S` |
+| Enable HTTPS for WinRM | Check this if the remote Windows host supports encrypted connections |
 
-## Unleashing the full power of Overthere
-XL Release makes use of the powerful Overthere library, which comes with a multitude of connection options. To keep things manageable, XL Release exposes only the most common ones in the UI. For the full set, please refer to the [Overthere library documentation](https://github.com/xebialabs/overthere/blob/master/README.md) Default values of non-exposed options can be tweaked in `conf/deployit-defaults.properties`.
- 
-If you need to use a different setting per task for a particular option, you can create a type modification in your `synthetic.xml` for any of these task types where you add the desired Overthere connection option as a property on the task. These task properties will automatically be used as connection options for Overthere if the name matches. E.g., to make the connection timeout configurable on each task, you'd add this in your `synthetic.xml`:
+## Using advanced Overthere functionality
 
+XL Release uses the Overthere framework, which includes several connection options. While the most common options are available in the XL Release GUI, you can use other options as described in the [Overthere documentation](https://github.com/xebialabs/overthere/blob/master/README.md).
+
+You can change the default values of options that are not exposed in the GUI in the `XLRELEASE_HOME/conf/deployit-defaults.properties` file.
+
+If you need to use a different setting for a particular option per task, you can create a type modification in the `XLRELEASE_HOME/conf/synthetic.xml` file for the task types. In the modification, you can add the desired Overthere connection option as a property on the task. These task properties will automatically be used as connection options for Overthere if the name matches.
+
+For example, to make the connection timeout configurable on each task, add this to `synthetic.xml`:
 
      <type-modification type="remoteScript.WindowsSsh">
          <property name="connectionTimeoutMillis" category="input" kind="integer" default="120000"
                    description="Number of milliseconds Overthere waits for a connection to a remote host to be established"/>
      </type-modification>
-
