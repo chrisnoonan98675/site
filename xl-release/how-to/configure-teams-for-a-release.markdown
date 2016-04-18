@@ -8,7 +8,6 @@ tags:
 - release
 - template
 - team
-- release summary
 - permission
 - users
 ---

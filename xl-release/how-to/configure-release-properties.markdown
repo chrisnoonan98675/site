@@ -8,7 +8,6 @@ tags:
 - release
 - template
 - properties
-- release summary
 ---
 
 To specify metadata for a release or template, select **Properties** from the **Show** menu to go to the release properties page.

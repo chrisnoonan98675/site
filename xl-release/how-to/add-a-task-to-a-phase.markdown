@@ -9,7 +9,6 @@ tags:
 - template
 - task
 - phase
-- release summary
 - release flow
 ---
 
@@ -43,7 +42,7 @@ In a task:
 
 ## Add a task to a parallel or sequential group
 
-[Parallel Groups](/xl-release/how-to/create-a-parallel-group.html) and [Sequential Groups](/xl-release/how-to/create-a-sequential-group.html) are containers for other tasks. 
+[Parallel Groups](/xl-release/how-to/create-a-parallel-group.html) and [Sequential Groups](/xl-release/how-to/create-a-sequential-group.html) are containers for other tasks.
 
 Within a Parallel Group, all tasks are started simultaneously. The Parallel Group task finishes when all of its children are complete.
 
