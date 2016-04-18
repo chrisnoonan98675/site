@@ -1,5 +1,5 @@
 # For information about this file, see _plugins/pageless_redirects.rb
- 
+
 # IN-PRODUCT LINKS
 
 # XL Release in-product links
@@ -60,7 +60,7 @@ Redirect 301 /xl-testview/help/0010.html /xl-testview/concept/supported-test-too
 Redirect 301 /xl-testview/help/0011.html /xl-testview/concept/file-selection-patterns.html
 Redirect 301 /xl-testview/help/0012.html /xl-deploy/how-to/choose-an-overthere-host-type-and-connection-type.html
 Redirect 301 /xl-testview/help/0013.html /xl-testview/how-to/using-dashboards.html
- 
+
 # Old XL Test in-product links
 
 Redirect 301 /xl-test/support-request.html https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=30145
@@ -80,7 +80,7 @@ Redirect 301 /xl-test/help/0012.html /xl-deploy/how-to/choose-an-overthere-host-
 Redirect 301 /xl-test/help/0013.html /xl-testview/how-to/using-dashboards.html
 
 # TOPICS THAT HAVE BEEN RENAMED, MOVED, OR MERGED
- 
+
 # XL Deploy topics
 
 Redirect 301 /xl-deploy/how-to/perform-an-update.html /xl-deploy/how-to/update-a-deployed-application.html
@@ -185,6 +185,7 @@ Redirect 301 /xl-release/how-to/configure-the-reporting-database.html /xl-releas
 Redirect 301 /xl-release/how-to/configure-properties-for-a-release.html /xl-release/how-to/configure-release-properties.html
 Redirect 301 /xl-release/how-to/use-variables-in-xl-release.html /xl-release/concept/variables-in-xl-release.html
 Redirect 301 /xl-release/4.0.x/rest-api /xl-release/latest/rest-api
+Redirect 301 /xl-release/how-to/using-the-release-summary.html /xl-release/how-to/using-the-release-dashboard.html
 
 # XL TestView topics
 
@@ -239,7 +240,7 @@ Redirect 301 /development-dashboard/xl-deploy-dashboard.html /tracker/xl-deploy-
 Redirect 301 /development-dashboard/xl-release-dashboard.html /tracker/xl-release-tracker.html
 Redirect 301 /development-dashboard/xl-testview-dashboard.html /tracker/xl-testview-tracker.html
 Redirect 301 /development-dashboard/xl-test-dashboard.html /tracker/xl-testview-tracker.html
- 
+
 # LEGACY PAGES THAT ARE NO LONGER USED
 
 Redirect 301 /product-version.html#/deployit/3.9.x/index.html /xl-deploy/3.9.x/index.html
