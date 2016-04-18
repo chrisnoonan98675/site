@@ -13,7 +13,7 @@ since:
 - XL Release 5.0.0
 ---
 
-To see an overview of important information about a template or release, select **Release dashboard** from the **Show** menu. The release dashboard is a customizable view where you can add, configure, move, and remove tiles that show planning information and details about release status. For information about the tiles that are available, refer to [Overview of release summary tiles](/xl-release/concept/release-summary-tiles.html).
+To see an overview of important information about a template or release, select **Release dashboard** from the **Show** menu. The release dashboard is a customizable view where you can add, configure, move, and remove tiles that show planning information and details about release status. For information about the tiles that are available, refer to [Overview of release dashboard tiles](/xl-release/concept/release-dashboard-tiles.html).
 
 ![Release dashboard](../images/release-dashboard.png)
 
@@ -38,9 +38,9 @@ To configure the tiles on the release dashboard:
 1. Make your changes and click **Save**.
 1. Click **Back to view mode** to save your changes.
 
-## Arrange tiles on the release summary
+## Arrange tiles on the release dashboard
 
-To arrange tiles on the release summary:
+To arrange tiles on the release dashboard:
 
 1. Click **Configure**.
 1. Left-click and hold the title bar of a tile, then drag it to the desired position.
@@ -49,7 +49,7 @@ To arrange tiles on the release summary:
 
 ## View detailed information for a tile
 
-Many tiles have a detail view that offers additional information. To go to the detail view, click the tile. To return to the release summary, click **Back to view mode**.
+Many tiles have a detail view that offers additional information. To go to the detail view, click the tile. To return to the release dashboard, click **Back to view mode**.
 
 ## Remove a tile from the release dashboard
 

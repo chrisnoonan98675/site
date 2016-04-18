@@ -8,12 +8,12 @@ tags:
 - release
 - release summary
 removed:
-- XL Deploy 5.0.0
+- XL Release 5.0.0
 ---
 
 In a release, select **Release summary** from the **Show** menu to go to the release summary page, where you can see an overview of the current release.
 
-This topic describes the release summary page as it appears in XL Release 4.8.x and earlier. For information about the release summary in XL Release 5.0.0 and later, refer to [Using the release summary](/xl-release/how-to/using-the-release-summary.html).
+**Note:** In XL Release 5.0.0, the release summary is replaced by the [release dashboard](/xl-release/how-to/using-the-release-dashboard.html).
 
 ## Timeline
 
