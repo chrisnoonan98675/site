@@ -30,6 +30,8 @@ To install XL Release 5.0.0 or later as a daemon or service:
     
     On Windows you have to make sure that `java` process of _JDK_ is available on PATH or JAVA_HOME environment property.
 
+    The service will be created with the name `xl-release`, and the title `XL Release Server`.
+
 ## Troubleshoot the XL Release service
 
 If the XL Release service does not start, you can increase the startup timeout. In the `conf/xlr-wrapper-linux.conf` (on Unix) or `conf\xlr-wrapper-win.conf` (on Windows) file, add the following line:
@@ -37,6 +39,8 @@ If the XL Release service does not start, you can increase the startup timeout. 
     wrapper.startup.timeout=<timeout>
 
 Where `<timeout>` is the startup timeout in seconds.
+
+You must uninstall and install the service for this change to take effect.
 
 ## Uninstall the XL Release service
 
