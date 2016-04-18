@@ -27,6 +27,8 @@ To install XL Release 5.0.0 or later as a daemon or service:
 1. As root (on Unix) or an administrator (on Windows), execute `<XLRELEASE_HOME>/bin/install-service.sh` (on Unix) or `<XLRELEASE_HOME>\bin\install-service.cmd` (on Windows). This command will install the service.
 
     On a Unix-based system, you will be asked for the user name under which you installed the XL Release server when you executed `run.sh`.
+    
+    On Windows you have to make sure that `java` process of _JDK_ is available on PATH or JAVA_HOME environment property.
 
 ## Troubleshoot the XL Release service
 
