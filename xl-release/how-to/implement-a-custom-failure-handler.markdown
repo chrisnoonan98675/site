@@ -124,11 +124,9 @@ You can download [this sample template](https://gist.github.com/xlcommunity/93b6
 
 ![](../images/failure-handler/failure-handler-sample-template-01.png)
 
-When you create a new release from this template, the indicated tasks should fail, upon which the handler will kick in and cause the release to "jump" to the conditional group in the last phase.
+When you create a new release from this template, the indicated tasks should fail, upon which the handler will kick in and cause the release to "jump" to the conditional group in the last phase. The skipped tasks will all be assigned to `onFailure_user`.
 
-![](../images/failure-handler/failure-handler-sample-template-02.png)
-
-Note that the skipped tasks are all assigned to `onFailure_user`. In a release in which no tasks fail, the conditional group in the onFailure phase means that the tasks are simply ignored.
+In a release in which no tasks fail, the conditional group in the onFailure phase means that the tasks are simply ignored.
 
 ![](../images/failure-handler/failure-handler-sample-template-03.png)
 
