@@ -1,5 +1,5 @@
 ---
-title: Overview of release summary tiles
+title: Overview of release dashboard tiles
 categories:
 - xl-release
 subject:
@@ -7,11 +7,15 @@ subject:
 tags:
 - release
 - release summary
+- release dashboard
+- dashboard
 since:
 - XL Release 5.0.0
 ---
 
-In XL Release 5.0.0 and later, the release summary is a customizable dashboard. You can add, configure, move, and remove tiles that show planning information and details about the release status. For information about arranging tiles, refer to [Using the release summary](/xl-release/how-to/using-the-release-summary.html).
+In XL Release 5.0.0 and later, the [release dashboard](/xl-release/how-to/using-the-release-dashboard.html) is a customizable view where you can add, configure, move, and remove tiles that show planning information and details about release status.
+
+![Release dashboard](../images/release-dashboard.png)
 
 The topic provides an overview of the tiles that are available.
 
