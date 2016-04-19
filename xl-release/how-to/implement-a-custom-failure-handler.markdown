@@ -15,7 +15,7 @@ since:
 
 By default, when a task in a release fails, [the release stops](/xl-release/concept/release-life-cycle.html) so you can retry the task, skip the task, or add new tasks to deal with the situation. Alternatively, if the [Abort on failure](/xl-release/how-to/configure-release-properties.html) option is selected, the release immediately aborts if a failure occurs. This is useful for Continuous Integration/Continuous Delivery environments in which a new code commit will fix the problem and start a new release.
 
-However, in some situations, other failure handling modes are useful. For example, instead of aborting the release, you might want to skip to a "failure handling block" that will run cleanup tasks and send notification emails. You can create this type of failure handler using two of XL Release's extension points: an [event listener](https://support.xebialabs.com/hc/en-us/community/posts/203782905-How-To-Create-an-event-listener-for-XL-Release-to-implement-a-post-save-hook-) (implemented in Java) and a [custom endpoint](/xl-release/how-to/declare-custom-rest-endpoints.html) (implemented in [Jython](/jython-docs/#!/xl-release/4.8.x/)).
+However, in some situations, other failure handling modes are useful. For example, instead of aborting the release, you might want to skip to a "failure handling block" that will run cleanup tasks and send notification emails. You can create this type of failure handler using two of XL Release's extension points: an event listener (implemented in Java) and a [custom endpoint](/xl-release/how-to/declare-custom-rest-endpoints.html) (implemented in [Jython](/jython-docs/#!/xl-release/4.8.x/)).
 
 **Tip:** For alternative approaches to handling task failures, refer to [Automatically handle failures in XL Release tasks](/xl-release/how-to/handle-failures-in-tasks.html).
 
@@ -176,4 +176,4 @@ This is an example of the log output from running the sample template mentioned 
       "exception": null
     }
 
-**Important:** The code provided in the Gist is sample code that is not officially supported by XebiaLabs. If you have questions, please contact the [XebiaLabs support team](https://support.xebialabs.com).
+**Important:** The code provided in the [Gist](https://gist.github.com/xlcommunity/93b63a414df15798fd2d) is sample code that is not officially supported by XebiaLabs. If you have questions, please contact the [XebiaLabs support team](https://support.xebialabs.com).

@@ -3,7 +3,7 @@ title: Automatically handle failures in XL Release tasks
 categories:
 - xl-release
 subject:
-- tasks
+- Tasks
 tags:
 - release
 - task
@@ -115,4 +115,4 @@ Then, you can use the modified Webhook task with a group that checks the status 
 
 The [type definition](https://gist.github.com/xlcommunity/a289a5a766fde13c1614#file-synthetic-snippet-xml) and [task implementation](https://gist.github.com/xlcommunity/a289a5a766fde13c1614#file-jsonwebhook-py) are available as part of the [Gist](https://gist.github.com/xlcommunity/a289a5a766fde13c1614) mentioned above.
 
-**Important:** The code provided in the Gist is sample code that is not officially supported by XebiaLabs. If you have questions, please contact the [XebiaLabs support team](https://support.xebialabs.com).
+**Important:** The code provided in the [Gist](https://gist.github.com/xlcommunity/a289a5a766fde13c1614) is sample code that is not officially supported by XebiaLabs. If you have questions, please contact the [XebiaLabs support team](https://support.xebialabs.com).
