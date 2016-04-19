@@ -57,4 +57,4 @@ Similar to a release chain, you can use the Create Release task to create a seri
 
 For example, just before this release ends, it will start another release based on the same template:
 
-![Sample "release chain"](../images/create-release-examples/create-release-task-example-recurring-releases.png)
+![Sample recurring release](../images/create-release-examples/create-release-task-example-recurring-release.png)
