@@ -26,6 +26,7 @@ Redirect 301 /xl-release/help/teams-in-templates.html /xl-release/how-to/create-
 Redirect 301 /xl-release/help/planner.html /xl-release/how-to/using-the-xl-release-planner.html
 Redirect 301 /xl-release/help/release-summary.html /xl-release/how-to/using-the-release-summary.html
 Redirect 301 /xl-release/help/release-dashboard.html /xl-release/how-to/using-the-release-dashboard.html
+Redirect 301 /xl-release/help/release-grid.html /xl-release/how-to/using-the-table-view.html
 Redirect 301 /xl-release/help/reports.html /xl-release/concept/reports-in-xl-release.html
 Redirect 301 /xl-release/help/global-permissions.html /xl-release/how-to/configure-xl-release-permissions.html
 Redirect 301 /xl-release/help/release-permissions.html /xl-release/how-to/configure-permissions-for-a-release.html
