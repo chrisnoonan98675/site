@@ -15,9 +15,11 @@ The [Create Release task type](/xl-release/how-to/create-a-create-release-task.h
 
 ## Master release with subreleases
 
-For example, you can create a "master release" that will start several "subreleases" and then wait for them to finish. The Create Release task can be confgued to return the newly created release's unique ID in an output variable; you can then use this variable in other tasks, such as a [Gate task](/xl-release/how-to/create-a-gate-task.html) as shown below.
+In the "master release" scenario, one release starts several "subreleases" and then waits for them to finish. A Create Release task starts each subrelease, and you can use one or more Gate tasks to cause the master release to wait until the subreleases are complete.
 
-This is a master release that will start three subreleases:
+The Create Release task and Gate task are linked through a [variable](/xl-release/how-to/create-release-variables.html). You can configure each Create Release task to return the unique ID of the newly created release in an output variable. Then, you can add each variable as a [dependency](/xl-release/how-to/create-a-gate-task.html#dependencies) in a Gate task.
+
+This is an example of a master release that will start three subreleases:
 
 ![Sample "master release"](../images/create-release-examples/create-release-task-example-master-with-subreleases-01.png)
 
@@ -25,7 +27,7 @@ This is one of the Create Release tasks, showing the output variable that will b
 
 ![Sample Create Release task](../images/create-release-examples/create-release-task-example-master-with-subreleases-02.png)
 
-And this is a Gate task that will wait for the subreleases to finish:
+And this is a Gate task that will wait for all three of the subreleases to finish:
 
 ![Sample Gate task](../images/create-release-examples/create-release-task-example-master-with-subreleases-03.png)
 
@@ -39,7 +41,7 @@ The Create Release tasks would be configured just as as in the master/subrelease
 
 ## Release chain
 
-You can also use the Create Release task to "chain" releases together by starting a new release near or at the end of a release. This is useful if you have several releases that you want to run in sequence. 
+You can also use the Create Release task to "chain" releases together by starting a new release near or at the end of a release. This is useful if you have several releases that you want to run in sequence.
 
 For example, just before this release ends, it will start another release:
 
@@ -48,3 +50,11 @@ For example, just before this release ends, it will start another release:
 And the subsequent release will do the same:
 
 ![Sample "release chain"](../images/create-release-examples/create-release-task-example-chain-releases-02.png)
+
+## Recurring releases
+
+Similar to a release chain, you can use the Create Release task to create a series of recurring releases, all based on the same template. This is useful for modeling sprints in releases.
+
+For example, just before this release ends, it will start another release based on the same template:
+
+![Sample "release chain"](../images/create-release-examples/create-release-task-example-recurring-releases.png)
