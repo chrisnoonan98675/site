@@ -20,4 +20,4 @@ The XL Release table view provides an alternative view of a template or release 
 
 To access the table view, click **Table** at the top of the release flow page.
 
-![XL Release table view](../images/table-view.png)
+![XL Release table view](../images/release-table-view.png)
