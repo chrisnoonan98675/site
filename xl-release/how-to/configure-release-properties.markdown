@@ -12,7 +12,7 @@ tags:
 
 To specify metadata for a release or template, select **Properties** from the **Show** menu to go to the release properties page.
 
-![Release properties](../images/release-properties-part-1.png)
+![Release properties](../images/release-properties.png)
 
 To configure release properties:
 
