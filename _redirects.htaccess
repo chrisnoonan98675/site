@@ -154,6 +154,9 @@ Redirect 301 /xl-deploy/how-to/deploy-your-first-application-on-websphere-4.5.ht
 Redirect 301 /xl-deploy/how-to/deploy-your-first-application-on-wildfly-4.5.html /xl-deploy/how-to/deploy-your-first-application-on-wildfly.html
 Redirect 301 /xl-deploy/concept/the-deployment-process-from-package-to-deployment.html /xl-deploy/concept/deployment-overview-and-unified-deployment-model.html
 Redirect 301 /xl-deploy/concept/variables-available-in-freemarker-templates /xl-deploy/how-to/using-variables-and-expressions-in-freemarker-templates.html
+Redirect 301 /xl-deploy/how-to/troubleshoot-the-xl-deploy-cli.html /xl-deploy/how-to/using-the-xl-deploy-cli.html
+Redirect 301 /xl-deploy/how-to/extend-the-xl-deploy-cli.html /xl-deploy/how-to/using-the-xl-deploy-cli.html
+Redirect 301 /xl-deploy/concept/xl-deploy-directory-structure.html /xl-deploy/how-to/install-xl-deploy.html
 
 # XL Release topics
 
@@ -187,6 +190,8 @@ Redirect 301 /xl-release/how-to/configure-the-reporting-database.html /xl-releas
 Redirect 301 /xl-release/how-to/configure-properties-for-a-release.html /xl-release/how-to/configure-release-properties.html
 Redirect 301 /xl-release/how-to/use-variables-in-xl-release.html /xl-release/concept/variables-in-xl-release.html
 Redirect 301 /xl-release/4.0.x/rest-api /xl-release/latest/rest-api
+Redirect 301 /xl-release/how-to/use-a-configuration-object-to-share-global-variables.html /xl-release/how-to/using-a-configuration-object-to-share-global-variables.html
+Redirect 301 /xl-release/how-to/use-markdown-in-xl-release.html /xl-release/how-to/using-markdown-in-xl-release.html
 
 # XL TestView topics
 

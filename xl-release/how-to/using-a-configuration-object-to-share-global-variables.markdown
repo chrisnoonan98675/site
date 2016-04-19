@@ -2,7 +2,8 @@
 title: Using a configuration object to share global variables
 categories:
 - xl-release
-subject: Variables
+subject:
+- Variables
 tags:
 - configuration object
 - variable

@@ -79,13 +79,13 @@ If a release introduces a new feature that isn't big enough to warrant its own t
 For example:
 
 > **Using the foo feature**
-> 
+>
 > In XL Deploy 5.0.0 and later, you use the foo feature to...
 
 Or:
 
 > **Using the foo feature in XL Deploy 5.0.0 and later**
-> 
+>
 > In XL Deploy 5.0.0 and later, you use the foo feature to...
 
 ## Major change to an existing feature
@@ -111,11 +111,11 @@ If a release introduces a minor change to an existing feature:
 For example:
 
 > **Using the foo feature in XL Deploy 4.5.x and earlier**
-> 
+>
 > In XL Deploy 4.5.x and earlier, you use the foo feature to...
 >
 > **Using the foo feature in XL Deploy 5.0.0 and later**
-> 
+>
 > In XL Deploy 5.0.0 and later, you use the foo feature to...
 
 ## Deprecated feature
@@ -186,6 +186,10 @@ The deployable contains `username = {% raw %}{{my.password}}{% endraw %}`.
 **Example #4**
 
 Placeholders are surrounded by {% raw %}`{{`{% endraw %} and {% raw %}`}}`{% endraw %}.
+
+** Example #5**
+
+Placeholders for provisionable output properties use the `{% raw %}{{% ... %}}{% endraw %}` format.
 
 ## Table styles in Markdown files
 
@@ -303,7 +307,7 @@ Save drafts of pages in `_drafts`. Drafts are never converted to HTML.
 |----------------------|------------------------|---------------------------------|
 | `default.html` | All | Master layout file that calls most of the `includes` that make up the page structure |
 | `list-in-sidebar.html` | Landing page of a product | Triggers Jekyll to add a link to the page in the sidebar |
-| `page.html` | All pages | Includes dynamically generated breadcrumbs | 
+| `page.html` | All pages | Includes dynamically generated breadcrumbs |
 
 ## Plugins
 

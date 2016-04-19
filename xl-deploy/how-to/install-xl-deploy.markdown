@@ -14,6 +14,7 @@ tags:
 To install XL Deploy:
 
 1. [Ensure that you meet the system requirements.](/xl-deploy/concept/requirements-for-installing-xl-deploy.html)
+1. Download the XL Deploy server archive (ZIP file) from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com) (requires customer log-in) or from the link provided when you sign up for a [free trial](https://xebialabs.com/products/xl-deploy/trial/).
 1. [Extract the XL Deploy server archive.](#extract-the-xl-deploy-server-archive)
 1. [Install the license.](#install-the-license)
 1. [Run the server setup wizard](#run-the-server-setup-wizard) and select whether to perform a [simple setup](#simple-setup) or [manual setup](#manual-setup).
@@ -37,7 +38,7 @@ First, extract the XL Deploy server archive:
 
 If you received an XL Deploy license key by email, you will be prompted to enter it after you install and start XL Deploy.
 
-If you do not have an XL Deploy license key, you can download a license file from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com) (requires enterprise customer log-in). Place the license file (`deployit-license.lic`) in the `conf` directory before you install XL Deploy. Be sure that you do not modify the license file in any way.
+If you do not have an XL Deploy license key, you can download a license file (`deployit-license.lic`) from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com) (requires customer log-in). Place the license file in the `conf` directory before you install XL Deploy. Be sure that you do not modify the license file in any way.
 
 Refer to [XL Deploy licensing](/xl-deploy/concept/xl-deploy-licensing.html) for information about how the XL Deploy license works.
 
@@ -107,7 +108,7 @@ See [Finish the setup process and log in](#finish-the-setup-process-and-log-in) 
 
 ### Manual setup
 
-Manual setup gives you control over all of XL Deploy's installation settings. 
+Manual setup gives you control over all of XL Deploy's installation settings.
 
 #### Step 1 Provide a password for the `admin` user
 
@@ -121,7 +122,7 @@ The setup wizard will prompt you to set up secure communication (SSL) between th
 
 #### Step 3 Generate a self-signed certificate
 
-A digital certificate is required for secure communication; normally, certificates are signed by a Certificate Authority (CA). However, if you choose secure communication between the GUI and the server, the setup wizard will ask if you want XL Deploy to generate a self-signed digital certificate. 
+A digital certificate is required for secure communication; normally, certificates are signed by a Certificate Authority (CA). However, if you choose secure communication between the GUI and the server, the setup wizard will ask if you want XL Deploy to generate a self-signed digital certificate.
 
 **Important:** For security reasons, a self-signed certificate is not recommended for production environments. It may trigger security warnings in some browsers and Flash players. A self-signed certificate can only be used when you access the XL Deploy GUI at `https://localhost:4516`.
 
@@ -137,13 +138,13 @@ The setup wizard will ask if you want to enable mutual SSL. If you answer yes, i
 
 #### Step 6 Set up the HTTP configuration
 
-The setup wizard will ask the HTTP bind address, HTTP port number, and web context root where you would like XL Deploy to run. 
+The setup wizard will ask the HTTP bind address, HTTP port number, and web context root where you would like XL Deploy to run.
 
 **Note**: If you chose to enable secure communication, the default port will be 4517 instead of 4516.
 
 #### Step 7 Set up the thread configuration
 
-The setup wizard will prompt you for the minimum and maximum number of threads that the XL Deploy server should use to handle incoming connections. 
+The setup wizard will prompt you for the minimum and maximum number of threads that the XL Deploy server should use to handle incoming connections.
 
 #### Step 8 Configure the repository
 
@@ -181,11 +182,27 @@ If you answer `yes`, the setup wizard will start XL Deploy and show the URL wher
 
 **Tip:** For information about starting XL Deploy in the future, refer to [Start XL Deploy](/xl-deploy/how-to/start-xl-deploy.html).
 
+## XL Deploy server directory structure
+
+After you install XL Deploy, it will have the following directory structure:
+
+* `bin`: Contains the server binaries
+* `conf`: Contains server configuration files and the XL Deploy license
+* `doc`: Contains the XL Deploy product documentation
+* `ext`: Contains server extensions
+* `hotfix`: Contains hotfixes (XL Deploy 4.5.x and earlier only)
+* `hotfix/lib`: Contains hotfixes that fix issues with the server software (XL Deploy 5.0.0 and later)
+* `hotfix/plugins`: Contains hotfixes that fix issues with the plugin software (XL Deploy 5.0.0 and later)
+* `importablePackages`: Default location for importable deployment packages
+* `lib`: Contains libraries that the server needs
+* `log`: Contains server log files (this directory is only present once you have started XL Deploy server)
+* `plugins`: Contains XL Deploy middleware plugins
+* `recovery.dat`: Stores tasks that are in progress for recovery purposes (this file is only present after you have started XL Deploy server)
+* `samples`: Contains sample plugins and configuration snippets
+
 ## Automatically install XL Deploy with default values
 
-You can automate the installation of XL Deploy with a set of default values that you save in a file. This is useful, for example, when setting up XL Deploy using a tool such as Puppet or Ansible.
-
-To install XL Deploy, use the following commands:
+You can automate the installation of XL Deploy with a set of default values that you save in a file. This is useful, for example, when setting up XL Deploy using a tool such as Puppet or Ansible. To install XL Deploy, use the following command:
 
     bin/run.sh -setup -reinitialize -force -setup-defaults /path/to/deployit.conf
 

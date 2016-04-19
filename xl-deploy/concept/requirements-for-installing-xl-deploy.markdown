@@ -16,21 +16,23 @@ tags:
 
 To [install](/xl-deploy/how-to/install-xl-deploy.html) the XL Deploy server, you must meet the following requirements:
 
-* **XL Deploy license:** If you are using a paid edition of XL Deploy, you can download your [license](/xl-deploy/concept/xl-deploy-licensing.html) from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com)
+* **XL Deploy [license](/xl-deploy/concept/xl-deploy-licensing.html):**
+    * If you are using a paid edition of XL Deploy, you can download your license from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com)
+    * If you are using a free trial edition of XL Deploy, your license will be sent to you by email
 
 * **Operating system:** Microsoft Windows (32-bit or 64-bit) or a Unix-family operating system running Java
 
-* **Java Runtime Environment:**
-    * For XL Deploy 5.1.0 and earlier: Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
-    * For XL Deploy 5.1.1: Java Development Kit (JDK) 7 or 8 (Oracle, IBM, or Apple)
+* **Oracle, IBM, or Apple Java Development Kit (JDK):**
+    * For XL Deploy 5.1.0 and earlier: JDK 7
+    * For XL Deploy 5.1.1 and later: JDK 7 or 8
 
-    **Warning:** It is a known issue that using XL Deploy 5.1.1 or later with JDK 8 may prevent pending tasks from being recovered after the XL Deploy server is restarted. This will be fixed in a future release. To prevent this issue, use JDK 7. Note that XL Deploy 5.1.0 and earlier should not be used with JDK 8.
+    **Warning:** It is a known issue that using XL Deploy 5.1.1, 5.1.2, or 5.1.3 with JDK 8 may prevent pending tasks from being recovered after the XL Deploy server is restarted. To prevent this issue, use JDK 7 with these versions. Note that XL Deploy 5.1.0 and earlier should not be used with JDK 8.
 
 * **RAM:** At least 2 GB of RAM available for XL Deploy
 
 * **Hard disk space:** Sufficient hard disk space to store the XL Deploy repository; see [Determining hard disk space requirements](#determining-hard-disk-space-requirements)
 
-Depending on the environment, the following may also be required: 
+Depending on the environment, the following may also be required:
 
 * **Database:** XL Deploy's Jackrabbit repository supports a number of different databases; for more information, see [Configure the XL Deploy repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html)
 
