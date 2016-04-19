@@ -17,7 +17,7 @@ To see an overview of important information about a template or release, select 
 
 ![Release dashboard](../images/release-dashboard.png)
 
-**Tip:** In XL Release 4.8.x and earlier, the [release summary](/xl-release/how-to/using-the-release-summary-4.8.html) is available instead of the release dashboard.
+**Tip:** In XL Release 4.8.x and earlier, the [release summary](/xl-release/how-to/using-the-release-summary.html) is available instead of the release dashboard.
 
 ## Add a tile to the release dashboard
 
