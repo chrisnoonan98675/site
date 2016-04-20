@@ -17,7 +17,7 @@ To create a blueprint:
 1. Right-click **Blueprints** and select **New** > **Blueprint**.
 1. In the **Name** box, enter a unique name for the blueprint.
 
-        ![Create new blueprint](images/provisioning-create-new-blueprint.png)
+    ![Create new blueprint](images/provisioning-create-new-blueprint.png)
 
 1. Click **Save**.
 
