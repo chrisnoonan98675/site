@@ -9,19 +9,24 @@ In XL Deploy, a *provisioning package* represents a specific version of a *bluep
 
 In addition to provisionables, a provisioning package can contain *templates* that define the configuration items (CIs) that XL Deploy should create based on the results of the provisioners.
 
+## Create a blueprint
+
+To create a blueprint:
+
+1. Click **Repository** in the top bar.
+1. Right-click **Blueprints** and select **New** > **Blueprint**.
+1. In the **Name** box, enter a unique name for the blueprint.
+
+        ![Create new blueprint](images/provisioning-create-new-blueprint.png)
+
+1. Click **Save**.
+
 ## Create a provisioning package
 
 To create a provisioning package:
 
 1. Click **Repository** in the top bar.
-1. If the blueprint does not exist yet:
-    1. Right-click **Blueprints** and select **New** > **Blueprint**.
-    1. In the **Name** box, enter a unique name for the blueprint.
-
-        ![Create new blueprint](images/provisioning-create-new-blueprint.png)
-
-    1. Click **Save**.
-1. Right-click the blueprint that you just created and select **New** > **Provisioning Package**.
+1. Expand **Blueprints**, right-click the desired blueprint, and select **New** > **Provisioning Package**.
 1. In the **Name** box, enter a unique name for the provisioning package.
 1. In the **Environment Id** box, enter an XL Deploy environment that should contain the CIs that XL Deploy creates based on the templates in the package.
 
