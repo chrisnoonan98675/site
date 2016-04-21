@@ -8,7 +8,6 @@ tags:
 - release
 - template
 - phase
-- release summary
 - release flow
 ---
 

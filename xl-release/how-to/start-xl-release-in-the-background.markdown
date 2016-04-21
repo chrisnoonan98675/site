@@ -10,8 +10,8 @@ tags:
 - setup
 ---
 
-When you [start XL Release](/xl-release/how-to/start-xl-release.html) by executing the `<XL_RELEASE_SERVER_HOME>/bin/server.sh` or `<XL_RELEASE_SERVER_HOME>\bin\server.cmd` command, the XL Release server is started in the foreground. To run the server as a background process on a Unix system, use:
+When you [start XL Release](/xl-release/how-to/start-xl-release.html) by executing the `<XL_RELEASE_SERVER_HOME>/bin/run.sh` or `<XL_RELEASE_SERVER_HOME>\bin\run.cmd` command, the XL Release server is started in the foreground. To run the server as a background process on a Unix system, use:
 
-    nohup bin/server.sh &
+    nohup bin/run.sh &
 
-On a Windows system, you must configure XL Release to run as a [service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html).
+You can also [Install XL Release as a service](/xl-release/how-to/install-xl-release-as-a-service.html).

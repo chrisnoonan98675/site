@@ -34,7 +34,7 @@ The script task will fail! Open the task and the reason for failure is displayed
 
 ![Script test tasks](../images/script-test/no-run-as-user.png)
 
-There is message there: "A Release User account has to be set in order to use XL Release's API". This tells us that we have to explicitly say under which user name the script will be run. Because the API gives access to releases and tasks, XL Release needs to check someone's credentials in order to check if certain operations are allowed. To set such a user, go to the **Release Properties** page and find the properties **Run scripts as user** and **Password**
+There is message there: "A Release User account has to be set in order to use XL Release's API". This tells us that we have to explicitly say under which user name the script will be run. Because the API gives access to releases and tasks, XL Release needs to check someone's credentials in order to check if certain operations are allowed. To set such a user, go to the **Release Properties** page and find the properties **Run automated tasks as user** and **Password**
 
 Enter your own credentials for now. (Don't forget to hit **Save**!) These user credentials will be used to run all scripts that are defined in this release. 
 
@@ -71,7 +71,7 @@ With the comment object in place we can call the `commentTask()` method:
   
     taskApi.commentTask(task.id, comment)
 
-This will add the comment to the task. Note that for any call to a API endpoint like `taskApi` or `releaseApi`, you need to set the "Run scripts as user" property on the release. The scripts will be executed with the rights that user has on that particular release.
+This will add the comment to the task. Note that for any call to a API endpoint like `taskApi` or `releaseApi`, you need to set the "Run automated tasks as user" property on the release. The scripts will be executed with the rights that user has on that particular release.
 
 ## More documentation
 

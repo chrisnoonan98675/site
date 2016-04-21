@@ -8,24 +8,26 @@ tags:
 - release
 - template
 - properties
-- release summary
 ---
 
 To specify metadata for a release or template, select **Properties** from the **Show** menu to go to the release properties page.
 
-![Release properties](../images/release-properties-part-1.png)
+![Release properties](../images/release-properties.png)
 
 To configure release properties:
 
 1. In the **Release Name** box, enter the name of the release. If the release is running, you can change its name.
 1. In the **Description** box, optionally enter detailed information about the release. This field allows [Markdown](/xl-release/how-to/use-markdown-in-xl-release.html).
+
+    Under the description, you can see links to the template that the release is based on and the release that [started it](/xl-release/how-to/create-a-create-release-task.html) (if applicable).
+
 1. Next to **Flag status**, optionally select a yellow (attention needed) or red (release at risk) icon and enter a status message. Flagged releases are highlighted in overviews.
 1. In **Start date** and **Due date**, set the *planned* start and end dates of the release. XL Release uses these dates to show the release on the calendar. These are not the dates that the release actually started or ended.
 1. Select the person who is responsible for the release from the **Release Owner** list. This person will receive additional [notifications](/xl-release/concept/notifications-in-xl-release.html) if tasks fail or are flagged.
 
     Release owners are automatically added to the Release Admin team when the release is created. This team has all [permissions](/xl-release/how-to/configure-permissions-for-a-release.html) on the release.
 
-1. In **Run scripts as user** and **Password**, enter the user name and password of the XL Release user account that should be used to execute scripts in this release.
+1. In **Run automated tasks as user** and **Password**, enter the user name and password of the XL Release user account that should be used to execute scripts in this release.
 1. If you want the release to be aborted when a task fails, select **Abort on failure**.
 1. Next to **Tags**, optionally add tags to the release to make it easier to find in the release overview.
 1. Optionally add attachments by clicking **Choose File** next to **Attachments**. To delete an attachment, click the **X** next to it.
