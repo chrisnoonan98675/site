@@ -19,7 +19,7 @@ Briefly, the process of upgrading XL Release is:
 1. Create a new installation directory for the new version of XL Release (so the existing version is still available in case of problems).
 1. Extract the new XL Release software release into the new installation directory.
 1. Copy the data from the previous XL Release installation directory into the new installation directory.
-1. Start the new version of XL Release.
+1. Start the new version of XL Release interactively so that automatic upgraders can run.
 
 ## About upgrading
 
@@ -44,15 +44,28 @@ Before you upgrade:
 
 ## Upgrade the server
 
-To upgrade an existing XL Release server installation:
+To upgrade an XL Release server installation:
 
-1. Create a directory for the new XL Release server installation, including the new XL Release server version number in the directory name.
-2. Extract the XL Release software in this directory.
-3. Copy the contents of the `conf` directory from the previous installation to the new installation directory.
-4. Copy the contents of the `ext` directory from the previous installation to the new installation directory.
-4. Copy the entire `repository` directory from the previous installation to the new installation directory.
-4. Copy the entire `archive` directory from the previous installation to the new installation directory.
-6. Copy the contents of the `plugins` directory from the previous installation to the new installation directory.
-7. If you have made any changes to the XL Release server startup scripts, manually re-do these changes in the new installation directory.
+1. Extract the server ZIP file. It creates an installation directory called, for example, `xl-release-5.0.0-server`.
 
-This completes the upgrade of the XL Release server.
+1. [Shut down](/xl-release/how-to/shut-down-xl-release.html) the XL Release server.
+
+1. Copy the `repository` directory from the old installation directory to the new installation directory.
+
+1. Copy the contents of the `plugins` directory from the old installation directory to the new installation directory.
+
+1. Copy the contents of the `ext` directory from the old installation directory to the new installation directory.
+
+1. Copy the entire `archive` directory from the previous installation to the new installation directory.
+
+1. Copy the contents of the `conf` directory from the previous installation to the new installation directory.
+
+    Some versions of XL Release require a new version of the license file. Refer to [XL Release licensing](/xl-release/concept/xl-release-licensing.html#license-types) to see if you need a new license. You can download all of your licenses from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/).
+
+1. If you have changed the XL Release server startup script(s) in the `bin` directory, do not copy the changed script(s) to the new installation directory. Instead, manually reapply the changes to the files that were provided in the new version of XL Release.
+
+    **Note:** In XL Release 4.8.x and earlier, the startup scripts are called `server.sh` and `server.cmd`. In XL Release 5.0.0 and later, they are called `run.sh` and `run.cmd`; there are also `install-service.sh` and `install-service.cmd` scripts for running XL Release [as a service](/xl-release/how-to/install-xl-release-as-a-service.html). If you customized `server.sh` or `server.cmd`, you must redo these changes in `install-service.sh` or `install-service.cmd`.
+
+1. [Start the XL Release server interactively](/xl-release/how-to/start-xl-release.html) to allow automatic repository upgraders to run.
+
+1. If you normally run the XL Release server [as a service](/xl-release/how-to/install-xl-release-as-a-service.html), shut it down and restart it as you normally do.

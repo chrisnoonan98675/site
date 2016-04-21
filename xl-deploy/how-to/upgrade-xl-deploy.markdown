@@ -18,7 +18,7 @@ Briefly, the process of upgrading XL Deploy is:
 1. Extract the new XL Deploy release into a directory for the new version of XL Deploy (so the old version will still be available in case of problems).
 1. Copy data from the old installation directory to the new installation directory. This ensures that you have a backup of your repository.
 1. Redo custom changes that you made to configuration files and startup scripts.
-1. Start the new version of XL Deploy.
+1. Start the new version of XL Deploy so that automatic upgraders can run.
 
 You can find release notes and version-specific upgrade notes on the page for each version; for example, [XL Deploy 5.1.x](/xl-deploy/5.1.x/).
 
