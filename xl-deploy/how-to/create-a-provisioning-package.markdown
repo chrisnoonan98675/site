@@ -78,4 +78,4 @@ To add a template to a provisioning package:
 
 ## Next steps
 
-After you create a provisioning package and add provisionables, providers, and templates, you can [provision the package to an ecosystem](/xl-deploy/how-to/provision-a-package-to-an-ecosystem.html).
+After you create a provisioning package and add provisionables, providers, and templates, you can [provision the package to a provisioning environment](/xl-deploy/how-to/provision-a-package-to-an-environment.html).

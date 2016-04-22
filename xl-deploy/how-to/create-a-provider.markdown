@@ -5,7 +5,7 @@ since:
 - XL Deploy 5.5.0
 ---
 
-In XL Deploy, a *provider* is a set of credentials needed to connect to a cloud technology. You can group providers logically in *ecosystems*, and then provision packages to them.
+In XL Deploy, a *provider* is a set of credentials needed to connect to a cloud technology. You can group providers logically in [*provisioning environments*](/xl-deploy/how-to/create-a-provisioning-environment.html), and then provision packages to them.
 
 To create a provider:
 
@@ -20,4 +20,4 @@ To create a provider:
 
 ## Next steps
 
-After you create a provider, you can [add it to an ecosystem](/xl-deploy/how-to/create-an-ecosystem.html).
+After you create a provider, you can [add it to a provisioning environment](/xl-deploy/how-to/create-a-provisioning-environment.html).
