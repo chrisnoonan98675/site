@@ -49,4 +49,5 @@ To get started with XL Deploy provisioning:
 
 ## Limitations
 
-When creating an Amazon EC2 AMI (`aws.ec2.AMI`) configuration item, you can only enter an AWS security group that already exists. To use a new security group, you must first create it manually in AWS.
+* When creating an Amazon EC2 AMI (`aws.ec2.AMI`) configuration item, you can only enter an AWS security group that already exists. To use a new security group, you must first create it manually in AWS.
+* The provisioning feature currently uses an internal API. A public API will be available in a future release.
