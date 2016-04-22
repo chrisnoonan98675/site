@@ -43,9 +43,13 @@ To add a provisionable to a provisioning package:
 1. Click **Repository** in the top bar.
 1. Expand **Blueprints**, then expand the desired blueprint to see its provisioning packages.
 1. Right-click the desired provisioning package, select **New**, then select the type of provisionable that you want to add. For example, to add an Amazon Web Services EC2 AMI, select **aws** > **ec2.InstanceSpec**.
-1. Fill in the configuration for the provisionable.
+1. In the **Cardinality** box, enter the number of provisioneds that should be created based on this provisionable. By default, one provisioned is created.
 
-    ![Create new provisionable (aws.ec2.InstanceSpec)](images/provisioning-create-new-provisionable.png)
+    ![Create new provisionable (aws.ec2.InstanceSpec)](images/provisioning-create-new-provisionable-01.png)
+
+1. Fill in the rest of the provisionable properties. For example, for an `ec2.instanceSpec`:
+
+    ![Create new provisionable (aws.ec2.InstanceSpec)](images/provisioning-create-new-provisionable-02.png)
 
 1. Click **Save**.
 
@@ -69,7 +73,10 @@ To add a template to a provisioning package:
 
 1. Click **Repository** in the top bar.
 1. Expand **Blueprints**, then expand the desired blueprint to see its provisioning packages.
-1. Right-click the desired provisioning package, select **New** > **Template**, then select the type of template that you want to add. For example, if your provisioning package will result in the installation of an Apache Tomcat server, you can automatically create a Tomcat virtual host CI by selecting **tomcat.VirtualHost**.
+1. Right-click the desired provisioning package, select **New** > **Template**, then select the type of template that you want to add.
+
+    For example, if the provisioning package includes a `puppet.Manifest` provisioner, you will need a host template such as **overthere.SshHost** for the manifest to use. Also, if the provisioning will install an Apache Tomcat server, you can select templates such as **tomcat.Server** and **tomcat.VirtualHost**.
+
 1. Fill in the configuration for the template.
 
     ![Create new template (template.overthere.SshHost)](images/provisioning-create-new-template.png)

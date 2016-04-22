@@ -15,7 +15,7 @@ To create a provisioning environment:
 1. Under **Providers**, select one or more providers and click ![Right arrow button](/images/button_add_container.png) to move them to the **Members** list.
 1. Under **Dictionaries**, select one or more dictionaries and click ![Right arrow button](/images/button_add_container.png) to move them to the **Members** list.
 
-   ![Create a provisioning environment](images/provisioning-create-new-ecosystem.png)
+   ![Create a provisioning environment](images/provisioning-create-new-environment.png)
 
 1. Click **Save**.
 
