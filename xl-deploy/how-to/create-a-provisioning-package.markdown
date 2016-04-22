@@ -14,7 +14,7 @@ In addition to provisionables, a provisioning package can contain *templates* th
 To create a blueprint:
 
 1. Click **Repository** in the top bar.
-1. Right-click **Blueprints** and select **New** > **Blueprint**.
+1. Right-click **Blueprints** and select **New** > **upm** > **Blueprint**.
 1. In the **Name** box, enter a unique name for the blueprint.
 
     ![Create new blueprint](images/provisioning-create-new-blueprint.png)
@@ -78,4 +78,4 @@ To add a template to a provisioning package:
 
 ## Next steps
 
-After you create a provisioning package and add provisionables, providers, and templates, you can [provision the package to a provisioning environment](/xl-deploy/how-to/provision-a-package-to-an-environment.html).
+After you create a provisioning package and add provisionables, providers, and templates, you can [provision the package to a provisioning environment](/xl-deploy/how-to/provision-an-environment.html).

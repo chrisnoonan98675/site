@@ -1,6 +1,6 @@
 ---
 layout: beta-noindex
-title: Provision a package to an environment
+title: Provision an environment
 since:
 - XL Deploy 5.5.0
 ---

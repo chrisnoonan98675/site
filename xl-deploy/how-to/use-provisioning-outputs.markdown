@@ -30,6 +30,6 @@ Say you want to provision an Amazon EC2 AMI and then apply a [Puppet manifest](h
 
     **Tip:** You can define Puppet modules on the manifest by right-clicking the `puppet.Manifest` CI that you created and selecting **New** > **ModuleSpec**.
 
-1. [Provision the package to an environment](/xl-deploy/how-to/provision-a-package-to-an-environment.html) that contains an Amazon EC2 [provider](/xl-deploy/how-to/create-a-provider.html). During provisioning, XL Deploy will create an SSH host, using the public host name of the provisioned AMI as its address.
+1. [Provision the package to an environment](/xl-deploy/how-to/provision-an-environment.html) that contains an Amazon EC2 [provider](/xl-deploy/how-to/create-a-provider.html). During provisioning, XL Deploy will create an SSH host, using the public host name of the provisioned AMI as its address.
 
 You could also have XL Deploy save the SSH host as an `overthere.SshHost` CI in its repository by adding the `template.overthere.SshHost` CI to the list of **Bound Templates** on the provisioning package or on a provisionable. Bound templates that are selected in a provisioning package are automatically added to the [XL Deploy environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html) that you specify.

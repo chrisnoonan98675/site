@@ -43,7 +43,7 @@ To get started with XL Deploy provisioning:
 1. [Upgrade to XL Deploy 5.5.0 or later](/xl-deploy/5.5.x/releasemanual.html).
 1. [Create a blueprint and a provisioning package](/xl-deploy/how-to/create-a-provisioning-package.html).
 1. [Create a provisioning environment](/xl-deploy/how-to/create-a-provisioning-environment.html) and a [provider](/xl-deploy/how-to/create-a-provider.html).
-1. [Provision the environment](/xl-deploy/how-to/provision-a-package-to-an-environment.html).
+1. [Provision the environment](/xl-deploy/how-to/provision-an-environment.html).
 1. [Deploy to the environment](/xl-deploy/how-to/deploy-to-a-provisioned-environment.html).
 1. [Deprovision the environment](/xl-deploy/how-to/deprovision-an-environment.html).
 
