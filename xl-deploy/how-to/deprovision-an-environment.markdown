@@ -9,11 +9,13 @@ Before you can deprovision ("tear down") a provisioned environment, you must [un
 
 {% comment %} TO DO: Explain what happens to CIs in the repository when you deprovision - see DEPL-8726, DEPL-9228 {% endcomment %}
 
-{% comment %}
 ## Deprovision an environment using the GUI
 
-TO DO: Write this section - see DEPL-8726, DEPL-9228
-{% endcomment %}
+To deprovision a provisioned environment:
+
+1. Click **Provision** in the top bar.
+1. Under **Provisioning Environments**, locate the desired environment, right-click it, and select **Deprovision**.
+1. Click **Execute** to immediately start deprovisioning.
 
 ## Deprovision an environment using the CLI
 
