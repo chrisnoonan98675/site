@@ -61,7 +61,7 @@ After you finish this tutorial, the `ext` folder will look like:
 
 After you change `synthetic.xml`, you must restart the XL Deploy server.
 
-By default, you must also restart the XL Deploy server after you change `xl-rules.xml` and scripts in the `ext` folder. However, you can configure XL Deploy to periodically rescan `xl-rules.xml` and the `ext` folder and apply any changes that it finds. This is useful when you are developing a plugin. Refer to [Rescan the rules file](/xl-deploy/concept/understanding-xl-deploy-rules.html#rescan-the-rules-file) for information on how to do this.
+By default, you must also restart the XL Deploy server after you change `xl-rules.xml` and scripts in the `ext` folder. However, you can configure XL Deploy to periodically rescan `xl-rules.xml` and the `ext` folder and apply any changes that it finds. This is useful when you are developing a plugin. Refer to [Rescan the rules file](/xl-deploy/how-to/rescan-the-rules-file.html) for information on how to do this.
 
 ### Error handling
 
@@ -130,7 +130,7 @@ The following `os-script` parameters are defined automatically:
 ### Script to deploy the artifact
 
 The FreeMarker variable for the `deployed` object is automatically added to the `freemarker-context`. This allows the script to refer to properties of the `deployed` object such as file location.
-     
+
 The `script` parameter refers to scripts for Unix (`deploy-artifact.sh.ftl`) and Windows (`deploy-artifact.bat.ftl`). The step will select the correct script for the operating system that XL Deploy runs on. The scripts are actually script templates processed by FreeMarker. The template can access the variables passed in by the `freemarker-context` parameter of the step.
 
 In XL Deploy 4.5.3, 5.0.0, and later, the Unix script `deploy-artifact.sh.ftl` contains:
@@ -224,7 +224,7 @@ The folder structure should be similar to:
     /tmp/srv/
     └── context
         └── PetClinic-1.0.ear
-     
+
 ## Undeploy an artifact
 
 When you create rules to deploy things, you should also define rules to undeploy them. In the case of this plugin, undeployment means removing the artifact that was deployed. The rule will use the state of the deployment to determine which files must be deleted.
@@ -348,7 +348,7 @@ The [rules demo plugin](https://github.com/xebialabs/xl-deploy-samples/tree/mast
 
     echo "Starting server on Unix"
 
-In a real implementation, this script would need to contain the commands required to start the server. 
+In a real implementation, this script would need to contain the commands required to start the server.
 
 * The script starts with:
     * An import statement of an utility class

@@ -12,7 +12,7 @@ since:
 - XL Deploy 4.5.0
 ---
 
-XL Deploy [rules](/xl-deploy/concept/understanding-xl-deploy-rules.html) allow you to use XML or Jython to specify the steps that belong in a deployment plan and how the steps are configured.
+XL Deploy [rules](/xl-deploy/concept/getting-started-with-xl-deploy-rules.html) allow you to use XML or Jython to specify the steps that belong in a deployment plan and how the steps are configured.
 
 The input that a rule receives depends on the [planning context](/xl-deploy/concept/understanding-the-xl-deploy-planning-phase.html) and on the rule's *scope*. The scope determines when and how often the rule is applied, as well as what data is available for the rule.
 
