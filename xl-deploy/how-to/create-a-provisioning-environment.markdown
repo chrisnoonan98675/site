@@ -21,4 +21,4 @@ To create a provisioning environment:
 
 ## Next steps
 
-After you create a provisioning environment, you can [provision packages to it](/xl-deploy/how-to/provision-a-package-to-an-environment.html) to it.
+After you create a provisioning environment, you can [provision packages to it](/xl-deploy/how-to/provision-an-environment.html) to it.
