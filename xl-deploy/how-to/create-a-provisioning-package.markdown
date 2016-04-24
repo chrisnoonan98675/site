@@ -28,11 +28,17 @@ To create a provisioning package:
 1. Click **Repository** in the top bar.
 1. Expand **Blueprints**, right-click the desired blueprint, and select **New** > **Provisioning Package**.
 1. In the **Name** box, enter a unique name for the provisioning package.
-1. In the **Environment Id** box, enter an XL Deploy environment that should contain the CIs that XL Deploy creates based on the templates in the package.
+1. In the **Environment Name** box, enter an XL Deploy environment that should contain the CIs that XL Deploy creates based on the templates in the package (optional). This field cannot contain forward slashes (`/`).
 
-    For example, a package could contain templates that create `overthere.SshHost`, `tomcat.Server`, and `tomcat.VirtualHost` CIs. XL Deploy can assign these CIs to an environment so you can immediately use them in a deployment.
+    For example, a package could contain bound templates that create `overthere.SshHost`, `tomcat.Server`, and `tomcat.VirtualHost` CIs. XL Deploy can assign these CIs to this environment so you can immediately use them in a deployment.
+
+    When the environment is created, a unique ID will be added to its name, as described in [Provision an environment](/xl-deploy/how-to/provision-an-environment.html#the-unique-provisioning-id).
 
     ![Create new provisioning package](images/provisioning-create-new-provisioning-package.png)
+
+1. In the **Directory Path** box, enter the location in the repository where the environment and the CIs that are created should be saved (optional). Omit root nodes such as `Environments`.
+
+    **Important**: The directories specified here must already exist in the repository.
 
 1. Click **Save**.
 
@@ -44,6 +50,8 @@ To add a provisionable to a provisioning package:
 1. Expand **Blueprints**, then expand the desired blueprint to see its provisioning packages.
 1. Right-click the desired provisioning package, select **New**, then select the type of provisionable that you want to add. For example, to add an Amazon Web Services EC2 AMI, select **aws** > **ec2.InstanceSpec**.
 1. In the **Cardinality** box, enter the number of provisioneds that should be created based on this provisionable. By default, one provisioned is created.
+
+    When the provisioned is created, a unique ID and cardinality number will be added to its name, as described in [Provision an environment](/xl-deploy/how-to/provision-an-environment.html#the-unique-provisioning-id).
 
     ![Create new provisionable (aws.ec2.InstanceSpec)](images/provisioning-create-new-provisionable-01.png)
 
