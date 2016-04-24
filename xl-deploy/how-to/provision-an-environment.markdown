@@ -22,17 +22,27 @@ To provision an environment using the XL Deploy GUI:
 
 1. Click **Execute** to immediately start the provisioning.
 
-    ![Provision an environment](images/provisioning-provision-an-ecosystem.png)
+    {% comment %} ![Provision an environment](images/provisioning-provision-an-ecosystem.png) {% endcomment %}
 
 You can also optionally:
 
 * View or edit the properties of a mapped provisioned by double-clicking it.
-* Click **Provisioning Properties** to select orchestrators, change the provisioned environment, or enter placeholder values.
+* Click **Provisioning Properties** to select orchestrators or enter placeholder values.
 * Click **Advanced** if you want to adjust the provisioning plan by skipping steps or inserting pauses.
 
 If the server does not have the capacity to immediately start executing the plan, the plan will be in a QUEUED state until the server has sufficient capacity.
 
 If a step in the provisioning fails, XL Deploy stops executing the provisioning and marks the step as FAILED. Click the step to see information about the failure in the output log.
+
+### The unique provisioning ID
+
+To prevent name collisions, a unique provisioning ID is added to most items that are created during provisioning. This ID is a random string of characters such as `AOAFbrIEq`. You can see it by clicking **Provisioning Properties** on the provisioning plan.
+
+On the [provisioning package](/xl-deploy/how-to/create-a-provisioning-package.html#create-a-provisioning-package), you can specify an XL Deploy environment where the CIs that are created based on bound templates will be added. The unique ID will be appended to this environment name; for example, if you specify the environment name *TEST*, XL Deploy will create an environment called *TEST-AOAFbrIEq*.
+
+The unique ID is also added to the CIs that are created. For example, if you have a [provisionable](/xl-deploy/how-to/create-a-provisioning-package.html#add-a-provisionable-to-a-package) `aws.ec2.InstanceSpec` called *apache-spec*, XL Deploy will created a provisioned called *AOAFbrIEq-apache-spec*.
+
+If the cardinality set on the provisionable is greater than 1, then XL Deploy will append a number to the provisioned name. For example, if *apache-spec* has a cardinality of 3, XL Deploy will create provisioneds called *AOAFbrIEq-apache-spec*, *AOAFbrIEq-apache-spec-2*, and *AOAFbrIEq-apache-spec-3*.
 
 ## Provision an environment using the CLI
 
