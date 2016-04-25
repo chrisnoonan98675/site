@@ -5,7 +5,7 @@ since:
 - XL Deploy 5.5.0
 ---
 
-After you use XL Deploy's [provisioning feature](/xl-deploy/concept/provisioning-environments-with-xl-deploy.html) to provision an [environment](/xl-deploy/how-to/provision-an-environment.html), you can deploy applications to it.
+After you use XL Deploy's [provisioning feature](/xl-deploy/concept/provisioning-through-xl-deploy.html) to provision an [environment](/xl-deploy/how-to/provision-an-environment.html), you can deploy applications to it.
 
 To do so, you need to add the middleware containers that result from the provisioning to an [XL Deploy environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html). XL Deploy will automatically do this for you if you set the **Environment Name** property on the [provisioning package](/xl-deploy/how-to/create-a-provisioning-package.html).
 
