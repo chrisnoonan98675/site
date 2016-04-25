@@ -8,32 +8,57 @@ tags:
 - system administration
 - backup
 - maintenance
+- database
 ---
 
-## Creating backups
+It is recommended that you regularly create a backup of your XL Release server. It is especially important to back up XL Release before [upgrading to a new version](/xl-release/how-to/upgrade-xl-release.html).
 
-To create a backup of XL Release, several components may need to be backed up depending on your configuration:
+**Important:** XL Release [must not be running](/xl-release/how-to/shut-down-xl-release.html) when you are making a backup.
 
-* Repository:
-    * Built-in repository: Create a backup of the built-in JCR repository by backing up the files in the `repository` directory.
-    * Database repository: Create a backup of the files in the `repository` directory, and the database (using the tools provided by your database vendor).
+## Creating a backup
 
-* Archive (XL Release 4.7 and higher): Create a backup of the local archive database by backing up the files in the `archive` directory.
+The components that should be included in your backup depend on your XL Release configuration.
 
-* Configuration: Create a backup of the XL Release configuration by backing up the files in the `conf` directory in the installation directory.
+### Back up the repository
 
-**Important:** XL Release must not be running when you are making a backup. Schedule backups outside planned deployment hours to ensure the server is not being used.
+If you use the built-in JCR repository (the default), back up the files in the `XLRELEASE_HOME/repository` directory.
 
-## Restoring backups
+If you store the repository in a [database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html#using-a-database), back up the files in the `XLRELEASE_HOME/repository` directory, and back up the database itself using the tools provided by your database vendor.
 
-To restore a backup of XL Release, restore one of the following components:
+#### Back up the archive database
 
-* JCR repository:
-    * Built-in repository: Remove the `repository` directory and replace it with the backup.
-    * Database repository: Remove the `repository` directory and replace it with the backup. Then, restore a backup of the database using the tools provided by your vendor.
+In XL Release 4.7.0 and later, completed releases are stored in an internal [archive database](/xl-release/how-to/configure-the-archive-database.html). To back up the archive database, back up the files in the `XLRELEASEHOME_archive` directory.
 
-* Archive (XL Release 4.7 and higher): Remove the `archive` directory and replace it with the backup.
+### Back up the configuration
 
-* Configuration: Remove the `conf` directory in the `XL_RELEASE_SERVER_HOME` directory and replace it with the backup.
+To back up your XL Release configuration, back up the files in the `XLRELEASE_HOME/conf` directory.
 
-**Important:** XL Release must not be running when you are restoring a backup.
+### Back up your customizations
+
+To back up your XL Release customizations, back up the files in the `XLRELEASE_HOME/ext` and `XLRELEASE_HOME/plugins` directories.
+
+## Restore a backup
+
+**Important:** XL Release [must not be running](/xl-release/how-to/shut-down-xl-release.html) when you restore a backup.
+
+### Restore the repository
+
+If you use the built-in JCR repository, restore it by removing the `XLRELEASE_HOME/repository` directory and replacing it with the backup.
+
+If you store the repository in a database, first remove the `XLRELEASE_HOME/repository` directory and replace it with the backup. Then, restore the backup of the database using the tools provided by your database vendor.
+
+#### Restoring indexes
+
+If you restore a database backup that is not in sync with the backup of the `XLRELEASE_HOME/repository` directory, the indexes will be incorrect and the repository will only show items (such as releases) created before the backup. To fix this issue, delete the indexes and allow XL Release to rebuild them when it starts. To do so, delete the contents of the following directories:
+
+* `XLRELEASE_HOME/repository/repository/index`
+* `XLRELEASE_HOME/repository/workspaces/default/index`
+* `XLRELEASE_HOME/repository/workspaces/security/index`
+
+### Restore the configuration
+
+To restore your XL Release configuration, remove the `XLRELEASE_HOME/conf` directory and replace it with the backup.
+
+### Restore your customizations
+
+To restore your XL Release customizations, remove the `XLRELEASE_HOME/ext` and `XLRELEASE_HOME/plugins` directories and replace them with the backups.

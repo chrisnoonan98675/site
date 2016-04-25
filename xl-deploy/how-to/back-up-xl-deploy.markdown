@@ -7,28 +7,55 @@ subject:
 tags:
 - system administration
 - repository
+- database
+- backup
+- upgrade
 ---
+
+It is recommended that you regularly create a backup of your XL Deploy server. It is especially important to back up XL Deploy before [upgrading to a new version](/xl-deploy/how-to/upgrade-xl-deploy.html).
+
+**Important:** XL Deploy [must not be running](/xl-deploy/how-to/shut-down-xl-deploy.html) when you are making a backup. Schedule backups outside planned deployment hours to ensure that the server is not being used.
 
 ## Create a backup
 
-To create a backup of XL Deploy, several components may need to be backed up depending on your configuration:
+The components that should be included in your backup depend on your XL Deploy configuration.
 
-* **Repository**.
-    * Built-in repository: Create a backup of the built-in JCR repository by backing up the files in the `repository` directory.
-    * Database repository: Create a backup of both the files in the `repository` directory, as well as the database (using the tools provided by your database vendor).
-* **Configuration**. Create a backup of the XL Deploy configuration by backing up the files in the `conf` directory in the installation directory.
-* **Customization**. Create a backup of the XL Deploy customizations by backing up the files in the `ext` and `plugins` directory in the installation directory.
+### Back up the repository
 
-**Note:** XL Deploy **must not** be running when you are making a backup. Schedule backups outside planned deployment hours to ensure the server is not being used.
+If you use the [built-in JCR repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html#location-of-the-repository) (the default), back up the files in the `XLDEPLOY_HOME/repository` directory.
+
+If you store the repository in a [database](/xl-deploy/how-to/configure-the-xl-deploy-repository.html#using-a-database), back up the files in the `XLDEPLOY_HOME/repository` directory, and back up the database itself using the tools provided by your database vendor.
+
+### Back up the configuration
+
+To back up your XL Deploy configuration, back up the files in the `XLDEPLOY_HOME/conf` directory.
+
+### Back up your customizations
+
+To back up your XL Deploy customizations, back up the files in the `XLDEPLOY_HOME/ext` and `XLDEPLOY_HOME/plugins` directories. Refer to the [upgrade procedure](/xl-deploy/how-to/upgrade-xl-deploy.html#upgrade-the-server) for more information about how to handle customizations during upgrades.
 
 ## Restore a backup
 
-To restore a backup of XL Deploy, restore one of the following components:
+**Important:** XL Deploy [must not be running](/xl-deploy/how-to/shut-down-xl-deploy.html) when you restore a backup.
 
-* **JCR repository**.
-    * Built-in repository: Remove the `repository` directory and replace it with the backup.
-    * Database repository: Remove the `repository` directory and replace it with the backup. Next, restore a backup of the database using the tools provided by your vendor.
-* **Configuration**. Remove the `conf` directory in the `XLDEPLOY_SERVER_HOME` directory and replace it with the backup.
-* **Customization**. Remove the `ext` and `plugins` directories in the `XLDEPLOY_SERVER_HOME` directory and replace them with the backups.
+### Restore the repository
 
-**Note:** XL Deploy **must not** be running when you are restoring a backup.
+If you use the built-in JCR repository, restore it by removing the `XLDEPLOY_HOME/repository` directory and replacing it with the backup.
+
+If you store the repository in a database, first remove the `XLDEPLOY_HOME/repository` directory and replace it with the backup. Then, restore the backup of the database using the tools provided by your database vendor.
+
+#### Restoring indexes
+
+If you restore a database backup that is not in sync with the backup of the `XLDEPLOY_HOME/repository` directory, the indexes will be incorrect and the repository will only show configuration items (CIs) created before the backup. To fix this issue, delete the indexes and allow XL Deploy to rebuild them when it starts. To do so, delete the contents of the following directories:
+
+* `XLDEPLOY_HOME/repository/repository/index`
+* `XLDEPLOY_HOME/repository/workspaces/default/index`
+* `XLDEPLOY_HOME/repository/workspaces/security/index`
+
+### Restore the configuration
+
+To restore your XL Deploy configuration, remove the `XLDEPLOY_HOME/conf` directory and replace it with the backup.
+
+### Restore your customizations
+
+To restore your XL Deploy customizations, remove the `XLDEPLOY_HOME/ext` and `XLDEPLOY_HOME/plugins` directories and replace them with the backups. If you are restoring customizations after upgrading XL Deploy, first review the [upgrade procedure](/xl-deploy/how-to/upgrade-xl-deploy.html#upgrade-the-server). Some customizations must be redone manually because some files may change between versions of XL Deploy.
