@@ -14,25 +14,13 @@ tags:
 
 It is recommended that you regularly create a backup of your XL Deploy server. It is especially important to back up XL Deploy before [upgrading to a new version](/xl-deploy/how-to/upgrade-xl-deploy.html).
 
-**Important:** XL Deploy [must not be running](/xl-deploy/how-to/shut-down-xl-deploy.html) when you are making a backup. Schedule backups outside planned deployment hours to ensure that the server is not being used.
-
 ## Create a backup
 
-The components that should be included in your backup depend on your XL Deploy configuration.
+**Important:** XL Deploy [must not be running](/xl-deploy/how-to/shut-down-xl-deploy.html) when you are creating a backup. Schedule backups outside planned deployment hours to ensure that the server is not being used.
 
-### Back up the repository
+To back up XL Deploy, it is recommended that you back up the complete installation folder (referred to here as `XLDEPLOY_HOME`); for example, by compressing it in a ZIP file.
 
-If you use the [built-in JCR repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html#location-of-the-repository) (the default), back up the files in the `XLDEPLOY_HOME/repository` directory.
-
-If you store the repository in a [database](/xl-deploy/how-to/configure-the-xl-deploy-repository.html#using-a-database), back up the files in the `XLDEPLOY_HOME/repository` directory, and back up the database itself using the tools provided by your database vendor.
-
-### Back up the configuration
-
-To back up your XL Deploy configuration, back up the files in the `XLDEPLOY_HOME/conf` directory.
-
-### Back up your customizations
-
-To back up your XL Deploy customizations, back up the files in the `XLDEPLOY_HOME/ext` and `XLDEPLOY_HOME/plugins` directories. Refer to the [upgrade procedure](/xl-deploy/how-to/upgrade-xl-deploy.html#upgrade-the-server) for more information about how to handle customizations during upgrades.
+If you store the XL Deploy repository in a [database](/xl-deploy/how-to/configure-the-xl-deploy-repository.html#using-a-database), back up the database using the tools provided by your database vendor. Note that you must also back up the `XLDEPLOY_HOME/repository` directory, even if you use a database.
 
 ## Restore a backup
 

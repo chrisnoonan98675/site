@@ -13,29 +13,13 @@ tags:
 
 It is recommended that you regularly create a backup of your XL Release server. It is especially important to back up XL Release before [upgrading to a new version](/xl-release/how-to/upgrade-xl-release.html).
 
-**Important:** XL Release [must not be running](/xl-release/how-to/shut-down-xl-release.html) when you are making a backup.
+## Create a backup
 
-## Creating a backup
+**Important:** XL Release [must not be running](/xl-release/how-to/shut-down-xl-release.html) when you are creating a backup.
 
-The components that should be included in your backup depend on your XL Release configuration.
+To back up XL Release, it is recommended that you back up the complete installation folder (referred to here as `XLRELEASE_HOME`); for example, by compressing it in a ZIP file.
 
-### Back up the repository
-
-If you use the built-in JCR repository (the default), back up the files in the `XLRELEASE_HOME/repository` directory.
-
-If you store the repository in a [database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html#using-a-database), back up the files in the `XLRELEASE_HOME/repository` directory, and back up the database itself using the tools provided by your database vendor.
-
-#### Back up the archive database
-
-In XL Release 4.7.0 and later, completed releases are stored in an internal [archive database](/xl-release/how-to/configure-the-archive-database.html). To back up the archive database, back up the files in the `XLRELEASEHOME_archive` directory.
-
-### Back up the configuration
-
-To back up your XL Release configuration, back up the files in the `XLRELEASE_HOME/conf` directory.
-
-### Back up your customizations
-
-To back up your XL Release customizations, back up the files in the `XLRELEASE_HOME/ext` and `XLRELEASE_HOME/plugins` directories.
+If you store the XL Release repository in a [database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html#using-a-database), back up the database using the tools provided by your database vendor. Note that you must also back up the `XLRELEASE_HOME/repository` directory, even if you use a database.
 
 ## Restore a backup
 
