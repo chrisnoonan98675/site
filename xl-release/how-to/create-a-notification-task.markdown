@@ -1,5 +1,5 @@
 ---
-title: Create a notification task
+title: Create a Notification task
 categories:
 - xl-release
 subject:
@@ -10,7 +10,7 @@ tags:
 - email
 ---
 
-The notification task allows you to write emails that are sent automatically when a task becomes active. This is an automated task, so it will complete by itself (or fail if the email could not be sent) and XL Release will advance to the subsequent task.
+The Notification task type allows you to write emails that are sent automatically when a task becomes active. This is an automated task, so it will complete by itself (or fail if the email could not be sent) and XL Release will advance to the subsequent task.
 
 ![Notification Task Details](../images/notification-task-details.png)
 

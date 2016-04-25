@@ -14,6 +14,10 @@ The XL Release Nexus trigger plugin allows XL Release to interact with Sonatype 
 
 A Nexus trigger periodically polls a Nexus server for new versions of a specific artifact and triggers a release if a new version is published to the repository being watched.
 
+## Compatibility
+
+The plugin is compatible with Nexus 2. The plugin does not support Nexus 3.0.0.
+
 ## Features
 
 * Periodically polls a Nexus repository

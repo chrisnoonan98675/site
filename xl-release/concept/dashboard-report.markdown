@@ -1,5 +1,5 @@
 ---
-title: XL Release dashboard
+title: XL Release dashboard report
 categories:
 - xl-release
 subject:
@@ -10,9 +10,9 @@ tags:
 - dashboard
 ---
 
-To access the XL Release Dashboard report, select **Reports** > **Dashboard** from the top menu. Use the buttons at the top of the report to select a time period such as "last six months" or a specific date range.
+The XL Release dashboard report provides important information such as releases that have been flagged and which releases have the highest level of automation. The data for this report comes from XL Release's [archive database](/xl-release/concept/how-archiving-works.html). Releases that are completed but not yet archived do not appear in reports. The exception is the **Releases at risk** section; this section is about [active](/xl-release/concept/release-life-cycle.html) releases, so its data comes from XL Release's repository.
 
-The data for this report comes from XL Release's [archive database](/xl-release/concept/how-archiving-works.html). Releases that are completed but not yet archived do not appear in reports. The exception is the **Releases at risk** section; this section is about [active](/xl-release/concept/release-life-cycle.html) releases, so its data comes from XL Release's repository.
+To access the report, select **Reports** > **Dashboard** from the top menu. Use the buttons at the top of the report to select a time period such as "last six months" or a specific date range.
 
 ## Releases at risk
 

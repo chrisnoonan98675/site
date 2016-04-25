@@ -12,7 +12,7 @@ tags:
 - notification
 ---
 
-XL Release sends [notifications](/xl-release/concept/notifications-in-xl-release.html) to users of the system by email. Use the **SMTP server** page to configure the email server that is used to send notifications. This page is only accessible to users with 'admin' permission.
+XL Release sends [notifications](/xl-release/concept/notifications-in-xl-release.html) to users of the system by email. To configure the email server that is used to send notifications, select **Settings** > **SMTP server** from the top menu. The SMTP server page is only available to users with the [*Admin*](/xl-release/how-to/configure-permissions.html) permission.
 
 ![SMTP server](../images/smtp-server.png)
 

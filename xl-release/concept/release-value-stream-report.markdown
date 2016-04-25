@@ -10,11 +10,11 @@ tags:
 - release value stream
 ---
 
+The XL Release release value stream report focuses on the quality of [completed and aborted](/xl-release/concept/release-life-cycle.html) releases. The data for this report comes from XL Release's [archive database](/xl-release/concept/how-archiving-works.html). Releases that are completed or aborted but not yet archived do not appear in reports.
+
+Releases appear in this report in descending order. Under each phase of a release, you can see its duration and the proportion of the total duration that the phase took.
+
 To access the XL Release release value stream report, select **Reports** > **Release value stream** from the top menu. Use the buttons at the top of the report to select a time period such as "last six months" or a specific date range.
-
-The data for this report comes from XL Release's [archive database](/xl-release/concept/how-archiving-works.html). Releases that are completed or aborted but not yet archived do not appear in reports.
-
-The release value stream report focuses on the quality of [completed and aborted](/xl-release/concept/release-life-cycle.html) releases. Releases appear in this report in descending order. Under each phase of a release, you can see its duration and the proportion of the total duration that the phase took.
 
 ![Release Value Stream](../images/release-value-stream.png)
 

@@ -315,22 +315,21 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
 
 {% highlight xml %}
 <Repository>
-
-    <FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
+   <FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
            <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-           <param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLDeploy"/>
-           <param name="schemaObjectPrefix" value="${wsp.name}_" />
+           <param name="url" value="jdbc:sqlserver://15.51.45.218:4516;DatabaseName=XLD"/>
+           <param name="schemaObjectPrefix" value="fs_" />
            <param name="schema" value="mssql" /> <!-- warning, this is not the schema name, it is the DB type -->
-           <param name="user" value="xld_user" />
-           <param name="password" value="test" />
+           <param name="user" value="sa" />
+           <param name="password" value="PASS" />
         </FileSystem>
 
         <DataStore class="org.apache.jackrabbit.core.data.db.DbDataStore">
          <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-            <param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLDeploy"/>
+            <param name="url" value="jdbc:sqlserver://15.51.45.218:4516;DatabaseName=XLD"/>
             <param name="databaseType" value="mssql"/>
-            <param name="user" value="xld_user" />
-            <param name="password" value="test" />
+            <param name="user" value="sa" />
+            <param name="password" value="PASS" />
         </DataStore>
 
         <Security appName="Jackrabbit">
@@ -346,20 +345,21 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
         <Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
 
        <Workspace name="${wsp.name}">
-        <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
+        <FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
             <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-            <param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLDeploy"/>
+            <param name="url" value="jdbc:sqlserver://15.51.45.218:4516;DatabaseName=XLD"/>
             <param name="schemaObjectPrefix" value="${wsp.name}_" />
-            <param name="schema" value="oracle" />
-            <param name="user" value="xld_user" />
-            <param name="password" value="test" />
+            <param name="schema" value="mssql" />
+            <param name="user" value="sa" />
+            <param name="password" value="PASS" />
         </FileSystem>
 
-        <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager">
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.MSSqlPersistenceManager">
             <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-            <param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLDeploy" />
-            <param name="user" value="xld_user" />
-            <param name="password" value="test" />
+            <param name="url" value="jdbc:sqlserver://15.51.45.218:4516;DatabaseName=XLD" />
+            <param name="user" value="sa" />
+            <param name="password" value="PASS" />
+			<param name="databaseType" value="mssql"/>
             <param name="schemaObjectPrefix" value="${wsp.name}_" />
         </PersistenceManager>
 
@@ -373,18 +373,19 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
     <Versioning rootPath="${rep.home}/version">
         <FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
             <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-            <param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLDeploy"/>
+            <param name="url" value="jdbc:sqlserver://15.51.45.218:4516;DatabaseName=XLD"/>
             <param name="schemaObjectPrefix" value="version_" />
             <param name="schema" value="mssql" />
-            <param name="user" value="xld_user" />
-            <param name="password" value="test" />
+            <param name="user" value="sa" />
+            <param name="password" value="PASS" />
         </FileSystem>
 
-        <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager">
-            <param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLDeploy" />
-            <param name="user" value="xld_user" />
-            <param name="password" value="test" />
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.MSSqlPersistenceManager">
+            <param name="url" value="jdbc:sqlserver://15.51.45.218:4516;DatabaseName=XLD" />
+            <param name="user" value="sa" />
+            <param name="password" value="PASS" />
             <param name="schemaObjectPrefix" value="version_" />
+			<param name="databaseType" value="mssql"/>
         </PersistenceManager>
     </Versioning>
 
@@ -392,7 +393,6 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
             <param name="path" value="${rep.home}/repository/index" />
             <param name="supportHighlighting" value="true" />
         </SearchIndex>
-
 </Repository>
 {% endhighlight %}
 

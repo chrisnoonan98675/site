@@ -18,7 +18,7 @@ To install XL Release:
 1. [Run the server setup wizard](#run-the-server-setup-wizard) and select whether to perform a [simple setup](#simple-setup) or [manual setup](#manual-setup).
 1. [Finish the setup process and log in to XL Release.](#finish-the-setup-process-and-log-in)
 
-**Tip:** If you are upgrading a previously installed version of XL Release, refer to [Upgrade XL Release](/xl-release/how-to/upgrade-xl-release.html).
+**Tip:** For information about installing XL Release as a daemon or service, refer to [Install XL Release as a service](/xl-release/how-to/install-xl-release-as-a-service.html). If you are upgrading a previously installed version of XL Release, refer to [Upgrade XL Release](/xl-release/how-to/upgrade-xl-release.html).
 
 ## Extract the XL Release server archive
 
@@ -46,8 +46,8 @@ To install the XL Release server, go to a command line prompt or terminal window
 {:.table .table-striped}
 | Operating system | Command |
 | ---------------- | ------- |
-| Microsoft Windows | `server.cmd -setup` |
-| Unix-based systems | `server.sh -setup` |
+| Microsoft Windows | `run.cmd -setup` |
+| Unix-based systems | `run.sh -setup` |
 
 To stop the setup wizard at any time, enter `exitsetup`. All changes to the configuration will be discarded.
 

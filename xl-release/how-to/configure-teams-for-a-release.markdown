@@ -8,14 +8,13 @@ tags:
 - release
 - template
 - team
-- release summary
 - permission
 - users
 ---
 
-In a release or template, select **Teams** from the **Show** menu to go to the permissions page, where you specify the teams that are defined for the release.
+In XL Release, a release team groups users with the same role. You can assign a task to a team to indicate that someone from that team must perform the task when it becomes active. Also, you assign [release permissions](/xl-release/how-to/configure-permissions-for-a-release.html) on the team level.
 
-Teams group people with the same role together. You can assign a task to a team to indicate that someone from the team must pick it up when it becomes active. Release security permissions are also expressed on the team level; see [Configure release permissions](/xl-release/how-to/configure-permissions-for-a-release.html) for more information.
+To edit a release team, open the template or release and select **Teams** from the **Show** menu.
 
 ![Release teams](../images/release-team-overview.png)
 

@@ -9,11 +9,11 @@ tags:
 - pipeline
 ---
 
-In XL Release, go to **Releases** > **Pipeline** to see an overview of all active releases, the phases they are in, and which tasks are currently active.
+To see an overview of all active releases in XL Release, select **Releases** > **Pipeline** from the top bar. The release pipelines show the phase that each release is in and the tasks that are currently active.
 
 ![Pipeline](../images/pipeline.png)
 
-In the pipeline:
+In each pipeline:
 
 * Completed phases appear in gray
 * Active phases show the task that is currently active

@@ -9,24 +9,24 @@ tags:
 - gui
 ---
 
-You can extend XL Deploy by creating new endpoints backed by Jython scripts and new UI screens that use these endpoints. 
+You can extend XL Deploy by creating new endpoints backed by Jython scripts and new UI screens that use these endpoints.
 
 Each extension must be packaged in a `jar` archive and saved in the `plugins` folder of the XL Deploy server. The typical file structure of UI extension is:
 
 ![Simple plugin structure](images/ui-extension-plugin-structure.png)
 
-**Tip:** It is recommended that you create a folder under `web` with an unique name for each UI extension plugin, to avoid file name collisions. 
+**Tip:** It is recommended that you create a folder under `web` with an unique name for each UI extension plugin, to avoid file name collisions.
 
 The following XML files tell XL Deploy where to find and how to interpret the content of an extension:
 
 * `xl-rest-endpoints.xml` for adding new REST endpoints
-* `xl-ui-plugins.xml` for adding new top-menu items
+* `xl-ui-plugin.xml` for adding new top-menu items
 
 **Note:** These files are both optional.
 
 ## Adding menu items in XL Deploy
 
-The `xl-ui-plugins.xml` file contains information about the menu items to be added to the XL Deploy. They can be ordered using the `weight` attribute.
+The `xl-ui-plugin.xml` file contains information about the menu items to be added to the XL Deploy. They can be ordered using the `weight` attribute.
 
 For example, it could contain:
 
@@ -58,11 +58,11 @@ You can call two types of XL Deploy REST services from HTML pages:
 
 * XL Deploy REST API
 * REST endpoints created by your extension (it is described below how to declare them)
- 
+
 For both types, your extension must authenticate itself with a basic HTTP authentication header appended to each request. You can retrieve the value of this header from the main XL Deploy application:
 
     var authHeader = parent.getAuthToken()
-    
+
 When you are logged in to XL Deploy with the user name and password `admin`, the `authHeader` variable will contain the string `'Basic YWRtaW46YWRtaW4'`.
 
 **Tip:** If you have configured XL Deploy to run with a context path, don't forget to take it into account when building a path to the REST services.
@@ -100,7 +100,7 @@ Jython scripts should implement the logic of REST endpoints. Typically, every sc
 
 In a script you have access to the following objects:
 
-* Request: [JythonRequest](/jython-docs/#!/xl-deploy/5.0.x/service/com.xebialabs.xlplatform.endpoints.JythonRequest) 
+* Request: [JythonRequest](/jython-docs/#!/xl-deploy/5.0.x/service/com.xebialabs.xlplatform.endpoints.JythonRequest)
 * Response: [JythonResponse](/jython-docs/#!/xl-deploy/5.0.x/service/com.xebialabs.xlplatform.endpoints.JythonResponse)
 * XL Deploy services, described in the [Jython API documentation](/jython-docs/#!/xl-deploy/5.0.x/)
 
@@ -131,9 +131,9 @@ You can find a sample UI extension plugin in `XLDEPLOY_SERVER_HOME/samples` or o
         xl-rest-endpoints.xml
         xl-ui-plugin.xml
         web/
-    
+
     It should <b>not</b> look like:
-    
+
         ./xl-rest-endpoints.xml
         ./xl-ui-plugin
         .xml
@@ -146,7 +146,7 @@ You can find a sample UI extension plugin in `XLDEPLOY_SERVER_HOME/samples` or o
         test/importing-script.py
         test/calc/test/calc/__init__.py
         test/calc/Calc.py
-    
+
     The import must look like this:
-    
+
         from test.calc.calc import Calc

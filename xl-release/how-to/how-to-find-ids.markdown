@@ -13,7 +13,7 @@ tags:
 - task
 ---
 
-To use the REST API successfully, you need to know the unique identifier of templates, releases, phases and tasks. This article explains where you can find them.
+To use the XL Release REST API, you need to know the unique identifier of templates, releases, phases and tasks. This topic explains where you can find them.
 
 ## Releases and templates
 
@@ -70,6 +70,6 @@ This is an example that finds all tasks that have the title "Configure email add
 
 For more information about these calls, refer to the REST API:
 
-* [Releases by title](/xl-release/4.6.x/rest-api/#!/releases/searchReleasesByTitle)
-* [Phases by title](/xl-release/4.6.x/rest-api/#!/phases/searchPhasesByTitle)
-* [Tasks by title](/xl-release/4.6.x/rest-api/#!/tasks/searchTasksByTitle)
+* [Releases by title](/xl-release/4.8.x/rest-api/#!/releases/searchReleasesByTitle)
+* [Phases by title](/xl-release/4.8.x/rest-api/#!/phases/searchPhasesByTitle)
+* [Tasks by title](/xl-release/4.8.x/rest-api/#!/tasks/searchTasksByTitle)

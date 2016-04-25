@@ -9,7 +9,7 @@ tags:
 - calendar
 ---
 
-In XL Release, go to **Calendar** to see an overview of all releases on a month-by-month basis. Releases appear as light blue bars on the calendar. Start and due dates are determined in the same way as in the [release summary](/xl-release/concept/xl-release-release-summary.html).
+To see an overview of all releases in XL Release on a month-by-month basis, select **Calendar** from the top menu. Releases appear as light blue bars on the calendar.
 
 A red exclamation mark icon indicates that there is a dependency conflict; that is, a gate task in a release has a dependency on another release, but the release will end after the start date of the dependent one. This helps you identify "schedule shift", where one or more releases require the completion of other releases.
 

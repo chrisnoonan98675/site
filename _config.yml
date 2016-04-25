@@ -27,5 +27,3 @@ jira_dashboard:
   jira_url: 'https://xebialabs.atlassian.net/rest/api/2'
   jira_username: 'xl-ci'
   jira_password: '8ace886bbe7e'
-
-

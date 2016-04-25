@@ -10,7 +10,7 @@ tags:
 - xl deploy
 ---
 
-In XL Release, go to **Settings** > **XL Deploy servers** to configure connections to XebiaLabs XL Deploy servers. This page is accessible to users with the *admin* permission. 
+To configure connections between XL Release and [XL Deploy](/xl-deploy/) servers, select **Settings** > **XL Deploy servers** from the top menu. The XL Deploy servers page is only available to users with the *Admin* permission. 
 
 ![XL Deploy Servers](../images/deployit-servers.png)
 

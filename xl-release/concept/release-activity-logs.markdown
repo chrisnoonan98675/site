@@ -7,10 +7,9 @@ subject:
 tags:
 - release
 - logging
-- release summary
 ---
 
-In a release, select **Activity logs** from the **Show** menu to go to the activity logs page, which shows everything that has happened to a release. This is an audit trail of who did what, and when.
+The activity log shows everything that happens in a release. It provides an audit trail of who did what, and when. To open the activity log, select **Activity logs** from the **Show** menu.
 
 This is an example of an activity log:
 
@@ -19,7 +18,7 @@ This is an example of an activity log:
 ## Filtering the activity logs
 
 To filter the activity logs, click **Filter categories** and select:
- 
+
 * **Important** to show the most important events of all other categories (such as *release started* and *task failed*); by default, only this category is selected
 * **Release life cycle** to show events for the start and end of a release, phases, and tasks
 * **Release edits** to show changes that were made to a release or a template

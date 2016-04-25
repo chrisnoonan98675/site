@@ -72,7 +72,7 @@ To set up an active/active cluster, you must do some manual configuration before
 1. Install the JDBC driver of the database of your choice in the `<XL_RELEASE_HOME>/lib` directory.
 1. Run the following server setup command and follow the on-screen instructions:
 
-        ./bin/server.sh -setup
+        ./bin/run.sh -setup
 
 ### Step 2 Prepare each node in the cluster
 
