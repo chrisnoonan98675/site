@@ -58,7 +58,7 @@ In the Script task, you can read and set variables using a Python dictionary cal
 
 Because the script sets a release variable by modifying `releaseVariables`, you must ensure that the release has the required permissions. In the template, go to the [Properties screen](/xl-release/how-to/configure-release-properties.html) and set **Run script as user** and **Password** to the user name and password of a user that has write permissions on the release.
 
-![Run scripts as user](../images/map-variable/run-as-user.png)
+![Run automated tasks as user](../images/map-variable/run-as-user.png)
 
 ## Create and start the release
 

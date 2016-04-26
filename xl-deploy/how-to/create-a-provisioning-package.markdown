@@ -9,20 +9,36 @@ In XL Deploy, a *provisioning package* represents a specific version of a *bluep
 
 In addition to provisionables, a provisioning package can contain *templates* that define the configuration items (CIs) that XL Deploy should create based on the results of the provisioners.
 
+## Create a blueprint
+
+To create a blueprint:
+
+1. Click **Repository** in the top bar.
+1. Right-click **Blueprints** and select **New** > **upm** > **Blueprint**.
+1. In the **Name** box, enter a unique name for the blueprint.
+
+    ![Create new blueprint](images/provisioning-create-new-blueprint.png)
+
+1. Click **Save**.
+
 ## Create a provisioning package
 
 To create a provisioning package:
 
 1. Click **Repository** in the top bar.
-1. If the blueprint does not exist yet:
-    1. Right-click **Blueprints** and select **New** > **Blueprint**.
-    1. In the **Name** box, enter a unique name for the blueprint.
-    1. Click **Save**.
-1. Right-click the blueprint that you just created and select **New** > **Provisioning Package**.
+1. Expand **Blueprints**, right-click the desired blueprint, and select **New** > **Provisioning Package**.
 1. In the **Name** box, enter a unique name for the provisioning package.
-1. In the **Environment Id** box, enter an XL Deploy environment that should contain the CIs that XL Deploy creates based on the templates in the package.
+1. In the **Environment Name** box, enter an XL Deploy environment that should contain the CIs that XL Deploy creates based on the templates in the package (optional). This field cannot contain forward slashes (`/`).
 
-    For example, a package could contain templates that create `overthere.SshHost`, `tomcat.Server`, and `tomcat.VirtualHost` CIs. XL Deploy can assign these CIs to an environment so you can immediately use them in a deployment.
+    For example, a package could contain bound templates that create `overthere.SshHost`, `tomcat.Server`, and `tomcat.VirtualHost` CIs. XL Deploy can assign these CIs to this environment so you can immediately use them in a deployment.
+
+    When the environment is created, a unique ID will be added to its name, as described in [Provision an environment](/xl-deploy/how-to/provision-an-environment.html#the-unique-provisioning-id).
+
+    ![Create new provisioning package](images/provisioning-create-new-provisioning-package.png)
+
+1. In the **Directory Path** box, enter the location in the repository where the environment and the CIs that are created should be saved (optional). Omit root nodes such as `Environments`.
+
+    **Important**: The directories specified here must already exist in the repository.
 
 1. Click **Save**.
 
@@ -32,8 +48,17 @@ To add a provisionable to a provisioning package:
 
 1. Click **Repository** in the top bar.
 1. Expand **Blueprints**, then expand the desired blueprint to see its provisioning packages.
-1. Right-click the desired provisioning package, select **New**, then select the type of provisionable that you want to add. For example, to add an Amazon Web Services EC2 AMI, select **aws** > **ec2.ami**.
-1. Fill in the configuration for the provisionable.
+1. Right-click the desired provisioning package, select **New**, then select the type of provisionable that you want to add. For example, to add an Amazon Web Services EC2 AMI, select **aws** > **ec2.InstanceSpec**.
+1. In the **Cardinality** box, enter the number of provisioneds that should be created based on this provisionable. By default, one provisioned is created.
+
+    When the provisioned is created, a unique ID and cardinality number will be added to its name, as described in [Provision an environment](/xl-deploy/how-to/provision-an-environment.html#the-unique-provisioning-id).
+
+    ![Create new provisionable (aws.ec2.InstanceSpec)](images/provisioning-create-new-provisionable-01.png)
+
+1. Fill in the rest of the provisionable properties. For example, for an `ec2.instanceSpec`:
+
+    ![Create new provisionable (aws.ec2.InstanceSpec)](images/provisioning-create-new-provisionable-02.png)
+
 1. Click **Save**.
 
 ### Add a provisioner to a provisionable
@@ -45,6 +70,9 @@ To add a provisioner to a provisionable:
 1. Expand the desired provisioning package to see its provisionables.
 1. Right-click the desired provisionable, select **New**, then select the type of provisioner that you want to add. For example, to add a Puppet manifest, select **Manifest**.
 1. Fill in the configuration for the provisioner.
+
+    ![Create new provisioner (puppet.Manifest)](images/provisioning-create-new-provisioner.png)
+
 1. Click **Save**.
 
 ## Add a template to a package
@@ -53,10 +81,16 @@ To add a template to a provisioning package:
 
 1. Click **Repository** in the top bar.
 1. Expand **Blueprints**, then expand the desired blueprint to see its provisioning packages.
-1. Right-click the desired provisioning package, select **New** > **Template**, then select the type of template that you want to add. For example, if your provisioning package will result in the installation of an Apache Tomcat server, you can automatically create a Tomcat virtual host CI by selecting **tomcat.VirtualHost**.
+1. Right-click the desired provisioning package, select **New** > **Template**, then select the type of template that you want to add.
+
+    For example, if the provisioning package includes a `puppet.Manifest` provisioner, you will need a host template such as **overthere.SshHost** for the manifest to use. Also, if the provisioning will install an Apache Tomcat server, you can select templates such as **tomcat.Server** and **tomcat.VirtualHost**.
+
 1. Fill in the configuration for the template.
+
+    ![Create new template (template.overthere.SshHost)](images/provisioning-create-new-template.png)
+
 1. Click **Save**.
 
 ## Next steps
 
-After you create a provisioning package and add provisionables, providers, and templates, you can [provision the package to an ecosystem](/xl-deploy/how-to/provision-a-package-to-an-ecosystem.html).
+After you create a provisioning package and add provisionables, providers, and templates, you can [provision the package to a provisioning environment](/xl-deploy/how-to/provision-an-environment.html).

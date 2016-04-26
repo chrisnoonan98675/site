@@ -24,13 +24,13 @@ A provisionable can contain *provisioners* that define actions to take after the
 
 In addition to provisionables, a provisioning package can contain *templates* that define items to use in the provisioned environment. For example, an `overthere.SshHost` template creates an SSH host that can be used for the Puppet manifest. Also, you can use templates as *bound templates*, which means that XL Deploy will automatically create configuration items (CIs) based on them and assign those CIs to an [environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html). This allows you to immediately use those CIs in deployments.
 
-### Ecosystems and providers
+### Provisioning environments and providers
 
-You provision packages to *ecosystems*, which are logical groupings of *providers*. A provider is a cloud technology such as Amazon EC2; it contains required connection information such as an access key ID and secret access key.
+You provision packages to *provisioning environments*, which are logical groupings of *providers*. A provider is a cloud technology such as Amazon EC2; it contains required connection information such as an access key ID and secret access key.
 
 ### Provisoned blueprints and provisioneds
 
-When you map a provisioning package to an ecosystem, XL Deploy creates a *provisioned blueprint* that contains *provisioneds*. These are the actual properties, manifests, scripts, and so on that XL Deploy will use to provision the ecosystem.
+When you map a provisioning package to a provisioning environment, XL Deploy creates a *provisioned blueprint* that contains *provisioneds*. These are the actual properties, manifests, scripts, and so on that XL Deploy will use to provision the environment.
 
 ## Supported provisioning technologies
 
@@ -42,11 +42,12 @@ To get started with XL Deploy provisioning:
 
 1. [Upgrade to XL Deploy 5.5.0 or later](/xl-deploy/5.5.x/releasemanual.html).
 1. [Create a blueprint and a provisioning package](/xl-deploy/how-to/create-a-provisioning-package.html).
-1. [Create an ecosystem](/xl-deploy/how-to/create-an-ecosystem.html) and a [provider](/xl-deploy/how-to/create-a-provider.html).
-1. [Provision the ecosystem](/xl-deploy/how-to/provision-a-package-to-an-ecosystem.html).
-1. [Deploy to the ecosystem](/xl-deploy/how-to/deploy-to-a-provisioned-ecosystem.html).
-1. [Deprovision the ecosystem](/xl-deploy/how-to/deprovision-an-ecosystem.html).
+1. [Create a provisioning environment](/xl-deploy/how-to/create-a-provisioning-environment.html) and a [provider](/xl-deploy/how-to/create-a-provider.html).
+1. [Provision the environment](/xl-deploy/how-to/provision-an-environment.html).
+1. [Deploy to the environment](/xl-deploy/how-to/deploy-to-a-provisioned-environment.html).
+1. [Deprovision the environment](/xl-deploy/how-to/deprovision-an-environment.html).
 
 ## Limitations
 
-When creating an Amazon EC2 AMI (`aws.ec2.AMI`) configuration item, you can only enter an AWS security group that already exists. To use a new security group, you must first create it manually in AWS.
+* When creating an Amazon EC2 AMI (`aws.ec2.AMI`) configuration item, you can only enter an AWS security group that already exists. To use a new security group, you must first create it manually in AWS.
+* The provisioning feature currently uses an internal API. A public API will be available in a future release.

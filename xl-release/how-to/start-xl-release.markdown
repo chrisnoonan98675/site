@@ -12,11 +12,11 @@ tags:
 
 Open a terminal window and change to the `XL_RELEASE_SERVER_HOME` directory. To start the XL Release server on a Unix system, enter:
 
-    bin/server.sh
+    bin/run.sh
 
 To start the XL Release server on a Window system, enter:
 
-    bin\server.cmd
+    bin\run.cmd
 
 Start the server with the `-h` flag to see the options that are available:
 
@@ -25,7 +25,7 @@ Start the server with the `-h` flag to see the options that are available:
      -repository-keystore-password VAL : The password to open the repository keystore file, if not given, the server will prompt you.
      -reinitialize          : Reinitialize the repository, only useful with -setup
      -setup                 : (Re-)run the setup 
-     -setup-defaults VAL    : Use the given file for defaults during setup server.sh arguments...
+     -setup-defaults VAL    : Use the given file for defaults during setup run.sh arguments...
 
 The command line options are:
 

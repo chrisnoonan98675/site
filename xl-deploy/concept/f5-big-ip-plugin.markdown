@@ -14,7 +14,7 @@ tags:
 
 The F5 BIG-IP plugin adds the ability to manage deployments to application servers and web servers with traffic that is managed by a BIG-IP load balancing device.
 
-For information about the configuration items (CIs) that the BIG-IP plugin provides, refer to the [F5 BIG-IP Plugin Reference](/xl-deploy/latest/bigipPluginManual.html).
+For information about plugin dependencies and the configuration items (CIs) that the plugin provides, refer to the [F5 BIG-IP Plugin Reference](/xl-deploy/latest/bigipPluginManual.html).
 
 ## Features
 
@@ -23,7 +23,7 @@ For information about the configuration items (CIs) that the BIG-IP plugin provi
 
 ## Installation
 
-Place the plugin JAR file and all dependent plugin files in your `SERVER_HOME/plugins` directory.
+Download the plugin distribution ZIP file from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com). Place the plugin JAR file and all dependent plugin files in your `SERVER_HOME/plugins` directory.
 
 Install Python 2.7.x and the additional [pycontrol](https://pypi.python.org/pypi/pycontrol) and [suds](https://pypi.python.org/pypi/suds) libraries on the host that has access to the BIG-IP load balancer device.
 

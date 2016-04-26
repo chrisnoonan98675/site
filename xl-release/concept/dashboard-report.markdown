@@ -1,5 +1,5 @@
 ---
-title: XL Release dashboard
+title: XL Release dashboard report
 categories:
 - xl-release
 subject:

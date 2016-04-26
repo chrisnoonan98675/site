@@ -28,8 +28,6 @@ This example is based on [HttpBin](http://httpbin.org/), a free service to test 
 
 This is the configuration of the task in XL release:
 
-![Webhook details](../images/webhook-details-1.png)
+![Webhook details](../images/webhook-details.png)
 
 After the task is complete, the `origin` field is extracted from the response and stored in the `${xlreleaseIP}` release variable, where it can be used by other tasks.
-
-![Webhook details](../images/webhook-details-2.png)

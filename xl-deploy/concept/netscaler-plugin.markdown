@@ -10,7 +10,9 @@ tags:
 - load balancer
 ---
 
-The Citrix NetScaler Application Delivery Controller plugin allows XL Deploy to manage deployments to application and web servers whose traffic is managed by a NetScaler load-balancing device. 
+The Citrix NetScaler Application Delivery Controller plugin allows XL Deploy to manage deployments to application and web servers whose traffic is managed by a NetScaler load-balancing device.
+
+For information about plugin dependencies and the configuration items (CIs) that the plugin provides, refer to the [NetScaler Plugin Reference](/xl-deploy-netscaler-plugin/latest/netscalerPluginManual.html).
 
 ## Features
 

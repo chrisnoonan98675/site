@@ -9,7 +9,6 @@ tags:
 - template
 - task
 - phase
-- release summary
 - release flow
 ---
 
@@ -41,11 +40,17 @@ In a task:
     * An alert icon, if action is needed
 * The task due date appears at the lower right (if a date is set)
 
-## Add a task to a Parallel Group
+## Add a task to a parallel or sequential group
 
-The [Parallel Group task type](/xl-release/how-to/create-a-parallel-group.html) is a container for other tasks. All tasks inside the parallel group are started simultaneously and the parallel group task will finish when all of its children are complete. To add a task to a parallel group, click **Add task** at the bottom of the group. To move a task into a parallel group, drag and drop it. To collapse or expand a parallel group, click its arrow.
+[Parallel Groups](/xl-release/how-to/create-a-parallel-group.html) and [Sequential Groups](/xl-release/how-to/create-a-sequential-group.html) are containers for other tasks.
 
-![Add parallel task](../images/add-parallel-task.png)
+Within a Parallel Group, all tasks are started simultaneously. The Parallel Group task finishes when all of its children are complete.
+
+Within a Sequential Group, tasks are executed in order. The Sequential Group task finishes when its last child is complete. The Sequential Group task is available in XL Release 5.0.0 and later.
+
+To add a task to a task group, click **Add task** at the bottom of the group. To move a task into a task group, drag and drop it. To collapse or expand a task group, click its arrow.
+
+![Add Parallel Group task](../images/add-parallel-task.png)
 
 ## Copy a task
 

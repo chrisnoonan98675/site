@@ -7,7 +7,6 @@ subject:
 tags:
 - release
 - template
-- release summary
 - release flow
 ---
 

@@ -14,6 +14,6 @@ There are several types of tasks in XL Release:
 
 * Automated tasks: The XL Release execution engine performs an automated script; for example, the [XL Deploy task](/xl-release/how-to/create-an-xl-deploy-task.html), the [Script task](/xl-release/how-to/create-a-script-task.html), the [Webhook task](/xl-release/how-to/create-a-webhook-task.html), and the [Notification task](/xl-release/how-to/create-a-notification-task.html).
 
-* Container tasks: Tasks that contain subtasks; for example, the [Parallel Group](/xl-release/how-to/create-a-parallel-group.html)
+* Container tasks: Tasks that contain subtasks; for example, [Parallel Groups](/xl-release/how-to/create-a-parallel-group.html) or [Sequential Groups](/xl-release/how-to/create-a-sequential-group.html).
 
 You can also create a [custom task type](/xl-release/how-to/create-custom-task-types-in-xl-release.html).

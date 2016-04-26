@@ -35,6 +35,7 @@ For more information about:
 
 * Using a database with Jackrabbit, see the [PersistenceManager FAQ](http://wiki.apache.org/jackrabbit/PersistenceManagerFAQ) and [DataStore FAQ](http://wiki.apache.org/jackrabbit/DataStore)
 * Moving the database or changing its configuration, refer to [Change the repository database settings](/xl-deploy/how-to/change-the-repository-database-settings.html)
+* Backing up the database, refer to [Back up XL Deploy](/xl-deploy/how-to/back-up-xl-deploy.html)
 
 ### Using XL Deploy with MySQL
 

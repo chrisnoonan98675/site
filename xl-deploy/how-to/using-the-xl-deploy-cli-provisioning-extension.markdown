@@ -99,36 +99,36 @@ params = {"provisioners" :[],"cardinality": "1","boundTemplates" : [template.id]
 ami = repository.create(factory.configurationItem(pp.id + "/ubuntu", "aws.ec2.AMI",params))
 {% endhighlight %}
 
-## Step 5 Create an ecosystem
+## Step 5 Create a provisioning environment
 
-An ecosystem groups providers and dictionaries and serves as a target for provisioning. Start by creating a provider.
+A provisioning environment groups providers and dictionaries and serves as a target for provisioning. Start by creating a provider.
 
 {% highlight python %}
 params = {"accesskey":"EC2_ACCESS_KEY","accessSecret":"EC2_ACCESS_SECRET"}
 provider = repository.create(factory.configurationItem("Providers/EC2Provider", "aws.ec2.Cloud", params))
 {% endhighlight %}
 
-Next, create an ecosystem using the provider.
+Next, create a provisioning environment using the provider.
 
 {% highlight python %}
 params = {"providers":[provider.id]}
-ecosystem = repository.create(factory.configurationItem("Ecosystems/test-ecosystem", "upm.Ecosystem", params))
+provisoningenvironment = repository.create(factory.configurationItem("ProvisioningEnvironments/test-environment", "upm.ProvisioningEnvironment", params))
 {% endhighlight %}
 
 ## Step 6 Perform the initial provisioning
 
-Now that you have a provisioning package and an ecosystem, you can perform the initial provisioning. To do so, use the `initial_provisioning` method. It requires a provisioning package ID and an ecosystem ID.
+Now that you have a provisioning package and an environment, you can perform the initial provisioning. To do so, use the `initial_provisioning` method. It requires a provisioning package ID and a provisioning environment ID.
 
 {% highlight python %}
 provisioner = Provisioner()
-p = provisioner.initial_provisioning(package_id="Blueprints/EC2AMIs/1.0", ecosystem_id="Ecosystems/test-ecosystem")
+p = provisioner.initial_provisioning(package_id="Blueprints/EC2AMIs/1.0", provisioningenvironment_id="ProvisioningEnvironments/test-environment")
 {% endhighlight %}
 
 If there are any validation errors, you will see them in the `validationErrors` field in the response. As you can see below, `validationErrors` is empty so no there is no validation error.
 
 {% highlight python %}
 admin > print(p)
-{u'provisionedBlueprint': {u'provsioningPackage': {u'type': u'upm.ProvisioningPackage', u'id': u'Blueprints/EC2AMIs/1.0'}, u'provisionedEnvironment': {u'type': u'udm.Environment', u'id': u'dev'}, u'ecosystem': {u'type': u'upm.Ecosystem', u'id': u'Ecosystems/test-ecosystem'}, u'optimizePlan': True, u'type': u'upm.ProvisionedBlueprint', u'id': u'Environments/test-ecosystem/EC2AMIs-4bb0470f-76ef-4436-8705-c5de05327391'}, u'provisioneds': [{u'instanceType': u'm1.small', u'keyName': u'default', u'securityGroup': u'default', u'type': u'aws.ec2.Instance', u'provisionable': {u'type': u'aws.ec2.AMI', u'id': u'Blueprints/EC2AMIs/1.0/ubuntu'}, u'amiId': u'ami-id', u'provider': {u'type': u'aws.ec2.Cloud', u'id': u'Providers/EC2Provider'}, u'id': u'Providers/EC2Provider/ubuntu-efa096aa-394c-4c49-ac19-ec4738e31e62', u'region': u'eu-west-1', u'ordinal': 1}], u'validationErrors': []}
+{u'provisionedBlueprint': {u'provsioningPackage': {u'type': u'upm.ProvisioningPackage', u'id': u'Blueprints/EC2AMIs/1.0'}, u'provisionedEnvironment': {u'type': u'udm.Environment', u'id': u'dev'}, u'provisioningenvironment': {u'type': u'upm.ProvisioningEnvironment', u'id': u'ProvisioningEnvironments/test-environment'}, u'optimizePlan': True, u'type': u'upm.ProvisionedBlueprint', u'id': u'Environments/test-environment/EC2AMIs-4bb0470f-76ef-4436-8705-c5de05327391'}, u'provisioneds': [{u'instanceType': u'm1.small', u'keyName': u'default', u'securityGroup': u'default', u'type': u'aws.ec2.Instance', u'provisionable': {u'type': u'aws.ec2.AMI', u'id': u'Blueprints/EC2AMIs/1.0/ubuntu'}, u'amiId': u'ami-id', u'provider': {u'type': u'aws.ec2.Cloud', u'id': u'Providers/EC2Provider'}, u'id': u'Providers/EC2Provider/ubuntu-efa096aa-394c-4c49-ac19-ec4738e31e62', u'region': u'eu-west-1', u'ordinal': 1}], u'validationErrors': []}
 {% endhighlight %}
 
 You can access specific fields using the dot notation as shown below.
