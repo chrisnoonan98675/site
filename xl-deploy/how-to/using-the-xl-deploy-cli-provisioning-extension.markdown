@@ -55,9 +55,11 @@ provisioner = Provisioner()
 You can then perform following operations using the `provisioner` object:
 
 {% highlight python %}
-provisioner.initial_provisioning()
+provisioner.initialProvisioning()
 provisioner.validate()
-provisioner.provisioning_task()
+provisioner.createProvisioningTask()
+provisioner.mapAllProvisionables()
+provisioner.mapSelectedProvisionables()
 provisioner.preview()
 provisioner.deprovision()
 {% endhighlight %}
@@ -75,7 +77,7 @@ bp = repository.create(factory.configurationItem("Blueprints/EC2AMIs", "upm.Blue
 After the blueprint is created, use it to create a `ProvisioningPackage`.
 
 {% highlight python %}
-pp = repository.create(factory.configurationItem(bp.id + "/1.0", "upm.ProvisioningPackage", {"environmentId":"dev","blueprint":bp.id }))
+pp = repository.create(factory.configurationItem(bp.id + "/1.0", "upm.ProvisioningPackage", {"blueprint":bp.id }))
 {% endhighlight %}
 
 A `ProvisioningPackage` consists of a `Provisionable` and a `Template`.
@@ -112,7 +114,7 @@ Next, create a provisioning environment using the provider.
 
 {% highlight python %}
 params = {"providers":[provider.id]}
-provisoningenvironment = repository.create(factory.configurationItem("ProvisioningEnvironments/test-environment", "upm.ProvisioningEnvironment", params))
+provisioningEnvironment = repository.create(factory.configurationItem("ProvisioningEnvironments/test-environment", "upm.ProvisioningEnvironment", params))
 {% endhighlight %}
 
 ## Step 6 Perform the initial provisioning
@@ -121,43 +123,79 @@ Now that you have a provisioning package and an environment, you can perform the
 
 {% highlight python %}
 provisioner = Provisioner()
-p = provisioner.initial_provisioning(package_id="Blueprints/EC2AMIs/1.0", provisioningenvironment_id="ProvisioningEnvironments/test-environment")
+provisioning = provisioner.initialProvisioning(packageId="Blueprints/EC2AMIs/1.0", provisioningEnvironmentId="ProvisioningEnvironments/test-environment")
+provisioning.provisionedBlueprint.environmentName = "env"
 {% endhighlight %}
 
-If there are any validation errors, you will see them in the `validationErrors` field in the response. As you can see below, `validationErrors` is empty so no there is no validation error.
-
 {% highlight python %}
-admin > print(p)
-{u'provisionedBlueprint': {u'provsioningPackage': {u'type': u'upm.ProvisioningPackage', u'id': u'Blueprints/EC2AMIs/1.0'}, u'provisionedEnvironment': {u'type': u'udm.Environment', u'id': u'dev'}, u'provisioningenvironment': {u'type': u'upm.ProvisioningEnvironment', u'id': u'ProvisioningEnvironments/test-environment'}, u'optimizePlan': True, u'type': u'upm.ProvisionedBlueprint', u'id': u'Environments/test-environment/EC2AMIs-4bb0470f-76ef-4436-8705-c5de05327391'}, u'provisioneds': [{u'instanceType': u'm1.small', u'keyName': u'default', u'securityGroup': u'default', u'type': u'aws.ec2.Instance', u'provisionable': {u'type': u'aws.ec2.AMI', u'id': u'Blueprints/EC2AMIs/1.0/ubuntu'}, u'amiId': u'ami-id', u'provider': {u'type': u'aws.ec2.Cloud', u'id': u'Providers/EC2Provider'}, u'id': u'Providers/EC2Provider/ubuntu-efa096aa-394c-4c49-ac19-ec4738e31e62', u'region': u'eu-west-1', u'ordinal': 1}], u'validationErrors': []}
+admin > print provisioning
+{u'provisionedBlueprint': {u'provisionedEnvironment': {u'type': u'udm.Environment', u'id': u'Environments/env-wdt6cP'}, u'optimizePlan': True, u'provisioningId': u'wdt6cP', u'type': u'upm.ProvisionedBlueprint', u'orchestrator': [u'provisioning'], u'provisioningPackage': {u'type': u'upm.ProvisioningPackage', u'id': u'Blueprints/EC2AMIs/1.0'}, u'environmentName': u'env', u'provisioningEnvironment': {u'type': u'upm.ProvisioningEnvironment', u'id': u'ProvisioningEnvironments/test-environment'}, u'id': u'ProvisioningEnvironments/test-environment/wdt6cP-EC2AMIs'}, u'provisioneds': [{u'type': u'aws.ec2.Instance', u'provisionable': {u'type': u'aws.ec2.InstanceSpec', u'id': u'Blueprints/EC2AMIs/1.0/ubuntu'}, u'provider': {u'type': u'aws.ec2.Cloud', u'id': u'Providers/EC2Provider'}, u'id': u'Providers/EC2Provider/wdt6cP-ubuntu', u'instanceBootRetryCount': 5, u'instanceType': u'm1.small', u'keyName': u'shekhar-xl', u'securityGroup': u'default', u'amiId': u'ami-d91be1ae', u'region': u'eu-west-1', u'ordinal': 1}]}
 {% endhighlight %}
 
 You can access specific fields using the dot notation as shown below.
 
 {% highlight python %}
-admin > p.validationErrors
-PyList: []
+admin > provisioning.provisionedBlueprint.provisionedEnvironment.id
+Environments/env-wdt6cP
 {% endhighlight %}
 
-## Step 7 Preview provisioning task
+### Perform the initial provisioning with unresolved placeholders
+
+If you are using placeholders such as `{% raw %}{{PLACEHOLDER_NAME}}{% endraw %}` in your provisioning package and these placeholders are not specified in a `upm.Dictionary` that is attached to the `upm.ProvisioningEnvironment`, the list of unresolved placeholders is reported in `provisioning` object by path `provisioning.provisionedBlueprint.unresolvedPlaceholders`.
+
+To provide values for unresolved placeholders, execute `initialProvisioning` again.
+
+{% highlight python %}
+provisioning = provisioner.initialProvisioning(packageId="Blueprints/EC2AMIs/1.0", provisioningEnvironmentId="ProvisioningEnvironments/test-environment", placeholders={'PLACEHOLDER_NAME': 'VALUE'})
+{% endhighlight %}
+
+## Step 7 Validate provisioning
+
+After the initial `provisioning` object is created, it is validated. Validation errors are reported in `provisioning.validationErrors` as an array. If an array is not set, there are no validation errors. To revalidate a modified `provisioning` object, call the `validate` method.
+
+{% highlight python %}
+admin > del provisioning.provisionedBlueprint['environmentName'] #delete required property
+admin > provisioning = provisioner.validate(provisioning)
+admin > print provisioning.validationErrors
+[{u'message': u'Value is required', u'reference': u'ProvisioningEnvironments/test-environment/wdt6cP-EC2AMIs', u'propertyName': u'environmentName'}]
+{% endhighlight %}
+
+## Step 8 Map provisionables
+
+After the `provisioning` object has been validated, you must map the provisionables specified in the `upm.ProvisioningPackage` to providers specified in the `upm.ProvisioningEnvironment`.
+
+To automatically map all provisionables, call:
+
+{% highlight python %}
+provisioning = provisioner.mapAllProvisionables(provisioning)
+{% endhighlight %}
+
+To specify the provisionables to map, call:
+
+{% highlight python %}
+provisioning = provisioner.mapSelectedProvisionables(['Blueprints/EC2AMIs/1.0/ubuntu'], provisioning)
+{% endhighlight %}
+
+## Step 9 Preview provisioning task
 
 The CLI provisioning extension allows you to preview the provisioning plan that XL Deploy generated based on the provisioning configuration. To view the plan, you can use the `preview` method of `provisioner` object as shown below.
 
 {% highlight python %}
-task_preview = provisioner.preview(p)
+task_preview = provisioner.preview(provisioning)
 {% endhighlight %}
 
 You can also preview a step by passing it a blockId and step number as shown below.
 
 {% highlight python %}
-step_preview = provisioner.preview(p,"0_1_1_1","1")
+step_preview = provisioner.preview(provisioning, "0_1_1_1", "1")
 {% endhighlight %}
 
-## Step 8 Invoke the provisioning task
+## Step 10 Invoke the provisioning task
 
 After you perform the initial provisioning, you can request that XL Deploy create a provisioning task.
 
 {% highlight python %}
-task = provisioner.provisioning_task(p)
+task = provisioner.createProvisioningTask(p)
 {% endhighlight %}
 
 This will create a task. You can view the task ID as shown below.
@@ -179,8 +217,9 @@ After the task finishes successfully, you will have a new environment provisione
 
 ## Step 10 Deprovision the environment
 
-To deprovision the created environment, you can use the `deprovision` method, passing it the ID of the environment you want to deprovision. Thsi will destroy the environment and all related configuration items.
+To deprovision the created environment, you can use the `deprovision` method, passing it the ID of the environment you want to deprovision. This will destroy the environment and all related configuration items.
 
 {% highlight python %}
-provisioner.deprovision(provisioned_environment_id="Environments/env/id")
+task = provisioner.deprovision(provisionedBlueprintId="ProvisioningEnvironments/test-environment/wdt6cP-EC2AMIs")
+deployit.startTaskAndWait(task.id)
 {% endhighlight %}
