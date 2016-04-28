@@ -20,9 +20,9 @@ To provision an environment using the XL Deploy GUI:
 
     XL Deploy automatically maps the provisionables in the package to the providers in the environment.
 
-1. Click **Execute** to immediately start the provisioning.
+    ![Provision an environment](images/provisioning-mapping.png)
 
-    {% comment %} ![Provision an environment](images/provisioning-provision-an-ecosystem.png) {% endcomment %}
+1. Click **Execute** to immediately start the provisioning.
 
 You can also optionally:
 
