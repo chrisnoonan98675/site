@@ -5,43 +5,17 @@ since:
 - XL Deploy 5.5.0
 ---
 
-XL Deploy 5.5.0 introduced support for provisioning environments, which means that you can use the XL Deploy GUI and CLI to provision environments and to deploy applications to them. This topic describes how to use the provisioning extension for the XL Deploy CLI.
+XL Deploy 5.5.0 introduced support for provisioning environments, which means that you can use the XL Deploy GUI and CLI to provision environments and to deploy applications to them. This topic describes how to use the provisioning extension for the XL Deploy command-line interface (CLI).
 
-## Prerequisites
+## Step 1 Start XL Deploy
 
-To use the XL Deploy CLI for provisioning:
+Follow [the instructions](/xl-deploy/how-to/install-xl-deploy.html) to install XL Deploy 5.5.0 or later. Note that Java Development Kit (JDK) 8 is required.
 
-1. [Upgrade](/xl-deploy/how-to/upgrade-xl-deploy.html) to XL Deploy 5.5.0 or later.
-1. Ensure that the [XL Deploy CLI](/xl-deploy/how-to/install-the-xl-deploy-cli.html) is installed.
-1. Download the XL Deploy Provisioning plugin and EC2 plugin from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com) and copy them to the `XLDEPLOY_HOME/plugins` directory (where `XLDEPLOY_HOME` is the directory where XL Deploy is installed).
+If XL Deploy is already installed, [start the XL Deploy server](/xl-deploy/how-to/start-xl-deploy.html).
 
-    **Tip:** XL Deploy supports several cloud providers; this topic shows how to use the Amazon EC2 plugin, but you can use the same approach for other providers.
+Also, follow [the instructions](/xl-deploy/how-to/install-the-xl-deploy-cli.html) to install the XL Deploy CLI and [connect to XL Deploy from it](/xl-deploy/how-to/connect-to-xl-deploy-from-the-cli.html).
 
-## Step 1 Install the XL Deploy CLI provisioning extension
-
-Download the XL Deploy CLI provisioning extension (`xld-provision-cli.jar`) from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com) and copy it to `XLDEPLOY_CLI_HOME/plugins`.
-
-## Step 2 Launch the XL Deploy CLI
-
-Open a terminal window or command prompt and go to the `XLDEPLOY_CLI_HOME/bin` directory (where `XLDEPLOY_CLI_HOME` is the directory where the CLI is installed). Execute the start command:
-
-* Unix-based operating systems: `./cli.sh`
-* Microsoft Windows: `cli.cmd`
-
-For example:
-
-{% highlight bash %}
-$ sh bin/cli.sh
-{% endhighlight %}
-
-You will be asked to provide a user name and password to use when connecting to the XL Deploy instance.
-
-For more information about using the CLI, refer to:
-
-* [Connect to XL Deploy from the CLI](/xl-deploy/how-to/connect-to-xl-deploy-from-the-cli.html)
-* [Using the XL Deploy CLI](/xl-deploy/how-to/using-the-xl-deploy-cli.html)
-
-## Step 3 Import the provisioning module
+## Step 2 Import the provisioning module
 
 After you log in to the XL Deploy CLI, import the provisioning module. This will give you access to the provisioning API.
 
@@ -62,7 +36,7 @@ provisioner.preview()
 provisioner.deprovision()
 {% endhighlight %}
 
-## Step 4 Create a provisioning package
+## Step 3 Create a provisioning package
 
 Before you can provision an environment, you need to import a provisioning package. The examples below show how to create configuration items (CIs) that are required for provisioning.
 
@@ -99,7 +73,7 @@ params = {"provisioners" :[],"cardinality": "1","boundTemplates" : [template.id]
 ami = repository.create(factory.configurationItem(pp.id + "/ubuntu", "aws.ec2.AMI",params))
 {% endhighlight %}
 
-## Step 5 Create a provisioning environment
+## Step 4 Create a provisioning environment
 
 A provisioning environment groups providers and dictionaries and serves as a target for provisioning. Start by creating a provider.
 
@@ -115,7 +89,7 @@ params = {"providers":[provider.id]}
 provisoningenvironment = repository.create(factory.configurationItem("ProvisioningEnvironments/test-environment", "upm.ProvisioningEnvironment", params))
 {% endhighlight %}
 
-## Step 6 Perform the initial provisioning
+## Step 5 Perform the initial provisioning
 
 Now that you have a provisioning package and an environment, you can perform the initial provisioning. To do so, use the `initial_provisioning` method. It requires a provisioning package ID and a provisioning environment ID.
 
@@ -138,7 +112,7 @@ admin > p.validationErrors
 PyList: []
 {% endhighlight %}
 
-## Step 7 Preview provisioning task
+## Step 6 Preview provisioning task
 
 The CLI provisioning extension allows you to preview the provisioning plan that XL Deploy generated based on the provisioning configuration. To view the plan, you can use the `preview` method of `provisioner` object as shown below.
 
@@ -152,7 +126,7 @@ You can also preview a step by passing it a blockId and step number as shown bel
 step_preview = provisioner.preview(p,"0_1_1_1","1")
 {% endhighlight %}
 
-## Step 8 Invoke the provisioning task
+## Step 7 Invoke the provisioning task
 
 After you perform the initial provisioning, you can request that XL Deploy create a provisioning task.
 
@@ -167,7 +141,7 @@ admin > task.id
 577c51e2-1225-41cb-9a6d-8f44829d407a
 {% endhighlight %}
 
-## Step 9 Start and wait for provisioning to finish
+## Step 8 Start and wait for provisioning to finish
 
 After the task is created, you can use the `deployit` object to start it and wait for it to finish.
 
@@ -177,7 +151,7 @@ deployit.startTaskAndWait(task.id)
 
 After the task finishes successfully, you will have a new environment provisioned.
 
-## Step 10 Deprovision the environment
+## Step 9 Deprovision the environment
 
 To deprovision the created environment, you can use the `deprovision` method, passing it the ID of the environment you want to deprovision. Thsi will destroy the environment and all related configuration items.
 
