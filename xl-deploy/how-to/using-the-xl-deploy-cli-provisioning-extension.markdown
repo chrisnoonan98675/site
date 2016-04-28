@@ -98,7 +98,7 @@ Next, create a `upm.Provisionable` for EC2 AMI.
 
 {% highlight python %}
 params = {"provisioners" :[],"cardinality": "1","boundTemplates" : [template.id],"amiId":"amiId"}
-ami = repository.create(factory.configurationItem(pp.id + "/ubuntu", "aws.ec2.AMI",params))
+ami = repository.create(factory.configurationItem(pp.id + "/ubuntu", "aws.ec2.InstanceSpec",params))
 {% endhighlight %}
 
 ## Step 5 Create a provisioning environment
