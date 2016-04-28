@@ -217,9 +217,9 @@ After the task finishes successfully, you will have a new environment provisione
 
 ## Step 10 Deprovision the environment
 
-To deprovision the created environment, you can use the `deprovision` method, passing it the ID of the environment you want to deprovision. This will destroy the environment and all related configuration items.
+To deprovision the created environment, you can use the `deprovision` method, passing it the `id` of the `upm.ProvisionedBlueprint` you want to deprovision. This will destroy the environment and all related configuration items.
 
 {% highlight python %}
-task = provisioner.deprovision(provisionedBlueprintId="ProvisioningEnvironments/test-environment/wdt6cP-EC2AMIs")
+task = provisioner.deprovision(provisionedBlueprintId=provisioning.provisionedBlueprint.id) # where provisioning is object created by initialProvisioning
 deployit.startTaskAndWait(task.id)
 {% endhighlight %}
