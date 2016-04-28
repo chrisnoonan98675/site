@@ -28,7 +28,7 @@ In addition to provisionables, a provisioning package can contain *templates* th
 
 You provision packages to *provisioning environments*, which are logical groupings of *providers*. A provider is a cloud technology such as Amazon EC2; it contains required connection information such as an access key ID and secret access key.
 
-### Provisoned blueprints and provisioneds
+### Provisioned blueprints and provisioneds
 
 When you map a provisioning package to a provisioning environment, XL Deploy creates a *provisioned blueprint* that contains *provisioneds*. These are the actual properties, manifests, scripts, and so on that XL Deploy will use to provision the environment.
 
@@ -57,3 +57,6 @@ To get started with XL Deploy provisioning:
 * In [reports](/xl-deploy/how-to/using-xl-deploy-reports.html):
     * Provisioning and unprovisioning actions appear on the Deployments tab
     * Provisioning environments are listed on the Deployed Applications tab
+* In the Repository:
+    * When creating an XL Deploy environment (`udm.Environment`), providers erroneously appear in the Containers list
+    * When adding deployables to a deployment package, the `aws.ec2.InstanceSpec` CI erroneously appears as an option
