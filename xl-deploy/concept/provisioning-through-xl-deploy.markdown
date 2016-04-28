@@ -47,7 +47,9 @@ To get started with XL Deploy provisioning:
 1. [Deploy to the environment](/xl-deploy/how-to/deploy-to-a-provisioned-environment.html).
 1. [Deprovision the environment](/xl-deploy/how-to/deprovision-an-environment.html).
 
-## Limitations
+## Limitations and known issues
 
-* When creating an Amazon EC2 AMI (`aws.ec2.AMI`) configuration item, you can only enter an AWS security group that already exists. To use a new security group, you must first create it manually in AWS.
 * The provisioning feature currently uses an internal API. A public API will be available in a future release.
+* It may take one minute or longer to generate a provisioning plan preview if the plan includes many provisioneds.
+* Occasionally, the Provisioning Environments list on the Provisioning screen may be empty. To correct this issue, clear your browser cache and refresh the screen, or use a different browser.
+* When creating an `aws.ec2.InstanceSpec` configuration item, you can only enter an AWS security group that already exists. To use a new security group, you must first create it manually in AWS.
