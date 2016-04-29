@@ -10,9 +10,10 @@ product-id: xl-deploy
 * [Release Manual](releasemanual.html)
 * [Steps Reference](referencesteps.html)
 * [UDM CI Reference](udmcireference.html)
+* [Provisioning CI Reference](/xl-deploy-xld-provision/5.5.x/xldProvisioningManual.html)
 * [REST API Reference](rest-api)
-* [Jython API Reference](/jython-docs/#!/xl-deploy/5.5.x/)
-* [Javadoc](/xl-deploy/5.5.x/javadoc/udm-plugin-api/index.html)
+* [Jython API Reference](/jython-docs/#!/xl-deploy/5.1.x/)
+* [Javadoc](/xl-deploy/5.1.x/javadoc/udm-plugin-api/index.html)
 
 ## Plugin reference documentation
 
@@ -33,8 +34,8 @@ product-id: xl-deploy
 
 * [JBoss Application Server 5 and 6 plugin](/xl-deploy-jbossas-plugin/5.0.x/jbossPluginManual.html)
 * [JBoss Application Server 7 and up plugin](/xl-deploy-jbossdm-plugin/5.0.x/jbossDomainPluginManual.html)
-* [Oracle Service Bus plugin](/xl-deploy-osb-plugin/5.0.x/osbPluginManual.html)
-* [WebLogic Application Server plugin](/xl-deploy-wls-plugin/5.0.x/wlsPluginManual.html)
+* [Oracle Service Bus plugin](/xl-deploy-osb-plugin/5.5.x/osbPluginManual.html)
+* [WebLogic Application Server plugin](/xl-deploy-wls-plugin/5.5.x/wlsPluginManual.html)
 * [WebSphere Application Server plugin](/xl-deploy-was-plugin/5.1.x/wasPluginManual.html)
 * [WebSphere Process Server plugin](/xl-deploy-wps-plugin/5.0.x/wpsPluginManual.html)
 * [WebSphere Liberty Profile Server plugin](/xl-deploy-wlp-plugin/5.1.x/wlpPluginManual.html)
@@ -64,6 +65,11 @@ product-id: xl-deploy
 * [XL Deploy Chef plugin](/xl-deploy-xld-chef-plugin/5.1.x/chefPluginManual.html)
 * [XL Deploy Team Foundation Server plugin](/xl-deploy-tfs-plugin/5.0.x/tfsPluginManual.html)
 * [XL Deploy Manifest Editor (Windows only)](/xl-deploy-tfs-plugin/4.5.x/manifestEditorManual.html)
+
+### Provisioning plugins
+
+* [XL Deploy EC2 plugin](/xl-deploy-xld-aws-ec2-plugin/5.5.x/ec2PluginManual.html)
+* [XL Deploy Provision Puppet plugin](/xl-deploy-xld-provision-puppet-plugin/5.5.x/provisionPuppetPluginManual.html)
 
 ### XL Scale
 

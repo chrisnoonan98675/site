@@ -1,5 +1,5 @@
 ---
-title: Using placeholders in XL Deploy
+title: Using placeholders in deployments
 categories:
 - xl-deploy
 subject:
@@ -14,6 +14,8 @@ tags:
 Placeholders are configurable entries in your application that will be set to an actual value at deployment time. This allows the deployment package to be environment-independent and thus reusable. At deployment time, you can provide values for placeholders manually or they can be resolved from [dictionaries](/xl-deploy/how-to/create-a-dictionary.html) that are assigned to the target environment.
 
 **Note:** When you *update* an application, XL Deploy will resolve the values for placeholders again from the dictionary. For more information, refer to [Resolving properties during application updates](/xl-deploy/concept/resolving-properties-during-application-updates.html).
+
+This topic describes placeholders using for deployments; for information about placeholders that can be used with the [XL Deploy provisioning feature](/xl-deploy/concept/provisioning-through-xl-deploy.html), refer to [Using placeholders with provisioning](/xl-deploy/how-to/using-placeholders-with-provisioning.html).
 
 ## Placeholder format
 

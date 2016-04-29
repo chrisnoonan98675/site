@@ -25,6 +25,7 @@ To [install](/xl-deploy/how-to/install-xl-deploy.html) the XL Deploy server, you
 * **Oracle, IBM, or Apple Java Development Kit (JDK):**
     * For XL Deploy 5.1.0 and earlier: JDK 7
     * For XL Deploy 5.1.1 and later: JDK 7 or 8
+    * For XL Deploy 5.5.0 and later: JDK 8
 
     **Warning:** It is a known issue that using XL Deploy 5.1.1, 5.1.2, or 5.1.3 with JDK 8 may prevent pending tasks from being recovered after the XL Deploy server is restarted. To prevent this issue, use JDK 7 with these versions. Note that XL Deploy 5.1.0 and earlier should not be used with JDK 8.
 
