@@ -1,6 +1,13 @@
 ---
-layout: beta-noindex
 title: Using the XL Deploy CLI provisioning extension
+categories:
+- xl-deploy
+subject:
+- Provisioning
+tags:
+- provisioning
+- cloud
+- cli
 since:
 - XL Deploy 5.5.0
 ---

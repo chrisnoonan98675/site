@@ -1,6 +1,14 @@
 ---
-layout: beta-noindex
 title: Deploy to a provisioned environment
+categories:
+- xl-deploy
+subject:
+- Provisioning
+tags:
+- provisioning
+- provisioning environment
+- cloud
+- deployment
 since:
 - XL Deploy 5.5.0
 ---

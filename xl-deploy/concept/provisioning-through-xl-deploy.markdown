@@ -1,6 +1,19 @@
 ---
-layout: beta-noindex
 title: Provisioning through XL Deploy
+categories:
+- xl-deploy
+subject:
+- Provisioning
+tags:
+- provisioning
+- blueprint
+- provisioning package
+- provisioning environment
+- provisioner
+- provider
+- provisionable
+- provisioned
+- cloud
 since:
 - XL Deploy 5.5.0
 ---

@@ -1,6 +1,16 @@
 ---
-layout: beta-noindex
 title: Create a provisioning package
+categories:
+- xl-deploy
+subject:
+- Provisioning
+tags:
+- provisioning
+- blueprint
+- provisioning package
+- provisionable
+- template
+- cloud
 since:
 - XL Deploy 5.5.0
 ---

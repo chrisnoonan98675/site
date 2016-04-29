@@ -1,6 +1,14 @@
 ---
-layout: beta-noindex
 title: Use provisioning outputs in templates and dictionaries
+categories:
+- xl-deploy
+subject:
+- Provisioning
+tags:
+- provisioning
+- provisioning package
+- template
+- cloud
 since:
 - XL Deploy 5.5.0
 ---
