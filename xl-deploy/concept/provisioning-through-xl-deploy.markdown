@@ -58,8 +58,8 @@ To get started with XL Deploy provisioning:
     * Provisioning is limited to a single tab.
     * Occasionally, the Provisioning Environments list may be empty. To correct this issue, clear your browser cache and refresh the screen, or use a different browser.
 * In the Repository:
-        * When creating an XL Deploy environment (`udm.Environment`), providers erroneously appear in the Containers list
-        * When adding deployables to a deployment package, the `aws.ec2.InstanceSpec` CI erroneously appears as an option
+    * When creating an XL Deploy environment (`udm.Environment`), providers erroneously appear in the Containers list
+    * When adding deployables to a deployment package, the `aws.ec2.InstanceSpec` CI erroneously appears as an option
 * In [reports](/xl-deploy/how-to/using-xl-deploy-reports.html):
     * Provisioning and unprovisioning actions appear on the Deployments tab
     * Provisioning environments are listed on the Deployed Applications tab
