@@ -4,9 +4,21 @@ title: XL Deploy beta documentation
 product-id: xl-deploy
 ---
 
+<p>Concept documentation:</p>
 <ul>
 {% for page in site.pages %}
-	{% if page.path contains 'xl-deploy' and page.layout == 'beta-noindex' %}
+	{% if page.path contains 'xl-deploy' and page.path contains 'concept' and page.layout == 'beta-noindex' %}
+		{% unless page.path contains 'beta' %}
+			<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+		{% endunless %}
+	{% endif %}
+{% endfor %}
+</ul>
+
+<p>How-to documentation:</p>
+<ul>
+{% for page in site.pages %}
+	{% if page.path contains 'xl-deploy' and page.path contains 'how-to' and page.layout == 'beta-noindex' %}
 		{% unless page.path contains 'beta' %}
 			<li><a href="{{ page.url }}">{{ page.title }}</a></li>
 		{% endunless %}

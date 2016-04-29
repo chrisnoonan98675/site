@@ -10,13 +10,13 @@ tags:
 - orchestrator
 ---
 
-An _orchestrator_ in XL Deploy combines the _steps_ for the individual component changes into an overall deployment workflow. Orchestrators are also responsible for deciding which parts of the plan are executed separately or in parallel.
+In XL Deploy, an orchestrator combines the steps for individual component changes into an overall deployment or provisioning workflow. Orchestrators are also responsible for deciding which parts of the deployment or provisioning plan are executed sequentially or in parallel. You can [combine multiple orchestrators](/xl-deploy/concept/combining-multiple-orchestrators.html) for more complex workflows.
 
 **Note:** For orchestrators that specify an order, the order is reversed for undeployment.
 
-You can use more than one orchestrator in a deployment. For more information, refer to [Combining multiple orchestrators](/xl-deploy/concept/combining-multiple-orchestrators.html).
+This topic describes orchestrators that are available for deployment plans. For examples of deployment plans using different orchestrators, refer to [Examples of orchestrators in XL Deploy](/xl-deploy/concept/examples-of-orchestrators-in-xl-deploy.html#by-deployment-group-orchestrators).
 
-For examples of deployment plans using different orchestrators, refer to [Examples of orchestrators in XL Deploy](/xl-deploy/concept/examples-of-orchestrators-in-xl-deploy.html#by-deployment-group-orchestrators).
+For information about orchestrators and provisioning plans, refer to [Using orchestrators with provisioning](/xl-deploy/how-to/using-orchestrators-with-provisioning.html).
 
 ## Default orchestrator
 

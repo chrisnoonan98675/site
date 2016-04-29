@@ -119,7 +119,7 @@ provisioningEnvironment = repository.create(factory.configurationItem("Provision
 
 ## Step 6 Perform the initial provisioning
 
-Now that you have a provisioning package and an environment, you can perform the initial provisioning. To do so, use the `initial_provisioning` method. It requires a provisioning package ID and a provisioning environment ID.
+Now that you have a provisioning package and an environment, you can perform the initial provisioning. To do so, use the `initialProvisioning` method. It requires a provisioning package ID and a provisioning environment ID.
 
 {% highlight python %}
 provisioner = Provisioner()
