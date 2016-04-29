@@ -22,8 +22,8 @@
 /xl-deploy/latest/releasemanual.html : /xl-deploy/5.5.x/releasemanual.html
 /xl-deploy/latest/referencesteps.html : /xl-deploy/5.5.x/referencesteps.html
 /xl-deploy/latest/udmcireference.html : /xl-deploy/5.5.x/udmcireference.html
-/xl-deploy/latest/rest-api/index.html : /xl-deploy/5.1.x/rest-api/index.html
-/xl-deploy/latest/javadoc/udm-plugin-api/index.html : /xl-deploy/5.1.x/javadoc/udm-plugin-api/index.html
+/xl-deploy/latest/rest-api/index.html : /xl-deploy/5.5.x/rest-api/index.html
+/xl-deploy/latest/javadoc/udm-plugin-api/index.html : /xl-deploy/5.5.x/javadoc/udm-plugin-api/index.html
 
 # XL Deploy product docs that are no longer published as of 5.0.0
 

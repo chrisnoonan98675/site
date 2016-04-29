@@ -11,8 +11,8 @@ product-id: xl-deploy
 * [Steps Reference](referencesteps.html)
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
-* [Jython API Reference](/jython-docs/#!/xl-deploy/5.1.x/)
-* [Javadoc](/xl-deploy/5.1.x/javadoc/udm-plugin-api/index.html)
+* [Jython API Reference](/jython-docs/#!/xl-deploy/5.5.x/)
+* [Javadoc](/xl-deploy/5.5.x/javadoc/udm-plugin-api/index.html)
 
 ## Plugin reference documentation
 
