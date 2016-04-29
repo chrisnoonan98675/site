@@ -1,21 +1,22 @@
 ---
-layout: beta-noindex
 title: XL Deploy provisioning example
-since:
-- XL Deploy 5.5.0
----
-
-{% comment %}
 categories:
 - xl-deploy
 subject:
 - Provisioning
 tags:
-- deployment
 - provisioning
-- environment
-- infrastructure
-{% endcomment %}
+- blueprint
+- provisioning package
+- provisioning environment
+- provisioner
+- provider
+- provisionable
+- provisioned
+- cloud
+since:
+- XL Deploy 5.5.0
+---
 
 This topic provides a step-by-step example that will help you get started with the XL Deploy [provisioning feature](/xl-deploy/concept/provisioning-through-xl-deploy.html). This example shows how to provision a cloud-based environment running [Apache Tomcat](http://tomcat.apache.org/).
 
