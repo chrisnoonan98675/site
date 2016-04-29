@@ -51,13 +51,15 @@ To get started with XL Deploy provisioning:
 
 * The provisioning feature currently uses an internal API. A public API will be available in a future release.
 * It may take one minute or longer to generate a provisioning plan preview if the plan includes many provisioneds.
-* Occasionally, the Provisioning Environments list on the Provisioning screen may be empty. To correct this issue, clear your browser cache and refresh the screen, or use a different browser.
 * When creating an `aws.ec2.InstanceSpec` configuration item, you can only enter an AWS security group that already exists. To use a new security group, you must first create it manually in AWS.
 * It is currently not possible to automatically purge provisioning packages according to a [retention policy](/xl-deploy/how-to/automatically-purge-packages-according-to-a-user-defined-policy.html).
 * The [CLI provisioning extension](/xl-deploy/how-to/using-the-xl-deploy-cli-provisioning-extension.html) does not currently include help.
+* In the Provisioning Workspace:
+    * Provisioning is limited to a single tab.
+    * Occasionally, the Provisioning Environments list may be empty. To correct this issue, clear your browser cache and refresh the screen, or use a different browser.
+* In the Repository:
+        * When creating an XL Deploy environment (`udm.Environment`), providers erroneously appear in the Containers list
+        * When adding deployables to a deployment package, the `aws.ec2.InstanceSpec` CI erroneously appears as an option
 * In [reports](/xl-deploy/how-to/using-xl-deploy-reports.html):
     * Provisioning and unprovisioning actions appear on the Deployments tab
     * Provisioning environments are listed on the Deployed Applications tab
-* In the Repository:
-    * When creating an XL Deploy environment (`udm.Environment`), providers erroneously appear in the Containers list
-    * When adding deployables to a deployment package, the `aws.ec2.InstanceSpec` CI erroneously appears as an option
