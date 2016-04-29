@@ -1,6 +1,14 @@
 ---
-layout: beta-noindex
 title: Provisioning and CI templates
+categories:
+- xl-deploy
+subject:
+- Provisioning
+tags:
+- provisioning
+- provisioning package
+- template
+- cloud
 since:
 - XL Deploy 5.5.0
 ---

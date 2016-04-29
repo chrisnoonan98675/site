@@ -1,6 +1,14 @@
 ---
-layout: beta-noindex
 title: Using orchestrators with provisioning
+categories:
+- xl-deploy
+subject:
+- Provisioning
+tags:
+- provisioning
+- provisioning package
+- cloud
+- orchestrator
 since:
 - XL Deploy 5.5.0
 ---
