@@ -23,7 +23,8 @@ The Remote Script plugin includes four task types:
 ## Features
 
 * Execute shell scripts on Unix, z/OS, or Microsoft Windows (via Cygwin or WinSSHD) hosts
-* Execute batch scripts on Microsoft Windows hosts
+* Execute batch scripts on Microsoft Windows hosts. Note: All scripts will be interpreted as batch files; PowerShell is currently not supported.
+
 
 ## Common properties
 
@@ -65,6 +66,8 @@ The following properties are common to all Remote Script task types.
 <li>Windows (SSH): SFTP_CYGWIN, or SFTP_WINSSHD</li>
 <li>z/OS: This option is not present, and SFTP will be used (unless overridden in the <code>remoteScript.Zos.connectionType</code> setting in the <code>deployit-defaults.properties</code> file)</li>
 </ul>
+<b>Tip:</b> The easiest way to connect to a Windows host is to use the WINRM_INTERNAL connection type. This requires that the XL Release server is also running on Windows.
+
 </td>
 </tr>
 </tbody>
