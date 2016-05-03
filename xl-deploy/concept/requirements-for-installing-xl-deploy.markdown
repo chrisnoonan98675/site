@@ -95,7 +95,7 @@ To use the XL Deploy CLI, you must meet the following requirements:
 
 * **Operating system:** Microsoft Windows or Unix-family operating system running Java
 
-* **Java Runtime Environment:** Java Development Kit (JDK) 7 (Oracle, IBM, or Apple)
+* **Java Runtime Environment:** The same Java Development Kit (JDK) version as your version of XL Deploy
 
 ## Middleware server requirements
 
