@@ -1,4 +1,4 @@
 ---
-layout: beta-noindex
+layout: noindex
 title: Configure the Compliance tile
 ---

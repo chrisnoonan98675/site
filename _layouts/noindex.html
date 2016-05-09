@@ -1,0 +1,142 @@
+{% include head-noindex.html%}
+
+<div id="top-bar">
+	<div class="container-fluid">
+		<div class="row hidden-print">
+			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 xebialabs-logo">
+				<a href="https://xebialabs.com"><img height="50" class="img-no-border" src="/images/logos/xebialabs-standard.png"></a>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 pull-right">
+				<form class="navbar-form navbar-right" role="search">
+					<script>
+					  (function() {
+						var cx = '001962156878164368335:2zdytqwe4ms';
+						var gcse = document.createElement('script');
+						gcse.type = 'text/javascript';
+						gcse.async = true;
+						gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+							'//www.google.com/cse/cse.js?cx=' + cx;
+						var s = document.getElementsByTagName('script')[0];
+						s.parentNode.insertBefore(gcse, s);
+					  })();
+					</script>
+					<gcse:search></gcse:search>
+				</form>
+			</div>
+			<div class="col-lg-4 col-md-4 hidden-sm hidden-xs pull-right">
+				<ul class="list-inline xltopmenu pull-right">
+					<li><a href="http://blog.xebialabs.com" target="_blank">Blog</a></li>
+					<li><a href="/support.html">Support</a></li>
+					<li><a href="http://xebialabs.com/contact/" target="_blank">Contact</a></li>
+				</ul>
+			</div>
+		</div> <!-- /.row -->
+	</div><!-- /.container-fluid -->
+</div><!-- /#top-bar -->
+	
+<div id="top-ribbon">
+	<div class="container-fluid">
+		<div class="row">
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="sidebar-nav">
+				<div class="navbar navbar-default" role="navigation">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<span class="visible-xs navbar-brand">Toggle navigation</span>
+					</div> <!-- /.navbar-header -->
+					<div class="navbar-collapse collapse sidebar-navbar-collapse">
+						<ul class="nav navbar-nav">
+							<li><a href="/">Docs Home</a></li>
+							{% assign sidebar_menu_items = (site.pages | where: "layout" , "list-in-sidebar" | sort: 'weight') %}
+							{% for page in sidebar_menu_items %}
+								{% unless page.path contains 'page' %}
+									<li><a {% if page.url == page.url %}class="active"{% endif %} href="{{ page.url }}">{{ page.title }}</a></li>
+								{% endunless %}
+							{% endfor %}
+					</div><!-- /.navbar-collapse -->
+				</div> <!-- /.navbar -->
+			</div><!-- /.sidebar-nav -->
+		</div><!-- /.col -->
+		<div class="col-sm-9">
+			<!-- If there is a since, deprecated, and/or removed version, show them -->
+			{% if page.since or page.deprecated or page.removed %}
+				<div class="offset9 span2 pull-right">
+					<div class="well well-sm">
+						{% if page.since %}
+							<p class="small no-para-spacing">Valid since: 
+								{% for product in site.data.products %}
+									{% if page.categories contains product.id %}
+											{{ product.name }} 
+									{% endif %}
+								{% endfor %}				
+								{% for item in page.since %}{{ item }}{% endfor %}</p>
+						{% endif %}
+						{% if page.deprecated %}
+							<p class="small no-para-spacing">Deprecated in: 
+								{% for product in site.data.products %}
+									{% if page.categories contains product.id %}
+											{{ product.name }} 
+									{% endif %}
+								{% endfor %}				
+								{% for item in page.deprecated %}{{ item }}{% endfor %}</p>
+						{% endif %}
+						{% if page.removed %}
+							<p class="small no-para-spacing">Removed in: 
+								{% for product in site.data.products %}
+									{% if page.categories contains product.id %}
+											{{ product.name }} 
+									{% endif %}
+								{% endfor %}				
+								{% for item in page.removed %}{{ item }}{% endfor %}</p>
+						{% endif %}
+					</div><!-- /.well well-sm -->
+				</div><!-- /.offset9 span2 pull-right -->
+			{% endif %}
+			<!-- Page content -->
+				<div class="page">
+
+					{% include breadcrumbs.html %}
+	
+					<!-- Page subject -->
+					<!-- 
+						{% for subject in page.subject %}
+							{{ page.subject }}
+						{% endfor %}
+					-->
+
+					<!-- Page tags -->
+					<!-- {% include page_tag_list.html %} -->
+	
+					<div class="page-header">
+						<h1 class="page-title">{{ page.title }}</h1>
+					</div>
+
+					{% unless page.no_mini_toc %}
+					<div id="toc" class="mini-toc hidden-sm"></div>
+					{% endunless %}
+
+					{{ content }}
+
+				</div>
+		</div>
+	</div><!-- /.row -->
+</div><!-- /.container -->
+
+<div class="scroll-top-wrapper hidden-print">
+    <span class="scroll-top-inner">
+       	<span class="glyphicon glyphicon-circle-arrow-up"></span>
+    </span>
+</div>
+
+{% include footer.html %}
