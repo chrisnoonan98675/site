@@ -11,11 +11,13 @@ since:
 - XL Deploy 5.0.0
 ---
 
-XL Deploy 5.0.0 and later includes a *maintenance mode* feature that allows administrators to prevent users from starting new deployments, so the XL Deploy server can safely be restarted.
+XL Deploy 5.0.0 and later includes a *maintenance mode* feature that allows administrators to prevent users from starting new deployments and other tasks, so the XL Deploy server can safely be restarted.
 
-**Note:** The `admin` user can continue to start new deployments when maintenance mode is enabled.
+Note that:
 
-When you enable maintenance mode, deployments that have already started will be allowed to finish. Use the Task Monitor to view deployments that are in progress.
+* When you enable maintenance mode, deployments that have already started will be allowed to finish. You can use the [Task Monitor](/xl-deploy/how-to/monitor-and-reassign-deployment-tasks.html) to view deployments that are in progress.
+* While maintenance mode is enabled, the `admin` user can continue to start new tasks.
+* Maintenance mode does not prevent scheduled tasks from starting.
 
 ## Enable maintenance mode
 
