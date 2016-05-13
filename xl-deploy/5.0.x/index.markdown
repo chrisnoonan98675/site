@@ -14,6 +14,7 @@ product-id: xl-deploy
 * [REST API Reference](rest-api)
 * [Jython API Manual](/jython-docs/#!/xl-deploy/5.0.x/)
 * [Javadoc](/xl-deploy/5.0.x/javadoc/udm-plugin-api/index.html)
+* [XL Deploy satellite module](/xl-deploy/5.0.x/satellitecireference.html)
 
 ## Plugin reference documentation
 
