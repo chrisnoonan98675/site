@@ -5,45 +5,56 @@ subject:
 categories:
 - xl-deploy
 tags:
-- gui
+- release dashboard
 - checklist
-- security
-- dashboard
+- pipeline
 ---
 
-Most organizations have a process around releasing software to their environments. Typically, application versions are promoted to a number of environments before being released to production. In each environment, the application version is integrated or tested before being allowed to progress to the next stage. XL Deploy offers the Release Dashboard as a way to get insight into this process.
+Most organizations have a process around releasing software to their environments. Typically, application versions are promoted to a number of environments before being released to production. In each environment, the application version is integrated or tested before being allowed to progress to the next stage. XL Deploy includes a release dashboard to help you get insight into this process.
 
-## Preparing the Release Dashboard
+![Sample deployment pipeline](../how-to/images/deployment-pipeline.png)
 
-Before using XL Deploy's Release Dashboard, you need to define the deployment pipeline, deployment checklists and checklist items.
+## Set up the release dashboard
 
-### Defining the deployment pipeline
+Before using the release dashboard, you need to define a deployment pipeline, deployment checklists, and checklist items.
 
-The deployment pipeline is the sequence of environments that an application is deployed to during it's lifecycle. Each application can be configured with it's own deployment pipeline. An application version starts in the first environment and is promoted to each of the following environments in turn. It is also possible for a particular version to be deployed to multiple environments at once. 
+### Define a deployment pipeline
 
-A common example of such a pipeline is:  _Development_, _Testing_, _Acceptance_ and _Production_. If this deployment pipeline was associated with the PetClinic application, then version 1.0 of PetClinic would be deployed to the Development environment first, then the Testing environment, etc.
+A deployment pipeline is the sequence of environments to which an application is deployed during its lifecycle. Each application can be configured with its own deployment pipeline. An application version starts in the first environment and is promoted to each of the following environments in turn. It is also possible for a particular version to be deployed to multiple environments at once.
 
-You need to define the deployment pipeline for every application that you want to see in the Release Dashboard.
+A common example of such a pipeline is:  _Development_, _Testing_, _Acceptance_ and _Production_. If this deployment pipeline was associated with the PetClinic application, then version 1.0 of PetClinic would be deployed to the Development environment first, then to the Testing environment, and so on.
 
-### Defining deployment checklists and checklist items
+You need to define a deployment pipeline for every application that you want to see in the release dashboard. For information about defining a deployment pipeline, refer to [Create a deployment pipeline](/xl-deploy/how-to/create-a-deployment-pipeline.html).
 
-To ensure the quality of the deployment pipeline, each environment in the pipeline can be associated with a checklist that a deployment package must satisfy before being deployed to the environment. It is also possible to include an environment in a deployment pipeline that does not have a checklist. 
+### Define deployment checklists and checklist items
 
-XL Deploy supports checkboxes and text fields as checklist items. A checkbox condition is met if it is checked. A text field condition is met if it is not empty.
-
-Some examples of checklist items are:
+To ensure the quality of a deployment pipeline, you can optionally associate environments in the pipeline with a checklist that each deployment package must satisfy before being deployed to the environment. Some examples of checklist items are:
 
 * Have release notes been included in the deployment package?
 * Has the application version been performance tested?
 * Is there a change ticket number associated with the deployment?
 * Has the business owner signed off on the deployment?
 
-You need to define the deployment checklist for every environment that you want to use in a deployment pipeline. 
+XL Deploy supports checkboxes and text fields as checklist items. A checkbox condition is met if it is checked. A text field condition is met if it is not empty.
 
-## Release dashboard and security
+For information about defining checklists, refer to [Create a deployment checklist](/xl-deploy/how-to/create-a-deployment-checklist.html).
 
-The XL Deploy security system determines who can do what in XL Deploy and this also applies to the Release Dashboard. The following items describe how security affects the functioning of the Release Dashboard:
+## Use the release dashboard
 
-* The values for deployment checklist items are stored _on the deployment package CI_. This means that whoever has `repo#edit` permission on the deployment package is allowed to set or unset these items. In addition, it's possible to restrict the set of users that can set a checklist item to a certain role.
-* When viewing the deployment pipeline, you will only see the environments that the logged in user has access to. That is, if user 'developer' has access to the Development and Testing environments, he will only see these environments, even if the complete deployment pipeline includes additional environments.
-* Regular deployment permissions apply when a deployment is initiated from the Release Dashboard.
+On the release dashboard, you can:
+
+* Click an application to view its [deployment pipeline](/xl-deploy/how-to/create-a-deployment-pipeline.html) and the version that is installed in each environment
+* Click an application version (that is, a deployment package) to view its position in the deployment pipeline
+* Click an environment in an application version's pipeline to:
+    * Check off items in the [deployment checklist](/xl-deploy/how-to/create-a-deployment-checklist.html) (if the environment has a checklist)
+    * Deploy the selected version to the environment
+
+## Release dashboard security
+
+A user's [permissions](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#permissions) determine what they can do with the release dashboard:
+
+* The values for deployment checklist items are stored on the [deployment package (`udm.Version`) configuration item](/xl-deploy/how-to/create-a-deployment-checklist.html#define-checklist-items-in-syntheticxml). Therefore, users with `repo#edit` permission on the deployment package can check off items on the checklist.
+* When viewing a deployment pipeline, the user can only see the environments that he or she can access. For example, if a user has access to the DEV and TEST environments, he or she will only see those environments in a pipeline that includes the DEV, TEST, ACC, and PROD environments.
+* Normal deployment permissions (`deploy#initial`, `deploy#upgrade`) apply when a deployment is initiated from the release dashboard.
+
+You can also specify roles for specific checks in a deployment checklist; refer to [Advanced release dashboard example](/xl-deploy/concept/advanced-release-dashboard-example.html#assign-security-roles-to-checks) for more information.

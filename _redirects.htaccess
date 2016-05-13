@@ -44,6 +44,7 @@ Redirect 301 /xl-release/help/template-overview.html /xl-release/how-to/create-a
 Redirect 301 /xl-release/help/release-value-stream.html /xl-release/concept/release-value-stream-report.html
 Redirect 301 /xl-release/help/variables.html /xl-release/how-to/create-release-variables.html
 Redirect 301 /xl-release/help/global-variables.html /xl-release/how-to/configure-global-variables.html
+Redirect 301 /xl-deploy/how-to/configure-the-release-dashboard.html : /xl-deploy/concept/advanced-release-dashboard-example.html
 
 # XL TestView in-product links
 
@@ -157,6 +158,8 @@ Redirect 301 /xl-deploy/concept/variables-available-in-freemarker-templates /xl-
 Redirect 301 /xl-deploy/how-to/troubleshoot-the-xl-deploy-cli.html /xl-deploy/how-to/using-the-xl-deploy-cli.html
 Redirect 301 /xl-deploy/how-to/extend-the-xl-deploy-cli.html /xl-deploy/how-to/using-the-xl-deploy-cli.html
 Redirect 301 /xl-deploy/concept/xl-deploy-directory-structure.html /xl-deploy/how-to/install-xl-deploy.html
+Redirect 301 /xl-deploy/how-to/use-the-release-dashboard.html /xl-deploy/concept/release-dashboard.html
+Redirect 301 /xl-deploy/how-to/add-a-check-to-the-deployment-checklist.html /xl-deploy/how-to/create-a-deployment-checklist.html
 
 # XL Release topics
 
