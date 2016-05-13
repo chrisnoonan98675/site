@@ -1,12 +1,13 @@
 ---
 title: Create a deployment package using Ant
 subject:
-- Ant
+- Packaging
 categories:
 - xl-deploy
 tags:
 - package
 - application
+- ant
 ---
 
 Creating a XL Deploy package via Ant is possible using the `jar` task.
