@@ -160,6 +160,7 @@ Redirect 301 /xl-deploy/how-to/extend-the-xl-deploy-cli.html /xl-deploy/how-to/u
 Redirect 301 /xl-deploy/concept/xl-deploy-directory-structure.html /xl-deploy/how-to/install-xl-deploy.html
 Redirect 301 /xl-deploy/how-to/use-the-release-dashboard.html /xl-deploy/concept/release-dashboard.html
 Redirect 301 /xl-deploy/how-to/add-a-check-to-the-deployment-checklist.html /xl-deploy/how-to/create-a-deployment-checklist.html
+Redirect 301 /xl-deploy/how-to/create-a-deployment-package-using-the-cli.html /xl-deploy/how-to/create-a-deployment-package-using-the-command-line.html
 
 # XL Release topics
 
