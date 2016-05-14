@@ -10,11 +10,11 @@ tags:
 - permission
 ---
 
-Templates are like blueprints for releases. You use them to model the ideal process of a release flow. A template can describe a procedure that is used to deliver different applications, or it can describe a procedure that is used to release a particular application and that will be reused for different versions of it.
+In XL Release, templates are like blueprints for releases. You use them to model the ideal process of a release flow. A template can describe a procedure that is used to deliver different applications, or it can describe a procedure that is used to release a particular application and that will be reused for different versions of it.
 
 Templates lack certain properties of actual releases, such as start and end dates. Also, you typically use placeholders like variables and teams for information about a release that you do not know in advance.
 
-A new release is based on a template. The release is a copy of the template and has the values for the variables filled in, the start and end dates assigned, and the teams populated. 
+A new release is based on a template. The release is a copy of the template and has the values for the variables filled in, the start and end dates assigned, and the teams populated.
 
 If you change a template, the running releases that were created from it are not updated with the changes. Also, if you change the content or structure of a release, the changes are not automatically propagated to the template that was used to create it.
 
@@ -71,3 +71,11 @@ Templates have two sets of permissions. The first table shows permissions that a
 | Edit Security | Users can edit teams and permissions on the template |
 
 The second table contains permissions that are copied when creating a release. This allows you to define teams and permissions for the release beforehand. See [Configure release permissions](/xl-release/how-to/configure-permissions-for-a-release.html) for an overview of these permissions.
+
+## Versioning templates
+
+Template names do not have to be unique because every template has a [unique ID](/xl-release/how-to/how-to-find-ids.html#releases-and-templates) such as `Release29994650`. If you want to create a new version of a template, it is recommended that you do so by:
+
+1. Going go the template overview
+2. Clicking **Copy** next to the desired template
+3. Adding a version number to the name; for example, _Consumer Portal Release Process V4_

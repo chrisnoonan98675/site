@@ -1,11 +1,18 @@
 ---
-layout: beta-noindex
 title: Provision an environment
+categories:
+- xl-deploy
+subject:
+- Provisioning
+tags:
+- provisioning
+- provisioning environment
+- cloud
 since:
 - XL Deploy 5.5.0
 ---
 
-You can use XL Deploy's [provisioning feature](/xl-deploy/concept/provisioning-environments-with-xl-deploy.html) to create cloud-based environments in a single action. In XL Deploy terminology, you provision a [*provisioning package*](/xl-deploy/how-to/create-a-provisioning-package.html) to a [*provisioning environment*](/xl-deploy/how-to/create-a-provisioning-environment.html). The environment contains information about *providers* (such as [Amazon EC2](https://aws.amazon.com/ec2/)) and the package describes what the provisioned environment should look like.
+You can use XL Deploy's [provisioning feature](/xl-deploy/concept/provisioning-through-xl-deploy.html) to create cloud-based environments in a single action. In XL Deploy terminology, you provision a [*provisioning package*](/xl-deploy/how-to/create-a-provisioning-package.html) to a [*provisioning environment*](/xl-deploy/how-to/create-a-provisioning-environment.html). The environment contains information about *providers* (such as [Amazon EC2](https://aws.amazon.com/ec2/)) and the package describes what the provisioned environment should look like.
 
 The result of provisioning a provisioning package to a provisioning environment is a *provisioned blueprint* that contains *provisioneds*.
 
@@ -20,9 +27,9 @@ To provision an environment using the XL Deploy GUI:
 
     XL Deploy automatically maps the provisionables in the package to the providers in the environment.
 
-1. Click **Execute** to immediately start the provisioning.
+    ![Provision an environment](images/provisioning-mapping.png)
 
-    {% comment %} ![Provision an environment](images/provisioning-provision-an-ecosystem.png) {% endcomment %}
+1. Click **Execute** to immediately start the provisioning.
 
 You can also optionally:
 
@@ -50,6 +57,4 @@ For information about provisioning an environment using the XL Deploy command-li
 
 ## Next steps
 
-After you provision an environment using XL Deploy, you can [deploy an application to it](/xl-deploy/how-to/deploy-to-a-provisioned-environment.html).
-
-You can also use XL Deploy to [deprovision an environment](/xl-deploy/how-to/deprovision-an-environment.html).
+After you provision an environment using XL Deploy, you can [deploy an application to it](/xl-deploy/how-to/deploy-to-a-provisioned-environment.html). You can also use XL Deploy to [deprovision an environment](/xl-deploy/how-to/deprovision-an-environment.html).

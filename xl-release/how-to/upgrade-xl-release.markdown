@@ -29,7 +29,7 @@ It is possible to skip XL Release versions when upgrading. XL Release will seque
 
 ### Upgrading and downgrading
 
-After you upgrade to a new version of XL Release, you cannot downgrade to an older version. If you upgrade to a release candidate (RC), alpha, or beta version, you cannot upgrade to a newer version or downgrade to an older version. Ensure that you always create a backup of your repository before you upgrade to a new version of XL Release.
+After you upgrade to a new version of XL Release, you cannot downgrade to an older version. If you upgrade to a release candidate (RC), alpha, or beta version, you cannot upgrade to a newer version or downgrade to an older version. Ensure that you always [create a backup of your repository](/xl-release/how-to/back-up-xl-release.html) before you upgrade to a new version of XL Release.
 
 ### Upgrading the repository
 

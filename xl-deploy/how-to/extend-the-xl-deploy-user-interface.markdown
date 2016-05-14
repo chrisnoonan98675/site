@@ -47,7 +47,7 @@ The attributes that are available for `<menu>` are:
 | --------- | -------- | ----------- |
 | `id` | Yes | Menu item ID, which must be unique among all menus items in XL Deploy; if there are duplicate IDs, XL Deploy will return a RuntimeException |
 | `label` | Yes | Text to show on the menu button |
-| `uri` | Yes | Link that will be used to fetch the content of the extension |
+| `uri` | Yes | Link that will be used to fetch the content of the extension. The link needs to point exactly to the file that needs to be loaded by the browser. Default pages like `index.html` are not guaranteed to load automatically. |
 | `weight` | Yes | Menu item order; the higher the weight, the further to the right the menu item will be placed |
 
 **Tip:** Menu items created by extensions always appear _after_ all the 'native' XL Deploy menus.

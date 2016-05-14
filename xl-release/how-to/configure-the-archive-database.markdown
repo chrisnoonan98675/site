@@ -8,6 +8,7 @@ tags:
 - system administration
 - reporting
 - archiving
+- database
 since:
 - XL Release 4.7.0
 ---
@@ -26,7 +27,7 @@ You can move the Apache Derby database by changing the configuration in `XLRELEA
 
 If you are already using the archive database, you must move it to the new location while XL Release is not running.
 
-## Change the reporting database DBMS (XL Release 4.8.0 and later)
+## Change the archive database DBMS (XL Release 4.8.0 and later)
 
 In XL Release 4.8.0 and later, you can use the following products as archive database:
 

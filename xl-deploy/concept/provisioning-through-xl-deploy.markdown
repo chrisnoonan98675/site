@@ -1,6 +1,19 @@
 ---
-layout: beta-noindex
 title: Provisioning through XL Deploy
+categories:
+- xl-deploy
+subject:
+- Provisioning
+tags:
+- provisioning
+- blueprint
+- provisioning package
+- provisioning environment
+- provisioner
+- provider
+- provisionable
+- provisioned
+- cloud
 since:
 - XL Deploy 5.5.0
 ---
@@ -28,7 +41,7 @@ In addition to provisionables, a provisioning package can contain *templates* th
 
 You provision packages to *provisioning environments*, which are logical groupings of *providers*. A provider is a cloud technology such as Amazon EC2; it contains required connection information such as an access key ID and secret access key.
 
-### Provisoned blueprints and provisioneds
+### Provisioned blueprints and provisioneds
 
 When you map a provisioning package to a provisioning environment, XL Deploy creates a *provisioned blueprint* that contains *provisioneds*. These are the actual properties, manifests, scripts, and so on that XL Deploy will use to provision the environment.
 
@@ -47,7 +60,19 @@ To get started with XL Deploy provisioning:
 1. [Deploy to the environment](/xl-deploy/how-to/deploy-to-a-provisioned-environment.html).
 1. [Deprovision the environment](/xl-deploy/how-to/deprovision-an-environment.html).
 
-## Limitations
+## Limitations and known issues
 
-* When creating an Amazon EC2 AMI (`aws.ec2.AMI`) configuration item, you can only enter an AWS security group that already exists. To use a new security group, you must first create it manually in AWS.
 * The provisioning feature currently uses an internal API. A public API will be available in a future release.
+* It may take one minute or longer to generate a provisioning plan preview if the plan includes many provisioneds.
+* When creating an `aws.ec2.InstanceSpec` configuration item, you can only enter an AWS security group that already exists. To use a new security group, you must first create it manually in AWS.
+* It is currently not possible to automatically purge provisioning packages according to a [retention policy](/xl-deploy/how-to/automatically-purge-packages-according-to-a-user-defined-policy.html).
+* The [CLI provisioning extension](/xl-deploy/how-to/using-the-xl-deploy-cli-provisioning-extension.html) does not currently include help.
+* In the Provisioning Workspace:
+    * Provisioning is limited to a single tab.
+    * Occasionally, the Provisioning Environments list may be empty. To correct this issue, clear your browser cache and refresh the screen, or use a different browser.
+* In the Repository:
+    * When creating an XL Deploy environment (`udm.Environment`), providers erroneously appear in the Containers list
+    * When adding deployables to a deployment package, the `aws.ec2.InstanceSpec` CI erroneously appears as an option
+* In [reports](/xl-deploy/how-to/using-xl-deploy-reports.html):
+    * Provisioning and unprovisioning actions appear on the Deployments tab
+    * Provisioning environments are listed on the Deployed Applications tab

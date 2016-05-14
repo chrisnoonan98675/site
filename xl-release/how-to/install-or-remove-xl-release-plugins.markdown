@@ -1,0 +1,30 @@
+---
+title: Install or remove XL Release plugins
+categories:
+- xl-release
+subject:
+- Installation
+tags:
+- system administration
+- plugin
+- installation
+- hotfix
+---
+
+An XL Release plugin has a `.jar` extension. To install or remove a plugin, you must stop the XL Release server; plugins that are installed or removed while the server is running will not take effect until it is restarted.
+
+## Install a plugin
+
+To install a plugin:
+
+1. [Shut down](/xl-release/how-to/shut-down-xl-release.html) the XL Release server.
+2. Copy the plugin JAR file to the `XLRELEASE_HOME/plugins` directory.
+3. [Start](/xl-release/how-to/start-xl-release.html) the XL Release server.
+
+## Remove a plugin
+
+To remove a plugin:
+
+1. [Shut down](/xl-release/how-to/shut-down-xl-release.html) the XL Release server.
+2. Delete the plugin JAR file from the `XLRELEASE_HOME/plugins` directory.
+3. [Start](/xl-release/how-to/start-xl-release.html) the XL Release server.

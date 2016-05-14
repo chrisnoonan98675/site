@@ -1,6 +1,12 @@
 ---
-layout: beta-noindex
 title: Deprovision an environment
+categories:
+- xl-deploy
+subject:
+- Provisioning
+tags:
+- provisioning
+- cloud
 since:
 - XL Deploy 5.5.0
 ---

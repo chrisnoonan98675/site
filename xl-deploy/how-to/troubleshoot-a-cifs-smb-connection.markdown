@@ -28,3 +28,7 @@ See [this article on the JCIFS mailing list](http://lists.samba.org/archive/jcif
 If the problem cannot be solved by changing the network topology, try increasing the JCIFS timeout values documented in the [JCIFS documentation](http://jcifs.samba.org/src/docs/api/overview-summary.html#scp). Another system property not mentioned there but only on the [JCIFS homepage](http://jcifs.samba.org/) is `jcifs.smb.client.connTimeout`.
 
 To get more debug information from JCIFS, set the system property `jcifs.util.loglevel` to 3.
+
+## Connection fails with "A duplicate name exists on the network"
+
+This error can occur when connecting to a host with an IP address that resolves to more than one name. For information about resolving this error, refer to [Microsoft Knowledge Base article #281308](https://support.microsoft.com/en-us/kb/281308).

@@ -1,6 +1,13 @@
 ---
-layout: beta-noindex
 title: Create a provisioning environment
+categories:
+- xl-deploy
+subject:
+- Provisioning
+tags:
+- provisioning
+- provisioning environment
+- cloud
 since:
 - XL Deploy 5.5.0
 ---

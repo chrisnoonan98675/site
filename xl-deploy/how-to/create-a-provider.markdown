@@ -1,6 +1,13 @@
 ---
-layout: beta-noindex
 title: Create a provider
+categories:
+- xl-deploy
+subject:
+- Provisioning
+tags:
+- provisioning
+- provider
+- cloud
 since:
 - XL Deploy 5.5.0
 ---

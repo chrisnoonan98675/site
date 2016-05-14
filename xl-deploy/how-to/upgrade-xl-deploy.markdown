@@ -16,7 +16,7 @@ Briefly, the process of upgrading XL Deploy is:
 1. Read the [release manual](/xl-deploy/latest/releasemanual.html) so you are aware of the new functionality and possible upgrade considerations.
 1. Stop the current version of XL Deploy if it is running and ensure that there are no active tasks.
 1. Extract the new XL Deploy release into a directory for the new version of XL Deploy (so the old version will still be available in case of problems).
-1. Copy data from the old installation directory to the new installation directory. This ensures that you have a backup of your repository.
+1. Copy data from the old installation directory to the new installation directory.
 1. Redo custom changes that you made to configuration files and startup scripts.
 1. Start the new version of XL Deploy so that automatic upgraders can run.
 
@@ -26,11 +26,7 @@ You can find release notes and version-specific upgrade notes on the page for ea
 
 ### Upgrading and downgrading
 
-After you upgrade to a new version of XL Deploy, you cannot downgrade to an older version.
-
-If you upgrade to a release candidate (RC), alpha, or beta version, you cannot upgrade to a newer version or downgrade to an older version.
-
-Ensure that you always create a backup of your repository before you upgrade to a new version of XL Deploy.
+After you upgrade to a new version of XL Deploy, you cannot downgrade to an older version. If you upgrade to a release candidate (RC), alpha, or beta version, you cannot upgrade to a newer version or downgrade to an older version. Ensure that you always [create a backup of your repository](/xl-deploy/how-to/back-up-xl-deploy.html) before you upgrade to a new version of XL Deploy.
 
 ### Skipping versions
 

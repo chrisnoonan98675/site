@@ -3,7 +3,7 @@ title: Create a deployment package using Jenkins
 categories:
 - xl-deploy
 subject:
-- Jenkins
+- Packaging
 tags:
 - package
 - application
@@ -24,7 +24,7 @@ After you install the XL Deploy plugin in Jenkins:
 2. In the **XL Deploy** section, enter credentials for your XL Deploy server and test the connection.
 
     ![image](images/jenkins-set-xld-server.png)
-    
+
     Note that you can add multiple XL Deploy credentials.
 
 ## Build a deployment package
@@ -51,7 +51,7 @@ You can add additional properties that are required for each artifact or resourc
 
 **Tip:** For properties of type `MAP_STRING_STRING`, enter a single property value in the format `key1=value1`. You can enter multiple values using the format `key1=value1&key2=value2`.
 
-![image](images/jenkins-add-property.png) 
+![image](images/jenkins-add-property.png)
 
 ### Updating configuration item types
 

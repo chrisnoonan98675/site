@@ -1,6 +1,15 @@
 ---
-layout: beta-noindex
 title: Introduction to the XL Deploy Provision Puppet plugin
+categories:
+- xl-deploy
+subject:
+- Provisioning
+tags:
+- provisioning
+- provisioner
+- puppet
+- cloud
+- plugin
 since:
 - XL Deploy 5.5.0
 ---
