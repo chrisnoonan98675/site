@@ -90,7 +90,6 @@ For more information about using the CLI, refer to:
 * [Objects](/xl-deploy/concept/objects-available-in-the-xl-deploy-cli.html) and [types](/xl-deploy/concept/types-used-in-the-xl-deploy-cli.html) available in the CLI
 * [Set up roles and permissions](/xl-deploy/how-to/set-up-roles-and-permissions-using-the-cli.html)
 * [Using the CLI with configuration items](/xl-deploy/how-to/using-the-xl-deploy-cli-with-configuration-items.html)
-* [Create a deployment package](/xl-deploy/how-to/create-a-deployment-package-using-the-cli.html)
 * [Deploy an application](/xl-deploy/how-to/deploy-an-application-using-the-cli.html)
 * [Using the stepPath parameter](/xl-deploy/how-to/using-the-steppath-in-the-xl-deploy-rest-api.html)
 * [Execute tasks](/xl-deploy/how-to/execute-tasks-from-the-xl-deploy-cli.html)
