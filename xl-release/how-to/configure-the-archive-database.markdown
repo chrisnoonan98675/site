@@ -69,3 +69,7 @@ XL Release stores data in UTF-8. To enable the archive database to work with mul
 * The JDBC connection URL should explicitly include the encoding as a URL parameter (`characterEncoding=UTF-8`)
 
 For more information, refer to [Character Sets and Collations in General](https://dev.mysql.com/doc/refman/5.5/en/charset-general.html).
+
+## Failover configuration
+
+If you store the XL Release repository in a [database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html#using-a-database), you can set up a failover configuration as described in [Configure failover for XL Release](/xl-release/how-to/configure-failover.html).

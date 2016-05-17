@@ -181,8 +181,6 @@ After you have configured all options, the setup wizard shows a summary of the c
 
 If you answer `yes`, the setup wizard will start XL Release and show the URL where you can access it; for example, `http://localhost:5516`. When you open this URL in a browser, you will be prompted to enter a license key if you did not already install a license file. You can then log in with the user name *admin* and the password that you provided during the setup process.
 
-## High availability setup
+## Failover configuration
 
-XL Release can be configured to ensure maximum uptime of the application. In such a high availability setup, two instances of XL Release run in an _active/passive_ configuration. At any one time, only one XL Release instance is active; but as soon as a failure is detected, the passive XL Release instance is activated and the failed instance is taken down for repair.
-
-To configure XL Release for high availability, the XL Release repository must be used in _clustering_ mode. This means that each XL Release node writes changes to a shared journal in addition to applying the change to its own repository. See [Configure the XL Release repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html) for information about setting up clustering.
+If you store the XL Release repository in a [database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html#using-a-database), you can set up a failover configuration as described in [Configure failover for XL Release](/xl-release/how-to/configure-failover.html).

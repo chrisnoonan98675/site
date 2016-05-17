@@ -212,8 +212,6 @@ Where the `deployit.conf` file contains the installation values that you want to
 
 For information about installing the XL Deploy command-line interface (CLI), refer to [Install the XL Deploy CLI](/xl-deploy/how-to/install-the-xl-deploy-cli.html).
 
-## High availability setup
+## Failover configuration
 
-XL Deploy can be configured to ensure maximum uptime of the application. In such a high availability setup, two instances of XL Deploy are running in an active/passive configuration. At any one time, only one XL Deploy instance is active but as soon as a failure is detected, the passive XL Deploy instance is activated and the failed instance is taken down for repair.
-
-You can use XL Deploy in an active/passive configuration with a database. Refer to [Configure the XL Deploy repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html) for more information.
+If you store the XL Deploy repository in a [database](/xl-deploy/how-to/configure-the-xl-deploy-repository.html#using-a-database), you can set up a failover configuration as described in [Configure failover for XL Deploy](/xl-deploy/how-to/configure-failover.html).
