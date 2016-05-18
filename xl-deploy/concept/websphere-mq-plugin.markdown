@@ -10,7 +10,7 @@ tags:
 - plugin
 ---
 
-The XL Deploy IBM WebSphere MQ (WMQ) plugin adds the capability to manage MQ resources on WebSphere MQ environment. It works out of the box for deploying/undeploying local queues and alias queues on a queue manager and can easily be extended to support management of other possible resources on a WebSphere MQ environment.
+The XL Deploy IBM WebSphere MQ (WMQ) plugin allows you to manage resources on a WebSphere MQ environment. The plugin can deploy and undeploy local queues and alias queues on a queue manager, and can be extended to support management of other resources in a WebSphere MQ environment.
 
 For information about the configuration items (CIs) that the plugin provides, refer to the [IBM WebSphere MQ Plugin Reference](/xl-deploy/latest/wmqPluginManual.html).
 
@@ -44,7 +44,7 @@ The plugin works with the standard deployment package DAR format. The following 
 
 ## Queue manager
 
-`wmq.QueueManager` is a container type which represents an existing queue manager running in the MQ environment, and the MQ resources such as local queue or alias queue can be targeted to it. It has a containment relationship with host, which means that it can only be created under a host. 
+`wmq.QueueManager` is a container type which represents an existing queue manager running in the MQ environment, and the MQ resources such as local queue or alias queue can be targeted to it. It has a containment relationship with host, which means that it can only be created under a host.
 
 Also, because a `wmq.QueueManager` is meant to represent an existing queue manager, the name of the CI should reflect the existing queue manager name. For example, if the existing queue manager running in the MQ environment is called `VENUS`, the `wmq.QueueManager` CI should be called `VENUS`.
 
