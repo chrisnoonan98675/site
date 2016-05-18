@@ -74,10 +74,6 @@ The timeline start and end dates appear as follows:
 
 To see detailed information, including releases that depend on or block this release, click the tile to go to its detail view.
 
-## Tasks
-
-The tasks tile provides an overview of release tasks by team or by user. The tile shows the current status of each task and identifies the task that is currently active.
-
 ## XL Deploy deployments
 
 The XL Deploy deployments tile shows information about deployments that were started from the release.
