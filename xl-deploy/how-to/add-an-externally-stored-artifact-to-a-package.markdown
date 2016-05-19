@@ -19,7 +19,7 @@ Artifacts are the physical files that make up a specific version of an applicati
 
 ## Set the URI of a deployable artifact
 
-If you set the file URI (`fileUri`) property of an artifact configuration item (CI) to a URI, XL Deploy uses an artifact resolver to resolve the URI at runtime. By default, XL Deploy supports Maven repositories (including Artifactory and Nexus) and HTTP/HTTPS locations. You can also add your own [add a custom artifact resolver](/xl-deploy/how-to/extend-the-external-artifact-storage-feature.html).
+If you set the file URI (`fileUri`) property of an artifact configuration item (CI) to a URI, XL Deploy uses an artifact resolver to resolve the URI at runtime. By default, XL Deploy supports Maven repositories (including Artifactory and Nexus) and HTTP/HTTPS locations. You can also add your own [custom artifact resolver](/xl-deploy/how-to/extend-the-external-artifact-storage-feature.html).
 
 **Important:** The value of the `fileUri` property must be a *stable* reference; that is, it must point to the *same* file whenever it is referenced. "Symlink"-style references, such as a link to the "latest" version, are not supported.
 
