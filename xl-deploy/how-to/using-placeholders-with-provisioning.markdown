@@ -22,7 +22,7 @@ Placeholder values can be provided:
 * By the user who sets up a provisioning
 * From provisioneds that are assigned to the target provisioned environment
 
-## Placeholder format
+## Placeholder formats
 
 The XL Deploy provisioning feature recognizes placeholders using the following formats:
 
@@ -35,27 +35,31 @@ The XL Deploy provisioning feature recognizes placeholders using the following f
 
 ## Property placeholders
 
-_Property_ placeholders are used to make properties of CIs configurable in a provisioning package. XL Deploy scans provisioning packages and searches the CIs for dictionary placeholders. The properties of following items are scanned:
+_Property_ placeholders allow you to configure the properties of CIs in a provisioning package. XL Deploy scans provisioning packages and searches the CIs for placeholders. The properties of following items are scanned:
 
-* Bound Templates on Provisioning Package
-* Bound Templates on Provisionable (CI type that extends `upm.Provisionable`)
-* Provisioners on Provisionable (CI type that extends `upm.Provisionable`)
-* Provisioning Package
+* Bound templates on provisioning packages
+* Bound templates on provisionables (CI type that extends `upm.Provisionable`)
+* Provisioners on provisionables (CI type that extends `upm.Provisionable`)
+* Provisioning packages
 
-Before you can provision a provisioning package to a target provisioning environment, values must be provided for *all* property placeholders. A value of a placeholder can be provided via `upm.Dicitionary` assigned to `upm.ProvisioningEnvironment` or via `Provisioning Properties` when executing the provisioning via UI or via `placeholders` parameter in [CLI](/xl-deploy/how-to/using-the-xl-deploy-cli-provisioning-extension.html).
+Before you can provision a package to a target provisioning environment, you must provide values for *all* property placeholders. You can provide values in several ways:
+
+* In a dictionary (`upm.Dicitionary`) that is assigned to the provisioning environment (`upm.ProvisioningEnvironment`)
+* In the provisioning properties when you set up the provisioning in the GUI
+* Via the `placeholders` parameter in the [command-line interface (CLI)](/xl-deploy/how-to/using-the-xl-deploy-cli-provisioning-extension.html)
 
 ## Contextual placeholders
 
-_Contextual_ placeholders serve the same purpose as property placeholders; the difference is that the values for contextual placeholders are not know before provisioning plan execution and are resolved during plan execution. Contextual placeholders might be resolved when executing a provider or in the finalization of the provisioning plan. Contextual placeholder is resolved from property with the same name of the provisioned it is linked to.
+_Contextual_ placeholders serve the same purpose as property placeholders; however, the values for contextual placeholders are not known before the provisioning plan is executed. For example, a provisioning step might require the public IP address of the instance that is created during provisioning; however, this value is only available after the instance is actually created and XL Deploy has fetched its public IP address.
 
-*Note*: The name of the contextual placeholder is case sensitive and must equal to property name of the provisioned.
+XL Deploy resolves contextual placeholders when executing a [provider](/xl-deploy/how-to/create-a-provider.html) or when finalizing the provisioning plan.
 
-For example, a provisioning step might require the public IP address of the instance that is created during provisioning; however, this value is only available after the instance is actually created and XL Deploy has fetched its public IP address.
+Contextual properties are resolved from properties on the provisioneds they are linked to; therefore, the placeholder name must exactly match the provisioned property name (it is case-sensitive). For example, the contextual placeholder for the [public host name](/xl-deploy-xld-aws-ec2-plugin/5.5.x/ec2PluginManual.html#awsec2instance) of an `aws.ec2.Instance` CI is `{% raw %}{{% publicHostname %}}{% endraw %}`.
 
-If value of placeholder is not resolved, a resolution of a templates with such a placeholder will fail.
+If value of placeholder is not resolved, then resolution of templates that contain the placeholder will fail.
 
 ## Literal placeholders
 
 _Literal_ placeholders allow you to insert placeholders in a dictionary that should only be resolved when a deployment package is deployed to the created environment. The resolution of these placeholders does not depend on provisioned, dictionary, or a manual user entry.
 
-The value `{% raw %}{{'XYZ'}}{% endraw %}` will resolve to `{% raw %}{{XYZ}}{% endraw %}`.
+For example, the value `{% raw %}{{'XYZ'}}{% endraw %}` will resolve to `{% raw %}{{XYZ}}{% endraw %}`.
