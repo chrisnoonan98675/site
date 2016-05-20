@@ -12,6 +12,8 @@ since:
 - XL Deploy 5.0.0
 ---
 
+**Note:** A version of this topic is available for [XL Deploy 4.5.x and earlier](/xl-deploy/4.5.x/how-password-properties-and-encrypted-dictionaries-combine-4.5.html).
+
 In XL Deploy's [type system](/xl-deploy/concept/key-xl-deploy-concepts.html#type-system), any property defined as [`password="true"`](/xl-deploy/how-to/customizing-the-xl-deploy-type-system.html#synthetic-properties) is stored in the [repository](/xl-deploy/concept/the-xl-deploy-repository.html) in encrypted form (AES-256) and appears as `******` in the user interface. The `password="true"` setting usually applies to properties called "password", but you can define _any_ property as secure in this way.
 
 In the case of secure properties of [deployable items](/xl-deploy/concept/key-xl-deploy-concepts.html#deployables)—such as the password for a datasource spec or similar piece of configuration—the value is usually _not_ set directly on the deployable, because it varies across target environments.
