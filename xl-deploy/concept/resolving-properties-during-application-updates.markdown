@@ -37,6 +37,8 @@ XL Deploy includes several features to help you avoid manually setting property 
 * Design your deployment packages so that deployed properties are automatically provided
 * Use [tags](/xl-deploy/concept/using-tags-to-configure-deployments.html) for fine-grained control over deployment mapping
 
+**Tip:** In XL Deploy 5.1.5 and later, you can enable the pre-5.0.0 behavior by setting the `server.mapping.override.deployed.fields.on.update` property in the `<XLDEPLOY_HOME>/conf/deployit.conf` file to "false". However, it is recommended that you use the default behavior (`server.mapping.override.deployed.fields.on.update=true`).
+
 ### Detailed logic
 
 In detail, this is the logic XL Deploy uses to resolve properties in XL Deploy 5.0.0 and later:
