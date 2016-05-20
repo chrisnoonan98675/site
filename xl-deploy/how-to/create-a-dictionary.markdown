@@ -13,6 +13,8 @@ tags:
 
 Dictionaries are sets of key-value pairs that you assign to environments. You can use dictionaries to store environment-specific information such as file paths and user names, as well as sensitive data such as passwords.
 
+**Important:** Dictionaries are designed to store small pieces of data, such as a user name or file path. Although XL Deploy does not limit the length of dictionary values, it is recommended that you avoid entries over 100 characters. Longer values will degrade performance.
+
 Starting in XL Deploy 5.0.0, a dictionary can contain both plain-text and encrypted entries. Prior to XL Deploy 5.0.0, you use dictionaries for plain-text entries and *encrypted dictionaries* for sensitive information.
 
 ## Create a dictionary
