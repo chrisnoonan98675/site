@@ -5,6 +5,8 @@ title: Configure the dependency check tile
 
 The dependency check tile for [XL Release release dashboards](/xl-release/how-to/using-the-release-dashboard.html) allows you to quickly see the number of high, medium, and low-priority vulnerabilities found in the libraries used in your applications, so you can assess the potential security risk of using them. Vulnerability information is provided by the the [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page), a worldwide non-profit organization focused on improving software security.
 
+![OWASP vulnerabilities tile](../images/owasp-vulnerabilities-tile.png)
+
 To use this tile:
 
 1. Install the [OWASP Dependency-Check Plugin](https://wiki.jenkins-ci.org/display/JENKINS/OWASP+Dependency-Check+Plugin) in your Jenkins instance and follow the plugin instructions to create a Jenkins job that will check for vulnerabilities.
