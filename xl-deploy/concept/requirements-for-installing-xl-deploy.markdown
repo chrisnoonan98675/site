@@ -10,6 +10,7 @@ tags:
 - license
 - setup
 - system requirements
+weight: 102
 ---
 
 ## Server requirements

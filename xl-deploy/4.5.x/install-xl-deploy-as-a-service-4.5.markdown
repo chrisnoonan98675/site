@@ -1,15 +1,5 @@
 ---
 title: Install XL Deploy as a service (XL Deploy 4.5.x)
-subject:
-- Installation
-categories:
-- xl-deploy
-tags:
-- system administration
-- installation
-- service
-- daemon
-- setup
 since:
 - XL Deploy 4.5.x
 ---

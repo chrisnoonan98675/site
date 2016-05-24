@@ -8,6 +8,7 @@ tags:
 - system administration
 - cli
 - installation
+weight: 108
 ---
 
 To start the XL Deploy server, open a command prompt or terminal, go to the `<XLDEPLOY_SERVER_HOME>/bin` directory, and execute the appropriate command:

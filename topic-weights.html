@@ -41,12 +41,14 @@ no_mini_toc: true
 		</thead>
 		<tbody>
 			{% for page in site.weighted_pages %}
-				{% if page.categories contains 'xl-deploy' %}
-					<tr>
-						<td><a href="{{ page.url }}">{{ page.title }}</a></td>
-						<td>{{ page.weight }}</td>
-					</tr>
-				{% endif %}
+				{% unless page.url contains 'subject' %}
+					{% if page.categories contains 'xl-deploy' %}
+						<tr>
+							<td><a href="{{ page.url }}">{{ page.title }}</a></td>
+							<td>{{ page.weight }}</td>
+						</tr>
+					{% endif %}
+				{% endunless %}
 			{% endfor %}
 		</tbody>
 	</table>
@@ -62,12 +64,14 @@ no_mini_toc: true
 		</thead>
 		<tbody>
 			{% for page in site.weighted_pages %}
-				{% if page.categories contains 'xl-release' %}
-					<tr>
-						<td><a href="{{ page.url }}">{{ page.title }}</a></td>
-						<td>{{ page.weight }}</td>
-					</tr>
-				{% endif %}
+				{% unless page.url contains 'subject' %}
+					{% if page.categories contains 'xl-release' %}
+						<tr>
+							<td><a href="{{ page.url }}">{{ page.title }}</a></td>
+							<td>{{ page.weight }}</td>
+						</tr>
+					{% endif %}
+				{% endunless %}
 			{% endfor %}
 		</tbody>
 	</table>
@@ -83,12 +87,14 @@ no_mini_toc: true
 		</thead>
 		<tbody>
 			{% for page in site.weighted_pages %}
-				{% if page.categories contains 'xl-testview' %}
-					<tr>
-						<td><a href="{{ page.url }}">{{ page.title }}</a></td>
-						<td>{{ page.weight }}</td>
-					</tr>
-				{% endif %}
+				{% unless page.url contains 'subject' %}
+					{% if page.categories contains 'xl-testview' %}
+						<tr>
+							<td><a href="{{ page.url }}">{{ page.title }}</a></td>
+							<td>{{ page.weight }}</td>
+						</tr>
+					{% endif %}
+				{% endunless %}
 			{% endfor %}
 		</tbody>
 	</table>

@@ -12,15 +12,18 @@ tags:
 - setup
 since:
 - XL Deploy 5.0.0
+weight: 104
 ---
+
+**Note:** A version of this topic is available for [XL Deploy 4.5.x](/xl-deploy/4.5.x/install-xl-deploy-as-a-service-4.5.html).
 
 To install XL Deploy 5.0.0 or later as a daemon or service:
 
 1. Follow the installation procedure described in [Install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html).
 
     This procedure requires you to execute `<XLDEPLOY_HOME>/bin/run.sh` (on a Unix-based system) or `<XLDEPLOY_HOME>\bin\run.cmd` (on a Microsoft Windows-based system) to configure and initialize the server.
-    
-    On Unix, you should do this as the user under which you want XL Deploy to run. 
+
+    On Unix, you should do this as the user under which you want XL Deploy to run.
 
     Also, you must ensure that the server is configured so that it can start without input from the user; for example, if a repository keystore password is required, then it should be provided in `<XLDEPLOY_HOME>/conf/deployit.conf`.
 

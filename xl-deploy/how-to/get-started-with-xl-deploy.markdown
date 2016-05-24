@@ -6,6 +6,7 @@ subject:
 - Getting started
 tags:
 - getting started
+weight: 100
 ---
 
 XL Deploy is the only application release automation solution that is agentless across all target platforms. Connect to Microsoft Windows and Unix target systems using proven, industry-standard remote protocols; no agent installation and maintenance, no overhead on the target systems, no firewall ports to be opened, and no security reviews.

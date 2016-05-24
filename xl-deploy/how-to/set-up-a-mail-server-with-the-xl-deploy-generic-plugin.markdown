@@ -9,6 +9,7 @@ tags:
 - plugin
 - email
 - smtp
+weight: 115
 ---
 
 The XL Deploy Generic plugin adds support for mail servers to XL Deploy. A mail server is a `mail.SmtpServer` configuration item (CI) defined under the **Configuration** root node.

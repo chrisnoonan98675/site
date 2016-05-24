@@ -11,7 +11,7 @@ tags:
 - microservices
 since:
 - XL Deploy 5.1.0
-weight: 101
+weight: 121
 ---
 
 When you deploy, update, or undeploy an application, XL Deploy performs a dependency check. It selects the highest possible version in the dependency range of each application.

@@ -9,6 +9,7 @@ tags:
 - installation
 - license
 - setup
+weight: 103
 ---
 
 To install XL Deploy:
