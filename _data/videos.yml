@@ -25,8 +25,10 @@
       id: XEh5QGcpn5U
     - title: Managing application dependencies with XL Deploy
       id: gMczdievUyg
-    - title: Five unique XL Deploy features that workflow-based tools can't match 
+    - title: Five unique XL Deploy features that workflow-based tools can't match
       id: MozM7bxuT4A
+    - title: Provision cloud environments with XL Deploy
+      id: MpGNEPY-SrA
 - product: xl-release
   name: XL Release
   videos:
@@ -34,6 +36,10 @@
       id: Y3tbOveSggA
     - title: Provisioning, building, deploying, and testing with XL Release
       id: 6AEv66A293A
+    - title: Advanced pipeline orchestration and control in XL Release 5.0
+      id: Dn1yiSej5Jw
+    - title: New dashboards bring enhanced visibility in XL Release 5.0
+      id: lMPFBEFULpE
 - product: xl-testview
   name: XL TestView
   videos:
