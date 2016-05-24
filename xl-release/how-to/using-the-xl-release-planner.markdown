@@ -20,15 +20,17 @@ Tasks are executed in sequential order within a phase. Therefore, in the example
 
 ![Planner: default sequence](../images/planner-default-sequence.png)
 
-You can optionally set a desired start time, due date, and duration on phases and tasks. If a task does not have a due date or a duration, it appears here with a default duration: one hour for manual tasks and one minute for automated tasks.
+## Editing tasks and phases in the planner
 
-To adjust a task:
+When editing a task or a phase in the planner, you can:
 
 * Move it by dragging it to a new position
 * Set its duration by dragging its right edge
 * Set its scheduled start date by dragging its left edge
-* Alternatively, set the dates and duration by clicking **Show dates**, then setting dates and durations explicitly
+* Alternatively, set the dates and duration by clicking **Show dates** and then setting them explicitly
 
 ![Planner: sequence with start and dates](../images/planner-date-picker.png)
 
-**Note:** Moving tasks and changing their due dates will affect the start dates of subsequent tasks in the same phase. Also, if you set a scheduled start date on a task, it will not start before that date, even if the task that precedes it is completed.
+When you set the scheduled start date or duration of a task, the planner will automatically adjust subsequent tasks in the same phase. For more information about dates and durations, refer to [Scheduling releases](/xl-release/how-to/scheduling-releases.html)
+
+**Tip:** Double-click a task in the planner to open its detail view.
