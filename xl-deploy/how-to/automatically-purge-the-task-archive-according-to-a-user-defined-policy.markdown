@@ -23,7 +23,7 @@ By default, all historical data is kept in the system indefinitely. As of XL Dep
 
 ## Automatically purge the task archive
 
-To automatically purge old deployment packages according to a policy:
+To automatically purge tasks according to a policy:
 
 1. Click **Repository** in XL Deploy.
 2. Right-click **Configuration** and select `policy.TaskRetentionPolicy`.
@@ -32,7 +32,7 @@ To automatically purge old deployment packages according to a policy:
 5. By default, automatic policy execution is enabled and will run according to the crontab scheduled defined on the **Schedule** tab. You can optionally change the crontab schedule or disable the policy execution.
 6. By default, purged tasks are exported to a ZIP file in `<XLDEPLOY_HOME>/exports`. You can optionally specify a different directory in the **Archive path** property on the **Export** tab.
 
-    The property accepts `${}` placeholders, where valid keys are CI properties with addition of `execDate` and `execTime`.
+    The property accepts `${ }` placeholders, where valid keys are CI properties with addition of `execDate` and `execTime`.
 
     ![Task retention policy](images/system-admin-task-retention-policy.png)
 
