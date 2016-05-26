@@ -2,7 +2,8 @@
 title: Configure certificate trust, hostname verification, and other SSL options for HttpRequest
 categories:
 - xl-release
-subject: Connectivity
+subject:
+- Connectivity
 tags:
 - webhook
 - script
