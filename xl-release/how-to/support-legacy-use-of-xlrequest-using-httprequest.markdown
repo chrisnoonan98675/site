@@ -2,7 +2,8 @@
 title: Support legacy use of XLRequest using HttpRequest
 categories:
 - xl-release
-subject: Connectivity
+subject:
+- Connectivity
 tags:
 - webhook
 - script
