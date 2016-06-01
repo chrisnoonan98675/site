@@ -9,13 +9,14 @@ tags:
 - satellite
 since:
 - XL Deploy 5.1.0
+weight: 302
 ---
 
 XL Deploy can communicate with satellite servers over a secure communication channel using [TLS/SSL technology](http://en.wikipedia.org/wiki/Transport_Layer_Security) to encrypt data. This algorithm relies on certificate checking and data encryption using asymmetric keys.
 
 ## TLS in a nutshell
 
-TLS is based on the notion of public and private keys. The server contains a private key and a public certificate. In the Java world, they are stored in a *key store*. The private key must be hidden and can be protected with a passphrase. This key must not be given out or communicated. 
+TLS is based on the notion of public and private keys. The server contains a private key and a public certificate. In the Java world, they are stored in a *key store*. The private key must be hidden and can be protected with a passphrase. This key must not be given out or communicated.
 
 When a client tries to reach a server, it authenticates the destination. The server must prove its identity. To achieve this, the client gets a list of trusted certificates. This is the *trust store*. It contains public certificates that are verified by a trusted authority.
 
@@ -24,23 +25,23 @@ When a client tries to reach a server, there is a negotiation phase. During this
 With this technology, an external process that you do not manage cannot pretend to be a satellite of yours, and external processes cannot listen to the secure communication.
 
 ## How to create self-signed certificates
-  
+
 Depending on your security policy, you can create self-signed certificates using [the `keytool` utility](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html). For example:
-   
+
     # Generate a keystore and a self-signed certificate for xl-satellite
     # storepass is the password for the keystore
     # keypass is the private password for the key
     # you can use different algorithm and key strength. Please take a look a keytool reference document from [Oracle](https://docs.oracle.com/cd/E19509-01/820-3503/ggfgo/index.html).
     keytool -genkey -alias satellite -keyalg RSA -keypass [XXX] -storepass [XXX] -keystore satellite.jks -validity 360 -keysize 1024
-   
+
     # Extracting the cer of xld
     keytool -export -keystore satellite.jks -alias satellite -file satellite.cer
-    
+
     # Importing into the truststore for xld
     keytool -import -alias satellite -file satellite.cer -keystore xld-truststore.jks
 
 After you have a keystore for the satellite and a shared truststore with XL Deploy, you can enable secure communication by modifying `conf/satellite.conf` as follows:
- 
+
     satellite {
       ssl {
         enabled = yes
@@ -59,7 +60,7 @@ The satellite security configuration is located in `conf/satellite.conf`:
         # Java 7:
         #   'TLSv1.1', 'TLSv1.2'
         protocol = "TLSv1.2"
-      
+
         # Example: ["TLS_RSA_WITH_AES_128_CBC_SHA", "TLS_RSA_WITH_AES_256_CBC_SHA"]
         # You need to install the JCE Unlimited Strength Jurisdiction Policy
         # Files to use AES 256.
@@ -73,14 +74,14 @@ The satellite security configuration is located in `conf/satellite.conf`:
         key-store-password = "changeme"
         # This password is used for decrypting the key
         key-password = "changeme"
-        
+
         # Absolute path to the TrustStore used by the client and server connection
         trust-store = "truststore"
         # This password is used for decrypting the trust store
         trust-store-password = "changeme"
       }
     }
-    
+
 **Important:** These configuration values for `protocol` and `enabled-algorithms` must match the values that XL Deploy uses in `conf/system.conf` file.
 
 ## Logging
@@ -92,4 +93,3 @@ To enabled logging of secure communications, set the `SATELLITE_OPTS` environmen
 To enable logging on XL Deploy, set the `DEPLOYIT_SERVER_OPTS` variable:
 
     export DEPLOYIT_SERVER_OPTS="$DEPLOYIT_SERVER_OPTS -Djavax.net.debug=all"
-

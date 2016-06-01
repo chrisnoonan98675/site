@@ -10,6 +10,7 @@ tags:
 - host
 since:
 - XL Deploy 5.0.0
+weight: 308
 ---
 
 To assign a satellite to a host in XL Deploy:

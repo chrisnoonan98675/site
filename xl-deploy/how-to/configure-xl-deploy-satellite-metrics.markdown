@@ -10,6 +10,7 @@ tags:
 - configuration
 since:
 - XL Deploy 5.0.0
+weight: 309
 ---
 
 ## Configure host name and port for metrics
@@ -25,13 +26,13 @@ By default, the HTTP server binds to `0.0.0.0`. To specify a different host name
     }
 
 You can also change the default port, which is `8080` by default.
-  
+
     satellite {
         metrics {
             port = 8080
         }
     }
-    
+
 ## Metrics
 
 Access the metrics using the host name or IP address and port that you specified in the configuration.
@@ -39,13 +40,13 @@ Access the metrics using the host name or IP address and port that you specified
 ### Registered plugins
 
     http://${satellite.metrics.hostname}:${satellite.metrics.port}/application
-    
+
     {"plugins": [{"webserver-plugin" : "5.0.0"}]}
 
 ### Technical metrics
 
     http://${satellite.metrics.hostname}:${satellite.metrics.port}/metrics
-    
+
     {
         version: "3.0.0"
         gauges: {
@@ -71,14 +72,14 @@ Access the metrics using the host name or IP address and port that you specified
 	    }
 
 	}
-        
+
         counters: {
             task.done: {
                 count: 0
             }
             task.running: {...}
         }
-        
+
         meters: {
             streaming.uploaded-bytes: {
                 count: 0
@@ -116,7 +117,7 @@ Access the metrics using the host name or IP address and port that you specified
 ### Configuration
 
     http://${satellite.metrics.hostname}:${satellite.metrics.port}/configuration
-    
+
     {
         akka: {...}
         deployit: {...}

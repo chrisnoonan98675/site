@@ -12,6 +12,7 @@ tags:
 - satellite
 since:
 - XL Deploy 5.0.0
+weight: 307
 ---
 
 If you add, remove, or update an XL Deploy plugin or extension, you must synchronize XL Deploy with satellite servers before performing a deployment.

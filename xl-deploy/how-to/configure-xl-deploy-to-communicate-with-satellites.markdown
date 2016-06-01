@@ -11,6 +11,7 @@ tags:
 - configuration
 since:
 - XL Deploy 5.0.0
+weight: 301
 ---
 
 ## Enable communicate with satellites
@@ -25,7 +26,7 @@ Restart XL Deploy and it will be ready to connect to satellites.
 
 ## Change default settings to communicate with satellites
 
-By default, `conf/system.conf` has the following settings: 
+By default, `conf/system.conf` has the following settings:
 
 	satellite {
 	    hostname = ""

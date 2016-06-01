@@ -10,6 +10,7 @@ tags:
 - installation
 since:
 - XL Deploy 5.0.0
+weight: 314
 ---
 
 When you [upgrade](/xl-deploy/how-to/upgrade-xl-deploy.html) to a new version of XL Deploy, you must also upgrade your satellite servers to the corresponding version of the satellite distribution ZIP.
