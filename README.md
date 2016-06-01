@@ -15,9 +15,9 @@ For general information about XebiaLabs documentation, refer to [Technical docum
 To generate the Jekyll-based part of the documentation site locally:
 
 1. Clone this repository.
-1. Install Jekyll 3.0.1 and its requirements:
+1. Install Jekyll 3.1.6 and its requirements:
     * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/). **Important:** If you're using OS X 10.11 (El Capitan) or later, [read this important info](http://jekyllrb.com/docs/troubleshooting/#jekyll-amp-mac-os-x-1011)!
-    * Windows users, follow [these instructions](http://jekyll-windows.juthilo.com/)
+    * Windows users, follow [these instructions](https://jekyllrb.com/docs/windows/#installation)
 1. In the directory where you cloned the repository, execute `jekyll serve`. Go to `http://localhost:4000` to see the site running locally.
 
 ## Installation tips
@@ -48,15 +48,17 @@ If you run into problems, first check that you have the right version of Jekyll 
 * Some navigation elements (such as the Google search box, the sidebar menu, and breadcrumbs) are disabled to reduce the time it takes to generate the site
 * An *Edit this page* link is available at the bottom of each topic
 
-Initial generation of the site in development mode takes about 25 seconds.
-
 Keep in mind that a site generated in development mode will not look exactly like the live documentation site because of the disabled elements.
+
+To use the development environment, start Jekyll with:
+
+    jekyll serve
+
+You can combine this with the `--incremental` or `--no-watch` options (see below).
 
 #### Lightweight environment
 
 ***NEW!*** The "lightweight environment" has the same features as the development environment, but with even more elements disabled.
-
-Initial generation of the site in lightweight mode takes about 7 seconds.
 
 Keep in mind that a site generated in lightweight mode will look very different form the live documentation site. It is recommended that you use this mode if you only plan to work with a few specific topics.
 
@@ -64,23 +66,25 @@ To use the lightweight environment, start Jekyll with:
 
     JEKYLL_ENV=lightweight jekyll serve
 
+Note that this command is case-sensitive.
+
 You can combine this with the `--incremental` or `--no-watch` options (see below).
 
 #### Production environment
 
 ***NEW!*** The "production environment" generates the site including all elements that are needed for the live documentation site (menus, lists, breadcrumbs, etc.). The [Jenkins job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/xldoc/job/Jekyll%20docs/) for the documentation site uses the production environment.
 
-Initial generation of the site in production mode takes 80 to 90 seconds.
-
 To use the production environment, start Jekyll with:
 
     JEKYLL_ENV=production jekyll serve
+
+Note that this command is case-sensitive.
 
 You can combine this with the `--incremental` or `--no-watch` options (see below).
 
 ## Speed up site regeneration
 
-***NEW!*** If you execute `jekyll serve`, the site is regenerated every time you make a change (except in `_config.yml`). You can prevent this by using the `--incremental` option. This means Jekyll will only regenerate the files that you change, which usually takes less than 1 second.
+***NEW!*** If you execute `jekyll serve`, the whole site is regenerated every time you make a change (except in `_config.yml`). You can prevent this by using the `--incremental` option. This means Jekyll will only regenerate the file(s) that you change, which usually takes less than 1 second.
 
 Note that this is an experimental feature; incremental builds don't always pick up changes in Liquid code or changes that affect the various lists of topics that Jekyll generates. If you're using incremental builds and you don't see the output you expected, stop Jekyll (with CTRL+C) and run `jekyll serve` or `jekyll build`. This will regenerate the whole site and clean up the `_site` directory; you can then try using incremental builds again.
 
@@ -94,7 +98,7 @@ Change the `jira_dashboard` `generate` setting in `_config.yml` to `false`, then
 
 ## Writing tips
 
-* You may want to use a Markdown editor such as [MacDown](http://macdown.uranusjr.com/) for OS X or [MarkdownPad](http://markdownpad.com/) for Windows.
+* You may want to use a Markdown editor such as [MacDown](http://macdown.uranusjr.com/), [Atom](https://atom.io), or [MarkdownPad](http://markdownpad.com/).
 * In MacDown, go to **Preferences** > **Rendering** and select **Detect Jekyll front-matter** to see the [YAML front matter](http://jekyllrb.com/docs/frontmatter/) in a nice table.
 * Be sure to spell check your work! Set your spell checker to *U.S. English*.
 
@@ -139,24 +143,22 @@ You can specify front matter options in any order. The keys *must* match the key
 | `since` | No | No | Not applicable | Yes | Version in which the functionality described in the page was introduced, in `Product Name X.Y.Z` format (for example, `XL Deploy 5.0.0`). |
 | `deprecated` | No | No | Not applicable | Yes | Version in which the functionality described in the page was deprecated, in the same format as `since`. |
 | `removed` | No | No | Not applicable | Yes | Version in which the functionality described in the page was removed, in the same format as `since`. |
-| `weight` | No | No | Not applicable | No | Determines the page's position in various lists. |
+| `weight` ***NEW!*** | No | No | Not applicable | No | Determines the page's position in various lists. |
 | `beta` ***NEW!*** | No | No | Lowercase | No | Set to `true` to insert a warning indicating that the page's information is in beta. |
 | `pre_rules` ***NEW!*** | No | No | Lowercase | No | Set to `true` to insert a note indicating that the page's information applies to Java-based plugins instead of XL Deploy rules. |
 | `no_index` ***NEW!*** | No | No | Lowercase | No | Set to `true` to prevent search engines from indexing the page. |
 | `no_mini_toc` ***NEW!*** | No | No | Lowercase | No | Set to `true` to prevent Jekyll from generating a mini table of contents in the topic. |
 | `no_breadcrumbs` ***NEW!*** | No | No | Lowercase | No | Set to `true` to prevent Jekyll from generating breadcrumbs in the topic. |
-| `list_in_sidebar` ***NEW!*** | No | No | Lowercase | No | Set to `true` to list the page in the site sidebar. |
-| `sidebar_weight` ***NEW!*** | No | No | Not applicable | No | Determines the page's position in the site sidebar. |
 | `placeholder` ***NEW!*** | No | No | Lowercase | No | Set to `true` if the page is a placeholder that should be redirected to versioned documentation. |
 | `destination` ***NEW!*** | No | No | Lowercase | No | URL that the placeholder page should redirect to (ignored unless `placeholder` is `true` |
-
-**Tip:** To see the tags and subjects that are in use, go to [https://docs.xebialabs.com/tags-and-subjects.html](https://docs.xebialabs.com/tags-and-subjects.html).
 
 ## Categories, subject, and tags
 
 The `categories`, `subject`, and `tags` front matter options are almost always required for topics. The exception is a topic that you don't want to appear in lists like [this](https://docs.xebialabs.com/xl-release/#browse-documentation-by-subject) and [this](https://docs.xebialabs.com/xl-testview/concept/). We occasionally do this for beta documentation that we want to make available to a limited number of customers.
 
 If a topic doesn't appear in lists where you expect it, double-check the `categories`, `subject`, and `tags`.
+
+**Tip:** To see the tags and subjects that are in use, go to [https://docs.xebialabs.com/tags-and-subjects.html](https://docs.xebialabs.com/tags-and-subjects.html).
 
 ## Single values vs. multiple values
 
@@ -188,7 +190,7 @@ To help prevent weight clashes, these ranges are used for topics:
 | XL Release | 400 - 699 |
 | XL TestView | 700 - 999 |
 
-**Note:** Weights over 999 do not work.
+Weights over 999 do not work. If two pages have the same weight, they will be sorted alphabetically by file name; you will not see an error, but best practice is to ensure that every page has a unique weight.
 
 **Tip:** To see the weights of all topics, go to [https://docs.xebialabs.com/topic-weights.html](https://docs.xebialabs.com/topic-weights.html).
 
@@ -336,13 +338,13 @@ If a release introduces a new feature that isn't big enough to warrant its own t
 For example:
 
 > **Using the foo feature**
-> 
+>
 > In XL Deploy 5.0.0 and later, you use the foo feature to...
 
 Or:
 
 > **Using the foo feature in XL Deploy 5.0.0 and later**
-> 
+>
 > In XL Deploy 5.0.0 and later, you use the foo feature to...
 
 ## Major change to an existing feature
@@ -368,11 +370,11 @@ If a release introduces a minor change to an existing feature:
 For example:
 
 > **Using the foo feature in XL Deploy 4.5.x and earlier**
-> 
+>
 > In XL Deploy 4.5.x and earlier, you use the foo feature to...
 >
 > **Using the foo feature in XL Deploy 5.0.0 and later**
-> 
+>
 > In XL Deploy 5.0.0 and later, you use the foo feature to...
 
 ## Deprecated feature
