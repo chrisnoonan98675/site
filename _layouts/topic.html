@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<div class="page">
+
+	{% unless jekyll.environment == "lightweight" %}
+		{% include nav-breadcrumbs.html %}
+	{% endunless %}
+
+	{% if page.beta %}
+		<div class="alert alert-danger" role="alert">This information is in beta and is subject to change.</div>
+	{% endif %}
+
+	{% if page.pre_rules %}
+		<div class="alert alert-info" role="alert">XL Deploy 4.5.0 introduced a new, easy-to-use rules system for customizing deployment plans. Refer to <a href="/xl-deploy/concept/understanding-xl-deploy-rules.html">Understanding XL Deploy rules</a> to learn more.</div>
+	{% endif %}
+
+	<div class="page-header">
+		<h1 class="page-title">{{ page.title }}</h1>
+	</div>
+
+	{% unless page.no_mini_toc %}
+		<div id="toc" class="mini-toc hidden-sm hidden-xs hidden-print"></div>
+	{% endunless %}
+
+	{{ content }}
+
+	{% unless page.no_tag_list %}
+		{% include topic_tags.html %}
+	{% endunless %}
+
+	{% if jekyll.environment == "production" %}
+		{% for subject in page.subject %}
+			{% if subject contains "Satellite" %}
+				<p class="satellite-message"><strong>Note:</strong> Satellite is an add-on module for XL Deploy. Please <a href="https://xebialabs.com/contact/" target="_blank">contact us</a> for pricing information.</p>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+
+	{% unless jekyll.environment == "production" %}
+		{% include edit-link.html %}
+	{% endunless %}
+
+</div>
