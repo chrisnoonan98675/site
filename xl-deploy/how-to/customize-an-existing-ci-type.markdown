@@ -64,3 +64,32 @@ The following example adds a "notes" field to a CI to record notes:
     <property name="notes" kind="string"/>
 </type-modification>
 {% endhighlight %}
+
+## Change a default value
+
+If you add a type modification to a CI with a default value and then change that value, CIs that were created before the modification will not pick up the new default value. For example:
+
+1. Define an `overthere.SshHost` CI called _HostA_.
+1. Add the following type modification:
+
+        <type-modification type="overthere.SshHost">
+            <property name="important" kind="string" default="no" hidden="false" />
+        </type-modification>
+
+1. Restart XL Deploy.
+
+    HostA now has a property called `important`, which contains the value "no".
+
+1. Add a new `overthere.SshHost` CI called _HostB_. It also has the `important` property with value "no".
+1. Change the default value of the `important` property:
+
+        <type-modification type="overthere.SshHost">
+            <property name="important" kind="string" default="probably" hidden="false" />
+        </type-modification>
+
+1. Restart XL Deploy.
+1. The value of the `important` property in HostA is now "probably", while the value of the `important` property in HostB is still "no".
+
+This is because HostA was created before the `important` property was added, while HostB was created afterwards. HostA does not actually know about the `important` property, although it appears in the repository (with its default value) for display purposes. However, HostB is aware of the `important` property, so its value will be persisted.
+
+To ensure that the `important` value in HostA is persisted, you must open HostA in the repository and then save it.
