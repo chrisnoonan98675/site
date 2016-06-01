@@ -33,7 +33,7 @@
 		</div> <!-- /.row -->
 	</div><!-- /.container-fluid -->
 </div><!-- /#top-bar -->
-	
+
 <div id="top-ribbon">
 	<div class="container-fluid">
 		<div class="row">
@@ -74,30 +74,30 @@
 				<div class="offset9 span2 pull-right">
 					<div class="well well-sm">
 						{% if page.since %}
-							<p class="small no-para-spacing">Valid since: 
+							<p class="small no-para-spacing">Valid since:
 								{% for product in site.data.products %}
 									{% if page.categories contains product.id %}
-											{{ product.name }} 
+											{{ product.name }}
 									{% endif %}
-								{% endfor %}				
+								{% endfor %}
 								{% for item in page.since %}{{ item }}{% endfor %}</p>
 						{% endif %}
 						{% if page.deprecated %}
-							<p class="small no-para-spacing">Deprecated in: 
+							<p class="small no-para-spacing">Deprecated in:
 								{% for product in site.data.products %}
 									{% if page.categories contains product.id %}
-											{{ product.name }} 
+											{{ product.name }}
 									{% endif %}
-								{% endfor %}				
+								{% endfor %}
 								{% for item in page.deprecated %}{{ item }}{% endfor %}</p>
 						{% endif %}
 						{% if page.removed %}
-							<p class="small no-para-spacing">Removed in: 
+							<p class="small no-para-spacing">Removed in:
 								{% for product in site.data.products %}
 									{% if page.categories contains product.id %}
-											{{ product.name }} 
+											{{ product.name }}
 									{% endif %}
-								{% endfor %}				
+								{% endfor %}
 								{% for item in page.removed %}{{ item }}{% endfor %}</p>
 						{% endif %}
 					</div><!-- /.well well-sm -->
@@ -106,12 +106,12 @@
 			<!-- Page content -->
 				<div class="page">
 
-					{% include breadcrumbs.html %}
-	
+					{% include nav-breadcrumbs.html %}
+
 					<div class="alert alert-danger" role="alert">This information is in beta and is subject to change.</div>
 
 					<!-- Page subject -->
-					<!-- 
+					<!--
 						{% for subject in page.subject %}
 							{{ page.subject }}
 						{% endfor %}
@@ -119,7 +119,7 @@
 
 					<!-- Page tags -->
 					<!-- {% include page_tag_list.html %} -->
-	
+
 					<div class="page-header">
 						<h1 class="page-title">{{ page.title }}</h1>
 					</div>
