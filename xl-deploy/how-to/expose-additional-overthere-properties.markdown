@@ -3,7 +3,7 @@ title: Exposing additional Overthere properties in XL Deploy
 categories:
 - xl-deploy
 subject:
-- Remoting plugin
+- Bundled plugins
 tags:
 - remoting
 - connectivity

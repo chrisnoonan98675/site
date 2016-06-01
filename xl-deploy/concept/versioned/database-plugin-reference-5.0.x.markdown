@@ -5,7 +5,7 @@ title: Database Plugin Reference 5.0.x
 categories: 
 - xl-deploy
 subject:
-- Database plugin
+- Bundled plugins
 tags:
 - database
 - plugin

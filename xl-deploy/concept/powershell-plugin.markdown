@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy PowerShell plugin
 categories:
 - xl-deploy
 subject:
-- PowerShell plugin
+- Bundled plugins
 tags:
 - powershell
 - plugin

@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy Windows plugin
 categories:
 - xl-deploy
 subject:
-- Windows plugin
+- Bundled plugins
 tags:
 - windows
 - plugin
@@ -48,7 +48,7 @@ This is a sample deployment package (DAR) manifest file (`deployit-manifest.xml`
 * Ensure that `services.msc` is not open when services are being deployed. Otherwise, the deployment may hang and/or the machine might need to be rebooted for the changes to take effect.
 
 * Ensure that `regedit.exe` is not open when registry files are being imported. Otherwise, the deployment may hang and/or the machine might need to be rebooted for the changes to take effect.
-    
+
 ## Extending the Windows plugin
 
 The Windows plugin is based on the XL Deploy PowerShell plugin, which is a standard part of the XL Deploy server distribution. Please refer to the [documentation of the PowerShell plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-powershell-plugin.html) for information about how to extend PowerShell-based plugins.

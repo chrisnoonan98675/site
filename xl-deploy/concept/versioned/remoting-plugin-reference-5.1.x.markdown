@@ -5,7 +5,7 @@ title: Remoting Plugin Reference 5.1.x
 categories: 
 - xl-deploy
 subject:
-- Remoting plugin
+- Bundled plugins
 tags:
 - remoting
 - connectivity

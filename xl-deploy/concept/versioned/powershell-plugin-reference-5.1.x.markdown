@@ -5,7 +5,7 @@ title: PowerShell Plugin Reference 5.1.x
 categories: 
 - xl-deploy
 subject:
-- PowerShell plugin
+- Bundled plugins
 tags:
 - powershell
 - plugin

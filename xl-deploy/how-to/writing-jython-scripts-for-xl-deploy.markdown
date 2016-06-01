@@ -1,7 +1,7 @@
 ---
 title: Writing Jython scripts for XL Deploy
 subject:
-- Remoting plugin
+- Bundled plugins
 categories:
 - xl-deploy
 tags:

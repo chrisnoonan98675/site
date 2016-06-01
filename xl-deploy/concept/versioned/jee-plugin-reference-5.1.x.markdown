@@ -5,7 +5,7 @@ title: JEE Plugin Reference 5.1.x
 categories: 
 - xl-deploy
 subject:
-- JEE plugin
+- Bundled plugins
 tags:
 - java
 - plugin

@@ -3,7 +3,7 @@ title: Connect through an SSH jumpstation
 categories:
 - xl-deploy
 subject:
-- Remoting plugin
+- Bundled plugins
 tags:
 - remoting
 - connectivity

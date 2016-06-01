@@ -5,7 +5,7 @@ title: Windows Plugin Reference 5.0.x
 categories: 
 - xl-deploy
 subject:
-- Windows plugin
+- Bundled plugins
 tags:
 - plugin
 - windows

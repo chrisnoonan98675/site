@@ -5,7 +5,7 @@ title: Trigger Plugin Reference 5.1.x
 categories: 
 - xl-deploy
 subject:
-- Trigger plugin
+- Bundled plugins
 tags:
 - trigger
 - plugin

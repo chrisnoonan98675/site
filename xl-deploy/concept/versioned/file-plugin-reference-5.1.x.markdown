@@ -5,7 +5,7 @@ title: File Plugin Reference 5.1.x
 categories: 
 - xl-deploy
 subject:
-- Database plugin
+- Bundled plugins
 tags:
 - archive
 - file

@@ -2,12 +2,11 @@
 placeholder: true
 destination: https://docs.xebialabs.com/xl-deploy/5.1.x/commandPluginManual.html
 title: Command Plugin Reference 5.1.x
-categories: 
+categories:
 - xl-deploy
 subject:
-- Command plugin
+- Bundled plugins
 tags:
 - command
 - plugin
 ---
-

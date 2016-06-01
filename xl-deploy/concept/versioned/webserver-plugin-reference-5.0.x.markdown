@@ -5,7 +5,7 @@ title: Web Server Plugin Reference 5.0.x
 categories: 
 - xl-deploy
 subject:
-- Web Server plugin
+- Bundled plugins
 tags:
 - web server
 - plugin
