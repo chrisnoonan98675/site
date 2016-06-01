@@ -60,17 +60,14 @@
 							<span class="visible-xs navbar-brand">Toggle navigation</span>
 						</div> <!-- /.navbar-header -->
 						<div class="navbar-collapse collapse sidebar-navbar-collapse">
-							{% if jekyll.environment == "production" %}
-								<ul class="nav navbar-nav">
-									<li><a href="/">Docs Home</a></li>
-									{% assign sidebar_menu_items = (site.pages | where: "list_in_sidebar" , "true" | sort: "sidebar_weight") %}
-									{% for page in sidebar_menu_items %}
-										{% unless page.path contains 'page' %}
-											<li><a href="{{ page.url }}">{{ page.title }}</a></li>
-										{% endunless %}
-									{% endfor %}
-								</ul>
-							{% endif %}
+							<ul class="nav navbar-nav">
+								<li><a href="/">Docs Home</a></li>
+								{% assign sidebar_menu_items = (site.pages | where: "list_in_sidebar" , "true" | sort: "sidebar_weight") %}
+								{% for page in sidebar_menu_items %}
+									{% unless page.path contains 'page' %}
+										<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+									{% endunless %}
+								{% endfor %}
 						</div><!-- /.navbar-collapse -->
 					</div> <!-- /.navbar -->
 				</div><!-- /.sidebar-nav -->
