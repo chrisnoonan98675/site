@@ -1,7 +1,5 @@
 {% unless jekyll.environment == "lightweight" %}
 
-	{% if page.tags %}
-
 		{% capture page_tags %}{% for tag in page.tags %}{{ tag }},{% endfor %}{% endcapture %}
 		{% assign sorted_page_tags = page_tags | split:',' | sort %}
 
@@ -9,7 +7,5 @@
 			{{ tag }}
 			{% unless forloop.last %}, {% endunless %}
 		{% endfor %}
-
-	{% endif %}
 
 {% endunless %}
