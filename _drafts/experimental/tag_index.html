@@ -1,0 +1,22 @@
+{% comment %}
+List all topics with a certain tag. The category and tag must be captured by a for loop because a topic can have multiple categories and tags.
+{% endcomment %}
+
+{% capture this_category %}{% for category in page.categories %}{{ category }}{% endfor %}{% endcapture %}
+{% capture this_tag %}{% for tag in page.tags %}{{ tag }}{% endfor %}{% endcapture %}
+
+<ul>
+	{% for node in site.weighted_pages %}
+		{% unless page.url == node.url %}
+			{% for category in node.categories %}
+				{% if category contains this_category %}
+					{% for tag in node.tags %}
+						{% if tag contains this_tag %}
+							<li><a href="{{ node.url }}">{{ node.title }}</a></li>
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+			{% endfor %}
+		{% endunless %}
+	{% endfor %}
+</ul>
