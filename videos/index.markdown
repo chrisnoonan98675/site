@@ -6,7 +6,9 @@ sidebar_weight: 5
 no_breadcrumbs: true
 ---
 
-Click a link below to watch a video in a pop-up window, or visit the [XebiaLabs YouTube channel](https://www.youtube.com/user/xebialabs) to browse all of our videos.
+{% comment %}
+List the videos in videos.yml for all products.
+{% endcomment %}
 
 {% for product in site.data.videos %}
 <h2 id="{{ product.product }}">{{ product.name }}</h2>
