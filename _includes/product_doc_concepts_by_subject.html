@@ -1,4 +1,4 @@
-{% unless jekyll.environment == "lightweight" %}
+{% if jekyll.environment == "production" %}
 
 	{% assign product-id-to-search-for = page.product-id %}
 
@@ -12,10 +12,10 @@
 		{% for item in sorted_page_subjects %}
 			{% capture subject_to_check %},{{ item }},{% endcapture %}
 			{% unless subjects_used contains subject_to_check %}
-				{% capture subject_modulus %}{{ subject_counter | mod:10 }}{% endcapture %} 
-				{% if subject_counter != 0 %} 
-					{% if subject_modulus == "0" %} 
-						</ul></li><li><ul> 
+				{% capture subject_modulus %}{{ subject_counter | mod:10 }}{% endcapture %}
+				{% if subject_counter != 0 %}
+					{% if subject_modulus == "0" %}
+						</ul></li><li><ul>
 					{% endif %}
 				{% endif %}
 				{% capture subject_to_search_for %}{{ item }}{% endcapture %}
@@ -30,12 +30,12 @@
 								{% endif %}
 							{% endfor %}
 						{% endfor %}
-					</ul>	
-				</li>		
+					</ul>
+				</li>
 				{% capture subjects_used %}{{ subjects_used }}{{ subject_to_check }}{% endcapture %}
 				{% capture subject_counter %}{{ subject_counter | plus: 1 }}{% endcapture %}
 			{% endunless %}
 		{% endfor %}
 	</ul>
 
-{% endunless %}
+{% endif %}
