@@ -26,10 +26,6 @@ layout: default
 
 	{{ content }}
 
-	{% unless page.no_tag_list %}
-		{% include topic_tags.html %}
-	{% endunless %}
-
 	{% if jekyll.environment == "production" %}
 		{% for subject in page.subject %}
 			{% if subject contains "Satellite" %}
