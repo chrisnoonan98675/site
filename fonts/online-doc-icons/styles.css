@@ -38,27 +38,33 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-trophy:before {
-  content: "a";
+.icon-angle-down:before {
+  content: "\61";
 }
-.icon-sort:before {
-  content: "b";
+.icon-angle-left:before {
+  content: "\62";
 }
-.icon-plug:before {
-  content: "c";
+.icon-angle-right:before {
+  content: "\63";
+}
+.icon-angle-up:before {
+  content: "\64";
 }
 .icon-bug:before {
-  content: "d";
+  content: "\65";
+}
+.icon-plug:before {
+  content: "\66";
+}
+.icon-sort:before {
+  content: "\67";
+}
+.icon-trophy:before {
+  content: "\68";
 }
 .icon-link:before {
-  content: "e";
+  content: "\69";
 }
 .icon-pencil:before {
-  content: "g";
-}
-.icon-arrow-right:before {
-  content: "f";
-}
-.icon-arrow-down:before {
-  content: "h";
+  content: "\6a";
 }
