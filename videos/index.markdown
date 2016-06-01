@@ -1,9 +1,6 @@
 ---
-list_in_sidebar: true
 no_mini_toc: true
 title: Videos
-sidebar_weight: 5
-no_breadcrumbs: true
 ---
 
 {% comment %}

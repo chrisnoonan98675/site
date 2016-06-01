@@ -44,29 +44,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-3">
-			<div class="sidebar-nav">
-				<div class="navbar navbar-default" role="navigation">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<span class="visible-xs navbar-brand">Toggle navigation</span>
-					</div> <!-- /.navbar-header -->
-					<div class="navbar-collapse collapse sidebar-navbar-collapse">
-						<ul class="nav navbar-nav">
-							<li><a href="/">Docs Home</a></li>
-							{% assign sidebar_menu_items = (site.pages | where: "layout" , "list-in-sidebar" | sort: 'weight') %}
-							{% for page in sidebar_menu_items %}
-								{% unless page.path contains 'page' %}
-									<li><a {% if page.url == page.url %}class="active"{% endif %} href="{{ page.url }}">{{ page.title }}</a></li>
-								{% endunless %}
-							{% endfor %}
-					</div><!-- /.navbar-collapse -->
-				</div> <!-- /.navbar -->
-			</div><!-- /.sidebar-nav -->
+			{% include sidebar.html %}
 		</div><!-- /.col -->
 		<div class="col-sm-9">
 			<!-- If there is a since, deprecated, and/or removed version, show them -->
