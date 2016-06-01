@@ -3,7 +3,7 @@ title: Control task delegates in the XL Deploy Generic plugin
 categories:
 - xl-deploy
 subject:
-- Generic plugin
+- Bundled plugins
 tags:
 - generic
 - plugin
@@ -15,7 +15,7 @@ The Generic Model plugin has predefined control task delegates that have the abi
 
 ## `shellScript` delegate
 
-The `shellScript` delegate has the capability of executing a single script on a target host. 
+The `shellScript` delegate has the capability of executing a single script on a target host.
 
 {:.table .table-striped}
 | Argument | Type | Required | Description |

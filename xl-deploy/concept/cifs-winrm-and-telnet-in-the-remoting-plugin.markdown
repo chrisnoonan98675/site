@@ -3,7 +3,7 @@ title: CIFS, WinRM, and Telnet in the Remoting plugin
 categories: 
 - xl-deploy
 subject:
-- Remoting plugin
+- Bundled plugins
 tags:
 - plugin
 - connectivity

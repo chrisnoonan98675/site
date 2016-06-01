@@ -1,5 +1,5 @@
 ---
-layout: pre-rules
+pre_rules: true
 title: Base plugins and the deployed object
 categories: 
 - xl-deploy

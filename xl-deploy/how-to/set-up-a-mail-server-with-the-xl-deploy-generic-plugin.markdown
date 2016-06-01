@@ -3,7 +3,7 @@ title: Set up a mail server in the XL Deploy Generic plugin
 categories:
 - xl-deploy
 subject:
-- Generic plugin
+- Bundled plugins
 tags:
 - generic
 - plugin

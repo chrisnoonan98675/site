@@ -1,5 +1,4 @@
 ---
-layout: satellite
 title: Getting started with the satellite module
 categories:
 - xl-deploy

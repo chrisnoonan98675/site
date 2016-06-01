@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot an SSH connection
 subject:
-- Remoting plugin
+- Bundled plugins
 categories:
 - xl-deploy
 tags:

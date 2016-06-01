@@ -1,7 +1,7 @@
 ---
 title: Enable multi-hop support (CredSSP) for WINRM_NATIVE
 subject:
-- Remoting plugin
+- Bundled plugins
 categories:
 - xl-deploy
 tags:

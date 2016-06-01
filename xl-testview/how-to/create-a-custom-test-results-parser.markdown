@@ -59,7 +59,7 @@ If the tool you wish to support is not performance-related, you should choose th
 
 First, you must define a new test tool configuration in the `ext/synthetic.xml` file. For example:
 
-{% highlight xml linenos=table %}
+{% highlight xml linenos %}
 <type type="custom.MyTestToolConfiguration"
       extends="xlt.TestToolConfiguration"
       label="My custom tool">

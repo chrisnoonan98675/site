@@ -1,7 +1,7 @@
 ---
 title: Set up SSH in XL Deploy and on a target host
 subject:
-- Remoting plugin
+- Bundled plugins
 categories:
 - xl-deploy
 tags:

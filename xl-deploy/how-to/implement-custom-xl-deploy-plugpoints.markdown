@@ -1,5 +1,5 @@
 ---
-layout: pre-rules
+pre_rules: true
 title: Implement custom XL Deploy plugpoints
 categories:
 - xl-deploy

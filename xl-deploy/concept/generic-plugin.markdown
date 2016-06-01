@@ -1,9 +1,9 @@
 ---
 title: Introduction to the XL Deploy Generic plugin
-categories: 
+categories:
 - xl-deploy
 subject:
-- Generic plugin
+- Bundled plugins
 tags:
 - plugin
 - generic

@@ -1,8 +1,8 @@
 ---
-layout: list-in-sidebar
+list_in_sidebar: true
 title: Community Plugins
-weight: 6
-breadcrumbs: false
+sidebar_weight: 6
+no_breadcrumbs: true
 ---
 
 XebiaLabs community plugins and tools are open-source software that you can freely use, adapt, and enhance. To download them, visit the [XebiaLabs community on GitHub](https://github.com/xebialabs-community).

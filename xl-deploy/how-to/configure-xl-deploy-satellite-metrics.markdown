@@ -1,5 +1,4 @@
 ---
-layout: satellite
 title: Configure XL Deploy satellite metrics
 categories:
 - xl-deploy

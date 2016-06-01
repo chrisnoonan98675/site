@@ -1,5 +1,5 @@
 ---
-layout: pre-rules
+pre_rules: true
 title: XL Deploy plugin tutorial
 subject:
 - Customization

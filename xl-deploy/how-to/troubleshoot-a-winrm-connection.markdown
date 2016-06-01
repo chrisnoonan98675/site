@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot a WINRM_NATIVE or WINRM_INTERNAL connection
 subject:
-- Remoting plugin
+- Bundled plugins
 categories:
 - xl-deploy
 tags:

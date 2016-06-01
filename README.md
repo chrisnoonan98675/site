@@ -1,32 +1,102 @@
 online-docs-jekyll
 ==================
 
-# Setting it up locally
+# Introduction
+
+This repository contains:
+
+* XebiaLabs product and plugin documentation in topics
+* Code used to generate and style the Jekyll-based part of the documentation site
+
+For general information about XebiaLabs documentation, refer to [Technical documentation basics](https://xebialabs.atlassian.net/wiki/display/Labs/Technical+documentation+basics).
+
+# Generate the documentation site locally
+
+To generate the Jekyll-based part of the documentation site locally:
 
 1. Clone this repository.
-1. Install Jekyll 2.5.x and its requirements:
+1. Install Jekyll 3.0.1 and its requirements:
     * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/). **Important:** If you're using OS X 10.11 (El Capitan) or later, [read this important info](http://jekyllrb.com/docs/troubleshooting/#jekyll-amp-mac-os-x-1011)!
-    * Windows users, follow [these instructions](http://jekyll-windows.juthilo.com/) (you can skip step #3 there).
+    * Windows users, follow [these instructions](http://jekyll-windows.juthilo.com/)
 1. In the directory where you cloned the repository, execute `jekyll serve`. Go to `http://localhost:4000` to see the site running locally.
 
-Installation notes:
+## Installation tips
 
-* We are using Jekyll 2.5.x. Jekyll 3.x.x will not work yet because of changes in the Liquid templating system.
-* You can install a specific version of Jekyll with [`gem install jekyll -v 2.5.3`](http://stackoverflow.com/questions/17026441/how-to-install-a-specific-version-of-a-ruby-gem). If you also have Jekyll 3.x installed, you can remove it with `gem uninstall jekyll`; Ruby will then ask which version you want to uninstall.
-* You may also need to install [Magnific Popup](https://github.com/dimsemenov/Magnific-Popup). You can do this with Bower, npm, or Ruby.
-* If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
+You may also need to install:
 
-Usage tips:
+* [Magnific Popup](https://github.com/dimsemenov/Magnific-Popup) for video pop-ups
+* [Rouge](https://rubygems.org/gems/rouge/versions/1.10.1) for code syntax highlighting
 
-* As of Jekyll 2.4, `jekyll serve` starts the server in [watch mode](http://jekyllrb.com/docs/usage/). To disable watch mode, execute `jekyll serve --no-watch`.
-* It's a known issue that generating the site is quite slow. This is caused by the plugins we use, and hopefully will improve in the future.
-* To disable updating of the Fix Tracker (formerly known as the Development Dashboard) while you run Jekyll in watch mode, change the `jira_dashboard` `generate` setting in `_config.yml` to `false`. **Do not commit this change to the repository!**
+If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
 
-Writing tips:
+## Usage tips
 
-* You may want to download a Markdown editor such as [MacDown](http://macdown.uranusjr.com/) for OS X or [MarkdownPad](http://markdownpad.com/) for Windows.
+If you run into problems, first check that you have the right version of Jekyll with `jekyll --version`.
+
+### Jekyll environments
+
+***NEW!*** There are three Jekyll environments that you can use.
+
+* **Development**: Default environment when you execute `jekyll serve` or `jekyll build`
+* **Lightweight**: Used to generate the site locally as quickly as possible
+* **Production**: Used to generate pages for the live documentation site
+
+#### Development environment
+
+***NEW!*** By default, `jekyll serve` and `jekyll build` both run Jekyll in a "development environment". This means that:
+
+* Some navigation elements (such as the Google search box, the sidebar menu, and breadcrumbs) are disabled to reduce the time it takes to generate the site
+* An *Edit this page* link is available at the bottom of each topic
+
+Initial generation of the site in development mode takes about 25 seconds.
+
+Keep in mind that a site generated in development mode will not look exactly like the live documentation site because of the disabled elements.
+
+#### Lightweight environment
+
+***NEW!*** The "lightweight environment" has the same features as the development environment, but with even more elements disabled.
+
+Initial generation of the site in lightweight mode takes about 7 seconds.
+
+Keep in mind that a site generated in lightweight mode will look very different form the live documentation site. It is recommended that you use this mode if you only plan to work with a few specific topics.
+
+To use the lightweight environment, start Jekyll with:
+
+    JEKYLL_ENV=lightweight jekyll serve
+
+You can combine this with the `--incremental` or `--no-watch` options (see below).
+
+#### Production environment
+
+***NEW!*** The "production environment" generates the site including all elements that are needed for the live documentation site (menus, lists, breadcrumbs, etc.). The [Jenkins job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/xldoc/job/Jekyll%20docs/) for the documentation site uses the production environment.
+
+Initial generation of the site in production mode takes 80 to 90 seconds.
+
+To use the production environment, start Jekyll with:
+
+    JEKYLL_ENV=production jekyll serve
+
+You can combine this with the `--incremental` or `--no-watch` options (see below).
+
+## Speed up site regeneration
+
+***NEW!*** If you execute `jekyll serve`, the site is regenerated every time you make a change (except in `_config.yml`). You can prevent this by using the `--incremental` option. This means Jekyll will only regenerate the files that you change, which usually takes less than 1 second.
+
+Note that this is an experimental feature; incremental builds don't always pick up changes in Liquid code or changes that affect the various lists of topics that Jekyll generates. If you're using incremental builds and you don't see the output you expected, stop Jekyll (with CTRL+C) and run `jekyll serve` or `jekyll build`. This will regenerate the whole site and clean up the `_site` directory; you can then try using incremental builds again.
+
+You can also disable regeneration altogether by executing `jekyll --no-watch`.
+
+## Disable the Fix Tracker
+
+Another way to speed up site generation is to disable the Fix Tracker (formerly known as the Development Dashboard) plugin. It is recommended that you do this if you want to run the site locally without internet access, because the plugin accesses the JIRA API.
+
+Change the `jira_dashboard` `generate` setting in `_config.yml` to `false`, then start Jekyll. ***Do not commit this change to the repository!***
+
+## Writing tips
+
+* You may want to use a Markdown editor such as [MacDown](http://macdown.uranusjr.com/) for OS X or [MarkdownPad](http://markdownpad.com/) for Windows.
 * In MacDown, go to **Preferences** > **Rendering** and select **Detect Jekyll front-matter** to see the [YAML front matter](http://jekyllrb.com/docs/frontmatter/) in a nice table.
-* Be sure to spell check your work. Set your spell checker to **U.S. English**.
+* Be sure to spell check your work! Set your spell checker to *U.S. English*.
 
 # Publishing changes to the site
 
@@ -48,117 +118,91 @@ You can create branches for a featureâ€”for example, `DEPL-1234` or `REL-5678`â€
 
 If you want to submit changes for review without immediately publishing them, [create a branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/#creating-a-branch) and then [create a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
-The pull request should be merged into the master branch, a release branch, or a feature branch, depending on what changes it implements.
+After review, the pull request should be merged into the master branch, a release branch, or a feature branch, depending on what changes it implements.
 
-# Versioning content
+# File naming convention
 
-You can add version information to a topic as a whole or to a section of a topic.
+The naming convention for documentation site files is `your-file-name-here.markdown`. Do not use underscores, spaces, or uppercase letters in the file name.
 
-To add version information to a topic as a whole, use the `since`, `deprecated`, and `removed` front matter keys. Refer to the `_drafts/documentation-template.markdown` file for information about setting values for these keys.
+# Front matter options
 
-When adding version information to a section of a topic, include the major, minor, and patch version (`4.5.3`) or use an `x` for the patch number (`4.5.x`). Use the words *earlier* and *later* to refer to other versions. For example:
+[Front matter](http://jekyllrb.com/docs/frontmatter/) consists of keys and values located between dashes at the top of every Markdown or HTML file. Jekyll ignores files that do not have front matter.
 
-* In XL Deploy 5.0.0 and later...
-* In XL Deploy 4.5.2 and earlier...
-* In XL Deploy 4.5.3, XL Deploy 5.0.0, and later...
+You can specify front matter options in any order. The keys *must* match the keys listed below.
 
-## Major new feature
+| Key | Required? | Multiple values allowed? | Capitalization | Spaces allowed? | Description |
+| --- | --------- | ------------------------ | -------------- | --------------- | ----------- |
+| `title` | Yes | No | Sentence case | Yes | Title of the page. |
+| `categories` | See below | Yes | Lowercase | No | Product(s) that the page applies to. |
+| `subject` | See below | No | Sentence case | Yes | Subject of the page; this is like a tag, but only one subject is allowed. Try to use [subjects that are already in use](https://docs.xebialabs.com/tags-and-subjects.html). |
+| `tags` | See below | Yes | Lowercase | Yes | Tags to help users browse posts. Try to use [tags that are already in use](https://docs.xebialabs.com/tags-and-subjects.html). |
+| `since` | No | No | Not applicable | Yes | Version in which the functionality described in the page was introduced, in `Product Name X.Y.Z` format (for example, `XL Deploy 5.0.0`). |
+| `deprecated` | No | No | Not applicable | Yes | Version in which the functionality described in the page was deprecated, in the same format as `since`. |
+| `removed` | No | No | Not applicable | Yes | Version in which the functionality described in the page was removed, in the same format as `since`. |
+| `weight` | No | No | Not applicable | No | Determines the page's position in various lists. |
+| `beta` ***NEW!*** | No | No | Lowercase | No | Set to `true` to insert a warning indicating that the page's information is in beta. |
+| `pre_rules` ***NEW!*** | No | No | Lowercase | No | Set to `true` to insert a note indicating that the page's information applies to Java-based plugins instead of XL Deploy rules. |
+| `no_index` ***NEW!*** | No | No | Lowercase | No | Set to `true` to prevent search engines from indexing the page. |
+| `no_mini_toc` ***NEW!*** | No | No | Lowercase | No | Set to `true` to prevent Jekyll from generating a mini table of contents in the topic. |
+| `no_breadcrumbs` ***NEW!*** | No | No | Lowercase | No | Set to `true` to prevent Jekyll from generating breadcrumbs in the topic. |
+| `list_in_sidebar` ***NEW!*** | No | No | Lowercase | No | Set to `true` to list the page in the site sidebar. |
+| `sidebar_weight` ***NEW!*** | No | No | Not applicable | No | Determines the page's position in the site sidebar. |
+| `placeholder` ***NEW!*** | No | No | Lowercase | No | Set to `true` if the page is a placeholder that should be redirected to versioned documentation. |
+| `destination` ***NEW!*** | No | No | Lowercase | No | URL that the placeholder page should redirect to (ignored unless `placeholder` is `true` |
 
-If a release introduces a major new feature:
+**Tip:** To see the tags and subjects that are in use, go to [https://docs.xebialabs.com/tags-and-subjects.html](https://docs.xebialabs.com/tags-and-subjects.html).
 
-1. Write a new topic
-2. Use the `since` front matter key to identify a version
+## Categories, subject, and tags
 
-## Minor new feature
+The `categories`, `subject`, and `tags` front matter options are almost always required for topics. The exception is a topic that you don't want to appear in lists like [this](https://docs.xebialabs.com/xl-release/#browse-documentation-by-subject) and [this](https://docs.xebialabs.com/xl-testview/concept/). We occasionally do this for beta documentation that we want to make available to a limited number of customers.
 
-If a release introduces a new feature that isn't big enough to warrant its own topic:
+If a topic doesn't appear in lists where you expect it, double-check the `categories`, `subject`, and `tags`.
 
-1. Add a new section to an existing topic
-2. Use a sentence and, optionally, the section heading to identify a version
+## Single values vs. multiple values
 
-For example:
+If a front matter option only allows a single value, then specify the value on the same line as the key:
 
-> **Using the foo feature**
->
-> In XL Deploy 5.0.0 and later, you use the foo feature to...
+    title: Sample topic title
+    no_mini_toc: true
 
-Or:
+If a front matter option allows multiple values, then specify the values in a list:
 
-> **Using the foo feature in XL Deploy 5.0.0 and later**
->
-> In XL Deploy 5.0.0 and later, you use the foo feature to...
+    categories:
+    - xl-deploy
+    - xl-release
+    tags:
+    - tag 1
+    - tag 2
 
-## Major change to an existing feature
+If a topic doesn't appear in lists where you expect it, double-check the formatting of the front matter options.
 
-If a release introduces a major change to an existing feature:
+## How page weights work
 
-1. Copy the relevant existing topic and change its title and file name to include the version
-2. Update the original topic to reflect the new release
-3. Use the `since` front matter key to identify a version in the original topic
+***NEW!*** Lists of topics are ordered by the `weight` value in their front matter. Topics without a weight are ordered alphabetically (ascending) by file name.
 
-For example, if XL Deploy 5.0.0 introduced a major change to the "foo" feature:
+To help prevent weight clashes, these ranges are used for topics:
 
-* **Using the foo feature** (`using-the-foo-feature.html`): This would contain the XL Deploy 5.0.0 version of the foo feature
-* **Using the foo feature in XL Deploy 4.5.x and earlier** (`using-the-foo-feature-in-xl-deploy-45x-and-earlier.html`)
+| Product | Weight range allowed |
+| ------- | -------------------- |
+| XL Deploy | 100 - 399 |
+| XL Release | 400 - 699 |
+| XL TestView | 700 - 999 |
 
-## Minor change to an existing feature
+**Note:** Weights over 999 do not work.
 
-If a release introduces a minor change to an existing feature:
+**Tip:** To see the weights of all topics, go to [https://docs.xebialabs.com/topic-weights.html](https://docs.xebialabs.com/topic-weights.html).
 
-1. Add a new section to an existing topic
-2. Use a sentence and the section heading to identify a version
+# Placeholder pages for versioned documentation
 
-For example:
+By default, versioned documentation that is not generated by Jekyll (such as reference manuals, API references, Javadoc, etc.) will not appear in any list that Jekyll generates. You need to add a placeholder page from which Jekyll can read front matter. You can then redirect users from the placeholder page to the actual documentation.
 
-> **Using the foo feature in XL Deploy 4.5.x and earlier**
->
-> In XL Deploy 4.5.x and earlier, you use the foo feature to...
->
-> **Using the foo feature in XL Deploy 5.0.0 and later**
->
-> In XL Deploy 5.0.0 and later, you use the foo feature to...
+To do so:
 
-## Deprecated feature
+1. Add a file in a directory called `versioned`, located under `concepts` or `how-to`.
+1. In the file's front matter, set the `placeholder` key to `true`.
+1. Set the `destination` key to the full URL of the versioned documentation.
 
-If a release deprecates a feature, either:
-
-* Use the `deprecated` front matter key to mark the relevant topic(s) as deprecated
-* Add a note that the relevant part of a topic(s) is deprecated
-
-For example:
-
-> **Note:** The foo feature is deprecated as of XL Deploy 5.0.0.
-
-## Removed feature
-
-If a release removes a feature that was previously marked as deprecated, either:
-
-* Use the `removed` front matter key to mark the relevant topic(s) as removed
-* Add a note that the relevant part of a topic(s) has been removed
-
-For example:
-
-> **Note:** The foo feature was removed in XL Deploy 5.0.0.
-
-## Beta documentation
-
-To mark an entire topic as "beta", add the following line to its front matter:
-
-    layout: beta
-
-To mark a section of a topic as "beta", add the following line just after the section's heading:
-
-    <div class="alert alert-danger" role="alert">The information in this section is in beta and is subject to change.</div>
-
-To mark a paragraph, sentence, or table cell as "beta", add the following inline label to it:
-
-    <span class="label label-danger">beta</span>
-
-# Drafts
-
-Although draft versions can be put in a `_drafts` folder, it is prefered to use branching instead.
-
-The `_drafts` folder does contain the *documentation template*.
+For lots of examples of placeholder pages, see the `/xl-deploy/concept/versioned` directory.
 
 # Things to know about formatting
 
@@ -193,45 +237,41 @@ Placeholders for provisionable output properties use the `{% raw %}{{% ... %}}{%
 
 ## Table styles in Markdown files
 
-Table styles are defined by Bootstrap CSS; see [this documentation](http://getbootstrap.com/css/#tables) for class names and examples. Use the following notation immediately before a table:
+Table styles are defined by Bootstrap CSS; see [this documentation](http://getbootstrap.com/css/#tables) for class names and examples. Use the following notation immediately before each table (without a line break between them):
 
     {:.class}
 
-For a [normal](http://getbootstrap.com/css/#tables-example) table:
-
-    {:.table}
-    | Column 1 | Column 2 | Column 3 |
-    | -------- | -------- | -------- |
-    | Content  | Content  | Content  |
-
-For a [zebra-striped](http://getbootstrap.com/css/#tables-striped) table:
+We normally use the [zebra-striped table style](http://getbootstrap.com/css/#tables-striped):
 
     {:.table .table-striped}
     | Column 1 | Column 2 | Column 3 |
     | -------- | -------- | -------- |
     | Content  | Content  | Content  |
 
+You can also use the [normal table style](http://getbootstrap.com/css/#tables-example):
+
+    {:.table}
+    | Column 1 | Column 2 | Column 3 |
+    | -------- | -------- | -------- |
+    | Content  | Content  | Content  |
+
+### Line breaks in table cells
+
+***NEW!*** In Markdown files, you must use `<br />` HTML tags to insert line breaks and blank lines in content that is inside a table cell. For example:
+
+    This is the first line of text.<br /><br />This is the second line of text.
+
 ## Code blocks in Markdown files
 
-To format a block of code, indent each line by at least four spaces.
-
-Jekyll does not support formatting a block of code by surrounding it with [three backticks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks).
+To format a block of code, indent each line by at least four spaces. Formatting a block of code by [fencing it with backticks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) produces inconsistent results.
 
 ## Syntax highlighting and line numbers
 
-[Syntax highlighting](http://jekyllrb.com/docs/templates/#code-snippet-highlighting) is provided by Pygments. To highlight a block of code, surround it with Liquid `{% highlight %}` tags and specify the [language](http://pygments.org/languages/). To include line numbers, add `linenos`.
+***NEW!*** [Syntax highlighting](http://jekyllrb.com/docs/templates/#code-snippet-highlighting) is provided by [Rouge](https://github.com/jneen/rouge). To highlight a block of code, surround it with Liquid `{% highlight %}` tags and specify the [language](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers). To include line numbers, add `linenos`.
 
     {% highlight python linenos %}
     code goes here
     {% endhighlight %}
-
-## Mini TOC
-
-The mini TOC is an automatically generated table of contents that appears at the top right of pages with more than three headings. To prevent the mini TOC from being added to a page, put `no_mini_toc: true` in the page's front matter.
-
-## Breadcrumbs
-
-Breadcrumbs are automatically generated and appear at the top left of pages that use the `page` layout (by default, all topics). To prevent the breadcrumbs from being added to a page, put `breadcrumbs: false` in the page's front matter.
 
 ## Manual HTML anchors
 
@@ -244,10 +284,6 @@ This prevents "Upgrading to XL Deploy 4.5.0" from being rendered as a heading.
 
 HTML anchors are automatically created for headings (h1, h2, h3, etc.).
 
-# Tags and subjects
-
-To see the tags and subjects that are already in use, visit [https://docs.xebialabs.com/tags-and-subjects.html](https://docs.xebialabs.com/tags-and-subjects.html).
-
 # "Latest" links
 
 "Latest" links point to the latest version of the *versioned* documentation for each product. Simply replace the version in the URL with the word "latest". For example: `https://docs.xebialabs.com/xl-deploy/latest/rest-api/index.html`.
@@ -258,87 +294,128 @@ At this time, "latest" links are not available for the XL Deploy and XL Release 
 
 # Fix Tracker (formerly Development Dashboard)
 
-The [Fix Tracker](https://docs.xebialabs.com/tracker) is generated by a Jekyll plugin that pulls information from JIRA.
+The [Fix Tracker](https://docs.xebialabs.com/tracker/index.html) (formerly known as the Development Dashboard) is generated by a Jekyll plugin that pulls information from JIRA.
 
 To make a release appear on the Fix Tracker, go to the [project versions screen](https://confluence.atlassian.com/display/JIRA/Managing+Versions) and assign a **Release date** to the desired version.
 
 **Tip:** By default, the project name appears in sentence case; for example, *XL TestView* will appear on the Fix Tracker as *Xl Testview*. To override this, enter the desired project name in the version's **Description** field on the [project versions screen](https://confluence.atlassian.com/display/JIRA/Managing+Versions).
 
-To make a story, improvement, or bug fix to appear on the Fix Tracker, assign it a **Fix Version** and set its **Public Issue** property must be set to one of the following options:
+To make a story, improvement, or bug fix to appear on the Fix Tracker, assign it a **Fix Version** and set its **Public Issue** property to one of the following options:
 
 * Yes - summary only: Only show the issue's title
 * Yes - summary and description: Show the issue's title and description
 
-To refresh the Fix Tracker so it shows the latest information from JIRA, log in to [Jenkins](https://xebialabs.atlassian.net/wiki/display/Labs/Jenkins) and execute the [Jekyll docs job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/app1/job/Jekyll%20docs/).
+To refresh the Fix Tracker so it shows the latest information from JIRA, log in to [Jenkins](https://xebialabs.atlassian.net/wiki/display/Labs/Jenkins) and run the [Jekyll docs job](https://dexter.xebialabs.com/jenkinsng/job/Documentation/job/app1/job/Jekyll%20docs/).
 
-# Logical structure of the site
+# Versioning content
 
-* Product
-    * Documentation in topic-based format
-        * Concepts
-        * How-to
-    * Documentation in legacy format (product manuals)
-    * Auto-generated documentation
-    * Plugin
-        * Documentation in legacy format (plugin manual)
-        * Documentation in topic-based format
-            * Concept
-            * How-to
+You can add version information to a topic as a whole or to a section of a topic.
 
-# Jekyll and Liquid
+To add version information to a topic as a whole, use the `since`, `deprecated`, and `removed` front matter options.
 
-In Jekyll terminology, topics are *pages* that are located in directories such as `xl-deploy`, `xl-release`, and so on.
+When adding version information to a section of a topic, include the major, minor, and patch version (`4.5.3`) or use an `x` for the patch number (`4.5.x`). Use the words *earlier* and *later* to refer to other versions. For example:
 
-## File names
+* In XL Deploy 5.0.0 and later...
+* In XL Deploy 4.5.2 and earlier...
+* In XL Deploy 4.5.3, XL Deploy 5.0.0, and later...
 
-Refer to the template in `_drafts` for file naming guidelines.
+## Major new feature
 
-## File front matter
+If a release introduces a major new feature:
 
-Every page must have YAML front matter. Refer to the template in `_drafts` for information about the front matter.
+1. Write a new topic
+2. Use the `since` front matter key to identify a version
 
-## Drafts
+## Minor new feature
 
-Save drafts of pages in `_drafts`. Drafts are never converted to HTML.
+If a release introduces a new feature that isn't big enough to warrant its own topic:
 
-## Layout files
+1. Add a new section to an existing topic
+2. Use a sentence and, optionally, the section heading to identify a version
 
-| Jekyll layout file   | Page(s) it applies to  | Why is this layout file needed? |
-|----------------------|------------------------|---------------------------------|
-| `default.html` | All | Master layout file that calls most of the `includes` that make up the page structure |
-| `list-in-sidebar.html` | Landing page of a product | Triggers Jekyll to add a link to the page in the sidebar |
-| `page.html` | All pages | Includes dynamically generated breadcrumbs |
+For example:
 
-## Plugins
+> **Using the foo feature**
+> 
+> In XL Deploy 5.0.0 and later, you use the foo feature to...
+
+Or:
+
+> **Using the foo feature in XL Deploy 5.0.0 and later**
+> 
+> In XL Deploy 5.0.0 and later, you use the foo feature to...
+
+## Major change to an existing feature
+
+If a release introduces a major change to an existing feature:
+
+1. Copy the relevant existing topic and change its title and file name to include the version
+2. Update the original topic to reflect the new release
+3. Use the `since` front matter key to identify a version in the original topic
+
+For example, if XL Deploy 5.0.0 introduced a major change to the "foo" feature:
+
+* **Using the foo feature** (`using-the-foo-feature.html`): This would contain the XL Deploy 5.0.0 version of the foo feature
+* **Using the foo feature in XL Deploy 4.5.x and earlier** (`using-the-foo-feature-in-xl-deploy-45x-and-earlier.html`)
+
+## Minor change to an existing feature
+
+If a release introduces a minor change to an existing feature:
+
+1. Add a new section to an existing topic
+2. Use a sentence and the section heading to identify a version
+
+For example:
+
+> **Using the foo feature in XL Deploy 4.5.x and earlier**
+> 
+> In XL Deploy 4.5.x and earlier, you use the foo feature to...
+>
+> **Using the foo feature in XL Deploy 5.0.0 and later**
+> 
+> In XL Deploy 5.0.0 and later, you use the foo feature to...
+
+## Deprecated feature
+
+If a release deprecates a feature, either:
+
+* Use the `deprecated` front matter key to mark the relevant topic(s) as deprecated
+* Add a note that the relevant part of a topic(s) is deprecated
+
+For example:
+
+> **Note:** The foo feature is deprecated as of XL Deploy 5.0.0.
+
+## Removed feature
+
+If a release removes a feature that was previously marked as deprecated, either:
+
+* Use the `removed` front matter key to mark the relevant topic(s) as removed
+* Add a note that the relevant part of a topic(s) has been removed
+
+For example:
+
+> **Note:** The foo feature was removed in XL Deploy 5.0.0.
+
+## Beta documentation
+
+To mark an entire topic as "beta", use the `beta` front matter option.
+
+To mark a section of a topic as "beta", add the following line just after the section's heading:
+
+    <div class="alert alert-danger" role="alert">The information in this section is in beta and is subject to change.</div>
+
+To mark a paragraph, sentence, or table cell as "beta", add the following inline label to it:
+
+    <span class="label label-danger">beta</span>
+
+# Jekyll plugins we use
 
 | Plugin file name | Description | Source | License |
 | ---------------- | ----------- | ------ | ------- |
-| `breadcrumbs.rb` | Creates dynamic breadcrumbs on pages | [Source](http://biosphere.cc/software-engineering/jekyll-breadcrumbs-navigation-plugin/) | None |
-| `pageless_redirects.rb` | Allows you to create redirects in `_redirects.yml` | [Source](https://github.com/nquinlan/jekyll-pageless-redirects/pull/7) | MIT |
+| `pageless_redirects.rb` | Allows you to create redirects in `_redirects.yml` | [Source](https://github.com/nquinlan/jekyll-pageless-redirects) | MIT |
 | `sitemap_generator.rb` | Generates `sitemap.xml` | [Source](https://github.com/kinnetica/jekyll-plugins) | Creative Commons |
-| `remove_whitespace.rb` | Adds the `{% strip %}` tag, which you can use to remove the empty lines that Liquid loops produce | [Source](https://github.com/aucor/jekyll-plugins/blob/master/strip.rb) | MIT |
-
-# Tips
-
-* To start Jekyll in watch mode, use `jekyll serve --watch`. If you change `_config.yml`, you have to stop Jekyll (CTRL+C) and restart it.
-* Jekyll runs locally at `localhost:4000`.
-* If a folder does not contain an `index.markdown` or `index.html` file, trying to access it will return a 404 error.
-* If you combine conditions in a loop, the order of the conditions matters.
-* In gradle, when deploying the content, we use `jekyll build --config "_config.yml,_jekyll.xebialabs.config.yml"` in order to override base URL, which is taken from the second configuration file. [DEPRECATED]
-
-# Useful links
-
-* [Intro to Jekyll](http://jekyllbootstrap.com/lessons/jekyll-introduction.html#toc_0)
-* [Liquid template info](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)
-* [Jekyll without plugins](http://captnemo.in/blog/2014/01/20/pluginless-jekyll/)
-* [Markdown help](http://stackoverflow.com/editing-help)
-* [YAML sample](http://en.wikipedia.org/wiki/YAML#Sample_document)
-* [Liquid cheatsheet](http://cheat.markdunkley.com/)
-* [Some Jekyll plugins](https://github.com/recurser/jekyll-plugins)
-* [HTML-to-Markdown converter](http://domchristie.github.io/to-markdown/)
-* [Markdown-Writer for Atom](https://atom.io/packages/markdown-writer): Might be useful for tag management/consistency
-* [Sort and filter in Jekyll](http://www.leveluplunch.com/blog/2014/04/03/sort-pages-by-title-filter-array-by-layout-jekyllrb/): Describes how to sort pages by weight and filter them by layout (this is the method used to generate the sidebar menu)
-* [Advanced Jekyll features](http://www.divshot.com/blog/web-development/advanced-jekyll-features/)
+| `weighted_pages.rb` | Allows you to sort pages by the `weight` property with `site.weighted_pages` instead of `site.pages` | [Source](https://github.com/aucor/jekyll-plugins) | MIT |
 
 # Pulling doc from other repositories
 
@@ -360,14 +437,5 @@ may detect it and refuse authentication via public key.
 Now you should be able to sync documentation to local folder:
 
 1. Execute `./_sync.sh`.
-1. Execute `jekyll serve`.
-1. Go to `http://localhost:4000`.
-
-The old way to do it:
-
-1. Add the `jekyll` properties listed [here](https://xebialabs.atlassian.net/wiki/display/Labs/devdoc.xebialabs.com) to your `gradle.properties` file.
-1. Create a folder at `/var/lib/jenkins/jekyll` and set its permissions with `chmod o+w`.
-1. Go to the location where you cloned the online-docs-jekyll repository.
-1. Execute `gradle jekyllFetchSources` or `gradle jFS`.
 1. Execute `jekyll serve`.
 1. Go to `http://localhost:4000`.

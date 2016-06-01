@@ -9,6 +9,7 @@ tags:
 - security
 - configuration
 - deployment
+weight: 106
 ---
 
 ## XL Deploy properties file

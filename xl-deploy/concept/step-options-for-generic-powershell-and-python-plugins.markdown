@@ -1,5 +1,5 @@
 ---
-layout: pre-rules
+pre_rules: true
 title: Step options for the Generic, PowerShell, and Python plugins
 categories: 
 - xl-deploy

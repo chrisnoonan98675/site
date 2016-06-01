@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy Remoting plugin
 categories:
 - xl-deploy
 subject:
-- Remoting plugin
+- Bundled plugins
 tags:
 - plugin
 - connectivity

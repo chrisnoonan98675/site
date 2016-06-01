@@ -3,7 +3,7 @@ title: Extend the XL Deploy Database plugin
 categories:
 - xl-deploy
 subject:
-- Database plugin
+- Bundled plugins
 tags:
 - plugin
 - database

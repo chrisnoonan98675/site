@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot a Telnet connection
 subject:
-- Remoting plugin
+- Bundled plugins
 categories:
 - xl-deploy
 tags:

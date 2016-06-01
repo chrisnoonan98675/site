@@ -2,21 +2,13 @@ title: XebiaLabs documentation
 tagline: 'Deliver faster'
 description: 'Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise.'
 url: https://docs.xebialabs.com
+repo: https://github.com/xebialabs/online-docs-jekyll/edit/master/
 
 sitemap:
     exclude:
         - "/tags-and-subjects.html"
+        - "/topic-weights.html"
         - "/xl-deploy/in-product-help.html"
-
-defaults:
-    -
-        scope:
-            path: ""
-            type: "pages"
-        values:
-            layout: "page"
-
-highlighter: pygments
 
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
@@ -27,3 +19,47 @@ jira_dashboard:
   jira_url: 'https://xebialabs.atlassian.net/rest/api/2'
   jira_username: 'xl-ci'
   jira_password: '8ace886bbe7e'
+
+defaults:
+    -
+        scope:
+            path: ""
+            type: "pages"
+        values:
+            layout: "page"
+    -
+        scope:
+            path: "xl-deploy/how-to"
+            type: "pages"
+        values:
+            layout: "topic"
+    -
+        scope:
+            path: "xl-deploy/concept"
+            type: "pages"
+        values:
+            layout: "topic"
+    -
+        scope:
+            path: "xl-release/how-to"
+            type: "pages"
+        values:
+            layout: "topic"
+    -
+        scope:
+            path: "xl-release/concept"
+            type: "pages"
+        values:
+            layout: "topic"
+    -
+        scope:
+            path: "xl-testview/how-to"
+            type: "pages"
+        values:
+            layout: "topic"
+    -
+        scope:
+            path: "xl-testview/concept"
+            type: "pages"
+        values:
+            layout: "topic"

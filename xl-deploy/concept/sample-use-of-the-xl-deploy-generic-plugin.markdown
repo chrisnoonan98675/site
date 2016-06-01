@@ -3,7 +3,7 @@ title: Sample use of the XL Deploy Generic plugin
 categories:
 - xl-deploy
 subject:
-- Generic plugin
+- Bundled plugins
 tags:
 - generic
 - plugin
@@ -39,7 +39,7 @@ The following snippet defines a CI based on the `generic.CopiedArtifact`. The `t
 	    <property name="targetDirectory" default="${deployed.container.home}/conf" hidden="true"/>
 	</type>
 
-Using the above snippet, it is possible to create a package with a `tc.File` deployable and deploy it to an environment containing a `tc.UnmanagedServer`. This will result in a `tc.DeployedFile` deployed. 
+Using the above snippet, it is possible to create a package with a `tc.File` deployable and deploy it to an environment containing a `tc.UnmanagedServer`. This will result in a `tc.DeployedFile` deployed.
 
 ## Defining a WAR
 

@@ -1,24 +1,14 @@
-{% assign product-id-to-search-for = page.product-id %}
-
 <h3 id="concepts">Concepts</h3>
 
-<span class="hidden">{% increment concept-counter %}</span>
+{% unless jekyll.environment == "lightweight" %}
 
-<ul>
-{% for page in site.pages %}
-	{% if page.categories contains product-id-to-search-for %}
-		{% if page.path contains 'concept' %}
-			{% unless page.path contains 'index' %}
-				<span class="hidden">{% increment concept-counter %}</span>
-				{% if concept-counter <=6 %}
-					<li><a href="{{ page.url }}">{{ page.title }}</a></li>
-				{% endif %}
-			{% endunless %}
-		{% endif %}
-	{% endif %}
-{% endfor %}
-</ul>
+	<ul>
+	{% assign subselection = site.weighted_pages | topics: page.product-id, 'concept' %}
+	{% for page in subselection %}
+		<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+	{% endfor %}
+	</ul>
 
-{% if concept-counter > 6 %}
 	<p class="indented"><a href="concept">Read more &#187;</a></p>
-{% endif %}
+
+{% endunless %}

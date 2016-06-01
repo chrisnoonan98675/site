@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy JEE plugin
 categories:
 - xl-deploy
 subject:
-- JEE plugin
+- Bundled plugins
 tags:
 - java
 - plugin

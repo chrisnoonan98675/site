@@ -4,25 +4,28 @@ layout: default
 
 <div class="page">
 
-	{% include breadcrumbs.html %}
+	{% unless jekyll.environment == "lightweight" %}
+		{% unless page.no_breadcrumbs %}
+			{% include nav-breadcrumbs.html %}
+		{% endunless %}
+	{% endunless %}
 
-	<!-- PAGE SUBJECT -->
-	<!-- {% for subject in page.subject %}{{ page.subject }}{% endfor %} -->
+	{% if page.beta %}
+		<div class="alert alert-danger" role="alert">This information is in beta and is subject to change.</div>
+	{% endif %}
 
-	<!-- PAGE TAGS -->
-	<!-- {% include page_tag_list.html %} -->
-	
-	<!-- PAGE LOCATION -->
-	<!-- https://github.com/xebialabs/online-docs-jekyll/edit/master/{{ page.path }} -->
-	
 	<div class="page-header">
 		<h1 class="page-title">{{ page.title }}</h1>
 	</div>
-	
+
 	{% unless page.no_mini_toc %}
-		<div id="toc" class="mini-toc hidden-sm"></div>
+		<div id="toc" class="mini-toc hidden-sm hidden-xs hidden-print"></div>
 	{% endunless %}
 
 	{{ content }}
-	
+
+	{% unless jekyll.environment == "production" %}
+		{% include edit-link.html %}
+	{% endunless %}
+
 </div>

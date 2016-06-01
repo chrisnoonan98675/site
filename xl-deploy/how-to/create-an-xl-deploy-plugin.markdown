@@ -1,5 +1,5 @@
 ---
-layout: pre-rules
+pre_rules: true
 title: Create an XL Deploy plugin
 categories: 
 - xl-deploy

@@ -1,7 +1,7 @@
 ---
 title: Choose an Overthere host type and connection type
 subject:
-- Remoting plugin
+- Bundled plugins
 categories:
 - xl-deploy
 tags:

@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy Command plugin
 categories:
 - xl-deploy
 subject:
-- Command plugin
+- Bundled plugins
 tags:
 - plugin
 - command

@@ -3,7 +3,7 @@ title: Remoting plugin SSH compatibility
 categories: 
 - xl-deploy
 subject:
-- Remoting plugin
+- Bundled plugins
 tags:
 - plugin
 - connectivity

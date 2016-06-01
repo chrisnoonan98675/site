@@ -28,10 +28,6 @@ a:hover, a:active, a:hover code, a:active code {
 .indented {
   margin-left: 40px;
 }
-.breadcrumb {
-  background-color: #FFFFFF;
-  padding-left: 0;
-}
 img {
   max-width: 650px;
   box-shadow: 0px 0px 5px 3px #f6f6f6;
@@ -102,6 +98,55 @@ h5, .h5 {
 	margin-bottom: 0;
 }
 
+/* Breadcrumbs */
+
+.breadcrumb {
+  background-color: #FFFFFF;
+  padding-left: 0;
+}
+.breadcrumbs::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.breadcrumbs .breadcrumb {
+  padding: 0;
+  margin-bottom: 0;
+  border: none;
+  display: inline-block;
+}
+.breadcrumbs a.breadcrumb-item::after {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  content: "/";
+  color: #cccccc;
+}
+.breadcrumb > li + li::before {
+    padding: 0px !important;
+}
+
+/* Page edit link */
+
+.edit-this-page {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 80%;
+	color: #888;
+}
+.edit-this-page a {
+	color: #888;
+}
+
+/* Highlighted code with line numbers enabled */
+
+.lineno {
+	border: 0;
+	border-right: 1px solid #CCC;
+}
+td > pre {
+	border: 0;
+}
+
 /* Mini TOC */
 
 .mini-toc {
@@ -166,13 +211,13 @@ li > p
 }
 #subject-list > h6:before, #subject-list > span:before, #tag-list > h6:before, #tag-list > span:before {
   font-family: "online-doc-icons" !important;
-  content: "f";
+  content: "c";
   float: left;
   margin-right: 5px;
 }
 #subject-list .open:before, #subject-list > span:before, #tag-list .open:before, #tag-list > span:before {
   font-family: "online-doc-icons" !important;
-  content: "h";
+  content: "a";
   float: left;
   margin-right: 5px;
 }
@@ -252,10 +297,6 @@ h6:hover .header-link {
   .sidebar-nav .navbar li {
     float: none;
     display: block;
-  }
-  .sidebar-nav .navbar li a {
-    padding-top: 12px;
-    padding-bottom: 12px;
   }
 }
 @media (min-width: 992px) {
@@ -511,6 +552,12 @@ form.form-search:before {
   text-align: center;
 }
 
+.nav-tabs {
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+}
+
 .dashboard .nav-tabs > li > a {
   border-radius: 0;
   padding: 7px 20px;
@@ -532,14 +579,14 @@ form.form-search:before {
 
 .dashboard .section.collapsed > h3:before, .dashboard .section.collapsed > span:before {
   font-family: "online-doc-icons" !important;
-  content: "f";
+  content: "c";
   float: left;
   margin-right: 5px;
 }
 
 .dashboard .section > h3:before, .dashboard .section > span:before {
   font-family: "online-doc-icons" !important;
-  content: "h";
+  content: "a";
   float: left;
   margin-right: 5px;
 }
