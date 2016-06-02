@@ -2,26 +2,28 @@
 Show the since, deprecated, and removed versions.
 {% endcomment %}
 
-{% if page.since %}
-	<p class="small">Valid since:<br />
-		{% for item in page.since %}
-			{{ item }}
-			{% unless forloop.last %}<br />{% endunless %}
-		{% endfor %}</p>
-{% endif %}
+<div class="since-deprecated-removed well well-sm">
+	{% if page.since %}
+		<p class="small">Valid since:<br />
+			{% for item in page.since %}
+				{{ item }}
+				{% unless forloop.last %}<br />{% endunless %}
+			{% endfor %}</p>
+	{% endif %}
 
-{% if page.deprecated %}
-	<p class="small">Deprecated in:<br />
-		{% for item in page.deprecated %}
-			{{ item }}
-			{% unless forloop.last %}<br />{% endunless %}
-		{% endfor %}</p>
-{% endif %}
+	{% if page.deprecated %}
+		<p class="small">Deprecated in:<br />
+			{% for item in page.deprecated %}
+				{{ item }}
+				{% unless forloop.last %}<br />{% endunless %}
+			{% endfor %}</p>
+	{% endif %}
 
-{% if page.removed %}
-	<p class="small">Removed in:<br />
-		{% for item in page.removed %}
-			{{ item }}
-			{% unless forloop.last %}<br />{% endunless %}
-		{% endfor %}</p>
-{% endif %}
+	{% if page.removed %}
+		<p class="small">Removed in:<br />
+			{% for item in page.removed %}
+				{{ item }}
+				{% unless forloop.last %}<br />{% endunless %}
+			{% endfor %}</p>
+	{% endif %}
+</div>
