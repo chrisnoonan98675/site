@@ -37,10 +37,11 @@
 				{% include sidebar.html %}
 			</div><!-- /.col -->
 			<div class="col-sm-9">
-				<!-- If there is a since, deprecated, and/or removed version, show them -->
-				{% if page.since or page.deprecated or page.removed %}
-					{% include since-deprecated-removed.html %}
-				{% endif %}
+				<div class="since-deprecated-removed well well-sm">
+					{% if page.since or page.deprecated or page.removed %}
+						{% include since-deprecated-removed.html %}
+					{% endif %}
+				</div>
 				<!-- Page content -->
 				{{ content }}
 			</div><!-- /.col-sm-9 -->
