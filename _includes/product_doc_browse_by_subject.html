@@ -30,7 +30,9 @@
 							{% for category in page.categories %}
 								{% if category contains product-id-to-search-for %}
 									{% if page.subject contains subject_to_search_for %}
-										<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+										{% unless page.url contains '/subject/' %}
+											<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+										{% endunless %}
 									{% endif %}
 								{% endif %}
 							{% endfor %}
