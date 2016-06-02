@@ -2,6 +2,9 @@ title: XebiaLabs documentation
 tagline: 'Deliver faster'
 description: 'Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise.'
 url: https://docs.xebialabs.com
+twitter:
+  username: xebialabs
+logo: /images/logos/xebialabs-standard.png
 repo: https://github.com/xebialabs/online-docs-jekyll/edit/master/
 
 sitemap:
@@ -11,6 +14,9 @@ sitemap:
         - "/xl-deploy/in-product-help.html"
 
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+gems:
+  - jekyll-seo-tag
 
 jira_dashboard:
   generate: true
