@@ -110,14 +110,13 @@ h5, .h5 {
 }
 .breadcrumbs::after {
   content: "";
-  display: table;
   clear: both;
 }
 .breadcrumbs .breadcrumb {
   padding: 0;
   margin-bottom: 0;
   border: none;
-  display: inline-block;
+  display: inline;
 }
 .breadcrumbs a.breadcrumb-item::after {
   padding-right: 0.5rem;
