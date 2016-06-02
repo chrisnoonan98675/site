@@ -94,6 +94,10 @@ h5, .h5 {
 .since-deprecated-removed p {
 	margin-bottom: 0;
 }
+.since-deprecated-removed {
+	display: inline;
+	float: right;
+}
 .dashboard-disclaimer {
 	margin-bottom: 0;
 }
