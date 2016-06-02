@@ -59,3 +59,5 @@ You can search and filter the CIs in the repository using the search box in the 
 3. Type a search term in the box and press ENTER or click ![Search](/images/button_search_repository.png).
 
 To clear the search results, clear the search box and press ENTER or click ![Search](/images/button_search_repository.png). To reset the root node to the defaul, click ![Refresh](/images/button_refresh_repository.png).
+
+**Tip:** The [`GET /repository/query`](/xl-deploy/5.5.x/rest-api/com.xebialabs.deployit.engine.api.RepositoryService.html#/repository/query:GET) API call provides a more robust search.
