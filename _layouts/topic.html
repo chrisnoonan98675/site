@@ -9,11 +9,11 @@ layout: default
 	{% endunless %}
 
 	{% if page.beta %}
-		<div class="alert alert-danger" role="alert">This information is in beta and is subject to change.</div>
+		<div class="alert alert-danger beta-message" role="alert">This information is in beta and is subject to change.</div>
 	{% endif %}
 
 	{% if page.pre_rules %}
-		<div class="alert alert-info" role="alert">XL Deploy 4.5.0 introduced a new, easy-to-use rules system for customizing deployment plans. Refer to <a href="/xl-deploy/concept/understanding-xl-deploy-rules.html">Understanding XL Deploy rules</a> to learn more.</div>
+		<div class="alert alert-info pre-rules-message" role="alert">XL Deploy 4.5.0 introduced a new, easy-to-use rules system for customizing deployment plans. Refer to <a href="/xl-deploy/concept/understanding-xl-deploy-rules.html">Understanding XL Deploy rules</a> to learn more.</div>
 	{% endif %}
 
 	<div class="page-header">

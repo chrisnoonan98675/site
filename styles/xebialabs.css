@@ -88,6 +88,14 @@ h5, .h5 {
 .satellite-message {
     padding-top: 25px;
 }
+.pre-rules-message {
+	margin-top: 10px;
+	width: 75%;
+}
+.beta-message {
+	margin-top: 10px;
+	width: 75%;
+}
 .small {
 	font-size: 75% !important;
 }
