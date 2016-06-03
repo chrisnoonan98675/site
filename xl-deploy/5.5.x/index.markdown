@@ -64,7 +64,8 @@ product-id: xl-deploy
 * [XL Deploy Bamboo plugin](/bamboo-xl-deploy-plugin/5.0.x/bambooPluginManual.html)
 * [XL Deploy Puppet plugin](/xl-deploy-xld-puppet-plugin/5.1.x/puppetPluginManual.html)
 * [XL Deploy Chef plugin](/xl-deploy-xld-chef-plugin/5.1.x/chefPluginManual.html)
-* [XL Deploy Team Foundation Server plugin](/xl-deploy-tfs-plugin/5.0.x/tfsPluginManual.html)
+* [XL Deploy plugin for Team Foundation Server](/xl-deploy-tfs-plugin/5.0.x/tfsPluginManual.html)
+* [XL Deploy plugin for Team Foundation Server 2015](/xl-deploy-vsts-xld-plugin/5.1.x/tfs2015PluginManual.html)
 * [XL Deploy Manifest Editor (Windows only)](/xl-deploy-tfs-plugin/4.5.x/manifestEditorManual.html)
 
 ### Provisioning plugins
