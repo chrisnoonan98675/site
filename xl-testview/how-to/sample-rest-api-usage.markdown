@@ -3,7 +3,7 @@ title: Sample REST API usage
 categories:
 - xl-testview
 subject:
-- XL TestView API
+- API
 tags:
 - api
 - project
