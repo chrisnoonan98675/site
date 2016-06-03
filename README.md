@@ -18,14 +18,12 @@ To generate the Jekyll-based part of the documentation site locally:
 1. Install Jekyll 3.1.6 and its requirements:
     * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/). **Important:** If you're using OS X 10.11 (El Capitan) or later, [read this important info](http://jekyllrb.com/docs/troubleshooting/#jekyll-amp-mac-os-x-1011)!
     * Windows users, follow [these instructions](https://jekyllrb.com/docs/windows/#installation)
+1. Install the `jekyll-seo-tag` gem.
 1. In the directory where you cloned the repository, execute `jekyll serve`. Go to `http://localhost:4000` to see the site running locally.
 
 ## Installation tips
 
-You may also need to install:
-
-* [Magnific Popup](https://github.com/dimsemenov/Magnific-Popup) for video pop-ups
-* [Rouge](https://rubygems.org/gems/rouge/versions/1.10.1) for code syntax highlighting
+You may also want to install [Magnific Popup](https://github.com/dimsemenov/Magnific-Popup), which is used for video links.
 
 If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
 
