@@ -208,6 +208,8 @@ For lots of examples of placeholder pages, see the `/xl-deploy/concept/versioned
 
 # Things to know about formatting
 
+Jekyll uses the [Kramdown](http://kramdown.gettalong.org/) Markdown converter. It can also accept [GitHub Flavored Markdown](https://help.github.com/articles/about-writing-and-formatting-on-github/).
+
 ## Headings
 
 Use heading 2 (`##` in Markdown) and lower. Don't use heading 1.
