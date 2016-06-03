@@ -2,7 +2,8 @@
 title: Using the XL Release API in scripts
 categories:
 - xl-release
-subject: XL Release API
+subject:
+- API
 tags:
 - api
 - script
@@ -10,7 +11,7 @@ since:
 - XL Release 4.5.0
 ---
 
-XL Release exposes an API that developers can use to manipulate releases and tasks. This topic describes how to use the XL Release public API in Jython scripts. The API can be accessed from both Script tasks and plugin scripts. 
+XL Release exposes an API that developers can use to manipulate releases and tasks. This topic describes how to use the XL Release public API in Jython scripts. The API can be accessed from both Script tasks and plugin scripts.
 
 ## Creating and running a simple example
 
@@ -29,14 +30,14 @@ Now open the script task and add the following snippet:
     comment.setComment("Hello World!")
     taskApi.commentTask(task.id, comment)
 
-Close the task and start the release. 
+Close the task and start the release.
 The script task will fail! Open the task and the reason for failure is displayed as log output in the comment section:
 
 ![Script test tasks](../images/script-test/no-run-as-user.png)
 
 There is message there: "A Release User account has to be set in order to use XL Release's API". This tells us that we have to explicitly say under which user name the script will be run. Because the API gives access to releases and tasks, XL Release needs to check someone's credentials in order to check if certain operations are allowed. To set such a user, go to the **Release Properties** page and find the properties **Run automated tasks as user** and **Password**
 
-Enter your own credentials for now. (Don't forget to hit **Save**!) These user credentials will be used to run all scripts that are defined in this release. 
+Enter your own credentials for now. (Don't forget to hit **Save**!) These user credentials will be used to run all scripts that are defined in this release.
 
 **Tip:** for a more serious set up than testing we recommend to set up a global "Script Runner" user that can be used in each release and has tailor-made security settings.
 
@@ -68,7 +69,7 @@ The commentTask method takes the task ID and a `Comment` object as a parameter. 
     comment.setComment("Hello World!")
 
 With the comment object in place we can call the `commentTask()` method:
-  
+
     taskApi.commentTask(task.id, comment)
 
 This will add the comment to the task. Note that for any call to a API endpoint like `taskApi` or `releaseApi`, you need to set the "Run automated tasks as user" property on the release. The scripts will be executed with the rights that user has on that particular release.

@@ -3,7 +3,7 @@ title: How to find identifiers for use in the REST API
 categories:
 - xl-release
 subject:
-- XL Release API
+- API
 tags:
 - api
 - script
@@ -17,7 +17,7 @@ To use the XL Release REST API, you need to know the unique identifier of templa
 
 ## Releases and templates
 
-Both releases and templates have an ID of the form `Applications/ReleaseXXXXXXX`, where `XXXXXXX` is a seven-digit number. The fastest way to find it is to open it in the browser and look at the URL in the location bar. 
+Both releases and templates have an ID of the form `Applications/ReleaseXXXXXXX`, where `XXXXXXX` is a seven-digit number. The fastest way to find it is to open it in the browser and look at the URL in the location bar.
 
 ![URL for template](../images/template-release-id.png)
 
@@ -33,7 +33,7 @@ Now that you have the ID, you can use it in a REST call. For example, to get the
 
 The IDs of phases and tasks can be found in the response of the REST call that gets the contents of a release or template.
 
-Inspect the contents of the release JSON object. The release ID (which we already know) is in the `id` field. All phases in the release are stored as a list in the `phases` property. In turn, the phases contain their tasks in the `tasks` property. 
+Inspect the contents of the release JSON object. The release ID (which we already know) is in the `id` field. All phases in the release are stored as a list in the `phases` property. In turn, the phases contain their tasks in the `tasks` property.
 
 Here's an example:
 
@@ -53,7 +53,7 @@ Here's an example:
                         "id": "Applications/Release9324610/Phase2437552/Task3066132",
                         "type": "xlrelease.Task",
                         "title": ""Configure email address and mail server",
-  
+
 As you can see, IDs are hierarchical. Note that the ID of the task in this example is `Applications/Release9324610/Phase2437552/Task3066132`, not just `Task3066132`.
 
 This is an example of using the task ID in a REST call:

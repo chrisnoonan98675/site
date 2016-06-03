@@ -3,7 +3,7 @@ title: Declare custom REST endpoints
 categories:
 - xl-release
 subject:
-- XL Release API
+- API
 tags:
 - api
 - script

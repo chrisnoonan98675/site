@@ -3,7 +3,7 @@ title: XL Release API and scripting overview
 categories:
 - xl-release
 subject:
-- XL Release API
+- API
 tags:
 - api
 - script
@@ -43,7 +43,7 @@ Script tasks have access to the XL Release through the [XL Release Jython API](/
 
 ### Plugin tasks
 
-You can use the task plugin mechanism to create [custom task types](/xl-release/how-to/create-custom-task-types-in-xl-release.html). These tasks will appear in the **Add task** menu in the XL Release user interface. This is convenient for reusable bits of functionality, such as "Create JIRA ticket" or "Start Jenkins Job". 
+You can use the task plugin mechanism to create [custom task types](/xl-release/how-to/create-custom-task-types-in-xl-release.html). These tasks will appear in the **Add task** menu in the XL Release user interface. This is convenient for reusable bits of functionality, such as "Create JIRA ticket" or "Start Jenkins Job".
 
 In fact, the JIRA and Jenkins task types, as well as most other standard tasks in XL Release, are plugin tasks.
 
