@@ -359,6 +359,57 @@ h6:hover .header-link {
 .sidebar-nav .navbar-header {
   float: none;
 }
+#sidebar a {
+    display: block;
+    outline: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+#sidebar li > a > span {
+    float: right;
+    font-size: 19px;
+    font-weight: bolder;
+}
+
+#sidebar li > a:hover > span {
+    color: #54636f;
+}
+
+#sidebar li > a > span:after {
+    font-family: "online-doc-icons" !important;
+    content: "a";
+    float: right;
+    margin-left: 5px;
+}
+#sidebar li.open > a > span:after {
+    font-family: "online-doc-icons" !important;
+    content: "d";
+    float: right;
+    margin-left: 5px;
+}
+
+#sidebar a:hover, #sidebar li.active > a {
+    background-color: #EEE;
+    color: #004e75;
+}
+
+#sidebar > li.active > a  {
+    background-color: #4D90FE;
+}
+
+#sidebar li a {
+    color: #0081c1;
+    padding: 2px 10px;
+}
+
+#sidebar > li > a {
+    color: #0081c1;
+    padding: 6px 10px;
+}
+
 
 /* Google Custom Search overrides */
 
