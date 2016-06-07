@@ -9,6 +9,7 @@ tags:
 - installation
 - failover
 - database
+- active/passive
 ---
 
 XL Deploy allows you to store the [repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html#using-a-database) in a relational database instead of on the filesystem. If you use a database, then you can set up failover handling by creating additional instances of XL Deploy that will use the same database as your master instance. Note that this is not an active/active setup; only one instance of XL Deploy can access the database at a time.

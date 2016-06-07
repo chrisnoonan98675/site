@@ -9,6 +9,7 @@ tags:
 - installation
 - failover
 - database
+- active/passive
 ---
 
 XL Release allows you to store the [repository](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html#using-a-database) and the [archive database](/xl-release/how-to/configure-the-archive-database.html#change-the-archive-database-dbms-xl-release-480-and-later) in a relational database instead of on the filesystem. If you use a database, then you can set up failover handling by creating additional instances of XL Release that will use the same database as your master instance. Note that this is not an active/active setup; only one instance of XL Release can access the database at a time.
