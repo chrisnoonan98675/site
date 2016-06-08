@@ -15,15 +15,19 @@ XL Deploy is the first out-of-the-box deployment automation solution that allows
 
 ## Unified Deployment Model (UDM)
 
-In XL Deploy, deployments are modeled using the Unified Deployment Model (UDM), which consists of the following components:
+In XL Deploy, deployments are modeled using the Unified Deployment Model (UDM), which consists of:
 
 * **Deployment package:** An environment-independent *package* that contains deployable configuration items (CIs) that form a complete application.
-* **Environment:** A group of *containers*, which are deployment targets; for example, an environment called TEST could contain IBM WebSphere servers.
+* **Environment:** A group of infrastructure and middleware *containers*, which are deployment targets; for example, hosts, servers, clusters, and so on.
 * **Deployment:** The process of configuring and installing a deployment package in a specific environment. Deployment results in *deployeds*, which describe the combination of a deployable and a container.
+
+Deployment packages represent versions of an application; for example, the application MyWebsite could have deployment packages for version 1.0.0, 2.0.0, and so on. You can define [dependencies](/xl-deploy/concept/application-dependencies-in-xl-deploy.html) among application versions; this ensures that when you try to deploy a specific deployment package while its dependencies are not already present in the target environment, the dependent packages will automatically be deployed, or the deployment will fail.
+
+Additionally, deployment packages and all other configuration items (CIs) stored in XL Deploy's Repository are version-controlled; refer to [The XL Deploy Repository](/xl-deploy/concept/the-xl-deploy-repository.html) for more information.
 
 ## UDM in the GUI
 
-This screenshot depicts the main UDM concepts as they appear in the Deployment Workspace:
+This screenshot depicts the main UDM concepts as they appear in XL Deploy's Deployment Workspace:
 
 ![Unified Deployment Model](images/udm-highlevel-deployit.png)
 
@@ -33,7 +37,7 @@ Deployments are defined by:
 * An environment defining *where* the package is to be deployed (shown on the right)
 * Configuration of the deployment specifying *customizations* (possibly environment-specific) to the package to be deployed (the middle)
 
-Of course, packages and environments are made up of smaller parts:
+Packages and environments are made up of smaller parts:
 
 * Packages consist of _deployables_, which are things that can be deployed
 * Environments consist of _containers_, which are things that can be deployed to

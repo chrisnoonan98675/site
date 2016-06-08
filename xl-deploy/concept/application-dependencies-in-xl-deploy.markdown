@@ -70,7 +70,7 @@ For an extended example of dependencies, refer to [Advanced application dependen
 
 ## When can you set dependencies?
 
-You can define a dependency on an application that does not yet exist in the XL Deploy repository. You can also specify a version range that cannot be met by any versions that are currently in the repository.
+You can define a dependency on an application that does not yet exist in the XL Deploy Repository. You can also specify a version range that cannot be met by any versions that are currently in the Repository.
 
 This allows you to import applications even before all dependencies can be met; that is, you can import, but not deploy, the `frontend` package before its required `backend` package is ready. However, this means that you must be careful to enter the correct versions.
 
