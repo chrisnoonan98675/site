@@ -52,7 +52,7 @@ To upgrade an XL Release server installation:
 
 1. Copy the `repository` directory from the old installation directory to the new installation directory.
 
-1. Copy the contents of the `plugins` directory from the old installation directory to the new installation directory.
+1. If you have implemented any custom plugins, copy them from the `plugins` directory from the previous installation directory to the new installation directory.
 
 1. Copy the contents of the `ext` directory from the old installation directory to the new installation directory.
 
