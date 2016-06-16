@@ -69,9 +69,9 @@
 /xl-deploy-biztalk-plugin/latest/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/5.1.x/biztalkPluginManual.html
 /xl-deploy-iis-plugin/latest/iisPluginManual.html : /xl-deploy-iis-plugin/5.1.x/iisPluginManual.html
 /xl-deploy-windows-plugin/latest/windowsPluginManual.html : /xl-deploy-windows-plugin/5.0.x/windowsPluginManual.html
-/xl-deploy-bigip-plugin/latest/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.0.x/bigipPluginManual.html
+/xl-deploy-bigip-plugin/latest/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.5.x/bigipPluginManual.html
 /xl-deploy-wmq-plugin/latest/wmqPluginManual.html : /xl-deploy-wmq-plugin/5.1.x/wmqPluginManual.html
-/xl-deploy-netscaler-plugin/latest/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/5.0.x/netscalerPluginManual.html
+/xl-deploy-netscaler-plugin/latest/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/5.5.x/netscalerPluginManual.html
 
 # XL Deploy tools
 

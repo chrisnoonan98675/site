@@ -51,11 +51,11 @@ product-id: xl-deploy
 
 ### Other middleware plugins
 
-* [F5 BIG-IP plugin](/xl-deploy-bigip-plugin/5.0.x/bigipPluginManual.html)
+* [F5 BIG-IP plugin](/xl-deploy-bigip-plugin/5.5.x/bigipPluginManual.html)
 * [Database plugin (DB2, MS SQL, MySQL, Oracle)](databasePluginManual.html)
 * [Webserver plugin (Apache HTTP server)](webserverPluginManual.html)
 * [WebSphere MQ plugin](/xl-deploy-wmq-plugin/5.0.x/wmqPluginManual.html)
-* [NetScaler plugin](/xl-deploy-netscaler-plugin/5.0.x/netscalerPluginManual.html)
+* [NetScaler plugin](/xl-deploy-netscaler-plugin/5.5.x/netscalerPluginManual.html)
 
 ### Tools
 
