@@ -34,6 +34,7 @@ In XL Release 4.8.0 and later, you can also create release variables using the V
 1. In the **Label** box, optionally enter a user-friendly label for the variable. This will appear next to the fields where users can enter a value for the variable.
 1. Select the variable type from the **Type** list:
     * **Text**: A string of letters or numbers
+    * **Drop-down list box**: A drop-down list of selectable values that can be reordered and can contain duplicates
     * **Password**: A password
     * **Checkbox**: A true or false value (Boolean)
     * **Number**: An integer
