@@ -69,3 +69,10 @@ In XL Deploy 5.0.0 and later, you can further organize deployment to middleware 
 * `parallel-by-deployment-sub-group` will deploy to each member of a sub-group in parallel.
 * `sequential-by-deployment-sub-sub-group` will deploy to each member of a sub-sub-group sequentially.
 * `parallel-by-deployment-sub-sub-group` will deploy to each member of a sub-sub-group in parallel.
+
+## *By deployed* orchestrators
+
+In XL Deploy 6.0.0 and later, you can further organize deployment by deployed. This is particularly useful when using [cardinality](/xl-deploy/how-to/provision-an-environment.html) in provisioning.
+
+* `sequential-by-deployed` will deploy all `deployeds` in the plan sequentially.
+* `parallel-by-deployed` will deploy all `deployeds` in the plan in parallel.
