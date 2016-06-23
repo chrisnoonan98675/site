@@ -14,7 +14,7 @@ since:
 - XL Deploy 5.1.0
 ---
 
-XL Deploy allows you to define dependencies among different versions of different applications. When you set up the deployment of an application, XL Deploy automatically includes the correct versions of other applications that it depends on and ensures that they are deployed in the correct order.
+XL Deploy allows you to define dependencies among different versions of different applications. When you set up the deployment of an application, XL Deploy automatically includes the correct versions of other applications that it depends on.
 
 Application dependencies work with other XL Deploy features such as staging, satellites, rollbacks, updates, and undeployment.
 
@@ -78,6 +78,12 @@ It is also possible to modify the declared dependencies of a deployment package 
 ## How does XL Deploy check dependencies?
 
 For detailed information on the way XL Deploy verifies dependencies, refer to [How XL Deploy checks application dependencies](/xl-deploy/concept/how-xl-deploy-checks-application-dependencies.html).
+
+## Deploying dependencies in the right order
+
+When deploying applications with dependencies, the order in which the applications wills be deployed might be important. For example if application A depends on a application B, you want to deploy application B before A. This can be achieved by using the [sequential-by-dependency](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) orchestrator. This orchestrator will deploy all applications in reverse topological order to ensure that dependent applications are deployed first. By default, all steps for all applications will be interleaved.
+
+The `sequential-by-dependency` orchestrator can be combined with other orchestrators, for example the `sequential-by-deployment-group` to support more advanced use cases. 
 
 ## Dependencies and permissions
 

@@ -76,3 +76,9 @@ In XL Deploy 6.0.0 and later, you can further organize deployment by deployed. T
 
 * `sequential-by-deployed` will deploy all `deployeds` in the plan sequentially.
 * `parallel-by-deployed` will deploy all `deployeds` in the plan in parallel.
+
+## *By dependency* orchestrators
+
+In XL Deploy 6.0.0 and later, you can select how you want to deploy your application dependencies.
+
+* `sequential-by-dependency` will deploy all applications in reverse topological order to ensure that dependent applications are deployed first.
