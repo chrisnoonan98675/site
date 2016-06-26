@@ -81,9 +81,9 @@ For detailed information on the way XL Deploy verifies dependencies, refer to [H
 
 ## Deploying dependencies in the right order
 
-When deploying applications with dependencies, the order in which the applications wills be deployed might be important. For example if application A depends on a application B, you want to deploy application B before A. This can be achieved by using the [sequential-by-dependency](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) orchestrator. This orchestrator will deploy all applications in reverse topological order to ensure that dependent applications are deployed first. By default, all steps for all applications will be interleaved.
+When deploying applications with dependencies, the order in which the applications will be deployed might be important. For example, if application A depends on application B, you want to deploy application B before A. You can achieve this by using the [`sequential-by-dependency`](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) orchestrator. This orchestrator will deploy all applications in reverse topological order to ensure that dependent applications are deployed first. By default, all steps for all applications will be interleaved.
 
-The `sequential-by-dependency` orchestrator can be combined with other orchestrators, for example the `sequential-by-deployment-group` to support more advanced use cases. 
+You can combine the `sequential-by-dependency` orchestrator with other orchestrators such as the `sequential-by-deployment-group` orchestrator to support more advanced use cases. 
 
 ## Dependencies and permissions
 
@@ -97,7 +97,7 @@ For the environment, you must have one or more of the following permissions:
 
 ## Dependencies and composite packages
 
-Composite packages cannot declare dependencies on other applications. However, a deployment package can declare a dependency on a composite package. In this case, the actual composite package must to be installed, not just its constituents. 
+Composite packages cannot declare dependencies on other applications. However, a deployment package can declare a dependency on a composite package. In this case, the actual composite package must to be installed, not just its constituents.
 
 For example, you want to deploy a deployment package that declares a dependency on composite package AppC version `[1.0.0,1.0.0]`. AppC version 1.0.0 consists of deployment packages AppD version 3.1.0 and AppE version 5.2.2. If AppD 3.1.0 and AppE 5.2.2 are deployed on the environment but AppC 1.0.0 is not, then you will not be able to deploy the package.
 
