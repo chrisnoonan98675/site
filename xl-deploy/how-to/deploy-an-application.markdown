@@ -12,6 +12,8 @@ since:
 - XL Deploy 5.0.0
 ---
 
+**Note:** A version of this topic is available for [XL Deploy 4.5.x and earlier](/xl-deploy/4.5.x/deploy-an-application-4.5.html).
+
 After you have [defined your infrastructure](/xl-deploy/how-to/connect-xl-deploy-to-your-infrastructure.html), [defined an environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html), and added an application to XL Deploy, you can perform the initial deployment of an application to an environment.
 
 **Tip:** Watch the *Performing an initial deployment* video [here](https://www.youtube.com/watch?v=pw17C9j60xY&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=4).
@@ -26,7 +28,7 @@ To deploy an application to an environment:
     If the application has [dependencies](/xl-deploy/concept/application-dependencies-in-xl-deploy.html) (supported in XL Deploy 5.1.0 and later), XL Deploy [analyzes them](/xl-deploy/concept/how-xl-deploy-checks-application-dependencies.html) and includes the deployables from the appropriate versions of the dependent applications. Applications will be deployed in reverse topological order to ensure that dependent applications are deployed first.
 
     XL Deploy then automatically maps the deployables in the application to the appropriate containers in the environment.
-    
+
 1. Click **Execute** to immediately start the deployment.
 
 You can also optionally:
@@ -38,7 +40,7 @@ You can also optionally:
 
 **Note:** Double-clicking the **Advanced** button causes XL Deploy to generate two deployment tasks instead of one. This is a known issue. To remove the unneeded task, go to the [Task Monitor](/xl-deploy/how-to/monitor-and-reassign-deployment-tasks.html), open the pending task, and cancel it.
 
-If the server does not have the capacity to immediately start executing the plan, the plan will be in a `QUEUED` state until the server has sufficient capacity. 
+If the server does not have the capacity to immediately start executing the plan, the plan will be in a `QUEUED` state until the server has sufficient capacity.
 
 If a step in the deployment fails, XL Deploy stops executing the deployment and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
 
@@ -54,7 +56,7 @@ If a step in the deployment fails, XL Deploy stops executing the deployment and 
 
 ## Skip a deployment step
 
-If you have the appropriate permission in XL Deploy, you can adjust the deployment plan so that one or more steps are skipped. To do so, select the step, right-click, and select **Skip**. 
+If you have the appropriate permission in XL Deploy, you can adjust the deployment plan so that one or more steps are skipped. To do so, select the step, right-click, and select **Skip**.
 
 ## Add a pause step
 

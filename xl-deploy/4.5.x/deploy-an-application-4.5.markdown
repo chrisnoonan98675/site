@@ -1,16 +1,10 @@
 ---
 title: Deploy an application (XL Deploy 4.5.x or earlier)
-categories:
-- xl-deploy
-subject:
-- Deployment
-tags:
-- deployment
-- application
-- package
 deprecated:
 - XL Deploy 4.5.x
 ---
+
+**Note:** A version of this topic is available for [XL Deploy 5.0.0 and later](/xl-deploy/how-to/deploy-an-application.html).
 
 After you have [defined your infrastructure](connect-xl-deploy-to-your-infrastructure.html), [defined an environment](create-an-environment-in-xl-deploy.html), and added an application to XL Deploy, you can perform the initial deployment of an application to an environment.
 
@@ -28,7 +22,7 @@ To deploy an application to an environment:
 1. Optionally click **Deployment Properties** to select the [orchestrators](/xl-deploy/concept/understanding-orchestrators.html) that XL Deploy should use when generating the deployment plan.
 1. Optionally click **Analyze** to preview the deployment plan that XL Deploy generates. You can double-click each step to see the script that XL Deploy will use to execute the step.
 1. Click **Next**. The deployment plan appears.
-1. Click **Execute** to start the deployment. If the server does not have the capacity to immediately start executing the plan, the plan will be in a `QUEUED` state until the server has sufficient capacity. 
+1. Click **Execute** to start the deployment. If the server does not have the capacity to immediately start executing the plan, the plan will be in a `QUEUED` state until the server has sufficient capacity.
 
 If a step in the deployment fails, XL Deploy stops executing the deployment and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
 
@@ -41,7 +35,7 @@ If a step in the deployment fails, XL Deploy stops executing the deployment and 
 
 ## Skip a deployment step
 
-If you have the appropriate permission in XL Deploy, you can adjust the deployment plan so that one or more steps are skipped. To do so, select the step, right-click, and select **Skip**. 
+If you have the appropriate permission in XL Deploy, you can adjust the deployment plan so that one or more steps are skipped. To do so, select the step, right-click, and select **Skip**.
 
 ## Add a pause step
 
