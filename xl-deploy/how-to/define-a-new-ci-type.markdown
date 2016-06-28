@@ -10,7 +10,7 @@ tags:
 - type system
 ---
 
-You can define new configuration item (CI) types in XL Deploy When you specify a new type, its base (a concrete Java class or another synthetic type) and namespace, a new type will become available in XL Deploy. This means the CI type can be a part of deployment packages and created in the Repository browser. Each of the three categories of CIs (deployables, deployeds and containers) can be defined this way.
+You can define new configuration item (CI) types in XL Deploy. When you specify a new type, its base (a concrete Java class or another synthetic type), and its namespace, the new type will become available in XL Deploy. This means the CI type can be a part of deployment packages and created in the Repository browser. Each of the three categories of CIs (deployables, deployeds, and containers) can be defined this way.
 
 You can specify the following information when defining a new type:
 
