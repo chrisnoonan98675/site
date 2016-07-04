@@ -36,13 +36,6 @@ To install the XL Deploy satellite software:
 1. Ensure that the satellite server meets the requirements.
 2. Extract the satellite distribution ZIP file in the location on the server where you want to install the software.
 
-## Start the satellite
-
-To start the satellite software, execute the appropriate script in the `bin` directory of the installation:
-
-* Unix: `run.sh`
-* Microsoft Windows: `run.cmd`
-
 ## Configure the satellite
 
 Satellite servers communicate with XL Deploy through TCP connections. The satellite side of the connection is considered to be the server side. The satellite must open two ports and wait for XL Deploy to connect. One port is required for command handling, and the other is required for file (artifact) upload. You may need to configure satellite communication ports and ensure that firewalls are opened for outgoing traffic from XL Deploy to satellites.
@@ -133,3 +126,10 @@ To change the directory where XL Satellite stores task recovery files, change th
             recovery = "<your directory>"
         }
     }
+
+## Start the satellite
+
+To start the satellite software, execute the appropriate script in the `bin` directory of the installation:
+
+* Unix: `run.sh`
+* Microsoft Windows: `run.cmd`
