@@ -26,12 +26,14 @@ To reset the password for the `admin` user:
 1. Back up your XL Release instance.
 1. Copy the hotfix to the `hotfix` directory of the XL Release server.
 1. Start the XL Release server. Note that security is now disabled.
-1. Create a temporary file called `user.xml` with the following content. Replace `NEW_PASSWORD` with your desired password. Note that the new password cannot be `admin`.
+1. Create a temporary file called `user.xml` with the following content:
 
         <user admin="true">
             <username>admin</username>
             <password>NEW_PASSWORD</password>
         </user>
+
+    Replace `NEW_PASSWORD` with your desired password. Note that the new password cannot be `admin`.
 
 1. From a command prompt or terminal, execute the following REST API call:
 

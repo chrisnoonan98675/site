@@ -12,18 +12,20 @@ tags:
 
 To change the password of the built-in XL Release `admin` user:
 
-1. Create a temporary file called `user.xml` with the following content. Replace `NEW_PASSWORD` with your desired password. Note that the new password cannot be `admin`.
+1. Create a temporary file called `user.xml` with the following content:
 
         <user admin="true">
             <username>admin</username>
             <password>NEW_PASSWORD</password>
         </user>
 
+     Replace `NEW_PASSWORD` with your desired password. Note that the new password cannot be `admin`.
+
 1. From a command prompt or terminal, execute the following REST API call:
 
         curl -uUSER:PASS -X PUT -H "content-type:application/XML" "http://IP:PORT/security/user/admin" -d@/tmp/user.xml
 
-    Replace `IP` and `PORT` with the IP address and port number where your XL Release server is running. Replace `/tmp/user.xml` with the path to your XML file.
+    Replace `NEW_PASSWORD` with the password that you set in the XML file. Replace `IP` and `PORT` with the IP address and port number where your XL Release server is running. Replace `/tmp/user.xml` with the path to the XML file.
 
 1. Stop the XL Release server.
 1. Open `<XL_RELEASE_HOME>/conf/xl-release-server.conf` and add the new `admin` password as follows:
