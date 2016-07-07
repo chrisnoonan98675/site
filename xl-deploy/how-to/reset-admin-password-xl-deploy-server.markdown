@@ -18,7 +18,7 @@ To resolve this situation, you can use a hotfix that disables all password check
 
 Note that:
 
-* The hotfix has been tested with Deployit 3.9.5, XL Deploy 4.0.2, XL Deploy 4.5.1, and XL Deploy 5.0.7. It is not supported for XL Deploy 5.1.x.
+* The hotfix has been tested with Deployit 3.9.5, XL Deploy 4.0.2, XL Deploy 4.5.1, and XL Deploy 5.0.7. It is not supported for XL Deploy 5.1.x or later.
 * You must back up your XL Deploy instance before resetting the password.
 * It is important that you remove the hotfix after you are finished.
 
