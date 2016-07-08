@@ -79,6 +79,9 @@ In XL Deploy 6.0.0 and later, you can further organize deployment by deployed. T
 
 ## *By dependency* orchestrators
 
-In XL Deploy 6.0.0 and later, you can select how you want to deploy your application dependencies.
+In XL Deploy 6.0.0 and later, you can use *by dependency* orchestrators with applications that have [dependencies](/xl-deploy/concept/application-dependencies-in-xl-deploy.html). All dependencies for a given application can be grouped together and be used to orchestrate the deployment sequentially or in parallel.
 
 * `sequential-by-dependency` will deploy all applications in reverse topological order to ensure that dependent applications are deployed first.
+* `parallel-by-dependency` will group dependencies and execute the deployment in parallel for all applications in the same group.
+
+![Parallel by dependency](images/parallel-by-dependency.png "Parallel by dependency")
