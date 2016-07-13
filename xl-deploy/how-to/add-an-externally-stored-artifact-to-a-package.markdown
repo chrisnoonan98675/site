@@ -39,9 +39,13 @@ The URI of a Maven artifact must start with `maven:`, followed by [Maven coordin
 
     maven:com.acme.applications:PetClinic:1.0
 
-For information about configuring your Maven repository, refer to [Configure XL Deploy to fetch artifacts from a Maven repository](configure-xl-deploy-to-fetch-artifacts-from-a-maven-repository.html).
+For information about configuring your Maven repository, refer to [Configure XL Deploy to fetch artifacts from a Maven repository](/xl-deploy/how-to/configure-xl-deploy-to-fetch-artifacts-from-a-maven-repository.html).
 
 **Important:** References to SNAPSHOT versions are *not* supported because these are not stable references.
+
+XL Deploy looks up the artifact during initial deployments and update deployments. If the artifact is missing from the repository, the lookup will return an error. In XL Deploy 5.5.2 and later, you can configure XL Deploy to serve an empty artifact so the deployment can continue anyway; however, note that this option is *not* recommended, as it can cause issues that are hard to debug. To enable this option, set `xl-platform.extensions.resolver.maven.ignoreMissingArtifact` in the `conf/maven.conf` file:
+
+    xl.repository.artifact.resolver.maven.ignoreMissingArtifact = true
 
 ## Use an HTTP or HTTPS URI
 
@@ -52,6 +56,10 @@ You can specify basic HTTP credentials in the URI. For example:
     http://admin:admin@example.com/artifact.jar
 
 To connect using HTTPS with a self-signed SSL certificate, you must configure the JVM parameters of XL Deploy to trust your certificate.
+
+XL Deploy looks up the artifact during initial deployments and update deployments. If URL returns with 404 error the lookup will return an error. In XL Deploy 5.5.2 and later, you can configure XL Deploy to serve an empty artifact so the deployment can continue anyway; however, note that this option is *not* recommended, as it can cause issues that are hard to debug. To enable this option, set `xl-platform.extensions.resolver.http.ignoreMissingArtifact` in the `conf/extensions.conf` file:
+
+    xl.repository.artifact.resolver.http.ignoreMissingArtifact = true
 
 ## Create a deployment package using the CLI
 
