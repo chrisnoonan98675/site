@@ -1,5 +1,5 @@
 ---
-title: Configure the CLI to trust an XL Deploy server with a self-signed certificate
+title: Configure the CLI to trust a server with a self-signed certificate
 categories:
 - xl-deploy
 subject:
@@ -8,11 +8,12 @@ tags:
 - system administration
 - security
 - cli
+weight: 112
 ---
 
-If you configured your XL Deploy server to use a [self-signed certificate](/xl-deploy/how-to/install-xl-deploy.html#generate-a-self-signed-certificate), you will notice that trying to connect with a "vanilla" command-line interface (CLI) configuration will fail:
+If you configured your XL Deploy server to use a [self-signed certificate](/xl-deploy/how-to/install-xl-deploy.html#step-3-generate-a-self-signed-certificate), you will notice that trying to connect with a "vanilla" command-line interface (CLI) configuration will fail:
 
-    C:\...\xl-deploy-4.5.1-cli>bin\cli.cmd -secure
+    C:\...\xl-deploy-5.5.0-cli>bin\cli.cmd -secure
     Username: admin
     Password:
     Exception in thread "main" java.lang.IllegalStateException: Could not contact the server at https://127.0.0.1:4517/deployit
@@ -29,7 +30,7 @@ Export the self-signed certificate from `SERVER_HOME/conf`:
 
     keytool -export -keystore keystore.jks -alias jetty -file XLDeployServerCert.cer
 
-See [here](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html) for more information about the `keytool` utility.
+For more information about the `keytool` utility, refer to the [Oracle documentation](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html).
 
 ## Step 2 Import the certificate as a trusted certificate
 
@@ -43,7 +44,7 @@ Move `myCliTruststore.jks` from `SERVER_HOME/conf` to `CLI_HOME/conf`.
 
 ## Step 4 Configure the CLI to use the truststore
 
-Set the [CLI options](/xl-deploy/how-to/install-the-xl-deploy-cli.html#environment-variables) (or, equivalently, change `CLI_HOME/bin/cli.sh` or `cli.cmd`) to use the truststore. Use the password specified when creating the truststore in the step above:
+Set the [CLI options](/xl-deploy/how-to/install-the-xl-deploy-cli.html#set-environment-variables) (or, equivalently, change `CLI_HOME/bin/cli.sh` or `cli.cmd`) to use the truststore. Use the password specified when creating the truststore in the step above:
 
     set DEPLOYIT_CLI_OPTS=-Xmx512m -XX:MaxPermSize=256m -Djavax.net.ssl.trustStore=conf/myCliTruststore.jks -Djavax.net.ssl.trustStorePassword=secret
 
@@ -51,10 +52,10 @@ Set the [CLI options](/xl-deploy/how-to/install-the-xl-deploy-cli.html#environme
 
 You can now start the CLI. Ensure that the hostname you use is the hostname that is listed in the certificate:
 
-    C:\...\xl-deploy-4.5.1-cli>bin\cli.cmd -secure -host localhost
+    C:\...\xl-deploy-5.5.0-cli>bin\cli.cmd -secure -host localhost
     Username: admin
     Password:
     Welcome to the XL Deploy Jython CLI!
     Type 'help' to learn about the objects you can use to interact with XL Deploy.
 
-**Note:** If you are creating a new self-signed certificate with a hostname other than `localhost`, use the certificate alias `jetty` when importing it into the keystore, as described [here](/xl-deploy/how-to/update-the-xl-deploy-digital-certificate.html).
+**Note:** If you are creating a new self-signed certificate with a hostname other than `localhost`, use the certificate alias `jetty` when importing it into the keystore, as described in [Update the XL Deploy digital certificate](/xl-deploy/how-to/update-the-xl-deploy-digital-certificate.html).

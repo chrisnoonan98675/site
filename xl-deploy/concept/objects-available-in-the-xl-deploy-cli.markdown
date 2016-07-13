@@ -8,6 +8,7 @@ tags:
 - cli
 - ci
 - script
+weight: 118
 ---
 
 The XL Deploy command-line interface (CLI) provides five objects to interact with the XL Deploy Server: `deployit`, `deployment`, `repository`, `factory` and `security`.
@@ -55,7 +56,7 @@ It's easy to obtain information about a specific XL Deploy object by invoking th
     * factory.configurationItem(String id, String ciType) : ConfigurationItemDto
     * factory.configurationItem(String id, String ciType, Map values) : ConfigurationItemDto
     * factory.types() : void
- 
+
 Extensive help about the usage of a specific method can be obtained by issuing a command like:
 
     deployit> security.help('getPermissions')

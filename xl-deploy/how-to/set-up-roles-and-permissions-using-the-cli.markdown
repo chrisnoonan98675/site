@@ -3,7 +3,7 @@ title: Set up roles and permissions using the XL Deploy CLI
 categories:
 - xl-deploy
 subject:
-- Security
+- Command-line interface
 tags:
 - security
 - system administration
@@ -11,25 +11,26 @@ tags:
 - roles
 - permissions
 - principals
+weight: 116
 ---
 
 After a fresh installation of XL Deploy, no [permissions](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html) are granted to any user. The only users that have any permissions granted to them, are the `administrator` users and they will, by default, have **all** permissions granted to them. XL Deploy ships with one predefined administrator user called `admin`, with default password `admin`.
 
-So the first task an `admin` user should do is change the default password to something hard to guess and keep this password private. 
+So the first task an `admin` user should do is change the default password to something hard to guess and keep this password private.
 
 The next tasks should consist of adding users to XL Deploy's repository (if no other credentials store is in use, or possibly in addition to another credentials store that will be used) and granting permissions to users that will work with XL Deploy, starting with the (global) permission to login.
 
 ## Change the `admin` user's password
 
-Changing the `admin` user's password consists of the following steps:
+To change the `admin` user's password:
 
-1. Change the `admin` user's password using the command-line interface (CLI):
+1. Use the XL Deploy [command-line interface (CLI)](/xl-deploy/concept/getting-started-with-the-xl-deploy-cli.html) to change the password:
 
         adminUser = security.readUser('admin')
         adminUser.password = 'newpassword_1'
         security.modifyUser(adminUser)
 
-2. Change the `admin` user's password in the `deployit.conf` configuration file:
+2. Change the password in the `<XLDEPLOY_HOME>/conf/deployit.conf` configuration file:
 
         admin.password=newpassword_1
 
@@ -37,69 +38,69 @@ Changing the `admin` user's password consists of the following steps:
 
 **Note**: The password in the `deployit.conf` file is encrypted when the server starts for the first time.
 
-## Add users to the repository
+## Create new users
 
-Creating and deleting users can be done using the following commands:
+To create new XL Deploy users, execute the following commands in the CLI:
 
-    deployit> security.createUser('John', 'Doe')
-    deployit> security.createUser('Alice', 'secret')
-    deployit> security.deleteUser('John')
+    security.createUser('john', 'secret01')
+    security.createUser('alice', 'secret02')
 
-XL Deploy can **only** create users in its own repository, even if it is configured to use an LDAP repository for authentication and authorization. To create users in, for example, an LDAP credentials store, use your favorite LDAP administration tool.
+To delete a user, execute:
 
-The concept of groups is also supported by XL Deploy when using LDAP as the credentials store. All groups defined in LDAP can be assigned to roles in XL Deploy and users belonging to these groups will be assigned the role permissions when they use the system.
+    security.deleteUser('john')
+
+XL Deploy can *only* create users in its own repository, even if it is configured to use an LDAP repository for authentication and authorization. You must use an LDAP administration tool to create users in, for example, an LDAP credentials store.
+
+XL Deploy supports the concept of _groups_ when using LDAP as the credentials store. All groups defined in LDAP can be assigned to roles in XL Deploy, and users belonging to these groups will be assigned the role permissions when they use the system.
 
 ## Change a user's password
 
-If for some reason a user's password gets compromised or the user has forgotten it, it is possible to set a new password for the user. Note that it will not be possible to retrieve the user's password because XL Deploy does not store it as plain text. When requesting and viewing a user CI, passwords will always be shown as eight asterisks (`*`).
+If a user's password is compromised or the user has forgotten it, you can set a new password for the user. Note that you cannot retrieve the user's password because XL Deploy does not store it as plain text. When requesting and viewing a user CI, passwords will always be shown as eight asterisks (`*`).
 
-To change the password for user `Alice`, issue the following command:
+To change the password for a user, execute the following commands in the CLI:
 
-    deployit> user = security.readUser('Alice')
-    deployit> user.password = 'newpassword_1'
-    deployit> security.modifyUser(user)
+    user = security.readUser('alice')
+    user.password = 'newpassword_1'
+    security.modifyUser(user)
 
-Please note the difference between the name of the user in the first command, `John`, and the object representing this user that was returned after executing the first command; this `user` object need also be used in the next two commands following the first one.
+Note the difference between the name of the user in the first command and the `user` object, which is returned after you execute the command. You must use the `user` object in the second and third commands.
 
 ## Create roles and assigning principals to roles
 
-Roles are managed with the following command:
+To assign a role to a user, execute the following command in the CLI:
 
 	security.assignRole("developers", ["john"])
 
-This assigns principal _john_ to the _developers_ role. If the role does not exist yet, it is created.
+This assigns principal _john_ to the _developers_ role. If the role does not exist, XL Deploy creates it.
 
 ## Log in as a different user
 
-It is possible to login as a different user once the CLI has started up. In order to log in as another user, you must first logout the user that is currently logged in. This will show the `deployit>` prompt from which it is then possible to login again as a different user.
+After the CLI is started, you can log in as a different user. You must first log out of the current user; you will then see the `deployit` prompt and you can log in as a different user.
 
-In following example an administrator is logged in as user `alice` and needs to login as `admin` to delete user
-`John`.
+In this example, an administrator is logged in as user `alice`, and needs to switch to user `admin` to delete user `john`.
 
-    deployit> security.logout()
-    deployit> security.login('admin', 'admin')
+    security.logout()
+    security.login('admin', 'admin')
 
-    # Delete the user Alice
-    deployit> security.deleteUser('Alice')
+    # Delete the user john
+    security.deleteUser('john')
 
-    #switch back to the account with less privileges
-    deployit> security.logout()
+    # Switch back to the account with less privileges
+    security.logout()
 
 ## Grant permissions
 
-To grant a particular permission to a role, use a statement such as the following:
+To grant a particular permission to a role, execute:
 
-	security.grant("import#initial", "developers", ['Applications'])
+    security.grant("import#initial", "developers", ['Applications'])
 
-To grant a particular permission to a role within a directory, use a statement such as the following:
+To grant a particular permission to a role within a directory, execute:
 
 	security.grant("deploy#initial", "developers", ['Environments/DevelopmentDirectory'])
 
-See the [Graphical User Interface Manual](guimanual.html) for more information about configuring security via the GUI.
-
 ## Revoke permissions
 
-To revoke a particular permission from a role, use a statement such as the following:
+To revoke a particular permission from a role, execute:
 
 	security.revoke("read", "developers")
 
@@ -111,26 +112,26 @@ Or, to revoke a permission from a particular directory:
 
 The `security` object offers methods to find the permissions for a certain role and the permissions for the currently logged in user.
 
-* To show one's own permissions, issue `print security.getPermissions()`.
+* To show your own permissions, execute `print security.getPermissions()`.
 * To show the permissions for a particular role, issue `print security.getPermissions('rolename')`
 
-Both methods return a `AssignedPermissions` object, that shows the relevant permissions when printed. The `AssignedPermissions` object makes it possible to retrieve and inspect user permissions, to find out if a given role has any permissions at all or has a specific permission and on what CIs. This will, for example, allow an administrator to automate granting and/or revoking of permissions by use of a script, depending on the retrieved permissions and their state or CIs.
+Both methods return a `AssignedPermissions` object that shows the relevant permissions when printed. The `AssignedPermissions` object allows you to retrieve and inspect user permissions, including specific permissions on configuration items (CIs), You can use this to automate the granting and/or revoking of permissions through a script.
 
-Take note that only a user with `security#edit` permission is allowed to retrieve permissions for a role and to grant or revoke permissions. Normally it is only possible to retrieve and list one's own permissions. Trying to grant permissions using the second form of the command without this permission will lead to an exception.
+Note that only a user with the `security#edit` permission can retrieve permissions for a role and grant or revoke permissions.
 
-A somewhat more extensive example of using this object, to be executed as an administrator user, is listed in following snippet:
+This is an extended example of working with permissions:
 
-    deployit> security.logout()
-    deployit> security.login('admin', 'admin')
-    deployit> security.createUser('alice', 'al1ce')
-    deployit> security.assignRole('deployer', ['alice'])
+    security.logout()
+    security.login('admin', 'admin')
+    security.createUser('alice', 'al1ce')
+    security.assignRole('deployer', ['alice'])
 
-    deployit> if security.isGranted('deployer','login'):
+    if security.isGranted('deployer','login'):
         security.grant('login', 'deployer')
 
-    deployit> print security.getPermissions('deployer')
-    deployit> security.removeRole('deployer')
-    deployit> security.deleteUser('alice')
+    print security.getPermissions('deployer')
+    security.removeRole('deployer')
+    security.deleteUser('alice')
 
 ## Example of initial security setup
 
@@ -143,9 +144,9 @@ This example shows how to implement the security policy described above. To reca
 * **Developers**: `import#upgrade` permission for the applications, `deploy#upgrade` on the DEV and TEST environments.
 
 The first task for a user with administrator privileges will be to create the users and roles in XL Deploy and allowing them to log in. Executing the following code will do this (the passwords in the examples are chosen for clarity. When creating users, it is recommended choose strong passwords that are difficult to guess):
-       
+
     # Sample security setup.
-   
+
     deployit> security.createUser('alice', 'al1ce')
     deployit> security.assignRole('administrators', ['alice'])
     deployit> security.createUser('bob', 'b0b')
@@ -175,7 +176,7 @@ The first task for a user with administrator privileges will be to create the us
     deployit> repository.create(factory.configurationItem('Environments/Test', 'core.Directory'))
     deployit> repository.create(factory.configurationItem('Environments/Acc', 'core.Directory'))
     deployit> repository.create(factory.configurationItem('Environments/Prod', 'core.Directory'))
-    deployit> repository.create(factory.configurationItem('Environments/Dev/env', 'udm.Environment', 
+    deployit> repository.create(factory.configurationItem('Environments/Dev/env', 'udm.Environment',
                 { 'members': ['Infrastructure/Dev/myHost'] }))
     deployit> repository.create(factory.configurationItem('Environments/Test/env', 'udm.Environment'))
     deployit> repository.create(factory.configurationItem('Environments/Acc/env', 'udm.Environment'))
@@ -214,16 +215,16 @@ Next, allow the front-end deployer to access the front-end applications and the 
 
     deployit> security.grant("import#initial", 'frontend-deployers', ['Applications'])
     deployit> security.grant("import#upgrade", 'frontend-deployers', ['Applications/frontend'])
-    deployit> security.grant("deploy#initial", 'frontend-deployers', ['Environments/Dev', 'Environments/Test', 
+    deployit> security.grant("deploy#initial", 'frontend-deployers', ['Environments/Dev', 'Environments/Test',
         'Environments/Acc'])
-    deployit> security.grant("deploy#upgrade", 'frontend-deployers', ['Environments/Dev', 'Environments/Test', 
+    deployit> security.grant("deploy#upgrade", 'frontend-deployers', ['Environments/Dev', 'Environments/Test',
         'Environments/Acc'])
 
     deployit> security.grant("import#initial", 'backend-deployers', ['Applications'])
     deployit> security.grant("import#upgrade", 'backend-deployers', ['Applications/backend'])
-    deployit> security.grant("deploy#initial", 'backend-deployers', ['Environments/Dev', 'Environments/Test', 
+    deployit> security.grant("deploy#initial", 'backend-deployers', ['Environments/Dev', 'Environments/Test',
         'Environments/Acc'])
-    deployit> security.grant("deploy#upgrade", 'backend-deployers', ['Environments/Dev', 'Environments/Test', 
+    deployit> security.grant("deploy#upgrade", 'backend-deployers', ['Environments/Dev', 'Environments/Test',
         'Environments/Acc'])
 
 As can be seen from the commands in the snippet above, the deployers do not have permission to perform a deployment to the `Environments/Prod` environment. In order for them to see deployments in the production environment, `read` permission should be granted.

@@ -161,6 +161,11 @@ Redirect 301 /xl-deploy/concept/xl-deploy-directory-structure.html /xl-deploy/ho
 Redirect 301 /xl-deploy/how-to/use-the-release-dashboard.html /xl-deploy/concept/release-dashboard.html
 Redirect 301 /xl-deploy/how-to/add-a-check-to-the-deployment-checklist.html /xl-deploy/how-to/create-a-deployment-checklist.html
 Redirect 301 /xl-deploy/how-to/create-a-deployment-package-using-the-cli.html /xl-deploy/how-to/create-a-deployment-package-using-the-command-line.html
+Redirect 301 /xl-deploy/how-to/connect-to-xl-deploy-from-the-cli.html /xl-deploy/concept/getting-started-with-the-xl-deploy-cli.html
+Redirect 301 /xl-deploy/how-to/using-the-xl-deploy-cli.html /xl-deploy/concept/getting-started-with-the-xl-deploy-cli.html
+Redirect 301 /xl-deploy/how-to/using-the-xl-deploy-cli-with-configuration-items.html /xl-deploy/how-to/work-with-cis-in-the-cli.html
+Redirect 301 /xl-deploy/how-to/deploy-an-application-using-the-cli.html /xl-deploy/concept/getting-started-with-the-xl-deploy-cli.html
+Redirect 301 /xl-deploy/how-to/using-the-steppath-in-the-xl-deploy-rest-api.html /xl-deploy/how-to/execute-tasks-from-the-xl-deploy-cli.html
 
 # XL Release topics
 
