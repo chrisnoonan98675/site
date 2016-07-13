@@ -57,7 +57,7 @@ You can specify basic HTTP credentials in the URI. For example:
 
 To connect using HTTPS with a self-signed SSL certificate, you must configure the JVM parameters of XL Deploy to trust your certificate.
 
-XL Deploy looks up the artifact during initial deployments and update deployments. If URL returns with 404 error the lookup will return an error. In XL Deploy 5.5.2 and later, you can configure XL Deploy to serve an empty artifact so the deployment can continue anyway; however, note that this option is *not* recommended, as it can cause issues that are hard to debug. To enable this option, set `xl-platform.extensions.resolver.http.ignoreMissingArtifact` in the `conf/extensions.conf` file:
+XL Deploy looks up the artifact during initial deployments and update deployments. If the URL returns a 404 error, the lookup will return an error. In XL Deploy 5.5.2 and later, you can configure XL Deploy to serve an empty artifact so the deployment can continue anyway; however, note that this option is *not* recommended, as it can cause issues that are hard to debug. To enable this option, set `xl-platform.extensions.resolver.http.ignoreMissingArtifact` in the `conf/extensions.conf` file:
 
     xl.repository.artifact.resolver.http.ignoreMissingArtifact = true
 
