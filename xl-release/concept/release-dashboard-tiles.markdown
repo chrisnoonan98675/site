@@ -74,6 +74,12 @@ The timeline start and end dates appear as follows:
 
 To see detailed information, including releases that depend on or block this release, click the tile to go to its detail view.
 
+## Users and teams
+
+The users and teams tile (available in XL Release 5.0.1 and later) shows an overview of the number of tasks assigned to users or teams.
+
+To see detailed information about task assignment across all users and teams in the release, click the tile to go to its default view.
+
 ## XL Deploy deployments
 
 The XL Deploy deployments tile shows information about deployments that were started from the release.
