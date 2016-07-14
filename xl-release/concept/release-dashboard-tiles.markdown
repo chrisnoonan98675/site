@@ -76,9 +76,9 @@ To see detailed information, including releases that depend on or block this rel
 
 ## Users and teams
 
-The users and teams tile (available in XL Release 5.0.1 and later) shows an overview of the number of tasks assigned to users or teams.
+The users and teams tile (available in XL Release 5.0.1 and later) shows an overview of the number of tasks assigned to users in the template or release.
 
-To see detailed information about task assignment across all users and teams in the release, click the tile to go to its default view.
+To see detailed information about task assignment across all users and teams, click the tile to go to its default view.
 
 ## XL Deploy deployments
 
