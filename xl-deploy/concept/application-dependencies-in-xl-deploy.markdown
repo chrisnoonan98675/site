@@ -105,4 +105,6 @@ When you deploy a composite package, the dependency check is skipped. This means
 
 ## Undeploying application with dependencies
 
-It is possible to undeploy an application with all of its direct or transient dependencies. To achieve this, enable `undeployDependencies` in **Deployment Properties**. If this flag is not set, the application will be undeployed but its dependencies will remain deployed.  
+When undeploying an application, you can also automatically undeploy all of its direct or transient dependencies. To do so, enable the **Undeploy Dependencies** option in the deployment properties. If this option is not enabled, the application will be undeployed, but its dependencies will remain deployed.
+
+**Note:** Dependent applications will be undeployed even if they were originally deployed manually.
