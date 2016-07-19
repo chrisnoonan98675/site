@@ -10,6 +10,7 @@ tags:
 - tutorial
 since:
 - XL Deploy 4.5.0
+weight: 135
 ---
 
 The *rules* system, introduced in XL Deploy 4.5.0, works with the XL Deploy's planning phase and allows you to use XML or Jython to specify the steps that belong in a deployment plan and how the steps are configured.

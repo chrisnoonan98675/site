@@ -166,6 +166,9 @@ Redirect 301 /xl-deploy/how-to/using-the-xl-deploy-cli.html /xl-deploy/concept/g
 Redirect 301 /xl-deploy/how-to/using-the-xl-deploy-cli-with-configuration-items.html /xl-deploy/how-to/work-with-cis-in-the-cli.html
 Redirect 301 /xl-deploy/how-to/deploy-an-application-using-the-cli.html /xl-deploy/concept/getting-started-with-the-xl-deploy-cli.html
 Redirect 301 /xl-deploy/how-to/using-the-steppath-in-the-xl-deploy-rest-api.html /xl-deploy/how-to/execute-tasks-from-the-xl-deploy-cli.html
+Redirect 301 /xl-deploy/concept/understanding-xl-deploy-rule-scope.html /xl-deploy/concept/getting-started-with-xl-deploy-rules.html
+Redirect 301 /xl-deploy/how-to/rescan-the-rules-file.html /xl-deploy/how-to/how-to-define-rules.html
+Redirect 301 /xl-deploy/how-to/dictionary-values-in-freemarker.html /xl-deploy/how-to/using-variables-and-expressions-in-freemarker-templates.html
 
 # XL Release topics
 

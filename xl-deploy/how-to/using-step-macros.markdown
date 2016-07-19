@@ -10,6 +10,7 @@ tags:
 - rules
 since:
 - XL Deploy 5.5.0
+weight: 131
 ---
 
 Since XL Deploy 5.5.0, you can define new step primitives by using [predefined step primitives](/xl-deploy/how-to/use-a-predefined-step-in-a-rule.html) such as `jython` and `os-script`. These are called _step macros_. After you define a step macro, you can refer to it by name, the same way you would refer to a predefined step. This allows you to reuse built-in steps and customize them for your system. Step macros can include one or more parameters of any valid XL Deploy type.

@@ -10,6 +10,7 @@ tags:
 - logging
 since:
 - XL Deploy 4.5.0
+weight: 134
 ---
 
 This topic provides some best practices when writing [XL Deploy rules](/xl-deploy/concept/getting-started-with-xl-deploy-rules.html).

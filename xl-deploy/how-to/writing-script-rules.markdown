@@ -11,6 +11,7 @@ tags:
 - step
 since:
 - XL Deploy 4.5.0
+weight: 128
 ---
 
 A script rule adds steps and checkpoints to a plan by running a Jython script that calculates which steps and checkpoints to add.
@@ -25,9 +26,9 @@ A script rule uses the following format in `xl-rules.xml`:
 * An optional `conditions` tag with:
     * One or more `type` tags that identify the UDM types that the rule is restricted to. `type` is required if the scope is `deployed`; otherwise, you must omit it. The UDM type name must refer to a *deployed* type (not a *deployable*, *container*, or other UDM type).
     * One or more `operation` tags that identify the operations that the rule is restricted to. The operation can be `CREATE`, `MODIFY`, `DESTROY`, or `NOOP`. `operation` is required if the scope is `deployed`; otherwise, you must omit it.
-    * An optional `expression` tag with an expression in Jython that defines a condition upon which the rule will be triggered. This tag is optional for all scopes. If you specify an `expression`, it must evaluate to a Boolean value. 
+    * An optional `expression` tag with an expression in Jython that defines a condition upon which the rule will be triggered. This tag is optional for all scopes. If you specify an `expression`, it must evaluate to a Boolean value.
 * A `planning-script-path` child tag that identifies a script file that is available on the class path (in the `<XLDEPLOY_HOME>/ext/` directory).
- 
+
 Every script is run in isolation; that is, you cannot pass values directly from one script to another.
 
 ## Sample script rule: Successfully created artifact

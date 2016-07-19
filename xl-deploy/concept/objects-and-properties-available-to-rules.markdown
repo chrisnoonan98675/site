@@ -11,6 +11,7 @@ tags:
 - step
 since:
 - XL Deploy 4.5.0
+weight: 129
 ---
 
 When you define an XML or script rule, you use expressions or scripts to define its behavior. These are written in Jython, a combination of Python and Java.

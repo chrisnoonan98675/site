@@ -10,6 +10,7 @@ tags:
 - step
 since:
 - XL Deploy 4.5.0
+weight: 133
 ---
 
 You can disable any rule that is registered in XL Deploy's rule registry, including rules that are:
