@@ -8,9 +8,10 @@ tags:
 - task
 - comment
 - script
+weight: 464
 ---
 
-In the XL Release GUI, you can add comments to any [type of task](/xl-release/concept/types-of-tasks-in-xl-release.html) in a template or release by opening the task and clicking **Add comment**. 
+In the XL Release GUI, you can add comments to any [type of task](/xl-release/concept/types-of-tasks-in-xl-release.html) in a template or release by opening the task and clicking **Add comment**.
 
 You can also use the [REST API](/xl-release/latest/rest-api/index.html) and [Jython API](/jython-docs/#!/xl-release/4.8.x/) to automatically add comments to tasks; for an example, refer to [Using the XL Release API in scripts](/xl-release/how-to/using-the-xl-release-api-in-scripts.html).
 

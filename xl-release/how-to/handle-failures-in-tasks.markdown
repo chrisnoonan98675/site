@@ -11,6 +11,7 @@ tags:
 - failure
 since:
 - XL Release 4.8.0
+weight: 467
 ---
 
 By default, when a task in a release fails, [the release stops](/xl-release/concept/release-life-cycle.html) so you can retry the task, skip the task, or add new tasks to deal with the situation. Alternatively, if the [Abort on failure](/xl-release/how-to/configure-release-properties.html) option is selected, the release immediately aborts if a failure occurs. This is useful for Continuous Integration/Continuous Delivery environments in which a new code commit will fix the problem and start a new release.

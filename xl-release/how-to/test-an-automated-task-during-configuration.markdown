@@ -10,6 +10,7 @@ tags:
 - script
 - custom task
 - customization
+weight: 469
 ---
 
 When you're configuring an automated task such as a Webhook, Script, or custom task, for the first time while creating a release template in XL Release, you usually need to test and tweak it a few times before the configuration is correct.

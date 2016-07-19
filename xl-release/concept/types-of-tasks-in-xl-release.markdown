@@ -6,6 +6,7 @@ subject:
 - Task types
 tags:
 - task
+weight: 440
 ---
 
 There are several types of tasks in XL Release:

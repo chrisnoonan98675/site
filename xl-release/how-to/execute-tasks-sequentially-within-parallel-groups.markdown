@@ -7,6 +7,7 @@ subject:
 tags:
 - task
 - parallel group
+weight: 466
 ---
 
 The [parallel group task type](/xl-release/how-to/create-a-parallel-group.html) allows you to execute tasks in parallel, instead of in sequence. However, by using dependencies among tasks, you can "chain" some or all of the tasks in a parallel group in a sequence.
