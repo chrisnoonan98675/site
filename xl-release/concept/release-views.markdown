@@ -10,6 +10,7 @@ tags:
 - pipeline
 - table
 - release flow
+weight: 433
 ---
 
 XL Release includes several release planning and management views to meet the needs of everyone who participates in the release process:

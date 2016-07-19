@@ -8,7 +8,7 @@ tags:
 - system administration
 - installation
 - plugin
-weight: 703
+weight: 702
 ---
 
 To install a plugin in XL TestView:

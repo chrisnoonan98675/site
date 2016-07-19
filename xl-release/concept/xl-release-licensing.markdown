@@ -8,6 +8,7 @@ tags:
 - system administration
 - installation
 - upgrade
+weight: 400
 ---
 
 If you have an Enterprise Edition of XL Release, you can download your license file at the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/) (requires enterprise customer log-in). If you have a Trial Edition of XL Release, you will receive a license key by email.

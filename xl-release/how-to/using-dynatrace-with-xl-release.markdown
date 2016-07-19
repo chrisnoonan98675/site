@@ -8,6 +8,7 @@ tags:
 - dynatrace
 - metrics
 - plugin
+weight: 435
 ---
 
 You can use XL Release with [Dynatrace](http://www.dynatrace.com/en/index.html) to integrate service-level, business application-level, and user-level metrics about your applications. This gives you an earlier and more accurate picture of the architectural quality of your software. After the application goes live, this also gives you detailed insight into how your users are actually working with it, so you can more more effectively determine whether the features you have just released are successful.

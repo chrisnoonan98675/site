@@ -6,9 +6,10 @@ subject:
 - Releases
 tags:
 - release
+weight: 410
 ---
 
-A release can go through various stages. First a blueprint of a release is defined as a *template*. From the template, a *planned release* is created. The release is a copy of the template, but it has not started yet. When it is started, the release becomes *active* and the phases and the tasks are executed. When all is done, the release is *completed*. 
+A release can go through various stages. First a blueprint of a release is defined as a *template*. From the template, a *planned release* is created. The release is a copy of the template, but it has not started yet. When it is started, the release becomes *active* and the phases and the tasks are executed. When all is done, the release is *completed*.
 
 This is a detailed breakdown of the states that a release can go through.
 

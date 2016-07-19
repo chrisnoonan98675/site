@@ -9,6 +9,7 @@ tags:
 - subrelease
 since:
 - XL Release 5.0.0
+weight: 424
 ---
 
 The [Create Release task type](/xl-release/how-to/create-a-create-release-task.html) allows you to automatically create and start a release based on a configured template. You can use the Create Release task for several different release orchestration scenarios.

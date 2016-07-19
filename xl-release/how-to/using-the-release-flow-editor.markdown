@@ -8,6 +8,7 @@ tags:
 - release
 - template
 - release flow
+weight: 415
 ---
 
 In XL Release, the release flow editor shows the phases and tasks in the release and allows you to add, move, edit, and delete them. To go to the release flow editor, open a template or release and select **Release Flow** from the **Show** menu.

@@ -8,6 +8,7 @@ tags:
 - release
 - properties
 - permission
+weight: 414
 ---
 
 Release permissions determine who can do what on a release. To set release permissions, select **Permissions** from the **Show** menu in a template or release. The Permissions page is only available to users with the *Edit Security* permission on the release or as a [global permission](/xl-release/how-to/configure-xl-release-permissions.html)

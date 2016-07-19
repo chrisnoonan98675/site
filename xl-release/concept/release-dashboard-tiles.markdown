@@ -11,6 +11,7 @@ tags:
 - dashboard
 since:
 - XL Release 5.0.0
+weight: 430
 ---
 
 In XL Release 5.0.0 and later, the [release dashboard](/xl-release/how-to/using-the-release-dashboard.html) is a customizable view where you can add, configure, move, and remove tiles that show planning information and details about release status.

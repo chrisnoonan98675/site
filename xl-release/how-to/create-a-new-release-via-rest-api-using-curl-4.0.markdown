@@ -1,5 +1,5 @@
 ---
-title: Create a new release via the REST API using cURL (XL Release 4.0.x and earlier)
+title: Create a new release via the REST API (XL Release 4.0.x and earlier)
 categories:
 - xl-release
 subject:
@@ -8,6 +8,7 @@ tags:
 - api
 deprecated:
 - XL Release 4.0.x
+weight: 428
 ---
 
 _This article uses the internal XL Release REST API. When using XL Release 4.5.0 or later, please use the public API and refer to [the updated version of this article](/xl-release/how-to/create-a-new-release-via-rest-api-using-curl.html)._
@@ -42,7 +43,6 @@ To use a certificate, add this to the cURL command:
 
     -sslv3  --cacert /path/to/certificate
 
-If you created a keystore during the setup of XL Release, use this command to extract the certificate: 
+If you created a keystore during the setup of XL Release, use this command to extract the certificate:
 
     keytool -exportcert -rfc -alias jetty -keystore conf/keystore.jks -file conf/cert.crt
-

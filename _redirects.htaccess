@@ -204,6 +204,7 @@ Redirect 301 /xl-release/how-to/use-variables-in-xl-release.html /xl-release/con
 Redirect 301 /xl-release/4.0.x/rest-api /xl-release/latest/rest-api
 Redirect 301 /xl-release/how-to/use-a-configuration-object-to-share-global-variables.html /xl-release/how-to/using-a-configuration-object-to-share-global-variables.html
 Redirect 301 /xl-release/how-to/use-markdown-in-xl-release.html /xl-release/how-to/using-markdown-in-xl-release.html
+Redirect 301 /xl-release/concept/xl-release-directory-structure.html /xl-release/how-to/install-xl-release.html
 
 # XL TestView topics
 

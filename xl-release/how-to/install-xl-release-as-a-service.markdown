@@ -12,6 +12,7 @@ tags:
 - setup
 since:
 - XL Release 5.0.0
+weight: 403
 ---
 
 To install XL Release 5.0.0 or later as a daemon or service:

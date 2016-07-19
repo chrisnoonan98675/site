@@ -8,6 +8,7 @@ tags:
 - system administration
 - installation
 - setup
+weight: 402
 ---
 
 Before installing XL Release, [ensure that you meet the system requirements](/xl-release/concept/requirements-for-installing-xl-release.html). Then, choose whether to use a [GUI installer](#using-the-gui-installer) or the [command-line installer](#using-the-command-line-installer).
@@ -182,6 +183,19 @@ See [Finish the setup process and log in](#finish-the-setup-process-and-log-in) 
 After you have configured all options, the setup wizard shows a summary of the configuration that you have selected. Answer `yes` to finish the setup process. Answer `no` to exit setup.
 
 If you answer `yes`, the setup wizard will start XL Release and show the URL where you can access it; for example, `http://localhost:5516`. When you open this URL in a browser, you will be prompted to enter a license key if you did not already install a license file. You can then log in with the user name *admin* and the password that you provided during the setup process.
+
+## XL Release server directory structure
+
+After the XL Release installation file is extracted, the following directory structure exists in the installation directory:
+
+* `bin`: Contains the server binaries
+* `conf`: Contains server configuration files
+* `ext`: Contains server Java extensions
+* `hotfix`: Contains hotfixes that correct issues with the server software
+* `lib`: Contains libraries that the server needs
+* `log`: contains server log files
+
+The installation directory is referred to as `XL_RELEASE_SERVER_HOME`.
 
 ## Failover configuration
 

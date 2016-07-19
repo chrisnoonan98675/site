@@ -8,6 +8,7 @@ tags:
 - release
 - template
 - trigger
+weight: 425
 ---
 
 Triggers are an automated way to create and run a release. A trigger is a kind of XL Release plugin that is executed periodically and can create and run a release from a template.

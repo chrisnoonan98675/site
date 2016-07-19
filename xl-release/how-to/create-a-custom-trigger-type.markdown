@@ -7,6 +7,7 @@ subject:
 tags:
 - trigger
 - customization
+weight: 426
 ---
 
 Releases in XL Release can be kicked off in many different ways, such as directly from the user interface or via an upstream CI server or ALM tool.

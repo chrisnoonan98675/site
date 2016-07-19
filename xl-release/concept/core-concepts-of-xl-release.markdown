@@ -11,6 +11,7 @@ tags:
 - template
 - variable
 - team
+weight: 405
 ---
 
 [*Releases*](/xl-release/concept/release-life-cycle.html) are at the heart of XL Release. A release represents a number of activities in a certain time period, with people working on them. XL Release allows you to plan, track, and execute releases automatically. It acts as a single source of truth for everyone who is involved in making the release a success.

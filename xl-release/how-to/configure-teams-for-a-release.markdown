@@ -10,6 +10,7 @@ tags:
 - team
 - permission
 - users
+weight: 413
 ---
 
 In XL Release, a release team groups users with the same role. You can assign a task to a team to indicate that someone from that team must perform the task when it becomes active. Also, you assign [release permissions](/xl-release/how-to/configure-permissions-for-a-release.html) on the team level.
