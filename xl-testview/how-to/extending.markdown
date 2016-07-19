@@ -10,6 +10,7 @@ tags:
 - test result parsers
 since:
 - XL TestView 1.3.0
+weight: 740
 ---
 
 You can extend XL TestView's functionality in several ways:

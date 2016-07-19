@@ -11,6 +11,7 @@ tags:
 - import
 since:
 - XL TestView 1.4.x
+weight: 760
 ---
 
 You can use the [XL TestView REST API](/xl-testview/latest/rest-api/index.html) to interact with the objects in XL TestView. This topic describes the typical flow of creating a test specification and importing test results into it.

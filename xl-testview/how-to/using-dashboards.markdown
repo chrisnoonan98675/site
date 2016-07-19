@@ -6,13 +6,14 @@ subject:
 - Dashboards
 tags:
 - dashboard
+weight: 720
 ---
 
 A dashboard is the the primary way to quickly get an overview of the current status of your tests. You can create multiple dashboards, each with the information you want to see. The information on a dashboard is represented in *tiles*, which are small individual reports.
 
 A dashboard has a view mode that shows information and an edit mode that enables you to alter the information shown.
 
-XL TestView includes a sample dashboard called *Demo Dashboard*. 
+XL TestView includes a sample dashboard called *Demo Dashboard*.
 
 ## See available dashboards
 
@@ -40,6 +41,6 @@ The date setting affects all tiles on the dashboard. Note that some reports only
 
 ## Working with edit mode
 
-In edit mode, you can modify a dashboard, change its settings, and add and remove tiles. 
+In edit mode, you can modify a dashboard, change its settings, and add and remove tiles.
 
 For information about editing a new dashboard, refer to [Edit an existing dashboard](/xl-testview/how-to/create-a-dashboard.html#edit-an-existing-dashboard).

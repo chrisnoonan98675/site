@@ -6,6 +6,7 @@ subject:
 - Dashboards
 tags:
 - dashboard
+weight: 721
 ---
 
 Before you can create a dashboard in XL TestView, you must have [test specifications](/xl-testview/how-to/create-a-test-specification.html) and [reports](/xl-testview/concept/reports.html) configured.

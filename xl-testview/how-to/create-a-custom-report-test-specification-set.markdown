@@ -9,7 +9,8 @@ tags:
 - extension
 - test specification
 since:
- - XL TestView 1.4.0
+- XL TestView 1.4.0
+weight: 738
 ---
 
 This topic describes how to create a custom report for test specification sets. The process is very similar to the process for [other custom reports](/xl-testview/how-to/create-a-custom-report.html).

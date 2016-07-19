@@ -6,6 +6,7 @@ subject:
 - Dashboards
 tags:
 - dashboard
+weight: 722
 ---
 
 To edit a dashboard in XL TestView:

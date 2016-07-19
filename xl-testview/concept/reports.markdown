@@ -8,6 +8,7 @@ subject:
 tags:
 - report
 - dashboard
+weight: 730
 ---
 
 A report is a representation of a set of test results in a graph or table. XL TestView supports *functional test results* and *performance test results*. These are the types of reports that XL TestView supports by default.
@@ -38,7 +39,7 @@ A report is a representation of a set of test results in a graph or table. XL Te
 </div>
 </div>
 
-## Diff bar chart 
+## Diff bar chart
 
 <div class="row">
 <div class="col-md-2">
@@ -155,4 +156,3 @@ A report is a representation of a set of test results in a graph or table. XL Te
 <p>An overview showing the available test runs over a period of time. Clicking a test run provides a detailed overview of the test results in XL TestView's event structure.
 </div>
 </div>
-

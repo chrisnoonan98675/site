@@ -8,6 +8,7 @@ tags:
 - report
 - troubleshooting
 - extension
+weight: 739
 ---
 
 ## My report does not appear and I see errors in the browser console

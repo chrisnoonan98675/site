@@ -8,6 +8,7 @@ tags:
 - system administration
 - installation
 - startup
+weight: 702
 ---
 
 To start XL TestView:

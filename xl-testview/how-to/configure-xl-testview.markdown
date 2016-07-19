@@ -10,6 +10,7 @@ tags:
 - configuration
 since:
 - XL TestView 1.3.0
+weight: 704
 ---
 
 In XL TestView 1.3.0 and later, configuration is done in the `<XLTESTVIEW_HOME>/conf/xl-testview.conf` file. This file uses the [Human-Optimized Config Object Notation (HOCON) format](https://github.com/typesafehub/config/blob/master/HOCON.md).

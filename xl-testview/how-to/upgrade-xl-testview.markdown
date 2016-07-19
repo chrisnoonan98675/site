@@ -8,6 +8,7 @@ tags:
 - system administration
 - upgrade
 - installation
+weight: 706
 ---
 
 Briefly, the process of upgrading XL TestView is:

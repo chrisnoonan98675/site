@@ -6,13 +6,14 @@ subject:
 - Qualifications
 tags:
 - qualification
+weight: 726
 ---
 
 XL TestView can evaluate test results and qualify them to determine whether a test run as a whole passed or failed. You can use this qualification to make an automated go/no-go decision in a continuous integration tool such as Jenkins or in a pipeline orchestrator such as Go or XL Release.
 
 XL TestView also supports custom qualifications. To create a custom qualification, you:
 
-1. Configure the qualification in `synthetic.xml`. This file defines [configuration item (CI) types](/xl-deploy/concept/key-xl-deploy-concepts.html#type-system) such as qualifiers and reports. 
+1. Configure the qualification in `synthetic.xml`. This file defines [configuration item (CI) types](/xl-deploy/concept/key-xl-deploy-concepts.html#type-system) such as qualifiers and reports.
 1. Write a script for the qualification. This is done in Python.
 
 The easiest way to start creating a custom qualifier is to copy a default qualifier. This example shows how to create a custom qualifier based on the default functional qualifier.
@@ -27,7 +28,7 @@ First, add a custom qualifier type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
 
         <type type="xlt.DefaultFunctionalTestsQualifier" extends="generic.Qualification">
             <property name="scriptLocation" default="qualification/functional.py"/>
-        </type> 
+        </type>
 
 1. Change the `type` attribute to your desired prefix and name; for example, `type="myCompany.myFunctionalQualifier"`.
 1. Change the `scriptLocation` to the report script that you will create; for example, `myFunctionalQualifier.py`.

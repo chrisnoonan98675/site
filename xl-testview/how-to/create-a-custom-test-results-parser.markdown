@@ -10,6 +10,7 @@ tags:
 - api
 since:
 - XL TestView 1.3.0
+weight: 742
 ---
 
 By default, XL TestView supports [a number of test tools](/xl-testview/concept/supported-test-tools-and-test-result-formats.html). XL TestView also allows you to write custom test result parsers so you can integrate with tools that are not supported by default. A test results parser is a Python or Java program that:

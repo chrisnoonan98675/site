@@ -7,6 +7,7 @@ subject:
 tags:
 - report
 - test specification
+weight: 735
 ---
 
 You can easily create custom reports in XL TestView. This topic provides background information about custom reports. For a step-by-step example, refer to [Create a custom report based on a built-in report](/xl-testview/how-to/create-a-custom-report.html).
@@ -69,7 +70,7 @@ The general structure of a script is:
 ### Sample script
 
 This is a short example of a script:
- 
+
     n = len(testRun.events) # let's say there are 42 events in this test run
     resultHolder.setResult({ 'numberOfTests': n })
 
@@ -93,7 +94,7 @@ In a Python script, the following properties are available:
 
 ### TestRun object
 
-The `test_run` object refers to the test run on which the report should be based. 
+The `test_run` object refers to the test run on which the report should be based.
 
 The methods available in the `test_run` object are available in the [Java API documentation](https://docs.xebialabs.com/generated/xl-testview/1.3.x/javadoc/com/xebialabs/xlt/plugin/api/testrun/TestRun.html).
 
@@ -126,7 +127,7 @@ The `table` type passes tabular data to the front end in table format, including
 The following example of tabular data is a simplified version of the [test run overview](/xl-testview/concept/reports.html#test-run-overview). The numbers in parentheses refer to notes below the example.
 
 	REF_TMPL = '#/testspecifications/%s/report/xltest.TestRunEvents?runId=%s'
-	
+
 	runs = test_runs.getTestRunsBetween(testRun.testSpecificationName, startDate.getTime(), endDate.getTime())
 
 	def rowValues(run):

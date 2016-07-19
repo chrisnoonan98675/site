@@ -9,6 +9,7 @@ tags:
 - dashboard
 - report
 - project
+weight: 708
 ---
 
 XL TestView lets you manage, visualize, and analyze tests across all of your test tools to give you a single source of quality truth. XL TestView acts as the Fitbit of your software.
@@ -28,7 +29,7 @@ You can create a test specification [in the XL TestView interface](/xl-testview/
 
 ## Projects
 
-*Projects* combine test specifications into logical groups. 
+*Projects* combine test specifications into logical groups.
 
 ## Test runs
 
@@ -60,4 +61,4 @@ Using Python and HTML, you can create custom reports [based on XL TestView's bui
 
 ### Custom qualifications
 
-You can create [your own qualifications](/xl-testview/how-to/create-a-custom-qualification.html), which can be applied to all test specifications, even those that group results from multiple test tools. 
+You can create [your own qualifications](/xl-testview/how-to/create-a-custom-qualification.html), which can be applied to all test specifications, even those that group results from multiple test tools.

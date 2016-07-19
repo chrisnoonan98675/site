@@ -10,6 +10,7 @@ tags:
 - api
 since:
 - XL TestView 1.3.0
+weight: 741
 ---
 
 XL TestView stores all test results in the database as "events". These are key-value maps that are a uniform representation of a test result, independent of the tool the result originated from.

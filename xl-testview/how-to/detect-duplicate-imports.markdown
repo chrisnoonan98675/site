@@ -11,6 +11,7 @@ tags:
 - api
 since:
 - XL TestView 1.3.0
+weight: 743
 ---
 
 For reliable results, you only need to import the test results once. The way to do this depends on the test tool; some tools include a timestamp or other unique ID in the test result files, while others produce identical files for different runs. Some test tools store only one test run, while others keep a complete history.

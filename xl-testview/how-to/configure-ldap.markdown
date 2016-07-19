@@ -11,6 +11,7 @@ tags:
 - configuration
 since:
 - XL TestView 1.3.0
+weight: 705
 ---
 
 XL TestView supports authentication of users using LDAP. This topic describes how to configure LDAP authentication on XL TestView. Some general knowledge about LDAP and your LDAP server in particular is required.
@@ -75,7 +76,7 @@ Active Directory authentication is supported in XL TestView 1.4.1 and later. To 
       user-search-filter = "(&(SamAccountName={0})(objectClass=user))"
     }
 
-When using Active Directory, you need to configure the search filter option to find a user. The `SamAccountName` property usually contains the user name. To perform the search, XL TestView needs to authenticate itself. The `admin-dn` and `admin-password` properties are provided for that. 
+When using Active Directory, you need to configure the search filter option to find a user. The `SamAccountName` property usually contains the user name. To perform the search, XL TestView needs to authenticate itself. The `admin-dn` and `admin-password` properties are provided for that.
 
 ## Configure secure LDAP
 

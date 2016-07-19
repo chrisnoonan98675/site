@@ -7,12 +7,13 @@ subject:
 tags:
 - report
 - extension
+weight: 736
 ---
 
 XL TestView generates reports using:
 
 * Python scripts for reports based on [Highcharts](http://www.highcharts.com/)
-* Python or FreeMarker scripts for reports based on HTML 
+* Python or FreeMarker scripts for reports based on HTML
 
 The easiest way to create a custom XL TestView report is to copy a built-in report. This topic shows how to create a custom Highcharts report based on the built-in [bar chart](/xl-testview/concept/reports.html#bar-chart) report.
 
@@ -36,7 +37,7 @@ First, add a custom report type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
 1. Change the `scriptLocation` to the report script that you will create; for example, `MyBarChart.py`.
 
     The result will look like:
-    
+
         <type type="myCompany.myBarChart" extends="xlt.Report" label="My Bar Chart" description="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format">
             <property name="scriptLocation" default="reports/MyBarChart.py"/>
             <property name="iconName" default="bar-report-icon"/>

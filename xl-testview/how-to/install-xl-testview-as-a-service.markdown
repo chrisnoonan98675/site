@@ -7,6 +7,7 @@ subject:
 tags:
 - system administration
 - installation
+weight: 701
 ---
 
 ## Install as a service after XL TestView 1.4.0

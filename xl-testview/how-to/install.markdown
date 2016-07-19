@@ -7,6 +7,7 @@ subject:
 tags:
 - system administration
 - installation
+weight: 700
 ---
 
 ## System requirements

@@ -7,6 +7,7 @@ subject:
 tags:
 - qualification
 - test specification
+weight: 725
 ---
 
 XL TestView's configurable qualifications allow for seamless integration with a continuous delivery pipeline. XL TestView automatically analyzes the test results using a specified qualification algorithm. In this way, XL TestView supports tailored automated go/no-go decision making, because continuous delivery management solutions can use the qualification.
