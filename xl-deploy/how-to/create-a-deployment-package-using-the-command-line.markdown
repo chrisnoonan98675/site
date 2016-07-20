@@ -7,6 +7,7 @@ subject:
 tags:
 - package
 - application
+weight: 212
 ---
 
 You can use the command line to create a [deployment package](/xl-deploy/concept/preparing-your-application-for-xl-deploy.html) (DAR file) that you can then import into XL Deploy. This example packages an application called PetClinic that consists of an EAR file and a resource specification.

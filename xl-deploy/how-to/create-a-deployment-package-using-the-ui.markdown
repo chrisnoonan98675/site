@@ -12,6 +12,7 @@ since:
 - XL Deploy 3.8.x
 deprecated:
 - XL Deploy 5.0.0
+weight: 211
 ---
 
 **Tip:** For information about creating a deployment package in XL Deploy 5.0.0 and later, refer to [Add a package to XL Deploy](/xl-deploy/how-to/add-a-package-to-xl-deploy.html).
@@ -22,7 +23,7 @@ But, while designing a deployment package this may be a cumbersome process. To q
 
 ## Creating an application
 
-In XL Deploy, all deployable content is stored in a deployment package. The deployment package will contain the EAR files, HTML files, SQL scripts, DataSource definitions, etc. 
+In XL Deploy, all deployable content is stored in a deployment package. The deployment package will contain the EAR files, HTML files, SQL scripts, DataSource definitions, etc.
 
 Deployment packages are versions of an application. An application will contain one or more deployment packages. So before we can create a deployment package, we need to create an application.
 
@@ -45,11 +46,11 @@ We now have an empty MyApp 1.0 package.
 
 We're now ready to add actual deployable content to the package. Remember that in XL Deploy, all configuration items (nodes in the repository tree) are _typed_. That is, you have to tell XL Deploy on beforehand which type a configuration item is, so XL Deploy will know what to do with it.
 
-First we'll add a simple deployable without file content. Let's create a deployable DataSource in the package. 
+First we'll add a simple deployable without file content. Let's create a deployable DataSource in the package.
 
 Right-click on **MyApp** and choose  **New** > **jee** > **DataSourceSpec**
 
-Give it the name 'MyDataSource' and JNDI-name 'jdbc/my-data-source'. Press **Save**. 
+Give it the name 'MyDataSource' and JNDI-name 'jdbc/my-data-source'. Press **Save**.
 
 That's it! We've just created a functional deployment package that will create a DataSource when deployed to a JEE Application Server like JBoss or WebSphere.
 
@@ -57,7 +58,7 @@ That's it! We've just created a functional deployment package that will create a
 
 Artifacts are configuration items that contain files. Examples are EAR files, WAR files, but also plain files or folders.
 
-Let's add an EAR file to our MyApp/1.0 deployment package. It will be of type `jee.Ear`. 
+Let's add an EAR file to our MyApp/1.0 deployment package. It will be of type `jee.Ear`.
 
 Note that if you're using specific middleware like WebSphere or WebLogic, you also have the option to add and EAR of type `was.Ear`or `wls.Ear`. Only use this if you really need WebSphere or WebLogic-specific features. The `jee.Ear`type will deploy just fine too.
 
@@ -67,9 +68,9 @@ Give it the name 'PetClinic.ear'. We can now upload the actual EAR file. Hit 'Br
 
 When creating artifacts (configuration items with file content), there are some things to take into account. First, you can only upload files when creating the configuration item. It's not possible to change the content afterwards. The reason for this is that deployment packages should effectively be read-only. If you change the contents, you may create inconsistencies between what has deployed onto the middleware and what is in the XL Deploy repository. This may lead to surprising errors.
 
-Placeholder scanning of files is only done when they're uploaded. Use the 'Scan Placeholder' checkbox to enable or disable placeholder scanning of files. 
+Placeholder scanning of files is only done when they're uploaded. Use the 'Scan Placeholder' checkbox to enable or disable placeholder scanning of files.
 
-When uploading entire directories for the `file.Folder` type, you will need to zip the directory first, since you can only select a single file for browser upload. 
+When uploading entire directories for the `file.Folder` type, you will need to zip the directory first, since you can only select a single file for browser upload.
 
 ## Specifying property placeholders
 
@@ -77,7 +78,7 @@ It's easy to specify property placeholders. For any deployable configuration ite
 
 For example, open MyDataSource and enter JNDI_VALUE as placeholder:
 
-![image](images/package-placeholder.png) 
+![image](images/package-placeholder.png)
 
 The value for Jndi Name will be looked up form the dictionary associated with environment you deploy to.
 

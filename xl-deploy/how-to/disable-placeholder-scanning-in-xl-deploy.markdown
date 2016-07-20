@@ -1,7 +1,7 @@
 ---
-title: Disable placeholder scanning in XL Deploy
+title: Disable placeholder scanning
 subject:
-- Packaging
+- Dictionaries
 categories:
 - xl-deploy
 tags:

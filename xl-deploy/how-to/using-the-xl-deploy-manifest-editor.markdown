@@ -8,6 +8,7 @@ tags:
 - manifest
 - windows
 - package
+weight: 205
 ---
 
 The XL Deploy Manifest Editor is an open source, stand-alone tool for Microsoft Windows that helps you create valid [`deployit-manifest.xml`](/xl-deploy/concept/xl-deploy-manifest-format.html) files for your deployment packages.

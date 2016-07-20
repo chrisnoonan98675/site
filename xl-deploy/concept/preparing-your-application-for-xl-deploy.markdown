@@ -8,6 +8,7 @@ tags:
 - application
 - package
 - deployment
+weight: 200
 ---
 
 XL Deploy uses the Unified Deployment Model (UDM) to structure deployments. In this model, deployment packages are containers for complete application distribution. They include application artifacts (EAR files, static content) as well as resource specifications (datasources, topics, queues, and so on) that the application needs to run.

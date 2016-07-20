@@ -14,6 +14,7 @@ deprecated:
 - XL Deploy 4.5.0
 removed:
 - XL Deploy 5.0.0
+weight: 204
 ---
 
 Before XL Deploy 3.9.x, the deployment package (DAR file) manifest was specified using the `MANIFEST.MF` format described in the [JAR file specification](http://download.oracle.com/javase/6/docs/technotes/guides/jar/jar.html). XL Deploy can still import DAR packages containing this manifest format. This chapter is for reference purposes only as we strongly encourage you to write the manifests in the new XML format.
@@ -67,9 +68,9 @@ The `Name` entry specifies the name of the CI to be created. In contrast to the 
 
 **Note:** the names of artifacts in your package must conform to platform requirements. For instance, a _file.Folder_ CI with name "q2>2" cannot be deployed to a Windows host, because ">" may not be part of a file or directory name in Windows.
 
-The other entries, `CI-url`, `CI-username` and `CI-password` refer to properties on the datasource CI. These properties will be set to the values specified. In general, any property on a CI can be set using the `CI-<propertyname>` notation. 
+The other entries, `CI-url`, `CI-username` and `CI-password` refer to properties on the datasource CI. These properties will be set to the values specified. In general, any property on a CI can be set using the `CI-<propertyname>` notation.
 
-Note that it is also possible to add resource specifications to a package that is already imported in XL Deploy. 
+Note that it is also possible to add resource specifications to a package that is already imported in XL Deploy.
 
 ## Setting Complex Properties
 

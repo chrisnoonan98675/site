@@ -173,6 +173,8 @@ Redirect 301 /xl-deploy/how-to/enable-additional-logging-for-xl-deploy-server.ht
 Redirect 301 /xl-deploy/how-to/using-xl-deploy-logging.html /xl-deploy/concept/logging-in-xl-deploy.html
 Redirect 301 /xl-deploy/how-to/create-an-environment-in-xl-deploy-deprecated-method.html /xl-deploy/how-to/create-an-envrionment-using-the-repository.html
 Redirect 301 /xl-deploy/concept/how-xl-deploy-matches-tags.html /xl-deploy/how-to/use-tags-to-configure-deployments.html
+Redirect 301 /xl-deploy/how-to/specify-file-encoding-for-artifacts.html /xl-deploy/concept/tips-and-tricks-for-deployment-packages.html
+Redirect 301 /xl-deploy/how-to/enable-placeholder-scanning-for-additional-file-types.html /xl-deploy/how-to/using-placeholders-in-xl-deploy.html
 
 # XL Release topics
 

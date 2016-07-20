@@ -8,9 +8,10 @@ tags:
 - deployed
 - deployable
 - package
+weight: 202
 ---
 
-In the [_XL Deploy: Understanding Packages_](https://www.youtube.com/watch?v=dqeL45WGcKU&index=5&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1) video, we described _deployables_—files and settings, delivered in a deployment package, that your application needs to run—and _deployeds_—the things that are actually created in your target servers as part of a deployment.
+The [_XL Deploy: Understanding Packages_](https://www.youtube.com/watch?v=dqeL45WGcKU&index=5&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1) video describes _deployables_—files and settings, delivered in a deployment package, that your application needs to run—and _deployeds_—the things that are actually created in your target servers as part of a deployment.
 
 Since these two concepts are central to understanding XL Deploy, and the difference between the two can be subtle, I would like to spend a bit of time talking about them.
 

@@ -8,6 +8,7 @@ tags:
 - application
 - package
 - deployment
+weight: 201
 ---
 
 XL Deploy is an application release automation (ARA) tool that can deploy applications to development, test, QA, and production environments, all while managing configuration values that are specific to each environment. It is designed to make the process of deploying applications faster, easier, and more reliable. You provide the components that make up your application, and XL Deploy does the rest.
@@ -41,7 +42,7 @@ Alternatively, you can use a command line tool such as `zip`, the Java `jar` uti
 
 With XL Deploy, there is no need for you to create deployment scripts or workflows. When a deployment is created in XL Deploy, a *deployment plan* is created automatically. This plan contains all of the steps that are needed to deploy a specific version of an application to a target environment.
 
-XL Deploy also generates deployment plans when a deployed application needs to be upgraded to a new version, downgraded to an old version, or removed from an environment (called undeploying). 
+XL Deploy also generates deployment plans when a deployed application needs to be upgraded to a new version, downgraded to an old version, or removed from an environment (called undeploying).
 
 When it is time to carry out a deployment, XL Deploy executes the deployment plan steps in the required order. XL Deploy compares the deployed application to the one that you want to deploy and generates a plan that only contains the steps that are required, improving the efficiency of application updates.
 

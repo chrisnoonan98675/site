@@ -8,6 +8,7 @@ tags:
 - package
 - application
 - maven
+weight: 213
 ---
 
 To enable continuous deployment, the [Maven XL Deploy plugin](/xl-deploy/latest/maven-plugin/index.html) enables you to integrate XL Deploy with the Maven build system. Specifically, the plugin supports:

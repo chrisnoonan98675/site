@@ -10,6 +10,7 @@ tags:
 - application
 since:
 - XL Deploy 5.0.0
+weight: 207
 ---
 
 Artifacts are the physical files that make up a specific version of an application; for example, an application binary, configuration files, or web content. When adding an artifact to a deployment package, you can either:
