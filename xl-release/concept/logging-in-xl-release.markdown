@@ -36,45 +36,47 @@ For each event, the following information is recorded:
 
 For events involving configuration items (CIs), the CI data submitted as part of the event is logged in XML format.
 
-By default, the audit log is stored in `<XLRELEASE_SERVER_HOME>/log/audit.log`. The log is rolled over daily.
+By default, the audit log is stored in `<XLRELEASE_SERVER_HOME>/log/audit.log` and is rolled over daily.
 
 ## Changing logging behavior
 
 It is possible to change the logging behavior (for example, to write log output to a file or to log output from a specific source). To do so, edit the `<XLRELEASE_SERVER_HOME>/conf/logback.xml` file. This is a sample `logback.xml` file:
 
-    <configuration>
-        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-            <!-- encoders are assigned the type
-                 ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
-            <encoder>
-                  <pattern>
-                    %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
-                </pattern>
-            </encoder>
-        </appender>
+{% highlight xml %}
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+              <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
 
-        <!-- Create a file appender that writes log messages to a file -->
-        <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-            <layout class="ch.qos.logback.classic.PatternLayout">
-                <pattern>%-4relative [%thread] %-5level %class - %msg%n</pattern>
-            </layout>
-               <File>log/my.log</File>
-        </appender>
+    <!-- Create a file appender that writes log messages to a file -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%-4relative [%thread] %-5level %class - %msg%n</pattern>
+        </layout>
+           <File>log/my.log</File>
+    </appender>
 
-        <!-- Set logging of classes in com.xebialabs to INFO level -->
-        <logger name="com.xebialabs" level="info"/>
+    <!-- Set logging of classes in com.xebialabs to INFO level -->
+    <logger name="com.xebialabs" level="info"/>
 
-        <!-- Set logging of class HttpClient to DEBUG level -->
-        <logger name="HttpClient" level="debug"/>
+    <!-- Set logging of class HttpClient to DEBUG level -->
+    <logger name="HttpClient" level="debug"/>
 
-        <!-- Set the logging of all other classes to INFO -->
-        <root level="info">
-            <!-- Write logging to STDOUT and FILE appenders -->
-            <appender-ref ref="STDOUT" />
-            <appender-ref ref="FILE" />
-        </root>
+    <!-- Set the logging of all other classes to INFO -->
+    <root level="info">
+        <!-- Write logging to STDOUT and FILE appenders -->
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
 
-    </configuration>
+</configuration>
+{% endhighlight %}
 
 For information about the `logback.xml` file, refer to the [Logback documentation](http://logback.qos.ch/manual/).
 
@@ -82,10 +84,12 @@ For information about the `logback.xml` file, refer to the [Logback documentatio
 
 You can enable low-level audit logging by changing the log level of the `audit` logger in `<XLRELEASE_SERVER_HOME>/conf/logback.xml`:
 
-    <!-- set to "info" to enable low-level audit logging -->
-    <logger name="audit" level="off" additivity="false">
-        <appender-ref ref="AUDIT" />
-    </logger>
+{% highlight xml %}
+<!-- set to "info" to enable low-level audit logging -->
+<logger name="audit" level="off" additivity="false">
+    <appender-ref ref="AUDIT" />
+</logger>
+{% endhighlight %}
 
 By default, the log stream is stored in `<XLRELEASE_SERVER_HOME>/log/audit.log`. You can change this location, the file rolling policy, and so on by changing the configuration of the `AUDIT` appender. You can also pipe the log stream to additional sinks (such as [syslog](http://logback.qos.ch/manual/appenders.html#SyslogAppender)) by configuring additional appenders. Refer to the [Logback documentation](http://logback.qos.ch/manual/) for details.
 
