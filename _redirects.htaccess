@@ -171,6 +171,7 @@ Redirect 301 /xl-deploy/how-to/rescan-the-rules-file.html /xl-deploy/how-to/how-
 Redirect 301 /xl-deploy/how-to/dictionary-values-in-freemarker.html /xl-deploy/how-to/using-variables-and-expressions-in-freemarker-templates.html
 Redirect 301 /xl-deploy/how-to/enable-additional-logging-for-xl-deploy-server.html /xl-deploy/concept/logging-in-xl-deploy.html
 Redirect 301 /xl-deploy/how-to/using-xl-deploy-logging.html /xl-deploy/concept/logging-in-xl-deploy.html
+Redirect 301 /xl-deploy/how-to/create-an-environment-in-xl-deploy-deprecated-method.html /xl-deploy/how-to/create-an-envrionment-using-the-repository.html
 
 # XL Release topics
 

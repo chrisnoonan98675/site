@@ -1,5 +1,5 @@
 ---
-title: Create an environment in XL Deploy
+title: Create an environment using the wizard
 categories:
 - xl-deploy
 subject:
@@ -10,6 +10,7 @@ tags:
 - dictionary
 since:
 - XL Deploy 5.0.0
+weight: 165
 ---
 
 An environment is a grouping of infrastructure and middleware items such as hosts, servers, clusters, and so on. An environment is used as the target of a deployment, allowing you to map deployables to members of the environment.
@@ -37,7 +38,7 @@ To create an environment:
 1. To add a middleware container that has already been set up in XL Deploy:
     1. Select **Select existing container**.
     1. Select the containers that you want to add. Use the search bar to search for containers.
-    
+
         ![Select existing container](images/create-environment-step-2-containers-existing.png)
 
 1. After you have added the desired containers to the environment, click **Next**. The Set up dictionary screen appears.
@@ -47,14 +48,14 @@ To create an environment:
     1. In the **New key** and **New value** boxes, enter a key and its corresponding value. Click **Add** to add the key-value pair to the dictionary. Repeat this process for all key-value pairs that you want to add.
     1. Click **Add to environment** to add the dictionary to the environment.
 
-        To add another new dictionary to the environment, repeat the same steps. 
-    
+        To add another new dictionary to the environment, repeat the same steps.
+
         ![Add new dictionary](images/create-environment-step-3-dictionaries-new.png)
 
 1. To add a dictionary that has already been defined in XL Deploy:
     1. Select **Select existing dictionary**.
     1. Select the dictionaries that you want to add. Use the search bar to search for dictionaries.
-    
+
         ![Add new dictionary](images/create-environment-step-3-dictionaries-existing.png)
 
 1. After you have added the desired dictionaries to the environment, click **Next**. The Advanced properties screen appears.
