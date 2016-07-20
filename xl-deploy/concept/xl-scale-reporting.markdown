@@ -9,6 +9,7 @@ tags:
 - plugin
 - virtualization
 - report
+weight: 388
 ---
 
 XL Scale includes reporting functionality underneath the regular Reports tab that shows information about the instantiation and destruction of cloud environments. Enter a date range and press the 'Generate Report' button to generate the standard report. It is also possible to filter on the cloud environment template used to instantiate the environment.
@@ -23,7 +24,7 @@ The report shows the following columns:
 * **Environment** - The name of the created or destroyed environment.
 * **Operation** - The operation executed: instantiate or destroy.
 * **User** - The user that performed the operation.
-* **Status** - The status of the operation. 
+* **Status** - The status of the operation.
 * **Start Date** - The date on which the operation was started.
 * **Completion Date** - The date on which the operation was completed.
 

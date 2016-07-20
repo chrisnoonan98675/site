@@ -11,6 +11,7 @@ tags:
 - plugin
 - template
 - virtualization
+weight: 385
 ---
 
 A host template describes a single host that can be launched on EC2. The host template is a  ```ec2.HostTemplate``` configuration item (CI). In addition to the generic host template properties, it allows some EC2-specific properties.

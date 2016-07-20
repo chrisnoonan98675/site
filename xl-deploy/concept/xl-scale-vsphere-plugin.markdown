@@ -9,6 +9,7 @@ tags:
 - plugin
 - virtualization
 - vsphere
+weight: 383
 ---
 
 XL Scale provides functionality to create and destroy environments on virtualized infrastructure that can be used as deployment targets. The XL Scale vSphere plugin is an XL Deploy plugin that supports launching, provisioning and terminating hosts and environments on VMWare vSphere platform.
@@ -38,7 +39,7 @@ For information about combining cloud hosts into environments, refer to [Create 
 
 ## Provisioning instantiated hosts
 
-When deploying a virtual machine, the template may already have the desired middleware installed. If this is the case, a launched host will be ready for use as soon as it has finished booting. 
+When deploying a virtual machine, the template may already have the desired middleware installed. If this is the case, a launched host will be ready for use as soon as it has finished booting.
 
 It is also possible to provision a host using Puppet, Chef or a shell command after launching it. This is supported via the the notion of a _marker file_. If the host template specifies a marker file, XL Deploy will poll the launched instance for its presence. When the file is found on the instance filesystem, XL Deploy will conclude the host is up and ready for deployment. The location of the marker file can be configured in the ```vsphere.HostTemplate```.
 

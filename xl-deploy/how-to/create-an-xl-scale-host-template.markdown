@@ -9,6 +9,7 @@ tags:
 - host
 - template
 - virtualization
+weight: 387
 ---
 
 XL Scale host templates are created in the Repository under the **Configuration** root node. Because host templates are virtualization platform specific, there will be different configuration options depending on the exact vendor. The following configuration options are common to all vendors:

@@ -7,6 +7,7 @@ categories:
 tags:
 - xl scale
 - virtualization
+weight: 381
 ---
 
 After you create the XL Scale configuration items (CIs) that you need, you can instantiate an _environment template_ or a _host template_. There are two ways to do this in the XL Deploy GUI, either using the wizards on the XL Scale tab or via control tasks in the Repository tab.

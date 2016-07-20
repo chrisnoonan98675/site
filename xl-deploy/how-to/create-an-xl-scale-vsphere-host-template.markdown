@@ -11,6 +11,7 @@ tags:
 - plugin
 - template
 - virtualization
+weight: 386
 ---
 
 The next step is to define host template CIs (```vsphere.HostTemplate```). A host template describes a single host that can be launched on the vSphere platform. In addition to the generic host template properties, it allows some vSphere-specific properties.
