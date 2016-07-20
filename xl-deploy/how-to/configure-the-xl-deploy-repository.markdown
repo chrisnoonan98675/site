@@ -8,6 +8,7 @@ tags:
 - system administration
 - repository
 - database
+weight: 156
 ---
 
 XL Deploy uses a repository to store all of its data such as configuration items (CIs), deployment packages, logging, etc. XL Deploy can use the filesystem or a database for binary artifacts (deployment packages) and CIs and CI history. By default, XL Deploy uses the filesystem to store all data in the repository.

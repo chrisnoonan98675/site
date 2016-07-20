@@ -9,6 +9,7 @@ tags:
 - package
 - deployment
 - environment
+weight: 180
 ---
 
 XL Deploy is the first out-of-the-box deployment automation solution that allows non-experts to perform application deployments. A deployment consists of all the actions needed to install, configure and start an application on a target environment.

@@ -8,9 +8,10 @@ tags:
 - step
 - deployment
 - planning
+weight: 182
 ---
 
-A *step* is a concrete action to be performed to accomplish a task. All steps for a particular deployment are grouped together in a _steplist_. 
+A *step* is a concrete action to be performed to accomplish a task. All steps for a particular deployment are grouped together in a _steplist_.
 
 XL Deploy includes many step implementations for common actions. Steps are contributed by plugins, based on the deployment that is being performed. Middleware-specific steps are contributed by the plugins.
 

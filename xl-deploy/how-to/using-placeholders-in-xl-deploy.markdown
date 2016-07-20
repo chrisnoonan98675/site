@@ -9,6 +9,7 @@ tags:
 - dictionary
 - package
 - environment
+weight: 160
 ---
 
 Placeholders are configurable entries in your application that will be set to an actual value at deployment time. This allows the deployment package to be environment-independent and thus reusable. At deployment time, you can provide values for placeholders manually or they can be resolved from [dictionaries](/xl-deploy/how-to/create-a-dictionary.html) that are assigned to the target environment.
@@ -53,3 +54,15 @@ The angle brackets (`<` and `>`) are required for these special values.
 ## Property placeholders
 
 _Property_ placeholders are used in CI properties by specifying them in the package's manifest. In contrast to file placeholders, property placeholders do not necessarily need to get a value from a dictionary. If the placeholder can not be resolved from a dictionary, the placeholder is left as-is.
+
+## Debugging placeholder scanning
+
+To debug placeholder scanning, edit the `<XLDEPLOY_SERVER_HOME>/conf/logback.xml` file and add the following line:
+
+    <logger name="com.xebialabs.deployit.engine.replacer.Placeholders" level="debug" />
+
+When importing a deployment package (DAR file), you will see debug statements in the `deployit.log` file as follows:
+
+     ...
+     DEBUG c.x.d.engine.replacer.Placeholders - Determined New deploymentprofile.deployment to be a binary file
+     ...

@@ -10,6 +10,7 @@ tags:
 - application
 - package
 - undeploy
+weight: 193
 ---
 
 To remove an application and its components from an environment, you need to _undeploy_ the application:

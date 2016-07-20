@@ -7,6 +7,7 @@ subject:
 tags:
 - placeholder
 - dictionary
+weight: 161
 ---
 
 [Placeholders](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) are configurable entries in your application that will be set to an actual value at deployment time. This allows the deployment package to be environment-independent and thus reusable. At deployment time, you can provide values for placeholders manually or they can be resolved from dictionaries that are assigned to the target environment.

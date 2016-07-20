@@ -10,6 +10,7 @@ tags:
 - application
 - environment
 - repository
+weight: 155
 ---
 
 XL Deploy's database is called the _Repository_. It stores all configuration items (CIs), binary files (such as _deployment packages_), and XL Deploy's security configuration (user accounts and rights). The Repository can be stored on disk (the default) or in a [relational database](/xl-deploy/how-to/configure-the-xl-deploy-repository.html#using-a-database).

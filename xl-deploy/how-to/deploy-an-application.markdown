@@ -10,6 +10,7 @@ tags:
 - package
 since:
 - XL Deploy 5.0.0
+weight: 184
 ---
 
 **Note:** A version of this topic is available for [XL Deploy 4.5.x and earlier](/xl-deploy/4.5.x/deploy-an-application-4.5.html).

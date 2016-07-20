@@ -8,6 +8,7 @@ tags:
 - staging
 - deployment
 - artifacts
+weight: 187
 ---
 
 To ensure that the downtime of your application is limited, XL Deploy can stage artifacts (files) to target hosts before deploying the application. Staging is based on the artifact's **Checksum** property, and requires that the plugin being used to deploy the artifact supports staging.

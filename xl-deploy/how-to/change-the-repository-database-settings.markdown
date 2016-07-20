@@ -10,6 +10,7 @@ tags:
 - repository
 - security
 - password
+weight: 157
 ---
 
 If you store the XL Deploy repository [in a database](/xl-deploy/how-to/configure-the-xl-deploy-repository.html#using-a-database), you may occasionally need to move the database or change settings such as the database username or password (for example, to test a new release against a non-production database).

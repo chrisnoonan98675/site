@@ -9,6 +9,7 @@ tags:
 - planning
 - gui
 - preview
+weight: 186
 ---
 
 When you set up an initial deployment, an upgrade, or an undeployment, you can use the Plan Analyzer to preview the deployment plan that XL Deploy generated based on the deployment configuration. As you map deployables to containers in the deployment configuration, the Plan Analyzer will update and show changes to the plan.
@@ -24,7 +25,7 @@ To open the Plan Analyzer from the Deployment Workspace:
 
 ## Match steps in the plan to deployeds
 
-To see which steps in the deployment plan are related to a specific [deployed](/xl-deploy/concept/understanding-deployables-and-deployeds.html), click the deployed. To see which deployed is related to a specific step, click the step. 
+To see which steps in the deployment plan are related to a specific [deployed](/xl-deploy/concept/understanding-deployables-and-deployeds.html), click the deployed. To see which deployed is related to a specific step, click the step.
 
 ![Highlighted deployed and steps in Plan Analyzer](images/planalyzer-clickondeployed.png)
 
@@ -34,7 +35,7 @@ For deployment plan steps that require a script, you can preview the script that
 
 The step preview also shows:
 
-* The [order](/xl-deploy/concept/steps-and-steplists-in-xl-deploy.html#steplist) of the step. The step order determines the sequence of steps in the plan, with lower order numbers coming before higher ones. The selected [orchestrator](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) can influence this. 
+* The [order](/xl-deploy/concept/steps-and-steplists-in-xl-deploy.html#steplist) of the step. The step order determines the sequence of steps in the plan, with lower order numbers coming before higher ones. The selected [orchestrator](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) can influence this.
  * The location of the script template, relative to XL Deploy's classpath; for example, relative to `SERVER_HOME/ext` or packaged in the relevant plugin.
 
 This is an example of a step preview:
