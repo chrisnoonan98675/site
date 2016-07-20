@@ -10,6 +10,7 @@ tags:
 - repository
 - security
 - password
+weight: 494
 ---
 
 If you store the XL Release repository [in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html), you may occasionally need to move the database or change settings such as the database username or password (for example, to test a new release against a non-production database).

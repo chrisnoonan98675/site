@@ -44,7 +44,7 @@ Redirect 301 /xl-release/help/template-overview.html /xl-release/how-to/create-a
 Redirect 301 /xl-release/help/release-value-stream.html /xl-release/concept/release-value-stream-report.html
 Redirect 301 /xl-release/help/variables.html /xl-release/how-to/create-release-variables.html
 Redirect 301 /xl-release/help/global-variables.html /xl-release/how-to/configure-global-variables.html
-Redirect 301 /xl-deploy/how-to/configure-the-release-dashboard.html : /xl-deploy/concept/advanced-release-dashboard-example.html
+Redirect 301 /xl-deploy/how-to/configure-the-release-dashboard.html /xl-deploy/concept/advanced-release-dashboard-example.html
 
 # XL TestView in-product links
 
@@ -205,6 +205,8 @@ Redirect 301 /xl-release/4.0.x/rest-api /xl-release/latest/rest-api
 Redirect 301 /xl-release/how-to/use-a-configuration-object-to-share-global-variables.html /xl-release/how-to/using-a-configuration-object-to-share-global-variables.html
 Redirect 301 /xl-release/how-to/use-markdown-in-xl-release.html /xl-release/how-to/using-markdown-in-xl-release.html
 Redirect 301 /xl-release/concept/xl-release-directory-structure.html /xl-release/how-to/install-xl-release.html
+Redirect 301 /xl-release/how-to/start-xl-release-in-the-background.html /xl-release/how-to/start-xl-release.html
+Redirect 301 /xl-release/how-to/enable-granular-audit-logging.html /xl-release/concept/logging-in-xl-release.html
 
 # XL TestView topics
 

@@ -8,6 +8,7 @@ tags:
 - system administration
 - password
 - security
+weight: 501
 ---
 
 To change the password of the built-in XL Release `admin` user:

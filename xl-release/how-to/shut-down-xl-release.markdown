@@ -6,6 +6,7 @@ subject:
 - System administration
 tags:
 - system administration
+weight: 491
 ---
 
 You can use a REST API call to shut down the XL Release server. This is an example of a command that uses [cURL](http://curl.haxx.se/) to shut down the server (replace `admin:admin` with your credentials):

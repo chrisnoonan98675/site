@@ -9,6 +9,7 @@ tags:
 - backup
 - maintenance
 - database
+weight: 495
 ---
 
 It is recommended that you regularly create a backup of your XL Release server. It is especially important to back up XL Release before [upgrading to a new version](/xl-release/how-to/upgrade-xl-release.html).

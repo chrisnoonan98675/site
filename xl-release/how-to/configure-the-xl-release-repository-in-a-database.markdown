@@ -10,6 +10,7 @@ tags:
 - setup
 - database
 - repository
+weight: 493
 ---
 
 XL Release uses a repository to store all of its data. XL Release can use the filesystem or a database for binary artifacts and CIs and CI history. By default, XL Release uses the filesystem to store all data in the repository.

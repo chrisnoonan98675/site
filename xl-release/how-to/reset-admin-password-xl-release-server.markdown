@@ -8,6 +8,7 @@ tags:
 - system administration
 - password
 - security
+weight: 502
 ---
 
 [Change the admin password on your XL Release server](/xl-release/how-to/change-the-admin-password.html) describes how to change the password for the built-in `admin` user. However, if you have forgotten the password for the `admin` user and you do not have the password for another user with administrative permissions, then you cannot authenticate with the XL Release server to change the `admin` password.

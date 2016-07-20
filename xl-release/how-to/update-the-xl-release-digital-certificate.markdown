@@ -8,6 +8,7 @@ tags:
 - system administration
 - repository
 - security
+weight: 497
 ---
 
 The XL Release Setup Wizard can generate a [self-signed digital certificate](/xl-release/how-to/install-xl-release.html#secure-communication-configuration) for secured communications. This can cause issues in situations where XL Release needs to be accessed via a URL other than `https://localhost:5516`, because the Common Name in the certificate is `localhost`.
