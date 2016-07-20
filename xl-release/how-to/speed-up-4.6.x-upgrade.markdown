@@ -9,10 +9,11 @@ tags:
 - system administration
 since:
 - XL Release 4.6.0
+weight: 408
 ---
 
 Before XL Release 4.6.0, JCR version storage was used for some parts of XL Release functionality. This meant that for every node in active JCR storage (such as Release, Phase, or Trigger), XL Release stored a version history containing zero or more versions, depending on how many times a node was changed.
- 
+
 As of XL Release 4.6.0, XL Release does not use version storage and creates node versions in a different way when they are needed. This improves the performance of XL Release when performing create or update operations and greatly reduces the size of the repository.
 
 However, this change means that when you upgrade to XL Release 4.6.0 or later, an upgrader reads all version histories in your repository and removes them. The amount of time this takes is proportional to the size of your repository. For example, testing shows that for a repository of 20 GB, upgrading takes approximately 20 hours (at a rate of 80 nodes per second).

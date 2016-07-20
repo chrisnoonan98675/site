@@ -9,6 +9,7 @@ tags:
 - system administration
 - installation
 - migration
+weight: 407
 ---
 
 Briefly, the process of upgrading XL Release is:

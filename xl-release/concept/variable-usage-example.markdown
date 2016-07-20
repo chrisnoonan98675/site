@@ -7,11 +7,12 @@ subject:
 tags:
 - variable
 - release
+weight: 479
 ---
 
 For data that may change or that is not known in advance, XL Release provides a placeholder mechanism in the form of [variables](/xl-release/concept/variables-in-xl-release.html).
 
-This example shows a template that deploys an application to a test environment and assigns testing to QA. When testing succeeds, XL Release sends an email notification. If testing fails, we try again with the next version of the application. 
+This example shows a template that deploys an application to a test environment and assigns testing to QA. When testing succeeds, XL Release sends an email notification. If testing fails, we try again with the next version of the application.
 
 This is the template:
 
@@ -35,7 +36,7 @@ Note that you can still change variables by editing the fields on the Release pr
 
 Now suppose that QA testing for BillingApp 1.0 failed and we need to repeat the procedure for the next version delivered by the Development team.
 
-Click **Restart Phase** to restart the QA phase. Before the release flow resumes, you can change the variables: 
+Click **Restart Phase** to restart the QA phase. Before the release flow resumes, you can change the variables:
 
 ![Variables when restarting a release](../images/variables-in-release-restart.png)
 
