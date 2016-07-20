@@ -9,6 +9,7 @@ tags:
 - script
 since:
 - XL Release 4.5.0
+weight: 510
 ---
 
 There are various ways to automate functionality in XL Release.

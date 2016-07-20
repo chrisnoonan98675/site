@@ -10,6 +10,7 @@ tags:
 - jython
 - customization
 - api
+weight: 514
 ---
 
 In addition to the [Jython API](/jython-docs/#!/xl-release/4.8.x/), the following helper functions are available in [Script tasks](/xl-release/how-to/create-a-script-task.html) and Python scripts for plugin tasks.

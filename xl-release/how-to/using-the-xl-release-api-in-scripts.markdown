@@ -9,6 +9,7 @@ tags:
 - script
 since:
 - XL Release 4.5.0
+weight: 511
 ---
 
 XL Release exposes an API that developers can use to manipulate releases and tasks. This topic describes how to use the XL Release public API in Jython scripts. The API can be accessed from both Script tasks and plugin scripts.

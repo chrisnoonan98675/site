@@ -11,6 +11,7 @@ tags:
 - database
 since:
 - XL Release 4.7.0
+weight: 437
 ---
 
 Since XL Release 4.7.0, completed releases are exported to the internal [archive database](/xl-release/concept/how-archiving-works.html), which is used to generate reports. By default, XL Release uses Apache Derby, with data stored at `XLRELEASE_HOME/archive/db`.

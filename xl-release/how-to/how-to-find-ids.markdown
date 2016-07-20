@@ -11,6 +11,7 @@ tags:
 - template
 - phase
 - task
+weight: 512
 ---
 
 To use the XL Release REST API, you need to know the unique identifier of templates, releases, phases and tasks. This topic explains where you can find them.
