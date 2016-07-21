@@ -8,6 +8,7 @@ tags:
 - plugin
 - file
 - archive
+weight: 355
 ---
 
 In many cases, an application depends on external resources for its configuration. The application accesses these resources from a predefined location or using a predefined mechanism. In the simplest of forms, a resource can be described as a file, an archive (`ZIP`), or a folder (collection of files).

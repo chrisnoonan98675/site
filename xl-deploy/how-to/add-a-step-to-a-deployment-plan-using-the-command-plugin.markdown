@@ -8,9 +8,10 @@ tags:
 - plugin
 - deployment
 - planning
+weight: 352
 ---
 
-For a deployment, XL Deploy calculates the step list based on your model. But what if you want to add an extra step? There are several ways to do this. This cookbook entry will explain a simple case: executing a remote shell command on a server.
+For a deployment, XL Deploy calculates the step list based on your model. But what if you want to add an extra step? There are several ways to do this. This topic will explain a simple case: executing a remote shell command on a server.
 
 In this example we will show how to add a step to log the disk usage using the `df` command. We will do this using the [Command plugin](/xl-deploy/concept/command-plugin.html).
 

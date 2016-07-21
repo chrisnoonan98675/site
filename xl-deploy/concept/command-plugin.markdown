@@ -7,6 +7,7 @@ subject:
 tags:
 - plugin
 - command
+weight: 351
 ---
 
 The Command plugin allows you to execute scripts on remote systems, without requiring you to manually log on to each system, copy required resources, and execute the scripts or commands. The Command plugin automates this process and makes it less error-prone.

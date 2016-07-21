@@ -8,6 +8,7 @@ tags:
 - plugin
 - database
 - sql
+weight: 353
 ---
 
 The XL Deploy Database plugin supports deployment of SQL files and folders to a database client.
@@ -106,7 +107,7 @@ The `02-CreateUser.sql` script can use its dependencies or common dependencies a
 	-- Execute script-specific dependency: Create Power Users
 	@02-CreateUser/create_power_users.sql
 	COMMIT;
-	
+
 **Note:** The syntax for including the dependent scripts varies between databases. For example, Microsoft SQL databases use `include <script file name>`.
 
 ### Updating dependencies

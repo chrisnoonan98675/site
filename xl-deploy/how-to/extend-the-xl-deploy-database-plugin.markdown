@@ -11,6 +11,7 @@ tags:
 - rules
 since:
 - XL Deploy 5.0.0
+weight: 354
 ---
 
 In XL Deploy 5.0.0 and later, the Database plugin uses the XL Deploy [rules system](/xl-deploy/concept/getting-started-with-xl-deploy-rules.html) to provide improved rollback support for SQL scripts.
