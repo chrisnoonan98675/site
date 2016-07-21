@@ -70,6 +70,7 @@ In XL Release 4.7.0 and earlier, the time zone of the XL Release server is used 
 | `-` | Used to specify ranges. For example, `9-12` in the hour field means "the hours 9, 10, 11 and 12". |
 | `,` | Used to specify additional values. For example, `MON,WED,FRI` in the Day of week field means "the days Monday, Wednesday, and Friday". |
 | `/` | Used to specify increments. For example, `0/15` in the seconds field means "the seconds 0, 15, 30, and 45", and `10/15` in the seconds field means "the seconds 10, 25, 40, and 55". |
+| '#' | Used to specify “the nth” weekday of the month. For example, `MON#1` means "the first Monday of the month" (supported in XL Release 5.0.1 and later) |
 
 ### Sample patterns
 
@@ -79,3 +80,4 @@ In XL Release 4.7.0 and earlier, the time zone of the XL Release server is used 
 * `0 0/30 8-10 * * *` = 8:00, 8:30, 9:00, 9:30, and 10:00 every day.
 * `0 0 9-17 * * MON-FRI` = on the hour nine-to-five weekdays
 * `0 0 0 25 12 ?` = every Christmas Day at midnight
+* `0 0 0 ? * MON#1` = every first Monday of the month (supported in XL Release 5.0.1 and later)
