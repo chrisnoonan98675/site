@@ -27,6 +27,17 @@ For Microsoft Windows platforms, XL Deploy supports these SSH servers:
 
 **Note:** The SFTP, SCP, SUDO and INTERACTIVE_SUDO connection types are only available for Unix hosts. To use SSH with z/OS hosts, use the SFTP connection type. To use SSH with Windows hosts, choose the SFTP_CYGWIN or the SFTP_WINSSHD connection type.
 
+## SSH compatibility
+
+The Remoting plugin uses the [sshj](https://github.com/shikhar/sshj) library for SSH and supports all algorithms and formats that are supported by that library:
+
+* Ciphers: `aes{128,192,256}-{cbc,ctr}`, `blowfish-cbc`, `3des-cbc`
+* Key Exchange methods: `diffie-hellman-group1-sha1`, `diffie-hellman-group14-sha1`
+* Signature formats: `ssh-rsa`, `ssh-dss`
+* MAC algorithms: `hmac-md5`, `hmac-md5-96`, `hmac-sha1`, `hmac-sha1-96`
+* Compression algorithms: `zlib` and `zlib@openssh.com` (delayed `zlib`)
+* Private Key file formats: `pkcs8` encoded (the format used by [OpenSSH](http://www.openssh.com/))
+
 ## SFTP connection type
 
 To use the SFTP connection type, ensure that SFTP is enabled in the SSH server. This is enabled by default in most SSH servers.

@@ -178,6 +178,7 @@ Redirect 301 /xl-deploy/how-to/enable-placeholder-scanning-for-additional-file-t
 Redirect 301 /xl-deploy/how-to/customizing-the-xl-deploy-type-system.html /xl-deploy/how-to/working-with-configuration-items.html
 Redirect 301 /xl-deploy/concept/installing-and-removing-xl-deploy-plugins.html /xl-deploy/how-to/install-or-remove-xl-deploy-plugins.html
 Redirect 301 /xl-deploy/how-to/connect-through-an-ssh-jumpstation.html /xl-deploy/how-to/set-up-ssh-in-xl-deploy-and-on-a-target-host.html
+Redirect 301 /xl-deploy/concept/remoting-plugin-ssh-compatibility.html /xl-deploy/how-to/set-up-ssh-in-xl-deploy-and-on-a-target-host.html
 
 # XL Release topics
 
