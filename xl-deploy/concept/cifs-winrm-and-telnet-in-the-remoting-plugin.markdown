@@ -1,9 +1,9 @@
 ---
 title: CIFS, WinRM, and Telnet in the Remoting plugin
-categories: 
-- xl-deploy
 subject:
-- Bundled plugins
+- Remoting
+categories:
+- xl-deploy
 tags:
 - plugin
 - connectivity
@@ -11,6 +11,7 @@ tags:
 - cifs
 - winrm
 - telnet
+weight: 338
 ---
 
 The CIFS protocol implementation of XL Deploy uses [CIFS](http://en.wikipedia.org/wiki/Server_Message_Block) (also known as SMB) for file manipulation and either [WinRM](http://en.wikipedia.org/wiki/WS-Management) or [Telnet](http://en.wikipedia.org/wiki/Telnet) for process execution.

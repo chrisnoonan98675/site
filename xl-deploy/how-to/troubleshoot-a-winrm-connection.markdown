@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot a WINRM_NATIVE or WINRM_INTERNAL connection
-subject:
-- Bundled plugins
 categories:
 - xl-deploy
+subject:
+- Remoting
 tags:
 - connectivity
 - remoting
@@ -11,6 +11,7 @@ tags:
 - kerberos
 - overthere
 - troubleshooting
+weight: 349
 ---
 
 These are configuration errors that can occur when using XL Deploy with WINRM_NATIVE.

@@ -1,14 +1,15 @@
 ---
 title: Troubleshoot an SSH connection
-subject:
-- Bundled plugins
 categories:
 - xl-deploy
+subject:
+- Remoting
 tags:
 - connectivity
 - remoting
 - ssh
 - overthere
+weight: 346
 ---
 
 These are configuration errors that can occur when using XL Deploy with SSH.

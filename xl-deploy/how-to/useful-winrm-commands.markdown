@@ -1,13 +1,14 @@
 ---
 title: Useful WinRM commands
-subject:
-- Bundled plugins
 categories:
 - xl-deploy
+subject:
+- Remoting
 tags:
 - connectivity
 - remoting
 - winrm
+weight: 343
 ---
 
 These commands are useful when you are using <a href="http://msdn.microsoft.com/en-us/library/aa384426(v=vs.85).aspx">Microsoft Windows Remote Management (WinRM)</a> to execute commands and manipulate files on a remote host.
@@ -36,4 +37,4 @@ Allow a fixed set of hosts to connect to the WinRM listener:
 
     winrm set winrm/config/client @{TrustedHosts="host1,host2..."}
 
-For more information about WinRM, refer to <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa384426(v=vs.85).aspx">the online documentation at Microsoft's DevCenter</a>. 
+For more information about WinRM, refer to <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa384426(v=vs.85).aspx">the online documentation at Microsoft's DevCenter</a>.

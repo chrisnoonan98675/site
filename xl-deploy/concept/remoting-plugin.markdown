@@ -1,13 +1,14 @@
 ---
 title: Introduction to the XL Deploy Remoting plugin
+subject:
+- Remoting
 categories:
 - xl-deploy
-subject:
-- Bundled plugins
 tags:
 - plugin
 - connectivity
 - remoting
+weight: 335
 ---
 
 The Remoting plugin allows XL Deploy to manipulate files and execute commands on remote hosts. It does so by using the Overthere framework. Overthere is a Java library to manipulate files and execute processes on remote hosts. See the [Overthere Github repository](https://github.com/xebialabs/overthere) for more information.

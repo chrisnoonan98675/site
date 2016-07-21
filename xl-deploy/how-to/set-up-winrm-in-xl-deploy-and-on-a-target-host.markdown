@@ -1,7 +1,7 @@
 ---
 title: Set up WinRM in XL Deploy and on a target host
 subject:
-- Bundled plugins
+- Remoting
 categories:
 - xl-deploy
 tags:
@@ -9,6 +9,7 @@ tags:
 - remoting
 - winrm
 - overthere
+weight: 342
 ---
 
 To use the WINRM_INTERNAL or the WINRM_NATIVE connection type, set up <a href="http://msdn.microsoft.com/en-us/library/aa384426(v=vs.85).aspx">Microsoft Windows Remote Management (WinRM)</a> on the remote host:
@@ -50,7 +51,7 @@ To use the WINRM_INTERNAL or the WINRM_NATIVE connection type, set up <a href="h
 		winrm set winrm/config/service/Auth @{Kerberos="false"}
 
 	**Note:** Do not disable **Negotiate authentication**, as the `winrm` command itself uses it to configure the WinRM subsystem.
-	
+
 1. (Only required for WINRM_INTERNAL or when the property `winrsUnencrypted` is set to true) Configure WinRM to allow unencrypted SOAP messages:
 
 		winrm set winrm/config/service @{AllowUnencrypted="true"}
