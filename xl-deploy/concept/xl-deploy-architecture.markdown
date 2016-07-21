@@ -10,7 +10,7 @@ tags:
 - ci
 - rules
 - planning
-weight: 119
+weight: 111
 ---
 
 XL Deploy features a modular architecture that allows you to change and extend components while maintaining a consistent system. This is a high-level overview of the system architecture:

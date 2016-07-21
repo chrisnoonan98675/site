@@ -9,7 +9,7 @@ tags:
 - system administration
 - script
 - security
-weight: 145
+weight: 267
 ---
 
 By default, the XL Deploy server writes informational, warning, and error log messages to standard output and to `<XLDEPLOY_SERVER_HOME>/log/deployit.log` when it is running. In addition, XL Deploy:

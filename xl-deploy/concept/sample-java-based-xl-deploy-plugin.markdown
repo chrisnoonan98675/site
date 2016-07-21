@@ -8,6 +8,7 @@ subject:
 tags:
 - java
 - plugin
+weight: 225
 ---
 
 This example describes some classes from a test plugin we use at XebiaLabs, the Yak plugin.

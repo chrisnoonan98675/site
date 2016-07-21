@@ -7,6 +7,7 @@ subject:
 tags:
 - system administration
 - security
+weight: 271
 ---
 
 ## Change the `admin` password

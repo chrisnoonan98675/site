@@ -10,7 +10,7 @@ tags:
 - script
 - python
 - jython
-weight: 113
+weight: 243
 ---
 
 When using the [XL Deploy command-line interface (CLI)](/xl-deploy/concept/getting-started-with-the-xl-deploy-cli.html) to work with configuration items (CIs), the main objects you will use are:

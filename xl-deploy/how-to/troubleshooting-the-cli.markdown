@@ -10,7 +10,7 @@ tags:
 - python
 - jython
 - troubleshooting
-weight: 120
+weight: 250
 ---
 
 ## Error when loading terminal

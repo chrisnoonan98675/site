@@ -1,7 +1,7 @@
 ---
 pre_rules: true
 title: Base plugins and the deployed object
-categories: 
+categories:
 - xl-deploy
 subject:
 - Plugins
@@ -10,6 +10,7 @@ tags:
 - powershell
 - generic
 - python
+weight: 221
 ---
 
 You can write plugins for XL Deploy that customize deployment plans and behavior. Plugins are usually created by copying the built-in [Generic](/xl-deploy/latest/genericPluginManual.html), [PowerShell](/xl-deploy/latest/powershellPluginManual.html), or [Python](/xl-deploy/latest/pythonPluginManual.html) plugin. This table provides information about what each plugin does and how it works.

@@ -1,7 +1,7 @@
 ---
 pre_rules: true
 title: Step options for the Generic, PowerShell, and Python plugins
-categories: 
+categories:
 - xl-deploy
 subject:
 - Plugins
@@ -9,6 +9,7 @@ tags:
 - plugin
 - powershell
 - python
+weight: 224
 ---
 
 If you create a plugin based on the [Generic](/xl-deploy/latest/genericPluginManual.html) or [PowerShell](/xl-deploy/latest/powershellPluginManual.html) plugin, you can specify *step options* that control the data that is sent when performing a `CREATE`, `MODIFY`, `DESTROY` or `NOOP` deployment step defined by a configuration item (CI) type. Step options also control the variables that are available in templates or scripts.
@@ -16,7 +17,7 @@ If you create a plugin based on the [Generic](/xl-deploy/latest/genericPluginMan
 ## What is a step option?
 
 A step option specifies the extra resources that are available when performing a deployment step. A step option is typically used when the step executes a script on a remote host. This script (or, more generally, the action to be performed) may have zero or more of the following requirements:
- 
+
 * The artifact associated with this step needed in the step's `workdir`
 * External file(s) in the `workdir`
 * Resolved FreeMarker template(s) in the `workdir`

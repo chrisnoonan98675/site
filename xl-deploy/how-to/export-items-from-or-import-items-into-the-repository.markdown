@@ -12,7 +12,7 @@ tags:
 - system administration
 since:
 - XL Deploy 5.0.0
-weight: 117
+weight: 247
 ---
 
 The `repository` object in the XL Deploy [command-line interface (CLI)](/xl-deploy/concept/getting-started-with-the-xl-deploy-cli.html) allows you to export the XL Deploy repository tree to a ZIP file that can be imported into the same XL Deploy server or into another XL Deploy server. The ZIP file contains all configuration item (CI) properties, including artifact files.

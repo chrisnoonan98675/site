@@ -11,6 +11,7 @@ tags:
 - cloud
 since:
 - XL Deploy 5.5.0
+weight: 324
 ---
 
 In XL Deploy, a [*provisioning package*](/xl-deploy/how-to/create-a-provisioning-package.html) represents a specific version of a *blueprint*. The package contains *provisionables*, which define the settings that are needed to set up the environment. A provisionable can contain *provisioners* that define actions to take after the environment is set up. In addition to provisionables, a provisioning package can contain *templates* that define the configuration items (CIs) that XL Deploy should create based on the results of the provisioners.

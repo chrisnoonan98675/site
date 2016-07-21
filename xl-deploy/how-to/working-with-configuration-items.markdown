@@ -6,8 +6,9 @@ subject:
 - Configuration items
 tags:
 - ci
-- gui
+- type system
 - artifacts
+weight: 251
 ---
 
 XL Deploy stores all of its information in the repository. The **Repository** screen gives you access to the configuration items (CIs) in the repository and allows you to edit them manually.
@@ -20,7 +21,7 @@ To create a new CI in the repository, do the following:
 2. **Create a new CI**. The selected CI type will be opened in the CI Editor Tab so you can fill out its properties to create a new CI. **Note**: the **Id** field of the CI is a special non-editable property that determines the place of the CI in the repository. For more information about the **Id** property, see the **XL Deploy Reference Manual**.
 3. **Save the new CI**. Click on the **Save** button to save the new CI in the repository. XL Deploy will perform validation on the CI to ensure that all properties have appropriate values. An error message is shown if not.
 
-If the CI is an _artifact_ CI representing a binary file, you can upload the file from your local machine into XL Deploy. If the CI contains a directory structure then you must first add it to a ZIP file, then upload it. 
+If the CI is an _artifact_ CI representing a binary file, you can upload the file from your local machine into XL Deploy. If the CI contains a directory structure then you must first add it to a ZIP file, then upload it.
 
 ## Duplicate a CI
 
@@ -78,3 +79,15 @@ To compare different versions, follow these steps:
 2. **Select different versions**. You can change the version shown in the left and right hand side of the comparison window by using the version dropdown list.
 
 You can only compare versions of one specific CI against itself. It is not possible to see CI renames and security permission changes in the CI history, this information can be found in the auditing logs.
+
+### Comparing a CI tree
+
+The XL Deploy Compare feature allows you to compare two or more CI trees. That means, in addition to comparing the chosen configuration items, it recursively traverses the CI tree and compares each CI from one tree with matching configuration items from other trees. For information about using the Compare feature, refer to [Compare configuration items](/xl-deploy/how-to/compare-configuration-items.html).
+
+## Customizing CI types
+
+For information about the ways that you can customize the XL Deploy CI type system, refer to:
+
+* [Customize an existing CI type](/xl-deploy/how-to/customize-an-existing-ci-type.html)
+* [Define a new CI type](/xl-deploy/how-to/define-a-new-ci-type.html)
+* [Define a synthetic method](/xl-deploy/how-to/define-a-synthetic-method.html)

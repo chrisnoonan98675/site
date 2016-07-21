@@ -13,6 +13,7 @@ tags:
 - cloud
 since:
 - XL Deploy 5.5.0
+weight: 321
 ---
 
 In XL Deploy, a *provisioning package* represents a specific version of a *blueprint*. The package contains *provisionables*, which define the settings that are needed to set up the environment. A provisionable can contain *provisioners* that define actions to take after the environment is set up.

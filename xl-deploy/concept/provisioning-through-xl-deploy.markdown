@@ -16,6 +16,7 @@ tags:
 - cloud
 since:
 - XL Deploy 5.5.0
+weight: 320
 ---
 
 XL Deploy's provisioning feature allows you to provide fully automated, on-demand access to your public, private, or hybrid cloud-based environments. With provisioning, you can:

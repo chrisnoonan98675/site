@@ -10,6 +10,7 @@ tags:
 - cloud
 since:
 - XL Deploy 5.5.0
+weight: 327
 ---
 
 You can use XL Deploy's [provisioning feature](/xl-deploy/concept/provisioning-through-xl-deploy.html) to create cloud-based environments in a single action. In XL Deploy terminology, you provision a [*provisioning package*](/xl-deploy/how-to/create-a-provisioning-package.html) to a [*provisioning environment*](/xl-deploy/how-to/create-a-provisioning-environment.html). The environment contains information about *providers* (such as [Amazon EC2](https://aws.amazon.com/ec2/)) and the package describes what the provisioned environment should look like.

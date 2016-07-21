@@ -1,7 +1,7 @@
 ---
 pre_rules: true
 title: Create an XL Deploy plugin
-categories: 
+categories:
 - xl-deploy
 subject:
 - Plugins
@@ -10,9 +10,10 @@ tags:
 - java
 - generic
 - udm
+weight: 220
 ---
 
-XL Deploy allows customization using the Java programming language. By implementing a server _plugpoint_, certain XL Deploy server functionality can be changed to adapt the product to your needs. And if you want to use XL Deploy with new middleware, you can implement a custom _plugin_. 
+XL Deploy allows customization using the Java programming language. By implementing a server _plugpoint_, certain XL Deploy server functionality can be changed to adapt the product to your needs. And if you want to use XL Deploy with new middleware, you can implement a custom _plugin_.
 
 Before you customize XL Deploy functionality, you should understand the XL Deploy architecture. Refer to the [Understanding XL Deploy's architecture](/xl-deploy/concept/understanding-xl-deploy-architecture.html) for more information.
 

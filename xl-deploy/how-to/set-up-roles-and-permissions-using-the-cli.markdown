@@ -11,7 +11,7 @@ tags:
 - roles
 - permissions
 - principals
-weight: 116
+weight: 246
 ---
 
 After a fresh installation of XL Deploy, no [permissions](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html) are granted to any user. The only users that have any permissions granted to them, are the `administrator` users and they will, by default, have **all** permissions granted to them. XL Deploy ships with one predefined administrator user called `admin`, with default password `admin`.

@@ -8,6 +8,7 @@ tags:
 - system administration
 - repository
 - security
+weight: 270
 ---
 
 The XL Deploy setup wizard can generate a self-signed digital certificate for secured communications. This can cause issues in situations where XL Deploy needs to be accessed via a URL other than `https://localhost:4516`, because the Common Name in the certificate is `localhost`.

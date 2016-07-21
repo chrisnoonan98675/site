@@ -10,6 +10,7 @@ tags:
 - security
 since:
 - XL Deploy 3.9.5
+weight: 272
 ---
 
 [Changing passwords in XL Deploy](/xl-deploy/how-to/changing-passwords-in-xl-deploy.html#change-the-admin-password) describes how to change the password for the built-in `admin` user. However, if you have forgotten the password for the `admin` user and you do not have the password for another user with administrative permissions, then you cannot log in to the XL Deploy server to change the `admin` password.

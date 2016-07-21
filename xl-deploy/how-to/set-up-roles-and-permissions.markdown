@@ -10,6 +10,7 @@ tags:
 - permissions
 - roles
 - principals
+weight: 261
 ---
 
 XL Deploy provides fine-grained security settings based on [roles and permissions](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html) that you can configure in the GUI and through the command-line interface (CLI). To configure security in the GUI, click **Admin** in the top menu bar.

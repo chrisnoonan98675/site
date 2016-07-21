@@ -3,12 +3,12 @@ title: Start XL Release
 categories:
 - xl-release
 subject:
-- System administration
+- Installation
 tags:
 - system administration
 - installation
 - setup
-weight: 490
+weight: 404
 ---
 
 To start the XL Release server, open a command prompt or terminal, go to the `<XLRELEASE_SERVER_HOME>/bin` directory, and execute the appropriate command:

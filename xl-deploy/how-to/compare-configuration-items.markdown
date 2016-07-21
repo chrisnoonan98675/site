@@ -10,6 +10,7 @@ tags:
 - infrastructure
 since:
 - XL Deploy 4.5.x
+weight: 255
 ---
 
 The XL Deploy Compare feature allows you to compare two or more configuration item (CI) trees. That means, in addition to comparing the chosen configuration items, it recursively traverses the CI tree and compares each CI from one tree with matching configuration items from other trees.
@@ -22,7 +23,7 @@ The Compare screen supports two kinds of CI tree comparisons:
 
 * **Live-to-live**: Compare multiple live discoverable CIs of the same type. For example, you can see how the WebSphere topology in your test environment compares to the one in your acceptance environment or production environment.
 
-* **Repo-to-live**: Compare a discoverable CI (and its children) present in the XL Deploy repository to the one running on a physical machine and hosting your applications. This enables you to identify discrepancies between XL Deploy repository CIs and the actual ones. 
+* **Repo-to-live**: Compare a discoverable CI (and its children) present in the XL Deploy repository to the one running on a physical machine and hosting your applications. This enables you to identify discrepancies between XL Deploy repository CIs and the actual ones.
 
 ## Requirements
 
@@ -35,7 +36,7 @@ To use the Compare GUI, you must use one of the following web browsers:
 
 ## Live-to-live comparison
 
-The live-to-live comparison *discovers* CIs and then compares the discovery results. For example, when you compare two IBM WebSphere Cells, XL Deploy first recursively discovers the two Cells (Node Managers, Application Servers, Clusters, JMS Queues, and so on), and then compares each discovered item of first Cell to the corresponding discovered CI of the second Cell. 
+The live-to-live comparison *discovers* CIs and then compares the discovery results. For example, when you compare two IBM WebSphere Cells, XL Deploy first recursively discovers the two Cells (Node Managers, Application Servers, Clusters, JMS Queues, and so on), and then compares each discovered item of first Cell to the corresponding discovered CI of the second Cell.
 
 You can compare up to four discoverable CIs at once.
 
@@ -56,18 +57,18 @@ XL Deploy considers two or more configuration items as comparable only when all 
  * They have the same `type`.
  * They have the same `name`.
  * They have comparable parents; that is, the conditions above recursively hold true for the parents. For example, XL Deploy will not consider a CI with ID `/root1/b/c/d` equivalent to another configuration item with ID `/root2/b/d`, even though they both have the name `d`. This is because the first CI is under `c`, while the other one is under `b`.
- 
+
 ### Live-to-live comparison example
-   
+
 As an example, consider the following scenario:
- 
+
  1. You selects `cell-dev` and `cell-test` CIs for comparison and click **Compare**.
  2. XL Deploy discovers `cell-dev` with discovery result `[cell-dev/server1, cell-dev/server-dev, cell-dev/cluster1]`.
  3. XL Deploy discovers `cell-test` with discovery result `[cell-test/server1, cell-test/server-test, cell-test/cluster1]`.
  4. XL Deploy compares these two lists.
- 
+
 Now, by following the default comparability rules (equal name and comparable parents) explained above, XL Deploy performs the following comparisons:
- 
+
  * `cell-dev` is compared to `cell-test` because starting point discoverables are always comparable
  * `cell-dev/server1` is compared to `cell-test/server1` because they have equal names and comparable parents
  * `cell-dev/server-dev` is not compared because it is missing under `cell-test`
@@ -101,7 +102,7 @@ Note the following about `compare-configuration.xml`:
 
 * You can access CIs' public properties using the standard dot (`.`) notation. For example, the default comparability
    condition "should have same name" can be expressed in the match expression `lhs.name == rhs.name`.
-   
+
 In the scenario described above, `cell-dev/server-dev` and `cell-test/server-test` were not compared because of different names. You can make them comparable by specifying a match expression such as:
 
 {% highlight xml %}    

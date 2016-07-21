@@ -13,6 +13,7 @@ tags:
 - orchestrator
 - importer
 - event listener
+weight: 222
 ---
 
 Functionality in the XL Deploy server can be customized by using _plugpoints_. Plugpoints are specified and implemented in Java. On startup, XL Deploy scans its classpath for implementations of its plugpoints in the `com.xebialabs` or `ext.deployit` packages and prepares them for use. There is no additional configuration required.

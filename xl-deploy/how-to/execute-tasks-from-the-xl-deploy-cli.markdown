@@ -8,7 +8,7 @@ tags:
 - cli
 - script
 - task
-weight: 115
+weight: 245
 ---
 
 XL Deploy can perform many deployments at the same time. Each of these deployments is called a _task_. Users can ask XL Deploy to start a task, stop a task or cancel a task. After a task is completed or canceled, it is moved to the _task archive_. This is where XL Deploy stores its task history. You can query it for tasks and examine the tasks steps and logs or export the task archive to an XML file.

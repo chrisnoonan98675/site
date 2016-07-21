@@ -7,6 +7,7 @@ categories:
 tags:
 - pipeline
 - release dashboard
+weight: 195
 ---
 
 A deployment pipeline defines the sequence of environments to which an application is deployed during its lifecycle. Deployment pipelines appear on the XL Deploy [release dashboard](/xl-deploy/concept/release-dashboard.html).

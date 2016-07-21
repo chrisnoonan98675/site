@@ -8,7 +8,7 @@ tags:
 - cli
 - script
 - ci
-weight: 119
+weight: 249
 ---
 
 This is an overview of the types that are available in the XL Deploy command-line interface (CLI).

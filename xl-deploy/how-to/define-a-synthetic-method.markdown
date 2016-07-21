@@ -3,16 +3,17 @@ title: Define a synthetic method
 categories:
 - xl-deploy
 subject:
-- Customization
+- Configuration items
 tags:
 - ci
 - synthetic
 - type system
 - control task
 - plugin
+weight: 254
 ---
 
-In XL Deploy, you can define _methods_ on configuration items (CIs). Each method can be executed on an instance of a CI via the GUI or CLI. Methods are used to implement _control tasks_, actions on CIs to control the middleware. An example is starting or stopping a server. 
+In XL Deploy, you can define _methods_ on configuration items (CIs). Each method can be executed on an instance of a CI via the GUI or CLI. Methods are used to implement _control tasks_, actions on CIs to control the middleware. An example is starting or stopping a server.
 
 The CI itself is responsible for implementing the specified method, either in [Java](/xl-deploy/how-to/create-an-xl-deploy-plugin.html) or synthetically when extending an existing plugin such as the [Generic plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-generic-plugin.html).
 

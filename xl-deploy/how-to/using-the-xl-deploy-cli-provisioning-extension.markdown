@@ -9,6 +9,7 @@ tags:
 - cli
 since:
 - XL Deploy 5.5.0
+weight: 332
 ---
 
 XL Deploy 5.5.0 introduced support for provisioning environments, which means that you can use the XL Deploy GUI and CLI to provision environments and to deploy applications to them. This topic describes how to use the provisioning extension for the XL Deploy CLI.

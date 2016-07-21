@@ -11,6 +11,7 @@ tags:
 - deployment
 since:
 - XL Deploy 5.5.0
+weight: 329
 ---
 
 After you use XL Deploy's [provisioning feature](/xl-deploy/concept/provisioning-through-xl-deploy.html) to provision an [environment](/xl-deploy/how-to/provision-an-environment.html), you can deploy applications to it.

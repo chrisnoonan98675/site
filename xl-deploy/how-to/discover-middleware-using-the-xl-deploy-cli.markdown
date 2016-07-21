@@ -9,7 +9,7 @@ tags:
 - middleware
 - discovery
 - script
-weight: 114
+weight: 244
 ---
 
 The _discovery_ feature allows you to automatically create an accurate model of your infrastructure in XL Deploy. During discovery, XL Deploy scans your middleware environment and creates configuration items (CIs) in the repository. Discovery is part of the XL Deploy plugin suite, and the exact discovery functionality available depends on the middleware platforms that are present in your environment.

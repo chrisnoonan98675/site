@@ -9,7 +9,7 @@ tags:
 - script
 - python
 - jython
-weight: 110
+weight: 240
 ---
 
 XL Deploy includes a command-line interface (CLI) that you can use to control and administer many features, such as discovering middleware topology, setting up environments, importing packages, and performing deployments. It connects to the XL Deploy server using the standard HTTP/HTTPS protocol, so it can be used remotely without firewall issues.

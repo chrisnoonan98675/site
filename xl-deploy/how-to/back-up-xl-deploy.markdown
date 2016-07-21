@@ -10,6 +10,7 @@ tags:
 - database
 - backup
 - upgrade
+weight: 268
 ---
 
 It is recommended that you regularly create a backup of your XL Deploy server. It is especially important to back up XL Deploy before [upgrading to a new version](/xl-deploy/how-to/upgrade-xl-deploy.html).

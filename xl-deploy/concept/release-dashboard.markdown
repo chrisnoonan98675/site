@@ -8,6 +8,7 @@ tags:
 - release dashboard
 - checklist
 - pipeline
+weight: 194
 ---
 
 Most organizations have a process around releasing software to their environments. Typically, application versions are promoted to a number of environments before being released to production. In each environment, the application version is integrated or tested before being allowed to progress to the next stage. XL Deploy includes a release dashboard to help you get insight into this process.

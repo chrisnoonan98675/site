@@ -7,6 +7,7 @@ subject:
 tags:
 - system administration
 - shutdown
+weight: 266
 ---
 
 If you have administrative permissions, you can shut down the XL Deploy server using the command-line interface (CLI) command:
@@ -15,12 +16,11 @@ If you have administrative permissions, you can shut down the XL Deploy server u
 
 You can also stop the XL Deploy server using a REST API call. This is an example of a command to generate such a call (replace `admin:admin` with your own credentials):
 
-    curl -X POST --basic -u admin:admin
-        http://admin:admin@localhost:4516/deployit/server/shutdown
+    curl -X POST --basic -u admin:admin http://admin:admin@localhost:4516/deployit/server/shutdown
 
-This requires the external `curl` command, available for both Unix and Windows.
+This requires the external `curl` command, available for both Unix and Microsoft Windows.
 
-**Note:** If you modify any file in the `conf` directory, `ext/synthetic.xml` or `ext/xl-rules`, then you must restart the XL Deploy server for the changes to take effect. For `ext/xl-rules`, you can change the default behavior by enabling automatic reloading in `conf/planner.conf` file.
+**Note:** If you modify any file in the `<XLDEPLOY_SERVER_HOME>/conf` directory, or modify the `<XLDEPLOY_SERVER_HOME>/ext/synthetic.xml` or `<XLDEPLOY_SERVER_HOME>/ext/xl-rules.xml` file, then you must restart the XL Deploy server for the changes to take effect. For `xl-rules.xml`, you can change the default behavior as described in [Define a rule](/xl-deploy/how-to/how-to-define-rules.html#scanning-for-rules).
 
 ## Unclean shutdown
 

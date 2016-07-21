@@ -10,6 +10,7 @@ tags:
 - plugin
 - ci
 - checkpoint
+weight: 223
 ---
 
 As a plugin author, you typically execute multiple steps when your CI is created, destroyed or modified. You can let XL Deploy know when the action performed on your CI is complete, so that XL Deploy can store the results of the action in its repository. If the deployment plan fails halfway through, XL Deploy can generate a customized rollback plan that contains steps to rollback only those changes that are already committed.
@@ -56,7 +57,7 @@ The final step uses the `modify` operation from the delta to indicate the CI is 
 
 ## Implicit checkpoints
 
-If you do not specify any checkpoints for a delta, XL Deploy will add a checkpoint to the last step of the delta. Let's see how it works based on an example. 
+If you do not specify any checkpoints for a delta, XL Deploy will add a checkpoint to the last step of the delta. Let's see how it works based on an example.
 
 We perform the initial deployment of a package that contains an SQL script and a WAR file. The deployment plan looks like:
 
@@ -69,5 +70,5 @@ Without checkpoints, XL Deploy does not know how to roll back this plan if it fa
 1. Execute the SQL script and checkpoint the SQL script.
 1. Upload the WAR file to the host where the servlet container is present.   
 1. Register the WAR file with the servlet container and checkpoint the WAR file.
-    
-If step 1 was executed successfully but step 2 or 3 failed, XL Deploy knows it must roll back the executed SQL script, but not the WAR file. 
+
+If step 1 was executed successfully but step 2 or 3 failed, XL Deploy knows it must roll back the executed SQL script, but not the WAR file.

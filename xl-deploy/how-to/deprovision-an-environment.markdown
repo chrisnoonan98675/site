@@ -9,6 +9,7 @@ tags:
 - cloud
 since:
 - XL Deploy 5.5.0
+weight: 330
 ---
 
 Before you can deprovision ("tear down") a provisioned environment, you must [undeploy](/xl-deploy/how-to/undeploy-an-application.html) all applications that are deployed to the provisioneds that the environment contains.

@@ -8,7 +8,7 @@ tags:
 - cli
 - ci
 - script
-weight: 118
+weight: 248
 ---
 
 The XL Deploy command-line interface (CLI) provides five objects to interact with the XL Deploy Server: `deployit`, `deployment`, `repository`, `factory` and `security`.

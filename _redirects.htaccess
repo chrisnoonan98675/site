@@ -175,6 +175,8 @@ Redirect 301 /xl-deploy/how-to/create-an-environment-in-xl-deploy-deprecated-met
 Redirect 301 /xl-deploy/concept/how-xl-deploy-matches-tags.html /xl-deploy/how-to/use-tags-to-configure-deployments.html
 Redirect 301 /xl-deploy/how-to/specify-file-encoding-for-artifacts.html /xl-deploy/concept/tips-and-tricks-for-deployment-packages.html
 Redirect 301 /xl-deploy/how-to/enable-placeholder-scanning-for-additional-file-types.html /xl-deploy/how-to/using-placeholders-in-xl-deploy.html
+Redirect 301 /xl-deploy/how-to/customizing-the-xl-deploy-type-system.html /xl-deploy/how-to/working-with-configuration-items.html
+Redirect 301 /xl-deploy/concept/installing-and-removing-xl-deploy-plugins.html /xl-deploy/how-to/install-or-remove-xl-deploy-plugins.html
 
 # XL Release topics
 

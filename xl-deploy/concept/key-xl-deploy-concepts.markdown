@@ -12,7 +12,7 @@ tags:
 - application
 - plugin
 - environment
-weight: 118
+weight: 110
 ---
 
 ## Interacting with XL Deploy

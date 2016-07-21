@@ -11,6 +11,7 @@ tags:
 - roles
 - ldap
 - system administration
+weight: 260
 ---
 
 XL Deploy supports a fine-grained access control scheme to ensure the security of your middleware and deployments. XL Deploy's security mechanism is based on the concepts of _principals_, _roles_, and _permissions_.
@@ -29,7 +30,7 @@ When permissions are granted, all principals that have the role are allowed to p
 
 ## Permissions
 
-Permissions are rights in XL Deploy. Permissions control what actions a user can execute in XL Deploy, but also which parts of the repository the user can see and change. XL Deploy supports *global* and *local* permissions. 
+Permissions are rights in XL Deploy. Permissions control what actions a user can execute in XL Deploy, but also which parts of the repository the user can see and change. XL Deploy supports *global* and *local* permissions.
 
 ### Global permissions
 

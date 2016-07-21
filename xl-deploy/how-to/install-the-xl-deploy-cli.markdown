@@ -10,7 +10,7 @@ tags:
 - cli
 - python
 - jython
-weight: 111
+weight: 241
 ---
 
 You can install the XL Deploy command-line interface (CLI) on any remote computer and connect to the XL Deploy server.

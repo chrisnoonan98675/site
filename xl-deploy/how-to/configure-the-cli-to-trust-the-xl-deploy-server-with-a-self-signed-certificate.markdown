@@ -8,7 +8,7 @@ tags:
 - system administration
 - security
 - cli
-weight: 112
+weight: 242
 ---
 
 If you configured your XL Deploy server to use a [self-signed certificate](/xl-deploy/how-to/install-xl-deploy.html#step-3-generate-a-self-signed-certificate), you will notice that trying to connect with a "vanilla" command-line interface (CLI) configuration will fail:

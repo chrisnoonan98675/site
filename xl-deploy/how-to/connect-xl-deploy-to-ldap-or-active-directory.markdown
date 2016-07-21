@@ -9,6 +9,7 @@ tags:
 - active directory
 - security
 - user management
+weight: 263
 ---
 
 This tutorial describes how to connect XL Deploy to your LDAP or Active Directory.
@@ -71,8 +72,8 @@ Restart XL Deploy and ensure that the server starts without any exceptions.
 
 Add the following code to `deployit-security.xml`. Replace the placeholders with your credentials.
 <pre>
-&lt;bean id="ldapProvider" class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider"&gt; 
-  &lt;constructor-arg&gt; 
+&lt;bean id="ldapProvider" class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider"&gt;
+  &lt;constructor-arg&gt;
     &lt;bean class="org.springframework.security.ldap.authentication.BindAuthenticator"&gt;
       &lt;constructor-arg ref="ldapServer" /&gt;
         &lt;property name="userSearch"&gt;
@@ -101,8 +102,8 @@ Add the following code to `deployit-security.xml`. Replace the placeholders with
 
 Also, locate the following section and add `ldapProvider` as an authentication provider:
 <pre>
-&lt;security:authentication-manager alias="authenticationManager"&gt; 
-  &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt; 
+&lt;security:authentication-manager alias="authenticationManager"&gt;
+  &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt;
   &lt;security:authentication-provider ref="jcrAuthenticationProvider" /&gt;
   <mark>&lt;security:authentication-provider ref="ldapProvider" /&gt;</mark>
 &lt;/security:authentication-manager&gt;
@@ -144,8 +145,8 @@ This sample `deployit-security.xml` file shows the required LDAP configuration i
 	 &lt;/property&gt;
  &lt;/bean&gt;</mark>
 
- <mark>&lt;bean id="ldapProvider" class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider"&gt; 
-  &lt;constructor-arg&gt; 
+ <mark>&lt;bean id="ldapProvider" class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider"&gt;
+  &lt;constructor-arg&gt;
    &lt;bean class="org.springframework.security.ldap.authentication.BindAuthenticator"&gt;
 	 &lt;constructor-arg ref="ldapServer" /&gt;
 	 &lt;property name="userSearch"&gt;
@@ -156,7 +157,7 @@ This sample `deployit-security.xml` file shows the required LDAP configuration i
 		&lt;/bean&gt;
 	 &lt;/property&gt;
    &lt;/bean&gt;
-  &lt;/constructor-arg&gt; 
+  &lt;/constructor-arg&gt;
   &lt;constructor-arg&gt;
    &lt;bean class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator"&gt;
 	 &lt;constructor-arg ref="ldapServer" /&gt;
@@ -169,12 +170,12 @@ This sample `deployit-security.xml` file shows the required LDAP configuration i
   &lt;/constructor-arg&gt;
  &lt;/bean&gt;</mark>
 
- &lt;bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/&gt; 
- &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/&gt; 
+ &lt;bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/&gt;
+ &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/&gt;
 
- &lt;security:authentication-manager alias="authenticationManager"&gt; 
-   &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt; 
-   &lt;security:authentication-provider ref="jcrAuthenticationProvider" /&gt; 
+ &lt;security:authentication-manager alias="authenticationManager"&gt;
+   &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt;
+   &lt;security:authentication-provider ref="jcrAuthenticationProvider" /&gt;
    <mark>&lt;security:authentication-provider ref="ldapProvider" /&gt;</mark>
  &lt;/security:authentication-manager&gt;
 

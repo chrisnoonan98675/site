@@ -16,6 +16,7 @@ tags:
 - cloud
 since:
 - XL Deploy 5.5.0
+weight: 331
 ---
 
 This topic provides a step-by-step example that will help you get started with the XL Deploy [provisioning feature](/xl-deploy/concept/provisioning-through-xl-deploy.html). This example shows how to provision a cloud-based environment running [Apache Tomcat](http://tomcat.apache.org/).

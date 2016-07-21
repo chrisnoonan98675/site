@@ -1,21 +1,22 @@
 ---
-title: Using the Jython step delegate in XL Deploy
+title: Using the Jython step delegate in control tasks
 categories:
 - xl-deploy
 subject:
-- Customization
+- Control task
 tags:
 - control task
 - task
 - jython
 - python
+weight: 143
 ---
 
 In XL Deploy, you can define [control tasks](/xl-deploy/how-to/using-control-tasks-in-xl-deploy.html) that allow you to execute actions from the XL Deploy GUI or CLI. One way to create a custom control task is to use a [delegate](/xl-deploy/how-to/create-a-custom-control-task.html). XL Deploy includes a predefined delegate called `JythonDelegate` that accepts a Jython script that it will execute. This topic describes how to use `JythonDelegate` to create a custom control task that prints all environment variables on the host.
 
 ## Define a control task
 
-First, define a control task in the `XL_DEPLOY/ext/synthetic.xml` file. This example adds a method to `overthere.LocalHost` using a type modification. The `method` tag is used to define a control task named `showEnvironmentVariables`. The `delegate` parameter defines the type of delegate and the `script` parameter defines the Python script that will perform the action.
+First, define a control task in the `<XLDEPLOY_SERVER_HOME>/ext/synthetic.xml` file. This example adds a method to `overthere.LocalHost` using a type modification. The `method` tag is used to define a control task named `showEnvironmentVariables`. The `delegate` parameter defines the type of delegate and the `script` parameter defines the Python script that will perform the action.
 
 {% highlight xml %}
 <type-modification type="overthere.LocalHost">
@@ -56,7 +57,7 @@ The `showEnvironmentVariables` control task defined above prints all environment
 
 ### Update the control task
 
-Change the definition in `XL_DEPLOY/ext/synthetic.xml` as follows:
+Change the definition in `<XLDEPLOY_SERVER_HOME>/ext/synthetic.xml` as follows:
 
 {% highlight xml %}
 <type-modification type="overthere.LocalHost">
