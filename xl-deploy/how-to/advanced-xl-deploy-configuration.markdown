@@ -46,7 +46,7 @@ You must restart the server and reload the GUI after changing these settings.
 
 ### Advanced threading settings
 
-You can configure the following advanced threading  settings in `<XLDEPLOY_HOME>/conf/deployit.conf`:
+You can configure the following advanced threading settings in `<XLDEPLOY_HOME>/conf/deployit.conf`:
 
 {:.table .table-striped}
 | Setting | Description | Default |
@@ -58,4 +58,4 @@ You can configure the following advanced threading  settings in `<XLDEPLOY_HOME>
 
 You must restart the server after changing these settings.
 
-**Note:** In XL Deploy 5.0.0 and later, the execution engine uses a more advanced mechanism for thread management. Therefore, it should not be necessary to change these advanced settings.
+**Tip:** For information about tuning the task execution engine in XL Deploy 6.0.0 and later, refer to [Configure the task execution engine](/xl-deploy/how-to/configure-the-task-execution-engine.html).
