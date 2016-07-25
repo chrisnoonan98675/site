@@ -11,9 +11,9 @@ tags:
 - system administration
 ---
 
-XL Release includes fine-grained access control that ensures the security of your releases. In XL Release, you assign users and/or LDAP groups a [*role*](/xl-release/how-to/configure-roles.html), which determines the global permissions that they have. Global permissions apply across the entire XL Release system.
+XL Release includes fine-grained access control that ensures the security of your releases. In XL Release, you assign internal and external users to [*roles*](/xl-release/how-to/configure-roles.html) that determine the global permissions that they have. Global permissions apply across the entire XL Release system.
 
-To configure permissions for roles, select **Settings** > **Permissions** from the top menu. The Permissions page is only available to users with the *Admin* or *Edit Security* permission.
+To configure permissions for roles, select **Settings** > **Permissions** from the top menu. The Permissions page is only available to users who have the *Admin* or *Edit Security* global permission.
 
 ![Permissions](../images/global-permissions.png)
 
@@ -32,6 +32,9 @@ The following global permissions are available:
 
 Click **Save** to apply your changes. Click **Reset** to discard your changes and reload the current settings from the server.
 
-## Release permissions
+## Template and release permissions
 
-In addition to global permissions, security can be enforced on the release level. On releases and templates, other permissions apply and are granted to teams that are defined in the release. See [release permissions](/xl-release/how-to/configure-permissions-for-a-release.html) and [template permissions](/xl-release/how-to/create-a-release-template.html#template-permissions) for an overview of these permissions.
+In addition to global security, you can enforce security on the template level and the release level. For more information, refer to:
+
+* [Template permissions](/xl-release/how-to/create-a-release-template.html#template-permissions)
+* [Release permissions](/xl-release/how-to/configure-release-teams-and-permissions.html)

@@ -11,13 +11,18 @@ tags:
 - system administration
 ---
 
-XL Release includes fine-grained access control that ensures the security of your releases. In XL Release, you assign users and/or LDAP groups a role, which determines the [global permissions](/xl-release/how-to/configure-permissions.html) that they have. A user or a group that is part of a role is called a principal.
+XL Release has a role-based security system with two types of users:
 
-To configure roles, select **Settings** > **Roles** from the top menu. The Roles page is only available to users with the *Admin* or *Edit Security* permission.
+* [_Internal users_](/xl-release/how-to/configure-user-settings.html) that are managed by XL Release
+* [_External users_](/xl-release/how-to/configure-ldap-security-for-xl-release.html) that are maintained in an LDAP repository such as Active Directory
+
+You assign internal users, external users, and external user groups to _roles_, which determine the [global permissions](/xl-release/how-to/configure-permissions.html) that they have. The technical term for a user or group that is assigned to a role is a _principal_.
+
+To configure roles, select **Settings** > **Roles** from the top menu. The Roles page is only available to users who have the *Admin* or *Edit Security* global permission.
 
 ![Roles](../images/roles.png)
 
-A role is defined by the principals it contains. This is a comma-separated list of user IDs or groups from an [LDAP repository](/xl-release/how-to/configure-ldap-security-for-xl-release.html). For example, in the screenshot above, users *john* and *mary* have the *Administrators* role, while all users in the *all-it* group are members of the *Users* role.
+In this example, the users *john* and *mary* have the *Administrators* role, while all users in the *all-it* group are members of the *Users* role.
 
 You can give a role any name you want; there are no predefined role names.
 
