@@ -9,7 +9,7 @@ tags:
 - system administration
 ---
 
-To configure XL Release, select **Settings** > **General settings** from the top menu. The General settings page is only available to users with the [*Admin*](/xl-release/how-to/configure-permissions.html) permission.
+To configure XL Release, select **Settings** > **General settings** from the top menu. The General settings page is only available to users who have the *Admin* [global permission](/xl-release/how-to/configure-permissions.html).
 
 ## Reports
 
@@ -35,7 +35,7 @@ In XL Release 4.7.0 and later, the [archiving feature](/xl-release/how-to/config
 
 ## Archiving
 
-In XL Release 4.7.0 and later, you can configure XL Release to archive finished (that is, completed and aborted) releases. These releases are moved to a separate internal *archive database* so that the active repository can be kept relatively small. 
+In XL Release 4.7.0 and later, you can configure XL Release to archive finished (that is, completed and aborted) releases. These releases are moved to a separate internal *archive database* so that the active repository can be kept relatively small.
 
 Archived releases are available in reports and you can search for them from them Release Value Stream Mapping screen. However, you cannot search for them in the Release Overview screen.
 
