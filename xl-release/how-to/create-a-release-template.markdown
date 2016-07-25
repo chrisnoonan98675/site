@@ -55,28 +55,34 @@ To discard your changes without saving, click **Cancel**.
 
 ## Teams in templates
 
-When you create a template, the *Template Owner* team is automatically created. This team contains everyone who has owning rights on the template. Refer to [Configure teams for a release](/xl-release/how-to/configure-teams-for-a-release.html#predefined-teams) for more information.
+In XL Release, a *release team* allows you to group users with the same role, so you can assign tasks in the release to the team. You can also configure template-level and release-level permissions on the team level. For information about teams, refer to [Configure release teams and permissions](/xl-release/how-to/configure-release-teams-and-permissions.html).
 
 ## Template permissions
 
-Templates have two sets of permissions. The first table shows permissions that apply to the template itself.
+Template permissions determine who can do what in a release template.
+
+To set template permissions, open a template and select **Permissions** from the **Show** menu. The Permissions page is only available to users who have the *Edit Security* permission on the template or who have the *Edit Security* [global permission](/xl-release/how-to/configure-xl-release-permissions.html).
 
 ![Template Permissions](../images/template-permissions.png)
+
+The following permissions are available for templates:
 
 {:.table .table-striped}
 | Permission | Description |
 | ---------- | ----------- |
-| Create Release | Users can create a release from the template |
-| View Template | Users can see the template in the template overview |
-| Edit Template | Users can change the template by adding tasks and phases and changing them |
-| Edit Security | Users can edit teams and permissions on the template |
+| Create Release | Users can create a release from the template. |
+| View Template | Users can see the template in the template overview. |
+| Edit Template | Users can change the template by adding tasks and phases and changing them. |
+| Edit Security | Users can edit teams and permissions on the template. |
 
-The second table contains permissions that are copied when creating a release. This allows you to define teams and permissions for the release beforehand. See [Configure release permissions](/xl-release/how-to/configure-permissions-for-a-release.html) for an overview of these permissions.
+## Release permissions
+
+Release permissions determine who can do what in a release. For information about these permissions, refer to [Configure release teams and permissions](/xl-release/how-to/configure-release-teams-and-permissions.html).
 
 ## Versioning templates
 
 Template names do not have to be unique because every template has a [unique ID](/xl-release/how-to/how-to-find-ids.html#releases-and-templates) such as `Release29994650`. If you want to create a new version of a template, it is recommended that you do so by:
 
-1. Going go the template overview
+1. Going to the template overview
 2. Clicking **Copy** next to the desired template
 3. Adding a version number to the name; for example, _Consumer Portal Release Process V4_

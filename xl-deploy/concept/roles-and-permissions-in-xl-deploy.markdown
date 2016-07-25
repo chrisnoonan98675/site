@@ -14,23 +14,23 @@ tags:
 weight: 260
 ---
 
-XL Deploy supports a fine-grained access control scheme to ensure the security of your middleware and deployments. XL Deploy's security mechanism is based on the concepts of _principals_, _roles_, and _permissions_.
+XL Deploy includes fine-grained access control that ensures the security of your middleware and deployments. The security mechanism is based on the concepts of _principals_, _roles_, and _permissions_.
 
 ## Principals
 
-A security principal is an entity that can be authenticated in XL Deploy. Out of the box, XL Deploy supports only users as principals; users are authenticated by means of a username and password. When using an LDAP repository, users and groups in LDAP are also treated as principals.
+A security principal is an entity that can be authenticated in XL Deploy. Out of the box, XL Deploy supports only users as principals; users are authenticated by means of a user name and password. When using an LDAP repository, users and groups in LDAP are also treated as principals.
 
 For more information about LDAP, refer to [How to connect to your LDAP or Active Directory](/xl-deploy/how-to/connect-ldap-or-active-directory.html).
 
 ## Roles
 
-Roles are groups of principals that have certain permissions in XL Deploy. Roles are identified by a name that often indicates the role the principals have within the organization (such as 'deployers'). In XL Deploy, permissions can only be granted to or revoked from a role.
+Roles are groups of principals that have certain permissions in XL Deploy. Roles are usually identified by a name that indicates the role the principals have within the organization; for example, _deployers_. In XL Deploy, permissions can only be granted to or revoked from a role.
 
-When permissions are granted, all principals that have the role are allowed to perform some action or access repository entities. Granted rights can be revoked again to prevent the action in the future.
+When permissions are granted, all principals that have the role are allowed to perform some action or access repository entities. You can also revoke granted rights to prevent the action in the future.
 
 ## Permissions
 
-Permissions are rights in XL Deploy. Permissions control what actions a user can execute in XL Deploy, but also which parts of the repository the user can see and change. XL Deploy supports *global* and *local* permissions.
+Permissions are rights in XL Deploy. Permissions control what actions a user can execute in XL Deploy, as well as which parts of the repository the user can see and change. XL Deploy supports *global* and *local* permissions.
 
 ### Global permissions
 

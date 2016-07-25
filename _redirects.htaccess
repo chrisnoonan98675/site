@@ -21,17 +21,17 @@ Redirect 301 /xl-release/help/pipeline.html /xl-release/concept/xl-release-pipel
 Redirect 301 /xl-release/help/release-flow-editor.html /xl-release/how-to/using-the-release-flow-editor.html
 Redirect 301 /xl-release/help/release-properties.html /xl-release/how-to/configure-properties-for-a-release.html
 Redirect 301 /xl-release/help/release-overview.html /xl-release/concept/xl-release-release-overview.html
-Redirect 301 /xl-release/help/teams.html /xl-release/how-to/configure-teams-for-a-release.html
+Redirect 301 /xl-release/help/teams.html /xl-release/how-to/configure-release-teams-and-permissions.html
 Redirect 301 /xl-release/help/teams-in-templates.html /xl-release/how-to/create-a-release-template.html#teams-in-templates
 Redirect 301 /xl-release/help/planner.html /xl-release/how-to/using-the-xl-release-planner.html
 Redirect 301 /xl-release/help/release-summary.html /xl-release/how-to/using-the-release-summary.html
 Redirect 301 /xl-release/help/release-dashboard.html /xl-release/how-to/using-the-release-dashboard.html
 Redirect 301 /xl-release/help/release-grid.html /xl-release/how-to/using-the-table-view.html
 Redirect 301 /xl-release/help/reports.html /xl-release/concept/reports-in-xl-release.html
-Redirect 301 /xl-release/help/global-permissions.html /xl-release/how-to/configure-xl-release-permissions.html
-Redirect 301 /xl-release/help/release-permissions.html /xl-release/how-to/configure-permissions-for-a-release.html
-Redirect 301 /xl-release/help/roles.html /xl-release/how-to/configure-xl-release-roles.html
-Redirect 301 /xl-release/help/task-access.html /xl-release/how-to/configure-xl-release-task-access.html
+Redirect 301 /xl-release/help/global-permissions.html /xl-release/how-to/configure-permissions.html
+Redirect 301 /xl-release/help/release-permissions.html /xl-release/how-to/configure-release-teams-and-permissions.html
+Redirect 301 /xl-release/help/roles.html /xl-release/how-to/configure-roles.html
+Redirect 301 /xl-release/help/task-access.html /xl-release/how-to/configure-task-access.html
 Redirect 301 /xl-release/help/template-permissions.html /xl-release/how-to/create-a-release-template.html#template-permissions
 Redirect 301 /xl-release/help/users.html /xl-release/how-to/configure-xl-release-user-settings.html
 Redirect 301 /xl-release/help/general-settings.html /xl-release/how-to/configure-xl-release-general-settings.html
@@ -39,7 +39,7 @@ Redirect 301 /xl-release/help/smtp-server.html /xl-release/how-to/configure-smtp
 Redirect 301 /xl-release/help/task-overview.html /xl-release/concept/xl-release-task-overview.html
 Redirect 301 /xl-release/help/triggers.html /xl-release/how-to/create-a-release-trigger.html
 Redirect 301 /xl-release/help/creating-custom-trigger.html /xl-release/how-to/create-a-custom-trigger-type.html
-Redirect 301 /xl-release/help/creating-a-template.html /xl-release/how-to/create-a-release-template.html#creating-a-template
+Redirect 301 /xl-release/help/creating-a-template.html /xl-release/how-to/create-a-release-template.html#create-a-template
 Redirect 301 /xl-release/help/template-overview.html /xl-release/how-to/create-a-release-template.html#template-overview
 Redirect 301 /xl-release/help/release-value-stream.html /xl-release/concept/release-value-stream-report.html
 Redirect 301 /xl-release/help/variables.html /xl-release/how-to/create-release-variables.html
@@ -217,6 +217,8 @@ Redirect 301 /xl-release/how-to/use-markdown-in-xl-release.html /xl-release/how-
 Redirect 301 /xl-release/concept/xl-release-directory-structure.html /xl-release/how-to/install-xl-release.html
 Redirect 301 /xl-release/how-to/start-xl-release-in-the-background.html /xl-release/how-to/start-xl-release.html
 Redirect 301 /xl-release/how-to/enable-granular-audit-logging.html /xl-release/concept/logging-in-xl-release.html
+Redirect 301 /xl-release/how-to/configure-permissions-for-a-release.html /xl-release/how-to/configure-release-teams-and-permissions.html
+Redirect 301 /xl-release/how-to/configure-teams-for-a-release.html /xl-release/how-to/configure-release-teams-and-permissions.html
 
 # XL TestView topics
 
