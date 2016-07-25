@@ -61,7 +61,7 @@ In XL Release, a *release team* allows you to group users with the same role, so
 
 Template permissions determine who can do what in a release template.
 
-To set template permissions, open a template and select **Permissions** from the **Show** menu. The Permissions page is only available to users who have the *Edit Security* permission on the template or who have the *Edit Security* [global permission](/xl-release/how-to/configure-xl-release-permissions.html).
+To set template permissions, open a template and select **Permissions** from the **Show** menu. The Permissions page is only available to users who have the *Edit Security* permission on the template or who have the *Edit Security* [global permission](/xl-release/how-to/configure-permissions.html).
 
 ![Template Permissions](../images/template-permissions.png)
 

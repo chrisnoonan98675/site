@@ -29,7 +29,7 @@ To access a report, select it from the **Reports** list in the top menu bar.
 
 ## Report permissions
 
-Reports are available to users with the [*view reports* permission](/xl-release/how-to/configure-xl-release-permissions.html). Also, each report only shows the releases that the user has permission to view.
+Reports are available to users with the [*view reports* permission](/xl-release/how-to/configure-permissions.html). Also, each report only shows the releases that the user has permission to view.
 
 ## Report caching
 

@@ -33,7 +33,7 @@ Template permissions determine who can do what in a release template. For inform
 
 Release permissions determine who can do what in a release. These permissions are copied from the template when you create a release based on it. This allows you to define teams and permissions for the release before running it.
 
-To set release permissions, open a template or release and select **Permissions** from the **Show** menu. The Permissions page is only available to users who have the *Edit Security* permission on the template or release or who have the *Edit Security* [global permission](/xl-release/how-to/configure-xl-release-permissions.html).
+To set release permissions, open a template or release and select **Permissions** from the **Show** menu. The Permissions page is only available to users who have the *Edit Security* permission on the template or release or who have the *Edit Security* [global permission](/xl-release/how-to/configure-permissions.html).
 
 ![Release Permissions](../images/release-permissions.png)
 
