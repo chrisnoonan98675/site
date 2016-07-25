@@ -58,7 +58,7 @@ You can specify basic HTTP credentials in the URI. For example:
 
 To connect using HTTPS with a self-signed SSL certificate, you must configure the JVM parameters of XL Deploy to trust your certificate.
 
-XL Deploy looks up the artifact during initial deployments and update deployments. If the URL returns a 404 error, the lookup will return an error. In XL Deploy 5.5.2 and later, you can configure XL Deploy to serve an empty artifact so the deployment can continue anyway; however, note that this option is *not* recommended, as it can cause issues that are hard to debug. To enable this option, set `xl-platform.extensions.resolver.http.ignoreMissingArtifact` in the `conf/extensions.conf` file:
+XL Deploy looks up the artifact during initial deployments and update deployments. If the URL returns a 404 error, the lookup will return an error. In XL Deploy 5.5.3 and later, you can configure XL Deploy to serve an empty artifact so the deployment can continue anyway; however, note that this option is *not* recommended, as it can cause issues that are hard to debug. To enable this option, set `xl-platform.extensions.resolver.http.ignoreMissingArtifact` in the `conf/extensions.conf` file:
 
     xl.repository.artifact.resolver.http.ignoreMissingArtifact = true
 
@@ -66,9 +66,9 @@ XL Deploy looks up the artifact during initial deployments and update deployment
 
 This example shows how you can create a deployment package with an externally stored artifact using the XL Deploy command-line interface (CLI):
 
-    admin > myApp = factory.configurationItem('Applications/myApp', 'udm.Application')
-    admin > repository.create(myApp)
-    admin > myApp1_0 = factory.configurationItem('Applications/myApp/1.0', 'udm.DeploymentPackage')
-    admin > repository.create(myApp1_0)
-    admin > myFile = factory.configurationItem('Applications/myApp/1.0/myFile', 'file.File', {'fileUri': 'http://example.com.com/artifact.war'})
-    admin > repository.create(myFile)
+    myApp = factory.configurationItem('Applications/myApp', 'udm.Application')
+    repository.create(myApp)
+    myApp1_0 = factory.configurationItem('Applications/myApp/1.0', 'udm.DeploymentPackage')
+    repository.create(myApp1_0)
+    myFile = factory.configurationItem('Applications/myApp/1.0/myFile', 'file.File', {'fileUri': 'http://example.com.com/artifact.war'})
+    repository.create(myFile)
