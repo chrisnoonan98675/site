@@ -26,7 +26,7 @@ The following global permissions are available:
 | Login | Permission to log in to XL Release  |
 | Edit Security | Access to the Roles and Permissions pages and permission to edit security on releases and templates |
 | Create Template | Permission to create a new template |
-| Create Release | Permission to create a release from any template; also see the [Create Release](/xl-release/how-to/configure-permissions-for-a-release.html) permission on a single release |
+| Create Release | Permission to create a release from any template; also see the [Create Release](/xl-release/how-to/create-a-release-template.html#template-permissions) template permission |
 | View Reports | Permission to review reports |
 | Edit Global Variables | Permission to edit [global variables](/xl-release/how-to/configure-global-variables.html) (available in XL Release 4.8.0 and later) |
 
@@ -37,4 +37,4 @@ Click **Save** to apply your changes. Click **Reset** to discard your changes an
 In addition to global security, you can enforce security on the template level and the release level. For more information, refer to:
 
 * [Template permissions](/xl-release/how-to/create-a-release-template.html#template-permissions)
-* [Release permissions](/xl-release/how-to/configure-release-teams-and-permissions.html)
+* [Release permissions](/xl-release/how-to/configure-release-teams-and-permissions.html#release-permissions)
