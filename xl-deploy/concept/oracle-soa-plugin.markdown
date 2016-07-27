@@ -3,12 +3,13 @@ title: Introduction to the XL Deploy Oracle SOA plugin
 categories:
 - xl-deploy
 subject:
-- Oracle SOA
+- WebLogic
 tags:
 - soa
 - oracle
 - plugin
 - middleware
+- weblogic
 since:
 - XL Deploy 5.0.0
 ---
