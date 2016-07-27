@@ -72,6 +72,7 @@
 /xl-deploy-bigip-plugin/latest/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.5.x/bigipPluginManual.html
 /xl-deploy-wmq-plugin/latest/wmqPluginManual.html : /xl-deploy-wmq-plugin/5.1.x/wmqPluginManual.html
 /xl-deploy-netscaler-plugin/latest/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/5.5.x/netscalerPluginManual.html
+/xl-deploy-xld-oracle-soa-plugin/latest/oracleSoaPluginManual.html : /xl-deploy-xld-oracle-soa-plugin/5.0.x/oracleSoaPluginManual.html
 
 # XL Deploy tools
 
