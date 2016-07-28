@@ -92,7 +92,7 @@ A `ProvisioningPackage` consists of a `Provisionable` and a `Template`.
 {% highlight python %}
 template = repository.create(factory.configurationItem(pp.id + "/ubuntu-host", "template.overthere.SshHost", {
   "instanceId":"Infrastructure/ubuntu",
-  "address":"{{%publicHostname%}}",
+  "address":"{% raw %}{{%publicHostname%}}{% endraw %}",
   "username":"ubuntu",
   "sudoUsername":"root",
   "connectionType":"SUDO",
