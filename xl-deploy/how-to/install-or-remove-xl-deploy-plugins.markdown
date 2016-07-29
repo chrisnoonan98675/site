@@ -58,6 +58,7 @@ To install a plugin:
 1. [Shut down](/xl-deploy/how-to/shut-down-xl-deploy.html) the XL Deploy server.
 2. Copy the plugin XLDP or JAR file to the `XLDEPLOY_HOME/plugins` directory.
 3. [Start](/xl-deploy/how-to/start-xl-deploy.html) the XL Deploy server.
+4. Refresh the XL Deploy GUI in your browser.
 
 ## Remove a plugin
 
@@ -66,3 +67,4 @@ To remove a plugin:
 1. [Shut down](/xl-deploy/how-to/shut-down-xl-deploy.html) the XL Deploy server.
 2. Delete the plugin XLDP or JAR file from the `XLDEPLOY_HOME/plugins` directory.
 3. [Start](/xl-deploy/how-to/start-xl-deploy.html) the XL Deploy server.
+4. Refresh the XL Deploy GUI in your browser.
