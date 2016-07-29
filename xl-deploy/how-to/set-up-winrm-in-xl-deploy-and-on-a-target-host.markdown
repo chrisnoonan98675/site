@@ -26,6 +26,7 @@ To use the WINRM_INTERNAL or the WINRM_NATIVE connection type, set up <a href="h
 		winrm set winrm/config/service/Auth @{Basic="true"}
 		winrm set winrm/config/service @{AllowUnencrypted="true"}
 		winrm set winrm/config/winrs @{MaxMemoryPerShellMB="1024"}
+		winrm set winrm/config/client @{TrustedHosts="*"}
 
    When using the WINRM_NATIVE connection type:
 
@@ -61,6 +62,16 @@ To use the WINRM_INTERNAL or the WINRM_NATIVE connection type, set up <a href="h
 		winrm set winrm/config/winrs @{MaxMemoryPerShellMB="1024"}
 
 	**Note:** This is not supported by WinRM 3.0, which is included with the Windows Management Framework 3.0. This update [has been temporarily removed from Windows Update](http://blogs.msdn.com/b/powershell/archive/2012/12/20/windows-management-framework-3-0-compatibility-update.aspx) because of numerous incompatibility issues with other Microsoft products. However, if you have already installed WMF 3.0 and cannot downgrade, [Microsoft Knowledge Base article #2842230](http://support.microsoft.com/kb/2842230) describes a hotfix that can be installed to re-enable the `MaxMemoryPerShellMB` setting.
+
+1. Configure WinRM to accept connections from trusted hosts:
+	
+		winrm set winrm/config/client @{TrustedHosts="*"}
+
+	**Note:** This is not always required and the command as given will accept connections from all hosts.  This command can be refined by specifying hostnames e.g.:
+	
+		winrm set winrm/config/client @{TrustedHosts="host1,host2..."}
+
+
 1. To use the WINRM_INTERNAL or WINRM_NATIVE connection type with HTTPS (that is, with `winrmEnableHttps` set to true), follow these steps:
 
 	(Optional) Create a self-signed certificate for the remote host by installing `selfssl.exe` from [the IIS 6 resource kit](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=17275) and running the command below or by following the instructions [in this blog by Hans Olav](http://www.hansolav.net/blog/SelfsignedSSLCertificatesOnIIS7AndCommonNames.aspx):
@@ -115,3 +126,7 @@ For both connection types, local accounts must be specified without an at-sign (
 ## Password limitations
 
 Due to a limitation of the `winrs` command, passwords containing a single quotation mark (`'`) or a double quotation mark (`"`) cannot be used when using the WINRM_NATIVE connection type.
+
+## Other useful information
+
+Checkout other [useful WinRM commands](useful-winrm-commands.html)
