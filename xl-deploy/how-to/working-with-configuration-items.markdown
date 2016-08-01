@@ -84,6 +84,10 @@ You can only compare versions of one specific CI against itself. It is not possi
 
 The XL Deploy Compare feature allows you to compare two or more CI trees. That means, in addition to comparing the chosen configuration items, it recursively traverses the CI tree and compares each CI from one tree with matching configuration items from other trees. For information about using the Compare feature, refer to [Compare configuration items](/xl-deploy/how-to/compare-configuration-items.html).
 
+## CIs and security
+
+Access to CIs is determined by local permissions set on Repository nodes. For information about local permissions, refer to [Roles and permissions in XL Deploy](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#local-permissions).
+
 ## Customizing CI types
 
 For information about the ways that you can customize the XL Deploy CI type system, refer to:

@@ -53,13 +53,7 @@ The following table shows the global permissions that XL Deploy supports.
 
 ### Local permissions
 
-In XL Deploy, you can set local security permissions on repository nodes (such as Applications or Environments) and on directories in the repository. The security settings on a lower level overwrite all permissions from a higher level. There is no inheritance from higher levels, combining settings from various directories.
-
-If there are no permissions set on a directory, the permission settings from the parent are taken (recursively). So if you have a deep hierarchy of nested directories, but you do not set any permissions on them, XL Deploy will take the permissions set on the root node.
-
-All directories higher up in a hierarchy must provide read permission for the roles defined in the lowest directory. Otherwise the permissions themselves cannot be read. This analogous to file permissions on Unix directories.
-
-For example, if you have read permission on the **Environments** root node, you will have read permissions on the directories and environments that it contains. If the **Environments/production** directory has its own permissions set, your access to the **Environments/production/PROD-1** environment depends on the permissions set on the **Environments/production** directory CI itself.
+In XL Deploy, you can set local security permissions on repository nodes (such as Applications or Environments) and on directories in the repository.
 
 The following table shows the local permissions that XL Deploy supports.
 
@@ -76,3 +70,11 @@ The following table shows the local permissions that XL Deploy supports.
 | `repo#edit` | The right to edit (create and modify) CIs in the repository. The user must also have read access to CIs to be able to edit them. Applies only for the CIs within the containing directory. |
 | `task#assign` | The right to transfer a task to another user. |
 | `task#skip_step` | The right to skip steps in the generated step list before starting a deployment. Applies only for deployments executed on environment CIs in the containing directory. |
+
+### How local permissions work in the hierarchy
+
+The security settings on a lower level overwrite all permissions from a higher level. There is no inheritance from higher levels, combining settings from various directories. If there are no permissions set on a directory, the permission settings from the parent are taken (recursively). So if you have a deep hierarchy of nested directories, but you do not set any permissions on them, XL Deploy will take the permissions set on the root node.
+
+All directories higher up in a hierarchy must provide read permission for the roles defined in the lowest directory. Otherwise, the permissions themselves cannot be read. This analogous to file permissions on Unix directories.
+
+For example, if you have read permission on the **Environments** root node, you will have read permissions on the directories and environments that it contains. If the **Environments/production** directory has its own permissions set, your access to the **Environments/production/PROD-1** environment depends on the permissions set on the **Environments/production** directory CI itself.
