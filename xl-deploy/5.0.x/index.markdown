@@ -36,7 +36,7 @@ product-id: xl-deploy
 * [JBoss Application Server 5 and 6 plugin](/xl-deploy-jbossas-plugin/5.0.x/jbossPluginManual.html)
 * [JBoss Application Server 7 and up plugin](/xl-deploy-jbossdm-plugin/5.0.x/jbossDomainPluginManual.html)
 * [Oracle Service Bus plugin](/xl-deploy-osb-plugin/5.0.x/osbPluginManual.html)
-* [Oracle Service-Oriented Architecture (SOA)](/xl-deploy-xld-oracle-soa-plugin/5.0.x/oracleSoaPluginManual.html)
+* [Oracle Service-Oriented Architecture (SOA) plugin](/xl-deploy-xld-oracle-soa-plugin/5.0.x/oracleSoaPluginManual.html)
 * [WebLogic Application Server plugin](/xl-deploy-wls-plugin/5.0.x/wlsPluginManual.html)
 * [WebSphere Application Server plugin](/xl-deploy-was-plugin/5.0.x/wasPluginManual.html)
 * [WebSphere Process Server plugin](/xl-deploy-wps-plugin/5.0.x/wpsPluginManual.html)
