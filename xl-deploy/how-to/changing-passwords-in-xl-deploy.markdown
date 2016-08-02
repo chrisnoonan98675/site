@@ -35,12 +35,12 @@ If you've forgotten the password for the `admin` user and you do not know the pa
 
 ## Change the encryption key password
 
-Passwords that are stored in the repository are encrypted with a secret key. This password encryption key is stored in a keystore file called `conf/repository-keystore.jceks`. This keystore file is optionally protected with a password. If a password is set, you need to enter the password when the XL Deploy Server starts up.
+Passwords that are stored in the repository are encrypted with a secret key. This password encryption key is stored in a keystore file called `conf/repository-keystore.jceks`. This keystore file is optionally protected with a password. If a password is set, you need to enter the password when the XL Deploy server starts up.
 
 To change the keystore password, you can use the `keytool` utility that is part of the Java JDK distribution. Usage:
 
     keytool -storepasswd -keystore conf/repository-keystore.jceks -storetype jceks
 
-There is one restriction: `keytool` refuses to read or set passwords that are shorter than 6 characters. If you want to change a keystore with an empty or short password, download the third-party application KeyStore Explorer.
+There is one restriction: `keytool` refuses to read or set passwords that are shorter than 6 characters. If you want to change a keystore with an empty or short password, use the third-party application [KeyStore Explorer](http://www.keystore-explorer.org/).
 
-**Note:** `repository-keystore.jceks` is one of the two keystore concepts in XL Deploy. This keystore only contains the key used for encryption of passwords in the repository. If you use HTTPS, XL Deploy will use a second keystore file to store the self-signed certificate.
+**Note:** `repository-keystore.jceks` is one of two keystore concepts in XL Deploy. This keystore only contains the key used for encryption of passwords in the repository. If you use [HTTPS](/xl-deploy/how-to/install-xl-deploy.html#step-2-configure-secure-communication), XL Deploy will use a second keystore file to store the self-signed certificate.
