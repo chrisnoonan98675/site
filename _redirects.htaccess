@@ -91,7 +91,7 @@ Redirect 301 /xl-deploy/how-to/use-xl-deploy-garbage-collection.html /xl-deploy/
 Redirect 301 /xl-deploy/how-to/reset-admin-password-xl-deploy-server.html /xl-deploy/how-to/changing-passwords-in-xl-deploy.html
 Redirect 301 /xl-deploy/concept/xl-deploy-remoting-plugin.html /xl-deploy/concept/introduction-to-the-xl-deploy-remoting-plugin.html
 Redirect 301 /xl-deploy/how-to/perform-an-initial-deployment.html /xl-deploy/how-to/deploy-an-application.html
-Redirect 301 /xl-deploy/concept/advanced-xl-deploy-configuration.html /xl-deploy/how-to/advanced-xl-deploy-configuration.html
+Redirect 301 /xl-deploy/how-to/advanced-xl-deploy-configuration.html /xl-deploy/how-to/configure-the-task-execution-engine.html
 Redirect 301 /xl-deploy/how-to/common-xl-deploy-cli-tasks.html /xl-deploy/how-to/using-the-xl-deploy-cli.html
 Redirect 301 /xl-deploy/concept/installing-and-removing-xl-deploy-plugins.html /xl-deploy/how-to/install-or-remove-xl-deploy-plugins.html
 Redirect 301 /xl-deploy/how-to/using-the-plan-analyzer.html /xl-deploy/how-to/preview-the-deployment-plan.html
