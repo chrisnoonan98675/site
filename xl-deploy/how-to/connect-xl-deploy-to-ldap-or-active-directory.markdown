@@ -18,7 +18,7 @@ This tutorial describes how to connect XL Deploy to your LDAP or Active Director
 
 First, check with your system administrator for your LDAP credentials and the search filters that should be used to find users and group members in LDAP. The administrator should also provide the distinguished names (DNs) to use as starting points for the search.
 
-**Tip:** Use an LDAP browser such as [JXplorer](http://jxplorer.org/) to verify that the credentials are correct. You can also use an LDAP browser to locate a user that has permission to log in to XL Deploy and a group that should be a principal in Xl Deploy; you can then use these to determine the filter and DN.
+**Tip:** Use an LDAP browser such as [JXplorer](http://jxplorer.org/) to verify that the credentials are correct. You can also use an LDAP browser to locate a user that has permission to log in to XL Deploy and a group that should be a principal in XL Deploy; you can then use these to determine the filter and DN.
 
 You need the following information to update the `<XLDEPLOY_HOME>/conf/deployit-security.xml` file:
 
