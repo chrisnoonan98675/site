@@ -12,7 +12,7 @@ weight: 271
 
 ## Change the `admin` password
 
-XL Deploy's built-in `admin` user has administrative permissions. You set the `admin` password when you use the setup wizard to [install XL Deploy](install-xl-deploy.html). To change the `admin` password:
+XL Deploy's built-in `admin` user has administrative permissions. You set the `admin` password when you use the setup wizard to [install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html). To change the `admin` password:
 
 1. Ensure that the XL Deploy server is running.
 2. Start the XL Deploy command-line interface (CLI) as the `admin` user or as another user with administrative permissions.
@@ -23,7 +23,7 @@ XL Deploy's built-in `admin` user has administrative permissions. You set the `a
         security.modifyUser(adminUser)
 
 4. Stop the XL Deploy server.
-5. Set the new `admin` password in the `conf/deployit.conf` file.
+5. Set the new `admin` password in the `<XLDEPLOY_SERVER_HOME>/conf/deployit.conf` file.
 6. Restart XL Deploy.
 7. Test the credentials in the CLI using the following command:
 
@@ -35,9 +35,9 @@ If you've forgotten the password for the `admin` user and you do not know the pa
 
 ## Change the encryption key password
 
-Passwords that are stored in the repository are encrypted with a secret key. This password encryption key is stored in a keystore file called `conf/repository-keystore.jceks`. This keystore file is optionally protected with a password. If a password is set, you need to enter the password when the XL Deploy server starts up.
+Passwords that are stored in the repository are encrypted with a secret key. This password encryption key is stored in a keystore file called `<XLDEPLOY_SERVER_HOME>/conf/repository-keystore.jceks`. This keystore file is optionally protected with a password. If a password is set, you need to enter the password when the XL Deploy server starts up.
 
-To change the keystore password, you can use the `keytool` utility that is part of the Java JDK distribution. Usage:
+To change the keystore password, you can use the `keytool` utility that is part of the Java JDK distribution:
 
     keytool -storepasswd -keystore conf/repository-keystore.jceks -storetype jceks
 
