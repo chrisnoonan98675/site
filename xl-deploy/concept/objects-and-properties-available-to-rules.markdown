@@ -65,6 +65,8 @@ For full, dynamic read-write access to properties, you can access properties thr
 
 ## Accessing deployeds
 
+In the case of rules with the [`plan`](/xl-deploy/concept/getting-started-with-xl-deploy-rules.html#plan-scope) scope, the `deltas` object will return a list of [`delta`](/xl-deploy/5.5.x/javadoc/udm-plugin-api/com/xebialabs/deployit/plugin/api/deployment/specification/Deltas.html) objects. You can get the `deployed` object from each `delta`.
+
 The delta and delta specification expose the previous and current deployed. To access the deployed that is going to be updated, use the `deployedOrPrevious` property:
 
     depl = delta.deployedOrPrevious
