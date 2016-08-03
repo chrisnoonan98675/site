@@ -13,6 +13,25 @@ weight: 730
 
 A report is a representation of a set of test results in a graph or table. XL TestView supports *functional test results* and *performance test results*. These are the types of reports that XL TestView supports by default.
 
+## Aggregated bar chart
+
+<div class="row">
+<div class="col-md-2">
+<img src="images/icon-report-bar-chart.svg" alt="XL TestView bar chart report icon" width="100">
+</div>
+<div class="col-md-10">
+<p>Type: Functional</p>
+<p>Span: Latest test run in time span per test specification in a test specification set</p>
+<p>This report aggregates the functional results of the test specifications in a test specification set. It shows the latest test run in the selected time window. Click the graph to see results on a different level of the test hierarchy.</p>
+<p>Notes:
+<ul>
+    <li>If the set contains performance results these are ignored, so it is not necessary to introduce extra test specifications sets for reporting.</li>
+    <li>This report is intended to be used with test specification sets that do not have overlapping test results (e.g. test results with the same hierarchy coming from different test specifications in the set).</li>
+</ul>
+</p>
+</div>
+</div>
+
 ## Bar chart
 
 <div class="row">
