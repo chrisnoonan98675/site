@@ -9,7 +9,7 @@ tags:
 - import
 ---
 
-XebiaLabs provides a Jenkins plugin that will send the results of a Jenkins build automatically to XL TestView. This article describes how to install and configure the XL TestView Jenkins plugin.
+XebiaLabs provides a [Jenkins plugin](https://wiki.jenkins-ci.org/display/JENKINS/XL+TestView+Plugin) that will send the results of a Jenkins build automatically to XL TestView. This article describes how to install and configure the XL TestView Jenkins plugin.
 
 ## Step 1 Install the XL TestView plugin
 
