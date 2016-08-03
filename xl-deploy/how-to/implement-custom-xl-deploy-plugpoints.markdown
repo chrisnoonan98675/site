@@ -81,7 +81,7 @@ In addition to the default orchestrator, XL Deploy also contains the following o
 
 ## Defining Event Listeners
 
-The XL Deploy Core sends events that listeners can act upon. There are two types of events in XL Deploy system:
+The XL Deploy Core sends [events](/xl-deploy/latest/javadoc/engine-spi/index.html) that listeners can act upon. There are two types of events in XL Deploy system:
 
 * Notifications: Events that indicate that XL Deploy has executed a particular action
 * Commands: Events that indicate XL Deploy is about to to execute a particular action

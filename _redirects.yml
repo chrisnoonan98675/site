@@ -23,8 +23,11 @@
 /xl-deploy/latest/referencesteps.html : /xl-deploy/5.5.x/referencesteps.html
 /xl-deploy/latest/udmcireference.html : /xl-deploy/5.5.x/udmcireference.html
 /xl-deploy/latest/rest-api/index.html : /xl-deploy/5.5.x/rest-api/index.html
-/xl-deploy/latest/javadoc/udm-plugin-api/index.html : /xl-deploy/5.5.x/javadoc/udm-plugin-api/index.html
 /xl-deploy/latest/satellitecireference.html : https://docs.xebialabs.com/xl-deploy/5.5.x/satellitecireference.html
+/xl-deploy/latest/javadoc/udm-plugin-api/index.html : /xl-deploy/5.5.x/javadoc/udm-plugin-api/index.html
+/xl-deploy/latest/javadoc/engine-api/index.html : /xl-deploy/5.5.x/javadoc/engine-api/index.html
+/xl-deploy/latest/javadoc/engine-spi/index.html : /xl-deploy/5.5.x/javadoc/engine-spi/index.html
+/xl-deploy/latest/javadoc/xl-endpoints-api/index.html : /xl-deploy/5.5.x/javadoc/xl-endpoints-api/index.html
 
 # XL Deploy product docs that are no longer published as of 5.0.0
 
