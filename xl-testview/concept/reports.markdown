@@ -123,6 +123,20 @@ A report is a representation of a set of test results in a graph or table. XL Te
 </div>
 </div>
 
+## Historical bar chart
+
+<div class="row">
+<div class="col-md-2">
+<img src="images/icon-report-bar-chart.svg" alt="XL TestView bar chart report icon" width="100">
+</div>
+<div class="col-md-10">
+<p>Type: Functional</p>
+<p>Span: Multiple test runs</p>
+<p>This report presents the aggregated functional results of a test specification per execution of the test specification in the time window. The duration of the tests and the total build time is displayed as well.</p>
+<p>Note: Build durations are only available when using Jenkins plugin 1.2.0 and higher combined with XL TestView 1.4.4 and higher.
+</div>
+</div>
+
 ## Historical comparison details
 
 <div class="row">

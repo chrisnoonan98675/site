@@ -116,6 +116,7 @@ XL TestView uses the following metadata properties:
 {:.table .table-striped}
 | Key | Value type | Description |
 | --- | ---------- | ----------- |
+| `ciBuildDuration` | String | The duration of the build. Since XL TestView 1.4.4. |
 | `ciBuildNumber` | String | The build number |
 | `ciBuildResult` | String | A value representing the result of the build |
 | `ciBuildUrl ` | String | The absolute URL to the specific build |
