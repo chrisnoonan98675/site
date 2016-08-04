@@ -50,10 +50,10 @@ You can set CI properties in the manifest of a deployment package (DAR file) bef
 
 ## Changing CI property defaults
 
-The `manifestVersionProperty` CI property defaults to "Extension-Name". You can change the default in the `wls.WarModule.manifestVersionProperty` property in the `<XLDEPLOY_HOME>/conf/deployit-defaults.properties` file.
+The `manifestVersionProperty` CI property defaults to "Extension-Name". You can change the default in the `wls.WarModule.manifestVersionProperty` property in the `XL_DEPLOY_SERVER_HOME/conf/deployit-defaults.properties` file.
 
 By default, `versionExpression` uses the following FreeMarker expression to calculate the version:
 
      [#ftl]${manifestAttributes["Specification-Version"]}[#if manifestAttributes["Implementation-Version"]??]@${manifestAttributes["Implementation-Version"]}[/#if]
 
-You can change the default in the `wls.WarModule.versionExpression` property in the `<XLDEPLOY_HOME>/conf/deployit-defaults.properties` file.
+You can change the default in the `wls.WarModule.versionExpression` property in the `XL_DEPLOY_SERVER_HOME/conf/deployit-defaults.properties` file.

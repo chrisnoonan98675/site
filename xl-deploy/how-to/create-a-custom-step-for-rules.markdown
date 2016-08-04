@@ -153,14 +153,14 @@ Refer to the [Javadoc](/xl-deploy/latest/javadoc/udm-plugin-api/index.html) for 
 
 ## Compiling step primitives
 
-To compile your own step primitives, you depend on the following plugins, located in `<XLDEPLOY_HOME>/lib`:
+To compile your own step primitives, you depend on the following plugins, located in `XL_DEPLOY_SERVER_HOME/lib`:
 
 * `base-plugin-x.y.z.jar`
 * `udm-plugin-api-x.y.z.jar`
 
 ## Making step primitives available to XL Deploy
 
-After writing the code for your step primitive, you make it available to XL Deploy by compiling it into a JAR file and putting the file in `<XLDEPLOY_HOME>/plugins`.
+After writing the code for your step primitive, you make it available to XL Deploy by compiling it into a JAR file and putting the file in `XL_DEPLOY_SERVER_HOME/plugins`.
 
 ## Custom step example
 

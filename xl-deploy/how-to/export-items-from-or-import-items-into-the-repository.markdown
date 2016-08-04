@@ -37,7 +37,7 @@ To export the CIs under an internal root (`Applications`, `Environments`, `Infra
 
     repository.exportCis('Applications')
 
-For example, this command will export all applications to a ZIP file called `<XLDEPLOY_SERVER_HOME>/export/Applications-<date>.zip`:
+For example, this command will export all applications to a ZIP file called `XL_DEPLOY_SERVER_HOME/export/Applications-<date>.zip`:
 
 	deployit> fileName = repository.exportCisAndWait('Applications')
 

@@ -53,7 +53,7 @@ If you want to use delimiters other than {% raw %}`{{`{% endraw %} and {% raw %}
 
 ### Enabling placeholder scanning for additional file types
 
-The list of file extensions that XL Deploy recognizes is based on the artifact's configuration item (CI) type. This list is defined by the CI type's `textFileNamesRegex` property in the `<XLDEPLOY_SERVER_HOME>/conf/deployit-defaults.properties` file.
+The list of file extensions that XL Deploy recognizes is based on the artifact's configuration item (CI) type. This list is defined by the CI type's `textFileNamesRegex` property in the `XL_DEPLOY_SERVER_HOME/conf/deployit-defaults.properties` file.
 
 If you want XL Deploy to scan files with extensions that are not in the list, you can change the `textFileNamesRegex` property for the files' CI type.
 
@@ -75,7 +75,7 @@ _Property_ placeholders are used in CI properties by specifying them in the pack
 
 ## Debugging placeholder scanning
 
-To debug placeholder scanning, edit the `<XLDEPLOY_SERVER_HOME>/conf/logback.xml` file and add the following line:
+To debug placeholder scanning, edit the `XL_DEPLOY_SERVER_HOME/conf/logback.xml` file and add the following line:
 
     <logger name="com.xebialabs.deployit.engine.replacer.Placeholders" level="debug" />
 

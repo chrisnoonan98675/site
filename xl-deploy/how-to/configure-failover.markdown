@@ -21,7 +21,7 @@ XL Deploy allows you to store the [repository](/xl-deploy/how-to/configure-the-x
 To set up a master node (called `node1`) and a failover node (called `node2`):
 
 1. Follow the instructions to configure the XL Deploy [repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html#using-a-database) on `node1`.
-2. Add a `Cluster` section to the `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` file:
+2. Add a `Cluster` section to the `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` file:
 
         <Cluster id="node1" syncDelay="2000">
             <Journal class="org.apache.jackrabbit.core.journal.MSSqlDatabaseJournal">
@@ -38,8 +38,8 @@ To set up a master node (called `node1`) and a failover node (called `node2`):
 
 3. [Start the XL Deploy server](/xl-deploy/how-to/start-xl-deploy.html) and verify that it starts without errors. Create at least one configuration item for testing purposes (you will check for this item on `node2`).
 4. Stop the server.
-5. Copy the entire installation folder (`<XLDEPLOY_HOME>`) to `node2`.
-6. In `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml`, change the `Cluster id`. Do not change any other properties. For example:
+5. Copy the entire installation folder (`XL_DEPLOY_SERVER_HOME`) to `node2`.
+6. In `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml`, change the `Cluster id`. Do not change any other properties. For example:
 
         <Cluster id="node2" syncDelay="2000">
             <Journal class="org.apache.jackrabbit.core.journal.MSSqlDatabaseJournal">
@@ -52,14 +52,14 @@ To set up a master node (called `node1`) and a failover node (called `node2`):
             </Journal>
         </Cluster>
 
-7. Delete the contents of the `<XLDEPLOY_HOME>/repository` directory. **Important:** Only do this once, during the initial setup of the instance.
+7. Delete the contents of the `XL_DEPLOY_SERVER_HOME/repository` directory. **Important:** Only do this once, during the initial setup of the instance.
 8. Start the XL Deploy server and verify that you can see the items that you created on `node1`.
 9. Stop the server.
 10. Start the server on `node1`.
 
 ## Switching to another node
 
-When the master node (`node1`) fails, you must manually start the XL Deploy server on the failover node (`node2`). If there were pending or running tasks on the master node, first copy the contents of its `<XLDEPLOY_HOME>/work` directory to the failover node. The failover node will attempt to recover the tasks.
+When the master node (`node1`) fails, you must manually start the XL Deploy server on the failover node (`node2`). If there were pending or running tasks on the master node, first copy the contents of its `XL_DEPLOY_SERVER_HOME/work` directory to the failover node. The failover node will attempt to recover the tasks.
 
 After you start XL Deploy on the failover node, it will retrieve the database journal during startup; note that if if has been shut down for a long time, this process may take several minutes.
 

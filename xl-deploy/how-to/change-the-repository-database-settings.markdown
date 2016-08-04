@@ -17,8 +17,8 @@ If you store the XL Deploy repository [in a database](/xl-deploy/how-to/configur
 
 To do so, you must *manually* update the following files with the new settings:
 
-* `<XLDEPLOY_SERVER_HOME>/conf/jackrabbit-repository.xml`
-* `<XLDEPLOY_REPOSITORY_HOME>/workspaces/default/workspace.xml`
-* `<XLDEPLOY_REPOSITORY_HOME>/workspaces/security/workspace.xml`
+* `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml`
+* `XL_DEPLOY_REPOSITORY_HOME/workspaces/default/workspace.xml`
+* `XL_DEPLOY_REPOSITORY_HOME/workspaces/security/workspace.xml`
 
 **Important:** If there are additional `workspace.xml` files in the repository directory, you must also update the settings in those files.

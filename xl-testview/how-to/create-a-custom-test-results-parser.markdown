@@ -44,7 +44,7 @@ You can base your custom test results parser on one of XL TestView's default par
 | `jmeter_csv.py` | JMeter | Performance | CSV |
 | `jmeter_xml.py` | JMeter | Performance | XML |
 
-You can find these parser implementations in the test tools plugin, which is located at `<XLTESTVIEW_HOME>/plugins/testtools-plugin-x.y.z.jar`.
+You can find these parser implementations in the test tools plugin, which is located at `XL_TESTVIEW_HOME/plugins/testtools-plugin-x.y.z.jar`.
 
 ## Determine test result type
 
@@ -241,7 +241,7 @@ Writing a performance test results parser is much alike writing a functional tes
 
 ## Logging
 
-When a script uses the Python `print` statement, the output will be logged in `<XLTESTVIEW_HOME>/log/xl-testview.log` using a logger with the name of the test tool at `INFO` level. You can also use the SLF4J logger `logger` that is available in the script. For example:
+When a script uses the Python `print` statement, the output will be logged in `XL_TESTVIEW_HOME/log/xl-testview.log` using a logger with the name of the test tool at `INFO` level. You can also use the SLF4J logger `logger` that is available in the script. For example:
 
 {% highlight python %}
 logger.error('Test results improperly formatted')

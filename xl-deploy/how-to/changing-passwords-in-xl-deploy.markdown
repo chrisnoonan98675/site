@@ -23,7 +23,7 @@ XL Deploy's built-in `admin` user has administrative permissions. You set the `a
         security.modifyUser(adminUser)
 
 4. Stop the XL Deploy server.
-5. Set the new `admin` password in the `<XLDEPLOY_SERVER_HOME>/conf/deployit.conf` file.
+5. Set the new `admin` password in the `XL_DEPLOY_SERVER_HOME/conf/deployit.conf` file.
 6. Restart XL Deploy.
 7. Test the credentials in the CLI using the following command:
 
@@ -35,7 +35,7 @@ If you've forgotten the password for the `admin` user and you do not know the pa
 
 ## Change the encryption key password
 
-Passwords that are stored in the repository are encrypted with a secret key. This password encryption key is stored in a keystore file called `<XLDEPLOY_SERVER_HOME>/conf/repository-keystore.jceks`. This keystore file is optionally protected with a password. If a password is set, you need to enter the password when the XL Deploy server starts up.
+Passwords that are stored in the repository are encrypted with a secret key. This password encryption key is stored in a keystore file called `XL_DEPLOY_SERVER_HOME/conf/repository-keystore.jceks`. This keystore file is optionally protected with a password. If a password is set, you need to enter the password when the XL Deploy server starts up.
 
 To change the keystore password, you can use the `keytool` utility that is part of the Java JDK distribution:
 

@@ -23,9 +23,9 @@ For detailed technical information about custom reports, refer to [Custom report
 
 ## Configure the report in `synthetic.xml`
 
-First, add a custom report type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
+First, add a custom report type to `XL_TESTVIEW_HOME/ext/synthetic.xml`:
 
-1. Copy a `type` element with the `type="xlt.Barchart"` attribute from `<XLTESTVIEW_HOME>/plugins/reports/synthetic.xml`:
+1. Copy a `type` element with the `type="xlt.Barchart"` attribute from `XL_TESTVIEW_HOME/plugins/reports/synthetic.xml`:
 
         <type type="xlt.BarChart" extends="xlt.Report" label="Bar chart" description="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format">
             <property name="scriptLocation" default="reports/BarChart.py"/>
@@ -52,7 +52,7 @@ First, add a custom report type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
 
 ## Write the report script
 
-Next, copy `<XLTESTVIEW_HOME>/plugins/reports/reports/BarChart.py` to `<XLTESTVIEW_HOME>/ext/reports/MyBarChart.py`. You do not need to restart XL TestView after changing the script.
+Next, copy `XL_TESTVIEW_HOME/plugins/reports/reports/BarChart.py` to `XL_TESTVIEW_HOME/ext/reports/MyBarChart.py`. You do not need to restart XL TestView after changing the script.
 
 The Python script ends with `result_holder.result = <json>`. This is because Highcharts expects a JSON structure, so that is the output of the report script. The JSON structure is created as a Python dictionary.
 

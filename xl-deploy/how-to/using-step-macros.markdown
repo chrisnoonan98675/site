@@ -15,7 +15,7 @@ weight: 131
 
 Since XL Deploy 5.5.0, you can define new step primitives by using [predefined step primitives](/xl-deploy/how-to/use-a-predefined-step-in-a-rule.html) such as `jython` and `os-script`. These are called _step macros_. After you define a step macro, you can refer to it by name, the same way you would refer to a predefined step. This allows you to reuse built-in steps and customize them for your system. Step macros can include one or more parameters of any valid XL Deploy type.
 
-You define step macros in the `<XLDEPLOY_HOME>/ext/xl-rules.xml` file. Step macros are registered with the XL Deploy step registry at startup.
+You define step macros in the `XL_DEPLOY_SERVER_HOME/ext/xl-rules.xml` file. Step macros are registered with the XL Deploy step registry at startup.
 
 **Important:** You can only configure one step in a step macro.
 
@@ -39,7 +39,7 @@ Wrapping a `wait` step in a step macro allows you to refer to the step with a na
 
 ## Use the step macro
 
-To use the `wait-for-ssh-connection` step, refer to it in the `<XLDEPLOY_HOME>/ext/xl-rules.xml` file:
+To use the `wait-for-ssh-connection` step, refer to it in the `XL_DEPLOY_SERVER_HOME/ext/xl-rules.xml` file:
 
 {% highlight xml %}
 <rule name="ec2-wait" scope="deployed">

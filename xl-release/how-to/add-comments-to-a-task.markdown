@@ -21,7 +21,7 @@ The **Comments** heading in a task shows the number of comments on the task.
 
 To prevent performance issues, comments are limited to 32,768 characters. If you manually add a comment that exceeds the limit, XL Release will truncate the comment. If a [Script task](/xl-release/how-to/create-a-script-task.html) tries to add a comment that exceeds the limit, XL Release will truncate the comment and attach the full output of the script to the task.
 
-You can change the comment size limit for each task type in the `<XLRELEASE_HOME>/conf/deployit-defaults.properties` file. For example:
+You can change the comment size limit for each task type in the `XL_RELEASE_HOME/conf/deployit-defaults.properties` file. For example:
 
     #xlrelease.Task.maxCommentSize=32768
 

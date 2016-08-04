@@ -11,7 +11,7 @@ tags:
 weight: 273
 ---
 
-The `<XLDEPLOY_SERVER_HOME>/work` directory is a special directory that XL Deploy uses to temporarily store data that cannot be kept in memory. For example, if XL Deploy needs to process a binary artifact that is several gigabytes in size, the file would simply not fit in memory.
+The `XL_DEPLOY_SERVER_HOME/work` directory is a special directory that XL Deploy uses to temporarily store data that cannot be kept in memory. For example, if XL Deploy needs to process a binary artifact that is several gigabytes in size, the file would simply not fit in memory.
 
 Examples of items that are temporarily stored in the work directory are:
 
@@ -21,7 +21,7 @@ Examples of items that are temporarily stored in the work directory are:
 
 ## Location of the work directory
 
-The `work` directory is located in the XL Deploy server installation directory (`<XLDEPLOY_SERVER_HOME>`). XL Deploy uses this directory instead of an operating system-specific temporary directory because:
+The `work` directory is located in the XL Deploy server installation directory (`XL_DEPLOY_SERVER_HOME`). XL Deploy uses this directory instead of an operating system-specific temporary directory because:
 
 * Read access to the work directory must be limited because it may contain sensitive information
 * Operating system-specific temporary directories are typically not large enough to contain all of the files that XL Deploy needs (for more information about disk space, refer to [Requirements for installing XL Deploy](/xl-deploy/concept/requirements-for-installing-xl-deploy.html#determining-hard-disk-space-requirements))
@@ -50,7 +50,7 @@ After you have verified that there are no running tasks, you can [shut down the 
 
 ## How can I change the location of the work directory?
 
-In XL Deploy 5.0.0 and later, you cannot change the location of the work directory. However, you can change the location where XL Deploy stores `.task` files, which are normally stored in the work directory. To do so, change the `recovery-dir` setting in `<XLDEPLOY_SERVER_HOME>/conf/system.conf`. After saving the file, restart the XL Deploy server.
+In XL Deploy 5.0.0 and later, you cannot change the location of the work directory. However, you can change the location where XL Deploy stores `.task` files, which are normally stored in the work directory. To do so, change the `recovery-dir` setting in `XL_DEPLOY_SERVER_HOME/conf/system.conf`. After saving the file, restart the XL Deploy server.
 
 In XL Deploy 4.5.x and earlier, you can change the work directory. To do so, create a file in the `conf` directory called `hotfix-context.xml` and add the following content, replacing `/tmp/work` with the desired work directory location:
 

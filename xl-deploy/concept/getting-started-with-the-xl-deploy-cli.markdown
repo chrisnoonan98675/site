@@ -25,7 +25,7 @@ If you have configured your XL Deploy server to use a [self-signed certificate](
 After you install the CLI, you can connect to the XL Deploy server as follows:
 
 1. Ensure that the XL Deploy server is running.
-2. Open a terminal window or command prompt and go to the `XLDEPLOY_CLI_HOME/bin` directory (where `XLDEPLOY_CLI_HOME` is the directory where the CLI is installed).
+2. Open a terminal window or command prompt and go to the `XL_DEPLOY_CLI_HOME/bin` directory (where `XL_DEPLOY_CLI_HOME` is the directory where the CLI is installed).
 3. Execute the start command:
     * Unix-based operating systems: `./cli.sh`
     * Microsoft Windows: `cli.cmd`
@@ -39,7 +39,7 @@ To provide the user name and password for accessing the XL Deploy server, you ca
 
 * Enter them interactively in the CLI
 * Provide them with the `-username` and `-password` options
-* Store them in the `cli.username` and `cli.password` properties in the `XLDEPLOY_CLI_HOME/conf/deployit.conf` file
+* Store them in the `cli.username` and `cli.password` properties in the `XL_DEPLOY_CLI_HOME/conf/deployit.conf` file
 
 ### Entering passwords on the Windows command line
 

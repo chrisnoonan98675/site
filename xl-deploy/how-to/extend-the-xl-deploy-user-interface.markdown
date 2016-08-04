@@ -122,7 +122,7 @@ You can explicitly set an HTTP status code via `response.statusCode`. If it is n
 
 ## Sample UI extension
 
-You can find a sample UI extension plugin in `XLDEPLOY_SERVER_HOME/samples`.
+You can find a sample UI extension plugin in `XL_DEPLOY_SERVER_HOME/samples`.
 
 ## Troubleshooting
 

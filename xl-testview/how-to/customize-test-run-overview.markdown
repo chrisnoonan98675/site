@@ -23,7 +23,7 @@ To open the test run overview:
 
 ## Customizing the columns
 
-To customize the columns that appear on the test run overview, you use a type modification on the `xlt.TestRunOverview` synthetic type. Open the `<XLTESTVIEW_HOME>/dist/ext/synthetic.xml` file and add the following XML:
+To customize the columns that appear on the test run overview, you use a type modification on the `xlt.TestRunOverview` synthetic type. Open the `XL_TESTVIEW_HOME/dist/ext/synthetic.xml` file and add the following XML:
 
     <type-modification type="xlt.TestRunOverview">
         <property name="extraColumns" kind="list_of_string" default=""/>

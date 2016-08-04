@@ -22,9 +22,9 @@ For more information about features such as qualification, refer to [Key XL Test
 
 ## Configure the qualifier in `synthetic.xml`
 
-First, add a custom qualifier type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
+First, add a custom qualifier type to `XL_TESTVIEW_HOME/ext/synthetic.xml`:
 
-1. Copy a `type` element with attribute `type="xlt.DefaultFunctionalTestsQualifier"` from `<XLTESTVIEW_HOME>/plugins/demo/synthetic.xml` and add it to `<XLTESTVIEW_HOME>/ext/synthetic.xml`. For example:
+1. Copy a `type` element with attribute `type="xlt.DefaultFunctionalTestsQualifier"` from `XL_TESTVIEW_HOME/plugins/demo/synthetic.xml` and add it to `XL_TESTVIEW_HOME/ext/synthetic.xml`. For example:
 
         <type type="xlt.DefaultFunctionalTestsQualifier" extends="generic.Qualification">
             <property name="scriptLocation" default="qualification/functional.py"/>
@@ -50,7 +50,7 @@ First, add a custom qualifier type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
 
 ## Write the script
 
-Next, copy `<XLTESTVIEW_HOME>/plugins/demo/functional/qualification.py` to `ext/mycompany/myFunctionalQualifier.py`. You can implement the logic that you want to use for qualification in this script. (You do not have to restart XL TestView after changing scripts.)
+Next, copy `XL_TESTVIEW_HOME/plugins/demo/functional/qualification.py` to `ext/mycompany/myFunctionalQualifier.py`. You can implement the logic that you want to use for qualification in this script. (You do not have to restart XL TestView after changing scripts.)
 
 The default functional qualifier requires all tests to pass for the test run to qualify as passed. This example changes the logic so that only tests with a name that includes the word "Critical" must pass for the test run to qualify as passed. If a test name does not contain the word "Critical", then a failure of that test will not cause the test run to qualify as failed.
 

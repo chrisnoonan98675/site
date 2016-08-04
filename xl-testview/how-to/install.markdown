@@ -44,23 +44,23 @@ The XL TestView user interface requires one of the following browsers:
 To install XL TestView:
 
 1. Download the XL TestView ZIP file from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com).
-2. Extract the ZIP file to the directory where you want to install XL TestView; for example, `/opt/xebialabs/xl-testview` or `C:\Program Files\XL TestView`. This is referred to as `<XLTESTVIEW_HOME>`.
-3. If you have a license file, copy it to `<XLTESTVIEW_HOME>/conf/xl-testview-license.lic`. If you do not have a license, you can request one after XL TestView starts.
-4. Open a command prompt and navigate to `<XLTESTVIEW_HOME>/bin`.
+2. Extract the ZIP file to the directory where you want to install XL TestView; for example, `/opt/xebialabs/xl-testview` or `C:\Program Files\XL TestView`. This is referred to as `XL_TESTVIEW_HOME`.
+3. If you have a license file, copy it to `XL_TESTVIEW_HOME/conf/xl-testview-license.lic`. If you do not have a license, you can request one after XL TestView starts.
+4. Open a command prompt and navigate to `XL_TESTVIEW_HOME/bin`.
 5. Execute one of the following commands to start the setup wizard:
-      * On Unix: `<XLTESTVIEW_HOME>/bin/server.sh`
-      * On Windows: `<XLTESTVIEW_HOME>/bin/server.cmd`
+      * On Unix: `XL_TESTVIEW_HOME/bin/server.sh`
+      * On Windows: `XL_TESTVIEW_HOME/bin/server.cmd`
 6. After XL TestView has started, you will see the message `Starting XL TestView ... done.` and the URL where you can access XL TestView.
 
 **Note:** Because XL TestView can perform file system operations such as scanning the file system, it is strongly advised that you execute XL TestView as a specialized user with limited permissions and minimal access rights.
 
-The default username and password are both `admin`. You can change these values in `<XLTESTVIEW_HOME>/conf/users.conf`.
+The default username and password are both `admin`. You can change these values in `XL_TESTVIEW_HOME/conf/users.conf`.
 
 After installation, various aspects of the server can be configured. See [Configuring XL TestView](/xl-testview/how-to/configure-xl-testview.html).
 
 ## Directory structure
 
-After you install the XL TestView server, this directory structure exists in `<XLTESTVIEW_HOME>`:
+After you install the XL TestView server, this directory structure exists in `XL_TESTVIEW_HOME`:
 
 * `bin`: Contains server startup scripts
 * `conf`: Contains server configuration files

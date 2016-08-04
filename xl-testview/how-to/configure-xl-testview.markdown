@@ -13,7 +13,7 @@ since:
 weight: 704
 ---
 
-In XL TestView 1.3.0 and later, configuration is done in the `<XLTESTVIEW_HOME>/conf/xl-testview.conf` file. This file uses the [Human-Optimized Config Object Notation (HOCON) format](https://github.com/typesafehub/config/blob/master/HOCON.md).
+In XL TestView 1.3.0 and later, configuration is done in the `XL_TESTVIEW_HOME/conf/xl-testview.conf` file. This file uses the [Human-Optimized Config Object Notation (HOCON) format](https://github.com/typesafehub/config/blob/master/HOCON.md).
 
 For information about configuring an older version of XL TestView, refer to [Configure XL TestView 1.2.x](/xl-testview/1.2.x/archive/configuration.html).
 
@@ -62,7 +62,7 @@ Configuration is split between memory settings for the JVM in `XLT_SERVER_MEM_OP
 
 ### Memory configuration examples
 
-For example, increasing the amount of memory the server has available can be done by running `server.sh` as follows (assuming you have a shell/cmd prompt at `<XLTESTVIEW_HOME>/bin`):
+For example, increasing the amount of memory the server has available can be done by running `server.sh` as follows (assuming you have a shell/cmd prompt at `XL_TESTVIEW_HOME/bin`):
 
     XLT_SERVER_MEM_OPTS="-Xmx4096m -XX:MaxPermSize=256m" ./server.sh
 

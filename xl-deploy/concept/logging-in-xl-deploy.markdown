@@ -12,11 +12,11 @@ tags:
 weight: 267
 ---
 
-By default, the XL Deploy server writes informational, warning, and error log messages to standard output and to `<XLDEPLOY_SERVER_HOME>/log/deployit.log` when it is running. In addition, XL Deploy:
+By default, the XL Deploy server writes informational, warning, and error log messages to standard output and to `XL_DEPLOY_SERVER_HOME/log/deployit.log` when it is running. In addition, XL Deploy:
 
-* Writes an audit trail to the `<XLDEPLOY_SERVER_HOME>/log/audit.log` file
-* Writes an HTTP log to the `<XLDEPLOY_SERVER_HOME>/log/access.log` file
-* Can optionally log scripts in the `<XLDEPLOY_SERVER_HOME>/log/scripts.log` file
+* Writes an audit trail to the `XL_DEPLOY_SERVER_HOME/log/audit.log` file
+* Writes an HTTP log to the `XL_DEPLOY_SERVER_HOME/log/access.log` file
+* Can optionally log scripts in the `XL_DEPLOY_SERVER_HOME/log/scripts.log` file
 
 ## The audit log
 
@@ -38,11 +38,11 @@ For each event, the following information is recorded:
 
 For events involving configuration items (CIs), the CI data submitted as part of the event is logged in XML format.
 
-By default, the audit log is stored in `<XLDEPLOY_SERVER_HOME>/log/audit.log` and is rolled over daily.
+By default, the audit log is stored in `XL_DEPLOY_SERVER_HOME/log/audit.log` and is rolled over daily.
 
 ### Configure audit logging
 
-It is possible to change the logging behavior (for example, to write log output to a file or to log output from a specific source). To do so, edit the `<XLDEPLOY_SERVER_HOME>/conf/logback.xml` file. This is a sample `logback.xml` file:
+It is possible to change the logging behavior (for example, to write log output to a file or to log output from a specific source). To do so, edit the `XL_DEPLOY_SERVER_HOME/conf/logback.xml` file. This is a sample `logback.xml` file:
 
 {% highlight xml %}
 <configuration>
@@ -82,7 +82,7 @@ It is possible to change the logging behavior (for example, to write log output 
 
 ### Configure HTTP access logging
 
-You can change the HTTP access logging behavior in the `<XLDEPLOY_SERVER_HOME>/conf/logback-access.xml` file. The format is slightly different from the `logback.xml` format.
+You can change the HTTP access logging behavior in the `XL_DEPLOY_SERVER_HOME/conf/logback-access.xml` file. The format is slightly different from the `logback.xml` format.
 
 By default, the access log is done in the so-called combined format, but you can fully customize it. The log file is rolled per day on the first log statement in the new day.
 
@@ -119,11 +119,11 @@ To disable the HTTP access log, create a `logback-access.xml` file with an empty
 
 ## Enable the script log
 
-The `logback.xml` file contains a section that allows you to enable logging of all XL Deploy scripts to a separate log file called `<XLDEPLOY_SERVER_HOME>/log/scripts.log`. By default, this section is commented out.
+The `logback.xml` file contains a section that allows you to enable logging of all XL Deploy scripts to a separate log file called `XL_DEPLOY_SERVER_HOME/log/scripts.log`. By default, this section is commented out.
 
 **Important:** The scripts contain base64-encoded passwords. Therefore, if script logging is enabled, anyone with access to the server can read those passwords.
 
-Logging is configured in the `<XLDEPLOY_SERVER_HOME>/conf/logback.xml` file. To enable debug mode, change the following setting:
+Logging is configured in the `XL_DEPLOY_SERVER_HOME/conf/logback.xml` file. To enable debug mode, change the following setting:
 
 {% highlight xml %}
 <root level="debug">

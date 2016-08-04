@@ -20,10 +20,10 @@ To install the CLI and connect to the XL Deploy server:
 1. Download the XL Deploy CLI archive (ZIP file) from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com) (requires customer log-in) or from the link provided when you sign up for a [free trial](https://xebialabs.com/products/xl-deploy/trial/).
 1. Ensure that XL Deploy is running.
 1. Log in to the computer where you want to install the XL Deploy CLI.
-1. Create an installation directory such as `/opt/xebialabs/xl-deploy-cli` or `C:\Program Files\XL Deploy\CLI` (referred to as `XLDEPLOY_CLI_HOME` in this topic).
+1. Create an installation directory such as `/opt/xebialabs/xl-deploy-cli` or `C:\Program Files\XL Deploy\CLI` (referred to as `XL_DEPLOY_CLI_HOME` in this topic).
 1. Copy the XL Deploy CLI archive to the directory.
 1. Extract the archive in the directory.
-2. Open a terminal window or command prompt and go to the `XLDEPLOY_CLI_HOME/bin` directory.
+2. Open a terminal window or command prompt and go to the `XL_DEPLOY_CLI_HOME/bin` directory.
 3. Execute the start command:
     * Unix-based operating systems: `./cli.sh`
     * Microsoft Windows: `cli.cmd`

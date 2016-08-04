@@ -30,7 +30,7 @@ To change the `admin` user's password:
         adminUser.password = 'newpassword_1'
         security.modifyUser(adminUser)
 
-2. Change the password in the `<XLDEPLOY_HOME>/conf/deployit.conf` configuration file:
+2. Change the password in the `XL_DEPLOY_SERVER_HOME/conf/deployit.conf` configuration file:
 
         admin.password=newpassword_1
 

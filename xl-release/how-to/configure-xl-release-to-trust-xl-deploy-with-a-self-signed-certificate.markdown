@@ -17,7 +17,7 @@ To instruct XL Release to trust the XL Deploy server's certificate, you need to 
 
 ## Step 1 Export the server certificate
 
-Export the self-signed certificate from `<XLDEPLOY_SERVER_HOME>/conf`:
+Export the self-signed certificate from `XL_DEPLOY_SERVER_HOME/conf`:
 
     keytool -export -keystore keystore.jks -alias jetty -file XLDeployServerCert.cer
 
@@ -31,11 +31,11 @@ Import the certificate as a trusted certificate into a separate truststore for X
 
 ## Step 3 Move the truststore to the XL Release installation
 
-Move `XLRTruststore.jks` from `<XLDEPLOY_SERVER_HOME>/conf` to `<XLRELEASE_SERVER_HOME>/conf`.
+Move `XLRTruststore.jks` from `XL_DEPLOY_SERVER_HOME/conf` to `XL_RELEASE_SERVER_HOME/conf`.
 
 ## Step 4 Configure XL Release to use the truststore
 
-Add the following lines in `<XLRELEASE_SERVER_HOME>/conf/xlr-wrapper-linux.conf` (for Unix) or `<XLRELEASE_SERVER_HOME>/conf/xlr-wrapper-win.conf` (for Microsoft Windows):
+Add the following lines in `XL_RELEASE_SERVER_HOME/conf/xlr-wrapper-linux.conf` (for Unix) or `XL_RELEASE_SERVER_HOME/conf/xlr-wrapper-win.conf` (for Microsoft Windows):
 
     wrapper.java.additional.X=-Djavax.net.ssl.trustStore=conf/myXLRTruststore.jks
     wrapper.java.additional.X+1=-Djavax.net.ssl.trustStorePassword=password

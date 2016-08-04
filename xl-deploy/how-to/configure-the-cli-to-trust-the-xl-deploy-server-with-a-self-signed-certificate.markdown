@@ -11,7 +11,7 @@ tags:
 weight: 242
 ---
 
-If you configured your XL Deploy server to use a [self-signed certificate](/xl-deploy/how-to/install-xl-deploy.html#step-3-generate-a-self-signed-certificate), you will notice that trying to connect with a "vanilla" command-line interface (CLI) configuration will fail:
+If you configured your XL Deploy server to use a [self-signed certificate](/xl-deploy/how-to/install-xl-deploy.html#step-3-generate-a-self-signed-certificate), you will notice that trying to connect with a normal command-line interface (CLI) configuration will fail:
 
     C:\...\xl-deploy-5.5.0-cli>bin\cli.cmd -secure
     Username: admin
@@ -26,7 +26,7 @@ To instruct the CLI to trust the server's certificate, you need to configure a t
 
 ## Step 1 Export the server certificate
 
-Export the self-signed certificate from `SERVER_HOME/conf`:
+Export the self-signed certificate from `XL_DEPLOY_SERVER_HOME/conf`:
 
     keytool -export -keystore keystore.jks -alias jetty -file XLDeployServerCert.cer
 
@@ -40,11 +40,11 @@ Import the certificate as a trusted certificate into a separate truststore for t
 
 ## Step 3 Move the truststore to the CLI installation
 
-Move `myCliTruststore.jks` from `SERVER_HOME/conf` to `CLI_HOME/conf`.
+Move `myCliTruststore.jks` from `XL_DEPLOY_SERVER_HOME/conf` to `XL_DEPLOY_CLI_HOME/conf`.
 
 ## Step 4 Configure the CLI to use the truststore
 
-Set the [CLI options](/xl-deploy/how-to/install-the-xl-deploy-cli.html#set-environment-variables) (or, equivalently, change `CLI_HOME/bin/cli.sh` or `cli.cmd`) to use the truststore. Use the password specified when creating the truststore in the step above:
+Set the [CLI options](/xl-deploy/how-to/install-the-xl-deploy-cli.html#set-environment-variables) (or, equivalently, change `XL_DEPLOY_CLI_HOME/bin/cli.sh` or `cli.cmd`) to use the truststore. Use the password specified when creating the truststore in the step above:
 
     set DEPLOYIT_CLI_OPTS=-Xmx512m -XX:MaxPermSize=256m -Djavax.net.ssl.trustStore=conf/myCliTruststore.jks -Djavax.net.ssl.trustStorePassword=secret
 

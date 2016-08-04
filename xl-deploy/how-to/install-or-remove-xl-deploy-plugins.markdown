@@ -24,12 +24,12 @@ The XL Deploy server classpath typically contains resources, configuration files
 {:.table}
 | Directory | Description |
 | --------- | ----------- |
-| `<XLDEPLOY_SERVER_HOME>/conf` | For configuration files |
-| `<XLDEPLOY_SERVER_HOME>/hotfix/lib/*` | For server hotfix JARs (XL Deploy 4.5.x and earlier) |
-| `<XLDEPLOY_SERVER_HOME>/hotfix/lib/*` | For server hotfix JARs (XL Deploy 5.0.0 and later) |
-| `<XLDEPLOY_SERVER_HOME>/lib/*` | For server library JARs |
+| `XL_DEPLOY_SERVER_HOME/conf` | For configuration files |
+| `XL_DEPLOY_SERVER_HOME/hotfix/lib/*` | For server hotfix JARs (XL Deploy 4.5.x and earlier) |
+| `XL_DEPLOY_SERVER_HOME/hotfix/lib/*` | For server hotfix JARs (XL Deploy 5.0.0 and later) |
+| `XL_DEPLOY_SERVER_HOME/lib/*` | For server library JARs |
 
-You can configure these directories in `<XLDEPLOY_SERVER_HOME>/conf/xld-wrapper.conf`.
+You can configure these directories in `XL_DEPLOY_SERVER_HOME/conf/xld-wrapper.conf`.
 
 ## Plugin classloader
 
@@ -45,9 +45,9 @@ The plugin classloader also scans the following directories and adds all `*.jar`
 {:.table}
 | Directory | Description |
 | --------- | ----------- |
-| `<XLDEPLOY_SERVER_HOME>/hotfix/plugins/*` | Can contain hotfix JARs for plugins (XL Deploy 4.5.x and earlier) |
-| `XLDEPLOY_HOME/hotfix/plugins/*` | Can contain hotfix JARs for plugins (XL Deploy 5.0.0 and later) |
-| `<XLDEPLOY_SERVER_HOME>/plugins/*` | Contains installed plugins |
+| `XL_DEPLOY_SERVER_HOME/hotfix/plugins/*` | Can contain hotfix JARs for plugins (XL Deploy 4.5.x and earlier) |
+| `XL_DEPLOY_SERVER_HOME/hotfix/plugins/*` | Can contain hotfix JARs for plugins (XL Deploy 5.0.0 and later) |
+| `XL_DEPLOY_SERVER_HOME/plugins/*` | Contains installed plugins |
 
 These paths are not configurable. The directories are loaded in order that they are listed, and this order does matter. For example, hotfixes must be loaded before the actual code so it can override the server behavior.
 
@@ -56,7 +56,7 @@ These paths are not configurable. The directories are loaded in order that they 
 To install a plugin:
 
 1. [Shut down](/xl-deploy/how-to/shut-down-xl-deploy.html) the XL Deploy server.
-2. Copy the plugin XLDP or JAR file to the `XLDEPLOY_HOME/plugins` directory.
+2. Copy the plugin XLDP or JAR file to the `XL_DEPLOY_SERVER_HOME/plugins` directory.
 3. [Start](/xl-deploy/how-to/start-xl-deploy.html) the XL Deploy server.
 4. Refresh the XL Deploy GUI in your browser.
 
@@ -65,6 +65,6 @@ To install a plugin:
 To remove a plugin:
 
 1. [Shut down](/xl-deploy/how-to/shut-down-xl-deploy.html) the XL Deploy server.
-2. Delete the plugin XLDP or JAR file from the `XLDEPLOY_HOME/plugins` directory.
+2. Delete the plugin XLDP or JAR file from the `XL_DEPLOY_SERVER_HOME/plugins` directory.
 3. [Start](/xl-deploy/how-to/start-xl-deploy.html) the XL Deploy server.
 4. Refresh the XL Deploy GUI in your browser.

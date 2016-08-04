@@ -97,7 +97,7 @@ To add the failure handler to your XL Release installation:
 
 1. Stop the XL Release server.
 
-1. Download [the JAR file](https://gist.github.com/xlcommunity/93b63a414df15798fd2d/raw/45fa39c66ed82da3f13ae884d633a0c7aaebd083/xlr-on-failure-handler-2016-02-17.jar) and copy it to `XLRELEASE_SERVER_HOME/plugins`. If your server is not running on `http://localhost:5516`, download the build project instead, modify the scheme, host, and port to match your XL Release server, and build the JAR following the instructions in the README.
+1. Download [the JAR file](https://gist.github.com/xlcommunity/93b63a414df15798fd2d/raw/45fa39c66ed82da3f13ae884d633a0c7aaebd083/xlr-on-failure-handler-2016-02-17.jar) and copy it to `XL_RELEASE_SERVER_HOME/plugins`. If your server is not running on `http://localhost:5516`, download the build project instead, modify the scheme, host, and port to match your XL Release server, and build the JAR following the instructions in the README.
 
         @DeployitEventListener
         public class OnReleaseFailureEventListener {
@@ -107,7 +107,7 @@ To add the failure handler to your XL Release installation:
             private static final int ENDPOINT_PORT = 5516;
             ...
 
-1. Add a [custom password property](/xl-release/how-to/changing-passwords-in-xl-release.html#configure-custom-passwords) `onFailureHandler.password` to `XLRELEASE_SERVER_HOME/conf/xl-release-server.conf`. Set its value to the password of the `onFailure_user` user that you created. This value will be securely encrypted when the server starts.
+1. Add a [custom password property](/xl-release/how-to/changing-passwords-in-xl-release.html#configure-custom-passwords) `onFailureHandler.password` to `XL_RELEASE_SERVER_HOME/conf/xl-release-server.conf`. Set its value to the password of the `onFailure_user` user that you created. This value will be securely encrypted when the server starts.
 
     ![onFailure password](../images/failure-handler/failure-handler-custom-password.png)
 

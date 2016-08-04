@@ -66,7 +66,7 @@ Note that the alias name is `jetty`. XL Deploy looks up the certificate using th
 If you need to update the digital certificate:
 
 1. Move the current `conf/keystore.jks` file to a different location.
-2. Use `keytool` in the `XLDEPLOY_HOME` directory:
+2. Use `keytool` in the `XL_DEPLOY_SERVER_HOME` directory:
 
         keytool -genkey -keyalg RSA -alias jetty -keystore conf/keystore.jks -validity 360 -keysize 2048
 

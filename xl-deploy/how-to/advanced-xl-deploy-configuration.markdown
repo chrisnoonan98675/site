@@ -14,7 +14,7 @@ weight: 106
 
 ## XL Deploy properties file
 
-XL Deploy automatically generates the `<XLDEPLOY_HOME>/conf/deployit-defaults.properties` file and populates it with the default values provided by all installed plugins.
+XL Deploy automatically generates the `XL_DEPLOY_SERVER_HOME/conf/deployit-defaults.properties` file and populates it with the default values provided by all installed plugins.
 
 Lines in the file that start with a number sign (`#`) are provided for reference; XL Deploy ignores these lines. To change the value of a property, remove the number sign from that line and set the property to the desired value.
 
@@ -22,7 +22,7 @@ Lines in the file that start with a number sign (`#`) are provided for reference
 
 ### Client settings
 
-You can configure the following client settings in `<XLDEPLOY_HOME>/conf/deployit.conf`:
+You can configure the following client settings in `XL_DEPLOY_SERVER_HOME/conf/deployit.conf`:
 
 {:.table .table-striped}
 | Setting | Description | Default |
@@ -35,7 +35,7 @@ You must restart the server and reload the GUI after changing these settings.
 
 ### Client security settings
 
-You can configure the following client security settings in `<XLDEPLOY_HOME>/conf/deployit.conf`:
+You can configure the following client security settings in `XL_DEPLOY_SERVER_HOME/conf/deployit.conf`:
 
 {:.table .table-striped}
 | Setting | Description | Default |
@@ -47,7 +47,7 @@ You must restart the server and reload the GUI after changing these settings.
 
 ### Advanced threading settings
 
-You can configure the following advanced threading  settings in `<XLDEPLOY_HOME>/conf/deployit.conf`:
+You can configure the following advanced threading  settings in `XL_DEPLOY_SERVER_HOME/conf/deployit.conf`:
 
 {:.table .table-striped}
 | Setting | Description | Default |

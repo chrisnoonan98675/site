@@ -15,7 +15,7 @@ weight: 513
 
 You can extend XL Release by creating new endpoints backed by Jython scripts. You can use this feature, for example, to to integrate with other systems.
 
-To declare new endpoints, add a file called `xl-rest-endpoints.xml` in the classpath of your XL Release server. This file can be in the JAR file of a custom plugin or in the `<XLRELEASE_SERVER_HOME>/ext` directory. For example:
+To declare new endpoints, add a file called `xl-rest-endpoints.xml` in the classpath of your XL Release server. This file can be in the JAR file of a custom plugin or in the `XL_RELEASE_SERVER_HOME/ext` directory. For example:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <endpoints xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

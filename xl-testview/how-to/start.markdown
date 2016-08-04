@@ -13,7 +13,7 @@ weight: 703
 
 To start XL TestView:
 
-1. Open a command prompt and navigate to `<XLTESTVIEW_HOME>/bin`, where `<XLTESTVIEW_HOME>` is the directory where XL TestView is installed (for example, `/opt/xebialabs/xl-testview` or `C:\Program Files\XL TestView`).
+1. Open a command prompt and navigate to `XL_TESTVIEW_HOME/bin`, where `XL_TESTVIEW_HOME` is the directory where XL TestView is installed (for example, `/opt/xebialabs/xl-testview` or `C:\Program Files\XL TestView`).
 1. Execute one of the following commands to start the setup wizard:
       * On a Unix-based operating system: `server.sh`
       * On Microsoft Windows: `server.cmd`

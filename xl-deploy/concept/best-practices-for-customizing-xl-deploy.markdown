@@ -11,7 +11,7 @@ tags:
 
 When customizing XL Deploy, it is recommended that you start by [extending configuration item (CI) types](/xl-deploy/how-to/customize-an-existing-ci-type.html) and [writing rules](/xl-deploy/concept/getting-started-with-xl-deploy-rules.html).
 
-If you cannot achieve the desired behavior through rules, you can build [custom server plugpoints or plugins](/xl-deploy/how-to/create-an-xl-deploy-plugin.html) using Java. When building a plugin in Java, create a build project that includes the `<XLDEPLOY_SERVER_HOME>/lib` directory on its classpath.
+If you cannot achieve the desired behavior through rules, you can build [custom server plugpoints or plugins](/xl-deploy/how-to/create-an-xl-deploy-plugin.html) using Java. When building a plugin in Java, create a build project that includes the `XL_DEPLOY_SERVER_HOME/lib` directory on its classpath.
 
 ## Getting started with customization
 

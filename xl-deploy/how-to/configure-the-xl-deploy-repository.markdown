@@ -15,7 +15,7 @@ XL Deploy uses a repository to store all of its data such as configuration items
 
 ## Location of the repository
 
-By default, the repository is located in `XLDEPLOY_SERVER_HOME/repository`. To change the location, change the value of `jcr.repository.path` in `XLDEPLOY_SERVER_HOME/conf/deployit.conf`. For example:
+By default, the repository is located in `XL_DEPLOY_SERVER_HOME/repository`. To change the location, change the value of `jcr.repository.path` in `XL_DEPLOY_SERVER_HOME/conf/deployit.conf`. For example:
 
     jcr.repository.path=file://opt/xldeploy/repository
 
@@ -40,9 +40,9 @@ For more information about:
 
 ### Using XL Deploy with MySQL
 
-To use XL Deploy with [MySQL](http://www.mysql.com/), ensure that the [JDBC driver for MySQL](http://dev.mysql.com/downloads/connector/j/) JAR file is located in `<XLDEPLOY_HOME>/lib` or on the Java classpath.
+To use XL Deploy with [MySQL](http://www.mysql.com/), ensure that the [JDBC driver for MySQL](http://dev.mysql.com/downloads/connector/j/) JAR file is located in `XL_DEPLOY_SERVER_HOME/lib` or on the Java classpath.
 
-This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration for MySQL:
+This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for MySQL:
 
 {% highlight xml %}
 <Repository>
@@ -131,9 +131,9 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
 
 ### Using XL Deploy with DB2
 
-To use XL Deploy with [IBM DB2](http://www-01.ibm.com/software/data/db2/), ensure that the [JDBC driver for DB2](http://www-01.ibm.com/support/docview.wss?uid=swg21363866) JAR file is located in `<XLDEPLOY_HOME>/lib` or on the Java classpath.
+To use XL Deploy with [IBM DB2](http://www-01.ibm.com/software/data/db2/), ensure that the [JDBC driver for DB2](http://www-01.ibm.com/support/docview.wss?uid=swg21363866) JAR file is located in `XL_DEPLOY_SERVER_HOME/lib` or on the Java classpath.
 
-This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration for DB2:
+This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for DB2:
 
 {% highlight xml %}
 <Repository>
@@ -220,9 +220,9 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
 
 ### Using XL Deploy with Oracle
 
-To use XL Deploy with [Oracle](http://www.oracle.com/us/products/database/index.html), ensure that the [JDBC driver for Oracle](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html) JAR file is located in `<XLDEPLOY_HOME>/lib` or on the Java classpath.
+To use XL Deploy with [Oracle](http://www.oracle.com/us/products/database/index.html), ensure that the [JDBC driver for Oracle](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html) JAR file is located in `XL_DEPLOY_SERVER_HOME/lib` or on the Java classpath.
 
-This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration for Oracle:
+This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for Oracle:
 
 {% highlight xml %}
 <Repository>
@@ -311,9 +311,9 @@ This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration 
 
 ### Using XL Deploy with SQL Server
 
-To use XL Deploy with [Microsoft SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server/), ensure that the [JDBC driver for SQL Server](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx) JAR file is located in `<XLDEPLOY_HOME>/lib` or on the Java classpath.
+To use XL Deploy with [Microsoft SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server/), ensure that the [JDBC driver for SQL Server](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx) JAR file is located in `XL_DEPLOY_SERVER_HOME/lib` or on the Java classpath.
 
-This is a sample `<XLDEPLOY_HOME>/conf/jackrabbit-repository.xml` configuration for SQL Server:
+This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for SQL Server:
 
 {% highlight xml %}
 <Repository>

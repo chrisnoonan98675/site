@@ -16,7 +16,7 @@ weight: 133
 You can disable any rule that is registered in XL Deploy's rule registry, including rules that are:
 
 * Predefined in XL Deploy
-* Defined in the `<XLDEPLOY_HOME>/ext/xl-rules.xml` file
+* Defined in the `XL_DEPLOY_SERVER_HOME/ext/xl-rules.xml` file
 * Defined in `xl-rules.xml` files in plugin JARs
 
 To disable a rule, add the `disable-rule` tag under the `rules` tag in `xl-rules.xml`. You identify the rule that you want to disable by its name (this is why rule names must be unique).

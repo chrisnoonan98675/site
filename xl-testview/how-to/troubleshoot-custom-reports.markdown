@@ -23,4 +23,4 @@ This can be caused by invalid JSON for Highcharts. To troubleshoot it:
 
 This error indicates a syntax error in Python. Ensure that all keys in the `Dictionary` are surrounded with single quotation marks.
 
-To see the exact line that caused this error, review the XL TestView server log at `<XLTESTVIEW_HOME>/log/xl-testview.log`.
+To see the exact line that caused this error, review the XL TestView server log at `XL_TESTVIEW_HOME/log/xl-testview.log`.

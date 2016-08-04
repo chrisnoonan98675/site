@@ -27,7 +27,7 @@ A script rule uses the following format in `xl-rules.xml`:
     * One or more `type` tags that identify the UDM types that the rule is restricted to. `type` is required if the scope is `deployed`; otherwise, you must omit it. The UDM type name must refer to a *deployed* type (not a *deployable*, *container*, or other UDM type).
     * One or more `operation` tags that identify the operations that the rule is restricted to. The operation can be `CREATE`, `MODIFY`, `DESTROY`, or `NOOP`. `operation` is required if the scope is `deployed`; otherwise, you must omit it.
     * An optional `expression` tag with an expression in Jython that defines a condition upon which the rule will be triggered. This tag is optional for all scopes. If you specify an `expression`, it must evaluate to a Boolean value.
-* A `planning-script-path` child tag that identifies a script file that is available on the class path (in the `<XLDEPLOY_HOME>/ext/` directory).
+* A `planning-script-path` child tag that identifies a script file that is available on the class path (in the `XL_DEPLOY_SERVER_HOME/ext/` directory).
 
 Every script is run in isolation; that is, you cannot pass values directly from one script to another.
 
@@ -46,7 +46,7 @@ This is an example of a script that is executed for every deployed that is invol
     </rule>
 {% endhighlight %}
 
-Where `planning/SuccessBaseDeployedArtifact.py`, which is stored in the `<XLDEPLOY_HOME>/ext/` directory, has following content:
+Where `planning/SuccessBaseDeployedArtifact.py`, which is stored in the `XL_DEPLOY_SERVER_HOME/ext/` directory, has following content:
 
 {% highlight python %}
 step = steps.noop(description = "A dummy step to indicate that some new artifact was created on the target environment", order = 100)

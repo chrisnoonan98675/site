@@ -11,7 +11,7 @@ tags:
 weight: 404
 ---
 
-To start the XL Release server, open a command prompt or terminal, go to the `<XLRELEASE_SERVER_HOME>/bin` directory, and execute the appropriate command:
+To start the XL Release server, open a command prompt or terminal, go to the `XL_RELEASE_SERVER_HOME/bin` directory, and execute the appropriate command:
 
 {:.table .table-striped}
 | Operating system | Command |

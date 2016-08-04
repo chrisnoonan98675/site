@@ -12,7 +12,7 @@ tags:
 weight: 492
 ---
 
-By default, XL Release server writes informational, warning, and error log messages to standard output and to `<XLRELEASE_SERVER_HOME>/log/xl-release.log` when it is running. In addition, XL Release writes an audit trail to `<XLRELEASE_SERVER_HOME>/log/audit.log`.
+By default, XL Release server writes informational, warning, and error log messages to standard output and to `XL_RELEASE_SERVER_HOME/log/xl-release.log` when it is running. In addition, XL Release writes an audit trail to `XL_RELEASE_SERVER_HOME/log/audit.log`.
 
 ## The audit log
 
@@ -36,11 +36,11 @@ For each event, the following information is recorded:
 
 For events involving configuration items (CIs), the CI data submitted as part of the event is logged in XML format.
 
-By default, the audit log is stored in `<XLRELEASE_SERVER_HOME>/log/audit.log` and is rolled over daily.
+By default, the audit log is stored in `XL_RELEASE_SERVER_HOME/log/audit.log` and is rolled over daily.
 
 ## Changing logging behavior
 
-It is possible to change the logging behavior (for example, to write log output to a file or to log output from a specific source). To do so, edit the `<XLRELEASE_SERVER_HOME>/conf/logback.xml` file. This is a sample `logback.xml` file:
+It is possible to change the logging behavior (for example, to write log output to a file or to log output from a specific source). To do so, edit the `XL_RELEASE_SERVER_HOME/conf/logback.xml` file. This is a sample `logback.xml` file:
 
 {% highlight xml %}
 <configuration>
@@ -82,7 +82,7 @@ For information about the `logback.xml` file, refer to the [Logback documentatio
 
 ### Enable low-level audit logging
 
-You can enable low-level audit logging by changing the log level of the `audit` logger in `<XLRELEASE_SERVER_HOME>/conf/logback.xml`:
+You can enable low-level audit logging by changing the log level of the `audit` logger in `XL_RELEASE_SERVER_HOME/conf/logback.xml`:
 
 {% highlight xml %}
 <!-- set to "info" to enable low-level audit logging -->
@@ -91,7 +91,7 @@ You can enable low-level audit logging by changing the log level of the `audit` 
 </logger>
 {% endhighlight %}
 
-By default, the log stream is stored in `<XLRELEASE_SERVER_HOME>/log/audit.log`. You can change this location, the file rolling policy, and so on by changing the configuration of the `AUDIT` appender. You can also pipe the log stream to additional sinks (such as [syslog](http://logback.qos.ch/manual/appenders.html#SyslogAppender)) by configuring additional appenders. Refer to the [Logback documentation](http://logback.qos.ch/manual/) for details.
+By default, the log stream is stored in `XL_RELEASE_SERVER_HOME/log/audit.log`. You can change this location, the file rolling policy, and so on by changing the configuration of the `AUDIT` appender. You can also pipe the log stream to additional sinks (such as [syslog](http://logback.qos.ch/manual/appenders.html#SyslogAppender)) by configuring additional appenders. Refer to the [Logback documentation](http://logback.qos.ch/manual/) for details.
 
 This is an example of the audit stream with the level of the audit logger set to `info`:
 
