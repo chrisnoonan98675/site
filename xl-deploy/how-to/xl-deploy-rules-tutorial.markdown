@@ -23,10 +23,10 @@ This tutorial will guide you through the process of using rules to create an XL 
 
 This tutorial assumes that you:
 
-* Know how to create CI types, as described in [Customizing the XL Deploy type system](/xl-deploy/how-to/customizing-the-xl-deploy-type-system.html)
-* Understand the concepts of XL Deploy planning, as described in [Understanding XL Deploy architecture](/xl-deploy/concept/understanding-xl-deploy-architecture.html#deployments-and-plugins)
+* Know how to create CI types, as described in [Customizing the XL Deploy type system](/xl-deploy/how-to/working-with-configuration-items.html)
+* Understand the concepts of XL Deploy planning, as described in [Understanding XL Deploy architecture](/xl-deploy/concept/xl-deploy-architecture.html)
 
-For reference, you can download the code provided in this tutorial from the XebiaLabs [GitHub](https://github.com/xebialabs/xl-deploy-samples/tree/master/rules-demo-plugin).
+For reference, the code provided in this tutorial is available as a demo plugin in the `samples` directory of your XL Deploy installation.
 
 ## How to run the examples
 
@@ -62,11 +62,11 @@ After you finish this tutorial, the `ext` folder will look like:
 
 After you change `synthetic.xml`, you must restart the XL Deploy server.
 
-By default, you must also restart the XL Deploy server after you change `xl-rules.xml` and scripts in the `ext` folder. However, you can configure XL Deploy to periodically rescan `xl-rules.xml` and the `ext` folder and apply any changes that it finds. This is useful when you are developing a plugin. Refer to [Rescan the rules file](/xl-deploy/how-to/rescan-the-rules-file.html) for information on how to do this.
+By default, you must also restart the XL Deploy server after you change `xl-rules.xml` and scripts in the `ext` folder. However, you can configure XL Deploy to periodically rescan `xl-rules.xml` and the `ext` folder and apply any changes that it finds. This is useful when you are developing a plugin. Refer to [Define a rule](/xl-deploy/how-to/how-to-define-rules.html#scanning-for-rules) for information on how to do this.
 
 ### Error handling
 
-If you make a mistake in the definition of `synthetic.xml` or `xl-rules.xml`, the server will return an error and may fail to start. Mistakes in the definition of scripts or expressions usually appear in the server log when you execute a deployment. For more information about troubleshooting the rules configuration, refer to the [troubleshooting tips](/xl-deploy/concept/troubleshooting-and-best-practices-for-rules.html).
+If you make a mistake in the definition of `synthetic.xml` or `xl-rules.xml`, the server will return an error and may fail to start. Mistakes in the definition of scripts or expressions usually appear in the server log when you execute a deployment. For more information about troubleshooting the rules configuration, refer to [Best practices for rules](/xl-deploy/concept/best-practices-for-rules.html).
 
 ## Deploy an artifact
 
@@ -167,9 +167,9 @@ First, we need to store the wait time in the deployment properties by adding the
 </type-modification>
 {% endhighlight %}
 
-### Define a rule to contribute a wait step
+### Define a rule to contribute a `wait` step
 
-Next, we need to define a rule in `xl-rules.xml` to contribute the wait step to the plan:
+Next, we need to define a rule in `xl-rules.xml` to contribute the `wait` step to the plan:
 
 {% highlight xml %}
 <rule name="example.DeployedApplication.wait" scope="pre-plan">
@@ -198,7 +198,7 @@ Notice that:
             * `expression="true"` means that the definition will be evaluated by Jython and the resulting value will be passed to the step. This is required because the definition contains a dynamically constructed string.
     * The `waitTime` value is retrieved from the `DeployedApplication` and passed to the step. You can access the `DeployedApplication` through the `specification` and `deployedOrPreviousApplication`. This automatically selects the correct deployed, which means that this step will work for a `CREATE` or `DESTROY` operation.
 
-For more information about the wait step, see [wait](referencesteps.html#wait).
+For more information about the `wait` step, refer to the [Steps Reference](/xl-deploy/latest/referencesteps.html).
 
 ### Test the deployment rules
 
@@ -345,7 +345,7 @@ for container in containers():
 
 Note that `freemarker_context={'container': container}` is required to make the container object available in the FreeMarker context.
 
-The [rules demo plugin](https://github.com/xebialabs/xl-deploy-samples/tree/master/rules-demo-plugin) also contains a dummy script called `start.sh.ftl` that contains:
+The rules demo plugin also includes a dummy script called `start.sh.ftl` that contains:
 
     echo "Starting server on Unix"
 
@@ -390,6 +390,6 @@ If you have more advanced rollback requirements, refer to [Using checkpoints](/x
 
 You made it through the entire tutorial, congratulations! You should now have a good understanding of rules-based planning, and you should be able to find the information you need to continue creating deployment rules.
 
-The code discussed in this tutorial is available in the rules demo plugin, which you can download from [GitHub](https://github.com/xebialabs/xl-deploy-samples/tree/master/rules-demo-plugin). Also, the demo plugin contains additional examples.
+The code discussed in this tutorial is available in the rules demo plugin, which you can find in the `samples` directory of your XL Deploy installation. Also, the demo plugin contains additional examples.
 
 If you would like to change the behavior of an existing plugin, you can disable predefined rules and redefine the behavior with new rules. For more information about this, refer to [Disable a rule](/xl-deploy/how-to/disable-a-rule.html).
