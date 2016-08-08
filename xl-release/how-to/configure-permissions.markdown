@@ -1,5 +1,5 @@
 ---
-title: Configure permissions
+title: Configure global permissions
 categories:
 - xl-release
 subject:
