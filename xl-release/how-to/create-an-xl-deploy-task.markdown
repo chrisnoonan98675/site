@@ -27,3 +27,5 @@ The options for the XL Deploy task are:
 | Password | Password to use when connecting to the XL Deploy server. |
 
 You can also use [variables](/xl-release/concept/variables-in-xl-release.html) in the **Deployment package** and **Environment** fields. This allows you to reuse application version and environment across tasks in XL Release. For example, when using variables you can mention the name of the application and the environment you deploy to in a notification task.
+
+In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), XL Deploy tasks have a green border.

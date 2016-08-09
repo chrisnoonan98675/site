@@ -20,11 +20,12 @@ The Remote Script plugin includes four task types:
 * **Remote Script: Windows (SSH)**: Execute a shell script on a Microsoft Windows host via SFTP
 * **Remote Script: z/OS**: Execute a shell script on z/OS
 
+In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), Remote Script tasks have a blue border.
+
 ## Features
 
 * Execute shell scripts on Unix, z/OS, or Microsoft Windows (via Cygwin or WinSSHD) hosts
 * Execute batch scripts on Microsoft Windows hosts. Note: All scripts will be interpreted as batch files; PowerShell is currently not supported.
-
 
 ## Common properties
 
