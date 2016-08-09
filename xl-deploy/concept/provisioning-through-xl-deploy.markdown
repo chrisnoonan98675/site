@@ -21,7 +21,7 @@ weight: 320
 
 XL Deploy's provisioning feature allows you to provide fully automated, on-demand access to your public, private, or hybrid cloud-based environments. With provisioning, you can:
 
-* Create an environment in a single action
+* Create an environment in a single action by provisioning infrastructure, installing middleware, and configuring infrastructure and middleware components
 * Track and audit environments that are created through XL Deploy
 * Deprovision environments created through XL Deploy
 * Extend XL Deploy to create environments using technologies not supported by default

@@ -38,7 +38,7 @@ To create a provisioning package:
 
 1. Click **Repository** in the top bar.
 1. Expand **Blueprints**, right-click the desired blueprint, and select **New** > **ProvisioningPackage**.
-1. In the **Name** box, enter a unique name for the provisioning package.
+1. In the **Name** box, enter the provisioning package's version.
 1. In the **Environment Name** box, enter an XL Deploy environment that should contain the CIs that are generated during provisioning. This field cannot contain forward slashes (`/`).
 
     ![Create new provisioning package](images/provisioning-create-new-provisioning-package.png)
