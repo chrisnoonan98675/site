@@ -9,13 +9,10 @@ tags:
 - pipeline
 ---
 
-To see an overview of all active releases in XL Release, select **Releases** > **Pipeline** from the top bar. The release pipelines show the phase that each release is in and the tasks that are currently active.
+To see an overview of all [active](/xl-release/concept/release-life-cycle.html) releases in XL Release, select **Releases** > **Pipeline** from the top bar. This page provides a pipeline view of each active release; it shows how much of each release has been completed and any flags that have been set on the release or tasks within it.
 
 ![Pipeline](../images/pipeline.png)
 
-In each pipeline:
+To filter the releases, click **Filter options** and select **Only my releases** and/or **Only flagged releases**. You can also filter by typing part of a release title or release tag in the box at the top of the page.
 
-* Completed phases appear in gray
-* Active phases show the task that is currently active
-* Gate tasks appear in red; all others appear in light blue
-* If a phase starts or ends with a gate that has not passed yet, it appears with the ![Gate icon](../images/gate-icon.png) icon
+To drill down into a specific release, click its pipeline.
