@@ -15,7 +15,33 @@ In XL Release, the release flow editor shows the phases and tasks in the release
 
 ![Release Flow Editor](../images/release-flow-editor.png)
 
-You use the release flow editor for templates, planned releases, and active releases, though there are some differences in the actions that are available:
+## Working with phases
+
+In the release flow editor, you can work with phases:
+
+* Add a phase by clicking **Add phase**
+* Move a phase by dragging and dropping it
+* Edit a phase by clicking ![Phase edit button](/images/button_edit_phase.png) on the phase header
+* Delete a phase by clicking ![Phase delete button](/images/button_delete_phase.png) on the phase header
+
+Note that you cannot move, edit, or delete a phase that has already been completed.
+
+## Working with tasks
+
+In the release flow editor, you can also work with tasks:
+
+* Add a task by clicking **Add task** in the desired phase
+* Move a task by dragging and dropping it (unless it is complete)
+* [Edit a task's details](/xl-release/how-to/working-with-tasks.html) by clicking it
+* Assign a task to yourself by clicking ![Task action menu](/images/menu_three_dots.png)
+* [Change a task's type](/xl-release/how-to/change-a-task-type.html) by clicking ![Task action menu](/images/menu_three_dots.png)
+* Skip, fail, duplicate, or delete a task by clicking ![Task action menu](/images/menu_three_dots.png)
+
+In an active release, ![Active task indicator](/images/active_task_arrow.png) indicates the task that is currently active. Note that you cannot move, edit, or delete a task that has already been completed.
+
+## Differences between templates and releases
+
+You use the release flow editor for templates, planned releases, and active releases, but there are some differences in the actions that are available:
 
 {:.table .table-striped}
 | Action | Description | Available in... |
@@ -27,7 +53,3 @@ You use the release flow editor for templates, planned releases, and active rele
 | Restart Phase | Abort a phase in a release that is active and [restart the release](/xl-release/how-to/restart-a-phase-in-an-active-release.html) from any past phase | Active release |
 | Export to Excel | Download the current release in Microsoft Excel format (.xlsx) | Planned release<br />Active release |
 | Export | Download the template in ZIP format; you can [import a template](/xl-release/how-to/import-a-release-template.html) in the Template Overview | Template |
-
-In an active release, an orange arrow indicates the current task. Also, completed tasks appear in grey, and you cannot move or edit them.
-
-**Tip:** In XL Release 4.8.0 and later, you can take action on a task in the release flow editor without opening it by clicking ![Task action menu](/images/menu_three_dots.png) on the task. For example, you can assign a task to yourself, change its type, or complete, skip, fail, duplicate, or delete the task.
