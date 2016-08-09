@@ -18,7 +18,7 @@ If you store the XL Release repository [in a database](/xl-release/how-to/config
 To do so, you must *manually* update the following files with the new settings:
 
 * `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml`
-* `XLRELEASE_REPOSITORY_HOME/workspaces/default/workspace.xml`
-* `XLRELEASE_REPOSITORY_HOME/workspaces/security/workspace.xml`
+* `XL_RELEASE_REPOSITORY_HOME/workspaces/default/workspace.xml`
+* `XL_RELEASE_REPOSITORY_HOME/workspaces/security/workspace.xml`
 
 **Important:** If there are additional `workspace.xml` files in the repository directory, you must also update the settings in those files.
