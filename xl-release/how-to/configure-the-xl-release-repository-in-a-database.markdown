@@ -116,7 +116,9 @@ This is a sample `XL_RELEASE_HOME/conf/jackrabbit-repository.xml` configuration 
 </Versioning>
 {% endhighlight %}
 
+{% comment %}
 **Note:** The MySQL database is not suited for storage of large binary objects; see [the MySQL bug tracker](http://bugs.mysql.com/bug.php?id=10859).
+{% endcomment %}
 
 ### Using XL Release with DB2
 
