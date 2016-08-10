@@ -14,7 +14,7 @@ since:
 weight: 121
 ---
 
-When you deploy, update, or undeploy an application, XL Deploy performs a dependency check. It selects the highest possible version in the dependency range of each application.
+When you deploy, update, or undeploy an application, XL Deploy performs a [dependency check](/xl-deploy/concept/application-dependencies-in-xl-deploy.html). It selects the highest possible version in the dependency range of each application.
 
 The dependency check may detect the following issues:
 

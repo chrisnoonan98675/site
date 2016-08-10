@@ -28,19 +28,19 @@ To define application dependencies in XL Deploy:
 * You must use [Semantic Versioning (SemVer) 2.0.0](http://semver.org/) for deployment package names
 * Deployment package names can contain numbers, letters, periods (`.`), and hyphens (`-`)
 
-In the SemVer scheme, a version number is expressed as `major.minor.patch`; for example, `1.2.3`. All three parts of the version number are required.
+In the SemVer scheme, a version number is expressed as `major.minor.patch`; for example, 1.2.3. All three parts of the version number are required.
 
-You can also append a hyphen to the version number, followed by numbers, letters, or periods; for example, `1.2.3-beta`. In the SemVer scheme, this notation indicates a pre-release version.
+You can also append a hyphen to the version number, followed by numbers, letters, or periods; for example, 1.2.3-beta. In the SemVer scheme, this notation indicates a pre-release version.
 
 ### Examples of deployment package names
 
 Some examples of deployment package names that use the SemVer scheme are:
 
-* `1.0.0`
-* `1.0.0-alpha`
-* `1.0.0-alpha.1`
-* `1.0.0-0.3.7`
-* `1.0.0-x.7.z.92`
+* 1.0.0
+* 1.0.0-alpha
+* 1.0.0-alpha.1
+* 1.0.0-0.3.7
+* 1.0.0-x.7.z.92
 
 ## Version ranges
 
@@ -49,10 +49,10 @@ You can use parentheses and square brackets to version dependency ranges. The ra
 {:.table .table-striped}
 | Format | Description | Example |
 | ------ | ----------- | ------- |
-| `[version1,version2]` | The application depends on any version between `version1` and `version2`, including both versions (note that `version1` and `version2` can be the same value) | AppA depends on AppB `[1.0.0,2.0.0]`, so AppA works with AppB `1.0.0`, `1.5.5`, `1.9.3`, and `2.0.0` |
-| `(version1,version2)` | The application depends on any version between `version1` and `version2`, excluding both versions | AppA depends on AppB `(1.0.0,2.0.0)`, so AppA works with AppB `1.5.5` and `1.9.3`, but does not work with AppB `1.0.0` or `2.0.0` |
-| `[version1,version2)` | The application depends on any version between `version1` and `version2`, including `version1` and excluding `version2` | AppA depends on AppB `[1.0.0,2.0.0)`, so AppA works with AppB `1.0.0`, `1.5.5`, and `1.9.3`, but does not work with AppB `2.0.0` |
-| `(version1,version2]` | The application depends on any version between `version1` and `version2`, excluding `version1` and including `version2` | AppA depends on AppB `(1.0.0,2.0.0]`, so AppA works with App B `1.5.5`, `1.9.3`, and `2.0.0`, but does not work with AppB `1.0.0` |
+| `[version1,version2]` | The application depends on any version between `version1` and `version2`, including both versions (note that `version1` and `version2` can be the same value) | AppA depends on AppB [1.0.0,2.0.0], so AppA works with AppB 1.0.0, 1.5.5, 1.9.3, and 2.0.0 |
+| `(version1,version2)` | The application depends on any version between `version1` and `version2`, excluding both versions | AppA depends on AppB (1.0.0,2.0.0), so AppA works with AppB 1.5.5 and 1.9.3, but does not work with AppB 1.0.0 or 2.0.0 |
+| `[version1,version2)` | The application depends on any version between `version1` and `version2`, including `version1` and excluding `version2` | AppA depends on AppB [1.0.0,2.0.0), so AppA works with AppB 1.0.0, 1.5.5, and 1.9.3, but does not work with AppB 2.0.0 |
+| `(version1,version2]` | The application depends on any version between `version1` and `version2`, excluding `version1` and including `version2` | AppA depends on AppB (1.0.0,2.0.0], so AppA works with App B 1.5.5, 1.9.3, and 2.0.0, but does not work with AppB 1.0.0 |
 
 ## Simple dependency example
 
@@ -60,7 +60,7 @@ Assume that you have two applications called WebsiteFrontEnd and WebsiteBackEnd.
 
 1. Go to the Repository.
 1. Expand **Applications** > **WebsiteFrontEnd** and double-click the 1.0.0 deployment package.
-1. In the **Application Dependencies** section, add the key `WebsiteBackEnd` and the value `[2.0.0,2.0.0]`. This is the [Semantic Versioning (SemVer)](http://semver.org/) format that indicates that WebsiteFrontEnd 1.0.0 depends on WebsiteBackEnd 2.0.0, and only 2.0.0 (not any older or newer version).
+1. In the **Application Dependencies** section, add the key WebsiteBackEnd and the value [2.0.0,2.0.0]. This is the [Semantic Versioning (SemVer)](http://semver.org/) format that indicates that WebsiteFrontEnd 1.0.0 depends on WebsiteBackEnd 2.0.0, and only 2.0.0 (not any older or newer version).
 
     ![Application with dependencies](images/app-dependencies-example-01.png)
 
@@ -72,7 +72,7 @@ For an extended example of dependencies, refer to [Advanced application dependen
 
 You can define a dependency on an application that does not yet exist in the XL Deploy Repository. You can also specify a version range that cannot be met by any versions that are currently in the Repository.
 
-This allows you to import applications even before all dependencies can be met; that is, you can import, but not deploy, the `frontend` package before its required `backend` package is ready. However, this means that you must be careful to enter the correct versions.
+This allows you to import applications even before all dependencies can be met; that is, you can import, but not deploy, a front-end package before its required back-end package is ready. However, this means that you must be careful to enter the correct versions.
 
 It is also possible to modify the declared dependencies of a deployment package even after it has been deployed. In that case, XL Deploy will not perform any validation. It is not recommended to modify dependencies after deployment.
 
