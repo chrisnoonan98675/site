@@ -12,13 +12,13 @@ weight: 440
 
 XL Release includes many types of [tasks](/xl-release/how-to/working-with-tasks.html). Some task types represent actions taken by a person, while others are automated and provide integration with other tools.
 
-**Tip:** In addition to the built-in task types, you can create your own [custom task types](/xl-release/how-to/create-custom-task-types-in-xl-release.html).
+**Tip:** In addition to the built-in task types, you can create your own [custom task types](/xl-release/how-to/create-custom-task-types.html).
 
 ## Human task types
 
 In human tasks, a person performs an action and indicates when it is done.
 
-{:.table}
+{:.table .table-striped}
 | Task type | Description | Color |
 | --------- | ----------- | ----- |
 | [Gate](/xl-release/how-to/create-a-gate-task.html) | Contains conditions that must be fulfilled before the release can continue | Red |
@@ -29,7 +29,7 @@ In human tasks, a person performs an action and indicates when it is done.
 
 In automated tasks, the XL Release execution engine performs an automated script.
 
-{:.table}
+{:.table .table-striped}
 | Task type | Description | Color |
 | --------- | ----------- | ----- |
 | [Create Release](/xl-release/how-to/create-a-create-release-task.html) | Creates and starts a release based on a template | Green |
@@ -45,7 +45,7 @@ In automated tasks, the XL Release execution engine performs an automated script
 
 You use container tasks to group other types of tasks. The container task types are:
 
-{:.table}
+{:.table .table-striped}
 | Task type | Description | Color |
 | --------- | ----------- | ----- |
 | [Parallel Group](/xl-release/how-to/create-a-parallel-group.html) | A container for tasks that are executed simultaneously | None |
