@@ -13,7 +13,7 @@ Sometimes, it is necessary to determine all instances of an artifact that has be
 
 [This CLI script](https://gist.github.com/xlcommunity/fb2f63dcf4f118dd07725d8b761c55b8) will search for all deployed packages that contain a vulnerable file that you specify.
 
-To use the script, save it as a `.py` file in the directory where the CLI is installed (`XL_DEPLOY_CLI_HOME`). Log in to the CLI and execute:
+To use the script, save it as a `.py` file in the bin directory of where the CLI is installed (`XL_DEPLOY_CLI_HOME`). Execute the following supplying any login information:
 
     ./cli.sh -q -f $(pwd)/<script>.py <artifact>
 
