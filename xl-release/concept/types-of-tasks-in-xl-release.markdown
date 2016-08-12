@@ -19,8 +19,8 @@ XL Release includes many types of [tasks](/xl-release/how-to/working-with-tasks.
 In human tasks, a person performs an action and indicates when it is done.
 
 {:.table .table-striped}
-| Task type | Description | Color |
-| --------- | ----------- | ----- |
+| Task type | Description | Color in the release flow editor |
+| --------- | ----------- | -------------------------------- |
 | [Gate](/xl-release/how-to/create-a-gate-task.html) | Contains conditions that must be fulfilled before the release can continue | Red |
 | [Manual](/xl-release/how-to/create-a-manual-task.html) | Represents a step in a template or release that must be completed by a person | Gray |
 | [User Input](/xl-release/how-to/create-a-user-input-task.html) | Allows users to provide values for release variables | Gray |
@@ -30,8 +30,8 @@ In human tasks, a person performs an action and indicates when it is done.
 In automated tasks, the XL Release execution engine performs an automated script.
 
 {:.table .table-striped}
-| Task type | Description | Color |
-| --------- | ----------- | ----- |
+| Task type | Description | Color in the release flow editor |
+| --------- | ----------- | -------------------------------- |
 | [Create Release](/xl-release/how-to/create-a-create-release-task.html) | Creates and starts a release based on a template | Green |
 | [Jenkins](/xl-release/how-to/create-a-jenkins-task.html) | Runs a Jenkins job | Blue |
 | [JIRA](/xl-release/how-to/jira-plugin.html) | Query and/or update issues on an Atlassian JIRA server | Blue |
@@ -46,7 +46,7 @@ In automated tasks, the XL Release execution engine performs an automated script
 You use container tasks to group other types of tasks. The container task types are:
 
 {:.table .table-striped}
-| Task type | Description | Color |
-| --------- | ----------- | ----- |
+| Task type | Description | Color in the release flow editor |
+| --------- | ----------- | -------------------------------- |
 | [Parallel Group](/xl-release/how-to/create-a-parallel-group.html) | A container for tasks that are executed simultaneously | None |
 | [Sequential Group](/xl-release/how-to/create-a-sequential-group.html) | A container for tasks that are executed in sequence |  None |
