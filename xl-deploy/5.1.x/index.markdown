@@ -59,6 +59,7 @@ product-id: xl-deploy
 * [Webserver plugin (Apache HTTP server)](webserverPluginManual.html)
 * [WebSphere MQ plugin](/xl-deploy-wmq-plugin/5.1.x/wmqPluginManual.html)
 * [NetScaler plugin](/xl-deploy-netscaler-plugin/5.0.x/netscalerPluginManual.html)
+* [DataPower plugin](/xl-deploy/concept/datapower-plugin.html)
 
 ### Tools
 
