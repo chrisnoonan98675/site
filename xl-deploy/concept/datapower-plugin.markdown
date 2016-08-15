@@ -84,7 +84,7 @@ You can import a file from your package into the DataPower appliance with the `d
 
 ### Sample DAR manifest
 
-This is a sample of a deployment package (DAR) manifest snippet that defines a `datapower.ConfigurationZip` resource CI:
+This is a sample of a deployment package (DAR) manifest snippet that defines a `datapower.ConfigurationZipSpec` resource CI:
 
     <datapower.ConfigurationZipSpec name="ZipConfig" file="ZipConfig/exportConfig.zip">
       <scanPlaceholders>true</scanPlaceholders>
