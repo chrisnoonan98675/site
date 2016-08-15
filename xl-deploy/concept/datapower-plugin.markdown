@@ -86,9 +86,9 @@ You can import a file from your package into the DataPower appliance with the `d
 
 This is a sample of a deployment package (DAR) manifest snippet that defines a `datapower.ConfigurationZip` resource CI:
 
-    <datapower.ConfigurationZip name="ZipConfig" file="ZipConfig/exportConfig.zip">
+    <datapower.ConfigurationZipSpec name="ZipConfig" file="ZipConfig/exportConfig.zip">
       <scanPlaceholders>true</scanPlaceholders>
-    </datapower.ConfigurationZip>
+    </datapower.ConfigurationZipSpec>
 
 For the file upload, specify the following resource:
 
