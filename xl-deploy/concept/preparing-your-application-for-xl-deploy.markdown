@@ -186,6 +186,9 @@ To create the deployment plan:
 4. Under **Deployment**, select the environment where your application should be deployed and drag it to the right side of the Deployment Workspace.
 5. Click ![image](/images/button_auto-map.png) to automatically map your application’s deployables to containers in the environment.
 6. Double-click each mapped deployable to verify that its properties are configured as expected. Here, you can see the placeholders that XL Deploy found in your deployment package and the values that it will assign to them during the deployment process.
+
+    ![Deployed properties](images/deployment-workspace-deployed-properties.png)
+
 7. Click **Analyze** at the bottom of the Deployment Workspace. The Plan Analyzer appears.
 8. Review the steps in the Plan Analyzer.
 9. Optionally click the eye icon next to each step (where available) to preview the commands that XL Deploy will use to execute the step.
