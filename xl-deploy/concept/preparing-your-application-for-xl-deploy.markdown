@@ -189,7 +189,7 @@ To create the deployment plan:
 
     ![Deployed properties](images/deployment-workspace-deployed-properties.png)
 
-7. Click **Analyze** at the bottom of the Deployment Workspace. The Plan Analyzer appears.
+7. Click **Analyze** at the bottom of the Deployment Workspace. The [Plan Analyzer](/xl-deploy/how-to/preview-the-deployment-plan.html) appears.
 8. Review the steps in the Plan Analyzer.
 9. Optionally click the eye icon next to each step (where available) to preview the commands that XL Deploy will use to execute the step.
 10. Click **Close Analyzer** to return to the Deployment Workspace.
