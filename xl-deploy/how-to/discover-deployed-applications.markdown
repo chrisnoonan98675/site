@@ -3,7 +3,7 @@ no_index: true
 title: Discover deployed applications
 ---
 
-XebiaLabs allows you to discover the configuration and applications that are installed in an existing environment and use them to create a deployment package, so you can quickly replicate an installation to new environments. You can select specific configuration items (CIs), edit their properties, and use [placeholders](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) and [dictionaries](/xl-deploy/how-to/create-a-dictionary.html) to tokenize environment-specific settings. In the case of CIs that contain binary data (such as EAR, WAR, and ZIP files), you can select the required artifact from a repository and associate it with the configuration.
+XebiaLabs allows you to automatically, or in a guided fashion, discover the configuration and applications that are installed in an existing environment and use them to create a deployment package, so you can quickly replicate an installation to new environments. You can select specific configuration items (CIs), edit their properties, and use [placeholders](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) and [dictionaries](/xl-deploy/how-to/create-a-dictionary.html) to tokenize environment-specific settings. In the case of CIs that contain binary data (such as EAR, WAR, and ZIP files), you can select the required artifact from a repository and associate it with the configuration.
 
 ![Discover application](images/reverse-engineer/reverse-engineer-02.png)
 
