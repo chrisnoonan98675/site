@@ -30,17 +30,17 @@ This is an example of how restarting a phase works in practice. Suppose you have
 
 The QA phase was started with version 1.0 of the product, but bugs were found and QA could not sign off. So the **Sign off by QA** task failed. The Dev team is notified and produces a fix: version 1.0.1. You can now start the QA phase again for version 1.0.1.
 
-Do so by clicking **Restart Phase...** in the top bar and selecting the phase and task from which the release should be restarted. 
+Do so by clicking **Restart Phase...** in the top bar and selecting the phase and task from which the release should be restarted.
 
 ![Restart confirmation dialog](../images/restart-dialog-1.png)
 
 Click **Continue** to confirm the restart. Alternatively, click **Cancel** to discard the restart.
 
-After you continue, the release is paused and the new phases are created. Before the release flow is resumed, you can make some changes. First, you confirm whether to resume now or later.
+After you continue, the release is paused and the new phases are created. As from version 6.0 you can't make any changes on variables on this step. You confirm whether to resume now or later.
 
 ![Restart confirmation dialog](../images/restart-dialog-2.png)
 
-You can change the package version variable from 1.0 to 1.0.1 and click **Resume now** to proceed right away.
+By choosing **Resume now** you will continue the release flow immediately.
 
 If you click **Resume later**, the release remains in the 'paused' state. You can change task assignees, due dates, and so on. You can even decide to delete tasks that are no longer relevant.
 
