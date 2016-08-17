@@ -30,9 +30,7 @@ In this example, Acme Cloud provides `acme-cloud` library to access data in its 
 
 An `ArtifactResolver` interface instructs XL Deploy to retrieve artifacts using URIs with the `acme` protocol. A single resolver can support multiple protocols.
 
-{% comment %}
-Refer to the [ArtifactResolver documentation](http://docs.xebialabs.com/releases/latest/xl-deploy/javadoc/engine-spi/com/xebialabs/deployit/engine/spi/artifact/resolution/ArtifactResolver.html) for more information.
-{% endcomment %}
+Refer to the [ArtifactResolver documentation](/xl-deploy/5.5.x/javadoc/engine-spi/com/xebialabs/deployit/engine/spi/artifact/resolution/ArtifactResolver.html) for more information.
 
     import com.xebialabs.deployit.engine.spi.artifact.resolution.ArtifactResolver;
     import com.xebialabs.deployit.engine.spi.artifact.resolution.ArtifactResolver.Resolver;
