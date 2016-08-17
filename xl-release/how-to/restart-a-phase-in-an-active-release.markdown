@@ -36,13 +36,13 @@ Do so by clicking **Restart Phase...** in the top bar and selecting the phase an
 
 Click **Continue** to confirm the restart. Alternatively, click **Cancel** to discard the restart.
 
-After you continue, the release is paused and the new phases are created. As from version 6.0 you can't make any changes on variables on this step. You confirm whether to resume now or later.
+After you continue, the release is paused and the new phases are created.
 
 ![Restart confirmation dialog](../images/restart-dialog-2.png)
 
-By choosing **Resume now** you will continue the release flow immediately.
+Click **Resume now** to continue the release flow immediately. If you click **Resume later**, the release remains in the 'paused' state. This allows you to edit tasks and release properties before continuing.
 
-If you click **Resume later**, the release remains in the 'paused' state. You can change task assignees, due dates, and so on. You can even decide to delete tasks that are no longer relevant.
+**Note:** Prior to XL Release 6.0.0, you can edit release variables in this step. In XL Release 6.0.0 and later, you can edit variables by clicking **Resume later** and then selecting **Variables** from the **Show** menu.
 
 XL Release creates a phase called **QA (2)**. You can still modify its content. For example, suppose that the task **Update test scenarios** is no longer relevant; you can remove it.
 
