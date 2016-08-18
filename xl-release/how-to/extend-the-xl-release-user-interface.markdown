@@ -10,6 +10,8 @@ tags:
 - jython
 - plugin
 - customization
+since:
+- XL Release 5.0.0
 ---
 
 You can extend XL Release by adding user interface (UI) screens that call REST services from the XL Release REST API or from custom endpoints, backed by Jython scripts that you write.
