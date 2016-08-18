@@ -219,6 +219,7 @@ Redirect 301 /xl-release/how-to/start-xl-release-in-the-background.html /xl-rele
 Redirect 301 /xl-release/how-to/enable-granular-audit-logging.html /xl-release/concept/logging-in-xl-release.html
 Redirect 301 /xl-release/how-to/configure-permissions-for-a-release.html /xl-release/how-to/configure-release-teams-and-permissions.html
 Redirect 301 /xl-release/how-to/configure-teams-for-a-release.html /xl-release/how-to/configure-release-teams-and-permissions.html
+Redirect 301 /xl-release/how-to/declare-custom-rest-endpoints.html /xl-release/how-to/extend-the-xl-release-user-interface.html
 
 # XL TestView topics
 
