@@ -28,11 +28,10 @@ You install a UI extension by packaging it in a JAR file and saving it in the `X
                 resources
                     xl-rest-endpoints.xml
                     xl-ui-plugin.xml
-                web
-                    demo-plugin
-                        demo.html
-                        main.css
-
+                    web
+                        demo-plugin
+                            demo.html
+                            main.css
 
 It is recommended that you create a folder under `web` with an unique name for each UI extension plugin, to avoid file name collisions.
 
