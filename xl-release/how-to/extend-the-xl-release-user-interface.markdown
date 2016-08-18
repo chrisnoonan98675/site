@@ -108,7 +108,7 @@ For example, this `xl-rest-endpoints.xml` file adds a `GET` endpoint at `/test/d
 </endpoints>
 {% endhighlight %}
 
-After processing this file, XL Release creates a new REST endpoint that is accessible via `http://{xl-deploy-hostname}:{port}/{[context-path]}/api/extension/test/demo`.    
+After processing this file, XL Release creates a new REST endpoint that is accessible via `http://{xl-release-hostname}:{port}/{[context-path]}/api/extension/test/demo`.    
 
 ## Writing Jython scripts
 
