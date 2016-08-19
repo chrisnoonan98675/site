@@ -23,9 +23,9 @@ XL Deploy's built-in `admin` user has administrative permissions. You set the `a
         security.modifyUser(adminUser)
 
 4. Stop the XL Deploy server.
-5. Set the new `admin` password in the `XL_DEPLOY_SERVER_HOME/conf/deployit.conf` file.
-6. Restart XL Deploy.
-7. Test the credentials in the CLI using the following command:
+5. In the `XL_DEPLOY_SERVER_HOME/conf/deployit.conf` file, set `admin.password` to the new password. XL Deploy will encrypt this password when it starts.
+6. [Start the XL Deploy server](/xl-deploy/how-to/start-xl-deploy.html).
+7. Test the credentials by executing the following command in the CLI:
 
         security.login('admin', 'newpassword')
 
