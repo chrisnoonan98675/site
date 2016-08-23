@@ -36,22 +36,11 @@ The following web browsers are supported for the XL Release user interface:
 
 You can install XL Release:
 
-* Using the GUI installer
-* Using the command-line installer
-* As a service or daemon
+* [Using the GUI installer](gui-installer.html)
+* [Using the command-line installer](command-line-installer.html)
+* [As a service or daemon](install-as-a-service.html)
 
-## XL Release server directory structure
-
-After the XL Release installation file is extracted, the following directory structure exists in the installation directory:
-
-* `bin`: Contains the server binaries
-* `conf`: Contains server configuration files
-* `ext`: Contains server Java extensions
-* `hotfix`: Contains hotfixes that correct issues with the server software
-* `lib`: Contains libraries that the server needs
-* `log`: contains server log files
-
-The installation directory is referred to as `XL_RELEASE_SERVER_HOME`.
+You can also choose to [store the XL Release repository in a database](repository-database.html)
 
 ## Failover configuration
 

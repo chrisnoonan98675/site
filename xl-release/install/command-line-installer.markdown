@@ -4,7 +4,7 @@ title: Install XL Release using the command-line installer
 
 The command-line installer is available in the XL Release server ZIP file (for example, `xl-release-5.0.0-server.zip`). To install XL Release as a service, you can use this installer and then follow the steps in [Install XL Release as a service](/xl-release/how-to/install-xl-release-as-a-service.html).
 
-### Extract the XL Release server ZIP file
+## Extract the XL Release server ZIP file
 
 First, extract the XL Release server ZIP file:
 
@@ -14,6 +14,17 @@ First, extract the XL Release server ZIP file:
 4. Extract the ZIP file in the directory.
 
 **Tip:** It is recommended that you install the XL Release server as a non-root user such as `xlrelease`.
+
+## XL Release server directory structure
+
+After the XL Release installation file is extracted, the following directory structure exists in the installation directory:
+
+* `bin`: Contains the server binaries
+* `conf`: Contains server configuration files
+* `ext`: Contains server Java extensions
+* `hotfix`: Contains hotfixes that correct issues with the server software
+* `lib`: Contains libraries that the server needs
+* `log`: contains server log files
 
 ### Install the license
 

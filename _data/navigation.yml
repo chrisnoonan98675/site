@@ -1,0 +1,28 @@
+entries:
+- title: sidebar
+  product: XL Release
+  folders:
+  - title: Install XL Release
+    folderitems:
+    - title: Installation overview
+      url: /install
+    - title: Use a GUI installer
+      url: gui-installer.html
+    - title: Use a command-line installer
+      url: command-line-installer.html
+    - title: Install as a service or daemon
+      url: install-as-a-service.html
+    - title: Store the repository in a database
+      url: repository-database.html
+  - title: Get started with XL Release
+  - title: Model your releases
+    folderitems:
+    - title: Template overview
+      url: /releases
+    - title: Triggers
+      url: triggers.html
+  - title: Release your software
+  - title: Work with running releases
+  - title: Use reports
+  - title: Manage security
+  - title: Manage your XL Release installation
