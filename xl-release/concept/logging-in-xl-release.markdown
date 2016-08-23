@@ -21,11 +21,10 @@ XL Release keeps an audit log of each human-initiated event on the server, which
 Some of the events that are logged in the audit trail are:
 
 * The system is started or stopped
-* A user logs into or out of the system
 * An application is imported
 * A CI is created, updated, moved, or deleted
 * A security role is created, updated, or deleted
-* A task (deployment, undeployment, control task, or discovery) is started, cancelled, or aborted
+* A task is started, cancelled, or aborted
 
 For each event, the following information is recorded:
 
