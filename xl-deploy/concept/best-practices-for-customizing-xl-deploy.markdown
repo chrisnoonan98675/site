@@ -23,6 +23,16 @@ When extending a CI type, it is recommended that you first copy the existing CI 
 
 This approach will ensure that you can easily roll back problematic changes by replacing the CI types or scripts with the originals.
 
+### Managing `synthetic.xml` customizations
+
+XL Deploy will load all `synthetic.xml` files that it finds on the classpath. This means that you can store `synthetic.xml` files (and associated scripts and other resources) in:
+
+* The `XL_DEPLOY_SERVER_HOME/ext` directory. This is recommended for small, local customizations.
+
+* A JAR file in the `XL_DEPLOY_SERVER_HOME/plugins` directory. This is recommended for larger customizations. It also makes it easier to version-control customizations by storing them in a source control management system (such as Git or SVN) from which you build JAR files.
+
+* A subdirectory of the `XL_DEPLOY_SERVER_HOME/plugins` directory. This is similar to storing customizations in the `ext` directory or in an exploded JAR file. In this case, you can also easily version-control customizations.
+
 {% comment %}
 ## Referring from a deployed to another CI
 
