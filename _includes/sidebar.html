@@ -12,25 +12,25 @@
         {% assign sidebar = site.data.navigation.entries %}
         <div class="navbar-collapse collapse sidebar-navbar-collapse">
             <ul id="sidebar" class="nav">
-                <li class="sidebarTitle">{{sidebar[0].product}} {{sidebar[0].version}}</li>
                 {% for entry in sidebar %}
+                <li>{{ entry.product }}</li>
                     {% for folder in entry.folders %}
                         <li><a href="#">{{ folder.title }}</a>
                             <ul>
                                 {% for folderitem in folder.folderitems %}
                                     {% if page.url == folderitem.url %}
-                                        <li class="active"><a href="{{folderitem.url | remove: "/"}}">{{folderitem.title}}</a></li>
+                                        <li class="active"><a href="{{ folderitem.url | remove: "/" }}">{{folderitem.title}}</a></li>
                                     {% else %}
-                                        <li><a href="{{folderitem.url | remove: "/"}}">{{folderitem.title}}</a></li>
+                                        <li><a href="{{ folderitem.url | remove: "/" }}">{{folderitem.title}}</a></li>
                                     {% endif %}
                                     {% for subfolders in folderitem.subfolders %}
                                         <li class="subfolders"><a href="#">{{ subfolders.title }}</a>
                                             <ul>
                                                 {% for subfolderitem in subfolders.subfolderitems %}
                                                     {% if page.url == subfolderitem.url %}
-                                                        <li class="active"><a href="{{subfolderitem.url | remove: "/"}}">{{subfolderitem.title}}</a></li>
+                                                        <li class="active"><a href="{{ subfolderitem.url | remove: "/" }}">{{ subfolderitem.title }}</a></li>
                                                     {% else %}
-                                                        <li><a href="{{subfolderitem.url | remove: "/"}}">{{subfolderitem.title}}</a></li>
+                                                        <li><a href="{{ subfolderitem.url | remove: "/" }}">{{ subfolderitem.title }}</a></li>
                                                     {% endif %}
                                                 {% endfor %}
                                             </ul>
@@ -46,6 +46,3 @@
         </div><!-- /.navbar-collapse -->
     </div> <!-- /.navbar -->
 </div><!-- /.sidebar-nav -->
-
-<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
-<script>$("li.active").parents('li').toggleClass("active");</script>

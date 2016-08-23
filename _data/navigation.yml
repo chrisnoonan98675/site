@@ -1,5 +1,5 @@
 entries:
-- title: sidebar
+- title: xl-release
   product: XL Release
   folders:
   - title: Install XL Release
@@ -15,6 +15,9 @@ entries:
     - title: Store the repository in a database
       url: repository-database.html
   - title: Get started with XL Release
+    folderitems:
+    - title: Get started page
+      url: /get-started
   - title: Model your releases
     folderitems:
     - title: Template overview
@@ -26,3 +29,10 @@ entries:
   - title: Use reports
   - title: Manage security
   - title: Manage your XL Release installation
+- title: xl-deploy
+  product: XL Deploy
+  folders:
+  - title: Install XL Deploy
+  folderitems:
+    - title: Installation overview
+      url: /install
