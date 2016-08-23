@@ -74,6 +74,10 @@ Instead of explicitly setting the due date, you can use the duration property to
 
 **Note:** If no dates or duration are set, the "inferred" dates and duration appear in grey.
 
+### Tags
+
+In XL Release 6.0.0 and later, tasks support tags. You can optionally add tags to make it easier to find the task in the [release table overview](/xl-release/how-to/using-the-table-view.html).
+
 ### Assigned to
 
 This section indicates the user who is the owner of the task and who is responsible for completing it. It also indicates the [team](/xl-release/how-to/configure-teams-for-a-release.html) that the task is assigned to. Teams are a way to group users who are involved in the release and who have the same role. For example, you could have a DEV team, QA team and an OPS team. During planning, it can be useful to assign a task to a team because you do not know in advance who will participate in a certain release. If a task is assigned to a team but not to a user, all team members receive an email when the task becomes active.
