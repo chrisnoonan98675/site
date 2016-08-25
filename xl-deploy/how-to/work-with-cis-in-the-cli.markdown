@@ -8,8 +8,6 @@ tags:
 - cli
 - ci
 - script
-- python
-- jython
 weight: 243
 ---
 

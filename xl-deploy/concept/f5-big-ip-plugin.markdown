@@ -7,7 +7,6 @@ subject:
 tags:
 - f5
 - big-ip
-- middleware
 - plugin
 - load balancer
 ---

@@ -7,9 +7,8 @@ subject:
 tags:
 - system administration
 - license
-- ci
 - installation
-- upgrade
+- setup
 weight: 101
 ---
 

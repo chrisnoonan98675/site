@@ -8,7 +8,6 @@ tags:
 - datapower
 - ibm
 - plugin
-- middleware
 since:
 - XL Deploy 5.0.0
 ---

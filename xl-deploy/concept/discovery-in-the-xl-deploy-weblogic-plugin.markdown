@@ -7,7 +7,6 @@ subject:
 tags:
 - weblogic
 - oracle
-- middleware
 - plugin
 - discovery
 ---
@@ -42,10 +41,10 @@ This is an sample XL Deploy command-line interface (CLI) script that discovers a
 
 	deployit.print(discoveredItems)
 
-	# Discovery just discovers the topology and keeps the configuration items in memory. 
+	# Discovery just discovers the topology and keeps the configuration items in memory.
 	# Let's save them in Deployit repository!
 	repository.create(discoveredItems)
 
 ## Limitations
 
-The WebLogic topology discovery does not discover/associate the host associated with the managed servers (`wls.Server`). So if a `wls.Cluster` is spanned on multiple hosts, you must manually create the managed server's hosts and its association with the server. You can do this using the CLI or the user interface. This may be needed for certain deployment scenarios where knowledge of the server's host is needed (such as NoStage deployments). 
+The WebLogic topology discovery does not discover/associate the host associated with the managed servers (`wls.Server`). So if a `wls.Cluster` is spanned on multiple hosts, you must manually create the managed server's hosts and its association with the server. You can do this using the CLI or the user interface. This may be needed for certain deployment scenarios where knowledge of the server's host is needed (such as NoStage deployments).

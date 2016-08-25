@@ -6,13 +6,12 @@ subject:
 - BizTalk
 tags:
 - biztalk
-- middleware
 - plugin
 ---
 
 The XL Deploy BizTalk plugin adds the capability to perform BizTalk configuration and deployment tasks.
 
-For information about BizTalk requirements and the configuration items (CIs) that the plugin supports, refer to the [BizTalk Plugin Reference](/xl-deploy/latest/biztalkPluginManual.html). 
+For information about BizTalk requirements and the configuration items (CIs) that the plugin supports, refer to the [BizTalk Plugin Reference](/xl-deploy/latest/biztalkPluginManual.html).
 
 ## Features
 

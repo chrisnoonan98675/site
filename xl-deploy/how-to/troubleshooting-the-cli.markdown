@@ -7,8 +7,6 @@ subject:
 tags:
 - cli
 - script
-- python
-- jython
 - troubleshooting
 weight: 250
 ---

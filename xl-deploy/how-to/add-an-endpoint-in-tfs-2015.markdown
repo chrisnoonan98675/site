@@ -8,7 +8,6 @@ tags:
 - tfs
 - vsts
 - microsoft
-- middleware
 since:
 - XL Deploy 5.1.0
 ---
@@ -17,7 +16,7 @@ The [XL Deploy extension for Microsoft Team Foundation Server (TFS) 2015](/xl-de
 
 To get started, you must [upload the XL Deploy build task](/xl-deploy/how-to/install-a-build-task-in-tfs-2015.html) to your on-premises TFS or to your VSTS server. This task connects to XL Deploy through an endpoint. In TFS 2015 and VSTS/VSO, endpoints are managed in a common place. This means you do not have to create endpoints in build tasks multiple times, making maintenance and centralized credentials management easier.
 
-You create endpoints on a per-project basis. To create an XL Deploy endpoint: 
+You create endpoints on a per-project basis. To create an XL Deploy endpoint:
 
 1. In the project control panel, go to the **Services** tab.
 

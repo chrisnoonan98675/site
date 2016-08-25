@@ -8,7 +8,6 @@ tags:
 - liberty
 - profile
 - websphere
-- middleware
 - plugin
 ---
 

@@ -11,5 +11,4 @@ tags:
 - f5
 - big-ip
 - load balancer
-- middleware
 ---

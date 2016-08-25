@@ -10,5 +10,4 @@ tags:
 - datapower
 - plugin
 - ibm
-- middleware
 ---

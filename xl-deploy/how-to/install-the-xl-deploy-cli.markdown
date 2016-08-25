@@ -8,8 +8,6 @@ tags:
 - installation
 - system administration
 - cli
-- python
-- jython
 weight: 241
 ---
 

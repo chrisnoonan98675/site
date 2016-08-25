@@ -7,7 +7,6 @@ categories:
 subject:
 - WebLogic
 tags:
-- middleware
 - oracle
 - weblogic
 - plugin

@@ -6,7 +6,6 @@ subject:
 - WebSphere
 tags:
 - websphere
-- middleware
 - plugin
 ---
 
