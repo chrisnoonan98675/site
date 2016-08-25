@@ -7,8 +7,7 @@ subject:
 tags:
 - deployment
 - tag
-- application
-- package
+- deployable
 weight: 185
 ---
 
