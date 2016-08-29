@@ -3,7 +3,7 @@ title: Puppet plugin
 categories:
 - xl-deploy
 subject:
-- Puppet plugin
+- Puppet
 ---
 
 {% include subject_index.html %}
