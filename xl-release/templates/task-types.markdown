@@ -2,13 +2,11 @@
 title: Types of tasks in XL Release
 ---
 
-## Task types
-
 XL Release includes many types of [tasks](/xl-release/how-to/working-with-tasks.html). Some task types represent actions taken by a person, while others are automated and provide integration with other tools.
 
 **Tip:** In addition to the built-in task types, you can create your own [custom task types](/xl-release/how-to/create-custom-task-types.html).
 
-### Human task types
+## Human task types
 
 In human tasks, a person performs an action and indicates when it is done.
 
@@ -19,7 +17,7 @@ In human tasks, a person performs an action and indicates when it is done.
 | [Manual](/xl-release/how-to/create-a-manual-task.html) | Represents a step in a template or release that must be completed by a person | Gray |
 | [User Input](/xl-release/how-to/create-a-user-input-task.html) | Allows users to provide values for release variables | Gray |
 
-### Automated task types
+## Automated task types
 
 In automated tasks, the XL Release execution engine performs an automated script.
 
@@ -35,7 +33,7 @@ In automated tasks, the XL Release execution engine performs an automated script
 | [Webhook](/xl-release/how-to/create-a-webhook-task.html) | Sends an HTTP query and parses the response (XML or JSON)| Blue |
 | [XL Deploy](/xl-release/how-to/create-an-xl-deploy-task.html) | Tells [XL Deploy](https://docs.xebialabs.com/xl-deploy/) to deploy an application to an environment | Green |
 
-### Container task types
+## Container task types
 
 You use container tasks to group other types of tasks. The container task types are:
 

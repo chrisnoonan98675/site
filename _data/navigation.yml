@@ -22,9 +22,20 @@ entries:
     folderitems:
     - title: Template overview
       url: /releases
+    - title: Work with phases and tasks
+      url: phases-and-tasks.html
+    - title: Task types
+      url: task-types.html
+    - title: Custom task types
+      url: custom-task-types.html
+    - title: Use variables in a template
+      url: release-variables.html
+    - title: Template security
+      url: template-security.html
+  - title: Release your software
+    folderitems:
     - title: Triggers
       url: triggers.html
-  - title: Release your software
   - title: Work with running releases
   - title: Use reports
   - title: Manage security
