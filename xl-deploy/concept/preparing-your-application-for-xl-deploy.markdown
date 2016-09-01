@@ -216,7 +216,7 @@ You can configure your plugins to change the deployment steps that it adds to th
 
 For example, say you are going to deploy an application to a JBoss or Tomcat server that you have configured for hot deployments, so you do not need the server to be stopped before the application is deployed or started afterward. In the [JBoss Application Server plugin reference documentation](/xl-deploy/latest/jbossPluginManual.html) and [Tomcat plugin reference documentation](/xl-deploy/latest/tomcatPluginManual.html), you'll find the `restartRequired` property for `jbossas.EarModule`, `tomcat.WarModule`, and other deployable types. The default value of this property is `true`. To change the value:
 
-1. Set `restartRequired` to `false` in the `SERVER_HOME/conf/deployit-defaults.properties` file.
+1. Set `restartRequired` to `false` in the `XL_DEPLOY_SERVER_HOME/conf/deployit-defaults.properties` file.
 2. Restart the XL Deploy server to load the new configuration setting.
 3. Create a deployment that will deploy your application to the target environment. You will see that the server stop and start steps do not appear in the deployment plan that is generated.
 

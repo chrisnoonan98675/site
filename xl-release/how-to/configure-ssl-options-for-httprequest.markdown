@@ -21,7 +21,7 @@ Here are some examples of how to configure the Apache HC client in `HttpRequest`
 
 ## Extract HttpRequest to the extensions directory
 
-First, create a directory `SERVER_HOME/ext/pythonutil` if it does not already exist. Then, extract the `HttpRequest.py` class (in `SERVER_HOME/lib/xl-release-server-<version>.jar`) into that directory. An easy way to do this is to copy the JAR into a temporary directory, open it using a ZIP file browser (change the file extension to `.zip` if necessary), and extract the file from the `pythonutil` folder. Copy the extracted file to `SERVER_HOME/ext/pythonutil`, where it will override the provided `HttpRequest.py` class in the JAR file.
+First, create a directory `XL_RELEASE_SERVER_HOME/ext/pythonutil` if it does not already exist. Then, extract the `HttpRequest.py` class (in `XL_RELEASE_SERVER_HOME/lib/xl-release-server-<version>.jar`) into that directory. An easy way to do this is to copy the JAR into a temporary directory, open it using a ZIP file browser (change the file extension to `.zip` if necessary), and extract the file from the `pythonutil` folder. Copy the extracted file to `XL_RELEASE_SERVER_HOME/ext/pythonutil`, where it will override the provided `HttpRequest.py` class in the JAR file.
 
 ## Set up a sandbox template with a test task
 

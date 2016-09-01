@@ -21,7 +21,7 @@ GUI installers are available for Microsoft Windows (EXE file) and OS X (DMG file
 
 To use a GUI installer, double-click the file and follow the steps. After installation is complete, the installer will show the URL where you can access XL Release; for example, `http://localhost:5516`. When you open this URL in a browser, you will be prompted to enter your license key. You can then log in with the user name *admin* and the password that you provided during the setup process.
 
-After installation is complete, you can configure XL Release startup options in the `XL_RELEASE_HOME/bin/xl-release-server.vmoptions` file.
+After installation is complete, you can configure XL Release startup options in the `XL_RELEASE_SERVER_HOME/bin/xl-release-server.vmoptions` file.
 
 ## Using the command-line installer
 
@@ -152,7 +152,7 @@ This URL is used in the email notifications that the XL Release server sends.
 
 The setup wizard will prompt you for the minimum and maximum number of threads that the XL Release server should use to handle incoming connections.
 
-**Note:** After setup is complete, you can see the thread configuration in the `threads.min` and `threads.max` settings in the `XL_RELEASE_HOME/conf/xl-release-server.conf` file.
+**Note:** After setup is complete, you can see the thread configuration in the `threads.min` and `threads.max` settings in the `XL_RELEASE_SERVER_HOME/conf/xl-release-server.conf` file.
 
 ##### Step 8 Configure the repository
 

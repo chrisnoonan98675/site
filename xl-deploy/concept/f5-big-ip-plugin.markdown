@@ -22,7 +22,7 @@ For information about plugin dependencies and the configuration items (CIs) that
 
 ## Installation
 
-Download the plugin distribution ZIP file from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com). Place the plugin JAR file and all dependent plugin files in your `SERVER_HOME/plugins` directory.
+Download the plugin distribution ZIP file from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com). Place the plugin JAR file and all dependent plugin files in your `XL_DEPLOY_SERVER_HOME/plugins` directory.
 
 Install Python 2.7.x and the additional [pycontrol](https://pypi.python.org/pypi/pycontrol) and [suds](https://pypi.python.org/pypi/suds) libraries on the host that has access to the BIG-IP load balancer device.
 

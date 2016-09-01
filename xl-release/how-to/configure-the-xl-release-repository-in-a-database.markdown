@@ -17,7 +17,7 @@ XL Release uses a repository to store all of its data. XL Release can use the fi
 
 ## Location of the repository
 
-By default, the repository is located in `XL_RELEASE_HOME/repository`.
+By default, the repository is located in `XL_RELEASE_SERVER_HOME/repository`.
 
 ## Using a database
 
@@ -41,7 +41,7 @@ For more information about:
 
 ### Using XL Release with MySQL
 
-This is a sample `XL_RELEASE_HOME/conf/jackrabbit-repository.xml` configuration for [MySQL](http://www.mysql.com/):
+This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [MySQL](http://www.mysql.com/):
 
 {% highlight xml %}
 <Security appName="Jackrabbit">
@@ -122,7 +122,7 @@ This is a sample `XL_RELEASE_HOME/conf/jackrabbit-repository.xml` configuration 
 
 ### Using XL Release with DB2
 
-This is a sample `XL_RELEASE_HOME/conf/jackrabbit-repository.xml` configuration for [DB2](http://www-01.ibm.com/software/data/db2/):
+This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [DB2](http://www-01.ibm.com/software/data/db2/):
 
 {% highlight xml %}
 <Security appName="Jackrabbit">
@@ -200,7 +200,7 @@ This is a sample `XL_RELEASE_HOME/conf/jackrabbit-repository.xml` configuration 
 
 ### Using XL Release with Oracle
 
-This is a sample `XL_RELEASE_HOME/conf/jackrabbit-repository.xml` configuration for [Oracle](http://www.oracle.com/us/products/database/index.html):
+This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [Oracle](http://www.oracle.com/us/products/database/index.html):
 
 {% highlight xml %}
 <Security appName="Jackrabbit">
@@ -283,9 +283,9 @@ If you use the TNSNames Alias syntax to connect to Oracle, you may need to infor
 
 ### Using XL Release with SQL Server
 
-To use XL Release with [Microsoft SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server/), ensure that the [Microsoft JDBC driver for SQL Server](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx) JAR file is located in `XL_RELEASE_HOME/lib` or on the Java classpath.
+To use XL Release with [Microsoft SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server/), ensure that the [Microsoft JDBC driver for SQL Server](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx) JAR file is located in `XL_RELEASE_SERVER_HOME/lib` or on the Java classpath.
 
-This is a sample `XL_RELEASE_HOME/conf/jackrabbit-repository.xml` configuration for SQL Server:
+This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for SQL Server:
 
 {% highlight xml %}
 <DataStore class="org.apache.jackrabbit.core.data.FileDataStore" />

@@ -136,9 +136,9 @@ The following properties are available in the **Remote Script: Windows** task ty
 
 XL Release uses the Overthere framework, which includes several connection options. While the most common options are available in the XL Release GUI, you can use other options as described in the [Overthere documentation](https://github.com/xebialabs/overthere/blob/master/README.md).
 
-You can change the default values of options that are not exposed in the GUI in the `XL_RELEASE_HOME/conf/deployit-defaults.properties` file.
+You can change the default values of options that are not exposed in the GUI in the `XL_RELEASE_SERVER_HOME/conf/deployit-defaults.properties` file.
 
-If you need to use a different setting for a particular option per task, you can create a type modification in the `XL_RELEASE_HOME/conf/synthetic.xml` file for the task types. In the modification, you can add the desired Overthere connection option as a property on the task. These task properties will automatically be used as connection options for Overthere if the name matches.
+If you need to use a different setting for a particular option per task, you can create a type modification in the `XL_RELEASE_SERVER_HOME/conf/synthetic.xml` file for the task types. In the modification, you can add the desired Overthere connection option as a property on the task. These task properties will automatically be used as connection options for Overthere if the name matches.
 
 For example, to make the connection timeout configurable on each task, add this to `synthetic.xml`:
 

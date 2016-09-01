@@ -36,7 +36,7 @@ For deployment plan steps that require a script, you can preview the script that
 The step preview also shows:
 
 * The [order](/xl-deploy/concept/steps-and-steplists-in-xl-deploy.html#steplist) of the step. The step order determines the sequence of steps in the plan, with lower order numbers coming before higher ones. The selected [orchestrator](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) can influence this.
- * The location of the script template, relative to XL Deploy's classpath; for example, relative to `SERVER_HOME/ext` or packaged in the relevant plugin.
+ * The location of the script template, relative to XL Deploy's classpath; for example, relative to `XL_DEPLOY_SERVER_HOME/ext` or packaged in the relevant plugin.
 
 This is an example of a step preview:
 

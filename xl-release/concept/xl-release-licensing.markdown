@@ -39,6 +39,6 @@ The server will not start if a valid license is not installed.
 
 To renew an Enterprise Edition license or extend a Trial Edition license, [contact XebiaLabs](https://xebialabs.com/contact).
 
-To renew your license using a license file that you download from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/), replace the license file in the `XL_RELEASE_HOME/conf` directory with the new file.
+To renew your license using a license file that you download from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/), replace the license file in the `XL_RELEASE_SERVER_HOME/conf` directory with the new file.
 
 To renew your license using a license key, go to **Help** > **About** in XL Release, click **Renew license**, and enter the new license key.

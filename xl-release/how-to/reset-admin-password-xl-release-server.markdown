@@ -43,7 +43,7 @@ To reset the password for the `admin` user:
     Replace `IP` and `PORT` with the IP address and port number where your XL Release server is running. Replace `/tmp/user.xml` with the path to your XML file.
 
 1. Stop the XL Release server.
-1. Open `<XL_RELEASE_HOME>/conf/xl-release-server.conf` and add the new `admin` password as follows:
+1. Open `<XL_RELEASE_SERVER_HOME>/conf/xl-release-server.conf` and add the new `admin` password as follows:
 
         admin.password=NEW_PASSWORD
 

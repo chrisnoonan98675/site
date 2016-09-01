@@ -44,7 +44,7 @@ And `settings.xml` file could contain following configuration:
 
 ## Step 2 Configure XL Deploy Maven repositories
 
-Maven repositories are configured in `SERVER_HOME/conf/maven.conf` file of the XL Deploy distribution in [HOCON format](https://github.com/typesafehub/config/blob/master/HOCON.md). The example Maven configuration above translates to following HOCON configuration:
+Maven repositories are configured in `XL_DEPLOY_SERVER_HOME/conf/maven.conf` file of the XL Deploy distribution in [HOCON format](https://github.com/typesafehub/config/blob/master/HOCON.md). The example Maven configuration above translates to following HOCON configuration:
 
     maven {
       repositories: [

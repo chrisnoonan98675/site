@@ -27,7 +27,7 @@ You must have the default XL Release repository configuration, which is:
 * The underlying database is Apache Derby
 * The version store is kept separately from the default JCR workspace
 
-To review your configuration, check if your `XL_RELEASE_HOME/conf/jackrabbit-repository.xml` contains the following lines, particularly `<param name="url" value="jdbc:derby:${rep.home}/version/db;create=true" />`:
+To review your configuration, check if your `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` contains the following lines, particularly `<param name="url" value="jdbc:derby:${rep.home}/version/db;create=true" />`:
 
     <Versioning rootPath="${rep.home}/version">
         <FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">
@@ -51,8 +51,8 @@ To upgrade XL Release:
 1. Back up your installation of XL Release.
 1. Copy your existing repository and configuration files to the new installation location, but *do not start XL Release yet*.
 1. Manually delete the following folders, which contain the version store database and indexes:
-  * `XL_RELEASE_HOME/repository/version/db`
-  * `XL_RELEASE_HOME/repository/repository/index`
+  * `XL_RELEASE_SERVER_HOME/repository/version/db`
+  * `XL_RELEASE_SERVER_HOME/repository/repository/index`
 1. Start XL Release and type `yes` to run upgrades.
 
 The `XLRelease460RemoveVersions` upgrader will still require some time to run because it must locate and process all nodes in the repository. However, it will run faster because it does not have to remove any version nodes.

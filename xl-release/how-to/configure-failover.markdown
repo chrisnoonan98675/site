@@ -22,7 +22,7 @@ XL Release allows you to store the [repository](/xl-release/how-to/configure-the
 To set up a master node (called `node1`) and a failover node (called `node2`):
 
 1. Follow the instructions to configure the XL Release [repository](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html) and [archive database](/xl-release/how-to/configure-the-archive-database.html#change-the-archive-database-dbms-xl-release-480-and-later) on `node1`.
-2. Add a `Cluster` section to the `XL_RELEASE_HOME/conf/jackrabbit-repository.xml` file:
+2. Add a `Cluster` section to the `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` file:
 
         <Cluster id="node1" syncDelay="2000">
             <Journal class="org.apache.jackrabbit.core.journal.MSSqlDatabaseJournal">
@@ -39,8 +39,8 @@ To set up a master node (called `node1`) and a failover node (called `node2`):
 
 3. [Start the XL Release server](/xl-release/how-to/start-xl-release.html) and verify that it starts without errors. Create at least one new template or release for testing purposes (you will check for this item on `node2`).
 4. Stop the server.
-5. Copy the entire installation folder (`XL_RELEASE_HOME`) to `node2`.
-6. In `XL_RELEASE_HOME/conf/jackrabbit-repository.xml`, change the `Cluster id`. Do not change any other properties. For example:
+5. Copy the entire installation folder (`XL_RELEASE_SERVER_HOME`) to `node2`.
+6. In `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml`, change the `Cluster id`. Do not change any other properties. For example:
 
         <Cluster id="node2" syncDelay="2000">
             <Journal class="org.apache.jackrabbit.core.journal.MSSqlDatabaseJournal">
@@ -53,9 +53,9 @@ To set up a master node (called `node1`) and a failover node (called `node2`):
             </Journal>
         </Cluster>
 
-    Do not change the archive database configuration in the `XL_RELEASE_HOME/conf/xl-release.conf` file.
+    Do not change the archive database configuration in the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file.
 
-7. Delete the contents of the `XL_RELEASE_HOME/repository` directory. **Important:** Only do this once, during the initial setup of the instance.
+7. Delete the contents of the `XL_RELEASE_SERVER_HOME/repository` directory. **Important:** Only do this once, during the initial setup of the instance.
 8. Start the XL Release server and verify that you can see the items that you created on `node1`.
 9. Stop the server.
 10. Start the server on `node1`.
