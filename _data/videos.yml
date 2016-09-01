@@ -1,6 +1,8 @@
 - product: xl-deploy
   name: XL Deploy
   videos:
+    - title: Visibility, automation, and control with XL Release and XL Deploy
+      id: vyAGFcFjdxI
     - title: A quick look at XL Deploy
       id: rmbH98YeWck
     - title: Getting started with XL Deploy - Introduction
@@ -29,11 +31,11 @@
       id: MozM7bxuT4A
     - title: Provision cloud environments with XL Deploy
       id: MpGNEPY-SrA
-    - title: Visibility, automation, and control with XL Release and XL Deploy
-      id: vyAGFcFjdxI
 - product: xl-release
   name: XL Release
   videos:
+    - title: Visibility, automation, and control with XL Release and XL Deploy
+      id: vyAGFcFjdxI
     - title: A quick look at XL Release
       id: Y3tbOveSggA
     - title: Provisioning, building, deploying, and testing with XL Release
@@ -42,8 +44,6 @@
       id: Dn1yiSej5Jw
     - title: New dashboards bring enhanced visibility in XL Release 5.0
       id: lMPFBEFULpE
-    - title: Visibility, automation, and control with XL Release and XL Deploy
-      id: vyAGFcFjdxI
 - product: xl-testview
   name: XL TestView
   videos:

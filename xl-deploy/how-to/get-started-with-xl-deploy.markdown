@@ -29,6 +29,7 @@ XL Deploy also includes a command-line interface (CLI) that you can use to autom
 
 To learn the basics of XL Deploy, check out:
 
+* [Visibility, Automation, and Control with XL Release and XL Deploy](https://www.youtube.com/watch?v=vyAGFcFjdxI)
 * [Understanding XL Deploy's architecture](/xl-deploy/concept/xl-deploy-architecture.html)
 * [Key XL Deploy concepts](/xl-deploy/concept/key-xl-deploy-concepts.html)
 * [Deployment overview and the Unified Deployment Model (UDM)](/xl-deploy/concept/deployment-overview-and-unified-deployment-model.html)

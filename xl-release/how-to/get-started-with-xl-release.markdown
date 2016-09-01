@@ -14,7 +14,7 @@ Below, you'll find some tips for your first-time XL Release experience.
 
 ## Step 1 Explore XL Release
 
-First, read the [essential background information](/xl-release/concept/core-concepts-of-xl-release.html) about XL Release's key concepts.
+First, read the [essential background information](/xl-release/concept/core-concepts-of-xl-release.html) about XL Release's key concepts and check out the [Visibility, Automation, and Control with XL Release and XL Deploy](https://www.youtube.com/watch?v=vyAGFcFjdxI) video.
 
 When you log in to XL Release for the first time, you'll see the task overview screen. A task called _Welcome! Click me to get started_ is assigned to you. Click the name of the task to follow a guided tour of XL Release's main features.
 
