@@ -12,6 +12,8 @@ tags:
 
 This tutorial will show you how to use the XL Deploy command-line interface (CLI) to deploy an artifact from a Maven repository such as Artifactory or Nexus. This tutorial uses [this sample application](http://search.maven.org/#artifactdetails%7Cio.brooklyn.example%7Cbrooklyn-example-hello-world-webapp%7C0.7.0-M1%7Cwar), which is a WAR file that you can deploy to middleware such as Apache Tomcat or JBoss AS/WildFly.
 
+**Tip:** For information about configuring XL Deploy to work with Maven, refer to [Configure XL Deploy to fetch artifacts from a Maven repository](/xl-deploy/how-to/configure-xl-deploy-to-fetch-artifacts-from-a-maven-repository.html).
+
 ## Step 1 Identify the application by its GAV definition
 
 First, in [Artifactory](https://www.jfrog.com/confluence/display/RTF/Searching+for+Artifacts) or [Nexus](https://books.sonatype.com/nexus-book/reference/using-sect-uploading.html), identify the application by its GAV definition in the following format:
