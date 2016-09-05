@@ -201,6 +201,11 @@ td > pre {
   width: 30%;
   font-size: 80%;
 }
+.mini-toc p {
+	margin: 0;
+	padding: 0 0 0 35px;
+	text-transform: uppercase;
+}
 .mini-toc ul {
   list-style-type: none;
 }
@@ -731,4 +736,10 @@ form.form-search:before {
 }
 .in-product-help-subheading {
     font-weight: bold;
+}
+
+/* EXPERIMENTAL */
+
+.active_menu_cb {
+	background: red;
 }

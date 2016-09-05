@@ -4,11 +4,13 @@ layout: default
 
 <div class="page">
 
-	{% unless jekyll.environment == "lightweight" %}
-		{% unless page.no_breadcrumbs %}
-			{% include nav-breadcrumbs.html %}
+	{% comment %}
+		{% unless jekyll.environment == "lightweight" %}
+			{% unless page.no_breadcrumbs %}
+				{% include nav-breadcrumbs.html %}
+			{% endunless %}
 		{% endunless %}
-	{% endunless %}
+	{% endcomment %}
 
 	{% if page.beta %}
 		<div class="alert alert-danger beta-message" role="alert">This information is in beta and is subject to change.</div>

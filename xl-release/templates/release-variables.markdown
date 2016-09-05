@@ -40,7 +40,7 @@ In XL Release 4.8.0 and later, you can also create release variables using the V
 1. If the variable must have a value, select **Required**.
 1. To allow users to enter or change the variable's value when starting a release, select **Show on Create Release form**.
 
-    ![Create release variable](../images/create-release-variable.png)
+    ![Create release variable](/xl-release/images/create-release-variable.png)
 
 1. Click **Create** to create the variable.
 
@@ -71,6 +71,6 @@ If the variable is still in use, XL Release allows you to choose how it will rep
 * A different variable (in `${ }` format)
 * A blank space
 
-![Delete and replace variable](../images/variable-delete-and-replace.png)
+![Delete and replace variable](/xl-release/images/variable-delete-and-replace.png)
 
 After XL Release replaces all occurrences of the variable, it deletes the variable.

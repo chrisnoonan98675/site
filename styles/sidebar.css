@@ -30,7 +30,7 @@
 .sidebar-nav .navbar-header {
   float: none;
 }
-#sidebar a {
+#main-menu a {
     display: block;
     outline: none;
     -webkit-border-radius: 4px;

@@ -29,23 +29,27 @@
 	<!-- Styles -->
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/styles/xebialabs.css" type="text/css">
-	<link rel="stylesheet" href="/styles/sidebar.css" type="text/css">
     <link rel="stylesheet" href="/styles/syntax.css" type="text/css">
     <link rel="stylesheet" href="/fonts/online-doc-icons/styles.css" type="text/css">
-    <link rel="stylesheet" href="/styles/magnific-popup.css">
+    <link rel="stylesheet" href="/styles/magnific-popup.css" type="text/css">
+	<link rel="stylesheet" href="/styles/jquery.navgoco.css" type="text/css">
 
     <!-- Javascript -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="/js/ie10-viewport-bug-workaround.js"></script>
-	<script src="/js/scroll_button_show_hide.js"></script>
-	<script src="/js/scroll_button_scroll_to_top.js"></script>
-	<script src="/js/toc.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/ie10-viewport-bug-workaround.js"></script>
+	<script type="text/javascript" src="/js/scroll_button_show_hide.js"></script>
+	<script type="text/javascript" src="/js/scroll_button_scroll_to_top.js"></script>
+	<script type="text/javascript" src="/js/toc.js"></script>
+	<script type="text/javascript" src="/js/jquery.navgoco.js"></script>
+	<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#toc').toc({ listType: 'ul', noBackToTopLinks: true, showSpeed: 0 });
 		});
 	</script>
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.magnific').magnificPopup({
@@ -63,6 +67,7 @@
 			});
 		});
 	</script>
+
 	{% unless page.path contains "tracker" %}
 		<script src="/js/jquery.collapse.js"></script>
 		<script src="/js/jquery.collapse_storage.js"></script>
@@ -83,10 +88,6 @@
 			});
 		</script>
 	{% endunless %}
-
-	<!-- Navgogo -->
-    <script type="text/javascript" src="/js/jquery.cookie.js"></script>
-    <script type="text/javascript" src="/js/jquery.navgoco.js"></script>
 
 	<!-- Google Analytics -->
 	<script>

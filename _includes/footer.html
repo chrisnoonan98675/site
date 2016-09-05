@@ -13,14 +13,28 @@
 	</section>
 </footer>
 
+<!-- Inititalize JS -->
 <script src="/js/anchor_links.js"></script>
 <script src="/js/jquery.magnific-popup.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    $('.nav').navgoco();
-});
+    $(document).ready(function() {
+        $('.nav').navgoco({
+              accordion: false,
+              openClass: 'open',
+              save: true,
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 0,
+                  easing: 'linear'
+              }
+          });
+    });
 </script>
-
 </body>
+
 </html>

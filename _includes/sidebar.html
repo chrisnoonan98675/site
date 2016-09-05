@@ -1,48 +1,143 @@
-<div class="sidebar-nav">
-    <div class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <span class="visible-xs navbar-brand">Toggle navigation</span>
-        </div> <!-- /.navbar-header -->
-        {% assign sidebar = site.data.navigation.entries %}
-        <div class="navbar-collapse collapse sidebar-navbar-collapse">
-            <ul id="sidebar" class="nav">
-                {% for entry in sidebar %}
-                <li>{{ entry.product }}</li>
-                    {% for folder in entry.folders %}
-                        <li><a href="#">{{ folder.title }}</a>
-                            <ul>
-                                {% for folderitem in folder.folderitems %}
-                                    {% if page.url == folderitem.url %}
-                                        <li class="active"><a href="{{ folderitem.url | remove: "/" }}">{{folderitem.title}}</a></li>
-                                    {% else %}
-                                        <li><a href="{{ folderitem.url | remove: "/" }}">{{folderitem.title}}</a></li>
-                                    {% endif %}
-                                    {% for subfolders in folderitem.subfolders %}
-                                        <li class="subfolders"><a href="#">{{ subfolders.title }}</a>
-                                            <ul>
-                                                {% for subfolderitem in subfolders.subfolderitems %}
-                                                    {% if page.url == subfolderitem.url %}
-                                                        <li class="active"><a href="{{ subfolderitem.url | remove: "/" }}">{{ subfolderitem.title }}</a></li>
-                                                    {% else %}
-                                                        <li><a href="{{ subfolderitem.url | remove: "/" }}">{{ subfolderitem.title }}</a></li>
-                                                    {% endif %}
-                                                {% endfor %}
-                                            </ul>
-                                        </li>
-                                    {% endfor %}
-                                {% endfor %}
-                            </ul>
-                        </li>
-                    {% endfor %}
-                {% endfor %}
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div> <!-- /.navbar -->
-</div><!-- /.sidebar-nav -->
+<ul id="main-menu" class="nav">
+      <li><a href="overview.html">Overview</a></li>
+      <li><a href="#">XL Release</a>
+          <ul>
+              <li><a href="#">Getting started</a>
+                  <ul>
+                      <li><a href="/xl-release/getting-started/overview.html">XL Release overview</a></li>
+                      <li><a href="/xl-release/getting-started/get-started.html">Get started with XL Release</a></li>
+                      <li><a href="#">Install XL Release</a>
+                          <ul>
+                              <li><a href="/xl-release/getting-started/requirements-and-licensing.html">Requirements and licensing</a></li>
+                              <li><a href="/xl-release/getting-started/gui-installer.html">Install using the GUI installer</a></li>
+                              <li><a href="/xl-release/getting-started/command-line-installer.html">Install using the command-line installer</a></li>
+                              <li><a href="/xl-release/getting-started/install-as-a-service.html">Install as a service or daemon</a></li>
+                              <li><a href="/xl-release/getting-started/install-plugins.html">Install XL Release plugins</a></li>
+                          </ul>
+                      </li>
+                      <li><a href="#">Release manuals</a>
+                          <ul>
+                              <li><a href="/xl-release/release-manual/5.0.x.html">XL Release 5.0.x</a></li>
+                              <li><a href="/xl-release/release-manual/4.8.x.html">XL Release 4.8.x</a></li>
+                              <li><a href="/xl-release/release-manual/4.7.x.html">XL Release 4.7.x</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </li>
+              <li><a href="#">Model your releases</a>
+                  <ul>
+                      <li><a href="/xl-release/templates/template-overview.html">Template overview</a></li>
+                      <li><a href="/xl-release/templates/phases-and-tasks.html">Work with phases and tasks</a></li>
+                      <li><a href="/xl-release/templates/task-life-cycle.html">The task life cycle</a></li>
+                      <li><a href="#">Task types</a>
+                          <ul>
+                              <li><a href="/xl-release/templates/task-types.html">Types of tasks in XL Release</a></li>
+                              <li><a href="/xl-release/templates/manual-task-type.html">Manual task type</a></li>
+                              <li><a href="/xl-release/templates/create-release-task-type.html">Create Release task type</a></li>
+                              <li><a href="/xl-release/templates/task-types/xl-deploy-task-type.html">XL Deploy task type</a></li>
+                              <li><a href="/xl-release/templates/gate-task-type.html">Gate task type</a></li>
+                              <li><a href="/xl-release/templates/task-types/notification-task-type.html">Notification task type</a></li>
+                              <li><a href="/xl-release/templates/task-types/parallel-group.html">Parallel Group</a></li>
+                              <li><a href="/xl-release/templates/task-types/script-task-type.html">Script task type</a></li>
+                              <li><a href="/xl-release/templates/task-types/sequential-group.html">Sequential Group</a></li>
+                              <li><a href="/xl-release/templates/user-input-task-type.html">User Input task type</a></li>
+                              <li><a href="/xl-release/templates/jenkins-task-type.html">Jenkins task type</a></li>
+                              <li><a href="/xl-release/templates/task-types/jira-task-types.html">JIRA task types</a></li>
+                              <li><a href="/xl-release/templates/task-types/remote-script-task-types.html">Remote Script task types</a></li>
+                              <li><a href="/xl-release/templates/task-types/webhook-task-type.html">Webhook task type</a></li>
+                          </ul>
+                      </li>
+                      <li><a href="/xl-release/templates/using-variables.html">Using variables</a></li>
+                      <li><a href="/xl-release/templates/template-security.html">Template security</a></li>
+                  </ul>
+              </li>
+              <li><a href="#">Release your software</a>
+                  <ul>
+                      <li><a href="/xl-release/releases/release-overview.html">Release overview</a></li>
+                      <li><a href="/xl-release/releases/create-and-start-releases.html">Create and start releases</a></li>
+                      <li><a href="#">Trigger releases</a>
+                          <ul>
+                              <li><a href="/xl-release/releases/triggers/git-trigger.html">Trigger a release from a Git commit</a></li>
+                              <li><a href="/xl-release/releases/triggers/svn-trigger.html">Trigger a release from a Subversion commit</a></li>
+                              <li><a href="/xl-release/releases/triggers/nexus-trigger.html">Trigger a release from a Nexus update</a></li>
+                              <li><a href="/xl-release/releases/triggers/time-trigger.html">Trigger a release based on a schedule</a></li>
+                          </ul>
+                      </li>
+                      <li><a href="/xl-release/releases/release-strategies.html">Release strategies</a></li>
+                  </ul>
+              </li>
+              <li><a href="#">Work with running releases</a>
+                  <ul>
+                      <li><a href="/xl-release/running-releases/working-with-running-releases.html">Work with running releases</a></li>
+                      <li><a href="/xl-release/running-releases/using-release-dashboards.html">Using release dashboards</a></li>
+                      <li><a href="/xl-release/running-releases/using-the-release-summary.html">Using the release summary</a></li>
+                      <li><a href="/xl-release/running-releases/using-the-calendar-view.html">Using the calendar view</a></li>
+                  </ul>
+              </li>
+              <li><a href="#">Using reports</a>
+                  <ul>
+                      <li><a href="/xl-release/reports/reports-overview.html">Reports overview</a></li>
+                      <li><a href="/xl-release/reports/export-release-data.html">Export release data</a></li>
+                  </ul>
+              </li>
+              <li><a href="#">Manage your installation</a>
+                  <ul>
+                      <li><a href="/xl-release/system-administration/logging.html">Logging in XL Release</a></li>
+                      <li><a href="/xl-release/system-administration/configure-the-client.html">Configure the XL Release client</a></li>
+                      <li><a href="/xl-release/system-administration/start-shut-down.html">Start or shut down XL Release</a></li>
+                      <li><a href="/xl-release/system-administration/backup.html">Back up XL Release</a></li>
+                      <li><a href="/xl-release/system-administration/upgrade.html">Upgrade XL Release</a></li>
+                      <li><a href="/xl-release/system-administration/configure-the-repository.html">Configure the repository</a></li>
+                      <li><a href="/xl-release/system-administration/archive-database.html">Configure the archive database</a></li>
+                      <li><a href="/xl-release/system-administration/configure-failover.html">Configure failover</a></li>
+                      <li><a href="#">Manage security</a>
+                          <ul>
+                              <li><a href="/xl-release/system-administration/security/users-roles-permissions.html">Users, roles, and permissions</a></li>
+                              <li><a href="/xl-release/system-administration/security/ldap.html">Configure LDAP security</a></li>
+                              <li><a href="/xl-release/system-administration/security/admin-password.html">Change or reset the admin password</a></li>
+                              <li><a href="/xl-release/system-administration/security/update-the-digital-certificate.html">Update the digital certificate</a></li>
+                              <li><a href="/xl-release/system-administration/security/xl-deploy-self-signed-certificate.html">Configure XL Release to trust an XL Deploy server with a self-signed certificate</a></li>
+                              <li><a href="/xl-release/system-administration/security/configure-ssl.html">Configure SSL options for HttpRequest</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </li>
+              <li><a href="#">Customize XL Release</a>
+                  <ul>
+                      <li><a href="/xl-release/customize/api-and-scripting-overview.html">API and scripting overview</a></li>
+                      <li><a href="/xl-release/customize/create-custom-task-types.html">Create custom task types</a></li>
+                      <li><a href="/xl-release/customize/create-custom-configuration-types.html">Create custom configuration types</a></li>
+                      <li><a href="/xl-release/customize/create-custom-trigger-types.html">Create custom trigger types</a></li>
+                      <li><a href="/xl-release/customize/extend-the-gui.html">Extend the XL Release GUI</a></li>
+                      <li><a href="/xl-release/customize/custom-failure-handler.html">Implement a custom failure handler</a></li>
+                  </ul>
+              </li>
+          </ul>
+      </li>
+      <li><a href="#">XL Deploy</a>
+          <ul>
+              <li><a href="/xl-deploy">XL Deploy overview</a></li>
+          </ul>
+      </li>
+      <li><a href="#">XL TestView</a>
+          <ul>
+              <li><a href="/xl-testview">XL TestView overview</a></li>
+          </ul>
+      </li>
+      <li><a href="#">Tutorials</a>
+          <ul>
+              <li><a href="/tutorials/use-variables-to-revise-a-jira-issue-list.html">Use XL Release variables to revise a JIRA issue list</a></li>
+              <li><a href="/tutorials/test-an-automated-task-during-configuration.html">Test an automated task during configuration</a></li>
+              <li><a href="/tutorials/get-a-value-from-a-map-variable.html">Get a value from a map variable</a></li>
+              <li><a href="/tutorials/handle-failures-in-tasks.html">Handle failures in tasks</a></li>
+              <li><a href="/tutorials/support-legacy-use-of-xlrequest.html">Support legacy use of XLRequest using HttpRequest</a></li>
+              <li><a href="/tutorials/using-a-configuration-object-to-share-global-variables.html">Using a configuration object to share global variables</a></li>
+              <li><a href="/tutorials/using-dynatrace-with-xl-release.html">Using Dynatrace with XL Release</a></li>
+              <li><a href="/tutorials/create-a-release-via-the-rest-api.html">Create a new release via the XL Release REST API</a></li>
+              <li><a href="/tutorials/create-a-new-xl-release-admin-user.html">Create a new XL Release admin user</a></li>
+          </ul>
+      </li>
+      <li><a href="/apis">APIs</a></li>
+      <li><a href="/videos">Videos</a></li>
+      <li><a href="/community">Community</a></li>
+</ul>
