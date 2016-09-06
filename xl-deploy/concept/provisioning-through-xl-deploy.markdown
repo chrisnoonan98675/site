@@ -23,13 +23,11 @@ XL Deploy's provisioning feature allows you to provide fully automated, on-deman
 
 ## Provisioning packages
 
-The process of provisioning a cloud-based environment through XL Deploy is very similar to the process of deploying an application. You start by creating an _application_ (`udm.Application`) that defines the environment that you want to provision. You then create _packages_ (`udm.deploymentPackage`) that represent specific versions of the environment definition.
-
 A provisioning package is a collection of:
 
-* Provisionables, which contain settings that are needed to provision the environment
-* Provisioners, which execute actions in the environment after it is set up
-* Templates, which create configuration items (CIs) in XL Deploy during the provisioning process
+* _Provisionables_ that contain settings that are needed to provision the environment
+* _Provisioners_ that execute actions in the environment after it is set up
+* _Templates_ that create configuration items (CIs) in XL Deploy during the provisioning process
 
 For example, a provisioning package could contain:
 
@@ -37,13 +35,15 @@ For example, a provisioning package could contain:
 * A [Puppet](https://puppet.com/) provisioner that installs [Apache HTTP Server](https://httpd.apache.org/) on the instance (`puppet.provisioner.Manifest`)
 * Templates that create an SSH host CI (`template.overthere.SshHost`), a Tomcat server CI (`template.tomcat.Server`), and a Tomcat virtual host CI (`template.tomcat.VirtualHost`)
 
+The process of provisioning a cloud-based environment through XL Deploy is very similar to the process of deploying an application. You start by creating an _application_ (`udm.Application`) that defines the environment that you want to provision. You then create _provisioning packages_ (`udm.ProvisioningPackage`) that represent specific versions of the environment definition.
+
 ## Providers
 
-You will also define _providers_, which are cloud technologies such as [Amazon Web Services EC2](https://aws.amazon.com/ec2/) (`aws.ec2.Cloud`). A provider CI contains required connection information, such as an access key ID and a secret access key. You define provider CIs under **Infrastructure** in the XL Deploy Repository. After you define a provider, you add it to an _environment_ (`udm.Environment`).
+You can also define _providers_, which are cloud technologies such as [Amazon Web Services EC2](https://aws.amazon.com/ec2/) (`aws.ec2.Cloud`). A provider CI contains required connection information, such as an access key ID and a secret access key. You define provider CIs under **Infrastructure** in the XL Deploy Repository. After you define a provider, you add it to an _environment_ (`udm.Environment`).
 
 ### Provisioneds
 
-After you have created packages and added providers to an environment, you set up provisioning the same way you would [set up a deployment](/xl-deploy/how-to/deploy-an-application.html). When you map a provisioning package to an environment, XL Deploy creates *provisioneds* based on the provisionables in the package. These are the actual properties, manifests, scripts, and so on that XL Deploy will use to provision the environment.
+After you have created packages and added providers to an environment, you start provisioning the same way you would [start a deployment](/xl-deploy/how-to/deploy-an-application.html). When you map a provisioning package to an environment, XL Deploy creates *provisioneds* based on the provisionables in the package. These are the actual properties, manifests, scripts, and so on that XL Deploy will use to provision the environment.
 
 ## Supported provisioning technologies
 
