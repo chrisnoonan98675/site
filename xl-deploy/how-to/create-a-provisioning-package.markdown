@@ -79,44 +79,54 @@ To add a template to a provisioning package:
 
 1. Right-click the provisioning package, select **New** > **Template**, then select the type of template that you want to add.
 
-    For example, if the provisioning package includes a `puppet.Manifest` provisioner, you will need a host template such as `template.overthere.SshHost` for the manifest to use. Also, if the provisioning will install an Apache Tomcat server, you can select templates such as `template.tomcat.Server` and `template.tomcat.VirtualHost`.
+    A template's type is the same as the type of CI it represents, with a `template.` prefix. For example, the template type that will create an `overthere.SshHost` CI is called `template.overthere.SshHost`.
 
 1. Fill in the configuration for the template.
+
+    Template properties are inherited from the original CI type, but simple property kinds are mapped to the `STRING` kind. This allows you to specify [placeholders](/xl-deploy/how-to/using-placeholders-with-provisioning.html) in template properties. XL Deploy resolves the placeholders when it instantiates a CI based on the template.
+
 1. Click **Save**.
 
-### Add a child template
+## Step 5 Add a template as a bound template
 
-To add a template as a _child_ of another template, right-click the _parent_ template CI and select **New** > **Template**.
+For XL Deploy to resolve a template and create a CI based on it, you must assign the template as a *bound template* on either:
 
-For example, if you have a `puppet.Manifest` provisioner that will install an [Apache Tomcat](/xl-deploy/concept/tomcat-plugin.html#tomcat-topology) server on an `overthere.SshHost`, you would:
+* A provisioning package (`udm.ProvisioningPackage`) or
+* A provisionable (such as `aws.ec2.InstanceSpec`)
 
-* Add a `template.tomcat.Server` CI as a child of the `template.overthere.SshHost` CI
-* Add a `template.tomcat.VirtualHost` CI as a child of the `template.tomcat.Server` CI
+An important difference is that you cannot use [*contextual placeholders*](/xl-deploy/how-to/use-provisioning-outputs.html) in the properties of a template that is assigned to a provisioning package.
 
-This will give you a structure like:
+If you specify a template as a *host template* on a provider CI (such as `aws.ec2.Cloud`), XL Deploy will resolve the template but will not create a CI based on it. You can use contextual placeholders for this.
+
+### Storing generated CIs
+
+CIs that are generated from bound templates are saved in the directory that you specify in the **Directory Path** property of the target environment; for example, `Cloud/EC2`.
+
+**Important:** The directory must already exist under **Infrastructure**.
+
+### Naming generated CIs
+
+The names of CIs that are generated based on templates follow this pattern:
+
+    /Infrastructure/$DirectoryPath$/$ProvisioningId$-$rootTemplateName$-$ordinal$/$templateName$
+
+Where:
+
+* The root (in this example, `/Infrastructure`) is based on the CI type. It can be any repository root name.
+* `$DirectoryPath$` is the value specified in the **Directory Path** property of the target environment.
+* `$ProvisioningId$` is the [unique provisioning ID](/xl-deploy/how-to/provision-an-environment.html#the-unique-provisioning-id) that XL Deploy generates.
+* `$rootTemplateName$` is the name of the root template, if the template has a root template or is a root template.
+* `$ordinal$` is the value of the provisioned's ordinal. This is based on the cardinality property. It is omitted when the ordinal is 1.
+* `$templateName$` is the name of the template when it is nested under a root template.
+
+You can change this rule by specifying the optional **Instance Name** property on the template. The resulting ID would look like:
+
+    /Infrastructure/$DirectoryPath$/$rootInstanceName$/$templateInstanceName$
+
+### Creating a hierarchy of templates
+
+Like other CIs, you can create a hierarchy of templates that have a parent-child relationship. You do so by right-clicking the parent CI and selecting **New** > **Template**. For example, this is a hierarchy of `template.overthere.SshHost`, `template.tomcat.Server`, and `template.tomcat.VirtualHost` CIs:
 
 ![Hierarchy of CI templates](images/provisioning-template-hierarchy.png)
 
-### Adding a template as a bound template
-
-XL Deploy will create a CI based on this template in the provisioned environment. If you want to use the CI after provisioning is complete, you must add it to the provisionable as a _bound template_. This means it will be saved in the Repository and added to the environment. To add a bound template:
-
-1. Double-click the provisionable to open it.
-2. Under **Bound Templates**, select the template and click ![Add template](/images/button_add_container.png) to add it to the **Members** list.
-3. Click **Save**.
-
-### Specifying an environment name and path
-
-When you provision a package to an environment, XL Deploy can generate CIs based on [bound templates](/xl-deploy/concept/provisioning-and-ci-templates.html) and add them to the environment. XL Deploy stores the generated CIs in the location you specify in the environment's **Directory Path** property (located on the **Provisioning** tab).
-
-For example,
-
-You specify the directory where XL Deploy should store the generated CIs on the environment
-
-During provisioning, XL Deploy automatically creates an environment that will contain the CIs that are generated based on [bound templates](/xl-deploy/concept/provisioning-and-ci-templates.html). You specify the environment name on the provisioning package or in the [deployment properties](/xl-deploy/how-to/provision-an-environment.html) when you set up a provisioning. You can also specify a directory path where the environment and infrastructure CIs should be saved.
-
-**Important:** The directory structure must already exist under the **Environments** and **Infrastructure** root nodes.
-
-During provisioning, XL Deploy creates the environment. To prevent name collisions, the [unique provisioning ID](/xl-deploy/how-to/provision-an-environment.html#the-unique-provisioning-id) will be added to the environment name that you specify. The CIs that are generated during provisioning are assigned to the environment.
-
-You can see the environment and CIs that will be created by previewing the provisioning plan.
+In this case, you only need to specify the root (parent) of the hierarchy as a bound template. XL Deploy will automatically also create CIs based on the child templates.

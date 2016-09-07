@@ -46,10 +46,8 @@ For information about provisioning an environment using the XL Deploy command-li
 
 ## The unique provisioning ID
 
-To prevent name collisions, a unique provisioning ID is added to most items that are created during provisioning. This ID is a random string of characters such as `AOAFbrIEq`. In the GUI, you can see the ID by clicking **Deployment Properties** and going to the **Provisioning** tab.
+To prevent name collisions, a unique provisioning ID is added to some configuration items (CIs) that are generated from [bound templates](/xl-deploy/how-to/create-a-provisioning-package.html#add-a-template-as-a-bound-template) in the provisioning package. This ID is a random string of characters such as `AOAFbrIEq`. In the GUI, you can see the ID by clicking **Deployment Properties** and going to the **Provisioning** tab.
 
-On the package level, you can specify an XL Deploy environment to which the CIs that are created based on bound templates will be added. The unique ID will be appended to this environment name; for example, if you specify the environment name *TEST*, XL Deploy will create an environment called *TEST-AOAFbrIEq*.
-
-The unique ID is also added to the CIs that are created. For example, if you create an `aws.ec2.InstanceSpec` provisionable called *apache-spec*, XL Deploy will created a provisioned called *AOAFbrIEq-apache-spec*.
-
+{% comment %}
 If the cardinality set on the provisionable CI is greater than 1, then XL Deploy will append a number to the name of the provisioneds that are generated. For example, if *apache-spec* has a cardinality of 3, then XL Deploy will create provisioneds called *AOAFbrIEq-apache-spec*, *AOAFbrIEq-apache-spec-2*, and *AOAFbrIEq-apache-spec-3*.
+{% endcomment %}

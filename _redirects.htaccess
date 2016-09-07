@@ -164,6 +164,7 @@ Redirect 301 /xl-deploy/how-to/create-a-deployment-package-using-the-cli.html /x
 Redirect 301 /xl-deploy/how-to/deprovision-an-environment.html /xl-deploy/how-to/undeploy-an-application.html
 Redirect 301 /xl-deploy/how-to/deploy-to-a-provisioned-environment.html /xl-deploy/how-to/deploy-an-application.html
 Redirect 301 /xl-deploy/how-to/create-a-provisioning-environment.html /xl-deploy/how-to/create-an-environment-in-xl-deploy.html
+Redirect 301 /xl-deploy/concept/provisioning-and-ci-templates.html xl-deploy/how-to/create-a-provisioning-package.html
 
 # XL Release topics
 

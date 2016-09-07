@@ -209,4 +209,4 @@ You can also see that the CIs were added to the *Cloud* environment:
 
 ![CIs generated from bound templates added to environment](images/provisioning-generated-cis-in-environment.png)
 
-Now, you can [import](/xl-deploy/how-to/add-a-package-to-xl-deploy.html#import-a-package) the sample package *PetClinic-war/1.0* from the XL Deploy server and [deploy it](/xl-deploy/how-to/deploy-an-application.html) to the *Cloud* environment.
+Now, you can [import](/xl-deploy/how-to/add-a-package-to-xl-deploy.html#import-a-package) the sample package *PetClinic-war/1.0* from the XL Deploy server and [deploy it](/xl-deploy/how-to/deploy-an-application.html) to the *Cloud* environment. After the deployment succeeds, you can see the application running at `http://<instance public IP address>:8080/petclinic`. You can find the public IP address and other properties in the instance CI under the provider.
