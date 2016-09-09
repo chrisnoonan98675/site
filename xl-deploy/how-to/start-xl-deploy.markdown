@@ -29,12 +29,14 @@ To run the XL Deploy server as a background process:
     * On Unix, use `nohup bin/server.sh &`
     * On Windows, run XL Deploy [as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html)
 * In XL Deploy 5.0.0 and later:
-    * On Unix, use `nohup bin/run.sh &`
-    * On Windows, run XL Deploy [as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html)
+    * On Unix, use `nohup bin/run.sh &` or run XL Deploy as a service
+    * On Windows, run XL Deploy as a service
 
-If you have installed XL Deploy [as a service](/xl-deploy/how-to/install-xl-deploy-as-a-service.html), you must ensure that the XL Deploy server is configured so that it can start without user interaction. For example, the server should not [require a password](/xl-deploy/how-to/install-xl-deploy.html#step-10-provide-a-password-for-the-encryption-key) for the encryption key that protects passwords in the repository. Alternatively, you can store the password in the `XL_DEPLOY_SERVER_HOME/conf/deployit.conf file` as follows:
+**Important:** If you have installed XL Deploy as a service, you must ensure that the XL Deploy server is configured so that it can start without user interaction. For example, the server should not [require a password](/xl-deploy/how-to/install-xl-deploy.html#step-10-provide-a-password-for-the-encryption-key) for the encryption key that protects passwords in the repository. Alternatively, you can store the password in the `XL_DEPLOY_SERVER_HOME/conf/deployit.conf file` as follows:
 
     repository.keystore.password=MY_PASSWORD
+
+XL Deploy will encrypt the password when you start the server.
 
 ## Server options
 

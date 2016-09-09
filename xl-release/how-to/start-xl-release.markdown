@@ -19,6 +19,20 @@ To start the XL Release server, open a command prompt or terminal, go to the `XL
 | Microsoft Windows | `run.cmd` |
 | Unix-based systems | `run.sh` |
 
+## Start XL Release in the background
+
+To run the XL Release server as a background process on a Unix system, use:
+
+    nohup bin/run.sh &
+
+Alternatively, in XL Release 5.0.0 and later, you can [install XL Release as a service](/xl-release/how-to/install-xl-release-as-a-service.html) on a Unix-based or on a Microsoft Windows-based system.
+
+If you have installed XL Release as a service, you must ensure that the XL Release server is configured so that it can start without user interaction. For example, the server should not [require a password](/xl-release/how-to/install-xl-release.html#step-4-provide-a-password-for-the-encryption-key) for the encryption key that protects passwords in the repository. Alternatively, you can store the password in the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf file` as follows:
+
+    repository.keystore.password=MY_PASSWORD
+
+XL Release will encrypt the password when you start the server.
+
 ## Server options
 
 Start the server with the `-h` flag to see the options it supports. They are:
@@ -32,11 +46,3 @@ Start the server with the `-h` flag to see the options it supports. They are:
 | `-setup-defaults VAL` | Specifies a file that contains default values for configuration properties set in the setup wizard.
 
 **Tip:** Any options you want to give the XL Release server when it starts can be specified in the `XL_RELEASE_SERVER_OPTS` environment variable.
-
-## Start XL Release in the background
-
-To run the XL Release server as a background process on a Unix system, use:
-
-    nohup bin/run.sh &
-
-**Tip:** You can also [Install XL Release as a service](/xl-release/how-to/install-xl-release-as-a-service.html).
