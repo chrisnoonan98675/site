@@ -21,7 +21,7 @@ To install XL Release 5.0.0 or later on a Unix-based system:
 
 1. Follow the installation procedure described in [Install XL Release](/xl-release/how-to/install-xl-release.html). This procedure requires you to execute `XL_RELEASE_SERVER_HOME/bin/run.sh` to configure and initialize the server. You should do this as the user under which you want XL Release to run.
 
-    Also, you must ensure that the server is configured so that it can start without input from the user; for example, if a repository keystore password is required, then it should be provided in `XL_RELEASE_SERVER_HOME/conf/xl-release.conf`.
+    Also, you must ensure that the server is configured so that it can start without input from the user; for example, if a repository keystore password is required, then it should be provided in `XL_RELEASE_SERVER_HOME/conf/xl-release-server.conf`.
 
 1. As root, execute `XL_RELEASE_SERVER_HOME/bin/install-service.sh`. This command will install the service with the name `xl-release` and the title `XL Release Server`.
 
@@ -35,7 +35,7 @@ To install XL Release 5.0.0 or later on a Microsoft Windows-based system:
 
 1. Follow the installation procedure described in [Install XL Release](/xl-release/how-to/install-xl-release.html). This procedure requires you to execute `XL_RELEASE_SERVER_HOME\bin\run.cmd` to configure and initialize the server.
 
-    You must ensure that the server is configured so that it can start without input from the user; for example, if a repository keystore password is required, then it should be provided in `XL_RELEASE_SERVER_HOME\conf\xl-release.conf`.
+    You must ensure that the server is configured so that it can start without input from the user; for example, if a repository keystore password is required, then it should be provided in `XL_RELEASE_SERVER_HOME\conf\xl-release-server.conf`.
 
 1. As an administrator, execute `XL_RELEASE_SERVER_HOME\bin\install-service.cmd`. This command will install the service with the name `xl-release` and the title `XL Release Server`.
 

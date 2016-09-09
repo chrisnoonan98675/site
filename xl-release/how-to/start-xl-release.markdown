@@ -27,7 +27,7 @@ To run the XL Release server as a background process on a Unix system, use:
 
 Alternatively, in XL Release 5.0.0 and later, you can [install XL Release as a service](/xl-release/how-to/install-xl-release-as-a-service.html) on a Unix-based or on a Microsoft Windows-based system.
 
-If you have installed XL Release as a service, you must ensure that the XL Release server is configured so that it can start without user interaction. For example, the server should not [require a password](/xl-release/how-to/install-xl-release.html#step-4-provide-a-password-for-the-encryption-key) for the encryption key that protects passwords in the repository. Alternatively, you can store the password in the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf file` as follows:
+If you have installed XL Release as a service, you must ensure that the XL Release server is configured so that it can start without user interaction. For example, the server should not [require a password](/xl-release/how-to/install-xl-release.html#step-4-provide-a-password-for-the-encryption-key) for the encryption key that protects passwords in the repository. Alternatively, you can store the password in the `XL_RELEASE_SERVER_HOME/conf/xl-release-server.conf file` as follows:
 
     repository.keystore.password=MY_PASSWORD
 
