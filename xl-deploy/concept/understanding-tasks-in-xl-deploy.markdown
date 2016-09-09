@@ -72,7 +72,7 @@ A scheduled task can be cancelled. It will then be removed from the system, and 
 
 XL Deploy tasks go through the following states:
 
-![Task state](images/task-state-diagram.png)
+![Task state](images/xl_deploy_task_state_diagram.png)
 
 You can interact with tasks as follows:
 
