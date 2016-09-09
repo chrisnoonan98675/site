@@ -27,7 +27,7 @@ You can mark a step to be skipped by the task. When the task is executing and th
 
 **Note:** A step can only be skipped when the step is _pending_, _failed_, or _paused_.
 
-![Step state](images/step-state-diagram.png)
+![Step state](images/xl_deploy_step_state_diagram.png)
 
 ## Steplist
 
