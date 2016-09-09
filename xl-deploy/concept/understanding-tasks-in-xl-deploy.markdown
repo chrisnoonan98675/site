@@ -67,9 +67,13 @@ You can reschedule a task to any other given moment in the future.
 
 A scheduled task can be cancelled. It will then be removed from the system, and the status will be stored in the task history.
 
-## Task State
+## Task states
 
-XL Deploy allows a user to interact with the task. A user can:
+XL Deploy tasks go through the following states:
+
+![Task state](images/xl_deploy_task_state_diagram.png)
+
+You can interact with tasks as follows:
 
 * **Start the task**. XL Deploy will try to start executing the steps associated with the task. If there is no executor available, the task will be queued. The task can be started when the task is _pending_, _failed_, _stopped_ or _aborted_. Starting a task when _scheduled_ will also unschedule the task.
 
@@ -82,5 +86,3 @@ XL Deploy allows a user to interact with the task. A user can:
 * **Cancel the task**. XL Deploy will cancel the task execution. If the task was _executing_ before, the task will be stored since it may have made changes to the middleware. If the task was _pending_ and never started, it will be removed but not stored. The task can only be cancelled when it is _pending_, _scheduled_, _failed_, _stopped_ or _aborted_.
 
 * **Archive the task**. XL Deploy will finalize the task and store it. Manually archiving is needed to be able to review a task when it is executed, and to decide whether or not a rollback is needed. Archiving the task can only be done when the task is _executed_.
-
-![Task state](images/task-state-diagram.png)
