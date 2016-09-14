@@ -35,7 +35,7 @@ A rollback script **must** have the same name as the installation script it is a
 
 XL Deploy uses a regular expression to identify SQL scripts. The regular expression is defined by the `scriptRecognitionRegex` and `rollbackScriptRecognitionRegex` properties of the `sql.ExecutedSqlScripts` CI.
 
-The default regular expression is configured such that XL Deploy expects each script to start with a number and a hyphen; for example, `1-create-user-table.sql`. Even if there is only one script, it must start with a number.
+The default regular expression is configured such that XL Deploy expects each script to start with a number and a hyphen; for example, `1-create-user-table.sql`. Even if there is only one script, it must start with a number and a hyphen.
 
 You can change the regular expression in `deployit-defaults.properties` or by creating a type modification in the `synthetic.xml` file.
 
