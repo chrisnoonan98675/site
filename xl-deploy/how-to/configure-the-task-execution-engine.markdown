@@ -34,15 +34,15 @@ In XL Deploy 6.0.0 and later, you can tune the XL Deploy task execution engine w
 
 You must restart the XL Deploy server after changing these settings.
 
-## Tuning the task execution engine in XL Deploy 5.5.x and earlier
+## Tuning the task execution engine prior to XL Deploy 6.0.0
 
-In XL Deploy 5.5.x and earlier, you can configure the following advanced threading settings in `<XLDEPLOY_SERVER_HOME>/conf/deployit.conf`:
+Prior to XL Deploy 6.0.0, you could configure the following advanced threading settings in `<XLDEPLOY_SERVER_HOME>/conf/deployit.conf`:
 
 {:.table .table-striped}
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
-| `taskThreadPool.corePoolSize` | Minimum number of threads allocated to execute tasks | 10 |
-| `taskThreadPool.maxPoolSize` | Maximum number of threads allocated to execute tasks | 2147483647 |
+| `taskThreadPool.corePoolSize` | Minimum number of threads allocated to execute tasks (setting has no effect in XL Deploy 5.5.x) | 10 |
+| `taskThreadPool.maxPoolSize` | Maximum number of threads allocated to execute tasks (setting has no effect in XL Deploy 5.5.x) | 2147483647 |
 | `taskThreadPool.keepAliveSeconds` | Number of seconds a task thread is kept alive before destroying it if the number of allocated threads exceeds | |
 | `taskThreadPool.queueCapacity` | Capacity of the queue that holds tasks to be executed if no threads are available | 2147483647 |
 
