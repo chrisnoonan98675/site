@@ -6,16 +6,10 @@ subject:
 - Provisioning
 tags:
 - provisioning
-- blueprint
-- provisioning package
-- provisioning environment
-- provisioner
-- provider
-- provisionable
-- provisioned
 - cloud
 since:
-- XL Deploy 5.5.0
+- XL Deploy 6.0.0
+weight: 150
 ---
 
 XL Deploy's provisioning feature allows you to provide fully automated, on-demand access to your public, private, or hybrid cloud-based environments. With provisioning, you can:
@@ -25,25 +19,31 @@ XL Deploy's provisioning feature allows you to provide fully automated, on-deman
 * Deprovision environments created through XL Deploy
 * Extend XL Deploy to create environments using technologies not supported by default
 
-## Key provisioning concepts
+**Note:** A version of this topic is available for [XL Deploy 5.5.x](/xl-deploy/5.5.x/provisioning-through-xl-deploy-5.5.html).
 
-### Blueprints and provisioning packages
+## Provisioning packages
 
-Provisioning starts with a *blueprint*, which defines what you want to provision. *Provisioning packages* represent specific versions of a blueprint.
+A provisioning package is a collection of:
 
-A provisioning package contains *provisionables*, which are the details that are needed to set up the environment. For example, in the case of [Amazon Elastic Compute Cloud (EC2)](https://aws.amazon.com/ec2/), a provisionable would specify the Amazon Machine Image (AMI) to set up and the region and security group to use for it.
+* _Provisionables_ that contain settings that are needed to provision the environment
+* _Provisioners_ that execute actions in the environment after it is set up
+* _Templates_ that create configuration items (CIs) in XL Deploy during the provisioning process
 
-A provisionable can contain *provisioners* that define actions to take after the environment is set up. For example, a [Puppet](https://puppet.com/) provisioner can apply a Puppet manifest that installs [Apache HTTP Server](https://httpd.apache.org/) on the AMI.
+For example, a provisioning package could contain:
 
-In addition to provisionables, a provisioning package can contain *templates* that define items to use in the provisioned environment. For example, an `overthere.SshHost` template creates an SSH host that can be used for the Puppet manifest. Also, you can use templates as *bound templates*, which means that XL Deploy will automatically create configuration items (CIs) based on them and assign those CIs to an [environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html). This allows you to immediately use those CIs in deployments.
+* A provisionable that creates an [Amazon Web Services EC2](https://aws.amazon.com/ec2/) instance (`aws.ec2.InstanceSpec`)
+* A [Puppet](https://puppet.com/) provisioner that installs [Apache HTTP Server](https://httpd.apache.org/) on the instance (`puppet.provisioner.Manifest`)
+* Templates that create an SSH host CI (`template.overthere.SshHost`), a Tomcat server CI (`template.tomcat.Server`), and a Tomcat virtual host CI (`template.tomcat.VirtualHost`)
 
-### Provisioning environments and providers
+The process of provisioning a cloud-based environment through XL Deploy is very similar to the process of deploying an application. You start by creating an _application_ (`udm.Application`) that defines the environment that you want to provision. You then create _provisioning packages_ (`udm.ProvisioningPackage`) that represent specific versions of the environment definition.
 
-You provision packages to *provisioning environments*, which are logical groupings of *providers*. A provider is a cloud technology such as Amazon EC2; it contains required connection information such as an access key ID and secret access key.
+## Providers
 
-### Provisioned blueprints and provisioneds
+You can also define _providers_, which are cloud technologies such as [Amazon Web Services EC2](https://aws.amazon.com/ec2/) (`aws.ec2.Cloud`). A provider CI contains required connection information, such as an access key ID and a secret access key. You define provider CIs under **Infrastructure** in the XL Deploy Repository. After you define a provider, you add it to an _environment_ (`udm.Environment`).
 
-When you map a provisioning package to a provisioning environment, XL Deploy creates a *provisioned blueprint* that contains *provisioneds*. These are the actual properties, manifests, scripts, and so on that XL Deploy will use to provision the environment.
+### Provisioneds
+
+After you have created packages and added providers to an environment, you start provisioning the same way you would [start a deployment](/xl-deploy/how-to/deploy-an-application.html). When you map a provisioning package to an environment, XL Deploy creates *provisioneds* based on the provisionables in the package. These are the actual properties, manifests, scripts, and so on that XL Deploy will use to provision the environment.
 
 ## Supported provisioning technologies
 
@@ -54,25 +54,17 @@ Support for provisioning technologies is provided through plugins. To see the pr
 To get started with XL Deploy provisioning:
 
 1. [Upgrade to XL Deploy 5.5.0 or later](/xl-deploy/5.5.x/releasemanual.html).
-1. [Create a blueprint and a provisioning package](/xl-deploy/how-to/create-a-provisioning-package.html).
-1. [Create a provisioning environment](/xl-deploy/how-to/create-a-provisioning-environment.html) and a [provider](/xl-deploy/how-to/create-a-provider.html).
+1. [Create a provisioning package](/xl-deploy/how-to/create-a-provisioning-package.html).
+1. [Create a provider](/xl-deploy/how-to/create-a-provider.html) and [add it to an environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html).
 1. [Provision the environment](/xl-deploy/how-to/provision-an-environment.html).
-1. [Deploy to the environment](/xl-deploy/how-to/deploy-to-a-provisioned-environment.html).
-1. [Deprovision the environment](/xl-deploy/how-to/deprovision-an-environment.html).
+1. [Deploy to the environment](/xl-deploy/how-to/deploy-an-application.html).
+1. [Deprovision the environment](/xl-deploy/how-to/undeploy-an-application.html).
 
 ## Limitations and known issues
 
-* The provisioning feature currently uses an internal API. A public API will be available in a future release.
 * It may take one minute or longer to generate a provisioning plan preview if the plan includes many provisioneds.
-* When creating an `aws.ec2.InstanceSpec` configuration item, you can only enter an AWS security group that already exists. To use a new security group, you must first create it manually in AWS.
-* It is currently not possible to automatically purge provisioning packages according to a [retention policy](/xl-deploy/how-to/automatically-purge-packages-according-to-a-user-defined-policy.html).
-* The [CLI provisioning extension](/xl-deploy/how-to/using-the-xl-deploy-cli-provisioning-extension.html) does not currently include help.
-* In the Provisioning Workspace:
-    * Provisioning is limited to a single tab.
-    * Occasionally, the Provisioning Environments list may be empty. To correct this issue, clear your browser cache and refresh the screen, or use a different browser.
-* In the Repository:
-    * When creating an XL Deploy environment (`udm.Environment`), providers erroneously appear in the Containers list
-    * When adding deployables to a deployment package, the `aws.ec2.InstanceSpec` CI erroneously appears as an option
+* When creating an `aws.ec2.InstanceSpec` CI, you can only enter an AWS security group that already exists. To use a new security group, you must first create it manually in AWS.
+ * The [CLI provisioning extension](/xl-deploy/how-to/using-the-xl-deploy-cli-provisioning-extension.html) does not currently include help.
 * In [reports](/xl-deploy/how-to/using-xl-deploy-reports.html):
     * Provisioning and unprovisioning actions appear on the Deployments tab
     * Provisioning environments are listed on the Deployed Applications tab

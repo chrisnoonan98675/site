@@ -161,6 +161,10 @@ Redirect 301 /xl-deploy/concept/xl-deploy-directory-structure.html /xl-deploy/ho
 Redirect 301 /xl-deploy/how-to/use-the-release-dashboard.html /xl-deploy/concept/release-dashboard.html
 Redirect 301 /xl-deploy/how-to/add-a-check-to-the-deployment-checklist.html /xl-deploy/how-to/create-a-deployment-checklist.html
 Redirect 301 /xl-deploy/how-to/create-a-deployment-package-using-the-cli.html /xl-deploy/how-to/create-a-deployment-package-using-the-command-line.html
+Redirect 301 /xl-deploy/how-to/deprovision-an-environment.html /xl-deploy/how-to/undeploy-an-application.html
+Redirect 301 /xl-deploy/how-to/deploy-to-a-provisioned-environment.html /xl-deploy/how-to/deploy-an-application.html
+Redirect 301 /xl-deploy/how-to/create-a-provisioning-environment.html /xl-deploy/how-to/create-an-environment-in-xl-deploy.html
+Redirect 301 /xl-deploy/concept/provisioning-and-ci-templates.html xl-deploy/how-to/create-a-provisioning-package.html
 
 # XL Release topics
 

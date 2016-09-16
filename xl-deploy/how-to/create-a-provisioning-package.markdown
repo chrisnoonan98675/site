@@ -6,112 +6,127 @@ subject:
 - Provisioning
 tags:
 - provisioning
-- blueprint
-- provisioning package
-- provisionable
 - template
 - cloud
 since:
-- XL Deploy 5.5.0
+- XL Deploy 6.0.0
+weight: 152
 ---
 
-In XL Deploy, a *provisioning package* represents a specific version of a *blueprint*. The package contains *provisionables*, which define the settings that are needed to set up the environment. A provisionable can contain *provisioners* that define actions to take after the environment is set up.
+In XL Deploy, a provisioning package is a collection of:
 
-In addition to provisionables, a provisioning package can contain *templates* that define the configuration items (CIs) that XL Deploy should create based on the results of the provisioners.
+* _Provisionables_ that contain settings that are needed to provision the environment
+* _Provisioners_ that execute actions in the environment after it is set up
+* _Templates_ that create configuration items (CIs) during the provisioning process
 
-## Create a blueprint
+For example, a provisioning package could contain:
 
-To create a blueprint:
+* A provisionable that creates an [Amazon Web Services EC2](https://aws.amazon.com/ec2/) instance (`aws.ec2.InstanceSpec`)
+* A [Puppet](https://puppet.com/) provisioner that installs [Apache HTTP Server](https://httpd.apache.org/) on the instance (`puppet.provisioner.Manifest`)
+* Templates that create an SSH host CI (`template.overthere.SshHost`), a Tomcat server CI (`template.tomcat.Server`), and a Tomcat virtual host CI (`template.tomcat.VirtualHost`)
+
+The process of provisioning a cloud-based environment through XL Deploy is very similar to the process of deploying an application. You start by creating an _application_ (`udm.Application`) that defines the environment that you want to provision. You then create _provisioning packages_ (`udm.ProvisioningPackage`) that represent specific versions of the environment definition.
+
+**Note:** A version of this topic is available for [XL Deploy 5.5.x](/xl-deploy/5.5.x/create-a-provisioning-package-5.5.html).
+
+## Step 1 Create an application
+
+To create an application:
 
 1. Click **Repository** in the top bar.
-1. Right-click **Blueprints** and select **New** > **upm** > **Blueprint**.
-1. In the **Name** box, enter a unique name for the blueprint.
-
-    ![Create new blueprint](images/provisioning-create-new-blueprint.png)
-
+1. Right-click **Applications** and select **New** > **Application**.
+1. In the **Name** box, enter a unique name for the application.
 1. Click **Save**.
 
-## Create a provisioning package
+## Step 2 Create a provisioning package
 
 To create a provisioning package:
 
-1. Click **Repository** in the top bar.
-1. Expand **Blueprints**, right-click the desired blueprint, and select **New** > **ProvisioningPackage**.
+1. Right-click the application and select **New** > **Provisioning Package**.
 1. In the **Name** box, enter a unique name for the provisioning package.
-1. In the **Environment Name** box, enter an XL Deploy environment that should contain the CIs that are generated during provisioning. This field cannot contain forward slashes (`/`).
-
-    ![Create new provisioning package](images/provisioning-create-new-provisioning-package.png)
-
-1. In the **Directory Path** box, enter the location in the repository where the environment and the CIs that are created should be saved. Omit root nodes such as `Environments`.
 1. Click **Save**.
 
-### Specifying an environment name and path
-
-During provisioning, XL Deploy can automatically create an environment (`udm.Environment`) that will contain the CIs that are generated based on [bound templates](/xl-deploy/concept/provisioning-and-ci-templates.html). You specify the environment name on the provisioning package or in the [provisioning properties](/xl-deploy/how-to/provision-an-environment.html).
-
-You can also specify a directory path where the environment and infrastructure CIs should be saved.
-
-**Important:** The directory structure must already exist under the **Environments** and **Infrastructure** root nodes.
-
-During provisioning, XL Deploy creates the environment. A unique ID will automatically be added to the name that you specified, as described in [Provision an environment](/xl-deploy/how-to/provision-an-environment.html#the-unique-provisioning-id). The CIs that are generated during provisioning are assigned to the environment.
-
-You can see the environment and CIs that will be created by previewing the provisioning plan:
-
-![Preview provisioned CIs that will be created](images/provisioning-create-provisioned-cis.png)
-
-## Add a provisionable to a package
+## Step 3 Add a provisionable to a package
 
 To add a provisionable to a provisioning package:
 
-1. Click **Repository** in the top bar.
-1. Expand **Blueprints**, then expand the desired blueprint to see its provisioning packages.
-1. Right-click the desired provisioning package, select **New**, then select the type of provisionable that you want to add. For example, to add an Amazon Web Services EC2 AMI, select **aws** > **ec2.InstanceSpec**.
-1. In the **Cardinality** box, enter the number of provisioneds that should be created based on this provisionable (default is 1).
-
-    ![Create new provisionable (aws.ec2.InstanceSpec)](images/provisioning-create-new-provisionable-01.png)
-
-1. Fill in the rest of the provisionable properties. For example, for an `ec2.instanceSpec`:
+1. Right-click the provisioning package, select **New**, then select the type of provisionable that you want to add. For example, to add an Amazon Web Services EC2 AMI, select **aws** > **ec2.InstanceSpec**.
+1. Fill in the provisionable properties. For example, for an `ec2.instanceSpec`:
 
     ![Create new provisionable (aws.ec2.InstanceSpec)](images/provisioning-create-new-provisionable-02.png)
 
 1. Click **Save**.
 
+{% comment %}
 #### Cardinality in provisionables
 
-Cardinality allows you to create multiple provisioneds based on a single provisionable. For example, an `aws.ec2.InstanceSpec` with a cardinality of 5 will result in five Amazon EC2 instances, all based on the same instance specification. When each provisioned is created, its ordinal will be added to its name, as described in [Provision an environment](/xl-deploy/how-to/provision-an-environment.html#the-unique-provisioning-id).
+Cardinality allows you to create multiple provisioneds based on a single provisionable. For example, an `aws.ec2.InstanceSpec` with a cardinality of 5 will result in five AWS EC2 instances, all based on the same instance specification. When each provisioned is created, its ordinal will be added to its name, as described in [Provision an environment](/xl-deploy/how-to/provision-an-environment.html#the-unique-provisioning-id).
 
-It is recommended that you use a [placeholder](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) such as `{% raw %}NUMBER_OF_TOMCAT_INSTANCES{% endraw %}` for the cardinality property. You can then enter the number of instances in the provisioning properties when setting up the provisioning.
+It is recommended that you use a [placeholder](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) such as `{% raw %}NUMBER_OF_TOMCAT_INSTANCES{% endraw %}` for the cardinality property. You can then enter the desired number of instances when you set up the provisioning.
+{% endcomment %}
 
 ### Add a provisioner to a provisionable
 
-To add a provisioner to a provisionable:
+You can optionally add a provisioner (such as Puppet) to a provisionable:
 
-1. Click **Repository** in the top bar.
-1. Expand **Blueprints**, then expand the desired blueprint to see its provisioning packages.
-1. Expand the desired provisioning package to see its provisionables.
-1. Right-click the desired provisionable, select **New**, then select the type of provisioner that you want to add. For example, to add a Puppet manifest, select **Manifest**.
+1. Right-click the provisionable, select **New**, then select the type of provisioner that you want to add. For example, to add a Puppet manifest, select **provisioner.Manifest**.
 1. Fill in the configuration for the provisioner.
-
-    ![Create new provisioner (puppet.Manifest)](images/provisioning-create-new-provisioner.png)
-
 1. Click **Save**.
 
-## Add a template to a package
+## Step 4 Add a template to a package
 
 To add a template to a provisioning package:
 
-1. Click **Repository** in the top bar.
-1. Expand **Blueprints**, then expand the desired blueprint to see its provisioning packages.
-1. Right-click the desired provisioning package, select **New** > **Template**, then select the type of template that you want to add.
+1. Right-click the provisioning package, select **New** > **Template**, then select the type of template that you want to add.
 
-    For example, if the provisioning package includes a `puppet.Manifest` provisioner, you will need a host template such as **overthere.SshHost** for the manifest to use. Also, if the provisioning will install an Apache Tomcat server, you can select templates such as **tomcat.Server** and **tomcat.VirtualHost**.
+    A template's type is the same as the type of CI it represents, with a `template.` prefix. For example, the template type that will create an `overthere.SshHost` CI is called `template.overthere.SshHost`.
 
 1. Fill in the configuration for the template.
 
-    ![Create new template (template.overthere.SshHost)](images/provisioning-create-new-template.png)
+    Template properties are inherited from the original CI type, but simple property kinds are mapped to the `STRING` kind. This allows you to specify [placeholders](/xl-deploy/how-to/using-placeholders-with-provisioning.html) in template properties. XL Deploy resolves the placeholders when it instantiates a CI based on the template.
 
 1. Click **Save**.
 
-## Next steps
+## Step 5 Add a template as a bound template
 
-After you create a provisioning package and add provisionables, providers, and templates, you can [provision the package to a provisioning environment](/xl-deploy/how-to/provision-an-environment.html).
+For XL Deploy to resolve a template and create a CI based on it, you must assign the template as a *bound template* on either:
+
+* A provisioning package (`udm.ProvisioningPackage`) or
+* A provisionable (such as `aws.ec2.InstanceSpec`)
+
+An important difference is that you cannot use [*contextual placeholders*](/xl-deploy/how-to/use-provisioning-outputs.html) in the properties of a template that is assigned to a provisioning package.
+
+If you specify a template as a *host template* on a provider CI (such as `aws.ec2.Cloud`), XL Deploy will resolve the template but will not create a CI based on it. You can use contextual placeholders for this.
+
+### Storing generated CIs
+
+CIs that are generated from bound templates are saved in the directory that you specify in the **Directory Path** property of the target environment; for example, `Cloud/EC2`.
+
+**Important:** The directory must already exist under **Infrastructure**.
+
+### Naming generated CIs
+
+The names of CIs that are generated based on templates follow this pattern:
+
+    /Infrastructure/$DirectoryPath$/$ProvisioningId$-$rootTemplateName$-$ordinal$/$templateName$
+
+Where:
+
+* The root (in this example, `/Infrastructure`) is based on the CI type. It can be any repository root name.
+* `$DirectoryPath$` is the value specified in the **Directory Path** property of the target environment.
+* `$ProvisioningId$` is the [unique provisioning ID](/xl-deploy/how-to/provision-an-environment.html#the-unique-provisioning-id) that XL Deploy generates.
+* `$rootTemplateName$` is the name of the root template, if the template has a root template or is a root template.
+* `$ordinal$` is the value of the provisioned's ordinal. This is based on the cardinality property. It is omitted when the ordinal is 1.
+* `$templateName$` is the name of the template when it is nested under a root template.
+
+You can change this rule by specifying the optional **Instance Name** property on the template. The resulting ID would look like:
+
+    /Infrastructure/$DirectoryPath$/$rootInstanceName$/$templateInstanceName$
+
+### Creating a hierarchy of templates
+
+Like other CIs, you can create a hierarchy of templates that have a parent-child relationship. You do so by right-clicking the parent CI and selecting **New** > **Template**. For example, this is a hierarchy of `template.overthere.SshHost`, `template.tomcat.Server`, and `template.tomcat.VirtualHost` CIs:
+
+![Hierarchy of CI templates](images/provisioning-template-hierarchy.png)
+
+In this case, you only need to specify the root (parent) of the hierarchy as a bound template. XL Deploy will automatically also create CIs based on the child templates.

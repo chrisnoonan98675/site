@@ -6,17 +6,20 @@ subject:
 - Provisioning
 tags:
 - provisioning
-- provisioning package
 - cloud
 - orchestrator
 since:
 - XL Deploy 5.5.0
+removed:
+- XL Deploy 6.0.0
+weight: 156
 ---
 
 In XL Deploy, an [orchestrator](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) combines the steps for individual component changes into an overall deployment or provisioning workflow. Orchestrators are also responsible for deciding which parts of the deployment or provisioning plan are executed sequentially or in parallel. You can [combine multiple orchestrators](/xl-deploy/concept/combining-multiple-orchestrators.html) for more complex workflows.
 
-XL Deploy supports several orchestrators for provisioning. To select orchestrator(s), click **Provisioning Properties** when [setting up provisioning](/xl-deploy/how-to/provision-an-environment.html).
-r provisioning. You can select orchestrator in the `Provisioning Properties` dialog.
+XL Deploy supports several orchestrators for provisioning. To configure orchestrator(s), add them to the **Orchestrator** list on the [provisioning package](/xl-deploy/how-to/create-a-provisioning-package.html).
+
+**Important:** Provisioning orchestrators are not available in XL Deploy 6.0.0 and later. The same [orchestrators](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) are available for both deployment and provisioning.
 
 ## `provisioning` orchestrator
 
