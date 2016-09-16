@@ -19,7 +19,7 @@ In XL Deploy, an [orchestrator](/xl-deploy/concept/types-of-orchestrators-in-xl-
 
 XL Deploy supports several orchestrators for provisioning. To configure orchestrator(s), add them to the **Orchestrator** list on the [provisioning package](/xl-deploy/how-to/create-a-provisioning-package.html).
 
-**Important:** Provisioning orchestrators are not available in XL Deploy 6.0.0 and later. The same [orchestrators](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) are available for both deployment and provisioning.
+**Important:** In XL Deploy 6.0.0 and later, provisioning-specific orchestrators are not available. The same [orchestrators](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) are used for both deployment and provisioning.
 
 ## `provisioning` orchestrator
 

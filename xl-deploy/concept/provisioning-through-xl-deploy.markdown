@@ -64,7 +64,6 @@ To get started with XL Deploy provisioning:
 
 * It may take one minute or longer to generate a provisioning plan preview if the plan includes many provisioneds.
 * When creating an `aws.ec2.InstanceSpec` CI, you can only enter an AWS security group that already exists. To use a new security group, you must first create it manually in AWS.
- * The [CLI provisioning extension](/xl-deploy/how-to/using-the-xl-deploy-cli-provisioning-extension.html) does not currently include help.
 * In [reports](/xl-deploy/how-to/using-xl-deploy-reports.html):
     * Provisioning and unprovisioning actions appear on the Deployments tab
     * Provisioning environments are listed on the Deployed Applications tab

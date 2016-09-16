@@ -30,21 +30,28 @@ You can also use contextual placeholders for output properties of some CI types.
 Say you want to provision an Amazon EC2 AMI and then apply a [Puppet manifest](https://puppetlabs.com/) to it. The Puppet manifest requires a host, but you will not know the host's address until the AMI is provisioned, so you need to use a contextual placeholder for it. To do so:
 
 1. Click **Repository** in the top bar.
-1. In XL Deploy 5.5.x, expand **Blueprints**, then expand the desired blueprint.
-
-    In XL Deploy 6.0.0 and later, expand **Applications**, then expand the desired application.
-
+1. In XL Deploy 5.5.x, expand **Blueprints**, then expand the desired blueprint. In XL Deploy 6.0.0 and later, expand **Applications**, then expand the desired application.
 1. Right-click the desired package and select **New** > **aws** > **ec2.InstanceSpec** to create an `aws.ec2.InstanceSpec` provisionable. Fill in the required properties and save the CI.
+
+    ![Create new provisionable (aws.ec2.InstanceSpec)](images/provisioning-create-new-provisionable-02.png)
+
 1. Right-click the package and select **New** > **template** > **overthere.SshHost** to create a `template.overthere.SshHost` CI. Fill in the required properties, setting the **Address** property to `{% raw %}{{%publicHostname%}}{% endraw %}`. Save the CI.
 
     ![Sample template.overthere.SshHost with contextual placeholder](images/provisioning-create-new-template.png)
 
-1. Double-click the `aws.ec2.InstanceSpec` provisionable to edit it. Under **Bound Templates**, add the `template.overthere.SshHost` CI to the **Members** list. This ensures that XL Deploy will save the generated `overthere.SshHost` CI in the Repository.
-1. Right-click the `aws.ec2.InstanceSpec` CI and select **New** > **Manifest** to create a `puppet.Manifest` provisioner. Fill in the required properties, setting the **Host Template** property to the `template.overthere.SshHost` CI that you created. Save the CI.
+1. Double-click the package and click the **Provisioning** tab. Under **Bound Templates**, add the `template.overthere.SshHost` CI to the **Members** list. This ensures that XL Deploy will save the generated `overthere.SshHost` CI in the Repository.
 
-    **Tip:** You can define Puppet modules on the manifest by right-clicking the `puppet.Manifest` CI that you created and selecting **New** > **provisioner.ModuleSpec**.
+    ![Sample package with bound template](images/provisioning-add-bound-template.png)
+
+1. Right-click the `aws.ec2.InstanceSpec` CI and select **New** > **Manifest** to create a `puppet.provisioner.Manifest` provisioner. Fill in the required properties, setting the **Host Template** property to the `template.overthere.SshHost` CI that you created. Save the CI.
+
+    ![Sample puppet.provisioner.Manifest](images/provisioning-create-puppet-manifest.png)
+
+1. Right-click the `puppet.provisioner.Manifest` CI and select **New** > **provisioner.ModuleSpec** to add Puppet modules to the manifest.
 
 1. Double-click an environment that contains an Amazon EC2 [provider](/xl-deploy/how-to/create-a-provider.html) to edit it. In the **Directory Path** property on the **Provisioning** tab, enter the directory where XL Deploy should save the generated `overthere.SshHost` CI.
+
+    ![Directory path property on a sample provider](images/provisioning-directory-path-on-provider.png)
 
     **Note:** The directory must already exist under **Infrastructure**.
 

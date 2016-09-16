@@ -42,12 +42,10 @@ If a step in the provisioning fails, XL Deploy stops executing the provisioning 
 
 ## Provision an environment using the CLI
 
-For information about provisioning an environment using the XL Deploy command-line interface (CLI), refer to [Using the XL Deploy CLI provisioning extension](/xl-deploy/how-to/using-the-xl-deploy-cli-provisioning-extension.html).
+For information about provisioning an environment using the XL Deploy command-line interface (CLI) in XL Deploy 5.5.x, refer to [Using the XL Deploy CLI provisioning extension](/xl-deploy/5.5.x/using-the-xl-deploy-cli-provisioning-extension-5.5.html).
+
+In XL Deploy 6.0.0 and later, using the CLI to provision an environment works in the same way as using it to [deploy an application](/xl-deploy/concept/getting-started-with-the-xl-deploy-cli.html).
 
 ## The unique provisioning ID
 
-To prevent name collisions, a unique provisioning ID is added to some configuration items (CIs) that are generated from [bound templates](/xl-deploy/how-to/create-a-provisioning-package.html#add-a-template-as-a-bound-template) in the provisioning package. This ID is a random string of characters such as `AOAFbrIEq`. In the GUI, you can see the ID by clicking **Deployment Properties** and going to the **Provisioning** tab.
-
-{% comment %}
-If the cardinality set on the provisionable CI is greater than 1, then XL Deploy will append a number to the name of the provisioneds that are generated. For example, if *apache-spec* has a cardinality of 3, then XL Deploy will create provisioneds called *AOAFbrIEq-apache-spec*, *AOAFbrIEq-apache-spec-2*, and *AOAFbrIEq-apache-spec-3*.
-{% endcomment %}
+To prevent name collisions, a unique provisioning ID is added to some configuration items (CIs) that are generated from [bound templates](/xl-deploy/how-to/create-a-provisioning-package.html#step-5-add-a-template-as-a-bound-template) in the provisioning package. This ID is a random string of characters such as `AOAFbrIEq`. In the GUI, you can see the ID by clicking **Deployment Properties** and going to the **Provisioning** tab.

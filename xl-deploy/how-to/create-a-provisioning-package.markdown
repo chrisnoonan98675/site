@@ -51,19 +51,11 @@ To create a provisioning package:
 To add a provisionable to a provisioning package:
 
 1. Right-click the provisioning package, select **New**, then select the type of provisionable that you want to add. For example, to add an Amazon Web Services EC2 AMI, select **aws** > **ec2.InstanceSpec**.
-1. Fill in the provisionable properties. For example, for an `ec2.instanceSpec`:
+1. Fill in the provisionable properties. For example, some of the properties for an `aws.ec2.instanceSpec`:
 
     ![Create new provisionable (aws.ec2.InstanceSpec)](images/provisioning-create-new-provisionable-02.png)
 
 1. Click **Save**.
-
-{% comment %}
-#### Cardinality in provisionables
-
-Cardinality allows you to create multiple provisioneds based on a single provisionable. For example, an `aws.ec2.InstanceSpec` with a cardinality of 5 will result in five AWS EC2 instances, all based on the same instance specification. When each provisioned is created, its ordinal will be added to its name, as described in [Provision an environment](/xl-deploy/how-to/provision-an-environment.html#the-unique-provisioning-id).
-
-It is recommended that you use a [placeholder](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) such as `{% raw %}NUMBER_OF_TOMCAT_INSTANCES{% endraw %}` for the cardinality property. You can then enter the desired number of instances when you set up the provisioning.
-{% endcomment %}
 
 ### Add a provisioner to a provisionable
 
@@ -89,18 +81,11 @@ To add a template to a provisioning package:
 
 ## Step 5 Add a template as a bound template
 
-For XL Deploy to resolve a template and create a CI based on it, you must assign the template as a *bound template* on either:
-
-* A provisioning package (`udm.ProvisioningPackage`) or
-* A provisionable (such as `aws.ec2.InstanceSpec`)
-
-An important difference is that you cannot use [*contextual placeholders*](/xl-deploy/how-to/use-provisioning-outputs.html) in the properties of a template that is assigned to a provisioning package.
-
-If you specify a template as a *host template* on a provider CI (such as `aws.ec2.Cloud`), XL Deploy will resolve the template but will not create a CI based on it. You can use contextual placeholders for this.
+For XL Deploy to resolve a template and create a CI based on it, you must add the template as a *bound template* on a provisioning package (`udm.ProvisioningPackage`). You can use [*contextual placeholders*](/xl-deploy/how-to/use-provisioning-outputs.html) in the properties of templates.
 
 ### Storing generated CIs
 
-CIs that are generated from bound templates are saved in the directory that you specify in the **Directory Path** property of the target environment; for example, `Cloud/EC2`.
+CIs that are generated from bound templates are saved in the directory that you specify in the **Directory Path** property of the target environment; for example, `Cloud/EC2/Testing`.
 
 **Important:** The directory must already exist under **Infrastructure**.
 
@@ -108,7 +93,7 @@ CIs that are generated from bound templates are saved in the directory that you 
 
 The names of CIs that are generated based on templates follow this pattern:
 
-    /Infrastructure/$DirectoryPath$/$ProvisioningId$-$rootTemplateName$-$ordinal$/$templateName$
+    /Infrastructure/$DirectoryPath$/$ProvisioningId$-$rootTemplateName$/$templateName$
 
 Where:
 
@@ -116,7 +101,6 @@ Where:
 * `$DirectoryPath$` is the value specified in the **Directory Path** property of the target environment.
 * `$ProvisioningId$` is the [unique provisioning ID](/xl-deploy/how-to/provision-an-environment.html#the-unique-provisioning-id) that XL Deploy generates.
 * `$rootTemplateName$` is the name of the root template, if the template has a root template or is a root template.
-* `$ordinal$` is the value of the provisioned's ordinal. This is based on the cardinality property. It is omitted when the ordinal is 1.
 * `$templateName$` is the name of the template when it is nested under a root template.
 
 You can change this rule by specifying the optional **Instance Name** property on the template. The resulting ID would look like:
