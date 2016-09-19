@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot a CIFS/SMB connection
+title: Troubleshoot a CIFS connection
 categories:
 - xl-deploy
 subject:

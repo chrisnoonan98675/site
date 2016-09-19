@@ -34,7 +34,7 @@ XL Deploy uses the [Overthere framework](https://github.com/xebialabs/overthere)
 
 * Yes &#8594; Answer the questions below.
 * Have you configured WinRM on the remote host?
-	* Yes &#8594; Create an `overthere.CifsHost` CI and answer the questions below:
+	* Yes &#8594; Create an `overthere.SmbHost` CI and answer the questions below:
 		* Is the XL Deploy server running on a Windows host?
 			* Yes &#8594; Use the `WINRM_NATIVE` connection type. Done.
 			* No &#8594; Use the `WINRM_INTERNAL` connection type. Done.
@@ -43,7 +43,7 @@ XL Deploy uses the [Overthere framework](https://github.com/xebialabs/overthere)
 * Have you installed OpenSSH (e.g. Cygwin or Copssh) on the remote host?
 	* Yes &#8594; Create an `overthere.SshHost` CI, set the `os` to `WINDOWS`, and use the `SFTP_CYGWIN` connection type. Done.
 * Have you configured Telnet on the remote host?
-	* Yes &#8594; Create an `overthere.CifsHost` CI and use the `TELNET` connection type. Done.
+	* Yes &#8594; Create an `overthere.SmbHost` CI and use the `TELNET` connection type. Done.
 * If you have not yet configured either WinRM, SSH or Telnet, please configure WinRM and start from the top.
 
 ## Is the remote host a z/OS host?

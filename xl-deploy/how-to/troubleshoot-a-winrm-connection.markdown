@@ -85,11 +85,11 @@ If the command was executing for a long time, this might have been caused by a t
 
         winrm set winrm/config @{MaxTimeoutms="300000"}
 
-1. Uncomment the `overthere.CifsHost.winrmTimeout` property in the `deployit-default.properties` file on the XL Deploy server and update it to be equal to the `MaxTimeoutms` value.
+1. Uncomment the `overthere.SmbHost.winrmTimeout` property in the `deployit-default.properties` file on the XL Deploy server and update it to be equal to the `MaxTimeoutms` value.
 
-    The `overthere.CifsHost.winrmTimeout` property is configured in seconds instead of milliseconds. For example, if `MaxTimeoutms` is set to 300,000 milliseconds, you would configure `overthere.CifsHost.winrmTimeout` as follows:
+    The `overthere.SmbHost.winrmTimeout` property is configured in seconds instead of milliseconds. For example, if `MaxTimeoutms` is set to 300,000 milliseconds, you would configure `overthere.SmbHost.winrmTimeout` as follows:
 
-        overthere.CifsHost.winrmTimeout=PT300.000S
+        overthere.SmbHost.winrmTimeout=PT300.000S
 
 If many commands are being executed concurrently, increase the `MaxConcurrentOperationsPerUser` setting on the server. For example, to set the maximum number of concurrent operations per user to 100, enter the following command:
 
