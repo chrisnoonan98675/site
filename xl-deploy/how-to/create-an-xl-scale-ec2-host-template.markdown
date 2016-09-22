@@ -14,7 +14,7 @@ tags:
 weight: 385
 ---
 
-A host template describes a single host that can be launched on EC2. The host template is a  ```ec2.HostTemplate``` configuration item (CI). In addition to the generic host template properties, it allows some EC2-specific properties.
+A host template describes a single host that can be launched on EC2. The host template is a  `ec2.HostTemplate` configuration item (CI). In addition to the generic host template properties, it allows some EC2-specific properties.
 
 This is an example of an EC2 host descriptor:
 
@@ -44,12 +44,12 @@ This is an example of an EC2 host descriptor:
       </list>
     </#escape>
 
-Every ```ec2.HostTemplate``` CI provides a ```validateDescriptor``` control task which processes the FreeMarker template, parses the resulting XML and reports errors if something is wrong. No actual changes are made to the repository during execution of this control task.
+Every `ec2.HostTemplate` CI provides a `validateDescriptor` control task which processes the FreeMarker template, parses the resulting XML and reports errors if something is wrong. No actual changes are made to the repository during execution of this control task.
 
 Please note that:
 
-* EC2 hosts which you define here should be either ```cloud.SshHost``` or ```cloud.CifsHost```.
-* The ```cloud.SshHost``` or ```cloud.CifsHost``` in the template must contain the XML fragments for ```address```, ```cloudId``` and ```template```. These are needed for the proper functioning of the plugin.
-* You should always use ```<list>``` as a parent XML element, even if you define only one CI.
-* When you use references to ```${hostTemplate.*}``` properties, make sure they are defined on host template when required by the appropriate CI types. That is, ```cloud.SshHost``` requires ```connectionType```, when ```ec2.HostTemplate``` does not.
-* Since XML is being generated you have to make sure that values are properly encoded. You can achieve this by enclosing the template in ```<#escape x as x?xml>...</#escape>```, or alternatively use ```${exampleKey?xml}```. See the FreeMarker documentation for details.
+* EC2 hosts which you define here should be either `cloud.SshHost` or `cloud.CifsHost`.
+* The `cloud.SshHost` or `cloud.CifsHost` in the template must contain the XML fragments for `address`, `cloudId` and `template`. These are needed for the proper functioning of the plugin.
+* You should always use `<list>` as a parent XML element, even if you define only one CI.
+* When you use references to `${hostTemplate.*}` properties, make sure they are defined on host template when required by the appropriate CI types. That is, `cloud.SshHost` requires `connectionType`, when `ec2.HostTemplate` does not.
+* Since XML is being generated you have to make sure that values are properly encoded. You can achieve this by enclosing the template in `<#escape x as x?xml>...</#escape>`, or alternatively use `${exampleKey?xml}`. See the FreeMarker documentation for details.

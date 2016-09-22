@@ -44,7 +44,7 @@ The XL Scale tab has of two wizards, one for instantiating cloud environments, a
 
 This wizard can help you to create a cloud environment. This wizard consists of four steps:
 
-* **Select template**: First you need to select an Environment Template. The selection component shows all available instances of ```cloud.EnvironmentTemplate``` and ```udm.Directory``` available under the ```Configuration``` root node of the repository. When you select a template, it will display the description on the right side of the screen.
+* **Select template**: First you need to select an Environment Template. The selection component shows all available instances of `cloud.EnvironmentTemplate` and `udm.Directory` available under the `Configuration` root node of the repository. When you select a template, it will display the description on the right side of the screen.
 
     ![Create environment](images/cloud-create-1.png "Select template")
 
@@ -69,7 +69,7 @@ To finish the create wizard you have two options:
 
 This wizard can help you destroying a cloud environment. This wizard consist of two steps:
 
-* **Select environment**: Select the environment you want to destroy. The selection component will only show instances of the ```cloud.Environment```, and ```udm.Directory```. You can expand directories. When you have selected the Environment you want to destroy, click next.
+* **Select environment**: Select the environment you want to destroy. The selection component will only show instances of the `cloud.Environment`, and `udm.Directory`. You can expand directories. When you have selected the Environment you want to destroy, click next.
 
     ![Destroy environment](images/cloud-destroy-1.png "Select environment")
 
@@ -79,11 +79,11 @@ This wizard can help you destroying a cloud environment. This wizard consist of 
 
 ## Instantiating and destroying host and environment templates via control tasks
 
-Both host and environment templates have ```instantiate``` and ```destroy``` control tasks that can be invoked directly from the Repository tab. The control tasks create and destroy either hosts or environments. The instantiation of host templates is intended for testing, as such these actions will not appear in the cloud reports.
+Both host and environment templates have `instantiate` and `destroy` control tasks that can be invoked directly from the Repository tab. The control tasks create and destroy either hosts or environments. The instantiation of host templates is intended for testing, as such these actions will not appear in the cloud reports.
 
 ### Creating hosts and environments
 
-The ```instantiate``` control task provides the following functionality:
+The `instantiate` control task provides the following functionality:
 
 {:.table .table-striped}
 | CI type | Control task | Purpose |
@@ -93,7 +93,7 @@ The ```instantiate``` control task provides the following functionality:
 
 ### Destroying hosts and environments
 
-The ```destroy``` control task provides the following functionality:
+The `destroy` control task provides the following functionality:
 
 {:.table .table-striped}
 | CI type | Control task | Purpose |

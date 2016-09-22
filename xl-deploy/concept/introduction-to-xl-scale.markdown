@@ -28,6 +28,6 @@ XL Scale introduces two concepts:
 To configure the XL Scale, follow these steps:
 
 1. [Create a _host template_ instance](/xl-deploy/how-to/create-an-xl-scale-host-template.html) for each host to be created.
-2. Validate the host template descriptor using the ```validateDescriptor``` control task.
+2. Validate the host template descriptor using the `validateDescriptor` control task.
 3. [Create an _environment template_ instance](/xl-deploy/how-to/create-an-xl-scale-environment-template.html) to group together a set of host templates.
-4. Validate the environment template descriptor using the ```validateDescriptor``` control task.
+4. Validate the environment template descriptor using the `validateDescriptor` control task.
