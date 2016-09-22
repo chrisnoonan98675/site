@@ -14,15 +14,15 @@ After you create the XL Scale configuration items (CIs) that you need, you can i
 
 ## Required permissions
 
-In order to perform cloud operations, the following security permissions are important.
+In order to perform cloud operations, the [permissions](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#permissions) described below are important.
 
 ### Create a cloud environment
 
-In order to create a cloud environment:
+To create a cloud environment:
 
 * You need read permission on the environment template CI
 * You need `controltask#execute` permissions on the environment template CI
-* You do **not** need to have read or edit permissions on the target environment CI or host path for the cloud operation to be able to create it
+* You do *not* need to have read or edit permissions on the target environment CI or host path for the cloud operation to be able to create it
 
 XL Scale operates as an administrator user concerning to repository access and therefore the user that initiates the cloud operation does not need permissions on the target environment or host path. The security for cloud is solely managed by the permissions to execute a control task.
 
@@ -30,11 +30,11 @@ XL Scale will not automatically grant permissions on newly created environments 
 
 ### Destroy a cloud environment
 
-In order to destroy a cloud environment:
+To destroy a cloud environment:
 
 * You need read permission on the environment CI
 * You need `controltask#execute` on the environment CI
-* You do **not** need to have read or edit permissions on the environment template CI or the host path
+* You do *not* need to have read or edit permissions on the environment template CI or the host path
 
 ## Instantiating and destroying environment templates using the wizard
 
@@ -44,19 +44,19 @@ The XL Scale tab has of two wizards, one for instantiating cloud environments, a
 
 This wizard can help you to create a cloud environment. This wizard consists of four steps:
 
-* **Select template**: First you need to select an Environment Template. The selection component shows all available instances of `cloud.EnvironmentTemplate` and `udm.Directory` available under the `Configuration` root node of the repository. When you select a template, it will display the description on the right side of the screen.
+1. **Select template**: First you need to select an Environment Template. The selection component shows all available instances of `cloud.EnvironmentTemplate` and `udm.Directory` available under the `Configuration` root node of the repository. When you select a template, it will display the description on the right side of the screen.
 
     ![Create environment](images/cloud-create-1.png "Select template")
 
-* **Fill in parameters**: The second step allows you to fill in additional parameters. The available parameters depends on the selected template. Common parameters that could be found here are environment id, which lets you specify the name of the environment that will be created (prefixed by Environments/), and a second hosts parameters where you can specify where you want to store the created host CIs (prefixed by Infrastructure/).
+1. **Fill in parameters**: The second step allows you to fill in additional parameters. The available parameters depends on the selected template. Common parameters that could be found here are environment id, which lets you specify the name of the environment that will be created (prefixed by Environments/), and a second hosts parameters where you can specify where you want to store the created host CIs (prefixed by Infrastructure/).
 
     ![Create environment](images/cloud-create-2.png "Fill in parameters")
 
-* **Run create task**: This screen shows the create task. You can review the steps. The cloud create task works exactly the same as the deployment task screen. If you want to continue with creating the environment, click execute. If you do not want to continue, click cancel. You can click previous to change the parameters for this task. This only works if the task has not been started yet. When the task is finished, you can click next to continue.
+1. **Run create task**: This screen shows the create task. You can review the steps. The cloud create task works exactly the same as the deployment task screen. If you want to continue with creating the environment, click execute. If you do not want to continue, click cancel. You can click previous to change the parameters for this task. This only works if the task has not been started yet. When the task is finished, you can click next to continue.
 
     ![Create environment](images/cloud-create-3.png "Run create task")
 
-* **View result**: The view result page shows the created infrastructure, if any. Typically it will search for all CIs that are part of the created environment. Nodes can be expanded to see contained CIs.
+1. **View result**: The view result page shows the created infrastructure, if any. Typically it will search for all CIs that are part of the created environment. Nodes can be expanded to see contained CIs.
 
     ![Create environment](images/cloud-create-4.png "View result")
 
@@ -69,11 +69,11 @@ To finish the create wizard you have two options:
 
 This wizard can help you destroying a cloud environment. This wizard consist of two steps:
 
-* **Select environment**: Select the environment you want to destroy. The selection component will only show instances of the `cloud.Environment`, and `udm.Directory`. You can expand directories. When you have selected the Environment you want to destroy, click next.
+1. **Select environment**: Select the environment you want to destroy. The selection component will only show instances of the `cloud.Environment`, and `udm.Directory`. You can expand directories. When you have selected the Environment you want to destroy, click next.
 
     ![Destroy environment](images/cloud-destroy-1.png "Select environment")
 
-* **Run destroy task**: This screen shows the destroy task. You can review the steps. If you want to continue with destroying the environment, click execute. If you do not want to continue, click cancel. You can also go back by clicking previous to select a different environment. When the destroy task is complete, you can close the task, and the wizard will restart.
+1. **Run destroy task**: This screen shows the destroy task. You can review the steps. If you want to continue with destroying the environment, click execute. If you do not want to continue, click cancel. You can also go back by clicking previous to select a different environment. When the destroy task is complete, you can close the task, and the wizard will restart.
 
     ![Destroy environment](images/cloud-destroy-2.png "Run destroy task")
 

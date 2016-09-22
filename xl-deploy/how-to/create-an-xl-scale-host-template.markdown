@@ -12,7 +12,7 @@ tags:
 weight: 387
 ---
 
-XL Scale host templates are created in the Repository under the **Configuration** root node. Because host templates are virtualization platform specific, there will be different configuration options depending on the exact vendor. The following configuration options are common to all vendors:
+[XL Scale](/xl-deploy/concept/introduction-to-xl-scale.html) host templates are created in the Repository under the **Configuration** root node. Because host templates are virtualization platform specific, there will be different configuration options depending on the exact vendor. The following configuration options are common to all vendors:
 
 {:.table .table-striped}
 | Property | Category | Type | Description |
@@ -37,7 +37,7 @@ It may be a good approach to start with a connection type that works well out of
 
 ## The host template descriptor
 
-The host template descriptor is a FreeMarker template which is transformed into an XML-based definition of all CIs that are registered in XL Deploy after the host is launched on the virtualization platform.<!-- For more details regarding the XML format please check the [XL Deploy REST API documentation](http://docs.xebialabs.com/releases/4.0/xl-deploy/rest-api/com.xebialabs.deployit.plugin.api.udm.ConfigurationItem.html).-->
+The host template descriptor is a FreeMarker template which is transformed into an XML-based definition of all CIs that are registered in XL Deploy after the host is launched on the virtualization platform.
 
 The FreeMarker template can make use of the variables described in the following table:
 
@@ -51,33 +51,35 @@ The FreeMarker template can make use of the variables described in the following
 
 ### Sample host descriptor
 
-Here is an example of a host descriptor from the **EC2 plugin**:
+Here is an example of a host descriptor from the [EC2 plugin](/xl-deploy/concept/xl-scale-ec2-plugin.html):
 
-    <#escape x as x?xml>
-      <list>
-        <cloud.SshHost id="${hostsPath}/${hostTemplate.name}_${hostAddress}">
-          <template ref="${hostTemplate.id}"/>
-          <cloudId>${cloudId}</cloudId>
-          <address>${hostAddress}</address>
-          <#if hostTemplate.privateKeyFile??><privateKeyFile>${hostTemplate.privateKeyFile}</privateKeyFile></#if>
-          <username>${hostTemplate.username}</username>
-          <#if hostTemplate.password??><password>${hostTemplate.password}</password></#if>
-          <os>${hostTemplate.os}</os>
-          <connectionType>${hostTemplate.connectionType}</connectionType>
-        </cloud.SshHost>
-        <www.ApacheHttpdServer id="${hostsPath}/${hostTemplate.name}_${hostAddress}/httpd">
-          <host ref="${hostsPath}/${hostTemplate.name}_${hostAddress}"/>
-          <startCommand>sudo apachectl stop</startCommand>
-          <startWaitTime>3</startWaitTime>
-          <stopCommand>sudo apachectl stop</stopCommand>
-          <stopWaitTime>3</stopWaitTime>
-          <restartCommand>sudo apachectl restart</restartCommand>
-          <restartWaitTime>10</restartWaitTime>
-          <defaultDocumentRoot>/var/www</defaultDocumentRoot>
-          <configurationFragmentDirectory>/etc/apache2/conf.d</configurationFragmentDirectory>
-        </www.ApacheHttpdServer>
-      </list>
-    </#escape>
+{% highlight xml %}
+<#escape x as x?xml>
+  <list>
+    <cloud.SshHost id="${hostsPath}/${hostTemplate.name}_${hostAddress}">
+      <template ref="${hostTemplate.id}"/>
+      <cloudId>${cloudId}</cloudId>
+      <address>${hostAddress}</address>
+      <#if hostTemplate.privateKeyFile??><privateKeyFile>${hostTemplate.privateKeyFile}</privateKeyFile></#if>
+      <username>${hostTemplate.username}</username>
+      <#if hostTemplate.password??><password>${hostTemplate.password}</password></#if>
+      <os>${hostTemplate.os}</os>
+      <connectionType>${hostTemplate.connectionType}</connectionType>
+    </cloud.SshHost>
+    <www.ApacheHttpdServer id="${hostsPath}/${hostTemplate.name}_${hostAddress}/httpd">
+      <host ref="${hostsPath}/${hostTemplate.name}_${hostAddress}"/>
+      <startCommand>sudo apachectl stop</startCommand>
+      <startWaitTime>3</startWaitTime>
+      <stopCommand>sudo apachectl stop</stopCommand>
+      <stopWaitTime>3</stopWaitTime>
+      <restartCommand>sudo apachectl restart</restartCommand>
+      <restartWaitTime>10</restartWaitTime>
+      <defaultDocumentRoot>/var/www</defaultDocumentRoot>
+      <configurationFragmentDirectory>/etc/apache2/conf.d</configurationFragmentDirectory>
+    </www.ApacheHttpdServer>
+  </list>
+</#escape>
+{% endhighlight %}
 
 Please note that:
 
