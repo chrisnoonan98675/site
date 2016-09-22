@@ -34,14 +34,6 @@ To see the list of Jenkins builds that are shown, click the tile to go to its de
 
 **Note:** If the template or release does not contain any [Jenkins tasks](/xl-release/how-to/create-a-jenkins-task.html), this tile will not show any data.
 
-## Release alerts
-
-The release alerts tile shows different types of release warnings:
-
-* **Status flags**: Flags that have been manually set on the release or on a task to indicate that the release needs attention or is at risk
-* **Dependencies**: Alerts for dependent releases that are not completed
-* **Delays**: All active and planned tasks that have a due date in the past
-
 ## Release health
 
 The release health tile shows a traffic light that indicates the health of the release in a single glance. Its colors indicate:
