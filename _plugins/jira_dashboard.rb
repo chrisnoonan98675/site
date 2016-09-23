@@ -86,12 +86,18 @@ module Jira
 
     def component
       parts = parse_version
-      return parts[0] if parts.size > 1 else ''
+      if parts.size > 1
+        return parts[0]
+      end
+      return ''
     end
 
     def version
       parts = parse_version
-      return parts[1..parts.size].join("-") if parts.size > 1 else ''
+      if parts.size > 1
+        return parts[1..parts.size].join("-")
+      end
+      return ''
     end
 
     def parse_version
