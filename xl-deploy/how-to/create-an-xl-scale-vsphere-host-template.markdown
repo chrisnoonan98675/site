@@ -50,8 +50,11 @@ Every `vsphere.HostTemplate` CI provides a `validateDescriptor` control task whi
 
 Please note that:
 
-* Hosts which you define here should be either `cloud.SshHost` or `cloud.CifsHost`.
+* Hosts that you define here should be either `cloud.SshHost` or `cloud.CifsHost`.
 * The `cloud.SshHost` or `cloud.CifsHost` in the template must contain the XML fragments for `address`, `cloudId` and `template`. These are needed for the proper functioning of the plugin.
 * You should always use `<list>` as a parent XML element, even if you define only one CI.
 * When you use references to `${hostTemplate.*}` properties, make sure they are defined on host template when required by the appropriate CI types. That is, `cloud.SshHost` requires `connectionType`, when `ec2.HostTemplate` does not.
-* Because XML is being generated, you must ensure that values are properly encoded. You can achieve this by enclosing the template in `<#escape x as x?xml>...</#escape>`, or alternatively use `${exampleKey?xml}`. See the FreeMarker documentation for details.
+* Because XML is being generated, you must ensure that values are properly encoded. You can achieve this by enclosing the template in `<#escape x as x?xml>...</#escape>`, or alternatively use `${exampleKey?xml}`. See the [FreeMarker documentation](http://freemarker.org/docs/) for details.
+* In the **Template Path** property of the `vsphere.HostTemplate` CI:
+    * You can include embedded spaces in the path (you do not need to replace them with encoding such as `%20`)
+    * On a Windows host, you can use forward slashes (`/`) to separate nodes in the directory path
