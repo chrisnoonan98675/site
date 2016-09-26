@@ -46,6 +46,8 @@ XL Deploy uses the [Overthere framework](https://github.com/xebialabs/overthere)
 	* Yes &#8594; Create an `overthere.SmbHost` CI and use the `TELNET` connection type. Done.
 * If you have not yet configured either WinRM, SSH or Telnet, please configure WinRM and start from the top.
 
+**Note:** The SMB protocol is supported in XL Deploy 5.5.6, 6.0.0, and later. In earlier versions of XL Deploy, you can use the CIFS protocol instead (`overthere.CifsHost`).
+
 ## Is the remote host a z/OS host?
 
 * Yes &#8594; Create an `overthere.SshHost` CI, set the `os` to `ZOS`, and use the `SFTP` connection type. Done.

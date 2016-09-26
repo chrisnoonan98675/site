@@ -179,6 +179,8 @@ Redirect 301 /xl-deploy/how-to/customizing-the-xl-deploy-type-system.html /xl-de
 Redirect 301 /xl-deploy/concept/installing-and-removing-xl-deploy-plugins.html /xl-deploy/how-to/install-or-remove-xl-deploy-plugins.html
 Redirect 301 /xl-deploy/how-to/connect-through-an-ssh-jumpstation.html /xl-deploy/how-to/set-up-ssh-in-xl-deploy-and-on-a-target-host.html
 Redirect 301 /xl-deploy/concept/remoting-plugin-ssh-compatibility.html /xl-deploy/how-to/set-up-ssh-in-xl-deploy-and-on-a-target-host.html
+Redirect 301 /xl-deploy/how-to/set-up-cifs-smb-in-xl-deploy-and-on-a-target-host.html /xl-deploy/how-to/set-up-smb-in-xl-deploy-and-on-a-target-host.html
+Redirect 301 /xl-deploy/how-to/troubleshoot-a-cifs-smb-connection.html /xl-deploy/how-to/troubleshoot-a-cifs-connection.html
 
 # XL Release topics
 

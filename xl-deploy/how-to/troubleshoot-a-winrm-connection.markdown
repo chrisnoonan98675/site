@@ -30,7 +30,7 @@ Courtesy of [this blog post by Chris Knight](http://blog.chrisara.com.au/2012/06
 
 ## WinRM command fails with the message `java.net.ConnectException: Connection refused`
 
-The Windows Remote Management service is not running or is not running on the port that has been configured. Start the service or configure XL Deploy to use a different *port*.
+The Windows Remote Management service is not running or is not running on the port that has been configured. Start the service or configure XL Deploy to use a different port.
 
 ## WinRM command fails with a 401 response code
 
@@ -96,6 +96,8 @@ If many commands are being executed concurrently, increase the `MaxConcurrentOpe
     winrm set winrm/config/service @{MaxConcurrentOperationsPerUser="100"}
 
 Other configuration options that may be of use are `Service/MaxConcurrentOperations` and `MaxProviderRequests` (WinRM 1.0 only).
+
+**Note:** SMB is supported in XL Deploy 5.5.6, 6.0.0, and later. In earlier versions of XL Deploy, you can adjust the equivalant CIFS properties.
 
 ## WinRM command fails with an unknown error code
 
