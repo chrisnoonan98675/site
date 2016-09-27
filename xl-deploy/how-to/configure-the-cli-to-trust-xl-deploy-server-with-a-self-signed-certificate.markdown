@@ -1,5 +1,5 @@
 ---
-title: Configure the CLI to trust a server with a self-signed certificate
+title: Configure the CLI to trust an XL Deploy server's certificate
 categories:
 - xl-deploy
 subject:

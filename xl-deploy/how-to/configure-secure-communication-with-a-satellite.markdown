@@ -12,9 +12,9 @@ since:
 weight: 302
 ---
 
-**Note:** A version of this topic is available for [XL Deploy 5.0.x](/xl-deploy/5.0.x/configure-secure-communication-with-a-satellite-5.0.html).
-
 XL Deploy can communicate with satellite servers over a secure communication channel using [TLS/SSL technology](http://en.wikipedia.org/wiki/Transport_Layer_Security) to encrypt data. This algorithm relies on certificate checking and data encryption using asymmetric keys.
+
+**Note:** A version of this topic is available for [XL Deploy 5.0.x](/xl-deploy/5.0.x/configure-secure-communication-with-a-satellite-5.0.html).
 
 ## TLS in a nutshell
 

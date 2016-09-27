@@ -1,5 +1,5 @@
 ---
-title: Configure XL Release to trust an XL Deploy server with a self-signed certificate
+title: Configure XL Release to trust an XL Deploy server's certificate
 categories:
 - xl-release
 subject:
@@ -37,7 +37,7 @@ Move `XLRTruststore.jks` from `XL_DEPLOY_SERVER_HOME/conf` to `XL_RELEASE_SERVER
 
 Add the following lines in `XL_RELEASE_SERVER_HOME/conf/xlr-wrapper-linux.conf` (for Unix) or `XL_RELEASE_SERVER_HOME/conf/xlr-wrapper-win.conf` (for Microsoft Windows):
 
-    wrapper.java.additional.X=-Djavax.net.ssl.trustStore=conf/myXLRTruststore.jks
+    wrapper.java.additional.X=-Djavax.net.ssl.trustStore=conf/XLRTruststore.jks
     wrapper.java.additional.X+1=-Djavax.net.ssl.trustStorePassword=password
 
 Where X is the next number in the `wrapper.java.additional` list.
