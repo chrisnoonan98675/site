@@ -8,11 +8,12 @@ tags:
 - report
 - tag
 - filter
+weight: 733
 ---
 
 To filter a report by tag, start typing the tag name in the **Filter by tag** box. When the suggested tag appears, press ENTER or TAB to add it to the filter.
 
-For example, this report is filtered by one tag: 
+For example, this report is filtered by one tag:
 
 ![Sample report filtered by one tag](images/tag-filtered-report-one-tag.png)
 

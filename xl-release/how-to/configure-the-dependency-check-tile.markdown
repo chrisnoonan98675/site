@@ -1,5 +1,5 @@
 ---
-layout: noindex
+no_index: true
 title: Configure the dependency check tile
 ---
 

@@ -8,6 +8,7 @@ tags:
 - planning
 - deployment
 - orchestrator
+weight: 152
 ---
 
 An [orchestrator](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html#by-deployment-group-orchestrators) combines the steps for the individual component changes into an overall deployment workflow. This example shows how different orchestrators affect the deployment of a package containing an EAR file, a WAR file, and a datasource specification to an environment containing two JBoss Application Server server groups and one Apache Tomcat virtual host.
@@ -20,7 +21,7 @@ When the [default orchestrator](/xl-deploy/concept/types-of-orchestrators-in-xl-
 
 ## *By container* orchestrators
 
-When the [`parallel-by-container`](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html#by-container-orchestrators) orchestrator is used, XL Deploy will deploy to each middleware container in parallel. 
+When the [`parallel-by-container`](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html#by-container-orchestrators) orchestrator is used, XL Deploy will deploy to each middleware container in parallel.
 
 ![Parallel by container orchestrator](images/orchestrator-example-parallel-by-container.png)
 

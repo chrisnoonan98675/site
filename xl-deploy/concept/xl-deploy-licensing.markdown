@@ -7,9 +7,9 @@ subject:
 tags:
 - system administration
 - license
-- ci
 - installation
-- upgrade
+- setup
+weight: 101
 ---
 
 If you have an Enterprise Edition of XL Deploy, you can download your license file at the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/) (requires enterprise customer log-in). If you have a Trial Edition of XL Deploy, you will receive a license key by email.
@@ -48,13 +48,13 @@ If XL Deploy finds a license violation while the server is running, the server w
 If your license limits the number of CIs that you can create, XL Deploy validates it as follows:
 
 * You cannot create more instances of a CI type than your license allows. Note that if you delete instances of a CI type, you can create new instances of that type.
-* If a CI is a subtype of another type (its *supertype*), the instances of the subtype CI count toward the limit on the supertype. 
+* If a CI is a subtype of another type (its *supertype*), the instances of the subtype CI count toward the limit on the supertype.
 * You can always create instances of CI types that are not limited by your license.
 
 ## License extension and renewal
 
 To renew an Enterprise Edition license or extend a Trial Edition license, [contact XebiaLabs](https://xebialabs.com/contact).
 
-To renew your license using a license file that you download from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/), replace the license file in the `XL_DEPLOY_HOME/conf` directory with the new file.
+To renew your license using a license file that you download from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/), replace the license file in the `XL_DEPLOY_SERVER_HOME/conf` directory with the new file.
 
 To renew your license using a license key, click the gear icon in XL Deploy, select **Renew license**, and enter the new license key.

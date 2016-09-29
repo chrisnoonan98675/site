@@ -8,6 +8,7 @@ tags:
 - planning
 - deployment
 - orchestrator
+weight: 150
 ---
 
 In XL Deploy, an orchestrator combines the steps for individual component changes into an overall deployment or provisioning workflow. Orchestrators are also responsible for deciding which parts of the deployment or provisioning plan are executed sequentially or in parallel. You can [combine multiple orchestrators](/xl-deploy/concept/combining-multiple-orchestrators.html) for more complex workflows.

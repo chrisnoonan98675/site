@@ -3,7 +3,7 @@ title: Connect XL TestView to Microsoft Team Foundation Server (TFS)
 categories:
 - xl-testview
 subject:
-- Microsoft Team Foundation Server
+- Team Foundation Server
 tags:
 - vstest.console
 - mstest

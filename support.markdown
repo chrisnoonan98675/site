@@ -1,8 +1,11 @@
 ---
 title: XebiaLabs technical support
+no_breadcrumbs: true
 ---
 
-You can contact XebiaLabs technical support at [support.xebialabs.com](https://support.xebialabs.com). For urgent problems, the XebiaLabs support team can also be reached by phone at **+31 85 888 3951**.
+You can contact XebiaLabs technical support at [support.xebialabs.com](https://support.xebialabs.com). For urgent problems, the XebiaLabs support team can also be reached by phone at +31 85 888 3951 in Europe and at +1 (866) 656 4408 in the United States.
+
+To ensure that we can help you as quickly and efficiently as possible, please review the [technical support guidelines](https://support.xebialabs.com/hc/en-us/articles/204071915-XebiaLabs-Technical-Support-Guidelines).
 
 We classify incoming support issues as follows:
 

@@ -6,7 +6,6 @@ subject:
 - WebSphere
 tags:
 - websphere
-- middleware
 - plugin
 - discovery
 ---
@@ -99,7 +98,7 @@ The newly created environment can now be used as a deployment target.
 
 ## Enable discovery for additional CI types
 
-The following line in the `<XLDEPLOY_HOME>/conf/deployit-defaults.properties` file defines the CI types for which discovery is enabled:
+The following line in the `XL_DEPLOY_SERVER_HOME/conf/deployit-defaults.properties` file defines the CI types for which discovery is enabled:
 
     #was.DeploymentManager.deployedsToDiscover=was.VirtualHost,was.SharedLibrary
 

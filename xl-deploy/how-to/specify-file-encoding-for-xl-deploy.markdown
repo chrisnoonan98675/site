@@ -1,5 +1,5 @@
 ---
-title: Specify file encoding for XL Deploy
+title: Specify file encoding on the XL Deploy server
 categories:
 - xl-deploy
 subject:
@@ -7,6 +7,7 @@ subject:
 tags:
 - system administration
 - encoding
+weight: 278
 ---
 
 The `file.encoding` system property defines the file encoding setting on the XL Deploy server.
@@ -20,7 +21,7 @@ To change the file encoding for the Oracle Java Development Kit (JDK), set the f
 For example:
 
     -Dfile.encoding=UTF-8
-	
+
 ## IBM JDK
 
 To change the file encoding for the IBM Java Development Kit (JDK), set the following system property:

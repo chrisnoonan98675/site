@@ -1,15 +1,16 @@
 ---
 title: Troubleshoot a CIFS/SMB connection
-subject:
-- Remoting plugin
 categories:
 - xl-deploy
+subject:
+- Remoting
 tags:
 - connectivity
 - remoting
 - cifs
 - smb
 - overthere
+weight: 347
 ---
 
 These are configuration errors that can occur when using XL Deploy with CIFS/SMB.

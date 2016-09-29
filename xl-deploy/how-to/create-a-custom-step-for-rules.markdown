@@ -1,6 +1,6 @@
 ---
 title: Create a custom step for rules
-categories: 
+categories:
 - xl-deploy
 subject:
 - Rules
@@ -11,6 +11,7 @@ tags:
 - deployment
 since:
 - XL Deploy 4.5.0
+weight: 132
 ---
 
 XL Deploy allows you to create [rules](/xl-deploy/concept/getting-started-with-xl-deploy-rules.html) that define which steps should be included in a deployment plan. Each rule in the `xl-rules.xml` file defines a number of steps to add to the deployment plan, and the available *step primitives* determine what kind of steps can be used. A step primitive is a definition of a piece of functionality that XL Deploy may execute as part of the deployment plan.
@@ -26,7 +27,7 @@ For XL Deploy to recognize your class as a step primitive:
 * It must have a default constructor
 
 The `step-name` you give in the annotation will be used verbatim as the XML tag name, so be sure to make it XML-compatible.
- 
+
 For example, the following Java code will allow you to use the `UsefulStep` class by specifying `my-nifty-step` inside your `xl-rules.xml`:
 
 {% highlight java %}
@@ -72,7 +73,7 @@ String getDescription();
 StepExitCode execute(ExecutionContext ctx) throws Exception;
 {% endhighlight %}
 
-The `execute` method is where you define the business logic for your step primitive. The `ExecutionContext` that is passed in allows you to access the repository using the credentials of the user executing the deployment plan. 
+The `execute` method is where you define the business logic for your step primitive. The `ExecutionContext` that is passed in allows you to access the repository using the credentials of the user executing the deployment plan.
 
 Your implementation should return a `StepExitCode` to indicate whether execution of the step was successful.
 
@@ -152,14 +153,14 @@ Refer to the [Javadoc](/xl-deploy/latest/javadoc/udm-plugin-api/index.html) for 
 
 ## Compiling step primitives
 
-To compile your own step primitives, you depend on the following plugins, located in `<XLDEPLOY_HOME>/lib`:
+To compile your own step primitives, you depend on the following plugins, located in `XL_DEPLOY_SERVER_HOME/lib`:
 
 * `base-plugin-x.y.z.jar`
 * `udm-plugin-api-x.y.z.jar`
 
 ## Making step primitives available to XL Deploy
 
-After writing the code for your step primitive, you make it available to XL Deploy by compiling it into a JAR file and putting the file in `<XLDEPLOY_HOME>/plugins`.
+After writing the code for your step primitive, you make it available to XL Deploy by compiling it into a JAR file and putting the file in `XL_DEPLOY_SERVER_HOME/plugins`.
 
 ## Custom step example
 
@@ -172,12 +173,12 @@ import com.xebialabs.deployit.plugin.api.rules.StepParameter;
 
 @StepMetadata(name = "my-step")
 public class MyStep implements Step {
-   
+
     @StepParameter(label = "My parameter", description = "The foo's bar to baz the quuxes", required=false)
     private FooBarImpl myParam;
     @StepParameter(label = "Order", description = "The execution order of this step")
     private int order;
-   
+
     public int getOrder() { return order; }
     public String getDescription() { return "Performing MyStep..."; }
     public StepExitCode execute(ExecutionContext ctx) throws Exception {
@@ -212,13 +213,13 @@ The script variant is as follows (note the underscores):
 </rule>
 {% endhighlight %}
 
-A step type is represented by a Java class with a default constructor implementing 
+A step type is represented by a Java class with a default constructor implementing
 the `Step` interface. The resulting class file must be placed in the standard XL Deploy classpath.
-   
+
 The `order` represents the execution order of the step and the `description` is the description of this step, which will appear in the Plan Analyzer and the deployment execution plan. The `execute` method is executed when the step runs. The `ExecutionContext` interface that is passed to the `execute` method allows you to access the repository and the step logs and allows you to set and get attributes, so steps can communicate data.
- 
+
 The step class must be annotated with the `StepMetadata` annotation, which has only a `name` String member. This name translates directly to a tag inside the `steps` section of `xl-rules.xml`, so the name must be XML-compliant. In this example, `@StepMetadata(name="my-step")` corresponds to the `my-step` tag.
- 
+
 Passing data to the step class is done using dependency injection. You annotate the private fields that you want to receive data with the `StepParameter` annotation.
 
 In `xl-rules.xml`, you fill these fields by adding tags based on the field name.

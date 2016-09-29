@@ -12,6 +12,7 @@ tags:
 - plugin
 since:
 - XL Deploy 4.5.0
+weight: 130
 ---
 
 XL Deploy [rules](/xl-deploy/concept/getting-started-with-xl-deploy-rules.html) allow you to use XML or Jython to specify the steps that belong in a deployment plan and how the steps are configured. Several XL Deploy plugins include predefined rules that you can use when writing rules.

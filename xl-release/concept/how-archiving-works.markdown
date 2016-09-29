@@ -11,6 +11,7 @@ tags:
 - system administration
 since:
 - XL Release 4.7.0
+weight: 436
 ---
 
 In XL Release 4.7.0 and later, *completed* and *aborted* releases are archived, which means that they are removed from the XL Release repository (JCR database) and stored in a different internal database, which is called the *archive database*. This improves performance and allows you to create custom hooks that export release information to external databases or reporting tools.
@@ -41,7 +42,7 @@ XL Release supports custom export hooks that you can use to export information a
 
 Export hooks are written in [Jython](http://www.jython.org/). You can add them to XL Release as JAR files or by placing files in the XL Release classpath.
 
-You can define export hooks in two ways: 
+You can define export hooks in two ways:
 
 * [Generic export hooks](/xl-release/how-to/create-an-export-hook.html) that you can use to export information to any type of storage
 * [JDBC export hooks](/xl-release/how-to/create-a-jdbc-export-hook.html) that can export data to an SQL database

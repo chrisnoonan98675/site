@@ -7,7 +7,6 @@ subject:
 tags:
 - tfs
 - microsoft
-- middleware
 ---
 
 The XL Deploy plugin for Microsoft Team Foundation Server (TFS) plugin provides automated deployment functionality for TFS 2010, TFS 2012, and TFS 2013.
@@ -84,12 +83,12 @@ These activities live in this XML namespace for TFS 2010:
 
     xmlns:xdw="clr-namespace:XebiaLabs.Deployit.Workflow40;assembly=XebiaLabs.Deployit.Workflow40"
 
-This namespace for TFS 2012: 
+This namespace for TFS 2012:
 
     xmlns:xdw="clr-namespace:XebiaLabs.Deployit.Workflow45;assembly=XebiaLabs.Deployit.Workflow45"
 
 And for TFS 2013:
-    
+
     xmlns:xdw="clr-namespace:XebiaLabs.Deployit.Workflow;assembly=XebiaLabs.XLDeploy.Workflow"
 
 ## Automatically deploy your application
@@ -128,7 +127,7 @@ This is achieved by setting an attribute on the process parameter metadata. On T
 On TFS 2012:
 
     Editor="XebiaLabs.Deployit.Workflow45.DeployitCredentialsEditor, XebiaLabs.Deployit.Workflow45"
-    
+
 And TFS 2013:
 
     Editor="XebiaLabs.Deployit.Workflow.DeployitCredentialsEditor, XebiaLabs.XLDeploy.Workflow"

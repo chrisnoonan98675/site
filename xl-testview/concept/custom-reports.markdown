@@ -7,6 +7,7 @@ subject:
 tags:
 - report
 - test specification
+weight: 735
 ---
 
 You can easily create custom reports in XL TestView. This topic provides background information about custom reports. For a step-by-step example, refer to [Create a custom report based on a built-in report](/xl-testview/how-to/create-a-custom-report.html).
@@ -21,7 +22,7 @@ A report has three parts:
 
 ## Report entry in `synthetic.xml`
 
-Custom reports are registered in `<XLTESTVIEW_HOME>/ext/synthetic.xml`.
+Custom reports are registered in `XL_TESTVIEW_HOME/ext/synthetic.xml`.
 
 For example, this is the type definition of the default bar chart in `synthetic.xml`:
 
@@ -50,13 +51,13 @@ A report has the following properties in `synthetic.xml`:
 {:.table .table-striped}
 | Property | Description |
 | -------- | ----------- |
-| `iconName` | A name that refers to an SVG icon in `<XLTESTVIEW_HOME>/ext/web/images/sprite-icons/<iconName>.svg` |
+| `iconName` | A name that refers to an SVG icon in `XL_TESTVIEW_HOME/ext/web/images/sprite-icons/<iconName>.svg` |
 | `scriptLocation` | Location of the Python script containing the report generation logic |
 | `reportType` | Report type that instructs the front end how to render the report |
 
 ## Report script
 
-Report generation scripts are created in Python. Custom scripts are placed in `<XLTESTVIEW_HOME>/ext/<scriptLocation>`.
+Report generation scripts are created in Python. Custom scripts are placed in `XL_TESTVIEW_HOME/ext/<scriptLocation>`.
 
 A report can have any data structure that can serialize to JSON. This includes dictionaries (hash-map), lists, string, Boolean, integers, and floating point numbers.
 
@@ -69,7 +70,7 @@ The general structure of a script is:
 ### Sample script
 
 This is a short example of a script:
- 
+
     n = len(testRun.events) # let's say there are 42 events in this test run
     resultHolder.setResult({ 'numberOfTests': n })
 
@@ -93,7 +94,7 @@ In a Python script, the following properties are available:
 
 ### TestRun object
 
-The `test_run` object refers to the test run on which the report should be based. 
+The `test_run` object refers to the test run on which the report should be based.
 
 The methods available in the `test_run` object are available in the [Java API documentation](https://docs.xebialabs.com/generated/xl-testview/1.3.x/javadoc/com/xebialabs/xlt/plugin/api/testrun/TestRun.html).
 
@@ -126,7 +127,7 @@ The `table` type passes tabular data to the front end in table format, including
 The following example of tabular data is a simplified version of the [test run overview](/xl-testview/concept/reports.html#test-run-overview). The numbers in parentheses refer to notes below the example.
 
 	REF_TMPL = '#/testspecifications/%s/report/xltest.TestRunEvents?runId=%s'
-	
+
 	runs = test_runs.getTestRunsBetween(testRun.testSpecificationName, startDate.getTime(), endDate.getTime())
 
 	def rowValues(run):
@@ -166,7 +167,7 @@ The `html` type produces a string of HTML. A trivial example is:
     <p>This is my custom report.</p>
     '''
 
-As an advanced feature, you can use any [AngularJS](https://angularjs.org/)-formatted HTML snippet as a render template. Templates must be located in `<XLTESTVIEW_HOME>/ext/web/reports/<reportType>.html`, where `<reportType>` matches the `reportType` defined in `synthetic.xml`.
+As an advanced feature, you can use any [AngularJS](https://angularjs.org/)-formatted HTML snippet as a render template. Templates must be located in `XL_TESTVIEW_HOME/ext/web/reports/<reportType>.html`, where `<reportType>` matches the `reportType` defined in `synthetic.xml`.
 
 XL TestView includes the following default templates:
 
@@ -175,7 +176,7 @@ XL TestView includes the following default templates:
 * `link.html`
 * `qualification.html`
 
-To show a report in a tile on a dashboard, a similar approach is used, but the report template is named `<XLTESTVIEW_HOME>/ext/web/reports/tiles/<reportType>.html`.
+To show a report in a tile on a dashboard, a similar approach is used, but the report template is named `XL_TESTVIEW_HOME/ext/web/reports/tiles/<reportType>.html`.
 
 A report template has the following properties:
 

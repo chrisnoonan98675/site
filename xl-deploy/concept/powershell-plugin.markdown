@@ -3,10 +3,11 @@ title: Introduction to the XL Deploy PowerShell plugin
 categories:
 - xl-deploy
 subject:
-- PowerShell plugin
+- Bundled plugins
 tags:
 - powershell
 - plugin
+weight: 361
 ---
 
 You can use the XL Deploy PowerShell plugin to create extensions and plugins that require PowerShell scripts to be executed on the target platform. For example, the XL Deploy plugins for Windows, Internet Information Services (IIS), and BizTalk were built on top of this plugin.

@@ -11,6 +11,7 @@ tags:
 - import
 since:
 - XL TestView 1.3.0
+weight: 744
 ---
 
 If a [custom test results parser](/xl-testview/how-to/create-a-custom-test-results-parser.html) is used, XL TestView expects the parser to throw exceptions that XL TestView will then handle. These are Java exceptions that have to be imported.
@@ -34,7 +35,7 @@ raise UnexpectedFormatException, "Canceled the import. Some files where not acce
 ## `MalformedInputException`
 
 `MalformedInputException` should be thrown if the file is of the correct type, but is malformed. For example, if there is no failure message present in a JUnit test that failed.
- 
+
 ### Importing `MalformedInputException`
 
 {% highlight python %}

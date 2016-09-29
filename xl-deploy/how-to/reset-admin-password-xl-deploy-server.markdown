@@ -10,6 +10,7 @@ tags:
 - security
 since:
 - XL Deploy 3.9.5
+weight: 272
 ---
 
 [Changing passwords in XL Deploy](/xl-deploy/how-to/changing-passwords-in-xl-deploy.html#change-the-admin-password) describes how to change the password for the built-in `admin` user. However, if you have forgotten the password for the `admin` user and you do not have the password for another user with administrative permissions, then you cannot log in to the XL Deploy server to change the `admin` password.
@@ -18,7 +19,7 @@ To resolve this situation, you can use a hotfix that disables all password check
 
 Note that:
 
-* The hotfix has been tested with Deployit 3.9.5, XL Deploy 4.0.2, XL Deploy 4.5.1, and XL Deploy 5.0.7. It is not supported for XL Deploy 5.1.x.
+* The hotfix has been tested with Deployit 3.9.5, XL Deploy 4.0.2, XL Deploy 4.5.1, and XL Deploy 5.0.7. It is not supported for XL Deploy 5.1.x or later.
 * You must back up your XL Deploy instance before resetting the password.
 * It is important that you remove the hotfix after you are finished.
 

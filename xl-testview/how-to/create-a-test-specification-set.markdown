@@ -7,6 +7,7 @@ subject:
 tags:
 - test specification
 - project
+weight: 711
 ---
 
 To create a test specification set in XL TestView:

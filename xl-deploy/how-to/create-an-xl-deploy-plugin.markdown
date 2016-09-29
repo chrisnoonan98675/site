@@ -1,7 +1,7 @@
 ---
-layout: pre-rules
+pre_rules: true
 title: Create an XL Deploy plugin
-categories: 
+categories:
 - xl-deploy
 subject:
 - Plugins
@@ -10,15 +10,16 @@ tags:
 - java
 - generic
 - udm
+weight: 220
 ---
 
-XL Deploy allows customization using the Java programming language. By implementing a server _plugpoint_, certain XL Deploy server functionality can be changed to adapt the product to your needs. And if you want to use XL Deploy with new middleware, you can implement a custom _plugin_. 
+XL Deploy allows customization using the Java programming language. By implementing a server _plugpoint_, certain XL Deploy server functionality can be changed to adapt the product to your needs. And if you want to use XL Deploy with new middleware, you can implement a custom _plugin_.
 
 Before you customize XL Deploy functionality, you should understand the XL Deploy architecture. Refer to the [Understanding XL Deploy's architecture](/xl-deploy/concept/understanding-xl-deploy-architecture.html) for more information.
 
 Using the Generic plugin as a basis to create a new plugin, or writing a custom plugin from scratch, is a powerful way to extend XL Deploy. It uses XL Deploy's Java plugin API which is also used by all of the plugins provided by XebiaLabs. The plugin API specifies a contract between XL Deploy core and a plugin that ensures that a plugin can safely contribute to the calculated deployment plan.
 
-Refer to the [Javadoc](https://docs.xebialabs.com/xl-deploy/latest/javadoc/udm-plugin-api/) for detailed information about the Java API.
+Refer to the [Javadoc](/xl-deploy/latest/javadoc/udm-plugin-api/) for detailed information about the Java API.
 
 ## UDM and Java
 
@@ -164,36 +165,6 @@ Both a contributor and specific contribution methods receive a `DeploymentPlanni
 * `getAttribute()` / `setAttribute()`: contributors can add information to the planning context during planning. This information will be available during the entire planning phase and can be used to communicate between contributors or with the core.
 * `getDeployedApplication()`: this allows contributors to access the deployed application that the deployeds are a part of.
 * `getRepository()`: contributors can access the XL Deploy repository to determine additional information they may need to contribute steps.  The repository can be read from and written to during the planning stage.
-
-## Repository upgrades
-
-Sometimes, when changes occur in a plugin's structure (properties added, removed or renamed, the structure of CI trees updated), the XL Deploy repository must be migrated from the old to the new structure. Plugins contain _upgrade_ classes for this.
-
-Upgrade classes are Java classes that upgrade data in the repository that was produced by a previous version of the plugin to the current version of the plugin. XL Deploy scans the plugin JAR file for upgrade classes when it loads the plugin. When found, the current plugin version is compared with the plugin version registered in the XL Deploy repository. If the current version is higher than the previous version, the upgrade is executed. If the plugin was never installed before, the upgrade is not run.
-
-An upgrade class extends the following base class:
-
-    public abstract class Upgrade implements Comparable<Upgrade> {
-
-        public abstract boolean doUpgrade(RawRepository repository) throws UpgradeException;
-        public abstract Version upgradeVersion();
-
-        ...
-    }
-
-The two methods each upgrade must implement are:
-
-    public abstract Version upgradeVersion();
-
-This method returns the version of the upgrade. This is the version the upgrade migrates _to_. That is, after it has run, XL Deploy registers that this is the new current version.
-
-Method
-
-    public abstract boolean doUpgrade(RawRepository repository) throws UpgradeException;
-
-is the workhorse of the upgrade. Here, the class has access to the repository to perform any rewrites necessary.
-
-When XL Deploy boots, it scans for upgrades to run. If it detects any, the boot process is stopped to report this fact to the user and to prompt them to make a backup of the repository first in case of problems. The user has the option to stop XL Deploy at this time if he does not want to perform the upgrade now. Otherwise, XL Deploy continues to boot and executes all upgrades sequentially.
 
 ## Packaging your plugin
 

@@ -1,5 +1,4 @@
 ---
-layout: satellite
 title: Getting started with the satellite module
 categories:
 - xl-deploy
@@ -10,6 +9,7 @@ tags:
 - satellite
 since:
 - XL Deploy 5.0.0
+weight: 300
 ---
 
 The XL Deploy satellite module lets you to execute deployments on remote data centers. It includes:
@@ -28,7 +28,7 @@ XL Deploy satellites can be used to:
 * Deploy to production servers in a dedicated subnet that XL Deploy would normally not be allowed access for security reasons
 * Deploy to an infrastructure that contains both Unix and Microsoft Windows hosts, with easier authentication between them
 
-![image](images/xl-deploy-satellite-feature.png) 
+![image](images/xl-deploy-satellite-feature.png)
 
 Satellites are stand-alone processes that are located in your infrastructure, close to your hosts. XL Deploy orchestrates your deployments by driving the satellites and uploading files (artifacts) and commands to them. You can also use a satellite as an entry point into a secure subnet.
 

@@ -1,6 +1,7 @@
 ---
-layout: beta-noindex
 title: Using the XL Release cluster functionality
+beta: true
+no_index: true
 ---
 
 XL Release 4.8.0 includes a preview of support for cluster configurations. You can use this preview to test the clustering functionality. This topic describes the required setup procedure for XL Release clustering.
@@ -61,14 +62,14 @@ To set up an active/active cluster, you must do some manual configuration before
 ### Step 1 Prepare the common cluster configuration
 
 1. Unzip the XL Release distribution ZIP file. Do not start XL Release yet.
-1. Download [this `xl-release.conf` file](cluster/xl-release.conf) and copy it to the `<XL_RELEASE_HOME>/conf` directory.
+1. Download [this `xl-release.conf` file](cluster/xl-release.conf) and copy it to the `<XL_RELEASE_SERVER_HOME>/conf` directory.
 1. Edit the `xl-release.conf` file and specify the common parts of the configuration, as described in:
     * [Enable clustering](#enable-clustering)
     * [Configure the archive database](#configure-the-archive-database)
     * [Configure the repository database](#configure-the-repository-database)
     * [Configure cluster member connection details](#configure-cluster-member-connection-details)
-1. Copy a valid license (`.lic`) file to the `<XL_RELEASE_HOME>/conf` directory.
-1. Install the JDBC driver of the database of your choice in the `<XL_RELEASE_HOME>/lib` directory.
+1. Copy a valid license (`.lic`) file to the `<XL_RELEASE_SERVER_HOME>/conf` directory.
+1. Install the JDBC driver of the database of your choice in the `<XL_RELEASE_SERVER_HOME>/lib` directory.
 1. Run the following server setup command and follow the on-screen instructions:
 
         ./bin/run.sh -setup
@@ -90,7 +91,7 @@ The order in which you initially start each node of the cluster is important.
 
 ## Cluster configuration settings
 
-All cluster configuration settings must be provided in the `<XL_RELEASE_HOME>/conf/xl-release.conf` file. The [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format is used for this configuration file. [This `xl-release.conf` file](cluster/xl-release.conf) describes the minimum configuration needed to run a cluster.
+All cluster configuration settings must be provided in the `<XL_RELEASE_SERVER_HOME>/conf/xl-release.conf` file. The [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format is used for this configuration file. [This `xl-release.conf` file](cluster/xl-release.conf) describes the minimum configuration needed to run a cluster.
 
 ### Enable clustering
 
@@ -110,7 +111,7 @@ The `xl.reporting` section must include the following parameters:
 | `db-username` | User name to use to log in to the database |
 | `db-password` | Password to use to log in to the database (after setup is complete, the password will be encrypted and stored in secured format) |
 
-**Note:** Place the JAR file containing the JDBC driver of the selected database in the `<XL_RELEASE_HOME>/lib` directory.
+**Note:** Place the JAR file containing the JDBC driver of the selected database in the `<XL_RELEASE_SERVER_HOME>/lib` directory.
 
 ### Configure the repository database
 

@@ -3,9 +3,10 @@ title: Working with tasks
 categories:
 - xl-release
 subject:
-- Task types
+- Tasks
 tags:
 - task
+weight: 462
 ---
 
 To edit a task in a template or release, go to the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html) and click the task.

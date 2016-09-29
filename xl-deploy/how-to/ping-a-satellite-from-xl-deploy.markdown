@@ -1,5 +1,4 @@
 ---
-layout: satellite
 title: Ping a satellite from XL Deploy
 categories:
 - xl-deploy
@@ -12,6 +11,7 @@ tags:
 - connectivity
 since:
 - XL Deploy 5.0.0
+weight: 306
 ---
 
 To check the connection between XL Deploy and a satellite, you can ping the satellite. This will test the entire network and application stack and check your parameters.

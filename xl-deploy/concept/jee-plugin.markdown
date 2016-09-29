@@ -3,10 +3,11 @@ title: Introduction to the XL Deploy JEE plugin
 categories:
 - xl-deploy
 subject:
-- JEE plugin
+- Bundled plugins
 tags:
 - java
 - plugin
+weight: 360
 ---
 
 The XL Deploy JEE plugin provides support for Java EE archives such as EAR files and WAR files, as well as specifications for resources such as JNDI and mail session resources.

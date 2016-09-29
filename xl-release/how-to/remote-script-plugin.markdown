@@ -20,11 +20,12 @@ The Remote Script plugin includes four task types:
 * **Remote Script: Windows (SSH)**: Execute a shell script on a Microsoft Windows host via SFTP
 * **Remote Script: z/OS**: Execute a shell script on z/OS
 
+In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), Remote Script tasks have a blue border.
+
 ## Features
 
 * Execute shell scripts on Unix, z/OS, or Microsoft Windows (via Cygwin or WinSSHD) hosts
 * Execute batch scripts on Microsoft Windows hosts. Note: All scripts will be interpreted as batch files; PowerShell is currently not supported.
-
 
 ## Common properties
 
@@ -135,9 +136,9 @@ The following properties are available in the **Remote Script: Windows** task ty
 
 XL Release uses the Overthere framework, which includes several connection options. While the most common options are available in the XL Release GUI, you can use other options as described in the [Overthere documentation](https://github.com/xebialabs/overthere/blob/master/README.md).
 
-You can change the default values of options that are not exposed in the GUI in the `XLRELEASE_HOME/conf/deployit-defaults.properties` file.
+You can change the default values of options that are not exposed in the GUI in the `XL_RELEASE_SERVER_HOME/conf/deployit-defaults.properties` file.
 
-If you need to use a different setting for a particular option per task, you can create a type modification in the `XLRELEASE_HOME/conf/synthetic.xml` file for the task types. In the modification, you can add the desired Overthere connection option as a property on the task. These task properties will automatically be used as connection options for Overthere if the name matches.
+If you need to use a different setting for a particular option per task, you can create a type modification in the `XL_RELEASE_SERVER_HOME/conf/synthetic.xml` file for the task types. In the modification, you can add the desired Overthere connection option as a property on the task. These task properties will automatically be used as connection options for Overthere if the name matches.
 
 For example, to make the connection timeout configurable on each task, add this to `synthetic.xml`:
 

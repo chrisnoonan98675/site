@@ -7,6 +7,7 @@ subject:
 tags:
 - system administration
 - installation
+weight: 701
 ---
 
 ## Install as a service after XL TestView 1.4.0
@@ -18,8 +19,8 @@ To install XL TestView as a service:
 1. Follow the installation procedure described in [Install XL Deploy](/xl-testview/how-to/install.html). You can skip the step to run `server.sh` or `server.cmd`.
 
 2. As root (on Unix) or an administrator (on Windows), execute:
-    * `<XLTESTVIEW_HOME>/bin/install-service.sh` (on Unix)
-    * `<XLTESTVIEW_HOME>\bin\install-service.cmd` (on Windows)
+    * `XL_TESTVIEW_HOME/bin/install-service.sh` (on Unix)
+    * `XL_TESTVIEW_HOME\bin\install-service.cmd` (on Windows)
 
     This command will install the service.
 
@@ -31,7 +32,7 @@ To install XL TestView as a service:
 
 ### Uninstall the XL TestView service
 
-To remove the installed service from Windows, run the `<XLTESTVIEW_HOME>\bin\uninstall-service.cmd` command. On Unix, run `<XLTESTVIEW_HOME>\bin\uninstall-service.sh`.
+To remove the installed service from Windows, run the `XL_TESTVIEW_HOME\bin\uninstall-service.cmd` command. On Unix, run `XL_TESTVIEW_HOME\bin\uninstall-service.sh`.
 
 ## Install as a service before XL TestView 1.4.1
 

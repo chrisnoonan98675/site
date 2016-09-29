@@ -1,14 +1,15 @@
 ---
 title: Troubleshoot a Telnet connection
-subject:
-- Remoting plugin
 categories:
 - xl-deploy
+subject:
+- Remoting
 tags:
 - connectivity
 - remoting
 - telnet
 - overthere
+weight: 348
 ---
 
 These are configuration errors that can occur when using XL Deploy with Telnet.

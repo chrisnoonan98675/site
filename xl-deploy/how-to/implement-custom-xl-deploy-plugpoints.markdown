@@ -1,5 +1,5 @@
 ---
-layout: pre-rules
+pre_rules: true
 title: Implement custom XL Deploy plugpoints
 categories:
 - xl-deploy
@@ -13,6 +13,7 @@ tags:
 - orchestrator
 - importer
 - event listener
+weight: 222
 ---
 
 Functionality in the XL Deploy server can be customized by using _plugpoints_. Plugpoints are specified and implemented in Java. On startup, XL Deploy scans its classpath for implementations of its plugpoints in the `com.xebialabs` or `ext.deployit` packages and prepares them for use. There is no additional configuration required.
@@ -80,7 +81,7 @@ In addition to the default orchestrator, XL Deploy also contains the following o
 
 ## Defining Event Listeners
 
-The XL Deploy Core sends events that listeners can act upon. There are two types of events in XL Deploy system:
+The XL Deploy Core sends [events](/xl-deploy/latest/javadoc/engine-spi/index.html) that listeners can act upon. There are two types of events in XL Deploy system:
 
 * Notifications: Events that indicate that XL Deploy has executed a particular action
 * Commands: Events that indicate XL Deploy is about to to execute a particular action

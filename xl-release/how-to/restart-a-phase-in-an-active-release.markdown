@@ -7,6 +7,7 @@ subject:
 tags:
 - release
 - phase
+weight: 431
 ---
 
 In an active release, you can abort the current phase and restart the execution from any phase in the past. This can be required if some parts of the release procedure must be repeated. For example, QA rejects a version of the application for release and the test phase must be repeated with an updated version.
@@ -30,7 +31,7 @@ This is an example of how restarting a phase works in practice. Suppose you have
 
 The QA phase was started with version 1.0 of the product, but bugs were found and QA could not sign off. So the **Sign off by QA** task failed. The Dev team is notified and produces a fix: version 1.0.1. You can now start the QA phase again for version 1.0.1.
 
-Do so by clicking **Restart Phase...** in the top bar and selecting the phase and task from which the release should be restarted. 
+Do so by clicking **Restart Phase...** in the top bar and selecting the phase and task from which the release should be restarted.
 
 ![Restart confirmation dialog](../images/restart-dialog-1.png)
 

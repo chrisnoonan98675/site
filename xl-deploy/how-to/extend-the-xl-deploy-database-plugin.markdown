@@ -3,7 +3,7 @@ title: Extend the XL Deploy Database plugin
 categories:
 - xl-deploy
 subject:
-- Database plugin
+- Bundled plugins
 tags:
 - plugin
 - database
@@ -11,11 +11,12 @@ tags:
 - rules
 since:
 - XL Deploy 5.0.0
+weight: 354
 ---
 
 In XL Deploy 5.0.0 and later, the Database plugin uses the XL Deploy [rules system](/xl-deploy/concept/getting-started-with-xl-deploy-rules.html) to provide improved rollback support for SQL scripts.
 
-For backward compatibility reasons, improved rollback support is not automatically available for custom CI types that were created in earlier versions of the plugin, and that are based on the `sql.SqlScripts` CI type. However, you can implement this support for custom types by adding rules to the `<XLDEPLOY_HOME>/ext/xl-rules.xml` file.
+For backward compatibility reasons, improved rollback support is not automatically available for custom CI types that were created in earlier versions of the plugin, and that are based on the `sql.SqlScripts` CI type. However, you can implement this support for custom types by adding rules to the `XL_DEPLOY_SERVER_HOME/ext/xl-rules.xml` file.
 
 **Note:** If you have not created custom CI types in the Database plugin, you do not need to add these rules.
 

@@ -10,6 +10,7 @@ tags:
 - import
 removed:
 - XL Deploy 5.0.0
+weight: 210
 ---
 
 **Tip:** For information about importing a deployment package in XL Deploy 5.0.0 or later, refer to [Add a package to XL Deploy](/xl-deploy/how-to/add-a-package-to-xl-deploy.html).
@@ -18,7 +19,7 @@ The XL Deploy Repository is the database that contains all packages, environment
 
 The first step to performing a deployment with XL Deploy is to import your package into the repository. These are the steps you need to follow:
 
-**Start the Import Wizard**. To start the Import Wizard, click the Import button on the Package Browser. 
+**Start the Import Wizard**. To start the Import Wizard, click the Import button on the Package Browser.
 
 ![Import package](images/import-package-button.png)
 

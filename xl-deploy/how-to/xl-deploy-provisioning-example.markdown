@@ -79,8 +79,8 @@ Right-click the **1.0.0** package and select **template** > **overthere.SshHost*
 | Connection Type | `SUDO` | Puppet requires a SUDO connection |
 | Address | `{% raw %}{{%publicHostname%}}{% endraw %}` | This is a placeholder that will be resolved from the provisioned |
 | Username | `ubuntu` | User name for the EC2 machine |
-| Private Key File | `SSH_DIRECTORY/{{%keyName%}}.pem` | The location of the SSH key on your local machine to use when connecting to the EC2 instance. `SSH_DIRECTORY` is the directory where you store your SSH keys; for example, `/Users/YourUserName/.ssh` |
-| SUDO username | `root` | The user name to use for SUDO operations (this property is located on the **Advanced** tab) |
+| Private Key File | `SSH_DIRECTORY/{% raw %}{{%keyName%}}{% endraw %}.pem` | The location of the SSH key on your local machine to use when connecting to the EC2 instance. `SSH_DIRECTORY` is the directory where you store your SSH keys; for example, `Users/yourusername/.ssh` |
+| SUDO username | `root` | The user name to use for SUDO operations (this property is located on the **Advanced** tab |
 
 Click **Save** to save the CI.
 

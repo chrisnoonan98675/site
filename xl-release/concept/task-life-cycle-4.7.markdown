@@ -8,6 +8,7 @@ tags:
 - task
 deprecated:
 - XL Release 4.7.x
+weight: 460
 ---
 
 In an active release, tasks transition through different states. The following diagram shows the lifecycle of a task.
@@ -38,7 +39,7 @@ If a user fails a task or an automated task encounters an error, the task goes i
 
 ## Failing state
 
-There is also a **failing** state. This state only applies to a parallel group task that contains subtasks. It indicates that one of the subtasks is in a **failed** state, but that other tasks are still running. 
+There is also a **failing** state. This state only applies to a parallel group task that contains subtasks. It indicates that one of the subtasks is in a **failed** state, but that other tasks are still running.
 
 Transitions to and from the 'failing' state are:
 

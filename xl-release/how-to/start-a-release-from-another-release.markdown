@@ -9,6 +9,7 @@ tags:
 - subrelease
 since:
 - XL Release 5.0.0
+weight: 424
 ---
 
 The [Create Release task type](/xl-release/how-to/create-a-create-release-task.html) allows you to automatically create and start a release based on a configured template. You can use the Create Release task for several different release orchestration scenarios.
@@ -30,6 +31,12 @@ This is one of the Create Release tasks, showing the output variable that will b
 And this is a Gate task that will wait for all three of the subreleases to finish:
 
 ![Sample Gate task](../images/create-release-examples/create-release-task-example-master-with-subreleases-03.png)
+
+### Subreleases in the release timeline
+
+On the [release dashboard](/xl-release/how-to/using-the-release-dashboard.html), the detail view of the [release timeline tile](/xl-release/concept/release-dashboard-tiles.html#release-timeline) shows the subreleases that are created from the master release. This makes it easy to see the relationship between the releases and whether the subreleases will cause delays in the master release. For example, in a master release with many subreleases:
+
+![Sample release timeline tile detail view](../images/timeline-tile-detail-view.png)
 
 ## Kickstart release
 

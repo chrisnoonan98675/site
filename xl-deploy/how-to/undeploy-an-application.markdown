@@ -8,6 +8,7 @@ tags:
 - deployment
 - undeploy
 - provisioning
+weight: 193
 ---
 
 To remove an application and its components from an environment, you need to undeploy the application. Similarly, to tear down a cloud-based environment [provisioned by XL Deploy](/xl-deploy/how-to/provision-an-environment.html), you need to deprovision it. Note that before you can deprovision an environment, you must first undeploy all applications that are deployed to it.

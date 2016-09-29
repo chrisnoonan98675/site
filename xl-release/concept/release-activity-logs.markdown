@@ -7,6 +7,7 @@ subject:
 tags:
 - release
 - logging
+weight: 432
 ---
 
 The activity log shows everything that happens in a release. It provides an audit trail of who did what, and when. To open the activity log, select **Activity logs** from the **Show** menu.

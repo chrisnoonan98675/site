@@ -13,8 +13,11 @@ product-id: xl-deploy
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
 * [Jython API Manual](/jython-docs/#!/xl-deploy/5.0.x/)
-* [Javadoc](/xl-deploy/5.0.x/javadoc/udm-plugin-api/index.html)
-* [XL Deploy satellite module](/xl-deploy/5.0.x/satellitecireference.html)
+* [UDM API Javadoc](/xl-deploy/5.0.x/javadoc/udm-plugin-api/index.html)
+* [XL Deploy Engine API Javadoc](/xl-deploy/5.0.x/javadoc/engine-api/index.html)
+* [XL Deploy Engine SPI Javadoc](/xl-deploy/5.0.x/javadoc/engine-spi/index.html)
+* [XL Endpoints API Javadoc](/xl-deploy/5.0.x/javadoc/xl-endpoints-api/index.html)
+* [XL Deploy satellite module CI reference](/xl-deploy/5.0.x/satellitecireference.html)
 
 ## Plugin reference documentation
 
@@ -36,6 +39,7 @@ product-id: xl-deploy
 * [JBoss Application Server 5 and 6 plugin](/xl-deploy-jbossas-plugin/5.0.x/jbossPluginManual.html)
 * [JBoss Application Server 7 and up plugin](/xl-deploy-jbossdm-plugin/5.0.x/jbossDomainPluginManual.html)
 * [Oracle Service Bus plugin](/xl-deploy-osb-plugin/5.0.x/osbPluginManual.html)
+* [Oracle Service-Oriented Architecture (SOA) plugin](/xl-deploy-xld-oracle-soa-plugin/5.0.x/oracleSoaPluginManual.html)
 * [WebLogic Application Server plugin](/xl-deploy-wls-plugin/5.0.x/wlsPluginManual.html)
 * [WebSphere Application Server plugin](/xl-deploy-was-plugin/5.0.x/wasPluginManual.html)
 * [WebSphere Process Server plugin](/xl-deploy-wps-plugin/5.0.x/wpsPluginManual.html)

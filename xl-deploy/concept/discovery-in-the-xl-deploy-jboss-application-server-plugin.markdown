@@ -6,7 +6,6 @@ subject:
 - JBoss Application Server
 tags:
 - jboss
-- middleware
 - plugin
 - discovery
 - infrastructure
@@ -34,7 +33,7 @@ This is a sample XL Deploy command-line interface (CLI) script which discovers a
 
 	#discovery just discovers the topology and keeps the configuration items in memory. Save them in Deployit repository
 	repository.create(cis)
-	
+
 Note:
 
 * Hosts are created under the Infrastructure tree, so the host ID is kept as `Infrastructure/jboss-51-host`

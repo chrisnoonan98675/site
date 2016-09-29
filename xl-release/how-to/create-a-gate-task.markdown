@@ -13,6 +13,8 @@ A Gate task contains conditions that must be fulfilled before the release can co
 
 ![Gate Details](../images/gate-details.png)
 
+In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), Gate tasks have a red border.
+
 ## Checkbox conditions
 
 When you open a Gate task, you will see the checkbox conditions on the task. If you have the [*Edit Task*](/xl-release/how-to/configure-permissions-for-a-release.html) release permission, you can add a checkbox by clicking **Add condition**. To remove a condition, click the cross icon.

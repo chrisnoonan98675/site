@@ -11,13 +11,14 @@ tags:
 - configuration
 since:
 - XL TestView 1.3.0
+weight: 705
 ---
 
 XL TestView supports authentication of users using LDAP. This topic describes how to configure LDAP authentication on XL TestView. Some general knowledge about LDAP and your LDAP server in particular is required.
 
 ## Configure unsecured LDAP
 
-To configure unsecured LDAP, update the following properties in the `<XLTESTVIEW_HOME>/conf/xl-testview.conf` file:
+To configure unsecured LDAP, update the following properties in the `XL_TESTVIEW_HOME/conf/xl-testview.conf` file:
 
 {:.table}
 | Property | Description | Example |
@@ -75,11 +76,11 @@ Active Directory authentication is supported in XL TestView 1.4.1 and later. To 
       user-search-filter = "(&(SamAccountName={0})(objectClass=user))"
     }
 
-When using Active Directory, you need to configure the search filter option to find a user. The `SamAccountName` property usually contains the user name. To perform the search, XL TestView needs to authenticate itself. The `admin-dn` and `admin-password` properties are provided for that. 
+When using Active Directory, you need to configure the search filter option to find a user. The `SamAccountName` property usually contains the user name. To perform the search, XL TestView needs to authenticate itself. The `admin-dn` and `admin-password` properties are provided for that.
 
 ## Configure secure LDAP
 
-If your LDAP configuration uses a certificate signed by a certificate authority or a certificate that is trusted in the global Java truststore, you should be able to connect by setting the `xlt.authentication.ldap.url` property in `<XLTESTVIEW_HOME>/conf/xl-testview.conf` to the secure URL (for example, `ldaps://server.domain:636`). After saving the `xl-testview.conf` file, [restart XL TestView](/xl-testview/how-to/start.html) and log in.
+If your LDAP configuration uses a certificate signed by a certificate authority or a certificate that is trusted in the global Java truststore, you should be able to connect by setting the `xlt.authentication.ldap.url` property in `XL_TESTVIEW_HOME/conf/xl-testview.conf` to the secure URL (for example, `ldaps://server.domain:636`). After saving the `xl-testview.conf` file, [restart XL TestView](/xl-testview/how-to/start.html) and log in.
 
 If you use a self-signed certificate and you cannot add it to the global truststore, you need to configure a local keystore. You can do so using the [`keytool`](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html) utility (part of the Java JDK distribution).
 
@@ -93,10 +94,10 @@ To configure a local keystore:
 
 4. Type a keystore password twice.
 5. Confirm you trust this account.
-6. In `<XLTESTVIEW_HOME>/conf/xl-testview.conf`, set `xlt.truststore.location` to the absolute file location of the truststore you just created.
+6. In `XL_TESTVIEW_HOME/conf/xl-testview.conf`, set `xlt.truststore.location` to the absolute file location of the truststore you just created.
 7. Set `xlt.truststore.password` to the password.
 8. After saving the `xl-testview.conf` file, [restart XL TestView](/xl-testview/how-to/start.html) and log in.
 
 ## Disable authentication
 
-If you do not need XL TestView to authenticate users because it is running in a trusted environment, you can disable authentication. To do so, set `xlt.authentication.method` to `none` in the `<XLTESTVIEW_HOME/conf/xl-testview.conf` file.
+If you do not need XL TestView to authenticate users because it is running in a trusted environment, you can disable authentication. To do so, set `xlt.authentication.method` to `none` in the `XL_TESTVIEW_HOME/conf/xl-testview.conf` file.

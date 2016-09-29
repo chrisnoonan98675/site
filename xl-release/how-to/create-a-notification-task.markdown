@@ -24,3 +24,5 @@ The options for the notification task are:
 | Body | The message body, in plain text |
 
 Click a field to edit it. You can use [variables](/xl-release/concept/variables-in-xl-release.html).
+
+In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), Notification tasks have a gray border.

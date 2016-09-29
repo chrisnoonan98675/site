@@ -8,6 +8,7 @@ tags:
 - package
 - application
 - ant
+weight: 215
 ---
 
 Creating a XL Deploy package via Ant is possible using the `jar` task.

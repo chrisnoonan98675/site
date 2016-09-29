@@ -1,5 +1,4 @@
 ---
-layout: satellite
 title: Add a satellite server to XL Deploy
 categories:
 - xl-deploy
@@ -10,6 +9,7 @@ tags:
 - satellite
 since:
 - XL Deploy 5.0.0
+weight: 305
 ---
 
 Before you add a satellite server configuration item (CI) to the XL Deploy repository, ensure that you have [enabled communication with satellites](/xl-deploy/how-to/configure-xl-deploy-to-communicate-with-satellites.html).
@@ -25,4 +25,4 @@ To add a satellite server to XL Deploy:
 
 5. Optionally select **Encrypted**. If you select it, XL Deploy will try to communicate with the satellite over a secure connection. See [Configure secure communication with a satellite](/xl-deploy/how-to/configure-secure-communication-with-a-satellite.html) for more information.
 
-    ![image](images/satellite-ci-configuration.png) 
+    ![image](images/satellite-ci-configuration.png)

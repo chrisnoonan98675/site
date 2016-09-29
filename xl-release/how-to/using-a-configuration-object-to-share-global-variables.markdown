@@ -8,6 +8,7 @@ tags:
 - configuration object
 - variable
 - custom task
+weight: 478
 ---
 
 XL Release allows you to define *configuration objects* to store settings that will be used across many tasks or even task types, or information that needs to be accessible in tasks but which the user configuring the task may not know. Common examples are things like connection information for Jenkins or JIRA servers, or remote hosts on which to execute scripts.
@@ -59,7 +60,7 @@ The property is exposed to the task implementation as a Jython variable of the s
 
     sys.exit(1)
 
-The script is saved as `SERVER_HOME/ext/my/SampleTask.py`, as per the standard XL Release naming convention for task implementations. Note that we're making the script fail here for easier development and debugging. See this forum post for details.
+The script is saved as `XL_RELEASE_SERVER_HOME/ext/my/SampleTask.py`, as per the standard XL Release naming convention for task implementations. Note that we're making the script fail here for easier development and debugging. See this forum post for details.
 
 ## Creating a custom task and linking it to a configuration object
 

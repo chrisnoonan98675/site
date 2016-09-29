@@ -9,6 +9,7 @@ tags:
 - variable
 - script
 - jython
+weight: 477
 ---
 
 To get a value from a [release variable](/xl-release/how-to/create-release-variables.html) of type key-value map and use the value in a text field, you can add a [Script task](/xl-release/how-to/create-a-script-task.html) that gets the value and stores it in another variable.
@@ -36,7 +37,7 @@ However, using this syntax in a text field does not work because variables are r
 
 ![Task variable replacement](../images/map-variable/interpretation.png)
 
-Instead, you should add a Script task that will get the value from the key-value map and store it in a new variable called `${mymeal}`. 
+Instead, you should add a Script task that will get the value from the key-value map and store it in a new variable called `${mymeal}`.
 
 ## Add a variable and a script
 

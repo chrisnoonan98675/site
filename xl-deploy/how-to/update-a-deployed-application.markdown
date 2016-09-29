@@ -9,6 +9,7 @@ tags:
 - application
 - package
 - update
+weight: 191
 ---
 
 XL Deploy always works with complete [deployment packages](/xl-deploy/concept/preparing-your-application-for-xl-deploy.html#whats-in-an-application-deployment-package) that contain everything your applications need. You don't have to manually create a delta package to perform an update; instead, XL Deploy’s auto-flow engine calculates the delta between two packages automatically.
@@ -36,7 +37,7 @@ To update a deployed application:
 1. Optionally click **Deployment Properties** to select the [orchestrators](/xl-deploy/concept/understanding-orchestrators.html) that XL Deploy should use when generating the deployment plan.
 1. Optionally click **Analyze** to preview the deployment plan that XL Deploy generates. You can double-click each step to see the script that XL Deploy will use to execute the step.
 1. Click **Next**. The deployment plan appears.
-1. Click **Execute** to start the update. If the server does not have the capacity to immediately start executing the plan, the plan will be in a `QUEUED` state until the server has sufficient capacity. 
+1. Click **Execute** to start the update. If the server does not have the capacity to immediately start executing the plan, the plan will be in a `QUEUED` state until the server has sufficient capacity.
 
 If a step in the update fails, XL Deploy stops executing the update and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
 

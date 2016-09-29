@@ -8,7 +8,6 @@ tags:
 - liberty
 - profile
 - websphere
-- middleware
 - plugin
 ---
 
@@ -89,7 +88,7 @@ The value of the **Password** property is `wlpadmin`, and the **Trust store pass
 
 ### Defaults
 
-The server can be configured to accept all hosts and certificates by setting the hidden attributes `trustAllHostnames` and `trustAllCertificates` to `true` in `<XLDEPLOY_HOME>/conf/deployit-defaults.properties`:
+The server can be configured to accept all hosts and certificates by setting the hidden attributes `trustAllHostnames` and `trustAllCertificates` to `true` in `XL_DEPLOY_SERVER_HOME/conf/deployit-defaults.properties`:
 
     # Ignores certificate verification checks, use in development environments only.
     wlp.Server.trustAllCertificates=false

@@ -8,6 +8,7 @@ tags:
 - release
 - template
 - properties
+weight: 412
 ---
 
 To specify metadata for a release or template, select **Properties** from the **Show** menu to go to the release properties page.

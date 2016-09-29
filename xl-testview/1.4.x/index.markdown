@@ -8,7 +8,7 @@ product-id: xl-testview
 * [Release Manual](/xl-testview/1.4.x/releasemanual.html)
 * [REST API reference](/xl-testview/1.4.x/rest-api/)
 * [Jython API reference](/jython-docs/#!/xl-testview/1.4.x)
-* [UDM CI reference](/xl-testview/1.4.x/xltestview.html)
+* [Configuration item (CI) reference](/xl-testview/1.4.x/xltestview.html)
 * [Javadoc](/xl-testview/1.4.x/javadoc/index.html)
 
 ## Plugin reference documentation

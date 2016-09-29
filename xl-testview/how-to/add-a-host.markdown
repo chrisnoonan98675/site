@@ -6,6 +6,7 @@ subject:
 - Test specifications
 tags:
 - host
+weight: 713
 ---
 
 A host provides a a generic mechanism to connect to local or remote machines and:
@@ -21,15 +22,15 @@ XL TestView includes the following types of hosts:
 * SSH host: A remote machine over SSH, typically used for UNIX based systems
 * CIFS host: A remote Microsoft Windows machine
 * SSH jumpstation host: Connect to a SSH host via another host (the jumpstation)
- 
+
 For information about host configuration options, refer to the [XL Deploy documentation on the Remoting plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-remoting-plugin.html).
- 
+
 ## Add a host
 
 Normally hosts are created automatically when you import test results using the import wizard or when you use the Jenkins XL TestView plugin.
 
 To manually add a host:
- 
+
 1. Click **Hosts** in the top navigation bar.
 1. Click **Add a host**.
 2. Select a host type from the **Select type** list. The settings that are available depend on the host type that you select.

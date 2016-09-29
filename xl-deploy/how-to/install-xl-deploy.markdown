@@ -9,6 +9,7 @@ tags:
 - installation
 - license
 - setup
+weight: 103
 ---
 
 To install XL Deploy:
@@ -92,6 +93,8 @@ The setup wizard will ask if you want to initialize the repository. Answer `yes`
 
 If you choose to initialize the repository, the setup wizard will ask if you want to generate an encryption key to protect passwords that you store in the repository. Answer `yes` to generate a new key.
 
+Answering `yes` will create an encryption key in `XL_DEPLOY_SERVER_HOME/conf/repository-keystore.jceks`. XL Deploy will use this key to encrypt and decrypt all password properties; it will also be used for [encrypted entries in dictionaries](/xl-deploy/how-to/create-a-dictionary.html) and passwords that are set in the `XL_DEPLOY_SERVER_HOME/conf/deployit.conf` file.
+
 If you answer `no`, then you agree to use XL Deploy's own encryption key, or to use a key that you have previously generated.
 
 #### Step 4 Provide a password for the encryption key
@@ -155,6 +158,8 @@ The setup wizard will ask where you want to store the JCR repository. If the dir
 #### Step 9 Generate an encryption key
 
 If you choose to initialize the repository, the setup wizard will ask if you want to generate an encryption key to protect passwords that you store in the repository. Answer `yes` to generate a new key.
+
+Answering `yes` will create an encryption key in `XL_DEPLOY_SERVER_HOME/conf/repository-keystore.jceks`. XL Deploy will use this key to encrypt and decrypt all password properties; it will also be used for [encrypted entries in dictionaries](/xl-deploy/how-to/create-a-dictionary.html) and passwords that are set in the `XL_DEPLOY_SERVER_HOME/conf/deployit.conf` file.
 
 If you answer `no`, then you agree to use XL Deploy's own encryption key, or to use a key that you have previously generated.
 

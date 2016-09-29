@@ -2,7 +2,8 @@
 title: Support legacy use of XLRequest using HttpRequest
 categories:
 - xl-release
-subject: Connectivity
+subject:
+- Connectivity
 tags:
 - webhook
 - script
@@ -22,7 +23,7 @@ This is an example of creating adapters in an XL Release 4.0.10 installation.
 
 ## Extract `XLRequest` and `XLResponse` to the extensions directory
 
-First, create the directory `SERVER_HOME/ext/pythonutil` if it does not already exist. Then, extract the `XLRequest.py` and `XLResponse.py` classes, which are in `SERVER_HOME/lib/xl-release-server-<version>.jar`, into that directory. An easy way to do this is to copy the JAR into a temporary directory, open it using a ZIP file browser (change the file extension to `.zip` if necessary), and extract the two files from the `pythonutil` folder. Copy the extracted files to `SERVER_HOME/ext/pythonutil`, where they will override the provided `XLRequest.py` and `XLResponse.py` classes in the JAR file.
+First, create the directory `XL_RELEASE_SERVER_HOME/ext/pythonutil` if it does not already exist. Then, extract the `XLRequest.py` and `XLResponse.py` classes, which are in `XL_RELEASE_SERVER_HOME/lib/xl-release-server-<version>.jar`, into that directory. An easy way to do this is to copy the JAR into a temporary directory, open it using a ZIP file browser (change the file extension to `.zip` if necessary), and extract the two files from the `pythonutil` folder. Copy the extracted files to `XL_RELEASE_SERVER_HOME/ext/pythonutil`, where they will override the provided `XLRequest.py` and `XLResponse.py` classes in the JAR file.
 
 ![Extract XLRequest.py and XLResponse.py](../images/extract-xlreq-xlresp.png)
 
@@ -58,7 +59,7 @@ Because the HTTP calls made through the `XLRequest` adapter will now actually re
 
 **Note:** This assumes that you are not creating XLResponse objects yourself in your scripts or custom tasks, but are only using objects returned by `XLRequest(...).send()` calls. If you are creating `XLResponse` objects somewhere, you could:
 
-1. Extract the provided `XLResponse.py` class into `SERVER_HOME/ext/pythonutil` and leave it unchanged, so your code can create XLResponse objects as before
+1. Extract the provided `XLResponse.py` class into `XL_RELEASE_SERVER_HOME/ext/pythonutil` and leave it unchanged, so your code can create XLResponse objects as before
 1. Create a class `XLResponse2` with the code example for `XLResponse` above
 1. Use `XLResponse2` instead of `XLResponse` in the code example for `XLRequest` below
 

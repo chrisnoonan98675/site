@@ -6,6 +6,7 @@ subject:
 - Test results
 tags:
 - import
+weight: 716
 ---
 
 XL TestView uses file selection patterns to select test results files that should be imported as part of a [test run](/xl-testview/concept/key-concepts.html#test-runs). For example, the configuration of a test tool contains a `defaultSearchPattern` that is used as the initial value of the `searchPattern` property in *active* and *executable* [test specifications](/xl-testview/concept/key-concepts.html#test-specifications).

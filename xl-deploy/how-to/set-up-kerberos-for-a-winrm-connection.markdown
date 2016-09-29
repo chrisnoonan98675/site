@@ -1,7 +1,7 @@
 ---
 title: Set up Kerberos for WINRM_INTERNAL
 subject:
-- Remoting plugin
+- Remoting
 categories:
 - xl-deploy
 tags:
@@ -10,6 +10,7 @@ tags:
 - winrm
 - kerberos
 - overthere
+weight: 344
 ---
 
 If you are going to use Windows domain accounts to access the remote host with the WINRM_INTERNAL connection type, you must configure Kerberos.

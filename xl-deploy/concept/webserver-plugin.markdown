@@ -1,12 +1,13 @@
 ---
 title: Introduction to the XL Deploy Web Server plugin
-categories: 
+categories:
 - xl-deploy
 subject:
-- Web Server plugin
+- Bundled plugins
 tags:
 - plugin
 - web server
+weight: 363
 ---
 
 The XL Deploy Web Server plugin supports the deployment of web content and web server configuration to a web server.

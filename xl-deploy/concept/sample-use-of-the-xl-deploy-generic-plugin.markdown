@@ -3,10 +3,11 @@ title: Sample use of the XL Deploy Generic plugin
 categories:
 - xl-deploy
 subject:
-- Generic plugin
+- Bundled plugins
 tags:
 - generic
 - plugin
+weight: 359
 ---
 
 This is an example of using the Generic Model plugin to implement support for a simple middleware platform. Deployment to this platform is done by simply copying a WAR archive to the right directory on the container. Resources are created by copying configuration files into the container's configuration directory. The Tomcat application server works in a very similar manner.
@@ -39,7 +40,7 @@ The following snippet defines a CI based on the `generic.CopiedArtifact`. The `t
 	    <property name="targetDirectory" default="${deployed.container.home}/conf" hidden="true"/>
 	</type>
 
-Using the above snippet, it is possible to create a package with a `tc.File` deployable and deploy it to an environment containing a `tc.UnmanagedServer`. This will result in a `tc.DeployedFile` deployed. 
+Using the above snippet, it is possible to create a package with a `tc.File` deployable and deploy it to an environment containing a `tc.UnmanagedServer`. This will result in a `tc.DeployedFile` deployed.
 
 ## Defining a WAR
 

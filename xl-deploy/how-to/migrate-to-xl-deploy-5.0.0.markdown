@@ -10,6 +10,7 @@ tags:
 - system administration
 since:
 - XL Deploy 5.0.0
+weight: 116
 ---
 
 With the release of XL Deploy 5.0.0, a number of [deprecated features](/xl-deploy/5.0.x/upgrademanual.html) will be removed. This article will help you migrate to the new way of using XL Deploy.
@@ -97,7 +98,7 @@ And two methods have been introduced:
 Because the `TaskInfo` object was also removed, each item in the resulting list will be a wrapper implementing the `TaskWithBlock` interface, augmented with the method `get_step_blocks()`. On a `TaskWithBlock`, you retrieve the application by calling `t.metadata['application']`.
 
 Consider this example, which outputs state of each step of the task. Instead of:
-    
+
     tasks = repository.getArchivedTasks().getTasks()
     for task in tasks:
         steps = task.getSteps()

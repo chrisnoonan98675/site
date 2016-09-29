@@ -23,9 +23,13 @@ print(releaseVariables['xldeployPackage'])
 releaseVariables['xldeployPackage'] = 'XL Release'
 {% endhighlight %}
 
-When the task becomes active, the script is executed in a sandboxed environment on the XL Release server. This means that the script has very restricted permissions. By default, access to the file system and network are not allowed.
+In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), Script tasks have a gray border.
 
-To relieve these restrictions, add a `script.policy` file to the `SERVER_INSTALLATION/conf` directory. This is a standard [Java Security Policy file](http://docs.oracle.com/javase/7/docs/technotes/guides/security/PolicyFiles.html), where you put the permissions that a script may have. The XL Release server must be restarted after the `conf/script.policy` file is changed.
+## Security and Script tasks
+
+When a Script task becomes active, the script is executed in a sandbox environment on the XL Release server. This means that the script has very restricted permissions. By default, access to the file system and network are not allowed.
+
+To remove these restrictions, add a `script.policy` file to the `XL_RELEASE_SERVER_HOME/conf` directory. This is a standard [Java Security Policy file](http://docs.oracle.com/javase/7/docs/technotes/guides/security/PolicyFiles.html) that contains the permissions that a script should have. You must restart the XL Release server after creating or changing the `XL_RELEASE_SERVER_HOME/conf/script.policy` file.
 
 ## Sample scripts
 

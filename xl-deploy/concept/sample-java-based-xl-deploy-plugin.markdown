@@ -1,5 +1,5 @@
 ---
-layout: pre-rules
+pre_rules: true
 title: Sample Java-based XL Deploy plugin
 categories:
 - xl-deploy
@@ -8,6 +8,7 @@ subject:
 tags:
 - java
 - plugin
+weight: 225
 ---
 
 This example describes some classes from a test plugin we use at XebiaLabs, the Yak plugin.

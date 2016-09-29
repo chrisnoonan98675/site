@@ -9,6 +9,7 @@ tags:
 - installation
 - setup
 - system requirements
+weight: 401
 ---
 
 ## Server requirements

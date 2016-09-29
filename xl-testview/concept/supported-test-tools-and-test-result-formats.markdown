@@ -9,6 +9,7 @@ tags:
 - plugin
 - test result parsers
 - import
+weight: 715
 ---
 
 XL TestView supports the following test tools and test result formats:

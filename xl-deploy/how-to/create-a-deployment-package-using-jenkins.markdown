@@ -8,6 +8,7 @@ tags:
 - package
 - application
 - jenkins
+weight: 214
 ---
 
 To enable continuous integration, XL Deploy can work with [Jenkins CI server](https://jenkins-ci.org/) through the [Jenkins XL Deploy plugin](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin). The plugin supports:

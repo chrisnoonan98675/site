@@ -9,6 +9,7 @@ tags:
 - java
 - ci
 - discovery
+weight: 142
 ---
 
 You can define [control tasks](/xl-deploy/how-to/using-control-tasks-in-xl-deploy.html) on configuration items (CIs) that allow you to execute actions from the XL Deploy GUI or CLI. Control tasks specify a list of steps to be executed in order. You can parameterize control tasks in two ways:
@@ -16,7 +17,7 @@ You can define [control tasks](/xl-deploy/how-to/using-control-tasks-in-xl-deplo
 * By specifying _arguments_ to the control task in the control task _configuration_
 * By allowing the user to specify _parameters_ to the control task during control task _execution_
 
-Arguments are configured in the control task definition in the `synthetic.xml` file. Arguments are specified as attributes on the synthetic method definition XML and are passed as-is to the control task. 
+Arguments are configured in the control task definition in the `synthetic.xml` file. Arguments are specified as attributes on the synthetic method definition XML and are passed as-is to the control task.
 
 Parameters are specified by defining a parameters CI type.
 

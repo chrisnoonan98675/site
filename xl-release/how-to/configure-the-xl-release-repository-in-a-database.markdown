@@ -10,13 +10,14 @@ tags:
 - setup
 - database
 - repository
+weight: 493
 ---
 
 XL Release uses a repository to store all of its data. XL Release can use the filesystem or a database for binary artifacts and CIs and CI history. By default, XL Release uses the filesystem to store all data in the repository.
 
 ## Location of the repository
 
-By default, the repository is located in `XLRELEASE_HOME/repository`.
+By default, the repository is located in `XL_RELEASE_SERVER_HOME/repository`.
 
 ## Using a database
 
@@ -36,10 +37,11 @@ For more information about:
 * Using a database with Jackrabbit, see the [PersistenceManager FAQ](http://wiki.apache.org/jackrabbit/PersistenceManagerFAQ) and [DataStore FAQ](http://wiki.apache.org/jackrabbit/DataStore)
 * Moving the database or changing its configuration, refer to [Change the repository database settings](/xl-release/how-to/change-the-repository-database-settings.html)
 * Backing up and restoring the database, refer to [Back up XL Release](/xl-release/how-to/back-up-xl-release.html)
+* XL Release's internal archive database, refer to [Configure the archive database](/xl-release/how-to/configure-the-archive-database.html)
 
 ### Using XL Release with MySQL
 
-This is a sample `<XLRELEASE_HOME>/conf/jackrabbit-repository.xml` configuration for [MySQL](http://www.mysql.com/):
+This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [MySQL](http://www.mysql.com/):
 
 {% highlight xml %}
 <Security appName="Jackrabbit">
@@ -114,11 +116,13 @@ This is a sample `<XLRELEASE_HOME>/conf/jackrabbit-repository.xml` configuration
 </Versioning>
 {% endhighlight %}
 
+{% comment %}
 **Note:** The MySQL database is not suited for storage of large binary objects; see [the MySQL bug tracker](http://bugs.mysql.com/bug.php?id=10859).
+{% endcomment %}
 
 ### Using XL Release with DB2
 
-This is a sample `<XLRELEASE_HOME>/conf/jackrabbit-repository.xml` configuration for [DB2](http://www-01.ibm.com/software/data/db2/):
+This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [DB2](http://www-01.ibm.com/software/data/db2/):
 
 {% highlight xml %}
 <Security appName="Jackrabbit">
@@ -196,7 +200,7 @@ This is a sample `<XLRELEASE_HOME>/conf/jackrabbit-repository.xml` configuration
 
 ### Using XL Release with Oracle
 
-This is a sample `<XLRELEASE_HOME>/conf/jackrabbit-repository.xml` configuration for [Oracle](http://www.oracle.com/us/products/database/index.html):
+This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [Oracle](http://www.oracle.com/us/products/database/index.html):
 
 {% highlight xml %}
 <Security appName="Jackrabbit">
@@ -279,9 +283,9 @@ If you use the TNSNames Alias syntax to connect to Oracle, you may need to infor
 
 ### Using XL Release with SQL Server
 
-To use XL Release with [Microsoft SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server/), ensure that the [Microsoft JDBC driver for SQL Server](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx) JAR file is located in `<XLRELEASE_HOME>/lib` or on the Java classpath.
+To use XL Release with [Microsoft SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server/), ensure that the [Microsoft JDBC driver for SQL Server](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx) JAR file is located in `XL_RELEASE_SERVER_HOME/lib` or on the Java classpath.
 
-This is a sample `<XLRELEASE_HOME>/conf/jackrabbit-repository.xml` configuration for SQL Server:
+This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for SQL Server:
 
 {% highlight xml %}
 <DataStore class="org.apache.jackrabbit.core.data.FileDataStore" />

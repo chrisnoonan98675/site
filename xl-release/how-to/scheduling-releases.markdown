@@ -8,6 +8,7 @@ tags:
 - release
 - planner
 - schedule
+weight: 421
 ---
 
 In XL Release, you can schedule your releases by setting start dates and times, end dates and times, and durations on templates, releases, phases, and tasks. When you set dates and durations on phases and tasks, XL Release automatically adjusts other phases and calculates the release duration and end date.

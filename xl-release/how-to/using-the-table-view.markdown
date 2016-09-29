@@ -10,6 +10,7 @@ tags:
 - table
 since:
 - XL Release 5.0.0
+weight: 418
 ---
 
 The XL Release table view provides an alternative view of a template or release that is optimized for working with tasks. In table view, you can:

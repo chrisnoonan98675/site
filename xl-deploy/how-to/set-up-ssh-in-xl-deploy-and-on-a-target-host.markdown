@@ -1,7 +1,7 @@
 ---
 title: Set up SSH in XL Deploy and on a target host
 subject:
-- Remoting plugin
+- Remoting
 categories:
 - xl-deploy
 tags:
@@ -9,6 +9,7 @@ tags:
 - connectivity
 - ssh
 - overthere
+weight: 339
 ---
 
 To connect to a remote host using the SSH protocol, you must to install an SSH server on that remote host.
@@ -17,7 +18,7 @@ To connect to a remote host using the SSH protocol, you must to install an SSH s
 
 For Unix platforms, [OpenSSH](http://www.openssh.com/) is recommended. It is included in all Linux distributions and most other Unix-based systems.
 
-## Microsoft Windows remote host 
+## Microsoft Windows remote host
 
 For Microsoft Windows platforms, XL Deploy supports these SSH servers:
 
@@ -25,6 +26,17 @@ For Microsoft Windows platforms, XL Deploy supports these SSH servers:
 * [WinSSHD](http://www.bitvise.com/winsshd) is a commercial SSH server.
 
 **Note:** The SFTP, SCP, SUDO and INTERACTIVE_SUDO connection types are only available for Unix hosts. To use SSH with z/OS hosts, use the SFTP connection type. To use SSH with Windows hosts, choose the SFTP_CYGWIN or the SFTP_WINSSHD connection type.
+
+## SSH compatibility
+
+The Remoting plugin uses the [sshj](https://github.com/shikhar/sshj) library for SSH and supports all algorithms and formats that are supported by that library:
+
+* Ciphers: `aes{128,192,256}-{cbc,ctr}`, `blowfish-cbc`, `3des-cbc`
+* Key Exchange methods: `diffie-hellman-group1-sha1`, `diffie-hellman-group14-sha1`
+* Signature formats: `ssh-rsa`, `ssh-dss`
+* MAC algorithms: `hmac-md5`, `hmac-md5-96`, `hmac-sha1`, `hmac-sha1-96`
+* Compression algorithms: `zlib` and `zlib@openssh.com` (delayed `zlib`)
+* Private Key file formats: `pkcs8` encoded (the format used by [OpenSSH](http://www.openssh.com/))
 
 ## SFTP connection type
 
@@ -69,3 +81,14 @@ To use the SUDO connection type, the `/etc/sudoers` configuration must be set up
 You must configure these commands with the `NOPASSWD` setting in the `/etc/sudoers` file. Otherwise, you must use the INTERACTIVE_SUDO connection type.
 
 When the INTERACTIVE_SUDO connection type is used, every line of the output will be matched against the regular expression configured with the `sudoPasswordPromptRegex` property. If a match is found, the value of the password property is sent.
+
+## Connect through an SSH jumpstation
+
+When XL Deploy cannot reach a remote host directly, but that host can be reached by setting up one (or more) SSH tunnels, configure one (or more) `overthere.SshJumpstation` CIs as follows:
+
+1. Create an `overthere.SshJumpStation` CI that represents a host to which XL Deploy can connect directly.
+1. For each remote host that cannot be reached directly by XL Deploy, create an `overthere.Host` as usual, but set the jumpstation property to refer to the `overthere.SshJumpStation` CI created in step 1.
+
+When XL Deploy creates a connection to the remote host and determines that it needs to connect through a jumpstation, and will first open a connection to that SSH jumpstation and then setup a SSH tunnel (also known as a [local port forward](https://en.wikipedia.org/wiki/Port_forwarding#Local_port_forwarding)) to the remote host.
+
+**Note:** SSH jumpstations can also refer to other SSH jumpstations or to HTTP proxies for even more complex network setups, but cycles are not allowed.

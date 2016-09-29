@@ -3,16 +3,19 @@ title: Customize an existing CI type
 categories:
 - xl-deploy
 subject:
-- Customization
+- Configuration items
 tags:
 - ci
 - synthetic
 - type system
+weight: 252
 ---
 
-You can customize XL Deploy configuration item (CI) types to contain additional synthetic properties. These properties become a part of the CI type and can be specified in the deployment package (DAR file) and shown in the XL Deploy GUI.
+XL Deploy's type system allows you to customize any configuration item (CI) type by adding, hiding, or changing its properties. These properties become a part of the CI type and can be specified in the deployment package (DAR file) and shown in the XL Deploy GUI.
 
-There are several reasons to modify a CI:
+New CI type properties are called _synthetic properties_ because they are not defined in a Java class. You define properties and make changes in an XML file called `synthetic.xml` which is added to the XL Deploy classpath. Changes to the CI types are loaded when the XL Deploy server starts.
+
+There are several reasons to modify a CI type:
 
 * A CI property is always given the same value in your environment. Using synthetic properties, you can give the property a default value and hide it in the GUI.
 * There are additional properties of an existing CI that you want to specify.
@@ -64,3 +67,32 @@ The following example adds a "notes" field to a CI to record notes:
     <property name="notes" kind="string"/>
 </type-modification>
 {% endhighlight %}
+
+## Change a default value
+
+If you add a type modification to a CI with a default value and then change that value, CIs that were created before the modification will not pick up the new default value. For example:
+
+1. Define an `overthere.SshHost` CI called _HostA_.
+1. Add the following type modification:
+
+        <type-modification type="overthere.SshHost">
+            <property name="important" kind="string" default="no" hidden="false" />
+        </type-modification>
+
+1. Restart XL Deploy.
+
+    HostA now has a property called `important`, which contains the value "no".
+
+1. Add a new `overthere.SshHost` CI called _HostB_. It also has the `important` property with value "no".
+1. Change the default value of the `important` property:
+
+        <type-modification type="overthere.SshHost">
+            <property name="important" kind="string" default="probably" hidden="false" />
+        </type-modification>
+
+1. Restart XL Deploy.
+1. The value of the `important` property in HostA is now "probably", while the value of the `important` property in HostB is still "no".
+
+This is because HostA was created before the `important` property was added, while HostB was created afterwards. HostA does not actually know about the `important` property, although it appears in the repository (with its default value) for display purposes. However, HostB is aware of the `important` property, so its value will be persisted.
+
+To ensure that the `important` value in HostA is persisted, you must open HostA in the repository and then save it.

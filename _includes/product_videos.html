@@ -1,0 +1,15 @@
+{% comment %}
+List the videos in videos.yml for a single product.
+{% endcomment %}
+
+<p>Click a link below to watch a video in a pop-up window, or visit the <a href="https://www.youtube.com/user/xebialabs">XebiaLabs YouTube channel</a> to browse all of our videos.</p>
+
+<ul>
+    {% for product in site.data.videos %}
+        {% if product.product == page.product-id %}
+            {% for video in product.videos %}
+                <li><a href="https://www.youtube.com/watch?v={{ video.id }}" class="magnific-youtube">{{ video.title }}</a></li>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+</ul>

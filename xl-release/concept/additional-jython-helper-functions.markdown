@@ -3,13 +3,14 @@ title: Additional Jython helper functions
 categories:
 - xl-release
 subject:
-- XL Release API
+- API
 tags:
 - plugin
 - script
 - jython
 - customization
 - api
+weight: 514
 ---
 
 In addition to the [Jython API](/jython-docs/#!/xl-release/4.8.x/), the following helper functions are available in [Script tasks](/xl-release/how-to/create-a-script-task.html) and Python scripts for plugin tasks.
@@ -17,13 +18,13 @@ In addition to the [Jython API](/jython-docs/#!/xl-release/4.8.x/), the followin
 ### getCurrentTask()
 
 Returns the current task.
-    
+
 **Returns:** a Task object
 
 ### getCurrentPhase()
 
 Returns the current phase.
-    
+
 **Returns:** a Phase object
 
 ### getCurrentRelease()

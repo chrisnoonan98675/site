@@ -9,68 +9,97 @@ tags:
 - logging
 - audit
 - security
+weight: 492
 ---
 
-By default, XL Release server writes informational, warning, and error log messages to standard output and `log/xl-release.log` when running. In addition, XL Release writes an audit trail to the file `log/audit.log`. It is possible to change XL Releases logging behavior (for instance, to write log output to a file or to log output from a specific source).
+By default, XL Release server writes informational, warning, and error log messages to standard output and to `XL_RELEASE_SERVER_HOME/log/xl-release.log` when it is running. In addition, XL Release writes an audit trail to `XL_RELEASE_SERVER_HOME/log/audit.log`.
 
-XL Release uses the Logback logging framework for its logging. To change the behavior, edit the file `logback.xml` in the `conf` directory of the XL Release server installation directory.
+## The audit log
 
-The following is an example `logback.xml` file:
+XL Release keeps an audit log of each human-initiated event on the server, which complements the auditing provided by the [release activity logs](/xl-release/concept/release-activity-logs.html) (which track activity for each release at a more domain-specific level of granularity).
 
-    <configuration>
-        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-            <!-- encoders are assigned the type
-                 ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
-            <encoder>
-                  <pattern>
-                    %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
-                </pattern>
-            </encoder>
-        </appender>
+Some of the events that are logged in the audit trail are:
 
-        <!-- Create a file appender that writes log messages to a file -->
-        <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-            <layout class="ch.qos.logback.classic.PatternLayout">
-                <pattern>%-4relative [%thread] %-5level %class - %msg%n</pattern>
-            </layout>
-               <File>log/my.log</File>
-        </appender>
+* The system is started or stopped
+* An application is imported
+* A CI is created, updated, moved, or deleted
+* A security role is created, updated, or deleted
+* A task is started, cancelled, or aborted
 
-        <!-- Set logging of classes in com.xebialabs to INFO level -->
-        <logger name="com.xebialabs" level="info"/>
-
-        <!-- Set logging of class HttpClient to DEBUG level -->
-        <logger name="HttpClient" level="debug"/>
-
-        <!-- Set the logging of all other classes to INFO -->
-        <root level="info">
-            <!-- Write logging to STDOUT and FILE appenders -->
-            <appender-ref ref="STDOUT" />
-            <appender-ref ref="FILE" />
-        </root>
-
-    </configuration>
-
-For more information, see the [Logback website](http://logback.qos.ch/).
-
-## Audit log
-
-XL Release can write an audit log for each human-initiated event on the server. For each event, the following information is recorded:
+For each event, the following information is recorded:
 
 * The user making the request
 * The event timestamp
 * The component producing the event
 * An informational message describing the event
 
-For events involving CIs, the CI data submitted as part of the event is logged in XML format.
+For events involving configuration items (CIs), the CI data submitted as part of the event is logged in XML format.
 
-Some of the events that are logged in the audit trail are:
+By default, the audit log is stored in `XL_RELEASE_SERVER_HOME/log/audit.log` and is rolled over daily.
 
-* The system is started or stopped
-* A user logs into or out of the system
-* An application is imported
-* A CI is created, updated, moved, or deleted
-* A security role is created, updated, or deleted
-* A task (deployment, undeployment, control task, or discovery) is started, cancelled, or aborted
+## Changing logging behavior
 
-By default, the audit log is stored in `log/audit.log`. The audit log is rolled over daily.
+It is possible to change the logging behavior (for example, to write log output to a file or to log output from a specific source). To do so, edit the `XL_RELEASE_SERVER_HOME/conf/logback.xml` file. This is a sample `logback.xml` file:
+
+{% highlight xml %}
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+              <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- Create a file appender that writes log messages to a file -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%-4relative [%thread] %-5level %class - %msg%n</pattern>
+        </layout>
+           <File>log/my.log</File>
+    </appender>
+
+    <!-- Set logging of classes in com.xebialabs to INFO level -->
+    <logger name="com.xebialabs" level="info"/>
+
+    <!-- Set logging of class HttpClient to DEBUG level -->
+    <logger name="HttpClient" level="debug"/>
+
+    <!-- Set the logging of all other classes to INFO -->
+    <root level="info">
+        <!-- Write logging to STDOUT and FILE appenders -->
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+
+</configuration>
+{% endhighlight %}
+
+For information about the `logback.xml` file, refer to the [Logback documentation](http://logback.qos.ch/manual/).
+
+### Enable low-level audit logging
+
+You can enable low-level audit logging by changing the log level of the `audit` logger in `XL_RELEASE_SERVER_HOME/conf/logback.xml`:
+
+{% highlight xml %}
+<!-- set to "info" to enable low-level audit logging -->
+<logger name="audit" level="off" additivity="false">
+    <appender-ref ref="AUDIT" />
+</logger>
+{% endhighlight %}
+
+By default, the log stream is stored in `XL_RELEASE_SERVER_HOME/log/audit.log`. You can change this location, the file rolling policy, and so on by changing the configuration of the `AUDIT` appender. You can also pipe the log stream to additional sinks (such as [syslog](http://logback.qos.ch/manual/appenders.html#SyslogAppender)) by configuring additional appenders. Refer to the [Logback documentation](http://logback.qos.ch/manual/) for details.
+
+This is an example of the audit stream with the level of the audit logger set to `info`:
+
+	2014-11-22 11:24:18.764 [audit.system] system - Started
+	2014-11-22 11:25:18.125 [audit.repository] admin - Created CIs [Configuration/Custom/Configuration1099418]
+	2014-11-22 11:25:18.274 [audit.repository] admin - CI [Configuration/Custom/Configuration1099418]:
+	<jenkins.Server id="Configuration/Custom/Configuration1099418" created-by="admin" created-at="2014-11-22T11:25:16.255-0500" last-modified-by="admin" last-modified-at="2014-11-22T11:25:16.255-0500">
+	  <title>My Jenkins</title>
+	  <url>http://localhost/foo</url>
+	  <username>foo</username>
+	  <password>{b64}C7JZetqurQo2B8x2V8qUhg==</password>
+	</jenkins.Server>

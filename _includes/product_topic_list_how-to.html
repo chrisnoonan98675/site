@@ -1,24 +1,14 @@
-{% assign product-id-to-search-for = page.product-id %}
-
 <h3 id="how-to">How-to</h3>
 
-<span class="hidden">{% increment how-to-counter %}</span>
+{% unless jekyll.environment == "lightweight" %}
 
-<ul>
-{% for page in site.pages %}
-	{% if page.categories contains product-id-to-search-for %}
-		{% if page.path contains 'how-to' %}
-			{% unless page.path contains 'index' %}
-				<span class="hidden">{% increment how-to-counter %}</span>
-				{% if how-to-counter <=6 %}
-					<li><a href="{{ page.url }}">{{ page.title }}</a></li>
-				{% endif %}
-			{% endunless %}
-		{% endif %}
-	{% endif %}
-{% endfor %}
-</ul>
+	<ul>
+   {% assign subselection = site.weighted_pages | topics: page.product-id, 'how-to' %}
+	{% for page in subselection %}
+		<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+	{% endfor %}
+	</ul>
 
-{% if how-to-counter > 6 %}
 	<p class="indented"><a href="how-to">Read more &#187;</a></p>
-{% endif %}
+
+{% endunless %}

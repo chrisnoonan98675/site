@@ -10,13 +10,14 @@ tags:
 - discovery
 - control task
 - schedule
+weight: 183
 ---
 
-A task is an activity in XL Deploy. When starting a deployment, XL Deploy will create and start a task. The task contains a list of _steps_ that must be executed to successfully complete the task. XL Deploy will execute each of the steps in turn. When all of the steps are successfully executed, the task itself is successfully executed. If one of the steps fails, the task itself is marked failed.
+A _task_ is an activity in XL Deploy. When starting a deployment, XL Deploy will create and start a task. The task contains a list of _steps_ that must be executed to successfully complete the task. XL Deploy will execute each of the steps in turn. When all of the steps are successfully executed, the task itself is successfully executed. If one of the steps fails, the task itself is marked failed.
 
 XL Deploy supports the following types of tasks:
 
-* Deploy application: Deploys a package onto an environment
+* Deploy application: Deploys a package to an environment
 * Update application: Updates an existing deployment of an application
 * Undeploy application: Undeploys a package from an environment
 * Rollback: Rolls back a deployment
@@ -25,7 +26,7 @@ XL Deploy supports the following types of tasks:
 
 ## Task recovery
 
-XL Deploy periodically stores a snapshot of the tasks in the system to be able to recover tasks if the server is stopped abruptly. XL Deploy will reload the tasks from the recovery file when it restarts. The tasks, deployed item configurations and generated steps will all be recovered. Tasks that were executing (or failing, stopping or aborting) in XL Deploy when the server stopped will be put in _failed_ state so the user can decide whether to rerun or cancel it. Only tasks that have been _pending_, _scheduled_ or _started_ will be recovered.
+XL Deploy periodically stores a snapshot of the tasks in the system to be able to recover tasks if the server is stopped abruptly. XL Deploy will reload the tasks from the recovery file when it restarts. The tasks, deployed item configurations, and generated steps will all be recovered. Tasks that were _executing_, _failing_, _stopping_, or _aborting_ in XL Deploy when the server stopped are put in _failed_ state so you can decide whether to rerun or cancel them. Only tasks that have been _pending_, _scheduled_ or _started_ will be recovered.
 
 ## Scheduling tasks
 
@@ -85,4 +86,6 @@ You can interact with tasks as follows:
 
 * **Cancel the task**. XL Deploy will cancel the task execution. If the task was _executing_ before, the task will be stored since it may have made changes to the middleware. If the task was _pending_ and never started, it will be removed but not stored. The task can only be cancelled when it is _pending_, _scheduled_, _failed_, _stopped_ or _aborted_.
 
-* **Archive the task**. XL Deploy will finalize the task and store it. Manually archiving is needed to be able to review a task when it is executed, and to decide whether or not a rollback is needed. Archiving the task can only be done when the task is _executed_.
+* **Archive the task**. XL Deploy will finalize the task and store it. You must manually archive tasks; this is required so you can review the task and determine whether a rollback is required. Archiving the task can only be done when the task is _executed_.
+
+**Tip:** You can use the [XL Deploy command-line interface (CLI)](/xl-deploy/concept/getting-started-with-the-xl-deploy-cli.html) to work with tasks.

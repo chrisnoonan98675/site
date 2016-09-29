@@ -9,6 +9,7 @@ tags:
 - security
 - repository
 - password
+weight: 500
 ---
 
 ## Configure custom passwords

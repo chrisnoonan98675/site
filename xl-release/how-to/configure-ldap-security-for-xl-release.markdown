@@ -12,9 +12,14 @@ tags:
 - user management
 ---
 
-You can configure XL Release to use an LDAP repository to authenticate users and retrieve role (group) membership. LDAP users and groups are used as principals in XL Release and can be mapped to XL Release roles. Role membership and rights assigned to roles are always stored in the JCR repository.
+XL Release has a role-based security system with two types of users:
 
-XL Release treats the LDAP repository as *read-only*. This means that XL Release will use the information from the LDAP repository, but it cannot make changes to that information.
+* [_Internal users_](/xl-release/how-to/configure-user-settings.html) that are managed by XL Release
+* _External users_ that are maintained in an LDAP repository such as Active Directory
+
+This topic describes how to configure XL Release to use an LDAP repository to authenticate users and retrieve role (group) membership. In XL Release, LDAP users and groups become *principals* that you can assign to roles. [Global permissions](/xl-release/how-to/configure-permissions.html) are assigned at the role level.
+
+While role memberships and permissions assigned to roles are stored in XL Release's JCR repository, XL Release treats the LDAP repository as read-only. This means that XL Release will use information from the LDAP repository, but it cannot make changes to that information.
 
 **Note:** XL Release cookies store security information that is provided by the [Spring Security](http://projects.spring.io/spring-security/) framework. XL Release does not store any additional information in cookies.
 
@@ -28,8 +33,7 @@ To configure XL Release to use an LDAP repository, modify the `xl-release-securi
     xmlns:security="http://www.springframework.org/schema/security"
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
-    "&gt;
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd"&gt;
 
     &lt;bean id="ldapServer" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource"&gt;
         &lt;constructor-arg value="<mark>LDAP_SERVER_URL</mark>" /&gt;
@@ -118,12 +122,9 @@ Because `xl-release-security.xml` is an XML file, you must escape certain charac
 
 ## Assign a default role to all authenticated users
 
-In the `xl-release-security.xml` file, you can configure:
+If you have an LDAP setup in which there is not a group that contains all XL Release users, and you want to use such a group in the default `XlAuthenticationProvider` (`JcrAuthenticationProvider` in XL Release 4.7.x and earlier), you can configure this in the `xl-release-security.xml` file.
 
-* An LDAP setup in which there is not a group that contains all XL Release users
-* You want to use such a group in the default `XlAuthenticationProvider` (`JcrAuthenticationProvider` in XL Release 4.7.x and earlier)
-
-The code below sets up an group called `everyone` that is assigned to each user who is authenticated (the group name can be anything you want). You can then link this group to a XL Release role and assign log-in privileges to it.
+This example creates a group called `everyone` that is assigned to each user who is authenticated (the group name can be anything you want). You can then link this group to a XL Release role and assign the [*Login* global permission](/xl-release/how-to/configure-permissions.html) to it.
 
     <beans>
         ...

@@ -1,5 +1,5 @@
 ---
-title: Using placeholders with provisioning
+title: Using placeholders in provisioning
 categories:
 - xl-deploy
 subject:

@@ -1,13 +1,14 @@
 ---
 title: Choose an Overthere host type and connection type
 subject:
-- Remoting plugin
+- Remoting
 categories:
 - xl-deploy
 tags:
 - connectivity
 - remoting
 - overthere
+weight: 337
 ---
 
 XL Deploy uses the [Overthere framework](https://github.com/xebialabs/overthere) to manipulate files and execute commands on remote hosts. To determine which type of Overthere host to create and which connection type to use, follow these guidelines.

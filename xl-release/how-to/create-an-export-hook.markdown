@@ -12,6 +12,7 @@ tags:
 - purging
 since:
 - XL Release 4.7.0
+weight: 438
 ---
 
 You can use the *export hook* feature to configure XL Release to run a Jython script for every release that is about to be [archived](/xl-release/concept/how-archiving-works.html).

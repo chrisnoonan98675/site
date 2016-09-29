@@ -8,6 +8,7 @@ tags:
 - test specification
 - dashboard
 - report
+weight: 707
 ---
 
 XL TestView lets you define, manage, execute, visualize, and analyze tests across all of your test tools to give you a single source of quality truth. XL TestView acts as the Fitbit of your software.

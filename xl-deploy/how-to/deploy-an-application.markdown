@@ -10,7 +10,10 @@ tags:
 - package
 since:
 - XL Deploy 5.0.0
+weight: 184
 ---
+
+**Note:** A version of this topic is available for [XL Deploy 4.5.x and earlier](/xl-deploy/4.5.x/deploy-an-application-4.5.html).
 
 After you have [defined your infrastructure](/xl-deploy/how-to/connect-xl-deploy-to-your-infrastructure.html), [defined an environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html), and added an application to XL Deploy, you can perform the initial deployment of an application to an environment.
 

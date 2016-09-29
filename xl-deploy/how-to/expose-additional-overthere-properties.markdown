@@ -3,12 +3,13 @@ title: Exposing additional Overthere properties in XL Deploy
 categories:
 - xl-deploy
 subject:
-- Remoting plugin
+- Remoting
 tags:
 - remoting
 - connectivity
 - ssh
 - cifs
+weight: 350
 ---
 
 Most of the Overthere connection properties defined in the [Overthere documentation](https://github.com/xebialabs/overthere/blob/master/README.md) are available as regular properties or as hidden properties on the `overthere.SshHost` and `overthere.CifsHost` types. If you need access to any additional properties, you can create a type modification in the `ext/synthetic.xml` file like this:

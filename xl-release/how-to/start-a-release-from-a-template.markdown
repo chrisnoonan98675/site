@@ -7,6 +7,7 @@ subject:
 tags:
 - release
 - template
+weight: 423
 ---
 
 To create a release from a template, either:

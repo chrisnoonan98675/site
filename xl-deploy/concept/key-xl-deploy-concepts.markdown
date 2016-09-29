@@ -12,6 +12,7 @@ tags:
 - application
 - plugin
 - environment
+weight: 110
 ---
 
 ## Interacting with XL Deploy
@@ -28,7 +29,7 @@ You can interact with XL Deploy in two ways:
 
 ### Security
 
-XL Deploy has a role-based access control scheme that ensures the security of your middleware and deployments. The security mechanism is based on the concepts of roles and [permissions](/xl-deploy/concept/overview-of-security-in-xl-deploy.html). 
+XL Deploy has a role-based access control scheme that ensures the security of your middleware and deployments. The security mechanism is based on the concepts of roles and [permissions](/xl-deploy/concept/overview-of-security-in-xl-deploy.html).
 
 A role is a functional group of principals (security users or groups) that can be authenticated and assigned rights over resources in XL Deploy. These rights can be either:
 

@@ -1,13 +1,14 @@
 ---
 title: Introduction to the XL Deploy Trigger plugin
-categories: 
+categories:
 - xl-deploy
 subject:
-- Trigger plugin
+- Bundled plugins
 tags:
 - plugin
 - trigger
 - email
+weight: 362
 ---
 
 The Trigger plugin allows you to configure XL Deploy to send emails for certain events. For example, you can add rules to send an email whenever a step fails, or when a deployment has completed successfully.
@@ -60,7 +61,7 @@ This section describes how to configure an email action.
 
 First, you will need to define a `#mail.SmtpServer` CI under the **Configuration** root.
 
-The `trigger.EmailNotification` CI is used to define the message template for the emails that will be sent. Under the **Configuration** root, define a `trigger.EmailNotification` configuration item. In the CLI you can do something like: 
+The `trigger.EmailNotification` CI is used to define the message template for the emails that will be sent. Under the **Configuration** root, define a `trigger.EmailNotification` configuration item. In the CLI you can do something like:
 
 	myEmailAction = factory.configurationItem("Configuration/MyFailedDeploymentNotification", "trigger.EmailNotification")
 	myEmailAction.mailServer = "Configuration/MailServer"
@@ -73,7 +74,7 @@ The `subject`, `toAddresses`, `fromAddress`, `body` properties accept [FreeMarke
 
 * `${deployedApplication}`
 * `${task}`
-* `${step}` 
+* `${step}`
 
 For example, `${deployedApplication.version.application.name}` refers to the name of the application being deployed.
 
@@ -98,7 +99,7 @@ A `trigger.TaskTrigger` can be defined under the **Configuration** root and asso
 	taskTrigger.toState   = "CANCELLED"
 	taskTrigger.actions   = [myEmailAction]
 	repository.create(taskTrigger)
-	
+
 	env = repository.read("Environments/Dev")
 	env.triggers = ["Configuration/TriggerOnCancel"]
 	repository.update(env)
@@ -116,7 +117,7 @@ A `trigger.StepTrigger` can be defined under the **Configuration** root and asso
 	stepTrigger.toState   = "FAILED"
 	stepTrigger.actions   = [myEmailAction]
 	repository.create(stepTrigger)
-	
+
 	env = repository.read("Environments/Dev")
 	env.triggers = ["Configuration/TriggerOnFailure"]
 	repository.update(env)

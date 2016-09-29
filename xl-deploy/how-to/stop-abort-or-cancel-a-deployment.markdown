@@ -7,6 +7,7 @@ categories:
 tags:
 - deployment
 - gui
+weight: 188
 ---
 
 ## Stop a running deployment

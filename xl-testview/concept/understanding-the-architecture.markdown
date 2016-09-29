@@ -8,6 +8,7 @@ tags:
 - plugin
 - api
 - extension
+weight: 709
 ---
 
 Before you customize XL TestView's functionality, some knowledge of the XL TestView architecture is required. XL TestView features a modular architecture that allows extension and modification of various components while maintaining a consistent system.
@@ -29,7 +30,7 @@ XL TestView uses a central, scalable data storage solution as a repository to st
 
 Plugins provide the XL TestView server with extensions to support a specific type of test tool, provide an integration point, or enable a specific report.
 
-To integrate with the XL TestView core, plugins must adhere to a well-defined interface that specifies the contract between the XL TestView plugin and the XL TestView core, making  clear what one can expect of the other. The XL TestView core is the active party in this collaboration and invokes the plugin whenever needed. The XL TestView plugin replies to requests it is sent. 
+To integrate with the XL TestView core, plugins must adhere to a well-defined interface that specifies the contract between the XL TestView plugin and the XL TestView core, making  clear what one can expect of the other. The XL TestView core is the active party in this collaboration and invokes the plugin whenever needed. The XL TestView plugin replies to requests it is sent.
 
 When the XL TestView server starts, it scans the classpath and loads each XL TestView plugin it finds, readying it for interaction with the XL TestView core. The XL TestView core does not change loaded plugins or load any new plugins after it has started.
 

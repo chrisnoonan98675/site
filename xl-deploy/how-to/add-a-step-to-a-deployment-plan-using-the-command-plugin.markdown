@@ -1,24 +1,25 @@
 ---
-title: Add a step to an XL Deploy deployment plan using the Command plugin
+title: Add a step to a deployment plan using the Command plugin
 categories:
 - xl-deploy
 subject:
-- Customization
+- Bundled plugins
 tags:
 - plugin
 - deployment
 - planning
+weight: 352
 ---
 
-For a deployment, XL Deploy calculates the step list based on your model. But what if you want to add an extra step? There are several ways to do this. This cookbook entry will explain a simple case: executing a remote shell command on a server. 
+For a deployment, XL Deploy calculates the step list based on your model. But what if you want to add an extra step? There are several ways to do this. This topic will explain a simple case: executing a remote shell command on a server.
 
-In this example we will show how to add a step to log the disk usage using the `df` command. We will do this using the [Command plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-command-plugin.html).
+In this example we will show how to add a step to log the disk usage using the `df` command. We will do this using the [Command plugin](/xl-deploy/concept/command-plugin.html).
 
 ## When to use the Command plugin
 
 As said, you can add a step to the step list in several ways. Choosing the command plugin has the following implications:
 
- * The command is part of a deployment, so the command must be mapped to the particular hosts you want to run it on. 
+ * The command is part of a deployment, so the command must be mapped to the particular hosts you want to run it on.
  * The command must be independent of the environment, since the same package (and command) may be deployed to multiple environments.
  * This approach automatically scales to environments with one or more hosts (i.e. using the auto-map button, you get the disk usage of every host in the environment)
 
@@ -26,7 +27,7 @@ As said, you can add a step to the step list in several ways. Choosing the comma
 
 We will assume a simple setup for the PetClinic WAR, that will be deployed to a Tomcat server. When doing a deployment, we have the following steps.
 
-![image](images/simple-command-steplist-original.png) 
+![image](images/simple-command-steplist-original.png)
 
 To monitor the target server's disk, we want to add a step that displays the output of the `df` command at the end of the step list.
 
@@ -48,7 +49,7 @@ Save the command.
 
 ## Testing and refining the command
 
-Go to the Deployment tab and start a deployment of the version you just added the command to. In our case, that would be deploying PetClinic war 1.0 to Tomcat. 
+Go to the Deployment tab and start a deployment of the version you just added the command to. In our case, that would be deploying PetClinic war 1.0 to Tomcat.
 
 Note that the command will be mapped to an **Overthere Host**, so make sure the environment you deploy to contains the `overthere.SshHost` (or equivalent) Tomcat is running on.
 
@@ -70,7 +71,7 @@ When executing the deployment, we will see the output of the `df` command in the
 
 ## Adding the command to the manifest
 
-We did our changes in the UI, because it's easier to see what's going on and the development cycle (edit-test-refine) is faster. But now we want to make the changes more permanent, so other versions of the same application can use it as well. We do this by editing the Manifest.MF file, that is used to create the application package DAR file. 
+We did our changes in the UI, because it's easier to see what's going on and the development cycle (edit-test-refine) is faster. But now we want to make the changes more permanent, so other versions of the same application can use it as well. We do this by editing the Manifest.MF file, that is used to create the application package DAR file.
 
 This is how the above example looks like in Manifest format:
 

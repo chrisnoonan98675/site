@@ -11,6 +11,7 @@ tags:
 - step
 since:
 - XL Deploy 4.5.0
+weight: 127
 ---
 
 An XML rule is fully specified using XML and has the following format in `xl-rules.xml`:
@@ -19,9 +20,9 @@ An XML rule is fully specified using XML and has the following format in `xl-rul
  * A `conditions` tag with:
     * One or more `type` tags that identify the UDM types that the rule is restricted to. `type` is required if the scope is `deployed`; otherwise, you must omit it. The UDM type name must refer to a *deployed* type (not a *deployable*, *container*, or other UDM type).
     * One or more `operation` tags that identify the operations that the rule is restricted to. The operation can be `CREATE`, `MODIFY`, `DESTROY`, or `NOOP`. `operation` is required if the scope is `deployed`; otherwise, you must omit it.
-    * An optional `expression` tag with an expression in Jython that defines a condition upon which the rule will be triggered. This tag is optional for all scopes. If you specify an `expression`, it must evaluate to a Boolean value. 
+    * An optional `expression` tag with an expression in Jython that defines a condition upon which the rule will be triggered. This tag is optional for all scopes. If you specify an `expression`, it must evaluate to a Boolean value.
  * A `steps` tag that contains a list of steps that will be added to the plan when this rule meets all conditions; that is, when its types and operations match and its `expression` (if present) evaluates to true. Each step to be added is represented by an XML tag specifying the step type and step parameters such as `upload` or `powershell`.
- 
+
 ## Define steps in XML rules
 
 Steps in XML rules are defined in the `steps` tag. There is no XML schema verification of the way that rules are defined, but there are guidelines that you must follow.
@@ -34,7 +35,7 @@ Steps in XML rules are defined in the `steps` tag. There is no XML schema verifi
     * In the case of map-valued parameters, you can specify the map with sub-tags. Each sub-tag will result in a map entry with the tag name as key and the tag body as value. Also, you can specify `expression="true"` to place non-string values into a map.
     * In the case of list-valued parameters, you can specify the list with `value` tags. Each tag results in a list entry with the value defined by the tag body. Also, you can specify `expression="true"` to place non-string values into a list.      
 * The `steps` tag may contain a `checkpoint` tag that informs XL Deploy that the action the step takes must be undone in the case of a rollback.
-    
+
 All Jython expressions are executed in same context with the same available variables as Jython scripts in script rules.
 
 ### Using dynamic data
@@ -61,7 +62,7 @@ If the parameter is an expression, enclose the string with single or double quot
 <parameter-string expression="true">u'pingüino'</parameter-string>
 {% endhighlight %}
 
-If the parameter is not evaluated as an expression, no additional prefix is required. You can simply assign the value. For example: 
+If the parameter is not evaluated as an expression, no additional prefix is required. You can simply assign the value. For example:
 
 {% highlight xml %}
 <parameter-string>pingüino</parameter-string>
@@ -118,12 +119,12 @@ This is an example of an XML rule that is triggered once for the whole plan, whe
     </rule>
 </rules>
 {% endhighlight %}
-     
+
 **Note:** The `expression` tag does not need to specify `expression="true"`. Also, in this example, the description is now a literal string, so `expression="true"` is not required.
 
 ## Sample XML rule: Using a checkpoint
 
-This is an example of an XML rule that contains a checkpoint. XL Deploy will use this checkpoint to undo the rule's action if you roll back the deployment. If the step was executed successfully, XL Deploy knows that the deployable is successfully deployed; upon rollback, the planning phase needs to add steps to undo the deployment of the deployable. 
+This is an example of an XML rule that contains a checkpoint. XL Deploy will use this checkpoint to undo the rule's action if you roll back the deployment. If the step was executed successfully, XL Deploy knows that the deployable is successfully deployed; upon rollback, the planning phase needs to add steps to undo the deployment of the deployable.
 
 {% highlight xml %}
 <rule name="CreateBaseDeployedArtifact" scope="deployed">
@@ -155,7 +156,7 @@ This is an example of an XML rule in which the operation is `MODIFY`. This opera
             <....>
         </delete>
         <checkpoint completed="DESTROY"/>
-    
+
         <upload>
             <....>
         </upload>

@@ -10,6 +10,7 @@ tags:
 - logging
 since:
 - XL Deploy 4.5.0
+weight: 134
 ---
 
 This topic provides some best practices when writing [XL Deploy rules](/xl-deploy/concept/getting-started-with-xl-deploy-rules.html).
@@ -42,7 +43,7 @@ It is recommended that you do not refer from one deployed to another deployed or
 
 To see more information during the [planning phase](/xl-deploy/concept/understanding-the-xl-deploy-planning-phase.html), you can increase the logging output:
 
-1. Open `<XLDEPLOY_HOME>/conf/logback.xml` for editing.
+1. Open `XL_DEPLOY_SERVER_HOME/conf/logback.xml` for editing.
 1. Add a statement such as one of the following:
 
         <logger name="com.xebialabs.deployit.deployment.rules" level="debug" />

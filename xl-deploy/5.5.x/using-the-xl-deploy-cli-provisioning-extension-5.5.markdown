@@ -14,17 +14,17 @@ To use the XL Deploy CLI for provisioning:
 
 1. [Upgrade](/xl-deploy/how-to/upgrade-xl-deploy.html) to XL Deploy 5.5.0 or later.
 1. Ensure that the [XL Deploy CLI](/xl-deploy/how-to/install-the-xl-deploy-cli.html) is installed.
-1. Download the XL Deploy Provisioning plugin and EC2 plugin from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com) and copy them to the `XLDEPLOY_HOME/plugins` directory (where `XLDEPLOY_HOME` is the directory where XL Deploy is installed).
+1. Download the XL Deploy Provisioning plugin and EC2 plugin from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com) and copy them to the `XL_DEPLOY_SERVER_HOME/plugins` directory (where `XL_DEPLOY_SERVER_HOME` is the directory where XL Deploy is installed).
 
     **Tip:** XL Deploy supports several cloud providers; this topic shows how to use the Amazon EC2 plugin, but you can use the same approach for other providers.
 
 ## Step 1 Install the XL Deploy CLI provisioning extension
 
-Download the XL Deploy CLI provisioning extension (`xld-provision-cli.jar`) from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com) and copy it to `XLDEPLOY_CLI_HOME/plugins`.
+Download the XL Deploy CLI provisioning extension (`xld-provision-cli.jar`) from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com) and copy it to `XL_DEPLOY_CLI_HOME/plugins`.
 
 ## Step 2 Launch the XL Deploy CLI
 
-Open a terminal window or command prompt and go to the `XLDEPLOY_CLI_HOME/bin` directory (where `XLDEPLOY_CLI_HOME` is the directory where the CLI is installed). Execute the start command:
+Open a terminal window or command prompt and go to the `XL_DEPLOY_CLI_HOME/bin` directory (where `XL_DEPLOY_CLI_HOME` is the directory where the CLI is installed). Execute the start command:
 
 * Unix-based operating systems: `./cli.sh`
 * Microsoft Windows: `cli.cmd`
@@ -86,7 +86,7 @@ A `ProvisioningPackage` consists of a `Provisionable` and a `Template`.
 {% highlight python %}
 template = repository.create(factory.configurationItem(pp.id + "/ubuntu-host", "template.overthere.SshHost", {
   "instanceId":"Infrastructure/ubuntu",
-  "address":"{{%publicHostname%}}",
+  "address":"{% raw %}{{%publicHostname%}}{% endraw %}",
   "username":"ubuntu",
   "sudoUsername":"root",
   "connectionType":"SUDO",

@@ -3,11 +3,12 @@ title: Introduction to the XL Deploy Database plugin
 categories:
 - xl-deploy
 subject:
-- Database plugin
+- Bundled plugins
 tags:
 - plugin
 - database
 - sql
+weight: 353
 ---
 
 The XL Deploy Database plugin supports deployment of SQL files and folders to a database client.
@@ -34,7 +35,7 @@ A rollback script **must** have the same name as the installation script it is a
 
 XL Deploy uses a regular expression to identify SQL scripts. The regular expression is defined by the `scriptRecognitionRegex` and `rollbackScriptRecognitionRegex` properties of the `sql.ExecutedSqlScripts` CI.
 
-The default regular expression is configured such that XL Deploy expects each script to start with a number; for example, `1-create-user-table.sql`. Even if there is only one script, it should start with a number.
+The default regular expression is configured such that XL Deploy expects each script to start with a number and a hyphen; for example, `1-create-user-table.sql`. Even if there is only one script, it must start with a number and a hyphen.
 
 You can change the regular expression in `deployit-defaults.properties` or by creating a type modification in the `synthetic.xml` file.
 
@@ -106,7 +107,7 @@ The `02-CreateUser.sql` script can use its dependencies or common dependencies a
 	-- Execute script-specific dependency: Create Power Users
 	@02-CreateUser/create_power_users.sql
 	COMMIT;
-	
+
 **Note:** The syntax for including the dependent scripts varies between databases. For example, Microsoft SQL databases use `include <script file name>`.
 
 ### Updating dependencies

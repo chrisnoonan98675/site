@@ -10,6 +10,7 @@ tags:
 - property
 since:
 - XL Deploy 5.0.0
+weight: 162
 ---
 
 **Note:** A version of this topic is available for [XL Deploy 4.5.x and earlier](/xl-deploy/4.5.x/how-password-properties-and-encrypted-dictionaries-combine-4.5.html).

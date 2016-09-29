@@ -1,7 +1,7 @@
 ---
 title: Set up CIFS/SMB in XL Deploy and on a target host
 subject:
-- Remoting plugin
+- Remoting
 categories:
 - xl-deploy
 tags:
@@ -10,6 +10,7 @@ tags:
 - cifs
 - smb
 - overthere
+weight: 340
 ---
 
 XL Deploy can use Telnet or WinRM to execute commands on the middleware hosts, but it requires the [CIFS](http://en.wikipedia.org/wiki/Server_Message_Block) protocol (also known as SMB) to transfer files to the middleware host.

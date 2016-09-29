@@ -7,6 +7,7 @@ categories:
 tags:
 - system administration
 - installation
+weight: 105
 ---
 
 It is possible to perform an unattended install of the XL Deploy server, for example, using Puppet.
