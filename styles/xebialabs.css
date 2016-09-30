@@ -205,6 +205,7 @@ td > pre {
 	margin: 0;
 	padding: 0 0 0 35px;
 	text-transform: uppercase;
+	font-weight: 500;
 }
 .mini-toc ul {
   list-style-type: none;
