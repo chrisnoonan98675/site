@@ -28,3 +28,11 @@ For example, in this log:
 The satellite starts listening to the address `192.168.1.7` on port `8380`. These are the values that you must use for the satellite in XL Deploy.
 
 **Note:** If the satellite is listening to `127.0.0.1`, you must use this value when adding the satellite to XL Deploy. Using `localhost` will not work.
+
+## Deploying to a satellite returns an `OversizedPayloadException`
+
+When deploying an application to a satellite, if you see an error such as:
+
+    akka.remote.OversizedPayloadException: Discarding oversized payload sent to Actor[akka.tcp://XL-Satellite@mycompany.local:8380/]: max allowed size 128000 bytes, actual size of encoded class akka.actor.ActorSelectionMessage was 162392 bytes.
+
+Add the `akka.remote.netty.tcp.maximum-frame-size` property to the `XL_DEPLOY_SERVER_HOME/conf/system.conf` and `XL_DEPLOY_SATELLITE_HOME/conf/satellite.conf` files. It is recommended that you start by setting this property to `150000`; if you continue to encounter the error, increase the setting by increments of `50000` until the error does not occur. Ensure that the property's value is the same in the configuration files on both XL Deploy and the satellite.
