@@ -10,6 +10,7 @@ tags:
 - import
 since:
 - XL Deploy 5.0.0
+weight: 209
 ---
 
 To deploy an application with XL Deploy, you supply a deployment package. It contains the files (artifacts) and middleware resources that XL Deploy can deploy to a target environment.
@@ -46,7 +47,7 @@ To create a package in the XL Deploy interface:
 
         ![Add resource](images/add-package-step-2-add-file.png)
 
-1. Optionally specify orchestrators for the package. Orchestrators determine the overall flow of a deployment; for example, they can control whether a package is deployed to middleware containers sequentially or in parallel. 
+1. Optionally specify orchestrators for the package. Orchestrators determine the overall flow of a deployment; for example, they can control whether a package is deployed to middleware containers sequentially or in parallel.
 1. Optionally set dependencies between this version and other application versions.
 
     ![Package properties](images/add-package-step-2-properties.png)

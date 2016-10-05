@@ -7,7 +7,6 @@ subject:
 tags:
 - jboss
 - wildfly
-- middleware
 - plugin
 - discovery
 ---

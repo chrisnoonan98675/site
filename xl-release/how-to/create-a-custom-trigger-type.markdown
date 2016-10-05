@@ -7,6 +7,7 @@ subject:
 tags:
 - trigger
 - customization
+weight: 426
 ---
 
 Releases in XL Release can be kicked off in many different ways, such as directly from the user interface or via an upstream CI server or ALM tool.
@@ -17,7 +18,7 @@ Polling an SCM is a standard example of a trigger. But you can also easily defin
 
 ## Step 1 Define the trigger in the type system
 
-To start, define a new trigger type in XL Release's type system. You do this by adding the definition to XL Release's type definition file in `<XL_RELEASE_HOME>/ext/synthetic.xml`:
+To start, define a new trigger type in XL Release's type system. You do this by adding the definition to XL Release's type definition file in `<XL_RELEASE_SERVER_HOME>/ext/synthetic.xml`:
 
     <type type="demo.MyFirstTrigger" extends="xlrelease.ReleaseTrigger" >
         <!-- if we omit this property, XL Release will look for 'demo/MyFirstTrigger.py', based on the name of the type -->
@@ -30,7 +31,7 @@ This example defines a script for the trigger to run, and as a variable that wil
 
 ## Step 2 Create the trigger script
 
-Next, create the script that will be executed each time the trigger executes. Based on the definition above, save the script as `<XL_RELEASE_HOME>/ext/demo/find-events-to-trigger-release.py`:
+Next, create the script that will be executed each time the trigger executes. Based on the definition above, save the script as `<XL_RELEASE_SERVER_HOME>/ext/demo/find-events-to-trigger-release.py`:
 
     import string
     import random

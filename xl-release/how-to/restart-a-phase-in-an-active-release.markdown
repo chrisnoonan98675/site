@@ -7,6 +7,7 @@ subject:
 tags:
 - release
 - phase
+weight: 431
 ---
 
 In an active release, you can abort the current phase and restart the execution from any phase in the past. This can be required if some parts of the release procedure must be repeated. For example, QA rejects a version of the application for release and the test phase must be repeated with an updated version.

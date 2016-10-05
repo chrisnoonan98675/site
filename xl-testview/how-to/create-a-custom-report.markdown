@@ -7,12 +7,13 @@ subject:
 tags:
 - report
 - extension
+weight: 736
 ---
 
 XL TestView generates reports using:
 
 * Python scripts for reports based on [Highcharts](http://www.highcharts.com/)
-* Python or FreeMarker scripts for reports based on HTML 
+* Python or FreeMarker scripts for reports based on HTML
 
 The easiest way to create a custom XL TestView report is to copy a built-in report. This topic shows how to create a custom Highcharts report based on the built-in [bar chart](/xl-testview/concept/reports.html#bar-chart) report.
 
@@ -22,9 +23,9 @@ For detailed technical information about custom reports, refer to [Custom report
 
 ## Configure the report in `synthetic.xml`
 
-First, add a custom report type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
+First, add a custom report type to `XL_TESTVIEW_HOME/ext/synthetic.xml`:
 
-1. Copy a `type` element with the `type="xlt.Barchart"` attribute from `<XLTESTVIEW_HOME>/plugins/reports/synthetic.xml`:
+1. Copy a `type` element with the `type="xlt.Barchart"` attribute from `XL_TESTVIEW_HOME/plugins/reports/synthetic.xml`:
 
         <type type="xlt.BarChart" extends="xlt.Report" label="Bar chart" description="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format">
             <property name="scriptLocation" default="reports/BarChart.py"/>
@@ -36,7 +37,7 @@ First, add a custom report type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
 1. Change the `scriptLocation` to the report script that you will create; for example, `MyBarChart.py`.
 
     The result will look like:
-    
+
         <type type="myCompany.myBarChart" extends="xlt.Report" label="My Bar Chart" description="Presents the tests that passed and failed in the latest execution of the test specification, in bar chart format">
             <property name="scriptLocation" default="reports/MyBarChart.py"/>
             <property name="iconName" default="bar-report-icon"/>
@@ -51,7 +52,7 @@ First, add a custom report type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
 
 ## Write the report script
 
-Next, copy `<XLTESTVIEW_HOME>/plugins/reports/reports/BarChart.py` to `<XLTESTVIEW_HOME>/ext/reports/MyBarChart.py`. You do not need to restart XL TestView after changing the script.
+Next, copy `XL_TESTVIEW_HOME/plugins/reports/reports/BarChart.py` to `XL_TESTVIEW_HOME/ext/reports/MyBarChart.py`. You do not need to restart XL TestView after changing the script.
 
 The Python script ends with `result_holder.result = <json>`. This is because Highcharts expects a JSON structure, so that is the output of the report script. The JSON structure is created as a Python dictionary.
 

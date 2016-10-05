@@ -7,7 +7,6 @@ subject:
 tags:
 - weblogic
 - oracle
-- middleware
 - plugin
 ---
 
@@ -23,7 +22,7 @@ For information about WebLogic requirements and the configuration items (CIs) th
 	* Enterprise JavaBean (EJB)
 	* J2EE Shared library
 * Staging modes:
-	* Stage 
+	* Stage
 	* NoStage
 * Deployment strategies:
 	* Classical
@@ -106,7 +105,7 @@ Certain deployables can be targeted to multiple containers. For example, an EAR 
 
 To handle multiple targets, the WebLogic plugin generates steps for each targeting. For example, if a datasource is targeted to Cluster-1 and Cluster-2, XL Deploy will create two datasource creation steps:
 
-* The first step will create the datasource on Cluster-1, with all the properties of the deployed datasource. 
+* The first step will create the datasource on Cluster-1, with all the properties of the deployed datasource.
 * The second step will add Cluster-2 to the target list of the datasource created in first step. If there are difference in the datasource values of this deployed, it *overrides* the previous value.
 
 Because the second targeting overrides the properties of the first targeting, ensure that the properties of the deployeds (of the same deployable) are uniform across each other.
@@ -147,7 +146,7 @@ The WebLogic plugin greatly simplifies the management of JMS resources by automa
 
 For example, the followings is the sequence of steps that happens behind the scene when a JMS resource such as a queue is created:
 
-1. You specify the JMS module name in a deployed resource (for example, the `jmsModuleName` property of `wls.Queue`) 
+1. You specify the JMS module name in a deployed resource (for example, the `jmsModuleName` property of `wls.Queue`)
 1. The WebLogic plugin automatically creates the *module* if it is not present; otherwise, the plugin adds the deployed container to existing module targets
 1. The WebLogic plugin automatically creates a *subdeployment* if is not present; otherwise the plugin adds the deployed container to existing sub-deployment targets
 1. The WebLogic plugin creates/updates the JMS resource and assigns the sub-deployment created in the previous step as the resource sub-deployment
@@ -155,6 +154,6 @@ For example, the followings is the sequence of steps that happens behind the sce
 Similarly, the destruction of a JMS resource is handled as follows:
 
 1. The resource container is removed from its sub-deployment targets
-1. Destroy the JMS resource only if its sub-deployment targets list is empty (if it is the last one) 
+1. Destroy the JMS resource only if its sub-deployment targets list is empty (if it is the last one)
 1. Destroy the sub-deployment automatically if it contains no targets
 1. Destroy JMS module _if no other JMS resources are using it_

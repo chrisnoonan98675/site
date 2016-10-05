@@ -8,8 +8,6 @@ tags:
 - generic
 - plugin
 - discovery
-- middleware
-weight: 112
 ---
 
 The Generic plugin supports discovery in any subtype of `generic.Container`, `generic.NestedContainer`, or `generic.AbstractDeployed`. To implement custom discovery tasks, you provide shell scripts that interact with the discovery mechanism, via the standard out, with specially formatted output representing the inspected property or discovered configuration item.

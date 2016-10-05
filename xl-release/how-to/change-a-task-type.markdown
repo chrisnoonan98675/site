@@ -10,6 +10,7 @@ tags:
 - task
 since:
 - XL Release 4.8.0
+weight: 441
 ---
 
 You can change the [type of a task](/xl-release/concept/types-of-tasks-in-xl-release.html) in:

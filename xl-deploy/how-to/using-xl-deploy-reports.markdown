@@ -9,6 +9,7 @@ tags:
 - report
 - environment
 - infrastructure
+weight: 230
 ---
 
 XL Deploy contains information about your environments, infrastructure, and deployments. Using the reporting functionality, you can gain insight into the state of your environments and applications. The reports are available to all users of XL Deploy:

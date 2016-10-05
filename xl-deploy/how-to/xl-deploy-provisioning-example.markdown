@@ -16,6 +16,7 @@ tags:
 - cloud
 since:
 - XL Deploy 5.5.0
+weight: 331
 ---
 
 This topic provides a step-by-step example that will help you get started with the XL Deploy [provisioning feature](/xl-deploy/concept/provisioning-through-xl-deploy.html). This example shows how to provision a cloud-based environment running [Apache Tomcat](http://tomcat.apache.org/).
@@ -78,7 +79,7 @@ Right-click the **1.0** provisioning package and select **template** > **overthe
 | Connection Type | `SUDO` | Puppet requires a SUDO connection |
 | Address | `{% raw %}{{%publicHostname%}}{% endraw %}` | This is a placeholder that will be resolved from the provisioned |
 | Username | `ubuntu` | User name for the EC2 machine |
-| Private Key File| `SSH_DIRECTORY/{{%keyName%}}.pem` | The location of the SSH key on your local machine to use when connecting to the EC2 instance. `SSH_DIRECTORY` is the directory where you store your SSH keys; for example, `Users/yourusername/.ssh` |
+| Private Key File | `SSH_DIRECTORY/{% raw %}{{%keyName%}}{% endraw %}.pem` | The location of the SSH key on your local machine to use when connecting to the EC2 instance. `SSH_DIRECTORY` is the directory where you store your SSH keys; for example, `Users/yourusername/.ssh` |
 | SUDO username | `root` | The user name to use for SUDO operations (this property is located on the **Advanced** tab |
 
 ![Sample template.overthere.SshHost CI](images/provisioning/provisioning-example-template-overthere-sshhost.png)

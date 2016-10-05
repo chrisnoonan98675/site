@@ -1,5 +1,5 @@
 ---
-title: Using placeholders with provisioning
+title: Using placeholders in provisioning
 categories:
 - xl-deploy
 subject:
@@ -12,6 +12,7 @@ tags:
 - placeholder
 since:
 - XL Deploy 5.5.0
+weight: 323
 ---
 
 You can use placeholders for configuration item (CI) properties that will be replaced with values during [provisioning](/xl-deploy/concept/provisioning-through-xl-deploy.html). This enables you to create provisioning packages that are environment-independent and reusable.

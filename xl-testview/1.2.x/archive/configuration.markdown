@@ -14,7 +14,7 @@ Configuration is split between memory settings for the JVM in `XLT_SERVER_MEM_OP
 
 **Important:** The `xlt.*` system properties must be prefixed with `-D` to ensure they will be seen by the server process.
 
-For example configuring the server port can be done by running server.sh like (assuming you have a shell/cmd prompt at `<XLTESTVIEW_HOME>/bin`):
+For example configuring the server port can be done by running server.sh like (assuming you have a shell/cmd prompt at `XL_TESTVIEW_HOME/bin`):
 
     XLT_SERVER_OPTS="-Dxlt.server.port=8080" ./server.sh
 

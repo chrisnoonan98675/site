@@ -14,6 +14,7 @@ tags:
 - retention
 since:
 - XL Deploy 5.0.0
+weight: 276
 ---
 
 In XL Deploy 5.0.0 and later, you can create a package retention policy (`policy.PackageRetentionPolicy`) removes all deployment packages except the last N packages that match a regular expression that you define. Packages are sorted in lexicographical order.

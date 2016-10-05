@@ -7,6 +7,7 @@ subject:
 tags:
 - variable
 - release
+weight: 475
 ---
 
 When creating release templates, you will probably create tasks that contain information that varies based on the release. For example, you might have one generic release template that is used for the release process of several applications. Different releases based on this template would require different application names.

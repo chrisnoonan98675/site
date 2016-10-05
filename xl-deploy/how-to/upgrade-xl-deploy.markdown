@@ -8,6 +8,7 @@ tags:
 - system administration
 - upgrade
 - installation
+weight: 115
 ---
 
 Briefly, the process of upgrading XL Deploy is:

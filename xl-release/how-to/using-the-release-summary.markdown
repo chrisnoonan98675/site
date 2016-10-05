@@ -9,6 +9,7 @@ tags:
 - release summary
 removed:
 - XL Release 5.0.0
+weight: 420
 ---
 
 In a release, select **Release summary** from the **Show** menu to go to the release summary page, where you can see an overview of the current release.

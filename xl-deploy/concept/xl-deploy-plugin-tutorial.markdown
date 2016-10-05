@@ -2,7 +2,7 @@
 pre_rules: true
 title: XL Deploy plugin tutorial
 subject:
-- Customization
+- Plugins
 categories:
 - xl-deploy
 tags:
@@ -10,9 +10,10 @@ tags:
 - java
 - synthetic
 - tutorial
+weight: 226
 ---
 
-This tutorial will explain the basic case of deploying a file to a target Container and doing something on the target Container with that file. 
+This tutorial will explain the basic case of deploying a file to a target Container and doing something on the target Container with that file.
 
 ## Define the new type ##
 
@@ -33,7 +34,7 @@ Open the `synthetic.xml` file that is located under the XL Deploy server `ext` f
 	</type>
 	...
 
-Start (or restart) the XL Deploy server, and open the UI. 
+Start (or restart) the XL Deploy server, and open the UI.
 
 1. Go to the repository view and create a new `overthere.LocalHost` under Infrastructure.
 2. Right click on the just created `overthere.LocalHost` and create a new `cp.Server` under it.

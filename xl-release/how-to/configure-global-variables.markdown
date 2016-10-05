@@ -14,7 +14,7 @@ since:
 
 You can use [variables](/xl-release/concept/variables-in-xl-release.html) to manage information that you don't know in advance or that may change. Global variables can be used in all templates and releases to manage shared information (unlike [release variables](/xl-release/how-to/create-release-variables.html), which are limited to a single release or template). Global variables are available in XL Release 4.8.0 and later.
 
-To create, edit, and delete global variables, select **Settings** > **Global variables** from the top menu. The Global variables page is only available to users with the [*Edit Global Variables*](/xl-release/how-to/configure-permissions.html) permission.
+To create, edit, and delete global variables, select **Settings** > **Global variables** from the top menu. The Global variables page is only available to users who have the *Edit Global Variables* [global permission](/xl-release/how-to/configure-permissions.html).
 
 ![Global variables](../images/global-variables.png)
 

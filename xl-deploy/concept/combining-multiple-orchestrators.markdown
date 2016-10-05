@@ -8,6 +8,7 @@ tags:
 - planning
 - deployment
 - orchestrator
+weight: 151
 ---
 
 You can specify multiple [orchestrators](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) per deployment to achieve complex use cases. When using multiple orchestrators:

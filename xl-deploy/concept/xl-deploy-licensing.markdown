@@ -7,9 +7,8 @@ subject:
 tags:
 - system administration
 - license
-- ci
 - installation
-- upgrade
+- setup
 weight: 101
 ---
 
@@ -56,6 +55,6 @@ If your license limits the number of CIs that you can create, XL Deploy validate
 
 To renew an Enterprise Edition license or extend a Trial Edition license, [contact XebiaLabs](https://xebialabs.com/contact).
 
-To renew your license using a license file that you download from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/), replace the license file in the `XL_DEPLOY_HOME/conf` directory with the new file.
+To renew your license using a license file that you download from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/), replace the license file in the `XL_DEPLOY_SERVER_HOME/conf` directory with the new file.
 
 To renew your license using a license key, click the gear icon in XL Deploy, select **Renew license**, and enter the new license key.

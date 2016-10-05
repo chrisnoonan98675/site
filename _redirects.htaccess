@@ -21,17 +21,17 @@ Redirect 301 /xl-release/help/pipeline.html /xl-release/concept/xl-release-pipel
 Redirect 301 /xl-release/help/release-flow-editor.html /xl-release/how-to/using-the-release-flow-editor.html
 Redirect 301 /xl-release/help/release-properties.html /xl-release/how-to/configure-properties-for-a-release.html
 Redirect 301 /xl-release/help/release-overview.html /xl-release/concept/xl-release-release-overview.html
-Redirect 301 /xl-release/help/teams.html /xl-release/how-to/configure-teams-for-a-release.html
+Redirect 301 /xl-release/help/teams.html /xl-release/how-to/configure-release-teams-and-permissions.html
 Redirect 301 /xl-release/help/teams-in-templates.html /xl-release/how-to/create-a-release-template.html#teams-in-templates
 Redirect 301 /xl-release/help/planner.html /xl-release/how-to/using-the-xl-release-planner.html
 Redirect 301 /xl-release/help/release-summary.html /xl-release/how-to/using-the-release-summary.html
 Redirect 301 /xl-release/help/release-dashboard.html /xl-release/how-to/using-the-release-dashboard.html
 Redirect 301 /xl-release/help/release-grid.html /xl-release/how-to/using-the-table-view.html
 Redirect 301 /xl-release/help/reports.html /xl-release/concept/reports-in-xl-release.html
-Redirect 301 /xl-release/help/global-permissions.html /xl-release/how-to/configure-xl-release-permissions.html
-Redirect 301 /xl-release/help/release-permissions.html /xl-release/how-to/configure-permissions-for-a-release.html
-Redirect 301 /xl-release/help/roles.html /xl-release/how-to/configure-xl-release-roles.html
-Redirect 301 /xl-release/help/task-access.html /xl-release/how-to/configure-xl-release-task-access.html
+Redirect 301 /xl-release/help/global-permissions.html /xl-release/how-to/configure-permissions.html
+Redirect 301 /xl-release/help/release-permissions.html /xl-release/how-to/configure-release-teams-and-permissions.html
+Redirect 301 /xl-release/help/roles.html /xl-release/how-to/configure-roles.html
+Redirect 301 /xl-release/help/task-access.html /xl-release/how-to/configure-task-access.html
 Redirect 301 /xl-release/help/template-permissions.html /xl-release/how-to/create-a-release-template.html#template-permissions
 Redirect 301 /xl-release/help/users.html /xl-release/how-to/configure-xl-release-user-settings.html
 Redirect 301 /xl-release/help/general-settings.html /xl-release/how-to/configure-xl-release-general-settings.html
@@ -39,12 +39,12 @@ Redirect 301 /xl-release/help/smtp-server.html /xl-release/how-to/configure-smtp
 Redirect 301 /xl-release/help/task-overview.html /xl-release/concept/xl-release-task-overview.html
 Redirect 301 /xl-release/help/triggers.html /xl-release/how-to/create-a-release-trigger.html
 Redirect 301 /xl-release/help/creating-custom-trigger.html /xl-release/how-to/create-a-custom-trigger-type.html
-Redirect 301 /xl-release/help/creating-a-template.html /xl-release/how-to/create-a-release-template.html#creating-a-template
+Redirect 301 /xl-release/help/creating-a-template.html /xl-release/how-to/create-a-release-template.html#create-a-template
 Redirect 301 /xl-release/help/template-overview.html /xl-release/how-to/create-a-release-template.html#template-overview
 Redirect 301 /xl-release/help/release-value-stream.html /xl-release/concept/release-value-stream-report.html
 Redirect 301 /xl-release/help/variables.html /xl-release/how-to/create-release-variables.html
 Redirect 301 /xl-release/help/global-variables.html /xl-release/how-to/configure-global-variables.html
-Redirect 301 /xl-deploy/how-to/configure-the-release-dashboard.html : /xl-deploy/concept/advanced-release-dashboard-example.html
+Redirect 301 /xl-deploy/how-to/configure-the-release-dashboard.html /xl-deploy/concept/advanced-release-dashboard-example.html
 
 # XL TestView in-product links
 
@@ -161,6 +161,26 @@ Redirect 301 /xl-deploy/concept/xl-deploy-directory-structure.html /xl-deploy/ho
 Redirect 301 /xl-deploy/how-to/use-the-release-dashboard.html /xl-deploy/concept/release-dashboard.html
 Redirect 301 /xl-deploy/how-to/add-a-check-to-the-deployment-checklist.html /xl-deploy/how-to/create-a-deployment-checklist.html
 Redirect 301 /xl-deploy/how-to/create-a-deployment-package-using-the-cli.html /xl-deploy/how-to/create-a-deployment-package-using-the-command-line.html
+Redirect 301 /xl-deploy/how-to/connect-to-xl-deploy-from-the-cli.html /xl-deploy/concept/getting-started-with-the-xl-deploy-cli.html
+Redirect 301 /xl-deploy/how-to/using-the-xl-deploy-cli.html /xl-deploy/concept/getting-started-with-the-xl-deploy-cli.html
+Redirect 301 /xl-deploy/how-to/using-the-xl-deploy-cli-with-configuration-items.html /xl-deploy/how-to/work-with-cis-in-the-cli.html
+Redirect 301 /xl-deploy/how-to/deploy-an-application-using-the-cli.html /xl-deploy/concept/getting-started-with-the-xl-deploy-cli.html
+Redirect 301 /xl-deploy/how-to/using-the-steppath-in-the-xl-deploy-rest-api.html /xl-deploy/how-to/execute-tasks-from-the-xl-deploy-cli.html
+Redirect 301 /xl-deploy/concept/understanding-xl-deploy-rule-scope.html /xl-deploy/concept/getting-started-with-xl-deploy-rules.html
+Redirect 301 /xl-deploy/how-to/rescan-the-rules-file.html /xl-deploy/how-to/how-to-define-rules.html
+Redirect 301 /xl-deploy/how-to/dictionary-values-in-freemarker.html /xl-deploy/how-to/using-variables-and-expressions-in-freemarker-templates.html
+Redirect 301 /xl-deploy/how-to/enable-additional-logging-for-xl-deploy-server.html /xl-deploy/concept/logging-in-xl-deploy.html
+Redirect 301 /xl-deploy/how-to/using-xl-deploy-logging.html /xl-deploy/concept/logging-in-xl-deploy.html
+Redirect 301 /xl-deploy/how-to/create-an-environment-in-xl-deploy-deprecated-method.html /xl-deploy/how-to/create-an-envrionment-using-the-repository.html
+Redirect 301 /xl-deploy/concept/how-xl-deploy-matches-tags.html /xl-deploy/how-to/use-tags-to-configure-deployments.html
+Redirect 301 /xl-deploy/how-to/specify-file-encoding-for-artifacts.html /xl-deploy/concept/tips-and-tricks-for-deployment-packages.html
+Redirect 301 /xl-deploy/how-to/enable-placeholder-scanning-for-additional-file-types.html /xl-deploy/how-to/using-placeholders-in-xl-deploy.html
+Redirect 301 /xl-deploy/how-to/customizing-the-xl-deploy-type-system.html /xl-deploy/how-to/working-with-configuration-items.html
+Redirect 301 /xl-deploy/concept/installing-and-removing-xl-deploy-plugins.html /xl-deploy/how-to/install-or-remove-xl-deploy-plugins.html
+Redirect 301 /xl-deploy/how-to/connect-through-an-ssh-jumpstation.html /xl-deploy/how-to/set-up-ssh-in-xl-deploy-and-on-a-target-host.html
+Redirect 301 /xl-deploy/concept/remoting-plugin-ssh-compatibility.html /xl-deploy/how-to/set-up-ssh-in-xl-deploy-and-on-a-target-host.html
+Redirect 301 /xl-release/how-to/configure-xl-release-to-trust-xl-deploy-with-a-self-signed-certificate.html /xl-release/how-to/configure-xl-release-to-trust-xl-deploy-server-certificate.html
+Redirect 301 /xl-deploy/how-to/configure-the-cli-to-trust-the-xl-deploy-server-with-a-self-signed-certificate.html /xl-deploy/how-to/configure-the-cli-to-trust-xl-deploy-server-certificate.html
 
 # XL Release topics
 
@@ -196,6 +216,11 @@ Redirect 301 /xl-release/how-to/use-variables-in-xl-release.html /xl-release/con
 Redirect 301 /xl-release/4.0.x/rest-api /xl-release/latest/rest-api
 Redirect 301 /xl-release/how-to/use-a-configuration-object-to-share-global-variables.html /xl-release/how-to/using-a-configuration-object-to-share-global-variables.html
 Redirect 301 /xl-release/how-to/use-markdown-in-xl-release.html /xl-release/how-to/using-markdown-in-xl-release.html
+Redirect 301 /xl-release/concept/xl-release-directory-structure.html /xl-release/how-to/install-xl-release.html
+Redirect 301 /xl-release/how-to/start-xl-release-in-the-background.html /xl-release/how-to/start-xl-release.html
+Redirect 301 /xl-release/how-to/enable-granular-audit-logging.html /xl-release/concept/logging-in-xl-release.html
+Redirect 301 /xl-release/how-to/configure-permissions-for-a-release.html /xl-release/how-to/configure-release-teams-and-permissions.html
+Redirect 301 /xl-release/how-to/configure-teams-for-a-release.html /xl-release/how-to/configure-release-teams-and-permissions.html
 
 # XL TestView topics
 

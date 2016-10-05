@@ -11,13 +11,14 @@ tags:
 - database
 since:
 - XL Release 4.7.0
+weight: 437
 ---
 
-Since XL Release 4.7.0, completed releases are exported to the internal [archive database](/xl-release/concept/how-archiving-works.html), which is used to generate reports. By default, XL Release uses Apache Derby, with data stored at `XLRELEASE_HOME/archive/db`.
+Since XL Release 4.7.0, completed releases are exported to the internal [archive database](/xl-release/concept/how-archiving-works.html), which is used to generate reports. By default, XL Release uses Apache Derby, with data stored at `XL_RELEASE_SERVER_HOME/archive/db`.
 
 ## Change the location of the Apache Derby database
 
-You can move the Apache Derby database by changing the configuration in `XLRELEASE_HOME/conf/xl-release.conf` (if this file does not exist, create it). For example:
+You can move the Apache Derby database by changing the configuration in `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` (if this file does not exist, create it). For example:
 
     xl {
       reporting {
@@ -38,7 +39,7 @@ In XL Release 4.8.0 and later, you can use the following products as archive dat
 
 To change the database, do the following before initializing the XL Release repository:
 
-1. Ensure that `XLRELEASE_HOME/conf/xl-release.conf` exists and contains the appropriate configuration. For example:
+1. Ensure that `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` exists and contains the appropriate configuration. For example:
 
         xl {
           reporting {
@@ -49,7 +50,7 @@ To change the database, do the following before initializing the XL Release repo
           }
         }
 
-2. Ensure that the JDBC driver is available. Drivers of embedded databases (H2 and Apache Derby) are provided with XL Release. Usage of MySQL of Oracle requires appropriate JDBC driver to be added to `XLRELEASE_HOME/plugins`. You can obtain the driver from the website of the vendor.
+2. Ensure that the JDBC driver is available. Drivers of embedded databases (H2 and Apache Derby) are provided with XL Release. Usage of MySQL of Oracle requires appropriate JDBC driver to be added to `XL_RELEASE_SERVER_HOME/plugins`. You can obtain the driver from the website of the vendor.
 
 ## Known limitations
 

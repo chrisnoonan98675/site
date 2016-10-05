@@ -6,7 +6,6 @@ subject:
 - GlassFish
 tags:
 - glassfish
-- middleware
 - plugin
 ---
 

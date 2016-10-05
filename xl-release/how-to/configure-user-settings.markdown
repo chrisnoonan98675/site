@@ -13,12 +13,14 @@ tags:
 - security
 ---
 
-There are two kind of users in XL Release:
+XL Release has a role-based security system with two types of users:
 
-* Internal users are managed by XL Release and can be added and removed by an administrator.
-* External users are maintained in an external system such as Active Directory; see [Configure LDAP security for XL Release](/xl-release/how-to/configure-ldap-security-for-xl-release.html) for more information.
+* _Internal users_ that are managed by XL Release and can be added and removed by an XL Release administrator
+* [_External users_](/xl-release/how-to/configure-ldap-security-for-xl-release.html) that are maintained in an LDAP repository such as Active Directory
 
-To view and edit XL Release users, select **Settings** > **Users** from the top menu. The Users page is only available to users with the *Admin* and *Edit Security* permissions.
+After you create internal users and/or retrieve external users, you can assign them to [roles](/xl-release/how-to/configure-roles.html). [Global permissions](/xl-release/how-to/configure-permissions.html) are assigned at the role level.
+
+To view and edit XL Release users, select **Settings** > **Users** from the top menu. The Users page is only available to users who have the *Admin* or *Edit Security* [global permission](/xl-release/how-to/configure-permissions.html).
 
 ![Users](../images/users.png)
 
@@ -27,16 +29,17 @@ To view and edit XL Release users, select **Settings** > **Users** from the top 
 To create an internal user:
 
 1. Click **New user**. The User dialog appears.
-2. In the **Name** box, enter the full name of the user as it should appear in overviews and tasks.
-3. In the **Username** box, enter the name that the user will use to log in.
-4. Enter a password for the user in **Set password** and **Confirm password**.
+1. In the **Username** box, enter the name that the user will use when logging in.
+1. In the **Name** box, enter the user's full name, as it should appear in overviews and tasks.
+1. Enter a password for the user in the **Set password** and **Confirm password** boxes.
+1. Click **Save**.
 
-## Change a user password
+## Change internal user properties
 
-On the **Users** page, you can change the password or email address of an *internal* user by clicking the user.
+To change the user name, name, email address, or password of an internal user, click the user's name on the Users page.
 
-You cannot change the password of an *external* user from XL Release, because the user is maintained in LDAP. 
+You cannot change the properties of external users from the XL Release interface because they are maintained in LDAP.
 
-## Allow or prevent login
+## Disable a user
 
-On the **Users** page, you can grant or revoke a user's permission to log in by selecting or clearing the **Allow login** box.
+You can disable a user by clearing the checkbox in the **Enabled** column on the Users page. Disabled users cannot log in to XL Release.

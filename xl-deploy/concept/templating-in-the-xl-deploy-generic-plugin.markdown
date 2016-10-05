@@ -9,7 +9,6 @@ tags:
 - plugin
 - template
 - freemarker
-weight: 111
 ---
 
 When you define and use configuration items (CIs) with the Generic Model plugin, you may need to use variables in certain CI properties and scripts. For example, this is how you can include properties from the deployment itself, such as the names or locations of files in the deployment package. XL Deploy uses the [FreeMarker](http://freemarker.sourceforge.net/) templating engine for this.

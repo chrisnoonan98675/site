@@ -13,6 +13,7 @@ tags:
 - cloud
 since:
 - XL Deploy 5.5.0
+weight: 321
 ---
 
 In XL Deploy, a *provisioning package* represents a specific version of a *blueprint*. The package contains *provisionables*, which define the settings that are needed to set up the environment. A provisionable can contain *provisioners* that define actions to take after the environment is set up.
@@ -37,7 +38,7 @@ To create a provisioning package:
 
 1. Click **Repository** in the top bar.
 1. Expand **Blueprints**, right-click the desired blueprint, and select **New** > **ProvisioningPackage**.
-1. In the **Name** box, enter a unique name for the provisioning package.
+1. In the **Name** box, enter the provisioning package's version.
 1. In the **Environment Name** box, enter an XL Deploy environment that should contain the CIs that are generated during provisioning. This field cannot contain forward slashes (`/`).
 
     ![Create new provisioning package](images/provisioning-create-new-provisioning-package.png)

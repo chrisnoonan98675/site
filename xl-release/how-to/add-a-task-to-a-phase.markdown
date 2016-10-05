@@ -10,6 +10,7 @@ tags:
 - task
 - phase
 - release flow
+weight: 417
 ---
 
 In XL Release, the activities in a template or release are modeled as tasks, which are logically grouped in phases. To add a task to phase to a template or release, use the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html); it shows the phases and tasks in the release and allows you to add, move, edit, and delete them.

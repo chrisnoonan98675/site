@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Using variables to revise a JIRA issue list
+title: Using variables to revise a JIRA issue list
 categories:
 - xl-release
 subject:
@@ -11,6 +11,7 @@ tags:
 - user input
 since:
 - XL Release 4.8.0
+weight: 480
 ---
 
 This tutorial will show you how to use the extended variable mechanism (available in XL Release 4.8.0 and later) to create a release that will:
@@ -67,7 +68,7 @@ The JIRA server that you configured should automatically be selected in the **Se
 In the **Query** box, you can enter any query in the [JIRA Query Language (JQL)](https://confluence.atlassian.com/jira/advanced-searching-179442050.html). In the example above, the query is:
 
     project = "Sandbox" and status = Open and text ~ "Dummy"
-	
+
 This means "Give me all open issues of the 'Sandbox' project that have text 'Dummy' in them".
 
 Use JIRA to develop a query that works for your project, then paste it in the **Query** box.
@@ -82,7 +83,7 @@ When testing a release, it's good practice to put a simple Gate task at the end 
 
 Now, click **New Release** at the top of the template to create a new release called *Test 1*.
 
-After you create the release, click **Start Release** to start it. Wait for the *Query JIRA* task to finish. 
+After you create the release, click **Start Release** to start it. Wait for the *Query JIRA* task to finish.
 
 ![Query result](../images/jira-variables/query-result.png)
 
@@ -137,7 +138,7 @@ Try removing a few issues, then click **Complete**. To check the result of your 
 
 ## Step 8 Update the issues in JIRA
 
-The final thing left is to add a comment to the selected issues in JIRA. Go back to the *Check JIRA issues* template. Click **Add task** at the bottom of the *Check JIRA* phase and add a **Jira: Update issues** task called *Update issues in JIRA*. Drag-and-drop the task below the *Check JIRA issues* task. The template should look like this: 
+The final thing left is to add a comment to the selected issues in JIRA. Go back to the *Check JIRA issues* template. Click **Add task** at the bottom of the *Check JIRA* phase and add a **Jira: Update issues** task called *Update issues in JIRA*. Drag-and-drop the task below the *Check JIRA issues* task. The template should look like this:
 
 ![Full template](../images/jira-variables/full-template.png)
 
@@ -155,7 +156,7 @@ The Jira: Update Issues task type allows you to change the status of issues, upd
 
 ## Step 9 Test the release a final time
 
-The template is now complete, so you can do a final test. Create a new release called *Test 3* and start it. In the **Log Output** section of the *Update issues in JIRA* task, you will see which issues have been updated. 
+The template is now complete, so you can do a final test. Create a new release called *Test 3* and start it. In the **Log Output** section of the *Update issues in JIRA* task, you will see which issues have been updated.
 
 ![Output of update task](../images/jira-variables/log-output-update-issues.png)
 

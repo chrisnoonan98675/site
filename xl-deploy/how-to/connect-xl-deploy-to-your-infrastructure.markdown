@@ -1,7 +1,7 @@
 ---
 title: Connect XL Deploy to your infrastructure
 subject:
-- Bundled plugins
+- Remoting
 categories:
 - xl-deploy
 tags:
@@ -13,11 +13,12 @@ tags:
 - cifs
 deprecated:
 - XL Deploy 5.0.0
+weight: 336
 ---
 
-**Tip:** In XL Deploy 5.0.0 and later, you can [connect to your infrastructure and create an environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html) in a single step.
-
 After you have installed [XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) and logged in for the first time, follow these instructions to connect XL Deploy to the host on which your middleware is running.
+
+**Tip:** In XL Deploy 5.0.0 and later, you can [connect to your infrastructure and create an environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html) in a single step.
 
 Follow the instructions for the host's operating system and the connection protocol that you want XL Deploy to use:
 
@@ -63,7 +64,7 @@ To connect to a Windows host using WinRM:
 4. Select the **Connection Type**:
     * If the computer where you installed XL Deploy does not run Windows, select **WINRM_INTERNAL**.
     * If the computer where you installed XL Deploy runs Windows, select **WINRM_NATIVE**.
-    
+
     **Note:** The WINRM_NATIVE option requires [Winrs](http://technet.microsoft.com/en-us/library/hh875630.aspx) to be installed on the computer where you installed XL Deploy. This is only supported for Windows 7, Windows 8, Windows Server 2008 R2, and Windows Server 2012.
 
 5. In the **Address** box, enter the IP address of the host.

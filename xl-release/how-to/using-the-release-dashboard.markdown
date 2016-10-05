@@ -11,6 +11,7 @@ tags:
 - dashboard
 since:
 - XL Release 5.0.0
+weight: 429
 ---
 
 To see an overview of important information about a template or release, select **Release dashboard** from the **Show** menu. The release dashboard is a customizable view where you can add, configure, move, and remove tiles that show planning information and details about release status. For information about the tiles that are available, refer to [Overview of release dashboard tiles](/xl-release/concept/release-dashboard-tiles.html).

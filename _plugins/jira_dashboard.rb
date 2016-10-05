@@ -56,7 +56,7 @@ module Jira
       release = Release.new
       release.id = json['id'].to_s
       release.name = json['name'].to_s
-      release.description = json['description']
+      release.description = (json['description'] || '').to_s
       release.archived = json['archived']
       release.released = json['released']
       release.start_date = json['startDate'] ? Date.strptime(json['startDate'].to_s, '%Y-%m-%d') : nil
@@ -73,7 +73,7 @@ module Jira
     end
 
     def title
-      @description ? @description.to_s : @name.split(/[^a-z0-9\.]/i).map(&:capitalize).join(" ")
+      @description.nil? || @description.empty? ? @name.split(/[^a-z0-9\.]/i).map(&:capitalize).join(" ") : @description.to_s
     end
 
     def precise_date?
@@ -86,12 +86,18 @@ module Jira
 
     def component
       parts = parse_version
-      return parts[0] if parts.size > 1 else ''
+      if parts.size > 1
+        return parts[0]
+      end
+      return ''
     end
 
     def version
       parts = parse_version
-      return parts[1..parts.size].join("-") if parts.size > 1 else ''
+      if parts.size > 1
+        return parts[1..parts.size].join("-")
+      end
+      return ''
     end
 
     def parse_version
@@ -156,7 +162,7 @@ module Jira
       log "Gathering upcoming releases for product #{product.title}"
 
       upcoming_releases = gel_all_product_releases(product).select { |release|
-        !release.archived and !release.released and release.release_date
+        !release.archived and !release.released and release.release_date and !release.description.include?('(internal)')
       }
 
       return upcoming_releases unless upcoming_releases.any?

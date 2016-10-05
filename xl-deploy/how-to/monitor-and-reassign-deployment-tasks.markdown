@@ -8,6 +8,7 @@ tags:
 - deployment
 - gui
 - security
+weight: 190
 ---
 
 The XL Deploy GUI incorporates a task monitor from which you can get an overview of the deployment tasks in the system. The task monitor is opened from the help menu in the far top right. By default it shows only tasks belonging to the current user, but by selecting 'All tasks' from the dropdown at the top, a full overview can be obtained.

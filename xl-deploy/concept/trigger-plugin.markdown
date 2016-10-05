@@ -8,6 +8,7 @@ tags:
 - plugin
 - trigger
 - email
+weight: 362
 ---
 
 The Trigger plugin allows you to configure XL Deploy to send emails for certain events. For example, you can add rules to send an email whenever a step fails, or when a deployment has completed successfully.

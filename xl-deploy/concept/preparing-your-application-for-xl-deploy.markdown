@@ -8,9 +8,10 @@ tags:
 - application
 - package
 - deployment
+weight: 200
 ---
 
-XL Deploy uses the Unified Deployment Model (UDM) to structure deployments. In this model, deployment packages are containers for complete application distribution. They include application artifacts (EAR files, static content) as well as resource specifications (datasources, topics, queues, and so on) that the application needs to run. 
+XL Deploy uses the Unified Deployment Model (UDM) to structure deployments. In this model, deployment packages are containers for complete application distribution. They include application artifacts (EAR files, static content) as well as resource specifications (datasources, topics, queues, and so on) that the application needs to run.
 
 A Deployment ARchive, or DAR file, is a ZIP file that contains application files and a manifest file that describes the package content. In addition to packages in a compressed archive format, XL Deploy can also import _exploded DARs_ or archives that have been extracted.
 
@@ -43,7 +44,7 @@ You may have resources that are shared by more than one application. You should 
 
 Every deployable in a package has a *configuration item (CI) type* that:
 
-* Describes the deployable, and 
+* Describes the deployable, and
 * Determines the steps that XL Deploy will add to the deployment plan when you map the item to a target *container*
 
 The plugins that are included in your XL Deploy installation determine the CI types that are available for you to use.
@@ -59,13 +60,13 @@ Before you create a deployment package, you should explore the CI types that are
 5. Click **Import**. XL Deploy imports the package.
 6. Click **Close**.
 7. Go to **Repository**.
-8. Click ![image](/images/button_refresh_repository.png) to refresh the repository.
+8. Click ![image](/images/button_refresh_repository.png) to refresh the Repository.
 9. Expand **Applications** and right-click a deployment package.
 10. Hover over **New** to see the CI types that are available. To see the properties that are available for a specific CI type, click it.
 
 ### How do I know which type to use?
 
-In most cases, the CI types that you need to use are straightforwardly determined by the components of your application and by the target middleware. XL Deploy also includes types for common application components such as files that simply need to be moved to target servers. 
+In most cases, the CI types that you need to use are straightforwardly determined by the components of your application and by the target middleware. XL Deploy also includes types for common application components such as files that simply need to be moved to target servers.
 
 For each type, you can specify properties that represent attributes of the artifact or resource to be deployed, such as the target location for a file or a JDBC connection URL for a datasource. If the value of a property is the same for all target environments, you can set the value in the deployment package itself.
 
@@ -115,7 +116,7 @@ When you execute a deployment to this environment, XL Deploy replaces the placeh
 
 ### Create a deployment package in the XL Deploy interface
 
-Creating a deployment package in the XL Deploy interface is an easy way to see what makes up a DAR file and what a manifest file looks like. To create a deployment package, refer to [Create a deployment package using the XL Deploy UI](/xl-deploy/how-to/create-a-deployment-package-using-the-ui.html).
+Creating a deployment package in the XL Deploy interface is an easy way to see what makes up a DAR file and what a manifest file looks like. To create a deployment package, refer to [Create a deployment package using the XL Deploy GUI](/xl-deploy/how-to/create-a-deployment-package-using-the-ui.html).
 
 #### Export the deployment package
 
@@ -128,7 +129,7 @@ To open the DAR file, change the file extension to ZIP, then open it with a file
 
 For more information, refer to [XL Deploy manifest format](/xl-deploy/concept/xl-deploy-manifest-format.html).
 
-For Windows environments, there is a Manifest Editor that can help you create and edit `deployit-manifest.xml` files. For information about using this tool, refer to [Using the XL Deploy Manifest Editor](/xl-deploy/how-to/using-the-xl-deploy-manifest-editor.html).
+For Windows environments, there is a Manifest Editor that can help you create and edit `deployit-manifest.xml` files. For information about using this tool, refer to [GitHub](https://github.com/xebialabs-community/xld-manifest-editor).
 
 ### Create a deployment package using an XL Deploy plugin
 
@@ -152,13 +153,11 @@ Even if you aren’t using a build tool or CI tool, you can create DARs automati
 
 To deploy a package that you have created to a target environment, you must first make the package available to the XL Deploy server. You can do so by publishing the package from a build tool or by manually importing the package.
 
-The tools listed above can automatically publish deployment packages to an XL Deploy server. You can also publish packages through the XL Deploy user interface, the command line, or a Web request to the XL Deploy HTTP api.
+The tools listed above can automatically publish deployment packages to an XL Deploy server. You can also publish packages through the XL Deploy user interface, the command line, or a Web request to the XL Deploy HTTP API.
 
 #### Import a deployment package using the XL Deploy interface
 
-You can import deployment packages from the XL Deploy server or from a location that is accessible via a URL, such as a CI server or an artifact repository such as Archiva, Artifactory, or Nexus.
-
-For information about importing import a deployment package, refer to [link](/xl-deploy/how-to/import-a-deployment-package.html).
+You can import deployment packages from the XL Deploy server or from a location that is accessible via a URL, such as a CI server or an artifact repository such as Archiva, Artifactory, or Nexus. For information about importing a deployment package, refer to [Add a package to XL Deploy](/xl-deploy/how-to/add-a-package-to-xl-deploy.html).
 
 ## Create and verify the deployment plan
 
@@ -172,9 +171,9 @@ Before you can create a deployment plan, the target environment for the deployme
 
 To verify the members of your target environment, double-click it and review its properties. The **Members** list shows the infrastructure items that make up the environment. If your target environment is not yet defined in XL Deploy, you can create it by right-clicking **Environments** and selecting **New**.
 
-If the infrastructure members that make up your target environment are not available in the Repository, you can add them by either: 
+If the infrastructure members that make up your target environment are not available in the Repository, you can add them by either:
 
-* Using the XL Deploy [Discovery feature](/xl-deploy/how-to/discover-middleware.html) 
+* Using the XL Deploy [Discovery feature](/xl-deploy/how-to/discover-middleware.html)
 * Manually [adding the required configuration items](/xl-deploy/how-to/working-with-configuration-items.html#create-a-new-ci)
 
 ### Create the deployment plan
@@ -187,7 +186,10 @@ To create the deployment plan:
 4. Under **Deployment**, select the environment where your application should be deployed and drag it to the right side of the Deployment Workspace.
 5. Click ![image](/images/button_auto-map.png) to automatically map your application’s deployables to containers in the environment.
 6. Double-click each mapped deployable to verify that its properties are configured as expected. Here, you can see the placeholders that XL Deploy found in your deployment package and the values that it will assign to them during the deployment process.
-7. Click **Analyze** at the bottom of the Deployment Workspace. The Plan Analyzer appears.
+
+    ![Deployed properties](images/deployment-workspace-deployed-properties.png)
+
+7. Click **Analyze** at the bottom of the Deployment Workspace. The [Plan Analyzer](/xl-deploy/how-to/preview-the-deployment-plan.html) appears.
 8. Review the steps in the Plan Analyzer.
 9. Optionally click the eye icon next to each step (where available) to preview the commands that XL Deploy will use to execute the step.
 10. Click **Close Analyzer** to return to the Deployment Workspace.
@@ -214,7 +216,7 @@ You can configure your plugins to change the deployment steps that it adds to th
 
 For example, say you are going to deploy an application to a JBoss or Tomcat server that you have configured for hot deployments, so you do not need the server to be stopped before the application is deployed or started afterward. In the [JBoss Application Server plugin reference documentation](/xl-deploy/latest/jbossPluginManual.html) and [Tomcat plugin reference documentation](/xl-deploy/latest/tomcatPluginManual.html), you'll find the `restartRequired` property for `jbossas.EarModule`, `tomcat.WarModule`, and other deployable types. The default value of this property is `true`. To change the value:
 
-1. Set `restartRequired` to `false` in the `SERVER_HOME/conf/deployit-defaults.properties` file.
+1. Set `restartRequired` to `false` in the `XL_DEPLOY_SERVER_HOME/conf/deployit-defaults.properties` file.
 2. Restart the XL Deploy server to load the new configuration setting.
 3. Create a deployment that will deploy your application to the target environment. You will see that the server stop and start steps do not appear in the deployment plan that is generated.
 
@@ -227,6 +229,6 @@ You may need to deploy an application to middleware for which XL Deploy does not
 * New container types, which are types of middleware that can be added to a target environment
 * New artifact and resources types that you can add to deployment packages and deploy to new or existing container types
 * Rules that indicate the steps that XL Deploy should execute when you deploy the new artifact and resource types
-* [Control tasks](/xl-deploy/concept/understanding-control-tasks-in-xl-deploy.html) that define housekeeping actions you can perform on new or existing container types
+* [Control tasks](/xl-deploy/how-to/using-control-tasks-in-xl-deploy.html) that define housekeeping actions you can perform on new or existing container types
 
 You can define rules and control tasks in an XML file. Implementations of new steps use your preferred automation for your target systems. No specialized scripting language is required.

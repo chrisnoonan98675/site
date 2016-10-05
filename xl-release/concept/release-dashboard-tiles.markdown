@@ -11,6 +11,7 @@ tags:
 - dashboard
 since:
 - XL Release 5.0.0
+weight: 430
 ---
 
 In XL Release 5.0.0 and later, the [release dashboard](/xl-release/how-to/using-the-release-dashboard.html) is a customizable view where you can add, configure, move, and remove tiles that show planning information and details about release status.
@@ -32,14 +33,6 @@ The Jenkins build tile provides an overview of the status of Jenkins jobs starte
 To see the list of Jenkins builds that are shown, click the tile to go to its detail view.
 
 **Note:** If the template or release does not contain any [Jenkins tasks](/xl-release/how-to/create-a-jenkins-task.html), this tile will not show any data.
-
-## Release alerts
-
-The release alerts tile shows different types of release warnings:
-
-* **Status flags**: Flags that have been manually set on the release or on a task to indicate that the release needs attention or is at risk
-* **Dependencies**: Alerts for dependent releases that are not completed
-* **Delays**: All active and planned tasks that have a due date in the past
 
 ## Release health
 
@@ -73,6 +66,12 @@ The timeline start and end dates appear as follows:
 * If an item is in progress, the start date that appears is the *actual start date*. If the item is on schedule and the scheduled start date is after the current date, then the end date is the *scheduled start date*. Otherwise, the end date is the *current date*.
 
 To see detailed information, including releases that depend on or block this release, click the tile to go to its detail view.
+
+## Users and teams
+
+The users and teams tile (available in XL Release 5.0.1 and later) shows an overview of the number of tasks assigned to users in the template or release.
+
+To see detailed information about task assignment across all users and teams, click the tile to go to its default view.
 
 ## XL Deploy deployments
 

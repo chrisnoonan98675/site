@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy Puppet plugin
 categories:
 - xl-deploy
 subject:
-- Puppet plugin
+- Puppet
 tags:
 - puppet
 - plugin

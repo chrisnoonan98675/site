@@ -9,9 +9,9 @@ tags:
 - xl deploy
 ---
 
-The XL Deploy task provides integration with [XL Deploy](/xl-deploy), XebiaLabs' Application Release Automation solution.
+The XL Deploy task provides integration with [XL Deploy](/xl-deploy), XebiaLabs' Application Release Automation solution. It is an automated task that tells XL Deploy to deploy a certain application to an environment. Both the application and environment must be configured in XL Deploy. The task gives live updates of the deployment process and completes automatically when the deployment succeeds.
 
-It is an automated task that tells XL Deploy to deploy a certain application to an environment. Both application and environment must be configured in XL Deploy. The task gives live updates of the deployment process and completes automatically when the deployment finishes.
+**Note:** If the deployment fails, it is automatically rolled back.
 
 ![XL Deploy Task Details](../images/deployit-task-details.png)
 
@@ -26,4 +26,6 @@ The options for the XL Deploy task are:
 | Username | User name to use when connecting to the XL Deploy server. |
 | Password | Password to use when connecting to the XL Deploy server. |
 
-You can also use [variables](/xl-release/concept/variables-in-xl-release.html) in the **Deployment package** and **Environment** fields. This allows you to reuse application version and environment across tasks in XL Release. For example, when using variables you can mention the name of the application and the environment you deploy to in a notification task.
+You can also use [variables](/xl-release/concept/variables-in-xl-release.html) in the **Deployment package** and **Environment** fields. This allows you to reuse application version and environment across tasks in XL Release. For example, when using variables, you can mention the name of the application and the environment to which you deployed in a [Notification task](/xl-release/how-to/create-a-notification-task.html).
+
+In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), XL Deploy tasks have a green border.

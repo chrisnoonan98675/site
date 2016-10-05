@@ -3,11 +3,12 @@ title: Create a custom validation rule
 categories:
 - xl-deploy
 subject:
-- Customization
+- Configuration items
 tags:
 - validation rule
 - java
 - ci
+weight: 256
 ---
 
 You can add validation rules to properties and configuration items (CIs) in the `synthetic.xml`. Out of the box, XL Deploy comes with the `regex` validation rule, which can be used to define naming conventions using regular expressions.

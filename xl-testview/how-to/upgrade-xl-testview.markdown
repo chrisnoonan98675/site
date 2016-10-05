@@ -8,6 +8,7 @@ tags:
 - system administration
 - upgrade
 - installation
+weight: 706
 ---
 
 Briefly, the process of upgrading XL TestView is:
@@ -20,7 +21,7 @@ Briefly, the process of upgrading XL TestView is:
 1. Copy the data from the previous XL TestView installation directory to the new installation directory. This ensures that you have a backup of your repository.
 1. Start the new version of XL TestView.
 
-You can find release notes and version-specific upgrade notes on the page for each version; for example, [XL TestView 1.2.x](/xl-testview/1.2.x/).
+You can find release notes and version-specific upgrade notes on the page for each version; for example, [XL TestView 1.4.x](/xl-testview/1.4.x/).
 
 ## About upgrading
 
@@ -30,11 +31,7 @@ When upgrading, you can skip XL TestView versions. XL TestView will sequentially
 
 ### Upgrading and downgrading
 
-After you upgrade to a new version of XL TestView, you cannot downgrade to an older version.
-
-If you upgrade to a release candidate (RC), alpha, or beta version, you cannot upgrade to a newer version or downgrade to an older version.
-
-Ensure that you always create a backup of your repository before you upgrade to a new version of XL TestView.
+After you upgrade to a new version of XL TestView, you cannot downgrade to an older version. If you upgrade to a release candidate (RC), alpha, or beta version, you cannot upgrade to a newer version or downgrade to an older version. Ensure that you always create a backup of your repository before you upgrade to a new version of XL TestView.
 
 ### Deprecations
 
@@ -53,29 +50,23 @@ Before you upgrade:
 
 To upgrade an XL TestView server installation:
 
-1. Extract the server archive. It creates an installation directory called, for example, `xl-testview-1.2.0-server`.
+1. Extract the server ZIP file. It creates an installation directory called, for example, `xl-testview-1.4.0-server`.
 
-1. Stop the XL TestView server.
+1. Shut down the XL TestView server.
 
 1. Copy the contents of the `conf` directory from the previous installation to the new installation directory.
 
-1. If necessary, update the license (`conf/xl-testview-license.lic`). You can download your current license from [https://dist.xebialabs.com/](https://dist.xebialabs.com/).
+    If necessary, update the license file (`conf/xl-testview-license.lic`). You can download your license at the  [XebiaLabs Software Distribution site](https://dist.xebialabs.com/).
 
 1. Copy the `data` directory from the previous installation to the new installation directory.
 
-1. Copy the contents of the `plugins` directory from the previous installation to the new installation directory (unless new versions of your plugins were provided with the new XL TestView version).
-
-    **Tip:** Check the [release manual](/xl-testview/latest/releasemanual.html) for information about plugin incompatibility.
+1. If you have implemented any custom plugins, copy them from the `plugins` directory from the previous installation directory to the new installation directory.
 
 1. Copy the contents of the `ext` directory from the previous installation to the new installation directory.
 
     **Note:** *Do not* copy the contents of the `hotfix` directory unless instructed to do so (because hotfixes are version-specific).
 
-1. If you added libraries to XL TestView's `lib` directory (such as database drivers), copy the additional libraries from the previous installation to the new installation directory.
-
-1. Verify that libraries in the `lib` directory do not *also* appear in the `plugins` directory, even if their versions are different.
-
-    For example, if `lib` contains `guava-16.0.1.jar`, then the `plugins` directory should not contain any `guava-x.x.x.jar` file (such as `guava-13.0.jar`). In this case, you must remove the library from the plugins directory.
+1. If you added libraries to XL TestView's `lib` directory (such as database drivers), copy the additional libraries from the previous installation to the new installation directory. Verify that libraries in the `lib` directory do not *also* appear in the `plugins` directory, even if their versions are different.
 
 1. On Unix-based operating systems, review `/etc/sysconfig/xl-testview` and/or `/etc/default/xl-testview` for changes in configuration settings. Also refer to the [release manual](/xl-testview/latest/releasemanual.html).
 

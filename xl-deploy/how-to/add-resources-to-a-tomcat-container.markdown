@@ -6,7 +6,6 @@ subject:
 - Tomcat
 tags:
 - tomcat
-- middleware
 - plugin
 ---
 

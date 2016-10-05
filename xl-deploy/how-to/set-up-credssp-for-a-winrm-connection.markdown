@@ -1,7 +1,7 @@
 ---
 title: Enable multi-hop support (CredSSP) for WINRM_NATIVE
 subject:
-- Bundled plugins
+- Remoting
 categories:
 - xl-deploy
 tags:
@@ -9,6 +9,7 @@ tags:
 - remoting
 - winrm
 - overthere
+weight: 345
 ---
 
 To enable multi-hop support (also known as CredSSP) for WinRM when using the `WINRM_NATIVE` connection type, follow the steps below. CredSSP is not supported by the `WINRM_INTERNAL` connection type.

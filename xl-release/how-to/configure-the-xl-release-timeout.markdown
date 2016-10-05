@@ -8,6 +8,7 @@ tags:
 - system administration
 - security
 - user management
+weight: 499
 ---
 
 In XL Release, you can configure the time that a user can remain logged in without using the GUI. After this timeout, the user will be logged out.

@@ -10,6 +10,7 @@ tags:
 - template
 since:
 - XL Release 4.8.0
+weight: 476
 ---
 
 You can use [variables](/xl-release/concept/variables-in-xl-release.html) to manage information that you don't know in advance or that may change. Release variables can only be used in the template or release in which they are created (unlike [global variables](/xl-release/how-to/configure-global-variables.html)). There are two ways to create a release variable.

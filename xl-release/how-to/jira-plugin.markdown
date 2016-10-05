@@ -20,6 +20,8 @@ The XL Release JIRA plugin allows XL Release to interact with an Atlassian JIRA 
 
 See also the tutorial [Using variables to revise a JIRA issue list](/xl-release/how-to/tutorial-using-variables-to-revise-a-jira-issue-list.html).
 
+In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), JIRA tasks have a blue border.
+
 ## Features
 
 * Create a new JIRA issue
@@ -93,7 +95,7 @@ The following properties are available:
 * **Issues**: A key-value map that contains the issue IDs (keys) and summaries (values) of each issue.
 
     The Jira: Query task type produces a key-value map that can be stored in a variable; you can then use that variable as input for a Jira: Update Issues task.
-    
+
     The issue summaries (the values in the key-value map) are only required if you want to update them in JIRA (using the **Update Summaries** option).
 
 * **New Status**: The new status of the issues; refer to the [JIRA Workflow documentation](https://confluence.atlassian.com/display/JIRA/What+is+Workflow) for a complete list

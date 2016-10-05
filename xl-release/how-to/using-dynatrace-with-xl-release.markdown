@@ -8,6 +8,7 @@ tags:
 - dynatrace
 - metrics
 - plugin
+weight: 435
 ---
 
 You can use XL Release with [Dynatrace](http://www.dynatrace.com/en/index.html) to integrate service-level, business application-level, and user-level metrics about your applications. This gives you an earlier and more accurate picture of the architectural quality of your software. After the application goes live, this also gives you detailed insight into how your users are actually working with it, so you can more more effectively determine whether the features you have just released are successful.
@@ -16,7 +17,7 @@ You can use XL Release with [Dynatrace](http://www.dynatrace.com/en/index.html) 
 
 1. If you are not already a Dynatrace user, [download and install it](http://www.dynatrace.com/en/products/dynatrace-free-trial.html).
 2. If you are not already an XL Release user, [download](https://xebialabs.com/products/xl-release/trial/) and [install](/xl-release/how-to/install-xl-release.html) it.
-3. Download the latest version of the [XL Release Dynatrace community plugin](https://github.com/xebialabs-community/xlr-dynatrace-plugin) and copy it to the `XLRELEASE_HOME/plugins` directory.
+3. Download the latest version of the [XL Release Dynatrace community plugin](https://github.com/xebialabs-community/xlr-dynatrace-plugin) and copy it to the `XL_RELEASE_SERVER_HOME/plugins` directory.
 4. Start the XL Release server. You will see that the following new [task types](/xl-release/concept/types-of-tasks-in-xl-release.html) are available:
 
     ![Dynatrace tasks in XL Release](../images/dynatrace-xl-release/dynatrace-tasks.png)

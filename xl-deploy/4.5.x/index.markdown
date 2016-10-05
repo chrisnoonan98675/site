@@ -23,7 +23,9 @@ product-id: xl-deploy
 * [REST API Reference](rest-api)
 * [Java API Manual](xldeployjavaapimanual.html)
 * [Jython API Manual](/jython-docs/#!/xl-deploy/4.5.x/)
-* [Javadoc](/xl-deploy/4.5.x/javadoc/udm-plugin-api/index.html)
+* [UDM API Javadoc](/xl-deploy/4.5.x/javadoc/udm-plugin-api/index.html)
+* [XL Deploy Engine API Javadoc](/xl-deploy/4.5.x/javadoc/engine-api/index.html)
+* [XL Endpoints API Javadoc](/xl-deploy/4.5.x/javadoc/xl-endpoints-api/index.html)
 
 ### Standard plugins
 

@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot a WINRM_NATIVE or WINRM_INTERNAL connection
-subject:
-- Bundled plugins
 categories:
 - xl-deploy
+subject:
+- Remoting
 tags:
 - connectivity
 - remoting
@@ -11,6 +11,7 @@ tags:
 - kerberos
 - overthere
 - troubleshooting
+weight: 349
 ---
 
 These are configuration errors that can occur when using XL Deploy with WINRM_NATIVE.
@@ -77,19 +78,22 @@ Refer to the [Kerberos documentation](http://web.mit.edu/kerberos/krb5-current/d
 
 ## WinRM command fails with a 500 response code
 
-Multiple causes can lead to this error message:
+If the command was executing for a long time, this might have been caused by a timeout. To increase the request timeout value:
 
-1. If the command was executing for a long time, this might have been caused by a timeout. To increase the request timeout value:
+1. Increase the WinRM request timeout specified by the `winrmTimeout` property
+1. Increase the `MaxTimeoutms` setting on the remote host. For example, to set the maximum timeout on the remote host to five minutes, enter 300,000 milliseconds:
 
-    1. Increase the WinRM request timeout specified by the `winrmTimeout` property
-    1. Increase the `MaxTimeoutms` setting on the remote host. For example, to set the maximum timeout on the remote host to five minutes, enter the following command:
+        winrm set winrm/config @{MaxTimeoutms="300000"}
 
-            winrm set winrm/config @{MaxTimeoutms="300000"}
-    1. Set the `overthere.CifsHost.winrmTimeout` property in the `deployit-default.properties` on the XL Deploy server equal to the `MaxTimeoutms` value.
+1. Uncomment the `overthere.CifsHost.winrmTimeout` property in the `deployit-default.properties` file on the XL Deploy server and update it to be equal to the `MaxTimeoutms` value.
 
-1. If a lot of commands are being executed concurrently, increase the `MaxConcurrentOperationsPerUser` setting on the server. For example, to set the maximum number of concurrent operations per user to 100, enter the following command:
+    The `overthere.CifsHost.winrmTimeout` property is configured in seconds instead of milliseconds. For example, if `MaxTimeoutms` is set to 300,000 milliseconds, you would configure `overthere.CifsHost.winrmTimeout` as follows:
 
-        winrm set winrm/config/service @{MaxConcurrentOperationsPerUser="100"}
+        overthere.CifsHost.winrmTimeout=PT300.000S
+
+If many commands are being executed concurrently, increase the `MaxConcurrentOperationsPerUser` setting on the server. For example, to set the maximum number of concurrent operations per user to 100, enter the following command:
+
+    winrm set winrm/config/service @{MaxConcurrentOperationsPerUser="100"}
 
 Other configuration options that may be of use are `Service/MaxConcurrentOperations` and `MaxProviderRequests` (WinRM 1.0 only).
 
@@ -112,7 +116,7 @@ If you running WinRM 3.0, you will need to install the hotfix described in [Micr
 
 ## WinRM command fails with a "Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'" error
 
-If a script can be executed successfully when executed directly on the target machine, but fails with this error when executed through WinRM, you will need to [enable multi-hop support in WinRM](set-up-credssp-for-a-winrm-connection.html).
+If a script can be executed successfully when executed directly on the target machine, but fails with this error when executed through WinRM, you will need to [enable multi-hop support in WinRM](/xl-deploy/how-to/set-up-credssp-for-a-winrm-connection.html).
 
 ## WinRM command fails with a "The local farm is not accessible" error
 

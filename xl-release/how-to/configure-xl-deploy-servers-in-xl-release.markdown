@@ -10,7 +10,7 @@ tags:
 - xl deploy
 ---
 
-To configure connections between XL Release and [XL Deploy](/xl-deploy/) servers, select **Settings** > **XL Deploy servers** from the top menu. The XL Deploy servers page is only available to users with the *Admin* permission. 
+To configure connections between XL Release and [XL Deploy](/xl-deploy/) servers, select **Settings** > **XL Deploy servers** from the top menu. The XL Deploy servers page is only available to users who have the *Admin* [global permission](/xl-release/how-to/configure-permissions.html). 
 
 ![XL Deploy Servers](../images/deployit-servers.png)
 

@@ -9,6 +9,7 @@ tags:
 - gui
 - task
 - schedule
+weight: 189
 ---
 
 XL Deploy allows you to schedule deployment tasks for execution at a specified later moment in time. Scheduled deployment tasks work just like other scheduled tasks; refer to [Understanding tasks in XL Deploy](https://docs.xebialabs.com/xl-deploy/concept/understanding-tasks-in-xl-deploy.html#scheduling-tasks) for information about the way XL Deploy handles scheduled tasks, including important information about archiving and failures.
@@ -40,5 +41,5 @@ To reschedule a scheduled deployment task:
 
 1. Double-click the deployment task in the Task Monitor to open its deployment plan.
 1. Click **Schedule**.
-1. In the Schedule window, select a new date and time. 
+1. In the Schedule window, select a new date and time.
 1. Click **OK**.

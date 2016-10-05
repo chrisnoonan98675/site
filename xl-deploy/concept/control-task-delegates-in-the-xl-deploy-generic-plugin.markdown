@@ -9,6 +9,7 @@ tags:
 - plugin
 - control task
 - freemarker
+weight: 357
 ---
 
 The Generic Model plugin has predefined control task delegates that have the ability to execute scripts on a target host. The delegates can be used to define control tasks on any configuration item (CI) defined in XL Deploy's type system.

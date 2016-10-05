@@ -23,8 +23,11 @@
 /xl-deploy/latest/referencesteps.html : /xl-deploy/5.5.x/referencesteps.html
 /xl-deploy/latest/udmcireference.html : /xl-deploy/5.5.x/udmcireference.html
 /xl-deploy/latest/rest-api/index.html : /xl-deploy/5.5.x/rest-api/index.html
-/xl-deploy/latest/javadoc/udm-plugin-api/index.html : /xl-deploy/5.5.x/javadoc/udm-plugin-api/index.html
 /xl-deploy/latest/satellitecireference.html : https://docs.xebialabs.com/xl-deploy/5.5.x/satellitecireference.html
+/xl-deploy/latest/javadoc/udm-plugin-api/index.html : /xl-deploy/5.5.x/javadoc/udm-plugin-api/index.html
+/xl-deploy/latest/javadoc/engine-api/index.html : /xl-deploy/5.5.x/javadoc/engine-api/index.html
+/xl-deploy/latest/javadoc/engine-spi/index.html : /xl-deploy/5.5.x/javadoc/engine-spi/index.html
+/xl-deploy/latest/javadoc/xl-endpoints-api/index.html : /xl-deploy/5.5.x/javadoc/xl-endpoints-api/index.html
 
 # XL Deploy product docs that are no longer published as of 5.0.0
 
@@ -69,9 +72,11 @@
 /xl-deploy-biztalk-plugin/latest/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/5.1.x/biztalkPluginManual.html
 /xl-deploy-iis-plugin/latest/iisPluginManual.html : /xl-deploy-iis-plugin/5.1.x/iisPluginManual.html
 /xl-deploy-windows-plugin/latest/windowsPluginManual.html : /xl-deploy-windows-plugin/5.0.x/windowsPluginManual.html
-/xl-deploy-bigip-plugin/latest/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.0.x/bigipPluginManual.html
+/xl-deploy-bigip-plugin/latest/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.5.x/bigipPluginManual.html
 /xl-deploy-wmq-plugin/latest/wmqPluginManual.html : /xl-deploy-wmq-plugin/5.1.x/wmqPluginManual.html
-/xl-deploy-netscaler-plugin/latest/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/5.0.x/netscalerPluginManual.html
+/xl-deploy-netscaler-plugin/latest/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/5.5.x/netscalerPluginManual.html
+/xl-deploy-xld-oracle-soa-plugin/latest/oracleSoaPluginManual.html : /xl-deploy-xld-oracle-soa-plugin/5.0.x/oracleSoaPluginManual.html
+/xl-deploy-xld-datapower-plugin/latest/dataPowerPluginManual.html : /xl-deploy-xld-datapower-plugin/5.5.x/dataPowerPluginManual.html
 
 # XL Deploy tools
 

@@ -9,6 +9,7 @@ tags:
 - maintenance mode
 since:
 - XL Deploy 5.0.0
+weight: 265
 ---
 
 XL Deploy 5.0.0 and later includes a *maintenance mode* feature that allows administrators to prevent users from starting new deployments and other tasks, so the XL Deploy server can safely be restarted.

@@ -8,59 +8,48 @@ tags:
 - cli
 - script
 - task
+weight: 245
 ---
 
-XL Deploy can perform many deployments at the same time. Each of these deployments is called a _task_. Users can ask XL Deploy to start a task, stop a task or cancel a task.
-
-Once a task is completed or canceled, it is moved to the _task archive_. This is where XL Deploy stores its task history. You can query it for tasks and examine the tasks steps and logs or export the task archive to an XML file.
+XL Deploy can perform many deployments at the same time. Each of these deployments is called a _task_. Users can ask XL Deploy to start a task, stop a task or cancel a task. After a task is completed or canceled, it is moved to the _task archive_. This is where XL Deploy stores its task history. You can query it for tasks and examine the tasks steps and logs or export the task archive to an XML file.
 
 Active tasks are stored in the XL Deploy _task registry_ which is periodically backed up to a file. If the XL Deploy Server is stopped abruptly, the tasks in the registry are persisted and can be continued when the server is restarted.
 
-## Starting, stopping and canceling
+## Starting, stopping, and canceling
 
-Whenever you start a deployment or undeployment in XL Deploy, the XL Deploy CLI returns a `TaskInfo` object. This object describes the steps XL Deploy will take to execute your request, but it doesn't yet start execution. Instead, XL Deploy creates a task for the request and returns its id as the `id` field in the `TaskInfo` object. Using the task id, you can start, stop or cancel the task.
+Whenever you [start a deployment or undeployment](/xl-deploy/concept/getting-started-with-the-xl-deploy-cli.html#sample-cli-scripts) in XL Deploy, the [command-line interface (CLI)](/xl-deploy/concept/getting-started-with-the-xl-deploy-cli.html) returns a `TaskInfo` object. This object describes the steps XL Deploy will take to execute your request, but it doesn't yet start execution. Instead, XL Deploy creates a task for the request and returns its id as the `id` field in the `TaskInfo` object. Using the task ID, you can start, stop, or cancel the task.
 
-There are two ways to start a task in the XL Deploy CLI: `startTaskAndWait` and `startTask`. In the deployment example above we used `startTaskAndWait`. This method starts the tasks and waits for it to complete. The `startTask` method starts the task in XL Deploy and returns immediately. The task is run in the background in this case. Both methods can also be used to restart a failed task.
+There are two ways to start a task in the XL Deploy CLI: `startTaskAndWait` and `startTask`. The `startTaskAndWait` method starts the task and waits for it to complete, while `startTask` starts the task and returns immediately (in this case, the task runs in the background). Both methods can be used to restart a failed task.
 
-If a task is running and you want to to stop it, use the `stopTask` method. This attempts to interrupt the currently running task.
+If a task is running and you want to to stop it, use the `stopTask` method. This attempts to interrupt the currently running task. The `cancelTask` method is used to cancel a task; that is, abandon execution of the task and move it to the archive.
 
-The `cancelTask` method is used to cancel a task. That is, abandon execution of the task and move it to the archive.
-
-When a task has finished running, you can use the `archive` method to archive it. 
+When a task has finished running, you can use the `archive` method to archive it.
 
 ## Scheduling tasks
 
-A task can be scheduled by calling the `tasks.schedule(taskId, dateTime)` method. First argument is the `taskId`. Second argument is the date and time.
+A task can be scheduled by calling the `task2.schedule(String taskId, DateTime dateTime)` method. The first argument is the task ID and the second argument is the date and time.
 
-Make sure you import the `DateTime` class:
+Ensure that you import the `DateTime` class:
 
     from org.joda.time import DateTime
 
-You can create a `DateTime` object representing the current local time by calling `DateTime()`. For example you can schedule a task 2 hours in advance by calling:
+You can create a `DateTime` object representing the current local time by calling `DateTime()`. For example, to prepare the deployment of the KidsStore 1.0.0 application to the TEST01 environment and schedule it for two hours in the future, execute:
 
-	deployit> tasks.schedule(taskId, DateTime().plusHours(2))
+    # Load package
+    package = repository.read('Applications/Sample Apps/KidsStore/1.0.0')
 
-You can also specify a concrete date. For example 31 December 2014, at 23:34 should be passed like: `DateTime(2014, 12, 31, 23, 34)`
+    # Load environment
+    environment = repository.read('Environments/Testing/TEST01')
 
-Notice that the examples shown here will use the local timezone of the user. The server will always return date and time in UTC.
+    # Start deployment
+    deploymentRef = deployment.prepareInitial(package.id, environment.id)
+    depl = deployment.prepareAutoDeployeds(deploymentRef)
+    task = deployment.createDeployTask(depl)
+    task = task2.schedule(task.id, DateTime().plusHours(2))
 
-## Listing tasks
+You can also specify a concrete date. For example, 31 December 2014 at 23:34 would be specified as `DateTime(2014, 12, 31, 23, 34)`.
 
-Before you can work with any of the tasks, you'll need to list them:
-
-	deployit> depl = deployment.prepareInitial(package.id, environment.id)
-    deployit> depl = deployment.generateAllDeployeds(depl)
-    deployit> taskId = deployment.deploy(depl).id
-    deployit> print deployit.listUnfinishedTasks()
-
-This retrieves and shows a list of unfinished tasks that are assigned to the current user. The method returns an array of `TaskInfo` objects which you can actually print:
-
-	deployit> for t in deployit.listUnfinishedTasks(): print "Task id " + t.id + " is assigned to user " + t.user
-
-If you have `admin` permission, you can also list all tasks in XL Deploy:
-
-	deployit> print deployit.listAllUnfinishedTasks()
-    deployit> deployit.cancelTask(taskId)
+Note that the examples shown here will use the local time zone of the user. The server will always return the date and time in UTC.
 
 ## Assigning tasks
 
@@ -71,55 +60,70 @@ XL Deploy also supports reassigning tasks. If you have `task#assign` permission,
 This is how you assign a task in the CLI:
 
 	# Import package
-	deployit> package = repository.read('Applications/demo-application/1.0')
+    package = repository.read('Applications/Sample Apps/KidsStore/1.0.0')
 
 	# Load environment
-	deployit> environment = repository.read('Environments/DiscoveredEnv')
+    environment = repository.read('Environments/Testing/TEST01')
 
 	# Start deployment
-	deployit> deploymentRef = deployment.prepareInitial(package.id, environment.id)
-	deployit> deploymentRef = deployment.generateAllDeployeds(deploymentRef)
-	deployit> taskID = deployment.deploy(deploymentRef).id
+    deploymentRef = deployment.prepareInitial(package.id, environment.id)
+    depl = deployment.prepareAutoDeployeds(deploymentRef)
+    task = deployment.createDeployTask(depl)
 
-	deployit> deployit.assignTask(taskID, 'admin')
-		
-	# perform some operations on the task
-		
-	deployit> deployit.cancelTask(taskID)
+    # Reassign deployment task
+    deployit.assignTask(task.id, 'john')
 
 **Note**: XL Deploy does not validate the principal you enter as the recipient of the task.
 
 ## Retrieving archived tasks from the repository
 
-The `repository` object has facilities to retrieve an overview of all archived tasks, or a number of archived tasks within a specified date range.
+The `repository` object can retrieve an overview of all archived tasks or a number of archived tasks within a specified date range. To get all archived tasks, execute:
 
-To get all archived tasks, the command to use is:
+    archivedTasks = repository.getArchivedTaskList()
 
-	deployit> archivedTasks = repository.getArchivedTaskList()
+This call returns a list of `TaskWithBlock` object wrappers, on each of which you can call `get_step_blocks` that retrieves all step blocks from the task. So, to obtain some step block from a specific task, execute:
 
-This call will give you a list of `TaskWithBlock` object wrappers, on each of which you may call `get_step_blocks` that retrieves all step blocks from the task. So, to obtain some step block from a specific task, execute e.g.:
+    first_step_block = archivedTasks[0].get_step_blocks()[0]
 
-	deployit> first_step_block = archivedTasks[0].get_step_blocks()[0]
-	
-To obtain a certain step from the step block, do e.g.:
-	
-	deployit> first_step = first_step_block.getSteps()[0]
+To obtain a certain step from the step block, execute:
 
-Next to all tasks, one may also just fetch all tasks within a given date range executing the following command:
+    first_step = first_step_block.getSteps()[0]
 
-	deployit> repository.getArchivedTasksList('01/01/2010', '01/01/2011')
+You can also fetch the tasks within a given date range:
 
-Both date parameters in the method signature should be specified in the following format **mm/dd/yyyy**, with **m** a
-month digit, **d** a day digit and **y** a year digit. The above method call will work exactly analogous to the `getArchivedTaskList()` method call, except that the resulting tasks all have been started on or after the given start date, but before or on the given end date.
+    repository.getArchivedTasksList('01/01/2010', '01/01/2011')
+
+The start and end date parameters in the method signature should be specified in `mm/dd/yyyy` format.
 
 ### Exporting archived tasks from the repository to a local XML file
 
-It's also possible to store the contents of the task repository to a local XML file. In order to store the complete task repository to a local XML file, use the following command:
+You can export the contents of the task repository to a local XML file:
 
-	deployit> repository.exportArchivedTasks('/tmp/task-export.xml')
+    repository.exportArchivedTasks('/tmp/task-export.xml')
 
-Note that you can use forward slashes in the path, even on Windows systems. 
+**Tip:** You can use forward slashes (`/`) in the path, even on Microsoft Windows systems.
 
-It is also possible to export a number of tasks in a certain date range from the task repository to a local XML file using the following command:
+You can also export the tasks within a given date range:
 
-	deployit> repository.exportArchivedTasks('/tmp/task-export.xml', '01/01/2010', '01/01/2011')
+    repository.exportArchivedTasks('/tmp/task-export.xml', '01/01/2010', '01/01/2011')
+
+## Using the stepPath parameter
+
+The `TaskBlockService` allows you to retrieve information about a step in a deployment plan with the API call [`GET /tasks/v2/{taskid}/step/{stepPath}`](/xl-deploy/5.5.x/rest-api/com.xebialabs.deployit.engine.api.TaskBlockService.html#/tasks/v2/{taskid}/step/{stepPath}:GET). In a CLI script, this can be called as:
+
+    task2.step(String taskId, String stepPath)
+
+The `stepPath` parameter has three parts: the root, the number of the task block, and the number of the step in the block. In XL Deploy 4.0.x and 4.5.x, the root is always `0`. In XL Deploy 5.0.x and later, the root is always `0_0`. The parts of the `stepPath` are separated by underscores.
+
+In the following XL Deploy 4.5.x example, the deployment task has one block. The `stepPath` for the first step is `0_1`, while the `stepPath` for the second step is `0_2`. The API call would be:
+
+    task2.step("1582b3b8-096c-48ba-a1bd-85aed09b0ec9", "0_1")
+
+![Deployment plan with no step blocks](images/plan-with-no-step-blocks.png)
+
+In the following XL Deploy 5.0.x example, the deployment task has two blocks, and each block has one step. The `stepPath` for the first step is `0_1_1`, while the `stepPath` for the second step is `0_2_1`. The API calls would be:
+
+    task2.step("4b672090-366e-4b37-b631-9f170f175610", "0_1_1")
+    task2.step("4b672090-366e-4b37-b631-9f170f175610", "0_2_1")   
+
+![Deployment plan with no step blocks](images/plan-with-two-step-blocks.png)

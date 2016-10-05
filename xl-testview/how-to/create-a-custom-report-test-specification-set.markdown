@@ -9,7 +9,8 @@ tags:
 - extension
 - test specification
 since:
- - XL TestView 1.4.0
+- XL TestView 1.4.0
+weight: 738
 ---
 
 This topic describes how to create a custom report for test specification sets. The process is very similar to the process for [other custom reports](/xl-testview/how-to/create-a-custom-report.html).
@@ -18,7 +19,7 @@ For detailed technical information about custom reports, refer to [Custom report
 
 ## Configure the report in `synthetic.xml`
 
-Add a custom report type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
+Add a custom report type to `XL_TESTVIEW_HOME/ext/synthetic.xml`:
 
 1. Copy the entry for an existing report that is similar to the one you want to create. For example, for a bar chart:
 

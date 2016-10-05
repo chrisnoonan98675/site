@@ -1,5 +1,5 @@
 ---
-title: Configure permissions
+title: Configure global permissions
 categories:
 - xl-release
 subject:
@@ -11,27 +11,30 @@ tags:
 - system administration
 ---
 
-In XL Release, you group users by [role](/xl-release/how-to/configure-roles.html) and then assign global permissions to roles. Global permissions apply across the entire XL Release system.
+XL Release includes fine-grained access control that ensures the security of your releases. In XL Release, you assign internal and external users to [*roles*](/xl-release/how-to/configure-roles.html) that determine the global permissions that they have. Global permissions apply across the entire XL Release system.
 
-To configure permissions for roles, select **Settings** > **Permissions** from the top menu. The Permissions page is only available to users with the *Admin* or *Edit Security* permission.
+To configure permissions for roles, select **Settings** > **Permissions** from the top menu. The Permissions page is only available to users who have the *Admin* or *Edit Security* global permission.
 
 ![Permissions](../images/global-permissions.png)
 
-For each role, there is a list of permissions that can be enabled or disabled:
+The following global permissions are available:
 
 {:.table .table-striped}
 | Permission | Description |
 | ---------- | ----------- |
 | Admin | All permissions |
 | Login | Permission to log in to XL Release  |
-| Edit Security | Access to the Roles and Permissions screens and permission to edit security on releases and templates |
+| Edit Security | Access to the Roles and Permissions pages and permission to edit security on releases and templates |
 | Create Template | Permission to create a new template |
-| Create Release | Permission to create a release from any template; also see the [Create Release](/xl-release/how-to/configure-permissions-for-a-release.html) permission on a single release |
+| Create Release | Permission to create a release from any template; also see the [Create Release](/xl-release/how-to/create-a-release-template.html#template-permissions) template permission |
 | View Reports | Permission to review reports |
 | Edit Global Variables | Permission to edit [global variables](/xl-release/how-to/configure-global-variables.html) (available in XL Release 4.8.0 and later) |
 
 Click **Save** to apply your changes. Click **Reset** to discard your changes and reload the current settings from the server.
 
-## Release permissions
+## Template and release permissions
 
-In addition to global permissions, security can be enforced on the release level. On releases and templates, other permissions apply and are granted to teams that are defined within the release. See [release permissions](/xl-release/how-to/configure-permissions-for-a-release.html) and [template permissions](/xl-release/how-to/create-a-release-template.html#template-permissions) for an overview of these permissions.
+In addition to global security, you can enforce security on the template level and the release level. For more information, refer to:
+
+* [Template permissions](/xl-release/how-to/create-a-release-template.html#template-permissions)
+* [Release permissions](/xl-release/how-to/configure-release-teams-and-permissions.html#release-permissions)

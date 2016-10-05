@@ -10,6 +10,7 @@ tags:
 - powershell
 - ci
 - deployed
+weight: 192
 ---
 
 You can use the XL Deploy rules system (introduced in XL Deploy 4.5.0) and a PowerShell script to find and update the value of a previously deployed property with a new deployed property value.
@@ -24,7 +25,7 @@ First, create a rule in `xl-rules.xml` with the condition `MODIFY`. In the `powe
 <previousDeployed expression="true">delta.previous</previousDeployed>
 {% endhighlight %}
 
-In the PowerShell script, refer to the previously deployed properties value using `$previousDeployed` and the suffix `.propertyname`. For example: 
+In the PowerShell script, refer to the previously deployed properties value using `$previousDeployed` and the suffix `.propertyname`. For example:
 
 {% highlight powershell %}
 $previousDeployed.processModelIdleTimeout
@@ -47,7 +48,7 @@ The complete entry in `xl-rules.xml` would look like:
             <powershell-context>
                 <previousDeployed expression="true">delta.previous</previousDeployed>
                 <Deployed>Deployed</Deployed>           
-            </powershell-context> 
+            </powershell-context>
         </powershell>
     </steps>    
 </rule>

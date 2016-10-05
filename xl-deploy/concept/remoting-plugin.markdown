@@ -1,16 +1,19 @@
 ---
 title: Introduction to the XL Deploy Remoting plugin
+subject:
+- Remoting
 categories:
 - xl-deploy
-subject:
-- Bundled plugins
 tags:
 - plugin
 - connectivity
 - remoting
+weight: 335
 ---
 
-The Remoting plugin allows XL Deploy to manipulate files and execute commands on remote hosts. It does so by using the Overthere framework. Overthere is a Java library to manipulate files and execute processes on remote hosts. See the [Overthere Github repository](https://github.com/xebialabs/overthere) for more information.
+The Remoting plugin allows XL Deploy to manipulate files and execute commands on remote hosts. It does so by using the Overthere framework. Overthere is a Java library to manipulate files and execute processes on remote hosts.
+
+For information about the configuration items (CIs) that the Remoting plugin provides, refer to the [Remoting Plugin Reference](/xl-deploy/latest/remotingPluginManual.html). For information about the framework, see the [Overthere Github repository](https://github.com/xebialabs/overthere).
 
 ## Features
 
@@ -19,26 +22,9 @@ The Remoting plugin allows XL Deploy to manipulate files and execute commands on
 * Allow SSH jumpstations and HTTP proxies to be used to access hosts to which a direct network connection is not possible (in addition to SSH, CIFS, Telnet and WinRM can be tunneled through an SSH jumpstation)
 * All connection methods are implemented internally in XL Deploy itself, so no external dependencies are required (an exception is the `WINRM_NATIVE` connection type, which uses the Windows `winrs` command, but you can use a `winrs` proxy for this connection type when XL Deploy runs on a Unix host)
 
-## Requirements
-
-### Remoting plugin 3.9.x
-
-* Deployit 3.5+
-* Other XL Deploy plugins: None
-
-### Remoting plugin 4.0.x
-
-* XL Deploy 4.0+
-* Other XL Deploy plugins: None
-
-### Remoting plugin 4.5.x
-
-* XL Deploy 4.0+
-* Other XL Deploy plugins: None
-
 ## Host types
 
-The Remoting plugin has the following three CI types that define the protocol that is used to access the target host:
+The Remoting plugin includes the following CI types, which define the protocol that is used to access the target host:
 
 {:.table .table-striped}
 | Host type | Description |

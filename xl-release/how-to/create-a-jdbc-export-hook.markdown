@@ -12,6 +12,7 @@ tags:
 - purging
 since:
 - XL Release 4.7.0
+weight: 439
 ---
 
 [XL Release export hooks](/xl-release/how-to/create-an-export-hook.html) are a powerful mechanism that allows you to define Jython scripts that export information about completed and aborted releases before they are [archived](/xl-release/concept/how-archiving-works.html).

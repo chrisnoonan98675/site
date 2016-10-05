@@ -1,7 +1,7 @@
 ---
 title: Set up Telnet in XL Deploy and on a target host
 subject:
-- Bundled plugins
+- Remoting
 categories:
 - xl-deploy
 tags:
@@ -9,6 +9,7 @@ tags:
 - connectivity
 - telnet
 - overthere
+weight: 341
 ---
 
 To use the TELNET connection type, enable and configure the Telnet Server on the remote host:

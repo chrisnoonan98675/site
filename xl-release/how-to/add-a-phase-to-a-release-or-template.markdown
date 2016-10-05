@@ -9,6 +9,7 @@ tags:
 - template
 - phase
 - release flow
+weight: 416
 ---
 
 In XL Release, the phases in a template or release represent blocks of work that happen in succession. To add a phase to a template or release, use the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html); it shows the phases and tasks in the release and allows you to add, move, edit, and delete them.

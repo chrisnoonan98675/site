@@ -8,6 +8,7 @@ tags:
 - staging
 - deployment
 - artifacts
+weight: 187
 ---
 
 To ensure that the downtime of your application is limited, XL Deploy can stage artifacts (files) to target hosts before deploying the application. Staging is based on the artifact's **Checksum** property, and requires that the plugin being used to deploy the artifact supports staging.
@@ -23,4 +24,4 @@ To enable staging on a host:
 1. Go to the **Advanced** tab and enter a directory path in the **Staging Directory Path** box.
 1. Click **Save**.
 
-**Tip:** If you set a staging directory on a host but you do not see staging steps in the deployment plan, verify that the `file.DeployedFile.copyDirectlyToTargetPath` and `file.DeployedFile.DeployedFolder` in the `XLDEPLOY_HOME/conf/deployit-default.properties` file are set to "false" (their default setting).
+**Tip:** If you set a staging directory on a host but you do not see staging steps in the deployment plan, verify that the `file.DeployedFile.copyDirectlyToTargetPath` and `file.DeployedFile.DeployedFolder` properties in the `XL_DEPLOY_SERVER_HOME/conf/deployit-default.properties` file are set to "false" (their default setting).

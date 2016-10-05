@@ -11,6 +11,7 @@ tags:
 - cloud
 since:
 - XL Deploy 5.5.0
+weight: 322
 ---
 
 A [*provisioning package*](/xl-deploy/how-to/create-a-provisioning-package.html) can contain *templates*, which are used to create new configuration items (CIs) in the XL Deploy repository after provisioning is performed. Templates are needed to register the changes in your infrastructure that result from provisioning in XL Deploy.

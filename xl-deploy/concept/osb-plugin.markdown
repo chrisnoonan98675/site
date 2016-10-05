@@ -8,7 +8,6 @@ tags:
 - osb
 - oracle
 - plugin
-- middleware
 ---
 
 The XL Deploy Oracle Service Bus (OSB) plugin supports importing and deleting OSB projects.

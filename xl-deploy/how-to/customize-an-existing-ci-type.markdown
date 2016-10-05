@@ -3,16 +3,19 @@ title: Customize an existing CI type
 categories:
 - xl-deploy
 subject:
-- Customization
+- Configuration items
 tags:
 - ci
 - synthetic
 - type system
+weight: 252
 ---
 
-You can customize XL Deploy configuration item (CI) types to contain additional synthetic properties. These properties become a part of the CI type and can be specified in the deployment package (DAR file) and shown in the XL Deploy GUI.
+XL Deploy's type system allows you to customize any configuration item (CI) type by adding, hiding, or changing its properties. These properties become a part of the CI type and can be specified in the deployment package (DAR file) and shown in the XL Deploy GUI.
 
-There are several reasons to modify a CI:
+New CI type properties are called _synthetic properties_ because they are not defined in a Java class. You define properties and make changes in an XML file called `synthetic.xml` which is added to the XL Deploy classpath. Changes to the CI types are loaded when the XL Deploy server starts.
+
+There are several reasons to modify a CI type:
 
 * A CI property is always given the same value in your environment. Using synthetic properties, you can give the property a default value and hide it in the GUI.
 * There are additional properties of an existing CI that you want to specify.

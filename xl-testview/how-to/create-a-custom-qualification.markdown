@@ -6,13 +6,14 @@ subject:
 - Qualifications
 tags:
 - qualification
+weight: 726
 ---
 
 XL TestView can evaluate test results and qualify them to determine whether a test run as a whole passed or failed. You can use this qualification to make an automated go/no-go decision in a continuous integration tool such as Jenkins or in a pipeline orchestrator such as Go or XL Release.
 
 XL TestView also supports custom qualifications. To create a custom qualification, you:
 
-1. Configure the qualification in `synthetic.xml`. This file defines [configuration item (CI) types](/xl-deploy/concept/key-xl-deploy-concepts.html#type-system) such as qualifiers and reports. 
+1. Configure the qualification in `synthetic.xml`. This file defines [configuration item (CI) types](/xl-deploy/concept/key-xl-deploy-concepts.html#type-system) such as qualifiers and reports.
 1. Write a script for the qualification. This is done in Python.
 
 The easiest way to start creating a custom qualifier is to copy a default qualifier. This example shows how to create a custom qualifier based on the default functional qualifier.
@@ -21,13 +22,13 @@ For more information about features such as qualification, refer to [Key XL Test
 
 ## Configure the qualifier in `synthetic.xml`
 
-First, add a custom qualifier type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
+First, add a custom qualifier type to `XL_TESTVIEW_HOME/ext/synthetic.xml`:
 
-1. Copy a `type` element with attribute `type="xlt.DefaultFunctionalTestsQualifier"` from `<XLTESTVIEW_HOME>/plugins/demo/synthetic.xml` and add it to `<XLTESTVIEW_HOME>/ext/synthetic.xml`. For example:
+1. Copy a `type` element with attribute `type="xlt.DefaultFunctionalTestsQualifier"` from `XL_TESTVIEW_HOME/plugins/demo/synthetic.xml` and add it to `XL_TESTVIEW_HOME/ext/synthetic.xml`. For example:
 
         <type type="xlt.DefaultFunctionalTestsQualifier" extends="generic.Qualification">
             <property name="scriptLocation" default="qualification/functional.py"/>
-        </type> 
+        </type>
 
 1. Change the `type` attribute to your desired prefix and name; for example, `type="myCompany.myFunctionalQualifier"`.
 1. Change the `scriptLocation` to the report script that you will create; for example, `myFunctionalQualifier.py`.
@@ -49,7 +50,7 @@ First, add a custom qualifier type to `<XLTESTVIEW_HOME>/ext/synthetic.xml`:
 
 ## Write the script
 
-Next, copy `<XLTESTVIEW_HOME>/plugins/demo/functional/qualification.py` to `ext/mycompany/myFunctionalQualifier.py`. You can implement the logic that you want to use for qualification in this script. (You do not have to restart XL TestView after changing scripts.)
+Next, copy `XL_TESTVIEW_HOME/plugins/demo/functional/qualification.py` to `ext/mycompany/myFunctionalQualifier.py`. You can implement the logic that you want to use for qualification in this script. (You do not have to restart XL TestView after changing scripts.)
 
 The default functional qualifier requires all tests to pass for the test run to qualify as passed. This example changes the logic so that only tests with a name that includes the word "Critical" must pass for the test run to qualify as passed. If a test name does not contain the word "Critical", then a failure of that test will not cause the test run to qualify as failed.
 

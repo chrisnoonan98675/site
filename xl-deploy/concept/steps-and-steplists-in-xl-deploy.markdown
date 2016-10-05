@@ -8,9 +8,10 @@ tags:
 - step
 - deployment
 - planning
+weight: 182
 ---
 
-A *step* is a concrete action to be performed to accomplish a task. All steps for a particular deployment are grouped together in a _steplist_. 
+A *step* is a concrete action to be performed to accomplish a task. All steps for a particular deployment are grouped together in a _steplist_.
 
 XL Deploy includes many step implementations for common actions. Steps are contributed by plugins, based on the deployment that is being performed. Middleware-specific steps are contributed by the plugins.
 
@@ -26,7 +27,7 @@ You can mark a step to be skipped by the task. When the task is executing and th
 
 **Note:** A step can only be skipped when the step is _pending_, _failed_, or _paused_.
 
-![Step state](images/step-state-diagram.png)
+![Step state](images/xl_deploy_step_state_diagram.png)
 
 ## Steplist
 

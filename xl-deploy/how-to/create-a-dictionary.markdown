@@ -7,9 +7,10 @@ subject:
 tags:
 - placeholder
 - dictionary
+weight: 161
 ---
 
-[Placeholders](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) are configurable entries in your application that will be set to an actual value at deployment time. This allows the deployment package to be environment-independent and thus reusable. At deployment time, you can provide values for placeholders manually or they can be resolved from [dictionaries](/xl-deploy/how-to/create-a-dictionary.html) that are assigned to the target environment.
+[Placeholders](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) are configurable entries in your application that will be set to an actual value at deployment time. This allows the deployment package to be environment-independent and thus reusable. At deployment time, you can provide values for placeholders manually or they can be resolved from dictionaries that are assigned to the target environment.
 
 Dictionaries are sets of key-value pairs that you assign to environments. You can use dictionaries to store environment-specific information such as file paths and user names, as well as sensitive data such as passwords.
 
@@ -77,11 +78,11 @@ When you restrict a dictionary, it affects the way XL Deploy resolves placeholde
 * A dictionary called DICT1 has an entry with the key `key1`. DICT1 is restricted to a container called CONT1.
 * A dictionary called DICT2 has an entry with the key `key2` and value `key1`.
 * An environment has CONT1 as a member. DICT1 and DICT2 are both assigned to this environment.
-* An application called APP1 has a deployment package that contains a [`file.File`](/xl-deploy/latest/filePluginManual.html) CI. The artifact attached to the CI contains the placeholder `{{key2}}`.
+* An application called APP1 has a deployment package that contains a [`file.File`](/xl-deploy/latest/filePluginManual.html) CI. The artifact attached to the CI contains the placeholder `{% raw %}{{key2}}{% endraw %}`.
 
-When you try to deploy the package to the environment, mapping of the CI will fail with the error *Cannot expand placeholder {{key1}} because it references an unknown key key1*.
+When you try to deploy the package to the environment, mapping of the CI will fail with the error *Cannot expand placeholder {% raw %}{{key1}}{% endraw %} because it references an unknown key key1*.
 
-This has to do with the fact that, when XL Deploy resolves placeholders from a dictionary, it requires  that *all* keys in the dictionary be resolved. In this scenario, XL Deploy tries to resolve `{{key2}}` with the value from `key1`, but `key1` is missing because DICT1 is restricted to CONT1. The restriction means that DICT1 is not available to APP1.
+This has to do with the fact that, when XL Deploy resolves placeholders from a dictionary, it requires  that *all* keys in the dictionary be resolved. In this scenario, XL Deploy tries to resolve `{% raw %}{{key2}}{% endraw %}` with the value from `key1`, but `key1` is missing because DICT1 is restricted to CONT1. The restriction means that DICT1 is not available to APP1.
 
 There are a few ways you can resolve or work around this scenario:
 

@@ -6,7 +6,6 @@ subject:
 - JBoss Application Server
 tags:
 - jboss
-- middleware
 - plugin
 ---
 

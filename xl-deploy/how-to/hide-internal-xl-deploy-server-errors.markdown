@@ -7,6 +7,7 @@ subject:
 tags:
 - system administration
 - logging
+weight: 275
 ---
 
 By default, XL Deploy will not hide any internal server errors due to incorrect user input. This allows clients to more easily determine what went wrong and report problems with the XL Deploy support team. However, this behavior can be turned off by editing the `conf/deployit.conf` file in the XL Deploy server directory and edit the following setting:

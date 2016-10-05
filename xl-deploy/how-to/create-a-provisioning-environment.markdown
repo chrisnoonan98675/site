@@ -10,6 +10,7 @@ tags:
 - cloud
 since:
 - XL Deploy 5.5.0
+weight: 326
 ---
 
 In XL Deploy, a *provisioning environment* is a collection of *providers*, which are sets of credentials needed to connect to cloud technologies.

@@ -7,6 +7,7 @@ subject:
 tags:
 - task
 - markdown
+weight: 465
 ---
 
 XL Release allows your to style your text using Markdown syntax. Markdown is a way to indicate headers, hyperlink, italics, and so on in your text. In XL Release, markdown is supported in task descriptions and comments.

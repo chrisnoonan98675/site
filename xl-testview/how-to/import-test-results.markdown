@@ -8,6 +8,7 @@ tags:
 - test specification
 - import
 - project
+weight: 712
 ---
 
 You can import results from past test executions into XL TestView. The import wizard will guide you through the process.
