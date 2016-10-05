@@ -16,12 +16,12 @@ since:
 
 When XL Release cannot reach a remote host directly, but that host can be reached via one or more SSH tunnels or HTTP proxies, you can configure these as follows:
 
-1. Log in to XL Release as a user with *Admin* permission.
+1. Log in to XL Release as a user with the *Admin* permission.
 1. Select **Settings** > **Configuration** from the top menu.
 1. Depending on the kind of jumpstation you want to set up:
     1. Under **Remote Script: SSH jumpstation** click **Add SSH jumpstation** -or-
     1. Under **Remote Script: HTTP proxy** click **Add HTTP proxy**
-1. Enter a name for the jumpstation and provide the connection details. 
+1. Enter a name for the jumpstation and provide the connection details.
 
 SSH jumpstations can also be reached via other jumpstations for even more complex network setups, but cycles are not allowed.
 

@@ -38,7 +38,7 @@ layout: default
 		{% endfor %}
 	{% endif %}
 
-	{% unless jekyll.environment == "production" %}
+	{% unless page.placeholder %}
 		{% include edit-link.html %}
 	{% endunless %}
 
