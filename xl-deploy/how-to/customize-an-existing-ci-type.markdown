@@ -39,7 +39,7 @@ For each CI, you must specify a `type`. Any property that is modified is listed 
 | `required` | No | Indicates whether the property is required or not. | You cannot change the `required` attribute of an existing CI; that is, if a CI's `required` property is set to "true", you cannot later change it to "false". |
 | `size` | No | Specifies the property size. Possible values are: `default`, `small`, `medium`, and `large`. Large text fields will be shown as a text area in the XL Deploy GUI. | Only relevant for properties of kind `string`. |
 | `default` | No | Specifies the default value of the property. | |
-| `enum-class` | No | The enumeration class that contains the possible values for this property. | Only relevant for properties of kind `enum`. |
+| `enum-class` | No | The Java enumeration class that contains the possible values for this property. | Only relevant for properties of kind `enum`. |
 | `referenced-type` | No | The type of the referenced CI. | Only relevant for properties of kind `ci`, `set_of_ci`, or `list_of_ci`. |
 | `as-containment` | No | Indicates whether the property is modeled as containment in the repository. If true, the referenced CI or CIs are stored under the parent CI. | Only relevant for properties of kind `ci`, `set_of_ci`, or `list_of_ci`. |
 | `hidden` | No | Indicates whether the property is hidden, which means that it does not appear in the  XL Deploy GUI and cannot be set by the manifest or by the Jenkins, Maven, or Bamboo plugin. | A hidden property must have a default value. |
