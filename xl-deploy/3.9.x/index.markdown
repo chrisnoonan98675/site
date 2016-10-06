@@ -17,9 +17,6 @@ product-id: xl-deploy
 * [Packaging Manual](packagingmanual.html)
 * [Customization Manual](customizationmanual.html)
 * [Release Dashboard Manual](releasedashboardmanual.html)
-* [Rules Manual](rulesmanual.html)
-* [Rules Tutorial](rulestutorial.html)
-* [Steps Reference](referencesteps.html)
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
 

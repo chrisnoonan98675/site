@@ -3,7 +3,7 @@ title: XL Deploy 5.0.x documentation
 product-id: xl-deploy
 ---
 
-<div class="alert alert-warning" style="width: 60%">Can't find what you need? We've moved much of our documentation to topics, to make it easier to browse and search. You can find the topics <a href="/xl-deploy/index.html#browse-documentation-by-subject">here</a>.</div>
+<div class="alert alert-warning" style="width: 60%">As of August 28, 2016, XL Deploy 5.0.x is <a href="https://support.xebialabs.com/hc/en-us/articles/204072005-Supported-XL-product-versions">no longer officially supported</a>. Please <a href="https://support.xebialabs.com/hc/en-us" target="_new">contact us via our support site</a> if you have any questions.</div>
 
 ## Product reference documentation
 
