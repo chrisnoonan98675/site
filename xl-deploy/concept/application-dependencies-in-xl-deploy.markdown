@@ -105,12 +105,12 @@ You have the following applications and dependencies:
 | AppB | 3.0.0 | None |
 | AppB | 4.0.0 | None |
 
-Your environment already contains AppA 1.0.0 and AppB 3.0.0. You want to update AppA to version 2.0.0. If the dependency resolution for AppA is set to:
+Your environment already contains AppA 1.0.0 and AppB 3.0.0. You want to update AppA to version 2.0.0. If the dependency resolution for AppA 2.0.0 is set to:
 
 * `LATEST`, then you will deploy AppA 2.0.0 and AppB 4.0.0.
 * `EXISTING`, then you will deploy AppA 2.0.0 _only_. This is because the existing deployed application (AppB 3.0.0) satisfies AppA's dependency range.
 
-Note that the value of AppB's **Dependency Resolution** property is ignored, because XL Deploy uses the value from the deployment package that you choose when you set up the deployment.
+Note that the dependency resolution set on the AppB deployment packages is ignored, because XL Deploy uses the value from the deployment package that you choose when you set up the deployment.
 
 ## Dependencies and permissions
 
