@@ -27,9 +27,13 @@ The options for the Create Release task are:
 | Variables                    | Variables from the template that must be filled in (if applicable)            |
 | Created release ID           | Output property bound to the variable that contains ID of the created release |
 
-**Important:** To create a release, the release that contains the Create Release task must be configured with an automated tasks user who has the [*Create Release* permission](/xl-release/how-to/configure-permissions.html) on the template that you specify in the Create Release task. For information about configuring the automated tasks user, refer to [Configure release properties](/xl-release/how-to/configure-release-properties.html).
-
 In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), Create Release tasks have a green border.
+
+## Assigning an automated tasks user
+
+A release that contains a Create Release task must be assigned an _automated tasks user_ who has the [*Create Release* permission](/xl-release/how-to/configure-permissions.html) on the template that you specify in the Create Release task. This automated tasks user will be copied to the new release that is created by the Create Release task. This means that, if the template that you specify is assigned a different automated tasks user, that user will not be used in the new release.
+
+You assign the automated tasks user in the **Run automated tasks as user** [release property](/xl-release/how-to/configure-release-properties.html).
 
 ## Using the new release ID
 
