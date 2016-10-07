@@ -5,7 +5,7 @@ title: Generic Plugin Reference 5.5.x
 categories:
 - xl-deploy
 subject:
-- Generic plugin
+- Bundled plugins
 tags:
 - generic
 - plugin

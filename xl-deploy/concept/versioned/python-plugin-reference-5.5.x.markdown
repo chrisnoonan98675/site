@@ -5,7 +5,7 @@ title: Python Plugin Reference 5.5.x
 categories:
 - xl-deploy
 subject:
-- Python plugin
+- Bundled plugins
 tags:
 - python
 - plugin
