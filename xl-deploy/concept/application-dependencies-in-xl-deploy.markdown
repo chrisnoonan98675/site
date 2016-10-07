@@ -86,10 +86,10 @@ In XL Deploy 5.1.x and 5.5.x, XL Deploy always selects the highest possible vers
 
 In XL Deploy 6.0.0 and later, XL Deploy uses the **Dependency Resolution** property of the deployment package that you choose when setting up the deployment to select the other application versions. The dependency resolution property can be set to:
 
-* `LATEST`: Select the highest possible version in the dependency range of each application that will be deployed
+* `LATEST`: Select the highest possible version in the dependency range of each application that will be deployed (this is the default)
 * `EXISTING`: If the version of an application that is currently deployed to the environment satisfies the dependency range, do not select a new version
 
-The `LATEST` option ensures that you always deploy the latest version of each application, while the `EXISTING` option ensures that you only update applications when they no longer satisfy your dependencies (so you will have the smallest deployment plan possible). If you do not specify a dependency resolution, then XL Deploy uses the `LATEST` strategy.
+The `LATEST` option ensures that you always deploy the latest version of each application, while the `EXISTING` option ensures that you only update applications when they no longer satisfy your dependencies (so you will have the smallest deployment plan possible).
 
 **Tip:** You can use a [placeholder](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) in the **Dependency Resolution** property to set a different dependency resolution value per environment.
 
