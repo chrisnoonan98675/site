@@ -33,31 +33,34 @@ In XL Deploy 6.0.0 and later, you can tune the XL Deploy task execution engine w
 | `task.step-dispatcher.thread-pool-executor.core-pool-size-max` | Sets the maximum core thread pool size | 10 |
 | `task.step-dispatcher.thread-pool-executor.max-pool-size-min` | Sets the minimum max pool size | 8 |
 | `task.step-dispatcher.thread-pool-executor.max-pool-size-max` | Sets the maximum value for max pool size | 64 |
-| `task.step-dispatcher.thread-pool-executor.task-queue-size` | Sets size of the queue used by thread pool executor. This value define how quick the pool size will grow when there are more thread requests than threads.  | 100 |
+| `task.step-dispatcher.thread-pool-executor.task-queue-size` | Sets size of the queue used by thread pool executor. This value define how quickly the pool size will grow when there are more thread requests than threads.  | 100 |
 
-To understand how these values impact task execution let's take a simple example. Assume there is a deployment task with 6 deployables. These deployables are of type `cmd.Command`. The command they use is sleep 15 seconds.
-In your `<XLDEPLOY_SERVER_HOME>/conf/system.conf` use these values for thread pool:
+### Task execution example
+
+To understand how these values impact task execution, consider a simple example. Assume there is an application that contains six deployables, all of type `cmd.Command`. Each one is configured with a command to sleep for 15 seconds.
+
+In `<XLDEPLOY_SERVER_HOME>/conf/system.conf`, set the ThreadPoolExecutor core thread pool size to `2`:
 
 ```
 task.step-dispatcher.thread-pool-executor.core-pool-size-min=2
 task.step-dispatcher.thread-pool-executor.core-pool-size-max=2
 ```
 
-In the configuration shown above, we have defined that the ThreadPoolExecutor core pool size is 2. As we have not changed other configuration values so default values will be used. You must restart the XL Deploy server after changing these settings.
+Leave the default values for all other settings. Restart the XL Deploy server so the settings take effect.
 
-Let's deploy this application to a environment. In the `Deployment Properties` choose the orchestrator to be `parallel-by-deployed`. This is required so that steps are executed in parallel. Your deployment will look like as shown below.
+After the server starts, set up a deployment of the application to an environment. In the **Deployment Properties**, set the orchestrator to `parallel-by-deployed`. This ensures that the deployment steps will be executed in parallel. Your deployment will look like:
 
 ![](images/tuning/deployment-plan.png)
 
-Press the `Execute` button to start the execution. As we have defined core pool size as 2 so only two threads will created and used for step execution. XL Deploy execution engine will start executing two steps and rest of the steps will be in queued state as shown below.
+Click **Execute** to start the execution. Because the core pool size is `2`, only two threads will be created and used for step execution. The XL Deploy execution engine will start executing two steps and the rest of the steps will be in a queued state:
 
 ![](images/tuning/execution-first-two-tasks.png)
 
-Once two executing steps are done, next two steps will be picked for execution. So, two steps are executed at a time.
+After the two executing steps are done, the next two steps will be picked for execution. So, two steps are executed at a time.
 
-Some of you might have noticed that we have specified max size of the ThreadPoolExecutor. So, you might think why ThreadPoolExecutor didn't created more threads as max value could go up to 64. The reason for it is the configuration property `task.step-dispatcher.thread-pool-executor.task-queue-size`. ThreadPoolExecutor automatically adjust the thread pool size according to the bounds set by `core-pool-size` and `max-pool-size` configuration properties. When a new step is submitted for execution and there are fewer than `core-pool-size` threads running, executor will create a new thread for the step execution. When you hit the limit of core-pool-size, a new thread will only be created when queue is full. The size of queue is governed by `task-queue-size` property. The default value of `task-queue-size` is 100. In the task execution we performed above we didn't reached this number as we only had 6 steps to execute. So, no new thread was created.
+Although the ThreadPoolExecutor can create up to 64 threads, it takes the `task.step-dispatcher.thread-pool-executor.task-queue-size` setting into account when adjusting the thread pool size. The ThreadPoolExecutor automatically adjusts the thread pool size according to the bounds set by the `core-pool-size` and `max-pool-size` settings. When a new step is submitted for execution and there are fewer threads than the `core-pool-size` value, the ThreadPoolExecutor will create a new thread for the step execution. When you reach the `core-pool-size` limit, a new thread will only be created when the queue is full. The size of the queue is governed by the `task-queue-size` property, which is 100 by default. The example above did not reach this number, as there were only six steps to execute, so no new thread was created.
 
-To see `max-pool-size` in action, let's set `task-queue-size` to a lower value 2. Update the `<XLDEPLOY_SERVER_HOME>/conf/system.conf` to use following values.
+To see the `max-pool-size` setting in action, set `task-queue-size` to `2`:
 
 ```
 task.step-dispatcher.thread-pool-executor.core-pool-size-min=2
@@ -65,7 +68,7 @@ task.step-dispatcher.thread-pool-executor.core-pool-size-max=2
 task.step-dispatcher.thread-pool-executor.task-queue-size=2
 ```
 
-You must restart the XL Deploy server after changing these settings. When you perform the deployment again, this time you will notice that four steps will be executing in parallel and two will be queued. As discussed above, ThreadPoolExecutor only creates new threads when number of requests waiting for threads are more than `task-queue-size` and `max-pool-size` limits are not reached. After creating two more threads, queue size will again be 2 so two steps will remain in the queued state.
+Restart the XL Deploy server so the settings take effect, and perform the same deployment again. You will notice that four steps will execute in parallel and two will be queued. As discussed above, the ThreadPoolExecutor only creates new threads when the number of requests waiting for threads is more than `task-queue-size` and the `max-pool-size` limits are not reached. After creating two more threads, the queue size will be `2` again, so two steps will remain in the queued state.
 
 ![](images/tuning/execution-with-task-queue-size.png)
 
