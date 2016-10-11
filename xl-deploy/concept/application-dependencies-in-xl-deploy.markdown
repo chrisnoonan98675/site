@@ -80,6 +80,38 @@ It is also possible to modify the declared dependencies of a deployment package 
 
 For detailed information on the way XL Deploy verifies dependencies, refer to [How XL Deploy checks application dependencies](/xl-deploy/concept/how-xl-deploy-checks-application-dependencies.html).
 
+## How does XL Deploy select the versions to deploy?
+
+In XL Deploy 5.1.x and 5.5.x, XL Deploy always selects the highest possible version in the dependency range of each application that will be deployed because of dependencies.
+
+In XL Deploy 6.0.0 and later, XL Deploy uses the **Dependency Resolution** property of the deployment package that you choose when setting up the deployment to select the other application versions. The dependency resolution property can be set to:
+
+* `LATEST`: Select the highest possible version in the dependency range of each application that will be deployed (this is the default)
+* `EXISTING`: If the version of an application that is currently deployed to the environment satisfies the dependency range, do not select a new version
+
+The `LATEST` option ensures that you always deploy the latest version of each application, while the `EXISTING` option ensures that you only update applications when they no longer satisfy your dependencies (so you will have the smallest deployment plan possible).
+
+**Tip:** You can use a [placeholder](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) in the **Dependency Resolution** property to set a different dependency resolution value per environment.
+
+### Dependency resolution example
+
+You have the following applications and dependencies:
+
+{:.table .table-striped}
+| Application | Versions | Dependencies |
+| ----------- | -------- | ------------ |
+| AppA | 1.0.0 | AppB [3.0.0,4.0.0] |
+| AppA | 2.0.0 | AppB [3.0.0,4.0.0] |
+| AppB | 3.0.0 | None |
+| AppB | 4.0.0 | None |
+
+Your environment already contains AppA 1.0.0 and AppB 3.0.0. You want to update AppA to version 2.0.0. If the dependency resolution for AppA 2.0.0 is set to:
+
+* `LATEST`, then you will deploy AppA 2.0.0 and AppB 4.0.0.
+* `EXISTING`, then you will deploy AppA 2.0.0 _only_. This is because the existing deployed application (AppB 3.0.0) satisfies AppA's dependency range.
+
+Note that the dependency resolution set on the AppB deployment packages is ignored, because XL Deploy uses the value from the deployment package that you choose when you set up the deployment.
+
 ## Deploying dependencies in the right order
 
 When deploying applications with dependencies, the order in which the applications will be deployed might be important. For example, if application A depends on application B, you want to deploy application B before A. You can achieve this by using the [`sequential-by-dependency`](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) orchestrator. This orchestrator will deploy all applications in reverse topological order to ensure that dependent applications are deployed first. By default, all steps for all applications will be interleaved.
