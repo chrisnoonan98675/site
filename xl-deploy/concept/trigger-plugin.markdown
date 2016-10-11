@@ -106,9 +106,7 @@ A `trigger.TaskTrigger` can be defined under the **Configuration** root and asso
 
 ### Step state transitions
 
-The step state transitions can be derived from the step state diagram below. The ANY state is a wildcard state that matches any state.
-
-![Step State](images/step-state-diagram.png "Step State Diagram")
+The step state transitions can be derived from the step state diagram in [Steps and step lists in XL Deploy](/xl-deploy/concept/steps-and-steplists-in-xl-deploy.html). The ANY state is a wildcard state that matches any state.
 
 A `trigger.StepTrigger` can be defined under the **Configuration** root and associated with the environment on which it should be triggered.
 
