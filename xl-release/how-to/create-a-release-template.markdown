@@ -82,5 +82,6 @@ The following permissions are available for templates:
 | View Template | Users can see the template in the template overview. |
 | Edit Template | Users can change the template by adding tasks and phases and changing them. |
 | Edit Security | Users can edit teams and permissions on the template. |
+| Edit Triggers | Users can view, edit, and delete triggers on the template. To create a trigger, you also need the *Create Release* permission. |
 
 _Release permissions_ determine who can do what in a release. For information about these permissions, refer to [Configure release teams and permissions](/xl-release/how-to/configure-release-teams-and-permissions.html).
