@@ -6,12 +6,12 @@ subject:
 - Provisioning
 tags:
 - provisioning
-- provisioner
 - puppet
 - cloud
 - plugin
 since:
 - XL Deploy 5.5.0
+weight: 161
 ---
 
 The Provision Puppet plugin is an XL Deploy plugin that allows you use Puppet with environments that are provisioned through XL Deploy.

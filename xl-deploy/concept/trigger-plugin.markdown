@@ -88,9 +88,7 @@ XL Deploy 4.0 ships with the `EmailNotification` trigger. Custom trigger actions
 
 ### Task state transitions
 
-The task state transitions can be derived from the task state diagram below. The ANY state is a wildcard state that matches any state.
-
-![Task State](images/task-state-diagram.png "Task State Diagram")
+The task state transitions can be derived from the task state diagram in [Understanding tasks in XL Deploy](/xl-deploy/concept/understanding-tasks-in-xl-deploy.html). The ANY state is a wildcard state that matches any state.
 
 A `trigger.TaskTrigger` can be defined under the **Configuration** root and associated with the environment on which it should be triggered.
 
@@ -106,9 +104,7 @@ A `trigger.TaskTrigger` can be defined under the **Configuration** root and asso
 
 ### Step state transitions
 
-The step state transitions can be derived from the step state diagram below. The ANY state is a wildcard state that matches any state.
-
-![Step State](images/step-state-diagram.png "Step State Diagram")
+The step state transitions can be derived from the step state diagram in [Steps and step lists in XL Deploy](/xl-deploy/concept/steps-and-steplists-in-xl-deploy.html). The ANY state is a wildcard state that matches any state.
 
 A `trigger.StepTrigger` can be defined under the **Configuration** root and associated with the environment on which it should be triggered.
 

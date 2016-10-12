@@ -134,11 +134,7 @@ html {
 .satellite-message {
     padding-top: 25px;
 }
-.pre-rules-message {
-	margin-top: 10px;
-	width: 75%;
-}
-.beta-message {
+.topic-message {
 	margin-top: 10px;
 	width: 75%;
 }

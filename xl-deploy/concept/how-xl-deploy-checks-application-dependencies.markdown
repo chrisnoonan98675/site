@@ -14,11 +14,9 @@ since:
 weight: 121
 ---
 
-When you deploy, update, or undeploy an application, XL Deploy performs a [dependency check](/xl-deploy/concept/application-dependencies-in-xl-deploy.html). It selects the highest possible version in the dependency range of each application.
+When you deploy, update, or undeploy an application, XL Deploy performs a [dependency check](/xl-deploy/concept/application-dependencies-in-xl-deploy.html), which may detect the following issues:
 
-The dependency check may detect the following issues:
-
-<table class="table table-striped">
+<table class="table table-striped table-bordered">
     <thead>
         <tr>
             <th>Message</th>
@@ -57,3 +55,5 @@ The dependency check may detect the following issues:
         </tr>
     </tbody>
 </table>
+
+ In XL Deploy 5.1.x and 5.5.x, XL Deploy always selects the highest possible version in the dependency range of each application that will be deployed because of dependencies. In XL Deploy 6.0.0 and later, XL Deploy uses the **Dependency Resolution** property of the deployment package that you choose when setting up the deployment to select the other application versions. For more information, refer to [Application dependencies in XL Deploy](/xl-deploy/concept/application-dependencies-in-xl-deploy.html#how-does-xl-deploy-select-the-versions-to-deploy).

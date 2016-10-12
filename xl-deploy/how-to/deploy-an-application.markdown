@@ -26,7 +26,7 @@ To deploy an application to an environment:
 1. Locate the environment under **Environments**.
 1. Drag the version of the application that you want to deploy and drop it on the environment where you want to deploy it. The application and environment appear in the deployment workspace.
 
-    If the application has [dependencies](/xl-deploy/concept/application-dependencies-in-xl-deploy.html) (supported in XL Deploy 5.1.0 and later), XL Deploy [analyzes them](/xl-deploy/concept/how-xl-deploy-checks-application-dependencies.html) and includes the deployables from the appropriate versions of the dependent applications. Applications will be deployed in reverse topological order to ensure that dependent applications are deployed first.
+    If the application has [dependencies](/xl-deploy/concept/application-dependencies-in-xl-deploy.html) (supported in XL Deploy 5.1.0 and later), XL Deploy [analyzes them](/xl-deploy/concept/how-xl-deploy-checks-application-dependencies.html) and includes the deployables from the appropriate versions of the dependent applications.
 
     XL Deploy then automatically maps the deployables in the application to the appropriate containers in the environment.
 
@@ -54,6 +54,8 @@ If a step in the deployment fails, XL Deploy stops executing the deployment and 
 * To remove a deployable from all containers where it is mapped, select it in the left side of the Workspace and click ![Remove deployed from all containers](/images/remove_deployed.png).
 
 * To remove one mapped deployable from a container, select it in the right side of the Workspace and click ![Remove deployed](/images/button_remove_deployed.png).
+
+* Refer to [Configure XL Deploy client settings](/xl-deploy/how-to/configure-xl-deploy-client-settings.html) for information about changing the default mapping behavior.
 
 ## Skip a deployment step
 

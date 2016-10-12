@@ -91,7 +91,7 @@ Redirect 301 /xl-deploy/how-to/use-xl-deploy-garbage-collection.html /xl-deploy/
 Redirect 301 /xl-deploy/how-to/reset-admin-password-xl-deploy-server.html /xl-deploy/how-to/changing-passwords-in-xl-deploy.html
 Redirect 301 /xl-deploy/concept/xl-deploy-remoting-plugin.html /xl-deploy/concept/introduction-to-the-xl-deploy-remoting-plugin.html
 Redirect 301 /xl-deploy/how-to/perform-an-initial-deployment.html /xl-deploy/how-to/deploy-an-application.html
-Redirect 301 /xl-deploy/concept/advanced-xl-deploy-configuration.html /xl-deploy/how-to/advanced-xl-deploy-configuration.html
+Redirect 301 /xl-deploy/how-to/advanced-xl-deploy-configuration.html /xl-deploy/how-to/configure-the-task-execution-engine.html
 Redirect 301 /xl-deploy/how-to/common-xl-deploy-cli-tasks.html /xl-deploy/how-to/using-the-xl-deploy-cli.html
 Redirect 301 /xl-deploy/concept/installing-and-removing-xl-deploy-plugins.html /xl-deploy/how-to/install-or-remove-xl-deploy-plugins.html
 Redirect 301 /xl-deploy/how-to/using-the-plan-analyzer.html /xl-deploy/how-to/preview-the-deployment-plan.html
@@ -161,6 +161,10 @@ Redirect 301 /xl-deploy/concept/xl-deploy-directory-structure.html /xl-deploy/ho
 Redirect 301 /xl-deploy/how-to/use-the-release-dashboard.html /xl-deploy/concept/release-dashboard.html
 Redirect 301 /xl-deploy/how-to/add-a-check-to-the-deployment-checklist.html /xl-deploy/how-to/create-a-deployment-checklist.html
 Redirect 301 /xl-deploy/how-to/create-a-deployment-package-using-the-cli.html /xl-deploy/how-to/create-a-deployment-package-using-the-command-line.html
+Redirect 301 /xl-deploy/how-to/deprovision-an-environment.html /xl-deploy/how-to/undeploy-an-application.html
+Redirect 301 /xl-deploy/how-to/deploy-to-a-provisioned-environment.html /xl-deploy/how-to/deploy-an-application.html
+Redirect 301 /xl-deploy/how-to/create-a-provisioning-environment.html /xl-deploy/how-to/create-an-environment-in-xl-deploy.html
+Redirect 301 /xl-deploy/concept/provisioning-and-ci-templates.html xl-deploy/how-to/create-a-provisioning-package.html
 Redirect 301 /xl-deploy/how-to/connect-to-xl-deploy-from-the-cli.html /xl-deploy/concept/getting-started-with-the-xl-deploy-cli.html
 Redirect 301 /xl-deploy/how-to/using-the-xl-deploy-cli.html /xl-deploy/concept/getting-started-with-the-xl-deploy-cli.html
 Redirect 301 /xl-deploy/how-to/using-the-xl-deploy-cli-with-configuration-items.html /xl-deploy/how-to/work-with-cis-in-the-cli.html

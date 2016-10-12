@@ -14,7 +14,7 @@ since:
 weight: 122
 ---
 
-XL Deploy allows you to define dependencies among different versions of different applications. When you set up the deployment of an application, XL Deploy automatically includes the correct versions of other applications that it depends on and ensures that they are deployed in the correct order. You define dependencies at the *deployment package* level.
+XL Deploy allows you to define dependencies among different versions of different applications. When you set up the deployment of an application, XL Deploy automatically includes the correct versions of other applications that it depends on. You define dependencies at the *deployment package* level.
 
 This is an example of an advanced scenario with multiple applications that depend on one another.
 
