@@ -19,13 +19,14 @@ A Create Release task is an automatic task that creates and starts a release bas
 The options for the Create Release task are:
 
 {:.table .table-striped}
-| Option                       | Description                                                                   |
-| ---------------------------- | ----------------------------------------------------------------------------- |
-| Release title                | The title to use for the newly created release                                |
-| Template                     | The template from which to create a release                                   |
-| Start release                | If checked release should also be started after it is created by this task    |
-| Variables                    | Variables from the template that must be filled in (if applicable)            |
-| Created release ID           | Output property bound to the variable that contains ID of the created release |
+| Option                       | Description                                                                                        |
+| ---------------------------- | -------------------------------------------------------------------------------------------------- |
+| Release title                | The title to use for the newly created release                                                     |
+| Template                     | The template from which to create a release                                                        |
+| Start release                | If selected, the release will be started after it is created by this task                          |
+| Release tags                 | Tags that will be added in the new release; you can use variables with the placeholder `${...}`    |
+| Variables                    | Variables from the template that must be filled in (if applicable)                                 |
+| Created release ID           | Output property bound to the variable that contains ID of the created release                      |
 
 In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), Create Release tasks have a green border.
 
