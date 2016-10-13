@@ -19,7 +19,7 @@ To configure XL Deploy to use an LDAP repository, you must change the security c
 
 ## Sample XL Deploy security file
 
-This is an example of a working `deployit-security.xml` file that uses LDAP:
+This is an example of a `deployit-security.xml` file that uses LDAP:
 
 {% highlight xml %}
 <?xml version="1.0" encoding="UTF-8"?>
@@ -70,12 +70,10 @@ This is an example of a working `deployit-security.xml` file that uses LDAP:
 
     <bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/>
 
-    <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/>
-
     <security:authentication-manager alias="authenticationManager">
         <security:authentication-provider ref="rememberMeAuthenticationProvider" />
         <security:authentication-provider ref="ldapProvider" />
-        <security:authentication-provider ref="jcrAuthenticationProvider"/>
+        <security:authentication-provider ref="xlAuthenticationProvider"/>
     </security:authentication-manager>
 
     <bean id="unanimousBased" class="org.springframework.security.access.vote.UnanimousBased">
@@ -139,7 +137,7 @@ Because `deployit-security.xml` is an XML file, you must escape certain characte
 
 ## Assign a default role to all authenticated users
 
-If your LDAP is not set up with a group to which all XL Deploy users are assigned, or if you want to use such a group in the default `JcrAuthenticationProvider`, you can configure this in the `deployit-security.xml` file.
+If your LDAP is not set up with a group to which all XL Deploy users are assigned, or if you want to use such a group in the default `xlAuthenticationProvider`, you can configure this in the `deployit-security.xml` file.
 
 The following example shows how to set up a group called `everyone`, which is assigned to each user who is authenticated. You could then link this group to an XL Deploy role and, for example, assign it the `login` permission.
 
@@ -155,7 +153,7 @@ The following example shows how to set up a group called `everyone`, which is as
         <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
     </bean>
 
-    <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider">
+    <bean id="xlAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.xlAuthenticationProvider">
         <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
     </bean>
 
