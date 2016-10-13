@@ -8,7 +8,7 @@ tags:
 - docker
 - plugin
 since:
-- XL Deploy 5.0.0
+- XL Deploy 5.5.0
 ---
 
 The XL Deploy Docker plugin allows you to deploy Docker images to create containers and connect networks and volumes to them.
