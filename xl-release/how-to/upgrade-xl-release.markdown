@@ -67,6 +67,8 @@ To upgrade an XL Release server installation:
 
     **Note:** In XL Release 4.8.x and earlier, the startup scripts are called `server.sh` and `server.cmd`. In XL Release 5.0.0 and later, they are called `run.sh` and `run.cmd`; there are also `install-service.sh` and `install-service.cmd` scripts for running XL Release [as a service](/xl-release/how-to/install-xl-release-as-a-service.html). If you customized `server.sh` or `server.cmd`, you must redo these changes in `install-service.sh` or `install-service.cmd`.
 
-1. [Start the XL Release server interactively](/xl-release/how-to/start-xl-release.html) to allow automatic repository upgraders to run.
+1. [Start the XL Release server interactively](/xl-release/how-to/start-xl-release.html) to allow automatic repository upgraders to run. 
+
+	**Note:** If you are running XL Release in cluster mode, you must start a single XL Release server instance and run the upgraders only on that instance. After the upgraders have sucessfully finished you can boot up the rest of the cluster.
 
 1. If you normally run the XL Release server [as a service](/xl-release/how-to/install-xl-release-as-a-service.html), shut it down and restart it as you normally do.
