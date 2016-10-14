@@ -1,0 +1,29 @@
+### Configure the archive database
+
+The archive database must be shared among all nodes when the clustering functionality is enabled. Ensure that every node has access to the shared archive database.
+
+The `xl.reporting` section must include the following parameters:
+
+{:.table .table-striped}
+| Parameter | Description |
+| --------- | ----------- |
+| `db-driver-classname` | Class name of the database driver to use; for example, `oracle.jdbc.driver.OracleDriver` |
+| `db-url` | JDBC URL that describes connection details to a database; for example, `"jdbc:oracle:thin:@oracle.hostname.com:1521:SID"` |
+| `db-username` | User name to use to log in to the database |
+| `db-password` | Password to use to log in to the database (after setup is complete, the password will be encrypted and stored in secured format) |
+
+**Note:** Place the JAR file containing the JDBC driver of the selected database in the `<XL_RELEASE_SERVER_HOME>/lib` directory.
+
+### Configure the repository database
+
+The repository database must be shared among all nodes when the clustering functionality is enabled. Ensure that every node has access to the shared repository database.
+
+The `xl.repository` section must include the following parameters:
+
+{:.table .table-striped}
+| Parameter | Description |
+| --------- | ----------- |
+| `driverName` | Class name of the database driver to use; for example, `oracle.jdbc.driver.OracleDriver` |
+| `jdbcUrl` | JDBC URL that describes connection details to a database; for example, `"jdbc:oracle:thin:@oracle.hostname.com:1521:SID"` |
+| `username` | User name to use to log in to the database |
+| `password` | Password to use to log in to the database (after setup is complete, the password will be encrypted and stored in secured format) |
