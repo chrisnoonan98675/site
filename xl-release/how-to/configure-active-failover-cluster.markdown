@@ -31,7 +31,9 @@ The preview of the XL Release clustering functionality has some limitations. Ple
 
 ### Limitation on HTTP session sharing
 
-XL Release does not yet share HTTP sessions among nodes in a cluster. This requires the user to hold an HTTP connection to a concrete node in a cluster. When a load balancer is used, a sticky session flag must be enabled. A session is identified by the `JSESSIONID` cookie.
+XL Release does not share HTTP sessions among nodes in a cluster.
+This requires the user to hold an HTTP connection to a concrete node in a cluster.
+When a load balancer is used, a sticky session flag must NOT be enabled.
 
 ### Limitations on resiliency
 
@@ -44,7 +46,7 @@ If an XL Release node becomes unavailable:
 
 The initial cluster setup is:
 
-* A load balancer configured to use sticky sessions
+* A load balancer configured so that it does not use sticky sessions
 * A database server
 * Two XL Release servers
 
@@ -55,6 +57,7 @@ To set up an active/hot-standby cluster, you must do some manual configuration b
 ### Step 1 Prerequisite setup
 
 This how-to assumes you've already setup XL Release against an external database as described in [Configure an external database](/xl-release/how-to/configure-an-external-database.html)
+and that you have shared filesystem, such as NFS, configured and ready to be used as a store for binary data by all the nodes in the cluster.
 
 ### Step 2 Setting up the cluster
 
@@ -62,6 +65,7 @@ This how-to assumes you've already setup XL Release against an external database
     * [Enable clustering](#enable-clustering)
     * [Enable repository cluster mode](#enable-repository-cluster-mode)
     * [Configure a shared filesystem](#configure-a-shared-filesystem)
+    * [Configure node connection details](#configure-node-connection-details)
     * [Configure cluster member connection details](#configure-cluster-member-connection-details)
 1. Run the following server setup command and follow the on-screen instructions:
 
@@ -70,7 +74,7 @@ This how-to assumes you've already setup XL Release against an external database
 ### Step 2 Prepare each node in the cluster
 
 1. Archive the distribution which you've already set up in [Step 1 Prepare the common cluster configuration](#step-1-prepare-the-common-cluster-configuration).
-1. Copy this archive to all the other nodes of the cluster and unarchive it there.
+1. Copy this archive to all the other nodes of the cluster and un-archive it there.
 1. For each node, perform the node-specific configuration as described in [Configure node connection details](#configure-node-connection-details).
 
  Please note that you don't need to run setup again.
@@ -80,7 +84,7 @@ This how-to assumes you've already setup XL Release against an external database
 The order in which you initially start each node of the cluster is important.
 
 1. Begin starting the cluster with the node that is specified *first* in the [Cluster members connection details](#cluster-members-connection-details).
-1. Proceed to the next node as soon as the previous node started successfully.
+1. Proceed to the next node as soon as the previous node starts successfully.
 
 ## Cluster configuration settings
 
@@ -92,7 +96,8 @@ The active/hot-standby clustering functionality is enabled when the `xl.cluster.
 
 ### Enable repository cluster mode
 
-Instead of the `<database>-standalone` configuration that you configured in the "[Configure an external database](/xl-release/how-to/configure-an-external-database.html)" how-to, you need to choose the clustered configuration. Please set the correct `xl.repository.configuration` value from this table:
+Instead of the `<database>-standalone` configuration that you configured in the "[Configure an external database](/xl-release/how-to/configure-an-external-database.html)" how-to, you need to choose the clustered configuration.
+Please set the correct `xl.repository.configuration` value from this table:
 
 {:.table .table-striped}
 | Database   | Configuration value  |
@@ -105,7 +110,8 @@ There is no need to change the other database configuration settings.
 
 ### Configure a shared filesystem
 
-The active/hot-standby cluster configuration requires that artifacts are stored in a shared filesystem such as NFS. Please ensure that the configuration value `xl.repository.jackrabbit.artifacts.location` points to such a shared filesystem.
+The active/hot-standby cluster configuration requires that artifacts are stored in a shared filesystem such as NFS.
+Please ensure that the configuration value `xl.repository.jackrabbit.artifacts.location` points to such a shared filesystem and that it is accessible by all the nodes in the cluster.
 
 ### Configure node connection details
 
@@ -114,20 +120,19 @@ Each node of the cluster will open ports for different types of incoming TCP con
 {:.table .table-striped}
 | Parameter | Description |
 | --------- | ----------- |
+| `id`  | Id used to uniquely describe node in the cluster. |
 | `hostname` | IP address or host name of the machine where the node is running. Note that a loopback address such as `127.0.0.1` or `localhost` should not be used when running cluster nodes on different machines. |
 | `clusterPort` | Port used for cluster-wide communications; defaults to `5531`. |
-| `repositoryPort` | Port used in the repository replication mechanism; defaults to `5541`. |
-| `transactionManagerPort` | Port used for the JTA transaction manager; defaults to `5551`. |
 
 ### Configure cluster member connection details
 
 Each cluster node must know about all nodes in the cluster (including itself). This information *must* be the same on every node. It is defined in the `xl.cluster.members` section. For example:
 
     members = [
-        {hostname: "node-1.example.com", clusterPort: 5531, repositoryPort: 5541}
-        {hostname: "node-2.example.com", clusterPort: 5531, repositoryPort: 5541}
+        {hostname: "node-1.example.com", clusterPort: 5531 }
+        {hostname: "node-2.example.com", clusterPort: 5531 }
         .....
-        {hostname: "node-x.example.com", clusterPort: 5531, repositoryPort: 5541}
+        {hostname: "node-x.example.com", clusterPort: 5531 }
     ]
 
 Where:
@@ -138,3 +143,63 @@ Where:
 | `hostname` | IP address or hostname of the machine where the node is running |
 | `clusterPort` | Port used for cluster-wide communications |
 | `repositoryPort` | Port used in the repository replication mechanism |
+
+
+### Sample configuration
+
+For your convenience, here's the configuration for one of the nodes in a cluster that uses MySQL repository database:
+
+    xl {
+        cluster {
+            # xl.cluster.mode: "default", "hot-standby"
+            mode=hot-standby
+            # xl.cluster.enabled - on or off
+            enabled=on
+            # xl.cluster.members - cluster seed nodes
+            members=[
+                {
+                    clusterPort=5531
+                    hostname=xlr-seed
+                },
+                {
+                    clusterPort=5531
+                    hostname=xlr-node
+                }
+            ]
+            # xl.cluster.name - name of the cluster
+            name="xlr_cluster"
+            # xl.cluster.node - this cluster node specific parameters
+            node {
+                id=xlr-seed
+                hostname=xlr-seed
+                clusterPort=5531
+            }
+        }
+        repository {
+            # xl.repository.configuration - one of the predefined and supported jackrabbit repository configurations
+            # available configurations: default, mysql-standalone, mysql-cluster, oracle-standalone, oracle-cluster, postgresql-standalone, postgresql-cluster
+            configuration = "mysql-cluster"
+            # xl.repository.persistence - repository database connection parameters
+            persistence {
+                jdbcUrl = "jdbc:mysql://db/xlrelease?useSSL=false"
+                username = "xlrelease"
+                password = "xlrelease"
+                maxPoolSize = "20"
+            }
+            jackrabbit {
+                # xl.repository.jackrabbit.artifacts.location - location for shared files - should be shared filesystem (e.g. NFS)
+                artifacts.location = "repository"
+                # xl.repository.jackrabbit.bunleCacheSize - bundle cache size - default is 8 MB, increase it to something more sensible
+                bundleCacheSize = 128
+            }
+        }
+        # xl.reporting - reporting/archive database connection parameters
+        reporting {
+            db-driver-classname="com.mysql.jdbc.Driver"
+            db-url="jdbc:mysql://db/xlrarchive?useSSL=false"
+            db-username="xlrarchive"
+            db-password="xlrarchive"
+        }
+    }
+
+Please note that passwords in configuration file will be encrypted and replaced by base64 encoded value after the first run.

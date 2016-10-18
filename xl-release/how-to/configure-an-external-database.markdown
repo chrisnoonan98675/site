@@ -16,14 +16,49 @@ The `xl.reporting` section must include the following parameters:
 
 ### Configure the repository database
 
-The repository database must be shared among all nodes when the clustering functionality is enabled. Ensure that every node has access to the shared repository database.
+The repository database must be shared among all nodes when the clustering functionality is enabled.
+Ensure that every node has access to the shared repository database.
 
-The `xl.repository` section must include the following parameters:
+The `xl.repository.configuration` property contains name of predefined repository configuration.
+Possible values are:
 
 {:.table .table-striped}
-| Parameter | Description |
-| --------- | ----------- |
-| `driverName` | Class name of the database driver to use; for example, `oracle.jdbc.driver.OracleDriver` |
-| `jdbcUrl` | JDBC URL that describes connection details to a database; for example, `"jdbc:oracle:thin:@oracle.hostname.com:1521:SID"` |
-| `username` | User name to use to log in to the database |
-| `password` | Password to use to log in to the database (after setup is complete, the password will be encrypted and stored in secured format) |
+| Parameter             | Description                                                            |
+| --------------------- | ---------------------------------------------------------------------- |
+| default               | default  configuration that uses embedded Apache Derby database        |
+| mysql-standalone      | single instance jackrabbit configuration that uses MySQL database      |
+| mysql-cluster         | cluster ready jackrabbit configuration that uses MySQL database        |
+| oracle-standalone     | single instance jackrabbit configuration that uses Oracle database     |
+| oracle-cluster        | cluster ready jackrabbit configuration that uses Oracle database       |
+| postgresql-standalone | ingle instance jackrabbit configuration that uses PostgreSQL database  |
+| postgresql-cluster    | cluster ready jackrabbit configuration that uses PostgreSQL database   |
+
+
+The `xl.repository.persistence` section must include the following parameters:
+
+{:.table .table-striped}
+| Parameter     | Description |
+| ---------     | ----------- |
+| `jdbcUrl`     | JDBC URL that describes connection details to a database; for example, `"jdbc:oracle:thin:@oracle.hostname.com:1521:SID"` |
+| `username`    | User name to use to log in to the database |
+| `password`    | Password to use to log in to the database (after setup is complete, the password will be encrypted and stored in secured format) |
+| `maxPoolSize` | Database connection pool size. Suggested value: 20. |
+
+
+For your convenience here's the example snippet of xl.repository database related configuration:
+
+    xl {
+      // ...
+      repository {
+        configuration = "mysql-cluster"
+        persistence {
+          jdbcUrl = "jdbc:mysql://db/xlrelease?useSSL=false"
+          username = "xlrelease"
+          password = "xlrelease"
+          maxPoolSize = "20"
+        }
+        // ...
+      }
+      // ...
+    }
+

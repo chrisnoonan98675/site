@@ -13,6 +13,8 @@ tags:
 weight: 493
 ---
 
+IMPORTANT: Information in this How-to guide is deprecated. Please, take a look at [Configure active failover cluster](/xl-release/how-to/configure-an-external-database.html).
+
 XL Release uses a repository to store all of its data. XL Release can use the filesystem or a database for binary artifacts and CIs and CI history. By default, XL Release uses the filesystem to store all data in the repository.
 
 ## Location of the repository
