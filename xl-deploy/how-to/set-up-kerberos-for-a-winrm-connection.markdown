@@ -13,37 +13,56 @@ tags:
 weight: 344
 ---
 
-If you are going to use Windows domain accounts to access the remote host with the WINRM_INTERNAL connection type, you must configure Kerberos.
+If you are going to use Microsoft Windows domain accounts to access remote hosts with the WINRM_INTERNAL connection type, you must configure Kerberos.
 
-## Kerberos configuration for XL Deploy
+## Configure Kerberos for XL Deploy
 
 Using Kerberos authentication requires that you follow the [Kerberos Requirements for Java](http://docs.oracle.com/javase/6/docs/technotes/guides/security/jgss/tutorials/KerberosReq.html) on the host that runs the XL Deploy server.
 
-Create a file called `krb5.conf` (Unix) or `krb5.ini` (Windows) with at least the following content:
+1. Create a file called `krb5.conf` (Unix) or `krb5.ini` (Windows) with at least the following content:
 
-    [libdefaults]
-        default_realm = EXAMPLE.COM
+        [libdefaults]
+            default_realm = EXAMPLE.COM
 
-    [realms]
-        EXAMPLE.COM = {
-            kdc = KDC.EXAMPLE.COM
-        }
+        [realms]
+            EXAMPLE.COM = {
+                kdc = KDC.EXAMPLE.COM
+            }
 
-Replace the values with the name of your domain/realm and the hostname of your domain controller (multiple entries can be added to allow the XL Deploy server host to connect to multiple domains) and place the file in the default location for your operating system:
+2. Replace the values with the name of your domain/realm and the hostname of your domain controller. You can add multiple entries to allow the XL Deploy server host to connect to multiple domains.
+3. Choose whether to:
+    * Store the file in the default location for your operating system
+    * Store the file in another location (requires additional changes in the file)
+
+The default locations are:
 
 * Linux: `/etc/krb5.conf`
 * Solaris: `/etc/krb5/krb5.conf`
 * Windows: `C:\Windows\krb5.ini`
 
-Alternatively, place the file somewhere else and edit:
+If you want to store the file in a different location and you are using XL Deploy 5.0.0 or later, add the following line to `XL_DEPLOY_SERVER_HOME/conf/xld-wrapper.conf` (replace the path with the file location):
 
-* In XL Deploy 4.5.x and earlier: Add the following Java system property to the command line in the `server.sh` or `server.cmd` startup script: `-Djava.security.krb5.conf=/path/to/krb5.conf`. Replace the path with the location of the file you just created.
+    wrapper.java.additional.5=-Djava.security.krb5.conf=/path/to/krb5.conf
 
-* In XL Deploy 5.0.0 and later: Add the following line to the `conf/xld-wrapper.conf` file: `wrapper.java.additional.5=-Djava.security.krb5.conf=/path/to/krb5.conf`. Replace the path with the location of the file you just created.
+If you want to store the file in a different location and you are using XL Deploy 4.5.x or earlier, add the following line to the `server.sh` or `server.cmd` script (replace the path with the file location):
 
-See [the Kerberos V5 System Administrator's Guide at MIT](http://web.mit.edu/kerberos/krb5-1.10/krb5-1.10.6/doc/krb5-admin.html#krb5_002econf) for more information on the `krb5.conf` format.
+    -Djava.security.krb5.conf=/path/to/krb5.conf
 
-### Generating the Kerberos configuration file
+See [the Kerberos V5 System Administrator's Guide at MIT](http://web.mit.edu/kerberos/krb5-1.10/krb5-1.10.6/doc/krb5-admin.html#krb5_002econf) for more information about the `krb5.conf` format.
+
+### Configure Kerberos for the XL Deploy satellite module
+
+If you are using the [XL Deploy satellite module](/xl-deploy/concept/getting-started-with-the-satellite-module.html) with Kerberos, follow the instructions above to create a `krb5.conf` (Unix) or `krb5.ini` (Microsoft Windows) file on the satellite.
+
+If you want to store the file in the default location for the satellite's operating system, no additional changes are required.
+
+If you want to store the file in a different location, add the following line to the `run.sh` or `run.cmd` script on the satellite (replace the path with the file location):
+
+    -Djava.security.krb5.conf=/path/to/krb5.conf
+
+For more information about configuring satellites, refer to [Install and configure a satellite server](/xl-deploy/how-to/install-and-configure-a-satellite-server.html).
+
+## Generating the Kerberos configuration file
 
 It's not always easy to determine the right Windows domain name and the hostnames of all domain controllers. You can generate the configuration by copying the PowerShell script [generate-krb5-conf.ps1](sample-scripts/generate-krb5-conf.ps1) to a Windows machine in the target domain and then running it with the following command:
 
