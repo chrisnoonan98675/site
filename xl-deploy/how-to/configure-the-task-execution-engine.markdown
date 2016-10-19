@@ -14,17 +14,17 @@ In XL Deploy, deployment tasks are executed by the task execution engine. Based 
 
 ## Tuning the task execution engine in XL Deploy 6.0.0 and later
 
-In XL Deploy 6.0.0 and later, you can tune the XL Deploy task execution engine with the following settings in `<XL_DEPLOY_SERVER_HOME>/conf/system.conf`:
+In XL Deploy 6.0.0 and later, you can tune the XL Deploy task execution engine with the following settings in `XL_DEPLOY_SERVER_HOME/conf/system.conf`:
 
 {:.table .table-striped}
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
 | `task.shutdown-timeout` | Time to wait for the task engine to shut down. | 1 minute |
 | `task.max-active-tasks` | Maximum number of simultaneous running tasks allowed in the system. If this number is reached, the tasks will appear as `QUEUED` in the Task Monitor. Each `QUEUED` task will automatically start after a running task completes. | 100 |
-| `task.recovery-dir` | Name of the directory in `<XL_DEPLOY_SERVER_HOME>` where task recovery files are stored. | `work` |
+| `task.recovery-dir` | Name of the directory in `XL_DEPLOY_SERVER_HOME` where task recovery files are stored. | `work` |
 | `task.step.retry-delay` | Time to wait before rerunning a step that returned a `RETRY` exit code. | 5 seconds |
 
- You can configure the thread pool that is available for step execution in `<XL_DEPLOY_SERVER_HOME>/conf/system.conf`:
+ You can configure the thread pool that is available for step execution in `XL_DEPLOY_SERVER_HOME/conf/system.conf`:
 
 {:.table .table-striped}
 | Setting | Description | Default |
@@ -41,7 +41,7 @@ In XL Deploy 6.0.0 and later, you can tune the XL Deploy task execution engine w
 
 To understand how these values impact task execution, consider a simple example. Assume there is an application that contains six deployables, all of type `cmd.Command`. Each one is configured with a command to sleep for 15 seconds.
 
-In `<XL_DEPLOY_SERVER_HOME>/conf/system.conf`, set the ThreadPoolExecutor core thread pool size to `2`:
+In `XL_DEPLOY_SERVER_HOME/conf/system.conf`, set the ThreadPoolExecutor core thread pool size to `2`:
 
     task.step-dispatcher.thread-pool-executor.core-pool-size-min=2
     task.step-dispatcher.thread-pool-executor.core-pool-size-max=2
@@ -72,9 +72,11 @@ Restart the XL Deploy server so the settings take effect, and perform the same d
 
 **Important:** This simple example assumes that there is only one task running in the system at a time. Keep in mind that threads are shared among all tasks in the system; they are not created per deployment.
 
-## Tuning the task execution engine prior to XL Deploy 6.0.0
+To learn more about the thread pool executor, refer to [the Java documentation for ThreadPoolExecutor](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html).
 
-Prior to XL Deploy 6.0.0, you could configure the following advanced threading settings in `<XL_DEPLOY_SERVER_HOME>/conf/deployit.conf`:
+## Tuning the task execution engine prior to XL Deploy 5.0.0
+
+Prior to XL Deploy 5.0.0, you could configure the following advanced threading settings in `XL_DEPLOY_SERVER_HOME/conf/deployit.conf`:
 
 {:.table .table-striped}
 | Setting | Description | Default |
