@@ -19,19 +19,19 @@ The `xl.reporting` section must include the following parameters:
 The repository database must be shared among all nodes when the clustering functionality is enabled.
 Ensure that every node has access to the shared repository database.
 
-The `xl.repository.configuration` property contains name of predefined repository configuration.
+The `xl.repository.configuration` property contains the name of the predefined repository configuration.
 Possible values are:
 
 {:.table .table-striped}
-| Parameter             | Description                                                            |
-| --------------------- | ---------------------------------------------------------------------- |
-| default               | default  configuration that uses embedded Apache Derby database        |
-| mysql-standalone      | single instance jackrabbit configuration that uses MySQL database      |
-| mysql-cluster         | cluster ready jackrabbit configuration that uses MySQL database        |
-| oracle-standalone     | single instance jackrabbit configuration that uses Oracle database     |
-| oracle-cluster        | cluster ready jackrabbit configuration that uses Oracle database       |
-| postgresql-standalone | ingle instance jackrabbit configuration that uses PostgreSQL database  |
-| postgresql-cluster    | cluster ready jackrabbit configuration that uses PostgreSQL database   |
+| Parameter             | Description                                                        |
+| --------------------- | ------------------------------------------------------------------ |
+| default               | default configuration that uses an embedded Apache Derby database  |
+| mysql-standalone      | single instance configuration that uses a MySQL database           |
+| mysql-cluster         | cluster ready configuration that uses a MySQL database             |
+| oracle-standalone     | single instance configuration that uses an Oracle database         |
+| oracle-cluster        | cluster ready configuration that uses an Oracle database           |
+| postgresql-standalone | single instance configuration that uses a PostgreSQL database      |
+| postgresql-cluster    | cluster ready configuration that uses a PostgreSQL database        |
 
 
 The `xl.repository.persistence` section must include the following parameters:
@@ -52,7 +52,7 @@ For your convenience here's the example snippet of xl.repository database relate
       repository {
         configuration = "mysql-cluster"
         persistence {
-          jdbcUrl = "jdbc:mysql://db/xlrelease?useSSL=false"
+          jdbcUrl = "jdbc:mysql://db/xlrelease"
           username = "xlrelease"
           password = "xlrelease"
           maxPoolSize = "20"

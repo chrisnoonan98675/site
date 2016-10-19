@@ -27,28 +27,26 @@ Running in a clustered mode adds some additional requirements to the [regular se
 * Clustering requires the use of an external database for the repository. If you currently run XL Release with its default configuration (which stores everything in an embedded Derby database), you must migrate all of your data to an external database before you can start using clustering.
 * The XL Release [archive database](/xl-release/how-to/configure-the-archive-database.html) must also be configured as an external database.
 * Hot standby clustering requires you to use a load balancer that supports hot standby. This topic describes how to set up the HAProxy load balancer.
-* You must have a shared filesystem (such as NFS) that both XL Release nodes can reach.
+* You must have a shared filesystem (such as NFS) that both the active and the standby XL Release nodes can reach.
 
 ## Limitations in the clustering functionality preview
 
 The preview of the XL Release clustering functionality has some limitations. Please review these before using clustering.
 
-### Limitation on HTTP session sharing
+### Limitation on HTTP session sharing and resiliency
 
-XL Release does not share HTTP sessions among nodes in a cluster. This requires you to hold an HTTP connection to a concrete node in a cluster. When a load balancer is used, a sticky session flag must _not_ be enabled.
+XL Release nodes in a cluster work with the notion of 'being the active node', and will inform the load balancer which of the nodes is considered to be the active one by means of a health REST endpoint. Users must always be routed (through the load balancer) to the active node since calling any of the standby nodes directly will result in incorrect behaviour. The load balancer must therefore be configured such that a sticky session flag is _not_ enabled.
 
-### Limitations on resiliency
+XL Release does however not share HTTP sessions among nodes in a cluster. This means that if the active XL Release node becomes unavailable:
 
-If an XL Release node becomes unavailable:
-
-* All users that are on that node will be logged out and will lose any work that was not yet persisted to the database.
-* Any background tasks running on the node will be lost and will be able to restart on the standby node.
+* All users will effectively be logged out and will lose any work that was not yet persisted to the database.
+* Any script tasks that were running on the previously active node will get the `failed` status, and can be restarted once another node has become the new active node.
 
 ## Clustering setup description
 
 The initial cluster setup is:
 
-* A load balancer configured so that it does not use sticky sessions
+* A load balancer configured so that it does **not** use sticky sessions
 * A database server
 * Two XL Release servers
 
@@ -77,8 +75,8 @@ This procedure assumes that:
 
 ### Step 3 Prepare each node in the cluster
 
-1. Archive the distribution that you set up in [Step 1 Prepare the common cluster configuration](#step-1-prepare-the-common-cluster-configuration).
-1. Copy this archive to all the other nodes of the cluster and un-archive it there.
+1. Zip the distribution that you set up in [Step 2 Setting up the cluster](#step-2-setting-up-the-cluster).
+1. Copy this zip file to all the other nodes of the cluster and unzip it there.
 1. For each node, perform the node-specific configuration as described in [Configure node connection details](#configure-node-connection-details).
 
 **Note:** You do not need to run the setup command again.
@@ -88,7 +86,7 @@ This procedure assumes that:
 The order in which you initially start each node of the cluster is important.
 
 1. Begin starting the cluster with the node that is specified *first* in the [Cluster members connection details](#cluster-members-connection-details).
-1. Proceed to the next node as soon as the previous node starts successfully.
+1. Proceed to the next node(s) as soon as the previous node starts successfully.
 
 ## Cluster configuration settings
 
@@ -113,7 +111,7 @@ There is no need to change the other database configuration settings.
 
 ### Configure a shared filesystem
 
-The active/hot-standby cluster configuration requires that artifacts are stored in a shared filesystem such as NFS. Ensure that the `xl.repository.jackrabbit.artifacts.location` configuration value points to such a shared filesystem and that it all nodes in the cluster can access it.
+The active/hot-standby cluster configuration requires that artifacts are stored in a shared filesystem such as NFS. Ensure that the `xl.repository.jackrabbit.artifacts.location` configuration value points to such a shared filesystem and that all nodes in the cluster can access it.
 
 ### Configure node connection details
 
@@ -125,16 +123,17 @@ Each node of the cluster will open ports for different types of incoming TCP con
 | `id`  | ID used to uniquely describe a node in the cluster. |
 | `hostname` | IP address or host name of the machine where the node is running. Note that a loopback address such as `127.0.0.1` or `localhost` should not be used when running cluster nodes on different machines. |
 | `clusterPort` | Port used for cluster-wide communications; defaults to `5531`. |
+| `repositoryPort` | Port used for repository communications; defaults to `5541`. |
 
 ### Configure cluster member connection details
 
 Each cluster node must know about all nodes in the cluster (including itself). This information *must* be the same on every node. It is defined in the `xl.cluster.members` section. For example:
 
     members = [
-        {hostname: "node-1.example.com", clusterPort: 5531 }
-        {hostname: "node-2.example.com", clusterPort: 5531 }
+        {hostname: "node-1.example.com", clusterPort: 5531, repositoryPort: 5541 }
+        {hostname: "node-2.example.com", clusterPort: 5531, repositoryPort: 5541 }
         .....
-        {hostname: "node-x.example.com", clusterPort: 5531 }
+        {hostname: "node-x.example.com", clusterPort: 5531, repositoryPort: 5541 }
     ]
 
 Where:
@@ -162,10 +161,12 @@ This is a sample configuration for one node in a cluster that uses a MySQL repos
                 {
                     clusterPort=5531
                     hostname=xlr-seed
+                    repositoryPort=5541
                 },
                 {
                     clusterPort=5531
                     hostname=xlr-node
+                    repositoryPort=5541
                 }
             ]
             # xl.cluster.name - name of the cluster
@@ -175,6 +176,7 @@ This is a sample configuration for one node in a cluster that uses a MySQL repos
                 id=xlr-seed
                 hostname=xlr-seed
                 clusterPort=5531
+                repositoryPort=5541
             }
         }
         repository {
@@ -183,7 +185,7 @@ This is a sample configuration for one node in a cluster that uses a MySQL repos
             configuration = "mysql-cluster"
             # xl.repository.persistence - repository database connection parameters
             persistence {
-                jdbcUrl = "jdbc:mysql://db/xlrelease?useSSL=false"
+                jdbcUrl = "jdbc:mysql://db/xlrelease"
                 username = "xlrelease"
                 password = "xlrelease"
                 maxPoolSize = "20"
@@ -198,7 +200,7 @@ This is a sample configuration for one node in a cluster that uses a MySQL repos
         # xl.reporting - reporting/archive database connection parameters
         reporting {
             db-driver-classname="com.mysql.jdbc.Driver"
-            db-url="jdbc:mysql://db/xlrarchive?useSSL=false"
+            db-url="jdbc:mysql://db/xlrarchive"
             db-username="xlrarchive"
             db-password="xlrarchive"
         }
