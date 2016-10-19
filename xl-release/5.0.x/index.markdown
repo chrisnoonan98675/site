@@ -23,6 +23,10 @@ product-id: xl-release
 * [SVN trigger plugin](/xl-release/how-to/svn-trigger-plugin.html)
 * [Jenkins plugin](/xl-release/how-to/create-a-jenkins-task.html)
 * [XL Deploy plugin](/xl-release/how-to/create-an-xl-deploy-task.html)
+* [Kubernetes plugin](/xl-release/how-to/kubernetes-plugin.html)
+* [Ansible plugin](/xl-release/how-to/ansible-plugin.html)
+* [Docker Compose plugin](/xl-release/how-to/docker-compose-plugin.html)
+* [Remote Script plugin](/xl-release/how-to/remote-script-plugin.html)
 
 ### Tools
 
