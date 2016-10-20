@@ -146,7 +146,7 @@ Where:
 
 ### Sample configuration
 
-This is a sample configuration for one node in a cluster that uses a MySQL repository database:
+This is a sample `xl-release.conf` configuration for one node in a cluster that uses a MySQL repository database:
 
     xl {
         cluster {
@@ -203,7 +203,7 @@ This is a sample configuration for one node in a cluster that uses a MySQL repos
 
 **Note:** After the first run, passwords in the configuration file will be encrypted and replaced with base64-encoded values.
 
-Sample HAProxy configuration (make sure that it is hardened before using it in production ready environment):
+Sample `haproxy.cfg` configuration (make sure that it is hardened before using it in production ready environment):
 
     global
       log 127.0.0.1 local0
