@@ -137,7 +137,7 @@ Where:
 | `hostname` | IP address or hostname of the machine where the node is running. |
 | `clusterPort` | Port used for cluster-wide communications. |
 
-## Sample configuration
+## Sample `xl-release.conf` configuration
 
 This is a sample `xl-release.conf` configuration for one node that uses a MySQL repository database.
 
@@ -196,7 +196,9 @@ This is a sample `xl-release.conf` configuration for one node that uses a MySQL 
 
 **Note:** After the first run, passwords in the configuration file will be encrypted and replaced with base64-encoded values.
 
-Sample `haproxy.cfg` configuration (make sure that it is hardened before using it in production ready environment):
+## Sample `haproxy.cfg` configuration
+
+This is a sample `haproxy.cfg` configuration. Ensure that your configuration is hardened before using it in a production environment.
 
     global
       log 127.0.0.1 local0
