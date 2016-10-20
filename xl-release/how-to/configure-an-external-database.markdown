@@ -1,4 +1,19 @@
-### Configure the archive database
+#---
+title: Configure an external database for use with XL Release 6.0.0+
+categories:
+- xl-release
+subject:
+- System administration
+tags:
+- system administration
+- installation
+- database
+weight: 496
+since:
+- XL Release 6.0.0
+---
+
+## Configure the archive database
 
 The archive database must be shared among all nodes when the clustering functionality is enabled. Ensure that every node has access to the shared archive database.
 
