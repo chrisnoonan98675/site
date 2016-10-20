@@ -1,5 +1,5 @@
 ---
-title: Configure XL Release in Active/Hot-Standby cluster mode
+title: Configure active/hot-standby mode
 categories:
 - xl-release
 subject:
@@ -9,48 +9,42 @@ tags:
 - installation
 - failover
 - database
-- active/active
+- active/hot-standby
 - clustering
 weight: 496
 since:
 - XL Release 6.0.0
 ---
 
-XL Release 6.0.0 can be configured in a clustered active/hot-standby mode. Running XL Release in this mode ensures that you have a Highly Available (HA) XL Release. Currently, active/hot-standby is the only cluster mode that is supported.
+As of XL Release 6.0.0, you can configure XL Release in a clustered active/hot-standby mode. Running XL Release in this mode ensures that you have a Highly Available (HA) XL Release. Currently, active/hot-standby is the only cluster mode that is supported.
 
 This topic describes the procedure to enable active/hot-standby mode.
 
 ## Requirements
 
-Running in a clustered mode adds some additional requirements to the [regular set of requirements](/xl-release/concept/requirements-for-installing-xl-release.html). Please review these before starting the setup.
+Using XL Release in active/hot-standby mode adds requirements to the [normal system requirements for XL Release](/xl-release/concept/requirements-for-installing-xl-release.html). Please review these requirements before starting the setup.
 
-* Clustering requires the use of an external database for the repository. If you currently run XL Release with its default configuration (which stores everything in an embedded Derby database), you must migrate all of your data to an external database before you can start using clustering.
+* You must use an [external database](/xl-release/how-to/configure-an-external-database.html) for the repository. If you currently run XL Release with its default configuration (which stores everything in an embedded Derby database), you must migrate all of your data to an external database before you can start to use active/hot-standby.
 * The XL Release [archive database](/xl-release/how-to/configure-the-archive-database.html) must also be configured as an external database.
-* Hot standby clustering requires you to use a load balancer that supports hot standby. This topic describes how to set up the HAProxy load balancer.
+* Hot standby mode requires you to use a load balancer that supports hot standby. This topic describes how to set up the [HAProxy](http://www.haproxy.org/) load balancer.
 * You must have a shared filesystem (such as NFS) that both the active and the standby XL Release nodes can reach.
 
-## Limitations in the clustering functionality preview
+## Limitation on HTTP session sharing and resiliency
 
-The preview of the XL Release clustering functionality has some limitations. Please review these before using clustering.
+In active/hot-standby mode, there is always an "active" XL Release node. The nodes use a health REST endpoint to tell the load balancer which node is the active one. The load balancer must always route users to the active node; calling a standby node directly will result in incorrect behavior. Therefore, you must configure the load balancer such that a sticky session flag is _not_ enabled.
 
-### Limitation on HTTP session sharing and resiliency
-
-XL Release nodes in a cluster work with the notion of 'being the active node', and will inform the load balancer which of the nodes is considered to be the active one by means of a health REST endpoint. Users must always be routed (through the load balancer) to the active node since calling any of the standby nodes directly will result in incorrect behaviour. The load balancer must therefore be configured such that a sticky session flag is _not_ enabled.
-
-XL Release does however not share HTTP sessions among nodes in a cluster. This means that if the active XL Release node becomes unavailable:
+However, XL Release does not share HTTP sessions among nodes. If the active XL Release node becomes unavailable:
 
 * All users will effectively be logged out and will lose any work that was not yet persisted to the database.
-* Any script tasks that were running on the previously active node will get the `failed` status, and can be restarted once another node has become the new active node.
+* Any script tasks that were running on the previously active node will have the `failed` status, and can be restarted after another node has become the new active node.
 
-## Clustering setup description
+## Active/Hot-standby setup procedure
 
-The initial cluster setup is:
+The initial active/hot-standby setup is:
 
-* A load balancer configured so that it does **not** use sticky sessions
+* A load balancer configured so that it does *not* use sticky sessions
 * A database server
 * Two XL Release servers
-
-## Active/Hot-standby cluster setup procedure
 
 To set up an active/hot-standby cluster, you must do some manual configuration before starting XL Release.
 
@@ -59,7 +53,7 @@ To set up an active/hot-standby cluster, you must do some manual configuration b
 This procedure assumes that:
 
 * You have already configured XL Release to use an external database as described in [Configure an external database](/xl-release/how-to/configure-an-external-database.html)
-* You have configured a shared filesystem (such as NFS) that is ready to be used as a store for binary data by all nodes in the cluster
+* You have configured a shared filesystem (such as NFS) that is ready to be used as a store for binary data by all nodes
 
 ### Step 2 Setting up the cluster
 
@@ -75,30 +69,30 @@ This procedure assumes that:
 
 ### Step 3 Prepare each node in the cluster
 
-1. Zip the distribution that you set up in [Step 2 Setting up the cluster](#step-2-setting-up-the-cluster).
-1. Copy this zip file to all the other nodes of the cluster and unzip it there.
+1. Zip the distribution that you created in [Step 2 Setting up the cluster](#step-2-setting-up-the-cluster).
+1. Copy this zip file to all other nodes and unzip it there.
 1. For each node, perform the node-specific configuration as described in [Configure node connection details](#configure-node-connection-details).
 
 **Note:** You do not need to run the setup command again.
 
 ### Step 4 Start the nodes
 
-The order in which you initially start each node of the cluster is important.
+The order in which you initially start each node is important.
 
-1. Begin starting the cluster with the node that is specified *first* in the [Cluster members connection details](#cluster-members-connection-details).
+1. Begin with the node that is specified *first* in the [Cluster members connection details](#cluster-members-connection-details).
 1. Proceed to the next node(s) as soon as the previous node starts successfully.
 
-## Cluster configuration settings
+## Active/hot-standby configuration settings
 
-All cluster configuration settings must be provided in the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file, which uses the [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format.
+All active/hot-standby configuration settings must be provided in the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file, which uses the [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format.
 
 ### Enable clustering
 
-The active/hot-standby clustering functionality is enabled when the `xl.cluster.enabled` switch is set to `hot-standby`.
+The active/hot-standby functionality is enabled when the `xl.cluster.enabled` switch is set to `hot-standby`.
 
 ### Enable repository cluster mode
 
-Instead of the `<database>-standalone` configuration that you configured in the [Configure an external database](/xl-release/how-to/configure-an-external-database.html) topic, you must choose a clustered configuration. Set the correct `xl.repository.configuration` value from this table:
+Instead of the `<database>-standalone` configuration that you configured in the [Configure an external database](/xl-release/how-to/configure-an-external-database.html) procedure, you must choose a clustered configuration. Set the correct `xl.repository.configuration` value from this table:
 
 {:.table .table-striped}
 | Database   | Configuration value  |
@@ -111,11 +105,11 @@ There is no need to change the other database configuration settings.
 
 ### Configure a shared filesystem
 
-The active/hot-standby cluster configuration requires that artifacts are stored in a shared filesystem such as NFS. Ensure that the `xl.repository.jackrabbit.artifacts.location` configuration value points to such a shared filesystem and that all nodes in the cluster can access it.
+The active/hot-standby configuration requires that artifacts are stored in a shared filesystem such as NFS. Ensure that the `xl.repository.jackrabbit.artifacts.location` configuration value points to such a shared filesystem and that all nodes can access it.
 
 ### Configure node connection details
 
-Each node of the cluster will open ports for different types of incoming TCP connections. These are defined in the `xl.cluster.node` section:
+Each node will open ports for different types of incoming TCP connections. These are defined in the `xl.cluster.node` section:
 
 {:.table .table-striped}
 | Parameter | Description |
@@ -126,7 +120,7 @@ Each node of the cluster will open ports for different types of incoming TCP con
 
 ### Configure cluster member connection details
 
-Each cluster node must know about all nodes in the cluster (including itself). This information *must* be the same on every node. It is defined in the `xl.cluster.members` section. For example:
+Each node must know about all nodes in the cluster (including itself). This information *must* be the same on every node. It is defined in the `xl.cluster.members` section. For example:
 
     members = [
         {hostname: "node-1.example.com", clusterPort: 5531 }
@@ -143,10 +137,9 @@ Where:
 | `hostname` | IP address or hostname of the machine where the node is running. |
 | `clusterPort` | Port used for cluster-wide communications. |
 
+## Sample configuration
 
-### Sample configuration
-
-This is a sample `xl-release.conf` configuration for one node in a cluster that uses a MySQL repository database:
+This is a sample `xl-release.conf` configuration for one node that uses a MySQL repository database.
 
     xl {
         cluster {

@@ -391,6 +391,14 @@ The following XML snippet shows a sample clustering configuration for a JCR usin
 
 Note that each Jackrabbit cluster node should have a unique value for `id`. For more information about JCR clustering or ways to configure clustering using other databases, refer to the Jackrabbit [clustering documentation](http://wiki.apache.org/jackrabbit/Clustering#Overview).
 
-## Moving the database
+## Changing the repository database settings
 
-For important information about moving a repository database or changing its configuration, refer to [Change the repository database settings](/xl-release/how-to/change-the-repository-database-settings.html).
+You may occasionally need to move the database or change settings such as the database username or password (for example, to test a new release against a non-production database).
+
+To do so, you must *manually* update the following files with the new settings:
+
+* `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml`
+* `XL_RELEASE_REPOSITORY_HOME/workspaces/default/workspace.xml`
+* `XL_RELEASE_REPOSITORY_HOME/workspaces/security/workspace.xml`
+
+**Important:** If there are additional `workspace.xml` files in the repository directory, you must also update the settings in those files.
