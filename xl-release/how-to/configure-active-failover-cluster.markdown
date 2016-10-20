@@ -123,17 +123,16 @@ Each node of the cluster will open ports for different types of incoming TCP con
 | `id`  | ID used to uniquely describe a node in the cluster. |
 | `hostname` | IP address or host name of the machine where the node is running. Note that a loopback address such as `127.0.0.1` or `localhost` should not be used when running cluster nodes on different machines. |
 | `clusterPort` | Port used for cluster-wide communications; defaults to `5531`. |
-| `repositoryPort` | Port used for repository communications; defaults to `5541`. |
 
 ### Configure cluster member connection details
 
 Each cluster node must know about all nodes in the cluster (including itself). This information *must* be the same on every node. It is defined in the `xl.cluster.members` section. For example:
 
     members = [
-        {hostname: "node-1.example.com", clusterPort: 5531, repositoryPort: 5541 }
-        {hostname: "node-2.example.com", clusterPort: 5531, repositoryPort: 5541 }
+        {hostname: "node-1.example.com", clusterPort: 5531 }
+        {hostname: "node-2.example.com", clusterPort: 5531 }
         .....
-        {hostname: "node-x.example.com", clusterPort: 5531, repositoryPort: 5541 }
+        {hostname: "node-x.example.com", clusterPort: 5531 }
     ]
 
 Where:
@@ -143,7 +142,6 @@ Where:
 | --------- | ----------- |
 | `hostname` | IP address or hostname of the machine where the node is running. |
 | `clusterPort` | Port used for cluster-wide communications. |
-| `repositoryPort` | Port used in the repository replication mechanism. |
 
 
 ### Sample configuration
@@ -161,12 +159,10 @@ This is a sample configuration for one node in a cluster that uses a MySQL repos
                 {
                     clusterPort=5531
                     hostname=xlr-seed
-                    repositoryPort=5541
                 },
                 {
                     clusterPort=5531
                     hostname=xlr-node
-                    repositoryPort=5541
                 }
             ]
             # xl.cluster.name - name of the cluster
@@ -176,7 +172,6 @@ This is a sample configuration for one node in a cluster that uses a MySQL repos
                 id=xlr-seed
                 hostname=xlr-seed
                 clusterPort=5531
-                repositoryPort=5541
             }
         }
         repository {
