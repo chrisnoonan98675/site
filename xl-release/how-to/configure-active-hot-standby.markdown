@@ -31,18 +31,18 @@ Using XL Release in active/hot-standby mode adds requirements to the [normal sys
 
 ## Limitation on HTTP session sharing and resiliency
 
-In active/hot-standby mode, there is always an "active" XL Release node. The nodes use a health REST endpoint to tell the load balancer which node is the active one. The load balancer must always route users to the active node; calling a standby node directly will result in incorrect behavior. Therefore, you must configure the load balancer such that a sticky session flag is _not_ enabled.
+In active/hot-standby mode, there is always at most one "active" XL Release node. The nodes use a health REST endpoint to tell the load balancer which node is the active one. The load balancer will always route users to the active node; calling a standby node directly will result in incorrect behavior.
 
 However, XL Release does not share HTTP sessions among nodes. If the active XL Release node becomes unavailable:
 
 * All users will effectively be logged out and will lose any work that was not yet persisted to the database.
-* Any script tasks that were running on the previously active node will have the `failed` status, and can be restarted after another node has become the new active node.
+* Any script tasks that were running on the previously active node will have the `failed` status. After another node has become the new active node, which will happen automatically, these tasks can be restarted.
 
 ## Active/Hot-standby setup procedure
 
 The initial active/hot-standby setup is:
 
-* A load balancer configured so that it does *not* use sticky sessions
+* A load balancer
 * A database server
 * Two XL Release servers
 
