@@ -43,12 +43,7 @@ To create an application:
 To create a provisioning package:
 
 1. Right-click the application and select **New** > **Provisioning Package**.
-1. In the **Name** box, enter the provisioning package's version.
-1. In the **Environment Name** box, enter an XL Deploy environment that should contain the CIs that are generated during provisioning. This field cannot contain forward slashes (`/`).
-
-    ![Create new provisioning package](images/provisioning-create-new-provisioning-package.png)
-
-1. In the **Directory Path** box, enter the location in the repository where the environment and the CIs that are created should be saved. Omit root nodes such as `Environments`.
+1. In the **Name** box, enter the provisioning package version.
 1. Click **Save**.
 
 ## Step 3 Add a provisionable to a package
