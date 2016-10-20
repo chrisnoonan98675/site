@@ -51,18 +51,10 @@ To create a provisioning package:
 To add a provisionable to a provisioning package:
 
 1. Right-click the provisioning package, select **New**, then select the type of provisionable that you want to add. For example, to add an Amazon Web Services EC2 AMI, select **aws** > **ec2.InstanceSpec**.
-1. Fill in the provisionable properties. For example, some of the properties for an `aws.ec2.instanceSpec`:
+1. Fill in the provisionable properties. For example, some of the properties for an `aws.ec2.instanceSpec` are:
 
     ![Create new provisionable (aws.ec2.InstanceSpec)](images/provisioning-create-new-provisionable-02.png)
 
-1. Click **Save**.
-
-### Add a provisioner to a provisionable
-
-You can optionally add a provisioner (such as Puppet) to a provisionable:
-
-1. Right-click the provisionable, select **New**, then select the type of provisioner that you want to add. For example, to add a Puppet manifest, select **provisioner.Manifest**.
-1. Fill in the configuration for the provisioner.
 1. Click **Save**.
 
 ## Step 4 Add a template to a package
@@ -114,3 +106,13 @@ Like other CIs, you can create a hierarchy of templates that have a parent-child
 ![Hierarchy of CI templates](images/provisioning-template-hierarchy.png)
 
 In this case, you only need to specify the root (parent) of the hierarchy as a bound template. XL Deploy will automatically also create CIs based on the child templates.
+
+## Step 6 Add a provisioner to a provisionable
+
+You can optionally add a provisioner such as Puppet to a provisionable:
+
+1. Right-click the provisionable, select **New**, then select the type of provisioner that you want to add. For example, to add a Puppet manifest, select **provisioner.Manifest**.
+1. Fill in the configuration for the provisioner.
+1. Click **Save**.
+
+**Tip:** A provisioner must run on a host, so you should first create a host template (for example, `template.overthere.SshHost`), and then assign it to the provisioner.
