@@ -88,7 +88,10 @@ All active/hot-standby configuration settings must be provided in the `XL_RELEAS
 
 ### Enable clustering
 
-The active/hot-standby functionality is enabled when the `xl.cluster.enabled` switch is set to `hot-standby`.
+The active/hot-standby functionality is enabled when the following settings are configured in `xl-release.conf`:
+
+* `xl.cluster.enabled` is set to `true`
+* `xl.cluster.mode` is set to `hot-standby`
 
 ### Enable repository cluster mode
 
