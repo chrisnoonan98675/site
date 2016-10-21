@@ -145,8 +145,8 @@ This is a sample `xl-release.conf` configuration for one node that uses a MySQL 
         cluster {
             # xl.cluster.mode: "default", "hot-standby"
             mode=hot-standby
-            # xl.cluster.enabled - on or off
-            enabled=on
+            # xl.cluster.enabled - yes or no
+            enabled=yes
             # xl.cluster.members - cluster seed nodes
             members=[
                 {
