@@ -36,7 +36,7 @@ In active/hot-standby mode, there is always at most one "active" XL Release node
 However, XL Release does not share HTTP sessions among nodes. If the active XL Release node becomes unavailable:
 
 * All users will effectively be logged out and will lose any work that was not yet persisted to the database.
-* Any script tasks that were running on the previously active node will have the `failed` status. After another node has become the new active node, which will happen automatically, these tasks can be restarted.
+* Any script tasks that were running on the previously active node will have the `failed` status. After another node has become the new active node (which will happen automatically), these tasks can be restarted.
 
 ## Active/Hot-standby setup procedure
 
