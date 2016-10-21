@@ -11,12 +11,11 @@ tags:
 weight: 353
 ---
 
-The XL Deploy Database plugin supports deployment of SQL files and folders to a database client.
+The XL Deploy Database plugin supports deployment of SQL files and folders to a database client. It is designed according to the principles described in [Evolutionary Database Design](http://martinfowler.com/articles/evodb.html).
 
 ## Features
 
-* Works with XL Deploy 5.0 and later
-* Supports deployment to MySQL, PostgreSQL, Oracle, MS SQL and DB/2
+* Supports deployment to MySQL, PostgreSQL, Oracle, Microsoft SQL, and DB/2
 * Deploys and undeploys SQL files and folders
 
 ## SQL scripts
@@ -49,7 +48,7 @@ SQL scripts are ordered lexicographically based on their file names. This is a s
 * `10-drop-user-index-rollback.sql`
 * `2-insert-user.sql`
 * `2-insert-user-rollback.sql`
-* ...
+* `...`
 * `9-create-user-index.sql`
 * `9-create-user-index-rollback.sql`
 
