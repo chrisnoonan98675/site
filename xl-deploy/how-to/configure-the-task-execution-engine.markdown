@@ -37,7 +37,7 @@ In XL Deploy 6.0.0 and later, you can tune the XL Deploy task execution engine w
 
 To understand how these values impact task execution, consider a simple example. Assume there is an application that contains six deployables, all of type `cmd.Command`. Each one is configured with a command to sleep for 15 seconds.
 
-In `XL_DEPLOY_SERVER_HOME/conf/system.conf`, set the step-execution-threads property to `2`:
+In `XL_DEPLOY_SERVER_HOME/conf/system.conf`, set the `step-execution-threads` property to `2`:
 
     task.step-execution-threads=2
 
@@ -51,7 +51,7 @@ Click **Execute** to start the execution. Because the core pool size is `2`, onl
 
 ![Deployment with limited core pool size](images/tuning/execution-first-two-tasks.png)
 
-After the two executing steps are done, the next two steps will be picked for execution. So, two steps are executed at a time. Note that in order for this example to work, no other tasks need to be executing at the same time.
+After the two executing steps are done, the next two steps will be picked for execution. So, two steps are executed at a time. Note that in order for this example to work, no other tasks can be executing at the same time.
 
 **Important:** This simple example assumes that there is only one task running in the system at a time. Keep in mind that threads are shared among all tasks in the system; they are not created per deployment.
 
