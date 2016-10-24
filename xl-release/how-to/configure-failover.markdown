@@ -15,7 +15,7 @@ weight: 496
 
 XL Release allows you to store the [repository](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html#using-a-database) and the [archive database](/xl-release/how-to/configure-the-archive-database.html#change-the-archive-database-dbms-xl-release-480-and-later) in a relational database instead of on the filesystem. If you use a database, then you can set up failover handling by creating additional instances of XL Release that will use the same database as your master instance. Note that this is not an active/active setup; only one instance of XL Release can access the database at a time.
 
-**Important:** Both nodes must use the same [Java version](/xl-release/concept/requirements-for-installing-xl-release.html#server-requirements).
+**Important:** For the preferred clustering configuration in XL Release 6.0.0 and later, refer to [Configure active failover cluster](/xl-release/how-to/configure-active-failover-cluster.html).
 
 ## Initial setup
 
@@ -40,6 +40,9 @@ To set up a master node (called `node1`) and a failover node (called `node2`):
 3. [Start the XL Release server](/xl-release/how-to/start-xl-release.html) and verify that it starts without errors. Create at least one new template or release for testing purposes (you will check for this item on `node2`).
 4. Stop the server.
 5. Copy the entire installation folder (`XL_RELEASE_SERVER_HOME`) to `node2`.
+
+    **Important:** Both nodes must use the same [Java version](/xl-release/concept/requirements-for-installing-xl-release.html#server-requirements).
+
 6. In `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml`, change the `Cluster id`. Do not change any other properties. For example:
 
         <Cluster id="node2" syncDelay="2000">
