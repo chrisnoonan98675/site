@@ -138,6 +138,11 @@ When you deploy a composite package, the dependency check is skipped. This means
 
 ## Undeploying application with dependencies
 
-When undeploying an application, you can also automatically undeploy all of its direct or transient dependencies. To do so, enable the **Undeploy Dependencies** option in the deployment properties. If this option is not enabled, the application will be undeployed, but its dependencies will remain deployed.
+Prior to XL Deploy 6.0.0, XL Deploy does not automatically undeploy an application's dependencies when you undeploy the application.
 
-**Note:** Dependent applications will be undeployed even if they were originally deployed manually.
+When undeploying an application in XL Deploy 6.0.0 and later, you can automatically undeploy all of its direct or transient dependencies by setting the **Undeploy Dependencies** property to `TRUE` on the deployment package or in the deployment properties. If this property is set to:
+
+* `TRUE`, dependent applications will be undeployed even if they were originally deployed manually
+* `FALSE`, the application will be undeployed, but its dependencies will remain deployed
+
+**Tip:** You can use a [placeholder](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) in the **Undeploy Dependencies** property to set a different value per environment.
