@@ -114,7 +114,7 @@ Note that the dependency resolution set on the AppB deployment packages is ignor
 
 ## Deploying dependencies in the right order
 
-When deploying applications with dependencies, the order in which the applications will be deployed might be important. For example, if application A depends on application B, you want to deploy application B before A. You can achieve this by using the [`sequential-by-dependency`](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) orchestrator. This orchestrator will deploy all applications in reverse topological order to ensure that dependent applications are deployed first. By default, all steps for all applications will be interleaved.
+When deploying applications with dependencies, the order in which the applications will be deployed might be important. For example, if application A depends on application B, you want to deploy application B before A. You can achieve this by using the [`sequential-by-dependency`](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) orchestrator (available in XL Deploy 6.0.0 and later). This orchestrator will deploy all applications in reverse topological order to ensure that dependent applications are deployed first. By default, all steps for all applications will be interleaved.
 
 You can combine the `sequential-by-dependency` orchestrator with other orchestrators such as the `sequential-by-deployment-group` orchestrator to support more advanced use cases.
 
