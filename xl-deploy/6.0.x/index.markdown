@@ -13,7 +13,7 @@ product-id: xl-deploy
 * [Provisioning CI Reference](/xl-deploy-xld-provision/6.0.x/xldProvisioningManual.html)
 * [REST API Reference](rest-api)
 * [Jython API Reference](/jython-docs/#!/xl-deploy/6.0.x/)
-* [Javadoc](/xl-deploy/5.1.x/javadoc/udm-plugin-api/index.html)
+* [Javadoc](/xl-deploy/6.0.x/javadoc/udm-plugin-api/index.html)
 * [XL Deploy satellite module](/xl-deploy/6.0.x/satellitecireference.html)
 
 ## Plugin reference documentation
