@@ -26,7 +26,7 @@ To use the CI Explorer, you must use the latest version of Firefox, Chrome, or S
 
 ## Access the CI Explorer
 
-To access the CI Explorer, go to `URL:PORT/technical-preview.html`, where `URL:PORT` is the location where you have configured access to the XL Deploy GUI; for example, `http://xl-deploy.company.com:4516/technical-preview.html`.
+To access the CI Explorer, go to `XL_DEPLOY_URL:PORT/technical-preview.html`; for example, `http://xl-deploy.company.com:4516/technical-preview.html`.
 
 If you are not already logged in to XL Deploy, you must enter your XL Deploy user name and password when the browser prompts you.
 
