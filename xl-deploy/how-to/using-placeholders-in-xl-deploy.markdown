@@ -71,7 +71,10 @@ After changing `deployit-defaults.properties`, you must restart XL Deploy for th
 
 ## Property placeholders
 
-_Property_ placeholders are used in CI properties by specifying them in the package's manifest. In contrast to file placeholders, property placeholders do not necessarily need to get a value from a dictionary. If the placeholder can not be resolved from a dictionary, the placeholder is left as-is.
+_Property_ placeholders are used in CI properties by specifying them in the package's manifest. In contrast to file placeholders, property placeholders do not necessarily need to get a value from a dictionary. If the placeholder can not be resolved from a dictionary:
+
+* If the property `kind` is `set_of_ci`, `set_of_string`, `map_string_string`, `list_of_ci`, or `list_of_string`, the placeholder is left as-is.
+* If the property is of any other `kind` (for example, `string`), the placeholder is replaced with an empty string. Note that, if the property is required, this will cause an error and XL Deploy will require you to provide a value at deployment time.
 
 ## Debugging placeholder scanning
 
