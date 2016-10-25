@@ -10,10 +10,12 @@ tags:
 weight: 423
 ---
 
-To create a release from a template, either:
+You can create a release from a template by:
 
-* Click **New Release from Template** on the template overview
-* Click **New Release** on the template when it is open in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html)
+* Selecting **Templates** > **Folders** from the top bar, locating the template, and clicking **New release**
+* Selecting **Templates** > **All templates** from the top bar, locating the template, and clicking **New release**
+* Clicking **New Release** on the template when it is open in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html)
+* Clicking **New Release from Template** on the template overview (in XL Release 5.0.x and eariler)
 
 When you create a release from a template, it is first in a *planned* state. This is important because, before the release starts and users are notified by email that tasks are assigned to them, the release owner must:
 

@@ -12,7 +12,7 @@ weight: 422
 
 To start a release from an archived release:
 
-1. In XL Release, select **Releases** > **Overview** from the top bar.
+1. In XL Release, select **Releases** > **Release overview** from the top bar.
 1. Find the archived release. Note that you may need to adjust the [filter options](/xl-release/how-to/using-the-release-overview.html#filtering-the-release-overview) if completed releases aren't shown.
 
     ![The release overview screen](../images/start-a-release-from-an-archived-release-1.png)

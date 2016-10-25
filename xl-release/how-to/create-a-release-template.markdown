@@ -8,7 +8,7 @@ tags:
 - release
 - template
 - permission
-weight: 411
+weight: 412
 ---
 
 In XL Release, _templates_ are like blueprints for releases. You use templates to model the ideal process of a release flow. A template can describe a procedure that is used to deliver different applications, or it can describe a procedure that is used to release a particular application and that will be reused for different versions of the application.
@@ -19,27 +19,39 @@ A new release is based on a template. The release is a copy of the template and 
 
 If you change a template, the running releases that were created from it are not updated with the changes. Also, if you change the content or structure of a release, the changes are not automatically propagated to the template that was used to create it.
 
-## Using the template overview
+## Viewing templates
 
-The template overview shows all templates that you have permission to see.
+In XL Release 6.0.0 and later, you can:
 
-![Template Overview](../images/template-overview.png)
+* View templates organized by [folder](/xl-release/how-to/manage-templates-and-releases-using-folders.html) by selecting **Templates** > **Folders** from the top bar
+* View all templates by selecting **Templates** > **All templates** from the top bar
 
-The following options are available (depending on your permissions):
+In XL Release 5.0.x and earlier, you can view all templates by going to the template overview.
+
+In all cases, you will only see the templates that you have permissions to view.
+
+### Template options
+
+When viewing a list of templates, the following options are available (depending on your permissions):
 
 {:.table .table-striped}
 | Action | Description |
 | ------ | ----------- |
-| View | Open the template in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html). |
-| New release from template | Create a new release based on the template. |
-| Copy | Create a new template that is a copy of this one; if you copy a template that contains [release triggers](/xl-release/how-to/create-a-release-trigger.html), all triggers on the copied template will be disabled.<br /><br />You will be added as an owner of the new template. However, if you did not have edit permissions on the original template, then all password fields and variables will be stripped. |
+| Edit | Open the template in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html). |
+| New release | Create a new release based on the template. |
+| Copy | Create a new template that is a copy of the selected one; if you copy a template that contains [release triggers](/xl-release/how-to/create-a-release-trigger.html), all triggers on the copied template will be disabled.<br /><br />You will be added as an owner of the new template. However, if you did not have edit permissions on the original template, then all password fields and variables will be stripped. |
+| Move | Move the template to a different folder (available in XL Release 6.0.0 and later). |
 | Delete | Delete the template. |
 
 ## Create a template
 
 To create a template:
 
-1. On the template overview, click **New template**.
+1. Start in one of the following places:
+
+    * Go to **Templates** > **All templates** and click **New template**
+    * Go to **Templates** > **Folders**, select a folder, and click **Add template** > **Create new template**
+    * Click **New template** on the template overview (prior to XL Release 6.0.0)
 
     ![Create new template](../images/create-new-template.png)
 
@@ -55,33 +67,21 @@ To discard your changes without saving, click **Cancel**.
 
 ### Copy a template
 
-To create a copy of a template, go to the template overview and click **Copy** under the desired template. Note that template names do not have to be unique because every template has a [unique ID](/xl-release/how-to/how-to-find-ids.html#releases-and-templates) such as `Release29994650`.
+To create a copy of a template:
+
+1. Go to **Templates** > **Folders** or **Templates** > **All templates** and locate the template that you want to copy.
+2. Click **Copy**. A dialog box appears.
+3. Adjust the template name and add a description, if desired.
+4. Click **Continue**. The new template is copied into the same folder as the original template. You can then optionally move it to a different folder.
+
+In XL Release 5.0.x and earlier, locate the template that you want to copy in the template overview and click **Copy** under it.
+
+**Note:** Template names do not have to be unique because every template has a [unique ID](/xl-release/how-to/how-to-find-ids.html#releases-and-templates) such as `Release29994650`.
 
 If you want to create a new version of a template, it is recommended that you do so by copying the original template and adding a version number to the name of the copy; for example, _Consumer Portal Release Process V4_.
 
 ## Template security
 
-### Template teams
+In XL Release 6.0.0 and later, you configure release teams and their permissions on the folder level. In earlier versions of XL Release, you configure template and release permissions separately (folder permissions are not available).
 
-In XL Release, a *release team* allows you to group users with the same role, so you can assign tasks in the release to the team. You can also configure template-level and release-level permissions on the team level. For information about teams, refer to [Configure release teams and permissions](/xl-release/how-to/configure-release-teams-and-permissions.html).
-
-### Template permissions
-
-_Template permissions_ determine who can do what in a release template.
-
-To set template permissions, open a template and select **Permissions** from the **Show** menu. The Permissions page is only available to users who have the *Edit Security* permission on the template or who have the *Edit Security* [global permission](/xl-release/how-to/configure-permissions.html).
-
-![Template Permissions](../images/template-permissions.png)
-
-The following permissions are available for templates:
-
-{:.table .table-striped}
-| Permission | Description |
-| ---------- | ----------- |
-| Create Release | Users can create a release from the template. |
-| View Template | Users can see the template in the template overview. |
-| Edit Template | Users can change the template by adding tasks and phases and changing them. |
-| Edit Security | Users can edit teams and permissions on the template. |
-| Edit Triggers | Users can view, edit, and delete triggers on the template. To create a trigger, you also need the *Create Release* permission. |
-
-_Release permissions_ determine who can do what in a release. For information about these permissions, refer to [Configure release teams and permissions](/xl-release/how-to/configure-release-teams-and-permissions.html).
+For information about security, refer to [Configure release teams and permissions](/xl-release/how-to/configure-release-teams-and-permissions.html).

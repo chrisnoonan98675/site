@@ -77,7 +77,7 @@ Instead of explicitly setting the due date, you can use the duration property to
 
 ### Tags
 
-In XL Release 6.0.0 and later, tasks support tags. You can optionally add tags to make it easier to find the task in the [release table overview](/xl-release/how-to/using-the-table-view.html).
+In XL Release 6.0.0 and later, you can optionally add tags to tasks. You can then search by tag in the [release table view](/xl-release/how-to/using-the-table-view.html).
 
 ### Assigned to
 
