@@ -14,7 +14,7 @@ since:
 
 The CI Explorer gives you a new way to work with XL Deploy. In the CI Explorer, you can manage the configuration items (CIs) in your repository, deploy and undeploy applications, and provision and deprovision environments, all without installing Flash in your browser.
 
-**Important:** The CI Explorer is currently available as a Technical Preview, so its functionality is limited. Future releases will add more features to the CI Explorer.
+**Important:** The CI Explorer is currently available as a Technical Preview, so its functionality is limited. Future releases will add more features to the CI Explorer. We want your feedback! Please share your experience with the Technical Preview [here](https://www.surveymonkey.com/r/N7JBZSN).
 
 ## Requirements and installation
 
