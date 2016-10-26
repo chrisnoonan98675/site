@@ -19,8 +19,6 @@ To see more information about a release, click it.
 
 ![Calendar info](../images/calendar-info.png)
 
-**Tip:** Hover over a dependent release to see it highlighted in the calendar.
-
 ## Filtering the calendar
 
 To filter the calendar, click **Filter options** and select:
@@ -32,3 +30,8 @@ To filter the calendar, click **Filter options** and select:
 * **Only flagged releases** to show releases that are flagged with a status message to indicate that they need attention or are at risk
 
 To filter on the release title or tag, use the **By title or tag** box.
+
+## Calendar tips
+
+* Hover over a dependent release to see it highlighted in the calendar.
+* You can mark special days such as holidays by clicking ![Edit calendar day](../images/icon_edit_calendar_day.png) in the day on the calendar. You can give special days a custom label and background color.
