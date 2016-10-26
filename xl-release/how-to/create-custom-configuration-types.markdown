@@ -61,7 +61,9 @@ The required attributes to refer to a custom configuration type are:
 
 ## Configuration page
 
-Use the **Configuration** page to configure objects that a custom task can reference (such as Jira tasks or Jenkins tasks). This page is accessible to users with Admin permissions.
+Use the **Task configurations** page to configure objects that a custom task can reference (such as Jira tasks or Jenkins tasks). This page is accessible to users with Admin permissions.
+
+**Note:** Prior to XL Release 6.0.0, the page is called **Configuration**.
 
 The page shows the configuration types that are currently available and allows you to create instances of the types.
 

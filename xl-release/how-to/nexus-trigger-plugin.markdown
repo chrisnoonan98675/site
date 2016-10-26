@@ -27,7 +27,10 @@ The plugin is compatible with Nexus 2. The plugin does not support Nexus 3.0.0.
 
 To set up a Nexus server:
 
-1. In XL Release, go to **Settings** > **Configuration** and click **Add Repository** under **Nexus: Server**.
+1. In XL Release, go to **Settings** > **Task configurations** and click **Add Repository** under **Nexus: Server**.
+
+    **Note:** Prior to XL Release 6.0.0, go to **Settings** > **Configuration**.
+
 2. In the **Title** box, enter the name of the Nexus server.
 3. In the **URL** box, enter address where the server is reachable (for example, `http://domain:8081/nexus`).
 4. In the **Username** and **Password** boxes, enter the server log-in user ID and password.

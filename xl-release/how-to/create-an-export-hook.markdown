@@ -53,7 +53,9 @@ However, it is recommended that you use the default location of `ext`.
 
 ## Step 3 Create an instance of the export hook
 
-In XL Release, go to **Settings** > **Configuration** and configure an instance of your export hook.
+In XL Release, go to **Settings** > **Task configurations** and configure an instance of your export hook.
+
+**Note:** Prior to XL Release 6.0.0, go to **Settings** > **Configuration**.
 
 ## Order of execution
 

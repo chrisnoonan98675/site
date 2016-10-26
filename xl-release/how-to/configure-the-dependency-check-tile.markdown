@@ -11,7 +11,10 @@ To use this tile:
 
 1. Install the [OWASP Dependency-Check Plugin](https://wiki.jenkins-ci.org/display/JENKINS/OWASP+Dependency-Check+Plugin) in your Jenkins instance and follow the plugin instructions to create a Jenkins job that will check for vulnerabilities.
 1. Log in to XL Release as an administrator.
-1. Go to **Settings** > **Configuration** and add your Jenkins server.
+1. Go to **Settings** > **Task configurations** and add your Jenkins server.
+
+**Note:** Prior to XL Release 6.0.0, go to **Settings** > **Configuration**.
+
 1. Open a template or release and select **Release dashboard**.
 1. Click **Configure** to configure the dashboard.
 1. Click **Add tile** and select the dependency check tile.

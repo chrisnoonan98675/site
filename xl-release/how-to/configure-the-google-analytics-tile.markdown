@@ -9,7 +9,10 @@ The Google Analytics tile for XL Release [release dashboards](/xl-release/how-to
 
 First, set up a Google Analytics profile in XL Release:
 
-1. Go to **Settings** > **Configuration** and click **Add Profile** under **Google Analytics: Profile**.
+1. Go to **Settings** > **Task configurations** and click **Add Profile** under **Google Analytics: Profile**.
+
+    **Note:** Prior to XL Release 6.0.0, go to **Settings** > **Configuration**.
+
 2. In the **Title** box, enter a unique name for the profile.
 3. In the **View ID** box, enter the ID of the Google Analytics view to use for this profile.
 4. In the **Service Account ID** box, enter the ID of the Google Analytics service account to use for this profile.

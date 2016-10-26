@@ -30,7 +30,10 @@ The Ansible plugin requires the XL Release [Remoting plugin](/xl-release/how-to/
 
 To set up a connection to a Unix server running Ansible:
 
-1. In XL Release, go to **Settings** > **Configuration** and click **Add Unix Host**.
+1. In XL Release, go to **Settings** > **Task configurations** and click **Add Unix Host**.
+
+    **Note:** Prior to XL Release 6.0.0, go to **Settings** > **Configuration**.
+
 2. In the **Address** box, enter the IP address or host name of the remote machine running Ansible.
 3. In the **Port** box, enter the SSH port of the remote machine.
 4. In the **Username** and **Password** boxes, specify the user name and password of the SSH user that XL Release should use when connecting to the remote machine.

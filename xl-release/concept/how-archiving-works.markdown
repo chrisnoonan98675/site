@@ -30,7 +30,7 @@ By default, releases are archived right after they finish. Every minute, XL Rele
 
 You can configure two parameters for the archiving job:
 
-* The time a release must be completed or aborted before it is moved to the archive. You can configure this in **Settings** > **General Settings** > **Archive**.
+* The time a release must be completed or aborted before it is moved to the archive. You can configure this in **Settings** > **General Settings** > **Archiving**.
 
     By default, this is 0 days; in other words, releases are archived right after they are completed or aborted. If you would like to be able to add comments to a completed release, increase this value; however, keep in mind that releases will not appear in report until they are archived.
 

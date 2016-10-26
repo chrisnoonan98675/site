@@ -30,13 +30,15 @@ Here, we've defined a very simple configuration type with two properties, foo an
 
 ## Creating a configuration object
 
-Once we have defined our configuration type, we create a configuration object of that type under **Settings** > **Configuration** in the XL Release UI:
+Once we have defined our configuration type, we create a configuration object of that type under **Settings** > **Task configurations** in the XL Release UI:
 
 ![Add global config](../images/settings-new-global-config.png)
 
 ![Global settings](../images/settings-globals1.png)
 
 We could create multiple configuration objects, but since we're here looking to define global variables, a single instance is presumably what we want:
+
+**Note:** Prior to XL Release 6.0.0, this page is called **Configuration**.
 
 ## Linking the configuration type to custom task types
 
