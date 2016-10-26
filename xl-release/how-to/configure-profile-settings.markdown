@@ -12,7 +12,9 @@ tags:
 - active directory
 ---
 
-To edit your XL Release user profile, select **Settings** > **Profile** from the top menu.
+To edit your XL Release user profile, select **User management** > **User profile** from the top menu.
+
+**Note:** Prior to XL Release 6.0.0, select **Settings** > **Profile**.
 
 ![User Profile](../images/user-profile.png)
 

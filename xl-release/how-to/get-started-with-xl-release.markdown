@@ -79,7 +79,9 @@ In XL Release, there are two types of users:
 * _Internal users_ that are managed by XL Release and can be added and removed by an XL Release administrator
 * _External users_ that are maintained in an LDAP repository such as Active Directory
 
-To get started with security, create an internal user account for yourself. Go to **Settings** > **Users** and click **New user**. Enter a user name, email address, and password, then click **Save**.
+To get started with security, create an internal user account for yourself. Go to **User management** > **Users** and click **New user**. Enter a user name, email address, and password, then click **Save**.
+
+**Note:** Prior to XL Release 6.0.0, select **Settings** > **Users**.
 
 ### Create a role
 

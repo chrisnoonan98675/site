@@ -20,7 +20,9 @@ XL Release has a role-based security system with two types of users:
 
 After you create internal users and/or retrieve external users, you can assign them to [roles](/xl-release/how-to/configure-roles.html). [Global permissions](/xl-release/how-to/configure-permissions.html) are assigned at the role level.
 
-To view and edit XL Release users, select **Settings** > **Users** from the top menu. The Users page is only available to users who have the *Admin* or *Edit Security* [global permission](/xl-release/how-to/configure-permissions.html).
+To view and edit XL Release users, select **User management** > **Users**  from the top menu. The Users page is only available to users who have the *Admin* or *Edit Security* [global permission](/xl-release/how-to/configure-permissions.html).
+
+**Note:** Prior to XL Release 6.0.0, select **Settings** > **Users**.
 
 ![Users](../images/users.png)
 
