@@ -19,7 +19,7 @@ In XL Release 6.0.0 and later, you configure release teams and their permissions
 
 To configure release teams in XL Release 6.0.0 and later:
 
-1. Select **Templates** > **Folders** from the top bar.
+1. Select **Design** > **Folders** from the top bar.
 2. Select a folder.
 3. Go to the **Permissions** tab.
 4. Click **Add team** to add a new team.
@@ -47,7 +47,7 @@ You can configure permissions on templates and releases if you have the _Edit Se
 
 To configure permissions in XL Release 6.0.0 and later:
 
-1. Select **Templates** > **Folders** from the top bar.
+1. Select **Design** > **Folders** from the top bar.
 2. Select a folder.
 3. Go to the **Permissions** tab.
 

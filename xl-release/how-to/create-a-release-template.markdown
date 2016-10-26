@@ -24,7 +24,7 @@ If you change a template, the running releases that were created from it are not
 In XL Release 6.0.0 and later, you can:
 
 * View templates organized by [folder](/xl-release/how-to/manage-templates-and-releases-using-folders.html) by selecting **Templates** > **Folders** from the top bar
-* View all templates by selecting **Templates** > **All templates** from the top bar
+* View all templates by selecting **Design** > **Templates** from the top bar
 
 In XL Release 5.0.x and earlier, you can view all templates by going to the template overview.
 
@@ -49,8 +49,8 @@ To create a template:
 
 1. Start in one of the following places:
 
-    * Go to **Templates** > **All templates** and click **New template**
-    * Go to **Templates** > **Folders**, select a folder, and click **Add template** > **Create new template**
+    * Go to **Design** > **Templates** and click **New template**
+    * Go to **Design** > **Folders**, select a folder, and click **Add template** > **Create new template**
     * Click **New template** on the template overview (prior to XL Release 6.0.0)
 
     ![Create new template](../images/create-new-template.png)
@@ -69,7 +69,7 @@ To discard your changes without saving, click **Cancel**.
 
 To create a copy of a template:
 
-1. Go to **Templates** > **Folders** or **Templates** > **All templates** and locate the template that you want to copy.
+1. Go to **Design** > **Folders** or **Design** > **Templates** and locate the template that you want to copy.
 2. Click **Copy**. A dialog box appears.
 3. Adjust the template name and add a description, if desired.
 4. Click **Continue**. The new template is copied into the same folder as the original template. You can then optionally move it to a different folder.

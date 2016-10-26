@@ -22,9 +22,9 @@ Folders enable you to:
 
 ## Get started with folders
 
-To start using folders in XL Release 6.0.0, select **Templates** > **Folders** in the top bar. Click **Add folder** to start adding folders.
+To start using folders in XL Release 6.0.0, select **Design** > **Folders** in the top bar. Click **Add folder** to start adding folders.
 
-If you have upgraded from an earlier version of XL Release, you can find your existing templates in **Templates** > **All templates**. From there, you can move them into folders that you have created.
+If you have upgraded from an earlier version of XL Release, you can find your existing templates in **Design** > **Templates**. From there, you can move them into folders that you have created.
 
 ![Templates that are not in a folder](../images/templates-all-templates.png)
 

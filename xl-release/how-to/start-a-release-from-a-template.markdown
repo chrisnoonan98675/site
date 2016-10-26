@@ -12,8 +12,8 @@ weight: 423
 
 You can create a release from a template by:
 
-* Selecting **Templates** > **Folders** from the top bar, locating the template, and clicking **New release**
-* Selecting **Templates** > **All templates** from the top bar, locating the template, and clicking **New release**
+* Selecting **Design** > **Folders** from the top bar, locating the template, and clicking **New release**
+* Selecting **Design** > **Templates** from the top bar, locating the template, and clicking **New release**
 * Clicking **New Release** on the template when it is open in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html)
 * Clicking **New Release from Template** on the template overview (in XL Release 5.0.x and eariler)
 

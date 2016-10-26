@@ -18,8 +18,8 @@ To import a template:
 
 1. Start in one of the following places:
 
-    * Go to **Templates** > **All templates** and click **Import**
-    * Go to **Templates** > **Folders**, select a folder, and click **Add template** > **Import template**
+    * Go to **Design** > **Templates** and click **Import**
+    * Go to **Design** > **Folders**, select a folder, and click **Add template** > **Import template**
     * Click **Import** on the template overview (prior to XL Release 6.0.0)
 
 2. Click **Browse** and browse to the `.xlr` file.
