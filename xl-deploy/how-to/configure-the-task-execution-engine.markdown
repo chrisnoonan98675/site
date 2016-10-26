@@ -29,7 +29,7 @@ In XL Deploy 6.0.0 and later, you can tune the XL Deploy task execution engine w
 {:.table .table-striped}
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
-| `task.step-execution-threads` | Amount of threads in the pool. | 32 |
+| `task.step.execution-threads` | Amount of threads in the pool. | 32 |
 
 **Important:** Threads are shared by all running tasks in the system; they are not created per deployment.
 
@@ -37,9 +37,9 @@ In XL Deploy 6.0.0 and later, you can tune the XL Deploy task execution engine w
 
 To understand how these values impact task execution, consider a simple example. Assume there is an application that contains six deployables, all of type `cmd.Command`. Each one is configured with a command to sleep for 15 seconds.
 
-In `XL_DEPLOY_SERVER_HOME/conf/system.conf`, set the `step-execution-threads` property to `2`:
+In `XL_DEPLOY_SERVER_HOME/conf/system.conf`, set the `step.execution-threads` property to `2`:
 
-    task.step-execution-threads=2
+    task.step.execution-threads=2
 
 Restart the XL Deploy server so the settings take effect.
 
