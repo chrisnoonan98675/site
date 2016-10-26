@@ -43,7 +43,7 @@ XL Release automatically creates the following predefined teams, which you canno
 
 ## Configure permissions
 
-You can configure permissions if you have the *Edit Security* [global permission](/xl-release/how-to/configure-permissions.html) or an _Edit Security_ permission on a folder, template, or release.
+You can configure permissions on templates and releases if you have the _Edit Security_ [global permission](/xl-release/how-to/configure-permissions.html) or if you have the _Edit Template Security_ or _Edit Release Security_ permission on a specific template or release. You can configure permissions on a folder if you have the _Edit Folder Security_ permission on the folder.
 
 To configure permissions in XL Release 6.0.0 and later:
 
