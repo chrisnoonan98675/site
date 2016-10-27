@@ -87,11 +87,13 @@ To get started with security, create an internal user account for yourself. Go t
 
 XL Release has a [role-based security system](/xl-release/how-to/configure-roles.html). You assign each user a role, and then assign global permissions to the role.
 
-Go to **Settings** > **Roles** and click **New role**. Click the role name and enter _Administrators_. Then, click **Add...** under **Principals** and type the user name that you just created for yourself. Don't forget to click **Save** to save your changes.
+Go to **User management** > **Roles** and click **New role**. (Prior to XL Release 6.0.0, select **Settings** > **Roles**.) Click the role name and enter _Administrators_. Then, click **Add...** under **Principals** and type the user name that you just created for yourself. Don't forget to click **Save** to save your changes.
 
 ### Assign permissions to the role
 
-Now you can assign [global permissions](/xl-release/how-to/configure-permissions.html) to the role that you created. Go to **Settings** > **Permissions** and select all permissions next to the _Administrators_ role. Don't forget to click **Save** to save your changes.
+Now you can assign [global permissions](/xl-release/how-to/configure-permissions.html) to the role that you created. Go to **User management** > **Permissions** and select all permissions next to the _Administrators_ role. Don't forget to click **Save** to save your changes.
+
+**Note:** Prior to XL Release 6.0.0, select **Settings** > **Permissions**.
 
 ![Global permissions](../xl-release/images/global-permissions.png)
 

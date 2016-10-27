@@ -13,7 +13,9 @@ tags:
 
 XL Release includes fine-grained access control that ensures the security of your releases. In XL Release, you assign internal and external users to [*roles*](/xl-release/how-to/configure-roles.html) that determine the global permissions that they have. Global permissions apply across the entire XL Release system.
 
-To configure permissions for roles, select **Settings** > **Permissions** from the top bar. The Permissions page is only available to users who have the *Admin* or *Edit Security* global permission.
+To configure permissions for roles, select **User management** > **Permissions** from the top bar. The Permissions page is only available to users who have the *Admin* or *Edit Security* global permission.
+
+**Note:** Prior to XL Release 6.0.0, select **Settings** > **Permissions**.
 
 ![Permissions](../images/global-permissions.png)
 

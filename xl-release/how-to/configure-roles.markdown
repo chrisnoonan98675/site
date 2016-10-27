@@ -18,7 +18,9 @@ XL Release has a role-based security system with two types of users:
 
 You assign internal users, external users, and external user groups to _roles_, which determine the [global permissions](/xl-release/how-to/configure-permissions.html) that they have. The technical term for a user or group that is assigned to a role is a _principal_.
 
-To configure roles, select **Settings** > **Roles** from the top menu. The Roles page is only available to users who have the *Admin* or *Edit Security* global permission.
+To configure roles, select **User management** > **Roles** from the top menu. The Roles page is only available to users who have the *Admin* or *Edit Security* global permission.
+
+**Note:** Prior to XL Release 6.0.0, select **Settings** > **Roles**.
 
 ![Roles](../images/roles.png)
 
