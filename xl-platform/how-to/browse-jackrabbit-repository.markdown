@@ -2,21 +2,22 @@
 title: Browse the Jackrabbit JCR repository
 categories:
 - xl-release
+- xl-deploy
 subject:
-- Repository browser tool
+- Repository
 tags:
 - repository
-- ssh
 - troubleshooting
 since:
 - XL Release 6.0.0
+- XL Deploy 6.0.0
 ---
 
-When there is a problem with XL Release's underlying Jackrabbit JCR repository (for example, the repository is corrupted), it may be useful to browse the repository contents using a repository browser tool called CRaSH.
+When there is a problem with the Jackrabbit JCR repository underlying a XebiaLabs product (for example, the repository is corrupted), it may be useful to browse the repository contents using a repository browser tool called CRaSH.
 
 ## Start the repository browser
 
-To use the repository browser, start Jackrabbit JCR and the CRaSH shell by executing the following command in `<XLRELEASE_HOME>`:
+To use the repository browser, start Jackrabbit JCR and the CRaSH shell by executing the following command in `XL_SERVER_HOME`:
 
     ./bin/run.sh -support-mode
 
@@ -98,40 +99,40 @@ After you connect to the repository and indicate which workspace to use, you can
 
     %
 
-[//]: # ## Start the repository browser with XL Release
-[//]: #
-[//]: # You can start XL Release and the CRaSH shell Telnet server together as follows:
-[//]: #
-[//]: #     ./bin/run.sh
-[//]: #
-[//]: # After XL Release starts, connect to the CRaSH shell Telnet server:
-[//]: #
-[//]: #     > telnet 127.0.0.1 5000                                                                                                                                                                                                                       [16:17:36]
-[//]: #     Trying 127.0.0.1...
-[//]: #     Connected to localhost.
-[//]: #     Escape character is '^]'.
-[//]: #
-[//]: #        _____     ________                 _______    ____ ____
-[//]: #      .'     `.  |        `.             .'       `. |    |    | 1.3.2
-[//]: #     |    |    | |    |    |  .-------.  |    |    | |    |    |
-[//]: #     |    |____| |    `   .' |   _|    |  .    '~_ ` |         |
-[//]: #     |    |    | |    .   `.  .~'      | | `~_    `| |         |
-[//]: #     |    |    | |    |    | |    |    | |    |    | |    |    |
-[//]: #      `._____.'  |____|____| `.________|  `._____.'  |____|____|
-[//]: #
-[//]: #     Follow and support the project on http://www.crashub.org
-[//]: #     Welcome to localhost + !
-[//]: #     It is Thu Jul 28 16:38:21 CEST 2016 now
-[//]: #
-[//]: #     %
-[//]: #
-[//]: # Now you can issue the commands described above.
-[//]: #
-[//]: #
-[//]: #
-[//]: # **Note:** Repository browser tool starts jetty server on the same port as XebiaLabs product, ssh server on predefined port 2000 and telnet server on predefined port 5000.
-[//]: #
-[//]: # **Note:** SSH server is not usable at the time of this writing.
+    [//]: # ## Start the repository browser with XL Release
+    [//]: #
+    [//]: # You can start XL Release and the CRaSH shell Telnet server together as follows:
+    [//]: #
+    [//]: #     ./bin/run.sh
+    [//]: #
+    [//]: # After XL Release starts, connect to the CRaSH shell Telnet server:
+    [//]: #
+    [//]: #     > telnet 127.0.0.1 5000                                                                                                                                                                                                                       [16:17:36]
+    [//]: #     Trying 127.0.0.1...
+    [//]: #     Connected to localhost.
+    [//]: #     Escape character is '^]'.
+    [//]: #
+    [//]: #        _____     ________                 _______    ____ ____
+    [//]: #      .'     `.  |        `.             .'       `. |    |    | 1.3.2
+    [//]: #     |    |    | |    |    |  .-------.  |    |    | |    |    |
+    [//]: #     |    |____| |    `   .' |   _|    |  .    '~_ ` |         |
+    [//]: #     |    |    | |    .   `.  .~'      | | `~_    `| |         |
+    [//]: #     |    |    | |    |    | |    |    | |    |    | |    |    |
+    [//]: #      `._____.'  |____|____| `.________|  `._____.'  |____|____|
+    [//]: #
+    [//]: #     Follow and support the project on http://www.crashub.org
+    [//]: #     Welcome to localhost + !
+    [//]: #     It is Thu Jul 28 16:38:21 CEST 2016 now
+    [//]: #
+    [//]: #     %
+    [//]: #
+    [//]: # Now you can issue the commands described above.
+    [//]: #
+    [//]: #
+    [//]: #
+    [//]: # **Note:** Repository browser tool starts jetty server on the same port as XebiaLabs product, ssh server on predefined port 2000 and telnet server on predefined port 5000.
+    [//]: #
+    [//]: # **Note:** SSH server is not usable at the time of this writing.
 
 ## Get more information about commands
 
