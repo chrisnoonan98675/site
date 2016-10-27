@@ -4,10 +4,11 @@ categories:
 - xl-release
 - xl-deploy
 subject:
-- Repository
+- System administration
 tags:
 - repository
 - troubleshooting
+- system administration
 since:
 - XL Release 6.0.0
 - XL Deploy 6.0.0
