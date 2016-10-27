@@ -61,9 +61,9 @@ Now you can connect to the repository with the command `repo use`:
 
 ### Indicate which Jackrabbit workspace to use
 
-After you connect to the repository, indicate the Jackrabbit workspace to use with the command `ws login -u admin -p admin default`:
+After you connect to the repository, indicate the Jackrabbit workspace to use with the command `ws login -u jcr_admin -p jcr_admin default`:
 
-    % ws login -u admin -p admin default
+    % ws login -u jcr_admin -p jcr_admin default
     Connected to workspace default
     %
 
