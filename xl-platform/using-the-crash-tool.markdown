@@ -1,16 +1,6 @@
 ---
-title: Browse the Jackrabbit JCR repository
-categories:
-- xl-release
-- xl-deploy
-subject:
-- Repository
-tags:
-- repository
-- troubleshooting
-since:
-- XL Release 6.0.0
-- XL Deploy 6.0.0
+no_index: true
+title: Using the CRaSH tool
 ---
 
 When there is a problem with the Jackrabbit JCR repository underlying a XebiaLabs product (for example, the repository is corrupted), it may be useful to browse the repository contents using a repository browser tool called CRaSH.
