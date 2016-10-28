@@ -30,6 +30,8 @@ To access the CI Explorer, go to `XL_DEPLOY_URL:PORT/technical-preview.html`; fo
 
 If you are not already logged in to XL Deploy, you must enter your XL Deploy user name and password when the browser prompts you.
 
+![CI Explorer Technical Preview](images/ci-explorer.png)
+
 ## Work with CIs
 
 In the CI Explorer, you'll see the the contents of your repository in the left pane. When you create or open a CI, you can edit its properties in the right pane.
@@ -66,6 +68,8 @@ To open a CI from the search results, double-click it. To see the full path of a
 
 To clear the search results, click **X** in the **Search** box.
 
+![CI Explorer search results](images/ci-explorer-search-results.png)
+
 ## Deploy an application or provision an environment
 
 To deploy an application or provision a cloud-based environment using the CI Explorer:
@@ -77,3 +81,5 @@ To deploy an application or provision a cloud-based environment using the CI Exp
     *Tip:* To see the full path of an environment in the list, hover over it with your mouse pointer.
 
 4. Click **Execute** to immediately start executing the deployment or provisioning.
+
+![CI Explorer deployment](images/ci-explorer-deploy.png)
