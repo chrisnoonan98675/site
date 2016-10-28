@@ -17,6 +17,8 @@ On the calendar, releases appear as light blue bars. A red exclamation mark icon
 
 To see more information about a release, click it.
 
+**Tip:** Hover over a dependent release to see it highlighted in the calendar.
+
 ![Calendar info](../images/calendar-info.png)
 
 ## Filtering the calendar
@@ -31,7 +33,8 @@ To filter the calendar, click **Filter options** and select:
 
 To filter on the release title or tag, use the **By title or tag** box.
 
-## Calendar tips
+## Marking special days
 
-* Hover over a dependent release to see it highlighted in the calendar.
-* You can mark special days such as holidays by clicking ![Edit calendar day](../images/icon_edit_calendar_day.png) in the day on the calendar. You can give special days a custom label and background color.
+You can mark special days such as holidays by clicking ![Edit calendar day](../images/icon_edit_calendar_day.png) in the day on the calendar. You can give special days a custom label and background color.
+
+![Special day in the calendar](../images/calendar-special-day.png)
