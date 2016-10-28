@@ -8,11 +8,20 @@ tags:
 - system administration
 - installation
 - database
+weight: 497
 since:
 - XL Release 6.0.0
 ---
 
 XL Release 6.0.0 includes an [active/hot-standby](/xl-release/how-to/configure-active-failover.html) feature that requires you to store the XL Release repository and archive database in external databases.
+
+## Supported databases
+
+XL Release supports the following external databases:
+
+* MySQL
+* PostgreSQL
+* Oracle 11g or 12c
 
 ## Configure the archive database
 
