@@ -1,13 +1,9 @@
-FROM jekyll/jekyll
+FROM jekyll/jekyll:3.2
 
-RUN gem install jekyll-seo-tag
+RUN [ "gem", "install", "--no-document", "jekyll-seo-tag"]
 
-COPY . /tmp
+ARG JEKYLL_ENV=production
 
-EXPOSE 4000
+COPY . /srv/jekyll
 
-WORKDIR /tmp
-RUN JEKYLL_ENV=production jekyll build
-
-WORKDIR /tmp
-CMD JEKYLL_ENV=production jekyll serve --skip-initial-build
+RUN ["jekyll", "build"]

@@ -88,6 +88,7 @@
 /xl-deploy-vsts-xld-plugin/latest/tfs2015PluginManual.html : /xl-deploy-vsts-xld-plugin/5.1.x/tfs2015PluginManual.html
 /xl-deploy-xld-chef-plugin/latest/chefPluginManual.html : /xl-deploy-xld-chef-plugin/5.1.x/chefPluginManual.html
 /xl-deploy-xld-puppet-plugin/latest/puppetPluginManual.html : /xl-deploy-xld-puppet-plugin/5.1.x/puppetPluginManual.html
+/xl-deploy-xld-docker-plugin/latest/dockerPluginManual.html : /xl-deploy-xld-docker-plugin/5.5.x/dockerPluginManual.html
 
 # XL Deploy provisioning
 

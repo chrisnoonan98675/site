@@ -127,6 +127,10 @@ To change the directory where XL Satellite stores task recovery files, change th
         }
     }
 
+## Configure the satellite to use Kerberos
+
+If you are going to use Microsoft Windows domain accounts to access remote hosts with the WINRM_INTERNAL connection type, you must configure Kerberos on the satellite. For information about this, refer to [Set up Kerberos for WINRM_INTERNAL](/xl-deploy/how-to/set-up-kerberos-for-a-winrm-connection.html#configure-kerberos-for-the-xl-deploy-satellite-module).
+
 ## Start the satellite
 
 To start the satellite software, execute the appropriate script in the `bin` directory of the installation:

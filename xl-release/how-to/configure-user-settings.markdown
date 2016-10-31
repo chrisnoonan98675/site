@@ -15,10 +15,12 @@ tags:
 
 XL Release has a role-based security system with two types of users:
 
-* _Internal users_ that are managed by XL Release and can be added and removed by an XL Release administrator
-* [_External users_](/xl-release/how-to/configure-ldap-security-for-xl-release.html) that are maintained in an LDAP repository such as Active Directory
+* _Internal users_ that are created by an XL Release administrator and managed by XL Release
+* _External users_ that are maintained in an LDAP repository such as Active Directory
 
-After you create internal users and/or retrieve external users, you can assign them to [roles](/xl-release/how-to/configure-roles.html). [Global permissions](/xl-release/how-to/configure-permissions.html) are assigned at the role level.
+After you [configure LDAP security](/xl-release/how-to/configure-ldap-security-for-xl-release.html), external users can log in, at which point they are stored in XL Release as external users.
+
+You can assign both internal and external users to [roles](/xl-release/how-to/configure-roles.html), to which you assign [global permissions](/xl-release/how-to/configure-permissions.html).
 
 To view and edit XL Release users, select **User management** > **Users**  from the top menu. The Users page is only available to users who have the *Admin* or *Edit Security* [global permission](/xl-release/how-to/configure-permissions.html).
 

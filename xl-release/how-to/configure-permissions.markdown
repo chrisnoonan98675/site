@@ -25,7 +25,6 @@ The following global permissions are available:
 | Permission | Description |
 | ---------- | ----------- |
 | Admin | All permissions |
-| Login | Permission to log in to XL Release  |
 | Edit Security | Access to the Roles and Permissions pages and permission to edit security on releases and templates |
 | Create Template | Permission to create a new template |
 | Create Release | Permission to create a release from any template; also see the [Create Release](/xl-release/how-to/create-a-release-template.html#template-permissions) template permission |
