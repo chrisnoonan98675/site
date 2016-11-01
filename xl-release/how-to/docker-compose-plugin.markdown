@@ -36,7 +36,7 @@ The Docker Compose plugin requires the XL Release [Remoting plugin](/xl-release/
 
 To set up a connection to a Unix server running Docker Compose:
 
-1. In XL Release, go to **Settings** > **Task configurations** and click **Add Unix Host**.
+1. In XL Release, go to **Settings** > **Shared configuration** and click **Add Unix Host**.
 
     **Note:** Prior to XL Release 6.0.0, go to **Settings** > **Configuration**.
 

@@ -33,7 +33,7 @@ In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.ht
 
 To set up a JIRA server:
 
-1. In XL Release, go to **Settings** > **Task configurations** and click **Add Repository** under **Jira: Server**.
+1. In XL Release, go to **Settings** > **Shared configuration** and click **Add Repository** under **Jira: Server**.
 
     **Note:** Prior to XL Release 6.0.0, go to **Settings** > **Configuration**.
 

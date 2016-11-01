@@ -21,7 +21,7 @@ The XL Release Git trigger plugin periodically polls a Git repository and trigge
 
 To set up a Git repository:
 
-1. In XL Release, go to **Settings** > **Task configurations** and click **Add Repository** under **Git: Repository**.
+1. In XL Release, go to **Settings** > **Shared configuration** and click **Add Repository** under **Git: Repository**.
 
     **Note:** Prior to XL Release 6.0.0, go to **Settings** > **Configuration**.
 

@@ -23,7 +23,7 @@ The XL Release SVN trigger plugin periodically polls a Subversion repository and
 
 To set up an SVN repository:
 
-1. In XL Release, go to **Settings** > **Task configurations** and click **Add Repository** under **Svn: Repository**.
+1. In XL Release, go to **Settings** > **Shared configuration** and click **Add Repository** under **Svn: Repository**.
 
     **Note:** Prior to XL Release 6.0.0, go to **Settings** > **Configuration**.
 

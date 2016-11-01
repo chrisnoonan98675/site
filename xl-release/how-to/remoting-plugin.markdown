@@ -23,7 +23,7 @@ The XL Release Remoting plugin allows you to configure Unix and Windows hosts in
 
 To set up a host in XL Release:
 
-1. Go to **Settings** > **Task configurations** and click the **Add** link under **Unix Host** or **Windows Host**.
+1. Go to **Settings** > **Shared configuration** and click the **Add** link under **Unix Host** or **Windows Host**.
 
     **Note:** Prior to XL Release 6.0.0, go to **Settings** > **Configuration**.
 

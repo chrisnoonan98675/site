@@ -17,7 +17,7 @@ since:
 When XL Release cannot reach a remote host directly, but that host can be reached via one or more SSH tunnels or HTTP proxies, you can configure these as follows:
 
 1. Log in to XL Release as a user with the *Admin* permission.
-1. Select **Settings** > **Task configurations** from the top menu.
+1. Select **Settings** > **Shared configuration** from the top menu.
 
     **Note:** Prior to XL Release 6.0.0, go to **Settings** > **Configuration**.
 

@@ -30,7 +30,7 @@ Here, we've defined a very simple configuration type with two properties, foo an
 
 ## Creating a configuration object
 
-Once we have defined our configuration type, we create a configuration object of that type under **Settings** > **Task configurations** in the XL Release UI:
+Once we have defined our configuration type, we create a configuration object of that type under **Settings** > **Shared configuration** in the XL Release UI:
 
 ![Add global config](../images/settings-new-global-config.png)
 
