@@ -41,7 +41,7 @@ If the task has a due date set, that date appears.
 
 ## Filtering the task overview
 
-To filter the task overview, click **Show tasks** and select:
+To filter the task overview, click **Filter options** and select:
 
 * **Active tasks** to show tasks that are currently active (clear this option to also see tasks that are in the *planned* state)
 * **Assigned to me** to show tasks that are assigned to your
