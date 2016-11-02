@@ -74,7 +74,22 @@ This procedure assumes that:
 
 **Note:** You do not need to run the setup command again.
 
-### Step 4 Start the nodes
+### Step 4 Set up the load balancer
+
+To use active/hot-standby, you must front the XL Release servers with a load balancer. The load balancer must check the `/ha/health` endpoint with a `HEAD` or `GET` request to verify that the node is up. This endpoint will return:
+
+* A non-success status code if it is running in hot-standby mode
+* A `200 OK` HTTP status code if it is the currently active node
+
+**Note:** Performing a simple TCP check or `GET` operation on `/` is not sufficient, as that will only determine whether the node is running; it will not indicate whether whether the node is in standby mode.
+
+For instance, for HAProxy, you can add the following configuration:
+
+    backend default_service
+      option httpchk head /ha/health HTTP/1.0
+      server docker_xlr-node_1 docker_xlr-node_1:5516 check inter 2000 rise 2 fall 3
+
+### Step 5 Start the nodes
 
 Start each of the nodes 1 by 1, making sure that at least the first one is fully up, before starting the backup nodes.
 
