@@ -81,7 +81,7 @@ To use active/hot-standby, you must front the XL Release servers with a load bal
 * A non-success status code if it is running in hot-standby mode
 * A `200 OK` HTTP status code if it is the currently active node
 
-**Note:** Performing a simple TCP check or `GET` operation on `/` is not sufficient, as that will only determine whether the node is running; it will not indicate whether whether the node is in standby mode.
+**Note:** Performing a simple TCP check or `GET` operation on `/` is not sufficient, as that will only determine whether the node is running; it will not indicate whether the node is in standby mode.
 
 For instance, for HAProxy, you can add the following configuration:
 
