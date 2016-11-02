@@ -31,7 +31,7 @@ Using XL Release in active/hot-standby mode adds requirements to the [normal sys
 
 ## Limitation on HTTP session sharing and resiliency
 
-In active/hot-standby mode, there is always at most one "active" XL Release node. The nodes use a health REST endpoint to tell the load balancer which node is the active one. The load balancer will always route users to the active node; calling a standby node directly will result in incorrect behavior.
+In active/hot-standby mode, there is always at most one "active" XL Release node. The nodes use a health REST endpoint (`/ha/health`) to tell the load balancer which node is the active one. The load balancer will always route users to the active node; calling a standby node directly will result in incorrect behavior.
 
 However, XL Release does not share HTTP sessions among nodes. If the active XL Release node becomes unavailable:
 
@@ -62,7 +62,6 @@ This procedure assumes that:
     * [Enable repository cluster mode](#enable-repository-cluster-mode)
     * [Configure a shared filesystem](#configure-a-shared-filesystem)
     * [Configure node connection details](#configure-node-connection-details)
-    * [Configure cluster member connection details](#configure-cluster-member-connection-details)
 1. At a command prompt, run the following server setup command and follow the on-screen instructions:
 
         ./bin/run.sh -setup
@@ -77,10 +76,7 @@ This procedure assumes that:
 
 ### Step 4 Start the nodes
 
-The order in which you initially start each node is important.
-
-1. Begin with the node that is specified *first* in the [Cluster members connection details](#cluster-members-connection-details).
-1. Proceed to the next node(s) as soon as the previous node starts successfully.
+Start each of the nodes 1 by 1, making sure that at least the first one is fully up, before starting the backup nodes.
 
 ## Active/hot-standby configuration settings
 
@@ -121,25 +117,6 @@ Each node will open ports for different types of incoming TCP connections. These
 | `hostname` | IP address or host name of the machine where the node is running. Note that a loopback address such as `127.0.0.1` or `localhost` should not be used when running cluster nodes on different machines. |
 | `clusterPort` | Port used for cluster-wide communications; defaults to `5531`. |
 
-### Configure cluster member connection details
-
-Each node must know about all nodes in the cluster (including itself). This information *must* be the same on every node. It is defined in the `xl.cluster.members` section. For example:
-
-    members = [
-        {hostname: "node-1.example.com", clusterPort: 5531 }
-        {hostname: "node-2.example.com", clusterPort: 5531 }
-        .....
-        {hostname: "node-x.example.com", clusterPort: 5531 }
-    ]
-
-Where:
-
-{:.table .table-striped}
-| Parameter | Description |
-| --------- | ----------- |
-| `hostname` | IP address or hostname of the machine where the node is running. |
-| `clusterPort` | Port used for cluster-wide communications. |
-
 ## Sample `xl-release.conf` configuration
 
 This is a sample `xl-release.conf` configuration for one node that uses a MySQL repository database.
@@ -150,23 +127,12 @@ This is a sample `xl-release.conf` configuration for one node that uses a MySQL 
             mode=hot-standby
             # xl.cluster.enabled - true or false
             enabled=true
-            # xl.cluster.members - cluster seed nodes
-            members=[
-                {
-                    clusterPort=5531
-                    hostname=xlr-seed
-                },
-                {
-                    clusterPort=5531
-                    hostname=xlr-node
-                }
-            ]
             # xl.cluster.name - name of the cluster
             name="xlr_cluster"
             # xl.cluster.node - this cluster node specific parameters
             node {
-                id=xlr-seed
-                hostname=xlr-seed
+                id=xlr-node-1
+                hostname=xlr-node-1
                 clusterPort=5531
             }
         }
@@ -184,7 +150,7 @@ This is a sample `xl-release.conf` configuration for one node that uses a MySQL 
             jackrabbit {
                 # xl.repository.jackrabbit.artifacts.location - location for shared files - should be shared filesystem (e.g. NFS)
                 artifacts.location = "repository"
-                # xl.repository.jackrabbit.bunleCacheSize - bundle cache size - default is 8 MB, increase it to something more sensible
+                # xl.repository.jackrabbit.bunleCacheSize - bundle cache size in MB - default is 8 MB
                 bundleCacheSize = 128
             }
         }
