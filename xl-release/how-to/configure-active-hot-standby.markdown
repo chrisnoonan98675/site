@@ -16,7 +16,7 @@ since:
 - XL Release 6.0.0
 ---
 
-As of XL Release 6.0.0, you can configure XL Release in a clustered active/hot-standby mode. Running XL Release in this mode ensures that you have a Highly Available (HA) XL Release. Currently, active/hot-standby is the only cluster mode that is supported.
+As of XL Release 6.0.0, you can configure XL Release in a clustered active/hot-standby mode. Running XL Release in this mode ensures that you have a Highly Available (HA) XL Release. Currently, active/hot-standby is the only cluster mode that is recommended.
 
 This topic describes the procedure to enable active/hot-standby mode.
 
@@ -152,7 +152,7 @@ This is a sample `xl-release.conf` configuration for one node that uses a MySQL 
             }
         }
         repository {
-            # xl.repository.configuration - one of the predefined and supported jackrabbit repository configurations
+            # xl.repository.configuration - one of the predefined and recommended jackrabbit repository configurations
             # available configurations: default, mysql-standalone, mysql-cluster, oracle-standalone, oracle-cluster, postgresql-standalone, postgresql-cluster
             configuration = "mysql-cluster"
             # xl.repository.persistence - repository database connection parameters

@@ -15,9 +15,9 @@ since:
 
 XL Release 6.0.0 includes an [active/hot-standby](/xl-release/how-to/configure-active-failover.html) feature that requires you to store the XL Release repository and archive database in external databases.
 
-## Supported databases
+## Recommended databases
 
-XL Release supports the following external databases:
+The following external databases are recommended:
 
 * MySQL
 * PostgreSQL
@@ -38,6 +38,16 @@ The `xl.reporting` section of the `xl-release.conf` configuration file must incl
 | `db-password` | Password to use when logging into the database (after setup is complete, the password will be encrypted and stored in secured format). |
 
 Place the JAR file containing the JDBC driver of the selected database in the `XL_RELEASE_SERVER_HOME/lib` directory.
+
+Here are download links for the JDBC drivers:
+
+{:.table .table-striped}
+| Database   | JDBC drivers | Notes   |
+| ---------- | ------------ | ------- |
+| MySQL      | [Connector\J 5.1.30 driver download](http://dev.mysql.com/downloads/connector/j/)| none |
+| Oracle     | [JDBC driver downloads](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html)| For Oracle 12c use the 12.1.0.1 driver (ojdbc7.jar). It is recommended that you only use the thin drivers. See the Oracle JDBC driver FAQ. |
+| PostgreSQL | [9.4-1202 JDBC 41 driver download](https://jdbc.postgresql.org/download/postgresql-9.4-1202.jdbc41.jar)| Please use the JDBC 4 driver. If you want to use a later driver, you can download it from the [PostgreSQL](https://jdbc.postgresql.org/download.html) website. |
+
 
 ## Configure the repository database
 
