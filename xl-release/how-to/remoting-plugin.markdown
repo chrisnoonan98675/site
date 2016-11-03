@@ -9,6 +9,7 @@ tags:
 - connectivity
 - remoting
 - ssh
+since: XL Release 5.0.0
 ---
 
 The XL Release Remoting plugin allows you to configure Unix and Windows hosts in XL Release, so that other plugins can execute commands on and transfer files to those hosts. For example, the XL Release [Ansible](/xl-release/how-to/ansible-plugin.html), [Kubernetes](/xl-release/how-to/kubernetes-plugin.html), and [Docker Compose](/xl-release/how-to/docker-compose-plugin.html) plugins all leverage the Remoting plugin.
