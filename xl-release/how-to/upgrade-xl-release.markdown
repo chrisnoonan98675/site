@@ -16,11 +16,11 @@ Briefly, the process of upgrading XL Release is:
 
 1. Obtain a new version of the XL Release software and, if necessary, a new license from [XebiaLabs](https://dist.xebialabs.com/).
 1. Read the [release manual](/xl-release/latest/releasemanual.html) so you are aware of the new functionality and possible upgrade considerations.
-1. Stop the current version of XL Release if it is running and ensure that there are no active tasks.
+1. Stop the current version of XL Release if it is running and ensure that there are no active tasks. In a hot-standby configuration, all nodes must be stopped.
 1. Create a new installation directory for the new version of XL Release (so the existing version is still available in case of problems).
 1. Extract the new XL Release software release into the new installation directory.
 1. Copy the data from the previous XL Release installation directory into the new installation directory.
-1. Start the new version of XL Release interactively so that automatic upgraders can run.
+1. Start the new version of XL Release interactively so that automatic upgraders can run. In a hot-standby configuration, you must start a single node first until all upgraders are executed, and only then proceed with starting other nodes.
 
 ## About upgrading
 
@@ -35,6 +35,12 @@ After you upgrade to a new version of XL Release, you cannot downgrade to an old
 ### Upgrading the repository
 
 If a repository upgrade is required, XL Release will detect that it is running against an old repository and will automatically execute an upgrade when it is first started. The server log will contain extensive logging of the repository upgrade process. Save this log for future reference.
+
+### Upgrading an existing hot-standby configuration to a new version
+
+When upgrading a [hot-standby configuration](/xl-release/how-to/configure-active-hot-standby.html), all nodes must be stopped. Then, you can copy configuration data from existing nodes. Keep in mind that the node ID in the configuration must be unique for each node. You do not have to copy the data that is shared among all nodes (because it is normally stored on NFS), but ensure that you do back up the data.
+
+You can then proceed by starting a single node in the cluster. After starting the node, wait until all upgraders are executed and the node is fully started before starting the other nodes, one by one.
 
 ## Before you upgrade
 
@@ -67,7 +73,7 @@ To upgrade an XL Release server installation:
 
     **Note:** In XL Release 4.8.x and earlier, the startup scripts are called `server.sh` and `server.cmd`. In XL Release 5.0.0 and later, they are called `run.sh` and `run.cmd`; there are also `install-service.sh` and `install-service.cmd` scripts for running XL Release [as a service](/xl-release/how-to/install-xl-release-as-a-service.html). If you customized `server.sh` or `server.cmd`, you must redo these changes in `install-service.sh` or `install-service.cmd`.
 
-1. [Start the XL Release server interactively](/xl-release/how-to/start-xl-release.html) to allow automatic repository upgraders to run. 
+1. [Start the XL Release server interactively](/xl-release/how-to/start-xl-release.html) to allow automatic repository upgraders to run.
 
 	**Note:** If you are running XL Release in cluster mode, you must start a single XL Release server instance and run the upgraders only on that instance. After the upgraders have sucessfully finished you can boot up the rest of the cluster.
 

@@ -22,6 +22,8 @@ To back up XL Release, it is recommended that you back up the complete installat
 
 If you store the XL Release repository in a [database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html#using-a-database), back up the database using the tools provided by your database vendor. Note that you must also back up the `XL_RELEASE_SERVER_HOME/repository` directory, even if you use a database.
 
+If you use a [hot-standby configuration](/xl-release/how-to/configure-active-hot-standby.html), ensure that you back up the location of shared files (defined by the `xl.repository.jackrabbit.artifacts.location` property).
+
 ## Restore a backup
 
 **Important:** XL Release [must not be running](/xl-release/how-to/shut-down-xl-release.html) when you restore a backup.
