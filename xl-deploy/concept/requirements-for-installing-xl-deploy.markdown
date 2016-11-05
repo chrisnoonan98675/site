@@ -32,7 +32,7 @@ To [install](/xl-deploy/how-to/install-xl-deploy.html) the XL Deploy server, you
 
 * **RAM:** At least 2 GB of RAM available for XL Deploy
 
-* **Hard disk space:** Sufficient hard disk space to store the XL Deploy repository; see [Determining hard disk space requirements](#determining-hard-disk-space-requirements)
+* **Hard disk space:** Sufficient hard disk space to store the XL Deploy repository; see [Hard disk space requirements](#hard-disk-space-requirements)
 
 Depending on the environment, the following may also be required:
 
@@ -48,13 +48,21 @@ By default, the XL Deploy server uses port `4516`. If, during installation, you 
 
 To enable secure communication and/or to change the port number during installation, choose the [manual setup option](https://docs.xebialabs.com/xl-deploy/how-to/install-xl-deploy.html#manual-setup) in the command-line server setup wizard. The wizard will take you through the setup steps.
 
-### Determining hard disk space requirements
+### Hard disk space requirements
 
-The XL Deploy server itself only uses about 70 MB of disk space. The main hard disk space usage comes from the repository which stores your deployment packages and deployment history. The size of the repository will vary from installation to installation but depends mainly on the:
+The XL Deploy server itself only uses about 70 MB of disk space. The main hard disk space usage comes from the repository which stores your deployment packages and deployment history. The size of the repository will vary from installation to installation, but depends mainly on the:
 
 * Size and storage mechanism used for artifacts
 * Number of packages in the system
 * Number of deployments performed (specifically, the amount of logging information stored)
+
+While it is possible to store the repository in an [external database](/xl-deploy/how-to/configure-the-xl-deploy-repository.html), XL Deploy always requires that the disk space for the server be persistent. This is important for several reasons:
+
+* Lucene indexes are stored in the repository directory; if the disk space is not persistent, these indexes will be rebuilt each time the server starts, which is very time-consuming
+* Configuration files such as `deployit.conf` and `deployit-defaults.properties` are updated by the running system
+* Log files are also updated by the running system (unless configured otherwise)
+
+#### Estimating required disk space
 
 Follow this procedure to obtain an estimate of the total required disk space:
 
