@@ -29,6 +29,14 @@ Depending on the environment, the following may also be required:
 * **Database:** The repository can optionally be stored in a database; see [Configure the XL Release repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html)
 * **LDAP:** To enable group-based security, an LDAP x.509 compliant registry is required; see [Configure LDAP security for XL Release](/xl-release/how-to/configure-ldap-security-for-xl-release.html)
 
+### Hard disk space requirements
+
+While it is possible to store the repository in an [external database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html), XL Release always requires that the disk space for the server be persistent. This is important for several reasons:
+
+* Lucene indexes are stored in the repository directory; if the disk space is not persistent, these indexes will be rebuilt each time the server starts, which is very time-consuming
+* Configuration files such as `xl-release.conf` and `deployit-defaults.properties` are updated by the running system
+* Log files are also updated by the running system (unless configured otherwise)
+
 ## Client requirements
 
 The following web browsers are supported for the XL Release user interface:
