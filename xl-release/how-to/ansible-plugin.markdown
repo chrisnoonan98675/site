@@ -3,7 +3,7 @@ title: Using the XL Release Ansible plugin
 categories:
 - xl-release
 subject:
-- Task types
+- Ansible plugin
 tags:
 - plugin
 - ansible

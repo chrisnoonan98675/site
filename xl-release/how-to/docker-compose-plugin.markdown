@@ -3,7 +3,7 @@ title: Using the XL Release Docker Compose plugin
 categories:
 - xl-release
 subject:
-- Task types
+- Docker Compose plugin
 tags:
 - plugin
 - docker

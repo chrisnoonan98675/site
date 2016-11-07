@@ -1,5 +1,5 @@
 ---
-title: Using the XL Release Remote Script plugin
+title: Using XL Release Remote Script tasks
 categories:
 - xl-release
 subject:
@@ -11,14 +11,12 @@ tags:
 - connectivity
 ---
 
-The XL Release Remote Script plugin allows XL Release to execute commands on remote hosts. It does so by using the [Overthere](https://github.com/xebialabs/overthere) framework, a Java library for manipulating files and executing processes on remote hosts.
-
-The Remote Script plugin includes four task types:
+Remote Script tasks allow XL Release to execute commands on remote hosts using the [Overthere](https://github.com/xebialabs/overthere) framework, a Java library for manipulating files and executing processes on remote hosts. The following Remote Script task types are available:
 
 * **Remote Script: Unix**: Execute a shell script on a Unix host via SSH
 * **Remote Script: Windows**: Execute a batch script on a Microsoft Windows host via WinRM
-* **Remote Script: Windows (SSH)**: Execute a shell script on a Microsoft Windows host via SFTP
-* **Remote Script: z/OS**: Execute a shell script on z/OS
+* **Remote Script: Windows (SSH)**: Execute a shell script on a Microsoft Windows host via SFTP (available in XL Release 5.0.0 and later)
+* **Remote Script: z/OS**: Execute a shell script on z/OS (available in XL Release 5.0.0 and later)
 
 In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), Remote Script tasks have a blue border.
 
@@ -31,7 +29,7 @@ In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.ht
 
 The following properties are common to all Remote Script task types.
 
-#### Remote script execution details
+### Remote script execution details
 
 {:.table .table-striped}
 | Property | Description |
@@ -40,7 +38,7 @@ The following properties are common to all Remote Script task types.
 | Remote Path | The path on the remote host where the script should be executed (required) |
 | Temporary Directory Path | Where to store temporary files; this directory will be removed on connection close |
 
-#### Remote host connection
+### Remote host connection
 
 <table class="table table-striped">
 <thead>
@@ -74,8 +72,7 @@ The following properties are common to all Remote Script task types.
 </tbody>
 </table>
 
-
-#### Command output
+### Command output
 
 The following output properties are available:
 
@@ -89,7 +86,7 @@ The following output properties are available:
 
 The following properties are available in the **Remote Script: Unix**, **Remote Script: Windows (SSH)**, and **Remote Script: z/OS** task types.
 
-#### Credentials
+### Credentials
 
 {:.table .table-striped}
 | Property | Description |
@@ -101,7 +98,7 @@ The following properties are available in the **Remote Script: Unix**, **Remote 
 
 You can use a password, a private key, or a private key file and passphrase.
 
-#### Privilege Elevation
+### Privilege elevation
 
 {:.table .table-striped}
 | Property | Description |
@@ -114,7 +111,7 @@ You can use a password, a private key, or a private key file and passphrase.
 
 The following properties are available in the **Remote Script: Windows** task type.
 
-#### Credentials
+### Credentials
 
 {:.table .table-striped}
 | Property | Description |
@@ -122,7 +119,7 @@ The following properties are available in the **Remote Script: Windows** task ty
 | Username and Password | The Windows host user log-in ID and password |
 | Allow credential delegation | If checked, allow the user's credentials to be used to access, for example, remote shares (only on WINRM_NATIVE connection type) |
 
-#### Connectivity
+### Connectivity
 
 {:.table .table-striped}
 | Property | Description |
@@ -134,7 +131,7 @@ The following properties are available in the **Remote Script: Windows** task ty
 
 ## Using advanced Overthere functionality
 
-XL Release uses the Overthere framework, which includes several connection options. While the most common options are available in the XL Release GUI, you can use other options as described in the [Overthere documentation](https://github.com/xebialabs/overthere/blob/master/README.md).
+XL Release uses the Overthere framework, which includes several connection options. While the most common options are available in the XL Release GUI, as of XL Release 5.0.0, you can use other options as described in the [Overthere documentation](https://github.com/xebialabs/overthere/blob/master/README.md).
 
 You can change the default values of options that are not exposed in the GUI in the `XL_RELEASE_SERVER_HOME/conf/deployit-defaults.properties` file.
 
