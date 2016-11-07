@@ -13,20 +13,10 @@ product-id: xl-release
 
 ## Plugin reference documentation
 
-### Standard plugins
-
-* [Remote script plugin](/xl-release/how-to/remote-script-plugin.html)
-* [JIRA plugin](/xl-release/how-to/jira-plugin.html)
-* [Git trigger plugin](/xl-release/how-to/git-trigger-plugin.html)
-* [Nexus trigger plugin](/xl-release/how-to/nexus-trigger-plugin.html)
-* [Time trigger plugin](/xl-release/how-to/time-trigger-plugin.html)
-* [SVN trigger plugin](/xl-release/how-to/svn-trigger-plugin.html)
-* [Jenkins plugin](/xl-release/how-to/create-a-jenkins-task.html)
-* [XL Deploy plugin](/xl-release/how-to/create-an-xl-deploy-task.html)
+* [Remoting plugin](/xl-release/how-to/remoting-plugin.html)
 * [Kubernetes plugin](/xl-release/how-to/kubernetes-plugin.html)
 * [Ansible plugin](/xl-release/how-to/ansible-plugin.html)
 * [Docker Compose plugin](/xl-release/how-to/docker-compose-plugin.html)
-* [Remote Script plugin](/xl-release/how-to/remote-script-plugin.html)
 
 ### Tools
 

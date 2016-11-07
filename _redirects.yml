@@ -62,19 +62,19 @@
 
 # XL Deploy middleware plugins
 
-/xl-deploy-jbossas-plugin/latest/jbossPluginManual.html : /xl-deploy-jbossas-plugin/5.0.x/jbossPluginManual.html
-/xl-deploy-jbossdm-plugin/latest/jbossDomainPluginManual.html : /xl-deploy-jbossdm-plugin/5.1.x/jbossDomainPluginManual.html
-/xl-deploy-osb-plugin/latest/osbPluginManual.html : /xl-deploy-osb-plugin/5.5.x/osbPluginManual.html
-/xl-deploy-wls-plugin/latest/wlsPluginManual.html : /xl-deploy-wls-plugin/5.5.x/wlsPluginManual.html
-/xl-deploy-was-plugin/latest/wasPluginManual.html : /xl-deploy-was-plugin/5.1.x/wasPluginManual.html
-/xl-deploy-wps-plugin/latest/wpsPluginManual.html : /xl-deploy-wps-plugin/5.1.x/wpsPluginManual.html
-/xl-deploy-tomcat-plugin/latest/tomcatPluginManual.html : /xl-deploy-tomcat-plugin/5.0.x/tomcatPluginManual.html
-/xl-deploy-glassfish-plugin/latest/glassfishPluginManual.html : /xl-deploy-glassfish-plugin/5.0.x/glassfishPluginManual.html
+/xl-deploy-jbossas-plugin/latest/jbossPluginManual.html : /xl-deploy-jbossas-plugin/6.0.x/jbossPluginManual.html
+/xl-deploy-jbossdm-plugin/latest/jbossDomainPluginManual.html : /xl-deploy-jbossdm-plugin/6.0.x/jbossDomainPluginManual.html
+/xl-deploy-osb-plugin/latest/osbPluginManual.html : /xl-deploy-osb-plugin/6.0.x/osbPluginManual.html
+/xl-deploy-wls-plugin/latest/wlsPluginManual.html : /xl-deploy-wls-plugin/6.0.x/wlsPluginManual.html
+/xl-deploy-was-plugin/latest/wasPluginManual.html : /xl-deploy-was-plugin/6.0.x/wasPluginManual.html
+/xl-deploy-wps-plugin/latest/wpsPluginManual.html : /xl-deploy-wps-plugin/6.0.x/wpsPluginManual.html
+/xl-deploy-tomcat-plugin/latest/tomcatPluginManual.html : /xl-deploy-tomcat-plugin/6.0.x/tomcatPluginManual.html
+/xl-deploy-glassfish-plugin/latest/glassfishPluginManual.html : /xl-deploy-glassfish-plugin/6.0.x/glassfishPluginManual.html
 /xl-deploy-biztalk-plugin/latest/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/5.1.x/biztalkPluginManual.html
-/xl-deploy-iis-plugin/latest/iisPluginManual.html : /xl-deploy-iis-plugin/5.1.x/iisPluginManual.html
-/xl-deploy-windows-plugin/latest/windowsPluginManual.html : /xl-deploy-windows-plugin/5.0.x/windowsPluginManual.html
+/xl-deploy-iis-plugin/latest/iisPluginManual.html : /xl-deploy-iis-plugin/6.0.x/iisPluginManual.html
+/xl-deploy-windows-plugin/latest/windowsPluginManual.html : /xl-deploy-windows-plugin/6.0.x/windowsPluginManual.html
 /xl-deploy-bigip-plugin/latest/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.5.x/bigipPluginManual.html
-/xl-deploy-wmq-plugin/latest/wmqPluginManual.html : /xl-deploy-wmq-plugin/5.1.x/wmqPluginManual.html
+/xl-deploy-wmq-plugin/latest/wmqPluginManual.html : /xl-deploy-wmq-plugin/6.0.x/wmqPluginManual.html
 /xl-deploy-netscaler-plugin/latest/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/5.5.x/netscalerPluginManual.html
 /xl-deploy-xld-oracle-soa-plugin/latest/oracleSoaPluginManual.html : /xl-deploy-xld-oracle-soa-plugin/5.0.x/oracleSoaPluginManual.html
 /xl-deploy-xld-datapower-plugin/latest/dataPowerPluginManual.html : /xl-deploy-xld-datapower-plugin/5.5.x/dataPowerPluginManual.html
@@ -84,17 +84,17 @@
 /xldeploy-maven-plugin/latest/index.html : /xldeploy-maven-plugin/5.1.x/index.html
 /xl-deploy/latest/jenkins-plugin/index.html : https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin
 /bamboo-xl-deploy-plugin/latest/bambooPluginManual.html : /bamboo-xl-deploy-plugin/5.1.x/bambooPluginManual.html
-/xl-deploy-tfs-plugin/latest/tfsPluginManual.html : /xl-deploy-tfs-plugin/5.0.x/tfsPluginManual.html
+/xl-deploy-tfs-plugin/latest/tfsPluginManual.html : /xl-deploy-tfs-plugin/6.0.x/tfsPluginManual.html
 /xl-deploy-vsts-xld-plugin/latest/tfs2015PluginManual.html : /xl-deploy-vsts-xld-plugin/5.1.x/tfs2015PluginManual.html
-/xl-deploy-xld-chef-plugin/latest/chefPluginManual.html : /xl-deploy-xld-chef-plugin/5.1.x/chefPluginManual.html
+/xl-deploy-xld-chef-plugin/latest/chefPluginManual.html : /xl-deploy-xld-chef-plugin/6.0.x/chefPluginManual.html
 /xl-deploy-xld-puppet-plugin/latest/puppetPluginManual.html : /xl-deploy-xld-puppet-plugin/5.1.x/puppetPluginManual.html
-/xl-deploy-xld-docker-plugin/latest/dockerPluginManual.html : /xl-deploy-xld-docker-plugin/5.5.x/dockerPluginManual.html
+/xl-deploy-xld-docker-plugin/latest/dockerPluginManual.html : /xl-deploy-xld-docker-plugin/6.0.x/dockerPluginManual.html
 
 # XL Deploy provisioning
 
 /xl-deploy-xld-provision/latest/xldProvisioningManual.html : /xl-deploy-xld-provision/5.5.x/xldProvisioningManual.html
 /xl-deploy-xld-aws-ec2-plugin/latest/ec2PluginManual.html : /xl-deploy-xld-aws-ec2-plugin/5.5.x/ec2PluginManual.html
-/xl-deploy-xld-provision-puppet-plugin/latest/provisionPuppetPluginManual.html : /xl-deploy-xld-provision-puppet-plugin/5.5.x/provisionPuppetPluginManual.html
+/xl-deploy-xld-provision-puppet-plugin/latest/provisionPuppetPluginManual.html : /xl-deploy-xld-provision-puppet-plugin/6.0.x/provisionPuppetPluginManual.html
 
 # XL Scale docs
 
