@@ -67,9 +67,13 @@ The timeline start and end dates appear as follows:
 
 To see detailed information, including releases that depend on or block this release, click the tile to go to its detail view.
 
+## Task tags
+
+The task tags tile shows an overview of the progress of tasks that are tagged with a specific [tag or tags](/xl-release/how-to/working-with-tasks.html#tags) that you specify. It is available as a plugin for XL Release 6.0.0 and later.
+
 ## Users and teams
 
-The users and teams tile (available in XL Release 5.0.1 and later) shows an overview of the number of tasks assigned to users in the template or release.
+The users and teams tile shows an overview of the number of tasks assigned to users in the template or release. It is included in XL Release 5.0.1 and later.
 
 To see detailed information about task assignment across all users and teams, click the tile to go to its default view.
 
