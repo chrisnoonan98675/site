@@ -67,9 +67,9 @@ The timeline start and end dates appear as follows:
 
 To see detailed information, including releases that depend on or block this release, click the tile to go to its detail view.
 
-## Task tags
+## Task progress
 
-The task tags tile shows an overview of the progress of tasks that are tagged with a specific [tag or tags](/xl-release/how-to/working-with-tasks.html#tags) that you specify. It is available as a plugin for XL Release 6.0.0 and later.
+The task progress tile shows an overview of the progress of tasks that are tagged with a [tag or tags](/xl-release/how-to/working-with-tasks.html#tags) that you specify. It is available as a plugin for XL Release 6.0.0 and later.
 
 ## Users and teams
 
