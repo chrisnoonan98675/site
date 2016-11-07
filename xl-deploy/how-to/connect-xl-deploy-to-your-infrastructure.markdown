@@ -11,6 +11,7 @@ tags:
 - ssh
 - winrm
 - cifs
+- smb
 deprecated:
 - XL Deploy 5.0.0
 weight: 336
@@ -58,7 +59,10 @@ To check if WinRM is installed on the host, follow <a href="http://technet.micro
 To connect to a Windows host using WinRM:
 
 1. Click **Repository** in XL Deploy.
-1. Right-click **Infrastructure** and select **New** > **overthere** > **CifsHost**. A new tab appears.
+1. Right-click **Infrastructure** and select **New** > **overthere** > **SmbHost**. A new tab appears.
+
+    **Tip:** SMB is supported in XL Deploy 5.5.6, 6.0.0, and later. When using earlier versions of XL Deploy, you can use the CIFS protocol instead (`overthere.CifsHost`).
+
 2. In the **Name** box, enter a name for the host.
 3. Select **WINDOWS** from the **Operating system** list.
 4. Select the **Connection Type**:
@@ -70,7 +74,7 @@ To connect to a Windows host using WinRM:
 5. In the **Address** box, enter the IP address of the host.
 6. In the **Port** box, optionally enter the port on which Telnet or WinRM runs.
 
-      **Note:** You can change the port on which the CIFS server runs on the **CIFS** tab (defaults to 445).
+      **Note:** You can change the port on which the CIFS or SMB server runs on the **CIFS** or **SMB** tab (defaults to 445).
 
 7. In the **Username** box, enter the user name that XL Deploy should use when connecting to the host.
 8. In the **Password** box, enter the user's password.

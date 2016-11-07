@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot a CIFS/SMB connection
+title: Troubleshoot a CIFS connection
 categories:
 - xl-deploy
 subject:
@@ -13,7 +13,7 @@ tags:
 weight: 347
 ---
 
-These are configuration errors that can occur when using XL Deploy with CIFS/SMB.
+These are configuration errors that can occur when using XL Deploy with CIFS.
 
 ## CIFS connections are very slow to set up
 

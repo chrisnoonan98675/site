@@ -185,6 +185,8 @@ Redirect 301 /xl-deploy/how-to/connect-through-an-ssh-jumpstation.html /xl-deplo
 Redirect 301 /xl-deploy/concept/remoting-plugin-ssh-compatibility.html /xl-deploy/how-to/set-up-ssh-in-xl-deploy-and-on-a-target-host.html
 Redirect 301 /xl-release/how-to/configure-xl-release-to-trust-xl-deploy-with-a-self-signed-certificate.html /xl-release/how-to/configure-xl-release-to-trust-xl-deploy-server-certificate.html
 Redirect 301 /xl-deploy/how-to/configure-the-cli-to-trust-the-xl-deploy-server-with-a-self-signed-certificate.html /xl-deploy/how-to/configure-the-cli-to-trust-xl-deploy-server-certificate.html
+Redirect 301 /xl-deploy/how-to/set-up-cifs-smb-in-xl-deploy-and-on-a-target-host.html /xl-deploy/how-to/set-up-smb-in-xl-deploy-and-on-a-target-host.html
+Redirect 301 /xl-deploy/how-to/troubleshoot-a-cifs-smb-connection.html /xl-deploy/how-to/troubleshoot-a-cifs-connection.html
 
 # XL Release topics
 
