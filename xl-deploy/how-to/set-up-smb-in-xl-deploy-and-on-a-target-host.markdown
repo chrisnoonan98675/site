@@ -13,7 +13,7 @@ tags:
 weight: 340
 ---
 
-XL Deploy can use Telnet or WinRM to execute commands on the middleware hosts, but it requires the [CIFS|https://technet.microsoft.com/en-us/library/cc939973.aspx] or [SMB](http://en.wikipedia.org/wiki/Server_Message_Block) protocol to transfer files to the middleware host.
+XL Deploy can use Telnet or WinRM to execute commands on the middleware hosts, but it requires the [CIFS](https://technet.microsoft.com/en-us/library/cc939973.aspx) or [SMB](http://en.wikipedia.org/wiki/Server_Message_Block) protocol to transfer files to the middleware host.
 
 **Note:** SMB is supported in XL Deploy 5.5.6, 6.0.0, and later.
 
