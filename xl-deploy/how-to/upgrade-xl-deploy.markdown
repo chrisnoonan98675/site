@@ -63,7 +63,7 @@ Before you upgrade:
 
 To upgrade an XL Deploy server installation:
 
-1. Extract the server archive. It creates an installation directory called, for example, `xl-deploy-5.1.0-server`.
+1. Extract the server archive. It creates an installation directory called, for example, `xl-deploy-6.0.0-server`.
 
 1. Log in to XL Deploy as an administrator, click the gear icon and select **Task Monitor**, then select **All Tasks**. If there are any failing or failed tasks, cancel them. If there are any executing tasks, wait for them to complete or cancel them. To open a task from the Task Monitor, double-click it.
 
