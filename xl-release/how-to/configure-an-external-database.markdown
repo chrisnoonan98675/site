@@ -46,7 +46,7 @@ Here are download links for the JDBC drivers:
 | ---------- | ------------ | ------- |
 | MySQL      | [Connector\J 5.1.30 driver download](http://dev.mysql.com/downloads/connector/j/)| none |
 | Oracle     | [JDBC driver downloads](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html)| For Oracle 12c use the 12.1.0.1 driver (ojdbc7.jar). It is recommended that you only use the thin drivers. See the Oracle JDBC driver FAQ. |
-| PostgreSQL | [9.4-1202 JDBC 41 driver download](https://jdbc.postgresql.org/download/postgresql-9.4-1202.jdbc41.jar)| Please use the JDBC 4 driver. If you want to use a later driver, you can download it from the [PostgreSQL](https://jdbc.postgresql.org/download.html) website. |
+| PostgreSQL | [PostgreSQL JDBC driver](https://jdbc.postgresql.org/download.html)| You should use the JDBC42 version because XL Release runs on Java 1.8 since version 4.8.0.|
 
 
 ## Configure the repository database
