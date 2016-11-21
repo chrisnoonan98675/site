@@ -70,14 +70,14 @@
 /xl-deploy-wps-plugin/latest/wpsPluginManual.html : /xl-deploy-wps-plugin/6.0.x/wpsPluginManual.html
 /xl-deploy-tomcat-plugin/latest/tomcatPluginManual.html : /xl-deploy-tomcat-plugin/6.0.x/tomcatPluginManual.html
 /xl-deploy-glassfish-plugin/latest/glassfishPluginManual.html : /xl-deploy-glassfish-plugin/6.0.x/glassfishPluginManual.html
-/xl-deploy-biztalk-plugin/latest/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/5.1.x/biztalkPluginManual.html
+/xl-deploy-biztalk-plugin/latest/biztalkPluginManual.html : /xl-deploy-biztalk-plugin/6.0.x/biztalkPluginManual.html
 /xl-deploy-iis-plugin/latest/iisPluginManual.html : /xl-deploy-iis-plugin/6.0.x/iisPluginManual.html
 /xl-deploy-windows-plugin/latest/windowsPluginManual.html : /xl-deploy-windows-plugin/6.0.x/windowsPluginManual.html
-/xl-deploy-bigip-plugin/latest/bigipPluginManual.html : /xl-deploy-bigip-plugin/5.5.x/bigipPluginManual.html
+/xl-deploy-bigip-plugin/latest/bigipPluginManual.html : /xl-deploy-bigip-plugin/6.0.x/bigipPluginManual.html
 /xl-deploy-wmq-plugin/latest/wmqPluginManual.html : /xl-deploy-wmq-plugin/6.0.x/wmqPluginManual.html
-/xl-deploy-netscaler-plugin/latest/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/5.5.x/netscalerPluginManual.html
+/xl-deploy-netscaler-plugin/latest/netscalerPluginManual.html : /xl-deploy-netscaler-plugin/6.0.x/netscalerPluginManual.html
 /xl-deploy-xld-oracle-soa-plugin/latest/oracleSoaPluginManual.html : /xl-deploy-xld-oracle-soa-plugin/5.0.x/oracleSoaPluginManual.html
-/xl-deploy-xld-datapower-plugin/latest/dataPowerPluginManual.html : /xl-deploy-xld-datapower-plugin/5.5.x/dataPowerPluginManual.html
+/xl-deploy-xld-datapower-plugin/latest/dataPowerPluginManual.html : /xl-deploy-xld-datapower-plugin/6.0.x/dataPowerPluginManual.html
 
 # XL Deploy tools
 

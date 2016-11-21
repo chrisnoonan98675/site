@@ -35,7 +35,8 @@ product-id: xl-deploy
 
 * [JBoss Application Server 5 and 6 plugin](/xl-deploy-jbossas-plugin/6.0.x/jbossPluginManual.html)
 * [JBoss Application Server 7 and up plugin](/xl-deploy-jbossdm-plugin/6.0.x/jbossDomainPluginManual.html)
-* [Oracle Service Bus plugin](/xl-deploy-osb-plugin/6.0.x/osbPluginManual.html)
+* [Oracle Service Bus (OSB) plugin](/xl-deploy-osb-plugin/6.0.x/osbPluginManual.html)
+* [Oracle Service-Oriented Architecture (SOA) plugin](/xl-deploy-xld-oracle-soa-plugin/5.0.x/oracleSoaPluginManual.html)
 * [WebLogic Application Server plugin](/xl-deploy-wls-plugin/6.0.x/wlsPluginManual.html)
 * [WebSphere Application Server plugin](/xl-deploy-was-plugin/6.0.x/wasPluginManual.html)
 * [WebSphere Process Server plugin](/xl-deploy-wps-plugin/6.0.x/wpsPluginManual.html)
@@ -45,18 +46,18 @@ product-id: xl-deploy
 
 ### .NET middleware plugins
 
-* [BizTalk plugin](/xl-deploy-biztalk-plugin/5.1.x/biztalkPluginManual.html)
+* [BizTalk plugin](/xl-deploy-biztalk-plugin/6.0.x/biztalkPluginManual.html)
 * [IIS plugin](/xl-deploy-iis-plugin/6.0.x/iisPluginManual.html)
 * [Windows plugin](/xl-deploy-windows-plugin/6.0.x/windowsPluginManual.html)
 
 ### Other middleware plugins
 
-* [F5 BIG-IP plugin](/xl-deploy-bigip-plugin/5.5.x/bigipPluginManual.html)
+* [F5 BIG-IP plugin](/xl-deploy-bigip-plugin/6.0.x/bigipPluginManual.html)
 * [Database plugin (DB2, MS SQL, MySQL, Oracle)](databasePluginManual.html)
 * [Webserver plugin (Apache HTTP server)](webserverPluginManual.html)
 * [WebSphere MQ plugin](/xl-deploy-wmq-plugin/6.0.x/wmqPluginManual.html)
-* [NetScaler plugin](/xl-deploy-netscaler-plugin/5.5.x/netscalerPluginManual.html)
-* [DataPower plugin](/xl-deploy-xld-datapower-plugin/5.5.x/dataPowerPluginManual.html)
+* [NetScaler plugin](/xl-deploy-netscaler-plugin/6.0.x/netscalerPluginManual.html)
+* [DataPower plugin](/xl-deploy-xld-datapower-plugin/6.0.x/dataPowerPluginManual.html)
 
 ### Tools
 
