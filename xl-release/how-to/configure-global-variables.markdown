@@ -27,7 +27,7 @@ To create a global variable:
 1. In the **Label** box, optionally enter a user-friendly label for the variable.
 1. Select the variable type from the **Type** list:
     * **Text**: A string of letters or numbers
-    * **List box**: A drop-down list of selectable values that can be reordered and can contain duplicates
+    * **List box**: A drop-down list of selectable values that can be reordered and can contain duplicates (available in XL Release 6.0.0 and later)
     * **Password**: A password
     * **Checkbox**: A true or false value (Boolean)
     * **Number**: An integer
