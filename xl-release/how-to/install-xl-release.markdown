@@ -199,4 +199,7 @@ The installation directory is referred to as `XL_RELEASE_SERVER_HOME`.
 
 ## Failover configuration
 
-If you store the XL Release repository in a [database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html#using-a-database), you can set up a failover configuration as described in [Configure failover for XL Release](/xl-release/how-to/configure-failover.html).
+If you store the XL Release repository in a [database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html#using-a-database), you can set up a failover configuration as described in:
+
+* [Configure failover for XL Release](/xl-release/how-to/configure-failover.html) (prior to XL Release 6.0.0)
+* [Configure active/hot-standby mode](/xl-release/how-to/configure-active-hot-standby.html) and [Configure external databases](/xl-release/how-to/configure-an-external-database.html) (XL Release 6.0.0 and later)
