@@ -35,6 +35,9 @@ img {
 .img-no-border {
   box-shadow: none;
 }
+.img-dark-border {
+  box-shadow: 0px 0px 1px 0px #333;
+}
 .mini-logo-img {
 	width: 100px;
 	box-shadow: none;
@@ -719,7 +722,7 @@ form.form-search:before {
 }
 
 .in-product-help-list li {
-  padding-bottom: 5px;
+  padding-bottom: 8px;
 }
 
 .in-product-help-text {
