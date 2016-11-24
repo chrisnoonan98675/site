@@ -15,9 +15,9 @@ deprecated:
 - XL Release 6.0.0
 ---
 
-XL Release uses a repository to store all of its data. XL Release can use the filesystem or a database for binary artifacts and CIs and CI history. By default, XL Release uses the filesystem to store all data in the repository.
+XL Release uses a repository to store all of its data, and you can use the filesystem or an external database to store binary artifacts, configuration items (CIs), and CI history. By default, XL Release uses the filesystem to store all data in the repository.
 
-**Important:** Information in this topic is deprecated as of XL Release 6.0.0. Refer to [Configure external databases](/xl-release/how-to/configure-an-external-database.html) for more information.
+This topic describes how to store the repository in an external database prior to XL Release 6.0.0. If you are using XL Release 6.0.0 or later, refer to [Configure external databases](/xl-release/how-to/configure-an-external-database.html) for information about setting up an external database.
 
 ## Location of the repository
 
@@ -25,7 +25,7 @@ By default, the repository is located in `XL_RELEASE_SERVER_HOME/repository`.
 
 ## Using a database
 
-XL Release can also use a database to store its repository. To use a database, you must configure the built-in Jackrabbit JCR implementation, depending on what you want to store in the database:
+XL Release can use a database to store its repository. To use a database, you must configure the built-in Jackrabbit JCR implementation, depending on what you want to store in the database:
 
 {:.table .table-striped}
 | Type of data to store in the database | Properties to configure |
