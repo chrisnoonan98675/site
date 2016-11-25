@@ -10,7 +10,6 @@ product-id: xl-deploy
 * [Release Manual](releasemanual.html)
 * [Steps Reference](referencesteps.html)
 * [UDM CI Reference](udmcireference.html)
-* [Provisioning CI Reference](/xl-deploy-xld-provision/6.0.x/xldProvisioningManual.html)
 * [REST API Reference](rest-api)
 * [Jython API Reference](/jython-docs/#!/xl-deploy/6.0.x/)
 * [Javadoc](/xl-deploy/6.0.x/javadoc/udm-plugin-api/index.html)
