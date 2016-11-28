@@ -18,6 +18,8 @@ since:
 
 As of XL Release 6.0.0, you can configure XL Release in a clustered active/hot-standby mode. Running XL Release in this mode ensures that you have a Highly Available (HA) XL Release. Currently, active/hot-standby is the only cluster mode that is recommended.
 
+![Active/hot-standby configuration](../images/diagram-active-hot-standby.png)
+
 This topic describes the procedure to enable active/hot-standby mode.
 
 ## Requirements
