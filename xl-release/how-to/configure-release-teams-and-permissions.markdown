@@ -79,9 +79,9 @@ Folder permissions are available in XL Release 6.0.0 and later. The following pe
 {:.table .table-striped}
 | Permission | Description |
 | ---------- | ----------- |
-| View Folder | Users can see the folder in the Folders screen |
-| Edit Folder | Users can edit the folder (for example, by renaming it) |
-| Edit Folder Security | Users can edit the teams and permissions on a folder |
+| View Folder | Users can see the folder in the Folders screen. |
+| Edit Folder | Users can edit the folder (for example, by renaming it). |
+| Edit Folder Security | Users can edit the teams and permissions on a folder. |
 
 ### Template permissions
 
@@ -93,8 +93,8 @@ The following permissions apply to templates:
 | Create Release | Users can create a release from the template. |
 | View Template | Users can see the template in the template overview. |
 | Edit Template | Users can change the template by adding tasks and phases and changing them. |
-| Edit Template Security | Users can edit teams and permissions on the template (this permission is named _Edit Security_ prior to XL Release 6.0.0) |
-| Edit Triggers | Users can view, edit, and delete triggers on the template (to create a trigger, you also need the *Create Release* permission) |
+| Edit Template Security | Users can edit teams and permissions on the template; this permission is named _Edit Security_ prior to XL Release 6.0.0. |
+| Edit Triggers | Users can view, edit, and delete triggers on the template; this permission is available in XL Release 6.0.0 and later. To create a trigger, you also need the *Create Release* permission. |
 
 ### Release permissions
 
@@ -105,7 +105,7 @@ The following permissions apply to releases:
 | ---------- | ----------- |
 | View Release | Users have view access to this release. It will appear in the Release Overview. In the release details, users have read-only access to the release flow, properties, and activity log. |
 | Edit Release | Users can alter the structure of a release by adding and moving tasks and phases. Release properties and teams are editable. |
-| Edit Release Security | Users can edit teams and permissions in a release (this permission is named _Edit Security_ prior to XL Release 6.0.0) |
+| Edit Release Security | Users can edit teams and permissions in a release; this permission is named _Edit Security_ prior to XL Release 6.0.0. |
 | Start Release | Users can start a planned release. |
 | Abort Release | Users can abort an active or planned release. |
 | Reassign Task | Users can assign tasks to other people. Team assignment is also enabled. |
