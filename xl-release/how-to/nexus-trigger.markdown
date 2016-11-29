@@ -1,22 +1,21 @@
 ---
-title: Using the XL Release Nexus trigger plugin
+title: Using the XL Release Nexus trigger
 categories:
 - xl-release
 subject:
 - Triggers
 tags:
-- plugin
 - nexus
 - trigger
 ---
 
-The XL Release Nexus trigger plugin allows XL Release to interact with Sonatype Nexus repositories. The plugin uses the Nexus Server REST API to communicate and fetch information from Nexus repositories.
+The XL Release Nexus trigger allows XL Release to interact with Sonatype Nexus repositories. It uses the Nexus Server REST API to communicate and fetch information from Nexus repositories.
 
 A Nexus trigger periodically polls a Nexus server for new versions of a specific artifact and triggers a release if a new version is published to the repository being watched.
 
 ## Compatibility
 
-The plugin is compatible with Nexus 2. The plugin does not support Nexus 3.0.0.
+The XL Release Nexus trigger is compatible with Nexus 2. It does not support Nexus 3.0.0.
 
 ## Features
 

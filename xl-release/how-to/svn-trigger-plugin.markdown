@@ -1,18 +1,17 @@
 ---
-title: Using the XL Release SVN trigger plugin
+title: Using the XL Release SVN trigger
 categories:
 - xl-release
 subject:
 - Triggers
 tags:
-- plugin
 - svn
 - trigger
 since:
 - XL Release 4.5.0
 ---
 
-The XL Release SVN trigger plugin periodically polls a Subversion repository and triggers a release when it detects a new commit.
+The XL Release SVN trigger periodically polls a Subversion repository and triggers a release when it detects a new commit.
 
 ## Features
 

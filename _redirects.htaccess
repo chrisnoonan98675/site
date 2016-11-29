@@ -228,6 +228,10 @@ Redirect 301 /xl-release/how-to/enable-granular-audit-logging.html /xl-release/c
 Redirect 301 /xl-release/how-to/configure-permissions-for-a-release.html /xl-release/how-to/configure-release-teams-and-permissions.html
 Redirect 301 /xl-release/how-to/configure-teams-for-a-release.html /xl-release/how-to/configure-release-teams-and-permissions.html
 Redirect 301 /xl-release/how-to/change-the-repository-database-settings.html /xl-release/how-to/configure-the-xl-release-repository-in-a-database.html
+Redirect 301 /xl-release/how-to/git-trigger-plugin.html /xl-release/how-to/git-trigger.html
+Redirect 301 /xl-release/how-to/nexus-trigger-plugin.html /xl-release/how-to/nexus-trigger.html
+Redirect 301 /xl-release/how-to/svn-trigger-plugin.html /xl-release/how-to/svn-trigger.html
+Redirect 301 /xl-release/how-to/time-trigger-plugin.html /xl-release/how-to/time-trigger.html
 
 # XL TestView topics
 

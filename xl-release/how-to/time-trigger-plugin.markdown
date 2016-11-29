@@ -1,17 +1,16 @@
 ---
-title: Using the XL Release Time trigger plugin
+title: Using the XL Release Time trigger
 categories:
 - xl-release
 subject:
 - Triggers
 tags:
-- plugin
 - schedule
 - time
 - trigger
 ---
 
-The XL Release Time trigger plugin allows XL Release to trigger releases based on a user-defined time schedule. 
+The XL Release Time trigger allows XL Release to trigger releases based on a user-defined time schedule. 
 
 ## Features
 
