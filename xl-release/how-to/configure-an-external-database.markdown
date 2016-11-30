@@ -78,16 +78,23 @@ Next, add the following parameters to the `xl.repository.persistence` section of
 This is an example of the `xl.repository` configuration related to the database:
 
     xl {
-      // ...
-      repository {
-        configuration = "mysql-cluster"
-        persistence {
-          jdbcUrl = "jdbc:mysql://db/xlrelease"
-          username = "xlrelease"
-          password = "xlrelease"
-          maxPoolSize = "20"
+        repository {
+            configuration = postgresql-standalone
+            persistence {
+                jdbcUrl = "jdbc:postgresql://db/xlrelease?ssl=false"
+                username = "xlrelease"
+                password = "xlrelease"
+                maxPoolSize = 20
+            }
+            jackrabbit {
+                artifacts.location="repository"
+                bundleCacheSize = 128
+            }
         }
-        // ...
-      }
-      // ...
+        reporting {
+            db-driver-classname=org.postgresql.Driver
+            db-url="jdbc:postgresql://db/xlrarchive?ssl=false"
+            db-password="xlrarchive"
+            db-username="xlrarchive"
+        }
     }
