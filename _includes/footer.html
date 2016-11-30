@@ -18,37 +18,36 @@
 <script src="/js/jquery.magnific-popup.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    // Initialize navgoco with default options
-    $(".nav").navgoco({
-        caretHtml: '',
-        accordion: false,
-        openClass: 'open',
-        save: true,
-        cookie: {
-            name: 'navgoco',
-            expires: false,
-            path: '/'
-        },
-        slide: {
-            duration: 0,
-            easing: 'linear'
-        },
-        // Add Active class to clicked menu item
-        onClickAfter: active_menu_cb,
-    });
+	$(document).ready(function() {
+	    // Initialize navgoco with default options
+	    $(".nav").navgoco({
+	        caretHtml: '',
+	        accordion: false,
+	        openClass: 'open',
+	        save: true,
+	        cookie: {
+	            name: 'navgoco',
+	            expires: false,
+	            path: '/'
+	        },
+	        slide: {
+	            duration: 0,
+	            easing: 'linear'
+	        },
+	    });
 
-    $("#collapseAll").click(function(e) {
-        e.preventDefault();
-        $(".nav").navgoco('toggle', false);
-    });
+	    $("#collapseAll").click(function(e) {
+	        e.preventDefault();
+	        $(".nav").navgoco('toggle', false);
+	    });
 
-    $("#expandAll").click(function(e) {
-        e.preventDefault();
-        $(".nav").navgoco('toggle', true);
-    });
-});
+	    $("#expandAll").click(function(e) {
+	        e.preventDefault();
+	        $(".nav").navgoco('toggle', true);
+	    });
+	});
 </script>
+
 </body>
 
 </html>
