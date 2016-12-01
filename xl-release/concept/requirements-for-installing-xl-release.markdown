@@ -31,7 +31,7 @@ Depending on the environment, the following may also be required:
 
 ### Hard disk space requirements
 
-While it is possible to store the repository in an [external database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html), XL Release always requires that the disk space for the server be persistent. This is important for several reasons:
+While it is possible to store the repository in an [external database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html), it should not be stored on NFS. Also, XL Release always requires that the disk space for the server be persistent. This is important for several reasons:
 
 * Lucene indexes are stored in the repository directory; if the disk space is not persistent, these indexes will be rebuilt each time the server starts, which is very time-consuming
 * Configuration files such as `xl-release.conf` and `deployit-defaults.properties` are updated by the running system
