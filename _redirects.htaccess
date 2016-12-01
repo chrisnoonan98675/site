@@ -187,6 +187,7 @@ Redirect 301 /xl-release/how-to/configure-xl-release-to-trust-xl-deploy-with-a-s
 Redirect 301 /xl-deploy/how-to/configure-the-cli-to-trust-the-xl-deploy-server-with-a-self-signed-certificate.html /xl-deploy/how-to/configure-the-cli-to-trust-xl-deploy-server-certificate.html
 Redirect 301 /xl-deploy/how-to/set-up-cifs-smb-in-xl-deploy-and-on-a-target-host.html /xl-deploy/how-to/set-up-smb-in-xl-deploy-and-on-a-target-host.html
 Redirect 301 /xl-deploy/how-to/troubleshoot-a-cifs-smb-connection.html /xl-deploy/how-to/troubleshoot-a-cifs-connection.html
+Redirect 301 /xl-deploy/how-to/reset-admin-password-xl-deploy-server.html /xl-deploy/how-to/changing-passwords-in-xl-deploy.html
 
 # XL Release topics
 
@@ -232,6 +233,8 @@ Redirect 301 /xl-release/how-to/git-trigger-plugin.html /xl-release/how-to/git-t
 Redirect 301 /xl-release/how-to/nexus-trigger-plugin.html /xl-release/how-to/nexus-trigger.html
 Redirect 301 /xl-release/how-to/svn-trigger-plugin.html /xl-release/how-to/svn-trigger.html
 Redirect 301 /xl-release/how-to/time-trigger-plugin.html /xl-release/how-to/time-trigger.html
+Redirect 301 /xl-release/how-to/change-the-admin-password.html /xl-release/how-to/changing-passwords-in-xl-release.html
+Redirect 301 /xl-release/how-to/reset-admin-password-xl-release-server.html /xl-release/how-to/changing-passwords-in-xl-release.html
 
 # XL TestView topics
 
