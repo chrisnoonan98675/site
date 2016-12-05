@@ -58,6 +58,8 @@ Contextual properties are resolved from properties on the provisioneds they are 
 
 If value of placeholder is not resolved, then resolution of templates that contain the placeholder will fail.
 
+**Important:** Contextual placeholders cannot be used in the names of CIs.
+
 ## Literal placeholders
 
 _Literal_ placeholders allow you to insert placeholders in a dictionary that should only be resolved when a deployment package is deployed to the created environment. The resolution of these placeholders does not depend on provisioned, dictionary, or a manual user entry.
