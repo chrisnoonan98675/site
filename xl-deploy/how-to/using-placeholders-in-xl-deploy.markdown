@@ -49,7 +49,7 @@ The angle brackets (`<` and `>`) are required for these special values.
 
 ### Using different file placeholder delimiters
 
-If you want to use delimiters other than {% raw %}`{{`{% endraw %} and {% raw %}`}}`{% endraw %} in artifacts of a specific configuration item (CI) type, [modify the CI type](/xl-deploy/how-to/customize-an-existing-ci-type.html) and change the hidden property `delimiters`. This property is a five-character string that consists of two characters identifying the leading delimiter, a space, and two characters identifying the closing delimiter; for example, `%% %%`.
+If you want to use delimiters other than {% raw %}`{{`{% endraw %} and {% raw %}`}}`{% endraw %} in artifacts of a specific configuration item (CI) type, [modify the CI type](/xl-deploy/how-to/customize-an-existing-ci-type.html) and change the hidden property `delimiters`. This property is a five-character string that consists of two different characters identifying the leading delimiter, a space, and two different characters identifying the closing delimiter; for example, `%# #%`.
 
 ### Enabling placeholder scanning for additional file types
 
