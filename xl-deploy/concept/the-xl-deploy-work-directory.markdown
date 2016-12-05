@@ -17,7 +17,6 @@ Examples of items that are temporarily stored in the work directory are:
 
 * All files required for deployment when a deployment task runs
 * Files that are being uploaded when configuration items (CIs) are created
-* Deployment packages that are being imported or exported
 
 ## Location of the work directory
 
