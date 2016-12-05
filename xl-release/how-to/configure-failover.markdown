@@ -15,7 +15,7 @@ weight: 496
 
 XL Release allows you to store the [repository](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html#using-a-database) and the [archive database](/xl-release/how-to/configure-the-archive-database.html#change-the-archive-database-dbms-xl-release-480-and-later) in a relational database instead of on the filesystem. If you use a database, then you can set up failover handling by creating additional instances of XL Release that will use the same database as your master instance. Note that this is not an active/active setup; only one instance of XL Release can access the database at a time.
 
-**Important:** For the preferred clustering configuration in XL Release 6.0.0 and later, refer to [Configure active/hot-standby](/xl-release/how-to/configure-active-hot-standby.html).
+**Tip:** If you are using XL Release 6.0.0 or later, you can use the failover approach described in this topic, or you can use an [active/hot-standby configuration](/xl-release/how-to/configure-active-hot-standby.html).
 
 ## Initial setup
 
