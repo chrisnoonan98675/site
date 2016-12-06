@@ -32,7 +32,7 @@ If you are already using the archive database, you must move it to the new locat
 
 In XL Release 4.8.0 and later, you can use the following products as archive database:
 
-* Apache Derby (ebmedded)
+* Apache Derby (embedded)
 * H2 (embedded)
 * Oracle 11
 * MySQL 4.6
@@ -58,7 +58,7 @@ You must configure the archive database before setting up the repository; that i
 
 ## Additional database configuration
 
-### Increase MySQL maximal allowed packet size
+### Increase maximum allowed packet size in MySQL
 
 XL Release supports attachments up to 100 MB. To store large attachments in the archive database, increase the `max_allowed_packet` configuration option in MySQL. Otherwise, the MySQL server may return "Packet Too Large" errors.
 
@@ -71,6 +71,9 @@ XL Release stores data in UTF-8. To enable the archive database to work with mul
 
 For more information, refer to [Character Sets and Collations in General](https://dev.mysql.com/doc/refman/5.5/en/charset-general.html).
 
-## Failover configuration
+## Failover
 
-If you store the XL Release repository in a [database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html#using-a-database), you can set up a failover configuration as described in [Configure failover for XL Release](/xl-release/how-to/configure-failover.html).
+For information about setting up failover or clustering in XL Release, refer to:
+
+* [Configure failover for XL Release](/xl-release/how-to/configure-failover.html)
+* [Configure active/hot-standby mode](/xl-release/how-to/configure-active-hot-standby.html) (supported in XL Release 6.0.0 and later)

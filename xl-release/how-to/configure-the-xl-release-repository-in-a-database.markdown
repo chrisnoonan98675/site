@@ -11,21 +11,11 @@ tags:
 - database
 - repository
 weight: 493
-deprecated:
-- XL Release 6.0.0
 ---
 
-XL Release uses a repository to store all of its data, and you can use the filesystem or an external database to store binary artifacts, configuration items (CIs), and CI history. By default, XL Release uses the filesystem to store all data in the repository.
+XL Release stores its data in a repository. By default, the repository is stored in an embedded Derby database at `XL_RELEASE_SERVER_HOME/repository`. However, you can choose to store binary data (artifacts), configuration items (CIs), and CI history in an external database.
 
-This topic describes how to store the repository in an external database prior to XL Release 6.0.0. If you are using XL Release 6.0.0 or later, refer to [Configure external databases](/xl-release/how-to/configure-an-external-database.html) for information about setting up an external database.
-
-## Location of the repository
-
-By default, the repository is located in `XL_RELEASE_SERVER_HOME/repository`.
-
-## Using a database
-
-XL Release can use a database to store its repository. To use a database, you must configure the built-in Jackrabbit JCR implementation, depending on what you want to store in the database:
+This topic describes how to configure the built-in Jackrabbit JCR implementation to use an external database. The properties that you must configure depend on what you want to store in the database:
 
 {:.table .table-striped}
 | Type of data to store in the database | Properties to configure |
@@ -39,11 +29,16 @@ XL Release can use a database to store its repository. To use a database, you mu
 For more information about:
 
 * Using a database with Jackrabbit, see the [PersistenceManager FAQ](http://wiki.apache.org/jackrabbit/PersistenceManagerFAQ) and [DataStore FAQ](http://wiki.apache.org/jackrabbit/DataStore)
-* Moving the database or changing its configuration, refer to [Change the repository database settings](/xl-release/how-to/change-the-repository-database-settings.html)
 * Backing up and restoring the database, refer to [Back up XL Release](/xl-release/how-to/back-up-xl-release.html)
 * XL Release's internal archive database, refer to [Configure the archive database](/xl-release/how-to/configure-the-archive-database.html)
 
-### Using XL Release with MySQL
+## External databases and failover
+
+If you take the approach described in this topic, you can optionally [create a failover configuration](/xl-release/how-to/configure-failover.html) with multiple instances of XL Release that will use the same database as your master instance. However, this is a limited setup in which only one instance of XL Release can access the database at a time.
+
+However, if you are using XL Release 6.0.0 or later, you can take advantage of clustering in an active/hot-standby configuration, which requires a different configuration for the external database. Refer to [Configure active/hot-standby](/xl-release/how-to/configure-active-hot-standby.html) instructions.
+
+## Use XL Release with MySQL
 
 This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [MySQL](http://www.mysql.com/):
 
@@ -120,11 +115,7 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configu
 </Versioning>
 {% endhighlight %}
 
-{% comment %}
-**Note:** The MySQL database is not suited for storage of large binary objects; see [the MySQL bug tracker](http://bugs.mysql.com/bug.php?id=10859).
-{% endcomment %}
-
-### Using XL Release with DB2
+## Use XL Release with DB2
 
 This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [DB2](http://www-01.ibm.com/software/data/db2/):
 
@@ -202,7 +193,7 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configu
 </Versioning>
 {% endhighlight %}
 
-### Using XL Release with Oracle
+## Use XL Release with Oracle
 
 This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [Oracle](http://www.oracle.com/us/products/database/index.html):
 
@@ -285,7 +276,7 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configu
 
 If you use the TNSNames Alias syntax to connect to Oracle, you may need to inform the driver where to find the `TNSNAMES` file. Refer to the Oracle documentation for more information.
 
-### Using XL Release with SQL Server
+## Use XL Release with SQL Server
 
 To use XL Release with [Microsoft SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server/), ensure that the [Microsoft JDBC driver for SQL Server](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx) JAR file is located in `XL_RELEASE_SERVER_HOME/lib` or on the Java classpath.
 
@@ -353,9 +344,9 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configu
 
 For more information about SQL Server configuration for Jackrabbit, refer to the [Jackrabbit wiki](http://wiki.apache.org/jackrabbit/DataStore#Database_Data_Store). For information about the `MSSqlPersistenceManager` class, refer to the [Jackrabbit documentation](http://jackrabbit.apache.org/api/2.2/org/apache/jackrabbit/core/persistence/db/MSSqlPersistenceManager.html).
 
-## Using clustering
+## Use Jackrabbit clustering mode
 
-It is also possible to run XL Release server with its repository shared with other XL Release server instances. In this case, you must configure the Jackrabbit JCR to run in [clustered mode](http://wiki.apache.org/jackrabbit/Clustering#Overview). This needs a cluster configuration to be present in the `jackrabbit-repository.xml` file.
+It is also possible to run XL Release server with its repository shared with other XL Release server instances. In this case, you must configure the Jackrabbit JCR to run in [clustered mode](http://wiki.apache.org/jackrabbit/Clustering#Overview). This requires a cluster configuration to be present in the `jackrabbit-repository.xml` file.
 
 ### File-based repository
 
@@ -391,7 +382,7 @@ The following XML snippet shows a sample clustering configuration for a JCR usin
 
 Note that each Jackrabbit cluster node should have a unique value for `id`. For more information about JCR clustering or ways to configure clustering using other databases, refer to the Jackrabbit [clustering documentation](http://wiki.apache.org/jackrabbit/Clustering#Overview).
 
-## Changing the repository database settings
+## Change the repository database settings
 
 You may occasionally need to move the database or change settings such as the database username or password (for example, to test a new release against a non-production database).
 

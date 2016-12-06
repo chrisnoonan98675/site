@@ -235,6 +235,7 @@ Redirect 301 /xl-release/how-to/svn-trigger-plugin.html /xl-release/how-to/svn-t
 Redirect 301 /xl-release/how-to/time-trigger-plugin.html /xl-release/how-to/time-trigger.html
 Redirect 301 /xl-release/how-to/change-the-admin-password.html /xl-release/how-to/changing-passwords-in-xl-release.html
 Redirect 301 /xl-release/how-to/reset-admin-password-xl-release-server.html /xl-release/how-to/changing-passwords-in-xl-release.html
+Redirect 301 /xl-release/how-to/configure-an-external-database.html /xl-release/how-to/configure-active-hot-standby.html
 
 # XL TestView topics
 

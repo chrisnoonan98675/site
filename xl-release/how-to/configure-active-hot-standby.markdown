@@ -24,12 +24,13 @@ This topic describes the procedure to enable active/hot-standby mode.
 
 ## Requirements
 
-Using XL Release in active/hot-standby mode adds requirements to the [normal system requirements for XL Release](/xl-release/concept/requirements-for-installing-xl-release.html). Please review these requirements before starting the setup.
+Using XL Release in active/hot-standby mode requires the following:
 
-* You must use an [external database](/xl-release/how-to/configure-an-external-database.html) for the repository. If you currently run XL Release with its default configuration (which stores everything in an embedded Derby database), you must migrate all of your data to an external database before you can start to use active/hot-standby.
-* The XL Release [archive database](/xl-release/how-to/configure-the-archive-database.html) must also be configured as an external database.
-* Hot standby mode requires you to use a load balancer that supports hot standby. This topic describes how to set up the [HAProxy](http://www.haproxy.org/) load balancer.
-* You must have a shared filesystem (such as NFS) that both the active and the standby XL Release nodes can reach.
+* You must meet the [standard system requirements for XL Release](/xl-release/concept/requirements-for-installing-xl-release.html).
+* The XL Release repository must be stored in an external database, using the instructions in this topic. If you are using XL Release's default configuration (which stores the repository in an embedded Derby database), you must migrate all of your data to an external database before you can start to use active/hot-standby.
+* The XL Release [archive database](/xl-release/concept/how-archiving-works.html) must also be stored in an external database, using the instructions in this topic.
+* You must use a load balancer that supports hot-standby. This topic describes how to set up the [HAProxy](http://www.haproxy.org/) load balancer.
+* You must have a shared filesystem (such as NFS) that both the active and standby XL Release nodes can reach. This will be used to store binary data (artifacts).
 
 ## Limitation on HTTP session sharing and resiliency
 
@@ -38,7 +39,7 @@ In active/hot-standby mode, there is always at most one "active" XL Release node
 However, XL Release does not share HTTP sessions among nodes. If the active XL Release node becomes unavailable:
 
 * All users will effectively be logged out and will lose any work that was not yet persisted to the database.
-* Any script tasks that were running on the previously active node will have the `failed` status. After another node has become the new active node (which will happen automatically), these tasks can be restarted.
+* Any script tasks that were running on the previously active node will have the `failed` status. After another node has become the new active node (which will happen automatically), you can restart these tasks.
 
 ## Active/Hot-standby setup procedure
 
@@ -50,33 +51,123 @@ The initial active/hot-standby setup is:
 
 To set up an active/hot-standby cluster, you must do some manual configuration before starting XL Release.
 
-### Step 1 Prerequisite setup
+### Step 1 Configure external databases
 
-This procedure assumes that:
+The following external databases are recommended:
 
-* You have already configured XL Release to use an external database as described in [Configure an external database](/xl-release/how-to/configure-an-external-database.html)
-* You have configured a shared filesystem (such as NFS) that is ready to be used as a store for binary data by all nodes
+* MySQL
+* PostgreSQL
+* Oracle 11g or 12c
 
-### Step 2 Setting up the cluster
+#### Configure the archive database
 
-1. Edit the `xl-release.conf` file and specify the common parts of the configuration, as described in:
-    * [Enable clustering](#enable-clustering)
-    * [Enable repository cluster mode](#enable-repository-cluster-mode)
-    * [Configure a shared filesystem](#configure-a-shared-filesystem)
-    * [Configure node connection details](#configure-node-connection-details)
-1. At a command prompt, run the following server setup command and follow the on-screen instructions:
+The archive database must be shared among all nodes when active/hot-standby is enabled. Ensure that every node has access to the shared archive database.
 
-        ./bin/run.sh -setup
+To configure the archive database, first add the following parameters to the `xl.reporting` section of the `xl-release.conf` configuration file:
 
-### Step 3 Prepare each node in the cluster
+{:.table .table-striped}
+| Parameter | Description |
+| --------- | ----------- |
+| `db-driver-classname` | Class name of the database driver to use; for example, `oracle.jdbc.driver.OracleDriver`. |
+| `db-url` | JDBC URL that describes database connection details; for example, `"jdbc:oracle:thin:@oracle.hostname.com:1521:SID"`. |
+| `db-username` | User name to use when logging into the database. |
+| `db-password` | Password to use when logging into the database (after setup is complete, the password will be encrypted and stored in secured format). |
 
-1. Zip the distribution that you created in [Step 2 Setting up the cluster](#step-2-setting-up-the-cluster).
-1. Copy this zip file to all other nodes and unzip it there.
-1. For each node, perform the node-specific configuration as described in [Configure node connection details](#configure-node-connection-details).
+Then, place the JAR file containing the JDBC driver of the selected database in the `XL_RELEASE_SERVER_HOME/lib` directory. To download the JDBC database drivers:
 
-**Note:** You do not need to run the setup command again.
+{:.table .table-striped}
+| Database   | JDBC drivers | Notes   |
+| ---------- | ------------ | ------- |
+| MySQL      | [Connector\J 5.1.30 driver download](http://dev.mysql.com/downloads/connector/j/)| None. |
+| Oracle     | [JDBC driver downloads](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html) | For Oracle 12c, use the 12.1.0.1 driver (`ojdbc7.jar`). It is recommended that you only use the thin drivers; refer to the [Oracle JDBC driver FAQ](http://www.oracle.com/technetwork/topics/jdbc-faq-090281.html) for more information. |
+| PostgreSQL | [PostgreSQL JDBC driver](https://jdbc.postgresql.org/download.html)| Use the JDBC42 version, because XL Release 4.8.0 and later requires Java 1.8. |
 
-### Step 4 Set up the load balancer
+#### Configure the repository database
+
+The repository database must be shared among all nodes when when active/hot-standby is enabled. Ensure that every node has access to the shared repository database.
+
+To configure the repository database, first add the `xl.repository.configuration` property to the `xl-release.conf` configuration file. This property identifies the predefined repository configuration that you want to use. Supported values are:
+
+{:.table .table-striped}
+| Parameter             | Description                                                        |
+| --------------------- | ------------------------------------------------------------------ |
+| `default`               | Default configuration that uses an embedded Apache Derby database.  |
+| `mysql-standalone`      | Single instance configuration that uses a MySQL database.           |
+| `mysql-cluster`         | Cluster-ready configuration that uses a MySQL database.             |
+| `oracle-standalone`     | Single instance configuration that uses an Oracle database.         |
+| `oracle-cluster`        | Cluster-ready configuration that uses an Oracle database.          |
+| `postgresql-standalone` | Single instance configuration that uses a PostgreSQL database.      |
+| `postgresql-cluster`    | Cluster-ready configuration that uses a PostgreSQL database.        |
+
+Next, add the following parameters to the `xl.repository.persistence` section of `xl-release.conf`:
+
+{:.table .table-striped}
+| Parameter     | Description |
+| ---------     | ----------- |
+| `jdbcUrl`     | JDBC URL that describes the database connection details; for example, `"jdbc:oracle:thin:@oracle.hostname.com:1521:SID"`. |
+| `username`    | User name to use when logging into the database. |
+| `password`    | Password to use when logging into the database (after setup is complete, the password will be encrypted and stored in secured format). |
+| `maxPoolSize` | Database connection pool size; suggested value is 20. |
+
+#### Sample database configuration
+
+This is an example of the `xl.repository` configuration related to the database:
+
+    xl {
+        repository {
+            configuration = postgresql-standalone
+            persistence {
+                jdbcUrl = "jdbc:postgresql://db/xlrelease?ssl=false"
+                username = "xlrelease"
+                password = "xlrelease"
+                maxPoolSize = 20
+            }
+            jackrabbit {
+                artifacts.location="repository"
+                bundleCacheSize = 128
+            }
+        }
+        reporting {
+            db-driver-classname=org.postgresql.Driver
+            db-url="jdbc:postgresql://db/xlrarchive?ssl=false"
+            db-password="xlrarchive"
+            db-username="xlrarchive"
+        }
+    }
+
+### Step 2 Set up the cluster
+
+All active/hot-standby configuration settings must be provided in the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file, which uses the [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format. In this file on one node:
+
+1. Enable clustering by:
+    * Setting `xl.cluster.enabled` to `true`
+    * Setting `xl.cluster.mode` to `hot-standby`
+1. Set `xl.repository.configuration` to the appropriate `<database>-cluster` option from [Configure the repository database](#configure-the-repository-database). Do not change the `xl.repository.persistence` options that you have already configured.
+1. Set `xl.repository.jackrabbit.artifacts.location` to a shared filesystem (such as NFS) that all nodes can access. This is required for storage of binary data (artifacts).
+1. Define ports for different types of incoming TCP connections in the `xl.cluster.node` section:
+
+{:.table .table-striped}
+| Parameter | Description |
+| --------- | ----------- |
+| `id`  | Unique ID that identifies a node in the cluster. |
+| `hostname` | IP address or host name of the machine where the node is running. Note that a loopback address such as `127.0.0.1` or `localhost` should not be used when running cluster nodes on different machines. |
+| `clusterPort` | Port used for cluster-wide communications; defaults to `5531`. |
+
+### Step 3 Set up the first node
+
+At a command prompt, run the following server setup command and follow the on-screen instructions:
+
+    ./bin/run.sh -setup
+
+### Step 4 Prepare each node in the cluster
+
+1. Zip the distribution that you created in [Step 2 Set up the cluster](#step-2-set-up-the-cluster).
+1. Copy the ZIP file to all other nodes and unzip each one.
+1. On each node, edit the `xl.cluster.node` section of the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file. Update the values for the specific node.
+
+**Note:** You do not need to run the server setup command on each node.
+
+### Step 5 Set up the load balancer
 
 To use active/hot-standby, you must front the XL Release servers with a load balancer. The load balancer must check the `/ha/health` endpoint with a `HEAD` or `GET` request to verify that the node is up. This endpoint will return:
 
@@ -91,48 +182,9 @@ For instance, for HAProxy, you can add the following configuration:
       option httpchk head /ha/health HTTP/1.0
       server docker_xlr-node_1 docker_xlr-node_1:5516 check inter 2000 rise 2 fall 3
 
-### Step 5 Start the nodes
+### Step 6 Start the nodes
 
-Start each of the nodes 1 by 1, making sure that at least the first one is fully up, before starting the backup nodes.
-
-## Active/hot-standby configuration settings
-
-All active/hot-standby configuration settings must be provided in the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file, which uses the [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format.
-
-### Enable clustering
-
-The active/hot-standby functionality is enabled when the following settings are configured in `xl-release.conf`:
-
-* `xl.cluster.enabled` is set to `true`
-* `xl.cluster.mode` is set to `hot-standby`
-
-### Enable repository cluster mode
-
-Instead of the `<database>-standalone` configuration that you configured in the [Configure an external database](/xl-release/how-to/configure-an-external-database.html) procedure, you must choose a clustered configuration. Set the correct `xl.repository.configuration` value from this table:
-
-{:.table .table-striped}
-| Database   | Configuration value  |
-| ---------- | -------------------- |
-| MySQL      | `mysql-cluster`      |
-| Oracle     | `oracle-cluster`     |
-| PostgreSQL | `postgresql-cluster` |
-
-There is no need to change the other database configuration settings.
-
-### Configure a shared filesystem
-
-The active/hot-standby configuration requires that artifacts are stored in a shared filesystem such as NFS. Ensure that the `xl.repository.jackrabbit.artifacts.location` configuration value points to such a shared filesystem and that all nodes can access it.
-
-### Configure node connection details
-
-Each node will open ports for different types of incoming TCP connections. These are defined in the `xl.cluster.node` section:
-
-{:.table .table-striped}
-| Parameter | Description |
-| --------- | ----------- |
-| `id`  | ID used to uniquely describe a node in the cluster. |
-| `hostname` | IP address or host name of the machine where the node is running. Note that a loopback address such as `127.0.0.1` or `localhost` should not be used when running cluster nodes on different machines. |
-| `clusterPort` | Port used for cluster-wide communications; defaults to `5531`. |
+Start XL Release on each node, beginning with the first node that you configured. Ensure that each node is fully up and running before starting the next one.
 
 ## Sample `xl-release.conf` configuration
 
