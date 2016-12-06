@@ -22,7 +22,7 @@ This topic describes how to configure the built-in Jackrabbit JCR implementation
 | ------------------------------------- | ----------------------- |
 | Only binary artifacts | `DataStore`|
 | Only CIs and CI history | `PersistenceManager` and `FileSystem` |
-| All data (binary artifacts and CIs and CI history) | `DataStore`, `PersistenceManager` and `FileSystem` |
+| All data (binary artifacts and CIs and CI history) | `DataStore`, `PersistenceManager`, and `FileSystem` |
 
 **Note:** XL Release must initialize the repository before it can be used. Run XL Release's setup wizard and initialize the repository after making any changes to the repository configuration.
 
@@ -36,7 +36,7 @@ For more information about:
 
 If you take the approach described in this topic, you can optionally [create a failover configuration](/xl-release/how-to/configure-failover.html) with multiple instances of XL Release that will use the same database as your master instance. However, this is a limited setup in which only one instance of XL Release can access the database at a time.
 
-However, if you are using XL Release 6.0.0 or later, you can take advantage of clustering in an active/hot-standby configuration, which requires a different configuration for the external database. Refer to [Configure active/hot-standby](/xl-release/how-to/configure-active-hot-standby.html) instructions.
+However, if you are using XL Release 6.0.0 or later, you can take advantage of clustering in an active/hot-standby configuration, which requires a different configuration for the external database. Refer to [Configure active/hot-standby](/xl-release/how-to/configure-active-hot-standby.html) for instructions.
 
 ## Use XL Release with MySQL
 
