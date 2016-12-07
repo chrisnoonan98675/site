@@ -20,7 +20,7 @@ To use the XL Release REST API, you need to know the unique identifier of templa
 
 Both releases and templates have an ID of the form `Applications/ReleaseXXXXXXX`, where `XXXXXXX` is a seven-digit number. The fastest way to find it is to open it in the browser and look at the URL in the location bar.
 
-Additionally if you have organised your templates (and therefore releases) into Folders you will note they are of the form `Applications/FolderXXXXXXX-FolderXXXXXXX-ReleaseXXXXXX`
+Additionally if you have organised your templates (and therefore releases) into Folders you will note they are of the form `Applications/FolderXXXXXXXXX-FolderXXXXXXXXX-ReleaseXXXXXXX`
 
 ![URL for template](../images/template-release-id.png)
 
@@ -28,7 +28,7 @@ Additionally if you have organised your templates (and therefore releases) into 
 
 Just take the last part of the URL and put `Applications` in front of it. In this case, the identifier of the template is `Applications/Release29994650`.
 
-**Note:** If you are using Folders you will also need to replace the `-` with `/`.
+**Note:** If you are using Folders you will also need to replace the `-` with `/`.  In the case of the release shown the identifier is `Applications/FolderXXXXXXXXX/FolderXXXXXXXXX/ReleaseXXXXXXX
 
 **Note:** All IDs start with `Applications/` for technical reasons (XL Release uses the same database as [XL Deploy](/xl-deploy), which limits the ID prefixes that can be used).
 
