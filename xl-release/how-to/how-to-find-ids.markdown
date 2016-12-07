@@ -18,21 +18,19 @@ To use the XL Release REST API, you need to know the unique identifier of templa
 
 ## Releases and templates
 
-Both releases and templates have an ID of the form `Applications/ReleaseXXXXXXX`, where `XXXXXXX` is a seven-digit number. The fastest way to find it is to open it in the browser and look at the URL in the location bar.
+Both releases and templates have an ID of the form `Applications/ReleaseXXXXXXX`, where `XXXXXXX` is a seven-digit number (all IDs start with `Applications/` for technical reasons). If you are using XL Release 6.0.0 or later and you have organized templates and releases in [folders](/xl-release/how-to/manage-templates-and-releases-using-folders.html), their IDs will be of the form `Applications/FolderXXXXXXXXX-FolderXXXXXXXXX-ReleaseXXXXXXX`.
 
-Additionally if you have organised your templates (and therefore releases) into Folders you will note they are of the form `Applications/FolderXXXXXXXXX-FolderXXXXXXXXX-ReleaseXXXXXXX`
+The fastest way to find the ID of a template or release is to open it in a browser and look at the URL in the location bar. Take the last part of the URL and prefix it with `Applications`. If the template or release is in a folder, you must also replace the hyphens (`-`) with forward slashes (`/`).
+
+In these examples, the IDs are `Applications/Release2994650` and `Applications/Folder608123241/Folder283360226/Release482440157`.
 
 ![URL for template](../images/template-release-id.png)
 
 ![URL with folders](../images/template-folders-release-id.png)
 
-Just take the last part of the URL and put `Applications` in front of it. In this case, the identifier of the template is `Applications/Release29994650`.
+### Using the ID in a REST call
 
-**Note:** If you are using Folders you will also need to replace the `-` with `/`.  In the case of the release shown the identifier is `Applications/FolderXXXXXXXXX/FolderXXXXXXXXX/ReleaseXXXXXXX
-
-**Note:** All IDs start with `Applications/` for technical reasons (XL Release uses the same database as [XL Deploy](/xl-deploy), which limits the ID prefixes that can be used).
-
-Now that you have the ID, you can use it in a REST call. For example, to get the contents of a release, do:
+After you have the ID, you can use it in a REST call. For example, to get the contents of a release, do:
 
     GET http://localhost:5516/api/v1/releases/Applications/Release9324610
     GET http://localhost:5516/api/v1/releases/Applications/Folder608123241/Folder283360226/Release482440157
@@ -41,7 +39,7 @@ Now that you have the ID, you can use it in a REST call. For example, to get the
 
 The IDs of phases and tasks can be found in the response of the REST call that gets the contents of a release or template.
 
-Inspect the contents of the release JSON object. The release ID (which we already know) is in the `id` field. All phases in the release are stored as a list in the `phases` property. In turn, the phases contain their tasks in the `tasks` property.
+Inspect the contents of the release JSON object. The release ID (which you already know) is in the `id` field. All phases in the release are stored as a list in the `phases` property. In turn, the phases contain their tasks in the `tasks` property.
 
 Here's an example:
 
@@ -64,7 +62,7 @@ Here's an example:
 
 As you can see, IDs are hierarchical. Note that the ID of the task in this example is `Applications/Release9324610/Phase2437552/Task3066132`, not just `Task3066132`.
 
-This is an example of using the task ID in a REST call:
+This is an example that uses the task ID in a REST call:
 
     GET http://localhost:5516/api/v1/tasks/Applications/Release9324610/Phase6441318/Task2674539
 
@@ -78,6 +76,6 @@ This is an example that finds all tasks that have the title "Configure email add
 
 For more information about these calls, refer to the REST API:
 
-* [Releases by title](/xl-release/4.8.x/rest-api/#!/releases/searchReleasesByTitle)
-* [Phases by title](/xl-release/4.8.x/rest-api/#!/phases/searchPhasesByTitle)
-* [Tasks by title](/xl-release/4.8.x/rest-api/#!/tasks/searchTasksByTitle)
+* [Releases by title](/xl-release/6.0.x/rest-api/#!/releases/searchReleasesByTitle)
+* [Phases by title](/xl-release/6.0.x/rest-api/#!/phases/searchPhasesByTitle)
+* [Tasks by title](/xl-release/6.0.x/rest-api/#!/tasks/searchTasksByTitle)
