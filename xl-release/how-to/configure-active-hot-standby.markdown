@@ -111,7 +111,7 @@ Next, add the following parameters to the `xl.repository.persistence` section of
 
 #### Sample database configuration
 
-This is an example of the `xl.repository` configuration related to the database:
+This is an example of the `xl.repository` configuration for a stand-alone database:
 
     xl {
         repository {
