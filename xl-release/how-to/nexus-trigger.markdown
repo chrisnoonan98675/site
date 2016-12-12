@@ -26,7 +26,7 @@ The XL Release Nexus trigger is compatible with Nexus 2. It does not support Nex
 
 To set up a Nexus server:
 
-1. In XL Release, go to **Settings** > **Shared configuration** and click **Add Repository** under **Nexus: Server**.
+1. In XL Release, go to **Settings** > **Shared configuration** and click **Add Server** under **Nexus: Server**.
 
     **Note:** Prior to XL Release 6.0.0, go to **Settings** > **Configuration**.
 
@@ -54,6 +54,8 @@ To create a Nexus trigger:
 8. If you want to suppress errors when an artifact is not found for the given GAV coordinates, select **Trigger On Initial Publish**. Select this option when the artifact was never published to Nexus and you want to trigger a release on the initial publish.
 9. In the **Username** and **Password** boxes, enter the log-in user ID and password to use to connect to the server.  If set, these will override the credentials defined in the Nexus server configuration.
 10. Finish saving the trigger, as described in  [Create a release trigger](/xl-release/how-to/create-a-release-trigger.html).
+
+**Note:** The trigger requires a POM file to exist in the artifact directory. If you are using the [Nexus Artifact Uploader plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Nexus+Artifact+Uploader), note that it does not upload the POM file.
 
 ## Output properties
 
