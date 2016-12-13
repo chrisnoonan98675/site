@@ -53,8 +53,7 @@ To create a global variable:
 
 To edit a global variable, click it. Note that you cannot change the variable's name or type.
 
-If you change the variable's value, planned tasks that use that variable will reflect the new value.
-Completed, skipped, or failed tasks will reflect the old value (except in the case of user input tasks, which always show the variable's current value).
+If you change the variable's value, planned tasks that use that variable will reflect the new value. Completed, skipped, or failed tasks will reflect the old value.
 
 ## Delete a global variable
 
