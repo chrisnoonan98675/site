@@ -7,6 +7,8 @@ subject:
 tags:
 - puppet
 - plugin
+since:
+- XL Deploy 5.1.0
 ---
 
 The Puppet plugin is an XL Deploy plugin that uses the Puppet provisioning tool to install modules and manifests on hosts.
@@ -19,3 +21,4 @@ For information about Puppet requirements and the configuration items (CIs) that
 * Install and uninstall Puppet modules from the Puppet Forge.
 * Install and uninstall Puppet tarball modules by uploading module TAR files.
 * Apply individual manifests files present in a Puppet manifest folder.
+* Provision an environment using Puppet (supported in XL Deploy 6.0.2 and later).
