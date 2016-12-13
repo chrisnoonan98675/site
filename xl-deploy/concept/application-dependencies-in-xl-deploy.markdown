@@ -15,11 +15,7 @@ since:
 weight: 120
 ---
 
-XL Deploy allows you to define dependencies among different versions of different applications. When you set up the deployment of an application, XL Deploy automatically includes the correct versions of other applications that it depends on.
-
-Application dependencies work with other XL Deploy features such as staging, satellites, rollbacks, updates, and undeployment.
-
-You define dependencies at the *deployment package* level.
+XL Deploy allows you to define dependencies among different versions of different applications. When you set up the deployment of an application, XL Deploy automatically includes the correct versions of other applications that it depends on. Application dependencies work with other XL Deploy features such as staging, satellites, rollbacks, updates, and undeployment. You define dependencies at the *deployment package* level.
 
 ## Versioning requirements
 
@@ -47,12 +43,14 @@ Some examples of deployment package names that use the SemVer scheme are:
 You can use parentheses and square brackets to version dependency ranges. The range formats are:
 
 {:.table .table-striped}
+
 | Format | Description | Example |
 | ------ | ----------- | ------- |
 | `[version1,version2]` | The application depends on any version between `version1` and `version2`, including both versions (note that `version1` and `version2` can be the same value) | AppA depends on AppB [1.0.0,2.0.0], so AppA works with AppB 1.0.0, 1.5.5, 1.9.3, and 2.0.0 |
 | `(version1,version2)` | The application depends on any version between `version1` and `version2`, excluding both versions | AppA depends on AppB (1.0.0,2.0.0), so AppA works with AppB 1.5.5 and 1.9.3, but does not work with AppB 1.0.0 or 2.0.0 |
 | `[version1,version2)` | The application depends on any version between `version1` and `version2`, including `version1` and excluding `version2` | AppA depends on AppB [1.0.0,2.0.0), so AppA works with AppB 1.0.0, 1.5.5, and 1.9.3, but does not work with AppB 2.0.0 |
 | `(version1,version2]` | The application depends on any version between `version1` and `version2`, excluding `version1` and including `version2` | AppA depends on AppB (1.0.0,2.0.0], so AppA works with App B 1.5.5, 1.9.3, and 2.0.0, but does not work with AppB 1.0.0 |
+| `version1` | The application depends on any version above `version1`, including `version1` | AppA depends on AppB 1.0.0, so AppA works with AppB 1.0.0, 1.0.1, 1.1.0, and so on |
 
 ## Simple dependency example
 
