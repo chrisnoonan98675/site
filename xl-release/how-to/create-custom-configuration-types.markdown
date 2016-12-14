@@ -11,9 +11,7 @@ tags:
 - customization
 ---
 
-XL Release allows you to add custom configuration types in XML. Custom configuration types appear in the configuration screens, and custom tasks can reference configuration instances. You can use custom configuration type tasks to reference third-party component settings.
-
-For example, XL Release includes with JIRA Server and Jenkins Server, which are custom configuration types.
+XL Release allows you to add custom configuration types in XML. Custom configuration types appear in the configuration screens, and custom tasks can reference configuration instances. You can use custom configuration type tasks to reference third-party component settings. For example, XL Release includes with JIRA Server and Jenkins Server, which are custom configuration types.
 
 To use a custom configuration type from a custom task, you need:
 
@@ -29,9 +27,7 @@ You define the custom configuration type in XML in `synthetic.xml`. For example,
     <type type="jira.Server" extends="configuration.HttpConnection"/>
     <type type="jenkins.Server" extends="configuration.HttpConnection"/>
 
-Each configuration type must extend the root configuration type `xlrelease.Configuration` or `configuration.HttpConnection`.
-
-In the example, the "Jira Server" and "Jenkins Server" types extend `configuration.HttpConnection`, which defines these properties:
+Each configuration type must extend the `xlrelease.Configuration` or `configuration.HttpConnection` root configuration type. The `xlrelease.Configuration` type can be used for simple configuration types, while the `configuration.HttpConnection` should be used if you need to define an HTTP endpoint. In the example, the "Jira Server" and "Jenkins Server" types extend `configuration.HttpConnection`, which defines these properties:
 
 {:.table .table-striped}
 | Property | Description |

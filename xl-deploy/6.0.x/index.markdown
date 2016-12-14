@@ -63,7 +63,7 @@ product-id: xl-deploy
 * [XL Deploy plugin for Maven](/xldeploy-maven-plugin/5.1.x/)
 * [XL Deploy plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
 * [XL Deploy plugin for Bamboo](/bamboo-xl-deploy-plugin/5.1.x/bambooPluginManual.html)
-* [Puppet plugin for XL Deploy](/xl-deploy-xld-puppet-plugin/5.1.x/puppetPluginManual.html)
+* [Puppet plugin for XL Deploy](/xl-deploy-xld-puppet-plugin/6.0.x/puppetPluginManual.html)
 * [Chef plugin for XL Deploy](/xl-deploy-xld-chef-plugin/6.0.x/chefPluginManual.html)
 * [Docker plugin for XL Deploy](/xl-deploy-xld-docker-plugin/6.0.x/dockerPluginManual.html)
 * [XL Deploy plugin for Team Foundation Server](/xl-deploy-tfs-plugin/6.0.x/tfsPluginManual.html)

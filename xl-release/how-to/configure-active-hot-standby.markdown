@@ -16,11 +16,11 @@ since:
 - XL Release 6.0.0
 ---
 
-As of XL Release 6.0.0, you can configure XL Release in a clustered active/hot-standby mode. Running XL Release in this mode ensures that you have a Highly Available (HA) XL Release. Currently, active/hot-standby is the only cluster mode that is recommended.
+As of XL Release 6.0.0, you can configure XL Release in a clustered active/hot-standby mode. Running XL Release in this mode ensures that you have a Highly Available (HA) XL Release. This topic describes the procedure to enable active/hot-standby mode.
 
 ![Active/hot-standby configuration](../images/diagram-active-hot-standby.png)
 
-This topic describes the procedure to enable active/hot-standby mode.
+**Tip:** If you do not want to use active/hot-standby mode, you can set up failover handling as described n [Configure failover for XL Release](/xl-release/how-to/configure-failover.html).
 
 ## Requirements
 
@@ -111,7 +111,7 @@ Next, add the following parameters to the `xl.repository.persistence` section of
 
 #### Sample database configuration
 
-This is an example of the `xl.repository` configuration related to the database:
+This is an example of the `xl.repository` configuration for a stand-alone database:
 
     xl {
         repository {
