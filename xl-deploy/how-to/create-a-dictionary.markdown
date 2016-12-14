@@ -12,9 +12,9 @@ weight: 161
 
 [Placeholders](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) are configurable entries in your application that will be set to an actual value at deployment time. This allows the deployment package to be environment-independent and thus reusable. At deployment time, you can provide values for placeholders manually or they can be resolved from dictionaries that are assigned to the target environment.
 
-Dictionaries are sets of key-value pairs that you assign to environments. You can use dictionaries to store environment-specific information such as file paths and user names, as well as sensitive data such as passwords.
+Dictionaries are sets of key-value pairs that store environment-specific information such as file paths and user names, as well as sensitive data such as passwords. Dictionaries are designed to store small pieces of data, such as a user name or file path. Although XL Deploy does not limit the length of dictionary values, it is recommended that you avoid entries over 100 characters. Longer values will degrade performance.
 
-**Important:** Dictionaries are designed to store small pieces of data, such as a user name or file path. Although XL Deploy does not limit the length of dictionary values, it is recommended that you avoid entries over 100 characters. Longer values will degrade performance.
+You assign dictionaries to environments. The order of the dictionaries in an environment matters, because if the same entry exists in multiple dictionaries, then XL Deploy uses the first entry that it finds.
 
 Starting in XL Deploy 5.0.0, a dictionary can contain both plain-text and encrypted entries. Prior to XL Deploy 5.0.0, you use dictionaries for plain-text entries and *encrypted dictionaries* for sensitive information.
 

@@ -58,6 +58,8 @@ To create an environment:
 
         ![Add new dictionary](images/create-environment-step-3-dictionaries-existing.png)
 
+        **Tip:** The order of the dictionaries in an environment matters, because if the same entry exists in multiple dictionaries, then XL Deploy uses the first entry that it finds.
+
 1. After you have added the desired dictionaries to the environment, click **Next**. The Advanced properties screen appears.
 1. Optionally select an **SMTP Server** for the environment.
 
