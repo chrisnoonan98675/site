@@ -19,7 +19,7 @@ As of XL Release 7.0.0, you can configure GZIP compression in XL Release. GZIP c
 
 ## Configuring the GZIP compression settings
 
-To configure the GZIP settings, first add the `server` and `http` properties to the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` configuration file. In the `http` property, add an additional `gzip` property. This property identifies the predefined GZIP configuration you wish to use. Supported values are:
+To configure the GZIP settings, first add the `xl`(if it does not already exist), `server` and `http` properties to the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` configuration file. In the `http` property, add an additional `gzip` property. This property identifies the predefined GZIP configuration you wish to use. Supported values are:
 
 {:.table .table-striped}
 | Parameter             | Description                                                        |
@@ -30,9 +30,9 @@ To configure the GZIP settings, first add the `server` and `http` properties to 
 | `excludedPaths`         | List of string paths that will be excluded from the compression  |
 
 ### Sample GZIP compression settings
-
-    server {
-        http {
+    xl {
+        server {
+            http {
                 gzip {
                     enabled: true
                     minSize: 10 kB
@@ -40,6 +40,7 @@ To configure the GZIP settings, first add the `server` and `http` properties to 
                     excludedPaths: []
                 }
             }
+        }
     }
 
 
