@@ -249,6 +249,127 @@ You can add the following properties to the `<type>` element to further customiz
 
 Before changing or removing a custom task type or one of the properties of a custom task type, ensure that the type is not used in any releases or templates. Changing or removing a type that is in use may result in errors.
 
+## Advanced Python script
+
+XL Release 7.0.0 introduced a new API in the Python script context, which allows you to concatenate script executions and allow XL Release to schedule them. Prior to this release, it was not possible to execute multiple Python scripts in a single task. This meant that, if you wanted to fetch a resource by executing an `HttpRequest` and the resource was not yet available, XL Release would loop until the resource became available. This looping could cause performance issues on the XL Release server.
+
+In XL Release 7.0.0 and later, you can instead provide a script that checks for the availability of a resource and another script that does something when the conditions are satisfied. XL Release will schedule the execution of the scripts and poll for the availability of the resource according to a configurable interval. If the server is stopped while the pollable script is running, XL Release will restart the script when the server is started again.
+
+Also, as of XL Release 7.0.0, you can show custom text under the custom task name in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html).
+
+### Configure the polling interval
+
+By default, the polling interval is 5 seconds. You can configure it in the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file:
+
+    xl.durations.customScriptTaskPollingInterval = 10 seconds
+
+Note that the polling interval must not be less than 2 seconds, as this will overload the system.
+
+### Advanced Python script example
+
+This example shows how the [Jenkins Build](/xl-release/how-to/create-a-jenkins-task.html) task is implemented.
+
+#### Definition in `synthetic.xml`
+
+This is the definition of the Jenkins Build task in the `synthetic.xml` file:
+
+{% highlight xml %}
+...
+<type type="jenkins.Build" extends="xlrelease.PythonScript">
+       <property name="scriptLocation" default="jenkins/Build.py" hidden="true" />
+       <property name="iconLocation" default="jenkins/jenkins.png" hidden="true" />
+
+       <property name="jenkinsServer" category="input" label="Server" referenced-type="jenkins.Server" kind="ci" description="Jenkins server to connect to"/>
+       <property name="username" category="input" required="false" description="Overrides the password used to connect to the server"/>
+       <property name="password" password="true" category="input" required="false" description="Overrides the password used to connect to the server"/>
+       <property name="jobName" category="input" description="Name of the job to trigger; this job must be configured on the Jenkins server. If the job is located in one or more Jenkins folders, add  a 'job' segment between each folder."/>
+       <property name="jobParameters" category="input" size="large" required="false" description="If the Jenkins job expects parameters, provide them here, one parameter per line (for example,  paramName=paramValue)"/>
+
+       <property name="buildNumber" category="output" required="false" description="Build number of the triggered job"/>
+       <property name="buildStatus" category="output" required="false" description="Build status of the triggered job"/>
+       <property name="location" category="transitional" required="false" description="Location header returned by jenkins"/>
+</type>
+...
+{% endhighlight %}
+
+The `location` property (of category `transitional`) works the same as the `output` property, but it is hidden from the UI. The `output` and `transitional` properties can be used to send information between Python scripts in the same task.
+
+#### Python scripts
+
+The first Python script required for the Jenkins Build task is `jenkins/Build.py`:
+
+{% highlight python %}
+...
+buildResponse = request.post(buildContext, '', contentType = 'application/json')
+
+if buildResponse.isSuccessful():
+    # query the location header which gives a queue item position
+
+    location = None
+    if 'Location' in buildResponse.getHeaders() and '/queue/item/' in buildResponse.getHeaders()['Location']:
+        location = '/queue/item/' + filter(None, buildResponse.getHeaders()['Location'].split('/'))[-1] + '/'
+
+    task.setStatusLine("Build queued")
+    task.poll("jenkins/Build.wait-for-queue.py")
+
+else:
+    print "Failed to connect at %s." % buildUrl
+    buildResponse.errorDump()
+    sys.exit(1)
+{% endhighlight %}
+
+The status line provided in `task.setStatusLine("Build queued")` will appear in the UI:
+
+![Task status line](../images/task-status-line-1.png)
+
+The `task.poll(pollingScriptPath)` call lets XL Release know that after the current sprint is finished, the polling script should be executed periodically. You pass the path to the script in the method argument. If you do not specify an argument (that is, `task.poll()`), the path `jenkins/Build.poll.py` will be used.
+
+To fail the script, use `sys.exit(1)`.
+
+If the response was successful, the next script triggered will be `Build.wait-for-queue.py`:
+
+{% highlight python %}
+...
+if location:
+    # check the response to make sure we have an item
+    response = request.get(location + 'api/json', contentType = 'application/json')
+    if response.isSuccessful():
+        # if we have been given a build number this item is no longer in the queue but is being built
+        buildNumber = JsonPathResult(response.response, 'executable.number').get()
+        if buildNumber:
+            task.setStatusLine("Running build #%s" % jobBuildNumber)
+            task.poll("jenkins/Build.wait-for-build.py")
+    else:
+        print "Could not determine build number for queued build at %s." % (jenkinsURL + location + 'api/json')
+        sys.exit(1)
+else:
+    ...
+{% endhighlight %}
+
+![Task status line](../images/task-status-line-2.png)
+
+As before, this script configures the status line in the task and calls the next script to be executed, `jenkins/Build.wait-for-build.py`:
+
+{% highlight python %}
+...
+response = request.get(jobContext + str(buildNumber) + '/api/json', contentType = 'application/json')
+if response.isSuccessful():
+    buildStatus = JsonPathResult(response.response, 'result').get()
+    duration = JsonPathResult(response.response, 'duration').get()
+
+    if buildStatus and duration != 0:
+        print "\nFinished: %s" % buildStatus
+        if buildStatus == 'SUCCESS':
+            task.finishPolling()
+        else:
+            sys.exit(1)
+
+else:
+    ...
+{% endhighlight %}
+
+After the script finishes without an error, `task.finishPolling()` tells XL Release to finish executing the script and mark the task as finished. If polling should continue, the task will automatically continue polling using the last script until it fails or `task.finishPolling()` is called.
+
 ## Packaging
 
 You can compress the contents of the `ext` folder into a single file with a `.jar` extension and place this file in the `plugins` directory. XL Release reads custom tasks from this location.
