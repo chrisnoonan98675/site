@@ -79,7 +79,7 @@ For XL Deploy to resolve a template and create a CI based on it, you must add th
 
 CIs that are generated from bound templates are saved in the directory that you specify in the **Directory Path** property of the target environment; for example, `Cloud/EC2/Testing`.
 
-**Important:** The directory must already exist under **Infrastructure**.
+**Important:** The directory that you specify must already exist under **Infrastructure** and/or **Environments** (for `udm.Dictionary` CIs).
 
 ### Naming generated CIs
 
