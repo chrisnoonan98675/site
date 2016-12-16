@@ -23,7 +23,7 @@ To discover a domain from the XL Deploy user interface:
 
 1. Go to the Repository.
 1. Under **Infrastructure**, create an `overthere.Host` configuration item (CI) with the appropriate connection credentials.
-1. Right-click **Infrastructure** and select **Discover** > **wls** > **wls.Domain**.
+1. Right-click **Infrastructure** and select **Discover** > **wls** > **Domain**.
 1. Configure the required properties for the `wls.Domain` and follow the steps in the discovery wizard.
 
 ## Discovery with the CLI
