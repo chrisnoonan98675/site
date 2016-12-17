@@ -1,9 +1,59 @@
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('/fonts/OpenSans-Regular-webfont.eot');
+    src: url('/fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/OpenSans-Regular-webfont.woff') format('woff'),
+         url('/fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('/fonts/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Experimental styles for navigation beta */
+
+.sidebar-nav-beta {
+	font-family: open_sansregular, sans-serif;
+	font-size: 14px;
+	padding: 10px 5px 3px 0px;
+}
+.nav-beta ul {
+	list-style: none;
+	padding-left: 0 !important;
+	margin-left: 0 !important;
+}
+.nav-beta li {
+	list-style-type: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+.nav-beta ul > li {
+	margin-left: 10px;
+}
+.nav-beta ul > li > ul > li {
+	margin-left: 10px;
+}
+.nav-beta li > a > span:after {
+	font-family: "online-doc-icons" !important;
+    content: "d";
+    float: right;
+    margin-right: 5px;
+}
+.nav-beta li.open > a > span:after {
+	font-family: "online-doc-icons" !important;
+    content: "a";
+    float: right;
+    margin-right: 5px;
+}
+.nav-beta > li.active > a  {
+    background-color: #4D90FE;
+}
+
 /* XebiaLabs-specific styles */
 
 body {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: open_sansregular, Helvetica, Arial, sans-serif;
 	font-weight: 100;
-	font-size: 16px;
+	font-size: 14px;
 	color: #54636f;
 	margin-bottom: 60px; /* Must match the height of the footer */
 }
