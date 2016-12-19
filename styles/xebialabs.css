@@ -11,13 +11,12 @@
 
 /* Experimental styles for navigation beta */
 
-.sidebar-nav-beta {
-	font-family: open_sansregular, sans-serif;
-	font-size: 14px;
-	padding: 10px 5px 3px 0px;
+#sidebar-navigation-beta {
+    margin-top: 10px;
 }
 .nav-beta ul {
 	list-style: none;
+    float: none;
 	padding-left: 0 !important;
 	margin-left: 0 !important;
 }
