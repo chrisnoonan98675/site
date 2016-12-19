@@ -1,4 +1,4 @@
-{% include head.html%}
+{% include head.html %}
 
 <main id="main">
 
@@ -31,27 +31,7 @@
 		</div>
 	</div>
 
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-3">
-				{% include sidebar.html %}
-			</div><!-- /.col -->
-			<div class="col-sm-9">
-				{% if page.since or page.deprecated or page.removed %}
-					{% include since-deprecated-removed.html %}
-				{% endif %}
-				<!-- Page content -->
-				{{ content }}
-			</div><!-- /.col-sm-9 -->
-		</div><!-- /.row -->
-	</div><!-- /.container -->
+	<!-- Page content -->
+	{{ content }}
 
-</main>
-
-<div class="scroll-top-wrapper hidden-print">
-    <span class="scroll-top-inner">
-       	<span class="glyphicon glyphicon-circle-arrow-up"></span>
-    </span>
-</div>
-
-{% include footer.html %}
+{% comment %} The remaining parts of the layout are in topic.html or page.html, so that a different sidebar can be used for the navigation beta. {% endcomment %}
