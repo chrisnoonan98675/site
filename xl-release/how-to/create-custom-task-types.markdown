@@ -261,9 +261,9 @@ Also, as of XL Release 7.0.0, you can show custom text under the custom task nam
 
 By default, the polling interval is 5 seconds. You can configure it in the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file:
 
-    xl.durations.customScriptTaskPollingInterval = 10 seconds
+    xl.durations.customScriptTaskDefaultPollingInterval = 10 seconds
 
-Note that the polling interval must not be less than 2 seconds, as this will overload the system.
+Note that the polling interval must not be less than 1 second, as this will overload the system.
 
 ### Advanced Python script example
 
@@ -287,12 +287,12 @@ This is the definition of the Jenkins Build task in the `synthetic.xml` file:
 
        <property name="buildNumber" category="output" required="false" description="Build number of the triggered job"/>
        <property name="buildStatus" category="output" required="false" description="Build status of the triggered job"/>
-       <property name="location" category="transitional" required="false" description="Location header returned by jenkins"/>
+       <property name="location" category="script" required="false" description="Location header returned by jenkins"/>
 </type>
 ...
 {% endhighlight %}
 
-The `location` property (of category `transitional`) works the same as the `output` property, but it is hidden from the UI. The `output` and `transitional` properties can be used to send information between Python scripts in the same task.
+The `location` property (of category `script`) works the same as the `output` property, but it is hidden from the UI. The `output` and `script` properties can be used to send information between Python scripts in the same task.
 
 #### Python scripts
 
@@ -310,7 +310,7 @@ if buildResponse.isSuccessful():
         location = '/queue/item/' + filter(None, buildResponse.getHeaders()['Location'].split('/'))[-1] + '/'
 
     task.setStatusLine("Build queued")
-    task.poll("jenkins/Build.wait-for-queue.py")
+    task.schedule("jenkins/Build.wait-for-queue.py")
 
 else:
     print "Failed to connect at %s." % buildUrl
@@ -322,7 +322,7 @@ The status line provided in `task.setStatusLine("Build queued")` will appear in 
 
 ![Task status line](../images/task-status-line-1.png)
 
-The `task.poll(pollingScriptPath)` call lets XL Release know that after the current sprint is finished, the polling script should be executed periodically. You pass the path to the script in the method argument. If you do not specify an argument (that is, `task.poll()`), the path `jenkins/Build.poll.py` will be used.
+The `task.schedule(pollingScriptPath)` call lets XL Release know that after the current script is finished, the polling script should be executed periodically. You must pass the path to the script in the method argument. You can also specify an interval `task.schedule(pollingScriptPath, 2)` that will be used instead of the default one.
 
 To fail the script, use `sys.exit(1)`.
 
@@ -338,7 +338,7 @@ if location:
         buildNumber = JsonPathResult(response.response, 'executable.number').get()
         if buildNumber:
             task.setStatusLine("Running build #%s" % jobBuildNumber)
-            task.poll("jenkins/Build.wait-for-build.py")
+            task.schedule("jenkins/Build.wait-for-build.py")
     else:
         print "Could not determine build number for queued build at %s." % (jenkinsURL + location + 'api/json')
         sys.exit(1)
@@ -360,7 +360,7 @@ if response.isSuccessful():
     if buildStatus and duration != 0:
         print "\nFinished: %s" % buildStatus
         if buildStatus == 'SUCCESS':
-            task.finishPolling()
+            task.cancelScheduling()
         else:
             sys.exit(1)
 
@@ -368,7 +368,7 @@ else:
     ...
 {% endhighlight %}
 
-After the script finishes without an error, `task.finishPolling()` tells XL Release to finish executing the script and mark the task as finished. If polling should continue, the task will automatically continue polling using the last script until it fails or `task.finishPolling()` is called.
+After the script finishes without an error, `task.cancelScheduling()` tells XL Release to finish executing the script and mark the task as finished. If polling should continue, the task will automatically continue polling using the last script until it fails or `task.cancelScheduling()` is called.
 
 ## Packaging
 

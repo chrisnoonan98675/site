@@ -30,7 +30,7 @@ The output properties of the task are **Build Number** and the **Build Status**.
 
 In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), Jenkins tasks have a blue border.
 
-## Change the poll interval (XL Release 4.8.0 and later)
+## Change the poll interval (XL Release 4.8.x, 5.0.x, and 6.0.x)
 
 While the task is running, it polls the Jenkins server every five seconds. You can change this behavior by editing the `conf\deployit-default.properties` file in the XL Release installation directory.
 
