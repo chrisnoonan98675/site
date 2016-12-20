@@ -29,6 +29,8 @@ An [XL Deploy satellite server](/xl-deploy/concept/getting-started-with-the-sate
 
 * **Hard disk space:** Sufficient hard disk space to store the artifacts that will be deployed to this specific satellite server
 
+* **Version:** XL Deploy and the satellite server must run the same version
+
 ## Install the satellite
 
 To install the XL Deploy satellite software:
