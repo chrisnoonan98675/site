@@ -88,6 +88,16 @@ Next are the properties. They are defined as nested `<property>` elements. The f
 | `default` | The default value of the property. |
 | `referenced-type` | Indicates the type of CI this property can reference (only apply if `kind` is set to `ci`). |
 
+### Output properties size limit
+
+To prevent performance issues, output properties of type `string` are limited to 32 Kb. If your script adds content that exceeds the limit, XL Release will truncate the property. You can still print the property inside the script and XL Release will attach the content to the task.
+
+You can change this limit for each task type in the `XL_RELEASE_SERVER_HOME/conf/deployit-defaults.properties` file. For example:
+
+    #webhook.JsonWebhook.maxOutputPropertySize=18000
+
+To change the limit, delete the number sign (`#`) at the beginning of the relevant line, change the limit as desired, then save the file and restart the XL Release server.
+
 ### Add custom tasks
 
 After you save `synthetic.xml` and restart the XL Release server, the custom task appears in the UI and you can add it to the release flow editor like any other task.
