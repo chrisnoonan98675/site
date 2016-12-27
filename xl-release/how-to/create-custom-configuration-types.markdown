@@ -75,6 +75,43 @@ Enter a symbolic name in the **Title** box. In the XL Release application, the c
 
 To edit or delete an instance, click its name.
 
+## Testing connectivity
+
+In XL Release 7.0.0 and later, you can test the connectivity of the **Shared configuration** options. All types that extend `xlrelease.Configuration` or `configuration.HttpConnection` in `synthetic.xml` are eligible for testing.
+
+To enable the testing feature, place a Python script in the plugin folder with the name of the type. For example, in the case of a Jira server:
+
+    <type type="jira.Server" extends="configuration.HttpConnection"/>
+
+The script should be located in the `jira` folder and called `Server.py`. You can override the location by adding the property `scriptLocation` in the `type` declaration:
+
+    <type type="jira.Server" extends="configuration.HttpConnection">
+      <property name="scriptLocation" default="jira/TestConnection.py" hidden="true" />
+    </type>
+
+The following properties are available in the script context:
+
+{:.table .table-striped}
+| Property | Description |
+| -------- | ----------- |
+| `HttpRequest` | Refer to the [Jython API](/jython-docs/#!/xl-release/6.0.x/service/HttpRequest.HttpRequest) for more information |
+| `HttpResponse` | Refer to the [Jython API](/jython-docs/#!/xl-release/6.0.x/service/HttpRequest.HttpResponse) for more information |
+| `configuration` | Container with all properties from the `type`; for example, if the `type` extends `configuration.HttpConnection`, you can access the user name, password, and so on |
+
+The content of the script can be similar to:
+
+{% highlight python %}
+# get the configuration properties from the UI
+params = { 'url': configuration.url, 'username' : configuration.username, 'password': configuration.password,  'proxyHost': configuration.proxyHost, 'proxyPort': configuration.proxyPort }
+
+# do an http request to the server
+response = HttpRequest(params).get('/', contentType = 'application/json')
+
+# check response status code, if is different than 200 exit with error code
+if reponse.status != 200:
+  sys.exit(1)
+{% endhighlight %}
+
 ## Reference a configuration instance from a custom task
 
 For information about referencing a configuration instance from a custom task, see [Create a Jenkins task](/xl-release/how-to/create-a-jenkins-task.html).
