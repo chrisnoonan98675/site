@@ -46,20 +46,26 @@ Send your comments to Amy at [**ajohnston@xebialabs.com**](mailto:ajohnston@xebi
 
 ## Background information
 
-In December 2014, we launched a new version of the documentation site, powered by [Jekyll](https://jekyllrb.com) and based on [topics](http://techwhirl.com/getting-started-with-topic-based-writing/) instead of manuals. In the subsequent two years, we've learned that while this implementation provides many benefits, there's still room to improve.
+In December 2014, we launched a new version of the documentation site, powered by [Jekyll](https://jekyllrb.com) and based on [topics](http://techwhirl.com/getting-started-with-topic-based-writing/) instead of manuals. In the subsequent two years, we've learned that while this implementation provides many benefits, there's still room to improve. Some goals are:
 
-For inspiration, I've been looking at the documentation of some technologies that are familiar to many of our users. If you take a close look at the docs for [Docker](https://docs.docker.com/), [Puppet](https://docs.puppet.com/pe/latest/overview_about_pe.html), and [Chef](https://docs.chef.io/), you'll notice some commonalities:
+* Ensure that the user sees "getting started" information as early as possible
+* Guide the user through the business goals they want to achieve
+* Make documentation about plugins and APIs more visible
+* Consolidate information that is too scattered
 
-* In the sidebar, the top-level menu items are usually products or components, along with some "high profile" items such as release notes.
-* When you drill down into the sidebar submenus, you see a mix of conceptual and how-to documentation. There is usually some type of introductory, overview, or getting-started page near the top of the submenu.
-* When you visit a specific page of the documentation, the page's table of contents appears on the right side.
-* Generally, pages are fairly long and cover multiple concepts or tasks (for example, see [Organizations and Teams in Docker Cloud](https://docs.docker.com/docker-cloud/orgs/)). However, some specialized pages are short (for example, see [Leveraging multi-CPU architecture support](https://docs.docker.com/docker-for-mac/multi-arch/)).
+And on the back end:
 
-Note: The documentation for [Serena Deployment Automation](http://help.serena.com/doc_center/sra/ver6_1_3/sda_help/help.html) has a similar setup, but to me, the look and feel is outdated compared to the documentation for Docker, Puppet, and Chef.
+* Make it easier to control the structure of the site menu
+* Eliminate manual work required to maintain index pages and redirects
+* Reduce the time required to generate the site
 
-In contrast, check out the [documentation for UrbanCode](https://developer.ibm.com/urbancode/documents/). There are many categories and tags to explore, there are some options to sort the documentation, and there is a search box at the top of the index page. These are great tools if you're a knowledgeable user and/or if you're searching for a unique term (think "unified deployment model" vs. "deploy"). However, they're less useful for new users; the sheer number of topics can be overwhelming when you don't know where to begin.
+To achieve these goals, I:
 
-Unfortunately, I think our current doc site is more similar to UrbanCode's site than to Docker/Puppet/Chef. So I spent a few Tech Rallies working on the way our technical documentation is organized. I combined many topics into larger pages — not rewriting them, but combining things that logically go together. I built a sidebar menu based on this organization, which you can see on this page. **It isn't 100% complete**; this is just a prototype to get your feedback. Most links don't contain any documentation yet.
+* Changed the sidebar menu into a multi-level navigation that contains all site content
+* Organized the content into high-level business goals
+* Combined related information from multiple topics into longer, more comprehensive topics
+
+This page is a prototype to get your feedback. Most of the links don't work, but they should give you an idea of the overall approach.
 
 Please take a look, think about the questions above, and drop me an email with your feedback at [ajohnston@xebialabs.com](mailto:ajohnston@xebialabs.com).
 
