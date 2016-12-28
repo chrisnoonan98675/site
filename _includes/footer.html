@@ -16,5 +16,36 @@
 <script src="/js/anchor_links.js"></script>
 <script src="/js/jquery.magnific-popup.js"></script>
 
+<script>
+$(document).ready(function() {
+	// Initialize navgoco
+	$("#nav-beta").navgoco({
+		caretHtml: '',
+		accordion: false,
+		openClass: 'open',
+		save: true,
+		cookie: {
+			name: 'navgoco',
+			expires: false,
+			path: '/'
+		},
+		slide: {
+			duration: 400,
+			easing: 'swing'
+		}
+	});
+
+	$("#collapseAll").click(function(e) {
+		e.preventDefault();
+		$(".nav-beta").navgoco('toggle', false);
+	});
+
+	$("#expandAll").click(function(e) {
+		e.preventDefault();
+		$(".nav-beta").navgoco('toggle', true);
+	});
+});
+</script>
+
 </body>
 </html>

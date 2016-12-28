@@ -11,41 +11,36 @@
 
 /* Experimental styles for navigation beta */
 
-.sidebar-nav-beta {
-	font-family: open_sansregular, sans-serif;
-	font-size: 14px;
-	padding: 10px 5px 3px 0px;
+#sidebar-navigation-beta {
+    margin-top: 40px;
 }
-.nav-beta ul {
+#nav-beta ul {
 	list-style: none;
-	padding-left: 0 !important;
-	margin-left: 0 !important;
+	padding: 0;
+	margin: 0;
 }
-.nav-beta li {
+#nav-beta li {
 	list-style-type: none;
 	padding-left: 0;
 	margin-left: 0;
 }
-.nav-beta ul > li {
+#nav-beta ul > li {
 	margin-left: 10px;
 }
-.nav-beta ul > li > ul > li {
+#nav-beta ul > li > ul > li {
 	margin-left: 10px;
 }
-.nav-beta li > a > span:after {
+#nav-beta li > a > span:after {
 	font-family: "online-doc-icons" !important;
     content: "d";
     float: right;
     margin-right: 5px;
 }
-.nav-beta li.open > a > span:after {
+#nav-beta li.open > a > span:after {
 	font-family: "online-doc-icons" !important;
     content: "a";
     float: right;
     margin-right: 5px;
-}
-.nav-beta > li.active > a  {
-    background-color: #4D90FE;
 }
 
 /* XebiaLabs-specific styles */

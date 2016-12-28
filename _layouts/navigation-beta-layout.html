@@ -5,20 +5,31 @@ layout: default
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-3">
-			{% include sidebar.html %}
+			{% include sidebar-navigation-beta.html %}
 		</div><!-- /.col -->
 		<div class="col-sm-9">
 			{% if page.since or page.deprecated or page.removed %}
 				{% include since-deprecated-removed.html %}
 			{% endif %}
 
-			<div class="page-header">
-				<h1 class="page-title">{{ page.title }}</h1>
-			</div>
+			<div class="page">
 
-			<!-- Page content -->
-			{{ content }}
+				{% if page.beta %}
+					<div class="alert alert-danger topic-message" role="alert">This information is in beta and is subject to change.</div>
+				{% endif %}
 
+				<div class="page-header">
+					<h1 class="page-title">{{ page.title }}</h1>
+				</div>
+
+				{% unless page.no_mini_toc %}
+					<div id="toc" class="mini-toc hidden-sm hidden-xs hidden-print"></div>
+				{% endunless %}
+
+				<!-- Page content -->
+				{{ content }}
+
+			</div><!--/.page -->
 		</div><!-- /.col-sm-9 -->
 	</div><!-- /.row -->
 </div><!-- /.container -->
