@@ -18,8 +18,8 @@
 
 <script>
 $(document).ready(function() {
-	// Initialize navgoco with default options
-	$(".nav-beta").navgoco({
+	// Initialize navgoco
+	$("#nav-beta").navgoco({
 		caretHtml: '',
 		accordion: false,
 		openClass: 'open',
@@ -32,7 +32,7 @@ $(document).ready(function() {
 		slide: {
 			duration: 400,
 			easing: 'swing'
-		},
+		}
 	});
 
 	$("#collapseAll").click(function(e) {
@@ -44,7 +44,7 @@ $(document).ready(function() {
 		e.preventDefault();
 		$(".nav-beta").navgoco('toggle', true);
 	});
-	});
+});
 </script>
 
 </body>

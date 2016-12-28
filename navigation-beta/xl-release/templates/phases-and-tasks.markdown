@@ -1,4 +1,5 @@
 ---
+no_index: true
 title: Work with phases and tasks
 ---
 

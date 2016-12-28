@@ -1,5 +1,6 @@
 <div id="sidebar-navigation-beta">
-            <ul class="nav-beta">
+            <ul id="nav-beta">
+                  <li><a href="/navigation-beta">Navigation Beta Home</a></li>
                   <li><a href="">Overview</a></li>
                   <li><a href="#">XL Release</a>
                       <ul>
@@ -28,7 +29,7 @@
                           <li><a href="#">Model your releases</a>
                               <ul>
                                   <li><a href="">Template overview</a></li>
-                                  <li><a href="xl-release/templates/phases-and-tasks.html">Work with phases and tasks</a></li><!-- working -->
+                                  <li><a href="/navigation-beta/xl-release/templates/phases-and-tasks.html">Work with phases and tasks</a></li><!-- this link works -->
                                   <li><a href="">The task life cycle</a></li>
                                   <li><a href="#">Task types</a>
                                       <ul>
@@ -75,6 +76,15 @@
                                   <li><a href="">Using the calendar view</a></li>
                               </ul>
                           </li><!-- End Work with running releases -->
+                          <li><a href="#">Work with plugins</a>
+                              <ul>
+                                  <li><a href="">Ansible</a></li>
+                                  <li><a href="">Docker Compose</a></li>
+                                  <li><a href="">Kubernetes</a></li>
+                                  <li><a href="">Remoting</a></li>
+                                  <li><a href="https://github.com/xebialabs-community?utf8=%E2%9C%93&q=xlr&type=&language=">Community plugins</a></li>
+                              </ul>
+                          </li><!-- End Work with plugins -->
                           <li><a href="#">Using reports</a>
                               <ul>
                                   <li><a href="">Reports overview</a></li>
@@ -148,18 +158,23 @@
                                   <li><a href="">Set up a Telnet connection</a></li>
                                   <li><a href="">Set up a WinRM connection</a></li>
                                   <li><a href="">Troubleshoot connectivity</a></li>
+                                  <li><a href="">Discover middleware</a></li>
                               </ul>
                           </li><!-- End Connect to your infrastructure -->
                           <li><a href="#">Set up applications and environments</a>
                               <ul>
                                   <li><a href="">Prepare your application for XL Deploy</a></li>
                                   <li><a href="">Create a deployment package</a></li>
+                                  <li><a href="">Define application dependencies</a></li>
                                   <li><a href="">Configure an environment</a></li>
+                                  <li><a href="/navigation-beta/xl-deploy/applications-and-environments/dictionaries.html">Using placeholders and dictionaries</a></li><!-- this link works -->
                               </ul>
                           </li><!-- End Set up applications and environments -->
-                          <li><a href="#">Deploy an application or provision an environment</a>
+                          <li><a href="#">Deploy an application</a>
                               <ul>
-                                  <li><a href="">Deploy an application</a></li>
+                                  <li><a href="">Deployment overview</a></li>
+                                  <li><a href="">Get started with deployment</a></li>
+                                  <li><a href="">Use orchestration</a></li>
                                   <li><a href="#">Deploy to remote datacenters</a>
                                       <ul>
                                           <li><a href="">Get started with satellites</a></li>
@@ -168,7 +183,15 @@
                                       </ul>
                                   </li>
                               </ul>
-                          </li><!-- End Deploy an application or provision an environment -->
+                            </li><!-- End Deploy an application -->
+                          <li><a href="#">Provision an environment</a>
+                              <ul>
+                                  <li><a href="">Get started with provisioning</a></li>
+                                  <li><a href="">Provision an environment</a></li>
+                                  <li><a href="">Provisioning example</a></li>
+                              </ul>
+                          </li><!-- End Provision an application -->
+                          <li><a href="">Use control tasks</a></li>
                           <li><a href="#">Work with the CLI</a>
                               <ul>
                                   <li><a href="">Get started with the CLI</a></li>
@@ -235,10 +258,12 @@
                                           <li><a href="">XL Deploy plugin for Team Foundation Server 2015</a></li>
                                       </ul>
                                   </li><!-- End Tools -->
-                                  <li><a href="">Community plugins</a></li>
+                                  <li><a href="https://github.com/xebialabs-community?utf8=%E2%9C%93&q=xld&type=&language=">Community plugins</a></li>
                               </ul>
                           </li><!-- End Work with plugins -->
-                          <li><a href="/xl-deploy/reports">Using reports</a></li>
+                          <li><a href="">Using the Explorer</a></li>
+                          <li><a href="">Using the release dashboard</a></li>
+                          <li><a href="">Using reports</a></li>
                           <li><a href="#">Manage your installation</a>
                               <ul>
                                   <li><a href="">Logging in XL Deploy</a></li>
@@ -246,6 +271,7 @@
                                   <li><a href="">Back up XL Deploy</a></li>
                                   <li><a href="">Upgrade XL Deploy</a></li>
                                   <li><a href="">Configure the repository</a></li>
+                                  <li><a href="">Manage the repository</a></li>
                                   <li><a href="">Configure failover</a></li>
                                   <li><a href="#">Manage security</a>
                                       <ul>
@@ -329,7 +355,7 @@
                           <li><a href="#">Customize XL TestView</a>
                               <ul>
                                   <li><a href="">Create custom test result parsers</a></li>
-                                  <li><a href="">Create custom reports</a></li>
+                                  <li><a href="/navigation-beta/xl-testview/customize/custom-reports.html">Create custom reports</a></li><!-- this link works -->
                                   <li><a href="">Create custom qualifications</a></li>
                               </ul>
                           </li><!-- End Customize XL TestView -->
@@ -342,14 +368,14 @@
                               <ul>
                                   <li><a href="">XL Release REST API</a></li>
                                   <li><a href="">XL Release Jython API</a></li>
-                                  <li><a href="">XL Release Javadocs</a></li>
+                                  <li><a href="">XL Release Javadoc</a></li>
                               </ul>
                           </li><!-- End XL Release references -->
                           <li><a href="#">XL Deploy references</a>
                               <ul>
                                   <li><a href="">XL Deploy REST API</a></li>
                                   <li><a href="">XL Deploy Jython API</a></li>
-                                  <li><a href="">XL Deploy Javadocs</a></li>
+                                  <li><a href="">XL Deploy Javadoc</a></li>
                                   <li><a href="">UDM CI reference</a></li>
                                   <li><a href="">Satellite CI reference</a></li>
                               </ul>
@@ -358,19 +384,91 @@
                               <ul>
                                   <li><a href="">XL TestView REST API</a></li>
                                   <li><a href="">XL TestView Jython API</a></li>
-                                  <li><a href="">XL TestView Javadocs</a></li>
+                                  <li><a href="">XL TestView Javadoc</a></li>
                                   <li><a href="">XLT CI reference</a></li>
                               </ul>
                           </li><!-- End XL TestView references -->
                       </ul>
                   </li>
+                  <li><a href="#">Plugins</a>
+                      <ul>
+                          <li><a href="">XL Release plugins</a>
+                              <ul>
+                                  <li><a href="">Ansible</a></li>
+                                  <li><a href="">Docker Compose</a></li>
+                                  <li><a href="">Kubernetes</a></li>
+                                  <li><a href="">Remoting</a></li>
+                                  <li><a href="https://github.com/xebialabs-community?utf8=%E2%9C%93&q=xlr&type=&language=">Community plugins</a></li>
+                              </ul>
+                          </li><!-- End XL Release plugins -->
+                          <li><a href="#">XL Deploy plugins</a>
+                              <ul>
+                                  <li><a href="#">Standard plugins</a>
+                                      <ul>
+                                          <li><a href="">Command</a></li>
+                                          <li><a href="">Database</a></li>
+                                          <li><a href="">File</a></li>
+                                          <li><a href="">Generic Model</a></li>
+                                          <li><a href="">JEE</a></li>
+                                          <li><a href="">PowerShell</a></li>
+                                          <li><a href="">Python</a></li>
+                                          <li><a href="">Remoting</a></li>
+                                          <li><a href="">Webserver</a></li>
+                                          <li><a href="">Trigger</a></li>
+                                      </ul>
+                                  </li><!-- End Standard plugins -->
+                                  <li><a href="#">Middleware plugins</a>
+                                      <ul>
+                                          <li><a href="">Apache Tomcat</a></li>
+                                          <li><a href="">BizTalk</a></li>
+                                          <li><a href="">F5 BIG-IP</a></li>
+                                          <li><a href="">GlassFish</a></li>
+                                          <li><a href="">IBM WebSphere Application Server</a></li>
+                                          <li><a href="">IBM WebSphere Process Server</a></li>
+                                          <li><a href="">IBM WebSphere Liberty Profile Server</a></li>
+                                          <li><a href="">IBM WebSphere MQ</a></li>
+                                          <li><a href="">JBoss Application Server 5 and 6</a></li>
+                                          <li><a href="">JBoss Application Server 7 and up</a></li>
+                                          <li><a href="">Microsoft Internet Information Services</a></li>
+                                          <li><a href="">Microsoft Windows</a></li>
+                                          <li><a href="">NetScaler</a></li>
+                                          <li><a href="">Oracle Service Bus</a></li>
+                                          <li><a href="">Oracle Service-Oriented Architecture</a></li>
+                                          <li><a href="">Oracle WebLogic Application Server</a></li>
+                                      </ul>
+                                  </li><!-- End Middleware plugins -->
+                                  <li><a href="#">Provisioning plugins</a>
+                                      <ul>
+                                          <li><a href="">Puppet</a></li>
+                                          <li><a href="">Amazon EC2</a></li>
+                                          <li><a href="">XL Scale</a></li>
+                                      </ul>
+                                  </li><!-- End Provisioning plugins -->
+                                  <li><a href="#">Tools</a>
+                                      <ul>
+                                          <li><a href="">XL Deploy plugin for Maven</a></li>
+                                          <li><a href="">XL Deploy plugin for Jenkins</a></li>
+                                          <li><a href="">XL Deploy plugin for Bamboo</a></li>
+                                          <li><a href="">Puppet plugin for XL Deploy</a></li>
+                                          <li><a href="">Chef plugin for XL Deploy</a></li>
+                                          <li><a href="">Docker plugin for XL Deploy</a></li>
+                                          <li><a href="">XL Deploy plugin for Team Foundation Server</a></li>
+                                          <li><a href="">XL Deploy plugin for Team Foundation Server 2015</a></li>
+                                      </ul>
+                                  </li><!-- End Tools -->
+                                  <li><a href="https://github.com/xebialabs-community?utf8=%E2%9C%93&q=xld&type=&language=">Community plugins</a></li>
+                              </ul>
+                          </li><!-- End XL Deploy plugins -->
+                          <li><a href="">XL TestView plugins</a></li>
+                      </ul>
+                  </li><!-- End Plugins -->
                   <li><a href="">Videos</a></li>
-                  <li><a href="">Community</a></li>
-                  <li><a href="#">Fix Tracker</a>
+                  <li><a href="https://github.com/xebialabs-community">Community</a></li>
+                  <li><a href="#">Fix Trackers</a>
                     <ul>
-                        <li><a href="">XL Release</a></li>
-                        <li><a href="">XL Deploy</a></li>
-                        <li><a href="">XL TestView</a></li>
+                        <li><a href="">XL Release Fix Tracker</a></li>
+                        <li><a href="">XL Deploy Fix Tracker</a></li>
+                        <li><a href="">XL TestView Fix Tracker</a></li>
                     </ul>
                   </li><!-- End Fix Tracker -->
             </ul>
