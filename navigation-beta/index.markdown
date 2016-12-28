@@ -8,7 +8,7 @@ This page exists to gather feedback on a new way of organizing and navigating th
 
 ## Try it out
 
-To get started, expand items in the menu on the left!
+To get started, expand items in the menu on the left! Note that most links don't work; this is just a prototype to show you the proposed approach.
 
 ### General questions
 
@@ -64,8 +64,6 @@ To achieve these goals, I:
 * Changed the sidebar menu into a multi-level navigation that contains all site content
 * Organized the content into high-level business goals
 * Combined related information from multiple topics into longer, more comprehensive topics
-
-This page is a prototype to get your feedback. Most of the links don't work, but they should give you an idea of the overall approach.
 
 Please take a look, think about the questions above, and drop me an email with your feedback at [ajohnston@xebialabs.com](mailto:ajohnston@xebialabs.com).
 
