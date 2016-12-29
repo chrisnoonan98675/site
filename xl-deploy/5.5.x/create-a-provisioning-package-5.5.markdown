@@ -20,7 +20,7 @@ To create a blueprint:
 1. Right-click **Blueprints** and select **New** > **upm** > **Blueprint**.
 1. In the **Name** box, enter a unique name for the blueprint.
 
-    ![Create new blueprint](images/provisioning-create-new-blueprint.png)
+    ![Create new blueprint](/xl-deploy/how-to/images/provisioning-create-new-blueprint.png)
 
 1. Click **Save**.
 
@@ -33,7 +33,7 @@ To create a provisioning package:
 1. In the **Name** box, enter a unique name for the provisioning package.
 1. In the **Environment Name** box, enter an XL Deploy environment that should contain the CIs that are generated during provisioning. This field cannot contain forward slashes (`/`).
 
-    ![Create new provisioning package](images/provisioning-create-new-provisioning-package.png)
+    ![Create new provisioning package](/xl-deploy/how-to/images/provisioning-create-new-provisioning-package.png)
 
 1. In the **Directory Path** box, enter the location in the repository where the environment and the CIs that are created should be saved. Omit root nodes such as `Environments`.
 1. Click **Save**.
@@ -50,7 +50,7 @@ During provisioning, XL Deploy creates the environment. A unique ID will automat
 
 You can see the environment and CIs that will be created by previewing the provisioning plan:
 
-![Preview provisioned CIs that will be created](images/provisioning-create-provisioned-cis.png)
+![Preview provisioned CIs that will be created](/xl-deploy/how-to/images/provisioning-create-provisioned-cis.png)
 
 ## Add a provisionable to a package
 
@@ -61,11 +61,11 @@ To add a provisionable to a provisioning package:
 1. Right-click the desired provisioning package, select **New**, then select the type of provisionable that you want to add. For example, to add an Amazon Web Services EC2 AMI, select **aws** > **ec2.InstanceSpec**.
 1. In the **Cardinality** box, enter the number of provisioneds that should be created based on this provisionable (default is 1).
 
-    ![Create new provisionable (aws.ec2.InstanceSpec)](images/provisioning-create-new-provisionable-01.png)
+    ![Create new provisionable (aws.ec2.InstanceSpec)](/xl-deploy/how-to/images/provisioning-create-new-provisionable-01.png)
 
 1. Fill in the rest of the provisionable properties. For example, for an `ec2.instanceSpec`:
 
-    ![Create new provisionable (aws.ec2.InstanceSpec)](images/provisioning-create-new-provisionable-02.png)
+    ![Create new provisionable (aws.ec2.InstanceSpec)](/xl-deploy/how-to/images/provisioning-create-new-provisionable-02.png)
 
 1. Click **Save**.
 
@@ -85,7 +85,7 @@ To add a provisioner to a provisionable:
 1. Right-click the desired provisionable, select **New**, then select the type of provisioner that you want to add. For example, to add a Puppet manifest, select **Manifest**.
 1. Fill in the configuration for the provisioner.
 
-    ![Create new provisioner (puppet.Manifest)](images/provisioning-create-new-provisioner.png)
+    ![Create new provisioner (puppet.Manifest)](/xl-deploy/how-to/images/provisioning-create-new-provisioner.png)
 
 1. Click **Save**.
 
@@ -101,7 +101,7 @@ To add a template to a provisioning package:
 
 1. Fill in the configuration for the template.
 
-    ![Create new template (template.overthere.SshHost)](images/provisioning-create-new-template.png)
+    ![Create new template (template.overthere.SshHost)](/xl-deploy/how-to/images/provisioning-create-new-template.png)
 
 1. Click **Save**.
 
