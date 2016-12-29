@@ -112,6 +112,17 @@ if reponse.status != 200:
   sys.exit(1)
 {% endhighlight %}
 
+
+If your type extends from `configuration.HttpConnection`, then you can use a standard simple HTTP connection test script available at path `configuration/HttpConnectionCheck.py`:
+
+    <type type="nexus.Server" extends="configuration.HttpConnection">
+        <property name="scriptLocation" hidden="true" default="configuration/HttpConnectionCheck.py"/>
+        <property name="checkConfigurationPath" hidden="true" default="/service/local/authentication/login"/>
+        <property name="checkConfigurationContentType" hidden="true" default="application/json"/>
+    </type>
+
+This script takes the URL configured in the UI, appends the value of the `checkConfigurationPath` property, and sends a HEAD request with the user name and password provided, also taking proxy settings into account. If the response status code is between 200 and 399, then the configuration is considered to be correct.
+
 ## Reference a configuration instance from a custom task
 
 For information about referencing a configuration instance from a custom task, see [Create a Jenkins task](/xl-release/how-to/create-a-jenkins-task.html).
