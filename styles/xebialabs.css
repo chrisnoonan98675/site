@@ -34,13 +34,13 @@
 }
 #nav-beta li > a > span:after {
 	font-family: "online-doc-icons" !important;
-    content: "d";
+    content: "a";
     float: right;
     margin-right: 5px;
 }
 #nav-beta li.open > a > span:after {
 	font-family: "online-doc-icons" !important;
-    content: "a";
+    content: "d";
     float: right;
     margin-right: 5px;
 }
