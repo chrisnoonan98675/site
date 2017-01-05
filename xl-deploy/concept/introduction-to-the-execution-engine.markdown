@@ -12,7 +12,9 @@ since:
 - XL Deploy 4.5.0
 ---
 
-[*Rules*](/xl-deploy/concept/getting-started-with-xl-deploy-rules.html) provide an easy way for you to teach the XL Deploy execution engine how to generate your desired deployment steps in a scalable, reusable, and maintainable way.
+XL Deploy is a model-driven deployment solution. Users declaratively define the artifacts and resources that they need to deploy in a package (a ZIP file with a `deployit-manifest.xml` file) and XL Deploy figures out how to install the components in a target environment via [rules](/xl-deploy/concept/getting-started-with-xl-deploy-rules.html).
+
+Rules provide an easy way for you to teach the XL Deploy execution engine how to generate your desired deployment steps in a scalable, reusable, and maintainable way.
 
 You define rules once and XL Deploy applies them intelligently, based on what you want to deploy and where you want to deploy it. From the user's perspective, there is no distinction between deploying an application to a single server environment, or to a clustered, load-balanced, datacenter-aware environment. XL Deploy will apply the rules accordingly.
 
