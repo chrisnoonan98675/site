@@ -261,11 +261,11 @@ Before changing or removing a custom task type or one of the properties of a cus
 
 ## Advanced Python script
 
-XL Release 7.0.0 introduced a new API in the Python script context, which allows you to concatenate script executions and allow XL Release to schedule them. Prior to this release, it was not possible to execute multiple Python scripts in a single task. This meant that, if you wanted to fetch a resource by executing an `HttpRequest` and the resource was not yet available, XL Release would loop until the resource became available. This looping could cause performance issues on the XL Release server.
+XL Release 6.0.1 introduced a new API in the Python script context, which allows you to concatenate script executions and allow XL Release to schedule them. Prior to this release, it was not possible to execute multiple Python scripts in a single task. This meant that, if you wanted to fetch a resource by executing an `HttpRequest` and the resource was not yet available, XL Release would loop until the resource became available. This looping could cause performance issues on the XL Release server.
 
-In XL Release 7.0.0 and later, you can instead provide a script that checks for the availability of a resource and another script that does something when the conditions are satisfied. XL Release will schedule the execution of the scripts and poll for the availability of the resource according to a configurable interval. If the server is stopped while the pollable script is running, XL Release will restart the script when the server is started again.
+In XL Release 6.0.1 and later, you can instead provide a script that checks for the availability of a resource and another script that does something when the conditions are satisfied. XL Release will schedule the execution of the scripts and poll for the availability of the resource according to a configurable interval. If the server is stopped while the pollable script is running, XL Release will restart the script when the server is started again.
 
-Also, as of XL Release 7.0.0, you can show custom text under the custom task name in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html).
+Also, as of XL Release 6.0.1, you can show custom text under the custom task name in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html).
 
 ### Configure the polling interval
 

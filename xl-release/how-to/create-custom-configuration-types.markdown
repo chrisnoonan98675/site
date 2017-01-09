@@ -77,7 +77,7 @@ To edit or delete an instance, click its name.
 
 ## Testing connectivity
 
-In XL Release 7.0.0 and later, you can test the connectivity of the **Shared configuration** options. All types that extend `xlrelease.Configuration` or `configuration.HttpConnection` in `synthetic.xml` are eligible for testing.
+In XL Release 6.0.1 and later, you can test the connectivity of the **Shared configuration** options. All types that extend `xlrelease.Configuration` or `configuration.HttpConnection` in `synthetic.xml` are eligible for testing.
 
 To enable the testing feature, place a Python script in the plugin folder with the name of the type. For example, in the case of a Jira server:
 

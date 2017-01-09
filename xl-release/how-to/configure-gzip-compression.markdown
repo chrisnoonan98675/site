@@ -10,10 +10,10 @@ tags:
 - settings
 weight: 496
 since:
-- XL Release 7.0.0
+- XL Release 6.0.1
 ---
 
-As of XL Release 7.0.0, you can configure GZIP compression in XL Release. GZIP compression is used to decrease the size of server responses and save bandwidth usage. There is a small overhead of server CPU usage to compress content. It is enabled by default, but you may want to adjust the settings depending on your use case.
+As of XL Release 6.0.1, you can configure GZIP compression in XL Release. GZIP compression is used to decrease the size of server responses and save bandwidth usage. There is a small overhead of server CPU usage to compress content. It is enabled by default, but you may want to adjust the settings depending on your use case.
 
   If you have a fast network, or if there is an HTTP server in front of XL Release which already performs GZIP compression, you can disable it by setting `enabled: false` in the configuration (See table below)
 
