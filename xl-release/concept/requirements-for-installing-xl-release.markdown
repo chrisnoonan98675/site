@@ -44,6 +44,6 @@ The following web browsers are supported for the XL Release user interface:
 * Firefox
 * Chrome
 * Safari
-* Internet Explorer 10 or later
+* Internet Explorer 11 or later
 
 **Note:** Internet Explorer Compatibility View is not supported.
