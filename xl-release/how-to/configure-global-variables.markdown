@@ -34,8 +34,8 @@ To create a global variable:
     * **List**: A list of values that can be reordered and can contain duplicates
     * **Set**: A set of values that cannot be reordered and cannot contain duplicates
     * **Key-value map**: A set of keys and corresponding values
-    * **XL Deploy environment**: An [environment](/xl-deploy/concept/key-xl-deploy-concepts.html#environments) defined in an [XL Deploy server](/xl-release/how-to/configure-xl-deploy-servers-in-xl-release.html)
-    * **XL Deploy package**: A [deployment package](/xl-deploy/concept/key-xl-deploy-concepts.html#deployment-packages) defined in an XL Deploy server
+    * **XL Deploy environment**: An [environment](/xl-deploy/concept/key-xl-deploy-concepts.html#environments) defined in an [XL Deploy server](/xl-release/how-to/configure-xl-deploy-servers-in-xl-release.html) ([available prior to XL Release 6.1.0](/xl-release/6.1.x/releasemanual.html#xl-release-610-upgrade-notes))
+    * **XL Deploy package**: A [deployment package](/xl-deploy/concept/key-xl-deploy-concepts.html#deployment-packages) defined in an XL Deploy server ([available prior to XL Release 6.1.0](/xl-release/6.1.x/releasemanual.html#xl-release-610-upgrade-notes))
 
     **Tip:** Password variables can only be used in password fields, and other types of variables can only be used in non-password fields.
 

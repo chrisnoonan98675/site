@@ -26,8 +26,6 @@ Click **New Release** to create a release from the template. XL Release scans th
 
 ![Setting variables when creating a release](../images/setting-variables-when-creating-a-release.png)
 
-XL Deploy variables are marked with special icons, and auto-completion is available for those variables. XL Release queries the XL Deploy server for the packages and environments that are available and display them in a drop-down menu.
-
 After the release is created, the release flow appears with the values of the variables filled in.
 
 Note that you can still change variables by editing the fields on the Release properties page.
