@@ -73,7 +73,7 @@ product-id: xl-deploy
 ### Provisioning plugins
 
 * [XL Deploy EC2 plugin](/xl-deploy-xld-aws-ec2-plugin/6.0.x/ec2PluginManual.html)
-* [XL Deploy Provision Puppet plugin](/xl-deploy-xld-provision-puppet-plugin/6.0.x/provisionPuppetPluginManual.html)
+* [XL Deploy Provision Puppet plugin](/xl-deploy-xld-provision-puppet-plugin/5.5.x/provisionPuppetPluginManual.html)
 
 ### XL Scale
 
