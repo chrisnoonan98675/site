@@ -91,7 +91,6 @@ To use the XL Deploy GUI, you must meet the following requirements:
 * **Web browser:**
 	* Firefox
 	* Chrome
-	* Safari
 	* For XL Deploy 5.0.0 or later: Internet Explorer 10 or later
 	* For XL Deploy 4.5.x: Internet Explorer 8, 9, or later (Internet Explorer 10 or later if using the [Compare feature](/xl-deploy/how-to/compare-configuration-items.html))
 * **Flash player:** Version 9 or later
