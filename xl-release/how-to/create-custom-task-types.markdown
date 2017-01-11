@@ -271,7 +271,7 @@ Also, as of XL Release 6.0.1, you can show custom text under the custom task nam
 
 By default, the polling interval is 5 seconds. You can configure it in the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file:
 
-    xl.durations.customScriptTaskDefaultPollingInterval = 10 seconds
+    xl.durations.customScriptTaskScheduleInterval = 10 seconds
 
 Note that the polling interval must not be less than 1 second, as this will overload the system.
 
@@ -370,7 +370,7 @@ if response.isSuccessful():
     if buildStatus and duration != 0:
         print "\nFinished: %s" % buildStatus
         if buildStatus == 'SUCCESS':
-            task.cancelScheduling()
+            task.cancelSchedule()
         else:
             sys.exit(1)
 
@@ -378,7 +378,7 @@ else:
     ...
 {% endhighlight %}
 
-After the script finishes without an error, `task.cancelScheduling()` tells XL Release to finish executing the script and mark the task as finished. If polling should continue, the task will automatically continue polling using the last script until it fails or `task.cancelScheduling()` is called.
+After the script finishes without an error, `task.cancelSchedule()` tells XL Release to finish executing the script and mark the task as finished. If polling should continue, the task will automatically continue polling using the last script until it fails or `task.cancelSchedule()` is called.
 
 ## Packaging
 
