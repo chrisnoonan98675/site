@@ -91,7 +91,6 @@ To use the XL Deploy GUI, you must meet the following requirements:
 * **Web browser:**
 	* Firefox
 	* Chrome
-	* Safari
 	* Internet Explorer 11 or later
 * **Flash player:** Version 9 or later
 

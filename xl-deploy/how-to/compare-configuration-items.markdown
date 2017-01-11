@@ -25,15 +25,6 @@ The Compare screen supports two kinds of CI tree comparisons:
 
 * **Repo-to-live**: Compare a discoverable CI (and its children) present in the XL Deploy repository to the one running on a physical machine and hosting your applications. This enables you to identify discrepancies between XL Deploy repository CIs and the actual ones.
 
-## Requirements
-
-To use the Compare GUI, you must use one of the following web browsers:
-
-* Firefox
-* Chrome
-* Safari
-* Internet Explorer 10.0 or later
-
 ## Live-to-live comparison
 
 The live-to-live comparison *discovers* CIs and then compares the discovery results. For example, when you compare two IBM WebSphere Cells, XL Deploy first recursively discovers the two Cells (Node Managers, Application Servers, Clusters, JMS Queues, and so on), and then compares each discovered item of first Cell to the corresponding discovered CI of the second Cell.

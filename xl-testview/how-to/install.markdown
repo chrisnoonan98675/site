@@ -34,7 +34,6 @@ The XL TestView user interface requires one of the following browsers:
 
 * Firefox
 * Chrome
-* Safari
 * Internet Explorer 11 or later
 
 **Note:** Internet Explorer Compatibility View is not supported.

@@ -20,7 +20,7 @@ The Explorer gives you a new way to work with XL Deploy. In the Explorer, you ca
 
 The Explorer is automatically installed when you install or upgrade to XL Deploy 6.0.0 or later.
 
-To use the Explorer, you must use the latest version of Firefox, Chrome, or Safari, or Internet Explorer 10 or later. Internet Explorer Compatibility View is not supported.
+To use the Explorer, you must use the latest version of Firefox or Chrome, or Internet Explorer 10 or later. Internet Explorer Compatibility View is not supported.
 
 **Tip:** For information about system requirements for the XL Deploy server, refer to [Requirements for installing XL Deploy](/xl-deploy/concept/requirements-for-installing-xl-deploy.html).
 
