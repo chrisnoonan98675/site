@@ -27,9 +27,15 @@ As of XL Release 6.0.0, you can configure XL Release in a clustered active/hot-s
 Using XL Release in active/hot-standby mode requires the following:
 
 * You must meet the [standard system requirements for XL Release](/xl-release/concept/requirements-for-installing-xl-release.html).
+
+    **Important:** Active/hot-standby is not supported on Microsoft Windows.
+
 * The XL Release repository must be stored in an external database, using the instructions in this topic. If you are using XL Release's default configuration (which stores the repository in an embedded Derby database), you must migrate all of your data to an external database before you can start to use active/hot-standby.
+
 * The XL Release [archive database](/xl-release/concept/how-archiving-works.html) must also be stored in an external database, using the instructions in this topic.
+
 * You must use a load balancer that supports hot-standby. This topic describes how to set up the [HAProxy](http://www.haproxy.org/) load balancer.
+
 * You must have a shared filesystem (such as NFS) that both the active and standby XL Release nodes can reach. This will be used to store binary data (artifacts).
 
 ## Limitation on HTTP session sharing and resiliency
