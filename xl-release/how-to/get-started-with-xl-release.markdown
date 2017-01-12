@@ -95,7 +95,7 @@ Now you can assign [global permissions](/xl-release/how-to/configure-permissions
 
 **Note:** Prior to XL Release 6.0.0, select **Settings** > **Permissions**.
 
-![Global permissions](../xl-release/images/global-permissions.png)
+![Global permissions](../images/global-permissions.png)
 
 Now, click the **Help** menu at the top right and select **Logout**, then log back in with the user name and password that you created for yourself.
 
