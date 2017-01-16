@@ -38,6 +38,8 @@ Using XL Release in active/hot-standby mode requires the following:
 
 * You must have a shared filesystem (such as NFS) that both the active and standby XL Release nodes can reach. This will be used to store binary data (artifacts).
 
+* The time on both XL Release nodes must be synchronized through an NTP server.
+
 ## Limitation on HTTP session sharing and resiliency
 
 In active/hot-standby mode, there is always at most one "active" XL Release node. The nodes use a health REST endpoint (`/ha/health`) to tell the load balancer which node is the active one. The load balancer will always route users to the active node; calling a standby node directly will result in incorrect behavior.
