@@ -263,11 +263,11 @@ Before changing or removing a custom task type or one of the properties of a cus
 
 ## Advanced Python script
 
-XL Release 6.0.1 introduced a new API in the Python script context, which allows you to concatenate script executions and allow XL Release to schedule them. Prior to this release, it was not possible to execute multiple Python scripts in a single task. This meant that, if you wanted to fetch a resource by executing an `HttpRequest` and the resource was not yet available, XL Release would loop until the resource became available. This looping could cause performance issues on the XL Release server.
+XL Release 6.1.0 introduced a new API in the Python script context, which allows you to concatenate script executions and allow XL Release to schedule them. Prior to this release, it was not possible to execute multiple Python scripts in a single task. This meant that, if you wanted to fetch a resource by executing an `HttpRequest` and the resource was not yet available, your script would need to loop until the resource became available. This looping could cause performance issues on the XL Release server.
 
-In XL Release 6.0.1 and later, you can instead provide a script that checks for the availability of a resource and another script that does something when the conditions are satisfied. XL Release will schedule the execution of the scripts and poll for the availability of the resource according to a configurable interval. If the server is stopped while the pollable script is running, XL Release will restart the script when the server is started again.
+In XL Release 6.1.0 and later, you can instead provide a script that checks for the availability of a resource and another script that does something when the conditions are satisfied. XL Release will schedule the execution of the scripts and poll for the availability of the resource according to a configurable interval. If the server is stopped while the pollable script is running, XL Release will restart the script when the server is started again.
 
-Also, as of XL Release 6.0.1, you can show custom text under the custom task name in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html).
+Also, as of XL Release 6.1.0, you can show custom text under the custom task name in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html).
 
 ### Configure the polling interval
 
@@ -334,7 +334,7 @@ The status line provided in `task.setStatusLine("Build queued")` will appear in 
 
 ![Task status line](../images/task-status-line-1.png)
 
-The `task.schedule(pollingScriptPath)` call lets XL Release know that after the current script is finished, the polling script should be executed periodically. You must pass the path to the script in the method argument. You can also specify an interval `task.schedule(pollingScriptPath, 2)` that will be used instead of the default one.
+The `task.schedule(pollingScriptPath)` call lets XL Release know that after the current script is finished the task does not finish yet. Instead another script should be executed after a delay. You must pass the path to the script in the method argument. You can also specify an interval `task.schedule(pollingScriptPath, 2)` that will be used instead of the default one.
 
 To fail the script, use `sys.exit(1)`.
 
@@ -344,11 +344,14 @@ If the response was successful, the next script triggered will be `Build.wait-fo
 ...
 if location:
     # check the response to make sure we have an item
-    response = request.get(location + 'api/json', contentType = 'application/json')
+    response = request.get(location + 'api/json', contentType='application/json')
     if response.isSuccessful():
-        # if we have been given a build number this item is no longer in the queue but is being built
         buildNumber = JsonPathResult(response.response, 'executable.number').get()
-        if buildNumber:
+        if not buildNumber:
+            # if there is no build number yet then we continue waiting in the queue
+            task.schedule("jenkins/Build.wait-for-queue.py")
+        else:
+            # if we have been given a build number this item is no longer in the queue but is being built
             task.setStatusLine("Running build #%s" % jobBuildNumber)
             task.schedule("jenkins/Build.wait-for-build.py")
     else:
@@ -364,23 +367,25 @@ As before, this script configures the status line in the task and calls the next
 
 {% highlight python %}
 ...
-response = request.get(jobContext + str(buildNumber) + '/api/json', contentType = 'application/json')
+response = request.get(jobContext + str(buildNumber) + '/api/json', contentType='application/json')
 if response.isSuccessful():
     buildStatus = JsonPathResult(response.response, 'result').get()
     duration = JsonPathResult(response.response, 'duration').get()
 
     if buildStatus and duration != 0:
         print "\nFinished: %s" % buildStatus
-        if buildStatus == 'SUCCESS':
-            task.cancelSchedule()
-        else:
+        if buildStatus != 'SUCCESS':
             sys.exit(1)
+
+    else:
+        # Continue waiting for the build to be finished
+        task.schedule("jenkins/Build.wait-for-build.py")
 
 else:
     ...
 {% endhighlight %}
 
-After the script finishes without an error, `task.cancelSchedule()` tells XL Release to finish executing the script and mark the task as finished. If polling should continue, the task will automatically continue polling using the last script until it fails or `task.cancelSchedule()` is called.
+After the script finishes without an error and no other script was scheduled, XL Release marks the task as completed.
 
 ## Packaging
 
