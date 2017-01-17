@@ -44,7 +44,7 @@ You define the custom task in XML in `synthetic.xml`. As an example, this is the
        xmlns="http://www.xebialabs.com/deployit/synthetic"
        xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
 
-  <type type="jira.CreateIssue" extends="xlrelease.PythonScript">
+  <type type="jira.CreateIssue" extends="xlrelease.PythonScript" label="Create issue">
     <property name="jiraServer"  category="input" label="Server" referenced-type="jira.Server" kind="ci"/>
     <property name="username"    category="input"/>
     <property name="password"    category="input" kind="string" password="true" />
@@ -70,6 +70,8 @@ The prefix is the category of the task (for example, 'jira'). It should be in lo
 The task name is a descriptive name of the task (for example, "CreateIssue"). It should be in camel case.
 
 The attribute `extends="xlrelease.PythonScript"` defines this type as a custom task for XL Release. Do not change it.
+
+The attribute `label` defines the name of the task that will appear while adding a new task in the release flow. By default, if is not defined, XL Release will create a label for you with the following format: `Prefix: Task Name` using the capital letters as new words (for example: "Jira: Create Issue"). It's possible to override the `prefix` by adding a colon in the `label` attribute: `label="Integration: Create Issue"`.
 
 ### Property element
 
