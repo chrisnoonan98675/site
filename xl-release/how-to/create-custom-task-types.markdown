@@ -130,7 +130,7 @@ Store scripts in a directory that has the same name as the prefix of the task ty
 
 Input properties are available as variables in the Python script. You can set output values by assigning values to their corresponding variables in the script. After execution, the script variables are copied to the release variables that were specified on the task in the UI.
 
-**Tip:** To concatenate multiple Python scripts and have XL Release schedule them, refer to [Use advanced scripting in custom task types](/xl-release/how-to/use-advanced-scripting-in-custom-task-types.html).
+**Tip:** To concatenate multiple Python scripts and have XL Release schedule them, refer to [Using scheduling in scripts to connect to long running jobs](/xl-release/how-to/using-scheduling-in-scripts.markdown).
 
 For example, this is a possible implementation of the `jira.CreateIssue` task in Python:
 
