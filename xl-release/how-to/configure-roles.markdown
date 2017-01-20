@@ -3,7 +3,7 @@ title: Configure roles
 categories:
 - xl-release
 subject:
-- Settings
+- Security
 tags:
 - settings
 - role

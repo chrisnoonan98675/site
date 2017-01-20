@@ -3,7 +3,7 @@ title: Migrating templates to folders
 categories:
 - xl-release
 subject:
-- Templates
+- Folders
 tags:
 - template
 - folder

@@ -3,7 +3,7 @@ title: XL Release API and scripting overview
 categories:
 - xl-release
 subject:
-- API
+- Public API
 tags:
 - api
 - script

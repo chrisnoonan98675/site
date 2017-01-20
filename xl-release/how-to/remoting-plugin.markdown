@@ -3,7 +3,7 @@ title: Using the XL Release Remoting plugin
 categories:
 - xl-release
 subject:
-- Remoting plugin
+- Bundled plugins
 tags:
 - plugin
 - connectivity

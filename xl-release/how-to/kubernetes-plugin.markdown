@@ -3,7 +3,7 @@ title: Using the XL Release Kubernetes plugin
 categories:
 - xl-release
 subject:
-- Kubernetes plugin
+- Bundled plugins
 tags:
 - plugin
 - kubernetes

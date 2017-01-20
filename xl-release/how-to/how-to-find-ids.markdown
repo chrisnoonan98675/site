@@ -3,7 +3,7 @@ title: How to find identifiers for use in the REST API
 categories:
 - xl-release
 subject:
-- API
+- Public API
 tags:
 - api
 - script

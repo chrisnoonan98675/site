@@ -3,7 +3,7 @@ title: Using scheduling in scripts to connect to long running jobs
 categories:
 - xl-release
 subject:
-- Task types
+- Extending XL Release
 tags:
 - task
 - custom task

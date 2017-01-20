@@ -3,7 +3,7 @@ title: Create custom configuration types
 categories:
 - xl-release
 subject:
-- Configuration
+- Extending XL Release
 tags:
 - configuration object
 - python

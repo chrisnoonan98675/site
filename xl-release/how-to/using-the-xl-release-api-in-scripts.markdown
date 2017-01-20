@@ -3,7 +3,7 @@ title: Using the XL Release API in scripts
 categories:
 - xl-release
 subject:
-- API
+- Public API
 tags:
 - api
 - script

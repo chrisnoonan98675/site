@@ -3,7 +3,7 @@ title: Configure XL Deploy servers
 categories:
 - xl-release
 subject:
-- Settings
+- Calling XL Deploy from XL Release
 tags:
 - settings
 - system administration

@@ -3,7 +3,7 @@ title: Create custom task types
 categories:
 - xl-release
 subject:
-- Task types
+- Extending XL Release
 tags:
 - task
 - custom task

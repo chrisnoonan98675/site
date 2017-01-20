@@ -3,7 +3,7 @@ title: Additional Jython helper functions
 categories:
 - xl-release
 subject:
-- API
+- Public API
 tags:
 - plugin
 - script

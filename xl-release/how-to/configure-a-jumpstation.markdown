@@ -3,7 +3,7 @@ title: Configure an SSH jumpstation or HTTP proxy
 categories:
 - xl-release
 subject:
-- Remoting plugin
+- Connectivity
 tags:
 - remoting
 - connectivity

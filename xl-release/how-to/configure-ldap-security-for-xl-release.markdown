@@ -3,7 +3,7 @@ title: Configure LDAP security for XL Release
 categories:
 - xl-release
 subject:
-- Security
+- System administration
 tags:
 - security
 - ldap

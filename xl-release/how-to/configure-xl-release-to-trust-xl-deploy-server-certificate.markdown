@@ -3,7 +3,7 @@ title: Configure XL Release to trust an XL Deploy server's certificate
 categories:
 - xl-release
 subject:
-- System administration
+- Calling XL Deploy from XL Release
 tags:
 - system administration
 - security
