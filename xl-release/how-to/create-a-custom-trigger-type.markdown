@@ -3,7 +3,7 @@ title: Create a custom trigger type
 categories:
 - xl-release
 subject:
-- Releases
+- Triggers
 tags:
 - trigger
 - customization
