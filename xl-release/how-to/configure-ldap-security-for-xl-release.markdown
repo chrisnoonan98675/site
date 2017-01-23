@@ -124,7 +124,7 @@ Because `xl-release-security.xml` is an XML file, you must escape certain charac
 
 If you have an LDAP setup in which there is not a group that contains all XL Release users, and you want to use such a group in the default `XlAuthenticationProvider` (`JcrAuthenticationProvider` in XL Release 4.7.x and earlier), you can configure this in the `xl-release-security.xml` file.
 
-This example creates a group called `everyone` that is assigned to each user who is authenticated (the group name can be anything you want). You can then link this group to a XL Release role and assign the [*Login* global permission](/xl-release/how-to/configure-permissions.html) to it.
+This example creates a group called `everyone` that is assigned to each user who is authenticated (the group name can be anything you want). You can then link this group to a XL Release role and assign a [global permission](/xl-release/how-to/configure-permissions.html) to it.
 
     <beans>
         ...
