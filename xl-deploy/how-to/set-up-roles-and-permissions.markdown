@@ -13,9 +13,13 @@ tags:
 weight: 261
 ---
 
-XL Deploy provides fine-grained security settings based on [roles and permissions](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html) that you can configure in the GUI and through the command-line interface (CLI). To configure security in the GUI, click **Admin** in the top menu bar.
+XL Deploy provides fine-grained security settings based on [roles and permissions](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html) that you can configure in the GUI and through the command-line interface (CLI).
 
-## Assign principals to roles
+## Using the Flash-based GUI
+
+To configure security in the Flash-based GUI, click **Admin** in the top menu bar.
+
+### Assign principals to roles
 
 Use the **Roles** tab to create and maintain roles in XL Deploy. To add a role, click ![Add role](/images/button_add_security_role.png). To delete a role, click ![Remove role](/images/button_remove_security_role.png).
 
@@ -25,7 +29,7 @@ Be sure to click **Save** to save the roles and principals.
 
 ![Roles on the Admin screen](images/admin-screen-roles.png)
 
-## Assign global permissions to roles
+### Assign global permissions to roles
 
 Use the **Global permissions** tab to assign global permissions to *roles* in XL Deploy. To add global permissions to a role:
 
@@ -35,7 +39,7 @@ Use the **Global permissions** tab to assign global permissions to *roles* in XL
 
     ![Global Permissions on the Admin screen](images/admin-screen-global-permissions.png)
 
-## Assign local permissions to roles
+### Assign local permissions to roles
 
 Use the **Repository** to assign local permissions to roles. To add local permissions to a role:
 
@@ -44,9 +48,33 @@ Use the **Repository** to assign local permissions to roles. To add local permis
 2. Select the permissions that you want to assign to the role.
 3. Click **Save** to save the permissions.
 
+## Using the HTML-based GUI
+
+{% include technical_preview.html %}
+
+To configure security in the HTML-based GUI, click **User Management** in the top menu bar.
+
+### Assign principals to roles
+
+Use the **Roles** tab to create and maintain roles in XL Deploy. To add a role, click **Add role**. To delete a role, click **Delete** next to it.
+
+*Principals* are assigned to roles. To assign a principal to a role, click **Edit** next to the role. Type the principal name and click **Add** or press ENTER to add it. Repeat this process for all principals, and then click **Save**. To delete a principal, click **X** next to it.
+
+![Add a role](images/user-management-roles-add-role.png)
+
+### Assign global permissions to roles
+
+Use the **Global Permissions** tab to assign global permissions to *roles* in XL Deploy. To add global permissions to a role, select the boxes next to it. To clear all permissions from a role, click **Clear**
+
+![Assign global permissions](images/user-management-permissions.png)
+
+## Using the CLI
+
+For information about using the command-line interface (CLI) to set up roles and permissions refer to [Set up roles and permissions using the XL Deploy CLI](/xl-deploy/how-to/set-up-roles-and-permissions-using-the-cli.html).
+
 ## Sample security set up
 
-This example shows how you can set up security roles using the XL Deploy GUI. The example environment has two applications, OnlineOrders and SiteSearch. They are both deployed to a test server before going to production.
+This example shows how you can set up security roles using the XL Deploy Flash-based GUI. The example environment has two applications, OnlineOrders and SiteSearch. They are both deployed to a test server before going to production.
 
 There are two teams developing and deploying the applications. One team can't see the other's team application. Also, developers can only deploy to the test environment, while deployers can deploy to the test environment and to production.
 

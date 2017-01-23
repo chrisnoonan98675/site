@@ -188,6 +188,10 @@ Redirect 301 /xl-deploy/how-to/configure-the-cli-to-trust-the-xl-deploy-server-w
 Redirect 301 /xl-deploy/how-to/set-up-cifs-smb-in-xl-deploy-and-on-a-target-host.html /xl-deploy/how-to/set-up-smb-in-xl-deploy-and-on-a-target-host.html
 Redirect 301 /xl-deploy/how-to/troubleshoot-a-cifs-smb-connection.html /xl-deploy/how-to/troubleshoot-a-cifs-connection.html
 Redirect 301 /xl-deploy/how-to/reset-admin-password-xl-deploy-server.html /xl-deploy/how-to/changing-passwords-in-xl-deploy.html
+Redirect 301 /xl-deploy/concept/xl-deploy-report-dashboard.html /xl-deploy/how-to/using-xl-deploy-reports.html
+Redirect 301 /xl-deploy/concept/xl-deploy-deployments-report.html /xl-deploy/how-to/using-xl-deploy-reports.html
+Redirect 301 /xl-deploy/concept/xl-deploy-deployed-applications-report.html /xl-deploy/how-to/using-xl-deploy-reports.html
+Redirect 301 /xl-deploy/concept/xl-deploy-key-deployment-indicators-report.html /xl-deploy/how-to/using-xl-deploy-reports.html
 
 # XL Release topics
 
