@@ -91,4 +91,7 @@ When XL Deploy cannot reach a remote host directly, but that host can be reached
 
 When XL Deploy creates a connection to the remote host and determines that it needs to connect through a jumpstation, and will first open a connection to that SSH jumpstation and then setup a SSH tunnel (also known as a [local port forward](https://en.wikipedia.org/wiki/Port_forwarding#Local_port_forwarding)) to the remote host.
 
-**Note:** SSH jumpstations can also refer to other SSH jumpstations or to HTTP proxies for even more complex network setups, but cycles are not allowed.
+Note that:
+
+* SSH jumpstations can refer to other SSH jumpstations or to HTTP proxies for even more complex network setups, but cycles are not allowed.
+* Because XL Deploy cannot transfer files through a jumpstation, the *Check connection* control task will fail when attempting to verify file transfer.
