@@ -77,7 +77,7 @@ a:hover, a:active, a:hover code, a:active code {
 }
 img {
   max-width: 650px;
-  box-shadow: 0px 0px 5px 3px #f6f6f6;
+  box-shadow: 0px 0px 5px 3px #dddddd;
 }
 .img-no-border {
   box-shadow: none;
