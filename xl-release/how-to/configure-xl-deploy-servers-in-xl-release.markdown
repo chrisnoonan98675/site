@@ -10,9 +10,11 @@ tags:
 - xl deploy
 ---
 
-To configure connections between XL Release and [XL Deploy](/xl-deploy/) servers, select **Settings** > **Shared configuration** from the top menu and scroll to the "XL Deploy Server" part of the page. The XL Deploy servers configuration is only available to users who have the *Admin* [global permission](/xl-release/how-to/configure-permissions.html).
+To configure connections between XL Release and [XL Deploy](/xl-deploy/) servers, select **Settings** > **Shared configuration** from the top menu and go to the **XL Deploy Server** section. Before XL Release 6.1.0, the configuration page is located at **Settings** > **XL Deploy servers**.
 
-![XL Deploy Servers](../images/xl-deploy-servers.png)
+The XL Deploy server configuration is only available to users who have the *Admin* [global permission](/xl-release/how-to/configure-permissions.html).
+
+![XL Deploy server configuration](../images/xl-deploy-servers.png)
 
 To add a server:
 
@@ -29,4 +31,4 @@ To add a server:
 5. Click **Test** to test if XL Release can log in to the XL Deploy server with the configured address and credentials.
 6. Click **Save** to save the server.
 
-![XL Deploy Server Configuration](../images/xl-deploy-server-details.png)
+![XL Deploy server configuration details](../images/xl-deploy-server-details.png)
