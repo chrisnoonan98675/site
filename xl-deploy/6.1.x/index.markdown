@@ -3,7 +3,7 @@ title: XL Deploy 6.1.x documentation
 product-id: xl-deploy
 ---
 
-<div class="alert alert-warning" style="width: 60%">Can't find what you need? We've moved much of our documentation to topics, to make it easier to browse and search. You can find the topics <a href="/xl-deploy/index.html#browse-documentation-by-subject">here</a>.</div>
+{% include sts_lts_info.html %}
 
 ## Product reference documentation
 
