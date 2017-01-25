@@ -12,6 +12,10 @@ sitemap:
         - "/tags-and-subjects.html"
         - "/topic-weights.html"
         - "/xl-deploy/in-product-help.html"
+        - "/navigation-beta/index.html"
+        - "/navigation-beta/xl-deploy/applications-and-environments/dictionaries.html"
+        - "/navigation-beta/xl-release/templates/phases-and-tasks.html"
+        - "/navigation-beta/xl-testview/customize/custom-reports.html"
 
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
@@ -72,3 +76,9 @@ defaults:
             type: "pages"
         values:
             layout: "topic"
+    -
+        scope:
+            path: "navigation-beta"
+            type: "pages"
+        values:
+            layout: "navigation-beta-layout"

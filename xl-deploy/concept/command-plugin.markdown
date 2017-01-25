@@ -27,7 +27,7 @@ You can also use the Command plugin to reuse existing deployment scripts with XL
 
 A command encapsulates an operating system-specific command, as you would enter at the command prompt of a native operating system (OS) command shell. The OS command is captured in the command's `commandLine` property; for example, `echo hello >> /tmp/hello.txt`.
 
-The command can also upload dependent files to the target system and make them available to the `commandLine` with the use of a placeholder; for example, `cat ${uploadedHello.txt} >> /tmp/hello.txt`.
+The command can also upload dependent artifacts to the target system and make them available to the `commandLine` with the use of a placeholder in the `${filename}` format; for example, `cat ${uploadedHello.txt} >> /tmp/hello.txt`.
 
 ### Undo command
 
@@ -51,9 +51,11 @@ The command order is the order in which the command is run in relation to other 
 
 * Command lines are always split on spaces (that is, `' '`), even if the target shell supports a syntax for treating strings containing a space as a single argument. For example, `echo "Hello World"` is interpreted as a command `echo` with _two_ arguments, `"Hello` and `World"`.
 
-* Excess spaces in commands are converted to empty string arguments. For example, <code>ifconfig&nbsp;&nbsp;-a</code> is executed as `ifconfig "" -a`.
+* Excess spaces in commands are converted to empty string arguments. For example, <code>ifconfig&nbsp;&nbsp;&nbsp;&nbsp;-a</code> is executed as `ifconfig "" -a`.
 
 * Characters in commands that are special characters of the target shell are *escaped* when executed. For example, the command `ifconfig && echo Hello` is executed as _three_ commands `ifconfig \&\& echo Hello` on a Unix system.
+
+* [Placeholders](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) in dependent artifacts will not be replaced.
 
 ## Usage in deployment packages
 

@@ -1,152 +1,164 @@
 ---
 layout: default
 ---
-<div id="content" class="dashboard">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="well dashboard-disclaimer">
-                This tracker shows planned major releases and maintenance releases of {{ page.product.title }} and its plugins.
-                    To filter the list, click an icon below or enter a search term (such as an issue number) in the box.
-                    Note that, while this information indicates the planned delivery of improvements and bug fixes, it does not represent a
-                    commitment.
-            </div>
-            <div class="col-xs-12 text-center">
-                <h2><img src="/images/logos/{{ page.product.name }}-logo.png" class="logo"
-                         alt="{{ page.product.title }}"> Fix Tracker</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div>
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#upcoming" aria-controls="upcoming" role="tab" data-toggle="tab">Upcoming releases</a>
-                        </li>
-                        <li role="presentation"><a href="#history" aria-controls="history" role="tab" data-toggle="tab">Release history</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="upcoming">
-                            {% include dashboard/releases_search.html %}
-                            {% include dashboard/releases_upcoming.html %}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3">
+			{% include sidebar.html %}
+		</div><!-- /.col -->
+		<div class="col-sm-9">
+
+                <div id="content" class="dashboard">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="well dashboard-disclaimer">
+                                This tracker shows planned major releases and maintenance releases of {{ page.product.title }} and its plugins.
+                                    To filter the list, click an icon below or enter a search term (such as an issue number) in the box.
+                                    Note that, while this information indicates the planned delivery of improvements and bug fixes, it does not represent a
+                                    commitment.
+                            </div>
+                            <div class="col-xs-12 text-center">
+                                <h2><img src="/images/logos/{{ page.product.name }}-logo.png" class="logo"
+                                         alt="{{ page.product.title }}"> Fix Tracker</h2>
+                            </div>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="history">
-                            {% include dashboard/releases_search.html %}
-                            {% include dashboard/releases_history.html %}
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div>
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#upcoming" aria-controls="upcoming" role="tab" data-toggle="tab">Upcoming releases</a>
+                                        </li>
+                                        <li role="presentation"><a href="#history" aria-controls="history" role="tab" data-toggle="tab">Release history</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="upcoming">
+                                            {% include dashboard/releases_search.html %}
+                                            {% include dashboard/releases_upcoming.html %}
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="history">
+                                            {% include dashboard/releases_search.html %}
+                                            {% include dashboard/releases_history.html %}
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<script type="application/javascript">
-    function toggleNoResultsMsg() {
-        if ($(".release:visible").length == 0) {
-            $(".tab-pane.active .no-results").show();
-        }
-        else {
-            $(".tab-pane.active .no-results").hide();
-        }
-    }
-    function toggleView(parent, childSelector, keyword) {
-        if(!parent) return;
-
-        var visibleChildren = parent.find(childSelector).filter(function () {
-            return $(this).css('display') != 'none';
-        });
-
-        if (visibleChildren.length == 0 && keyword) {
-            parent.hide();
-        }
-        else {
-            parent.show();
-            if(keyword) {
-                parent.parents(".collapse").collapse("show");
-            }
-        }
-    }
-
-    function filterIssues(keyword) {
-        $(".tab-pane.active .issue-list").each(function () {
-            $(this).find("li").each(function () {
-                if ($(this).text().search(new RegExp(keyword.trim(), "i")) < 0) {
-                    $(this).hide();
-                } else {
-                    $(this).show();
-                }
-            });
-
-            $(this).children(".issue-sublist").each(function () {
-                toggleView($(this), ".issue", keyword);
-            });
-
-            var $release = $(this).parents(".release");
-            toggleView($release, ".issue-sublist", keyword);
-
-            var $releaseGroup = $release.parents(".release-group");
-            toggleView($releaseGroup, ".release", keyword);
-        });
-        toggleNoResultsMsg();
-    }
-
-    $(document).ready(function () {
-        $('.collapse').collapse({
-            toggle: false
-        })
-        $("a.issue-more").click(function () {
-            var $target = $("#" + $(this).data("toggle"));
-            $target.toggle();
-            if ($target.is(':visible')) {
-                $(this).text("less");
-            } else {
-                $(this).text("more");
-            }
-            return false;
-        });
-
-        var $issueFilter = $("input.issue-filter");
-        filterIssues($issueFilter.val());
-        $issueFilter.keyup(function (e) {
-            filterIssues($(this).val());
-        });
-
-        $issueFilter.on('keyup keypress', function (e) {
-            if (e.keyCode == 13) {
-                e.preventDefault();
-                return false;
-            }
-        });
-
-        $(".filters a").click(function () {
-            $(".tab-pane.active .issue-filter").val("");
-            filterIssues("");
-
-            var text = $(this).text();
-            var attribute;
-            if ($(this).hasClass("filter-target")) {
-                attribute = "release-target";
-            }
-            else if ($(this).hasClass("filter-type")) {
-                attribute = "release-type";
-            }
-
-            $(".tab-pane.active .release").each(function () {
-                if (attribute) {
-                    if ($(this).data(attribute) === text) {
-                        $(this).show();
-                        $(this).parents(".collapse").collapse("show");
+            <script type="application/javascript">
+                function toggleNoResultsMsg() {
+                    if ($(".release:visible").length == 0) {
+                        $(".tab-pane.active .no-results").show();
                     }
                     else {
-                        $(this).hide();
+                        $(".tab-pane.active .no-results").hide();
                     }
                 }
-                else {
-                    $(this).show();
+                function toggleView(parent, childSelector, keyword) {
+                    if(!parent) return;
+
+                    var visibleChildren = parent.find(childSelector).filter(function () {
+                        return $(this).css('display') != 'none';
+                    });
+
+                    if (visibleChildren.length == 0 && keyword) {
+                        parent.hide();
+                    }
+                    else {
+                        parent.show();
+                        if(keyword) {
+                            parent.parents(".collapse").collapse("show");
+                        }
+                    }
                 }
-            });
-            toggleNoResultsMsg();
-            return false;
-        });
-    });
-</script>
+
+                function filterIssues(keyword) {
+                    $(".tab-pane.active .issue-list").each(function () {
+                        $(this).find("li").each(function () {
+                            if ($(this).text().search(new RegExp(keyword.trim(), "i")) < 0) {
+                                $(this).hide();
+                            } else {
+                                $(this).show();
+                            }
+                        });
+
+                        $(this).children(".issue-sublist").each(function () {
+                            toggleView($(this), ".issue", keyword);
+                        });
+
+                        var $release = $(this).parents(".release");
+                        toggleView($release, ".issue-sublist", keyword);
+
+                        var $releaseGroup = $release.parents(".release-group");
+                        toggleView($releaseGroup, ".release", keyword);
+                    });
+                    toggleNoResultsMsg();
+                }
+
+                $(document).ready(function () {
+                    $('.collapse').collapse({
+                        toggle: false
+                    })
+                    $("a.issue-more").click(function () {
+                        var $target = $("#" + $(this).data("toggle"));
+                        $target.toggle();
+                        if ($target.is(':visible')) {
+                            $(this).text("less");
+                        } else {
+                            $(this).text("more");
+                        }
+                        return false;
+                    });
+
+                    var $issueFilter = $("input.issue-filter");
+                    filterIssues($issueFilter.val());
+                    $issueFilter.keyup(function (e) {
+                        filterIssues($(this).val());
+                    });
+
+                    $issueFilter.on('keyup keypress', function (e) {
+                        if (e.keyCode == 13) {
+                            e.preventDefault();
+                            return false;
+                        }
+                    });
+
+                    $(".filters a").click(function () {
+                        $(".tab-pane.active .issue-filter").val("");
+                        filterIssues("");
+
+                        var text = $(this).text();
+                        var attribute;
+                        if ($(this).hasClass("filter-target")) {
+                            attribute = "release-target";
+                        }
+                        else if ($(this).hasClass("filter-type")) {
+                            attribute = "release-type";
+                        }
+
+                        $(".tab-pane.active .release").each(function () {
+                            if (attribute) {
+                                if ($(this).data(attribute) === text) {
+                                    $(this).show();
+                                    $(this).parents(".collapse").collapse("show");
+                                }
+                                else {
+                                    $(this).hide();
+                                }
+                            }
+                            else {
+                                $(this).show();
+                            }
+                        });
+                        toggleNoResultsMsg();
+                        return false;
+                    });
+                });
+            </script>
+
+        </div><!-- /.col-sm-9 -->
+    </div><!-- /.row -->
+</div><!-- /.container-fluid -->
