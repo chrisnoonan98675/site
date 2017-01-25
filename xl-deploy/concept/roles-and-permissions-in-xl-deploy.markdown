@@ -60,6 +60,7 @@ The following table shows the local permissions that XL Deploy supports.
 {:.table .table-striped}
 | Permission | Description |
 | ---------- | ----------- |
+| `controltask#execute` | The right to execute control tasks on configuration items. |
 | `deploy#initial` | The right to perform an initial deployment of a package to an environment. Applies only for the Environment CIs within the containing directory. |
 | `deploy#undeploy` | The right to undeploy an application. Applies only for the environment CIs within the containing directory. |
 | `deploy#upgrade` | The right to perform an upgrade of a deployment on an environment. Note that this does not allow deploying items from the package to new targets. Applies only for the environment CIs within the containing directory. |
@@ -70,6 +71,7 @@ The following table shows the local permissions that XL Deploy supports.
 | `repo#edit` | The right to edit (create and modify) CIs in the repository. The user must also have read access to CIs to be able to edit them. Applies only for the CIs within the containing directory. |
 | `task#assign` | The right to transfer a task to another user. |
 | `task#skip_step` | The right to skip steps in the generated step list before starting a deployment. Applies only for deployments executed on environment CIs in the containing directory. |
+| `task#takeover` | The right to assign any task to yourself. |
 
 ### How local permissions work in the hierarchy
 
