@@ -189,7 +189,7 @@ else:
     sys.exit(1)
 {% endhighlight %}
 
-**Note:** Since XL Release 4.7.0, Jython scripts of custom task types are not run in a sandboxed environment and do not have any restrictions (in contrast to [Script tasks](/xl-release/how-to/create-a-script-task.html)). You do not have to update the `script.policy` file of your XL Release installation if you need additional access from your custom task type (such as to the filesystem or network). You still need to do this for versions prior to 4.7.0.
+**Note:** Since XL Release 4.7.0, Jython scripts of custom task types are not run in a sandboxed environment and do not have any restrictions (in contrast to [Jython Script tasks](/xl-release/how-to/create-a-jython-script-task.html)). You do not have to update the `script.policy` file of your XL Release installation if you need additional access from your custom task type (such as to the filesystem or network). You still need to do this for versions prior to 4.7.0.
 
 ### HttpRequest
 

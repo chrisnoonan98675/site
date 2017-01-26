@@ -13,14 +13,14 @@ since:
 weight: 511
 ---
 
-XL Release has an [API](/jython-docs/#!/xl-release/5.0.x/) that you can use to manipulate releases and tasks. You can access the API from [Script tasks](/xl-release/how-to/create-a-script-task.html) and from XL Release plugin scripts. This is an example of a simple Jython script in a Script task. It uses a script to add a comment to the task.
+XL Release has an [API](/jython-docs/#!/xl-release/6.1.x/) that you can use to manipulate releases and tasks. You can access the API from [Jython Script tasks](/xl-release/how-to/create-a-jython-script-task.html) and from XL Release plugin scripts. This is an example of a simple Jython script in a Script task. It uses a script to add a comment to the task.
 
 1. Go to the [release overview](/xl-release/how-to/using-the-release-overview.html) and click **New release** (because this is a simple example, you can create an empty release that is not based on a template).
 1. In the release properties, set the **Release Name** to _Script example_.
 1. Click **Create** to create the release.
 1. In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), click the name of the first phase and change it to _Test_.
 1. In the _Test_ phase, add two tasks:
-    * A Script task called _Add a comment_
+    * A Jython Script task called _Add a comment_
     * A Gate task called _Check result_
 
     ![Script test tasks](../images/script-test/phase.png)
@@ -59,7 +59,7 @@ XL Release has an [API](/jython-docs/#!/xl-release/5.0.x/) that you can use to m
 
 ### Looking at the script
 
-The first line of the sample script uses the `getCurrentTask()` method to get a reference to the task that is currently executing (that is, the _Add a comment_ Script task) and store it in a variable called `task`.
+The first line of the sample script uses the `getCurrentTask()` method to get a reference to the task that is currently executing (that is, the _Add a comment_ Jython Script task) and store it in a variable called `task`.
 
     task = getCurrentTask()
 
