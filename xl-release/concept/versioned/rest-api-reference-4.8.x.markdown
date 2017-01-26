@@ -5,7 +5,7 @@ title: REST API Reference 4.8.x
 categories: 
 - xl-release
 subject:
-- API
+- Public API
 tags:
 - api
 ---

@@ -188,6 +188,10 @@ Redirect 301 /xl-deploy/how-to/configure-the-cli-to-trust-the-xl-deploy-server-w
 Redirect 301 /xl-deploy/how-to/set-up-cifs-smb-in-xl-deploy-and-on-a-target-host.html /xl-deploy/how-to/set-up-smb-in-xl-deploy-and-on-a-target-host.html
 Redirect 301 /xl-deploy/how-to/troubleshoot-a-cifs-smb-connection.html /xl-deploy/how-to/troubleshoot-a-cifs-connection.html
 Redirect 301 /xl-deploy/how-to/reset-admin-password-xl-deploy-server.html /xl-deploy/how-to/changing-passwords-in-xl-deploy.html
+Redirect 301 /xl-deploy/concept/xl-deploy-report-dashboard.html /xl-deploy/how-to/using-xl-deploy-reports.html
+Redirect 301 /xl-deploy/concept/xl-deploy-deployments-report.html /xl-deploy/how-to/using-xl-deploy-reports.html
+Redirect 301 /xl-deploy/concept/xl-deploy-deployed-applications-report.html /xl-deploy/how-to/using-xl-deploy-reports.html
+Redirect 301 /xl-deploy/concept/xl-deploy-key-deployment-indicators-report.html /xl-deploy/how-to/using-xl-deploy-reports.html
 
 # XL Release topics
 
@@ -236,6 +240,7 @@ Redirect 301 /xl-release/how-to/time-trigger-plugin.html /xl-release/how-to/time
 Redirect 301 /xl-release/how-to/change-the-admin-password.html /xl-release/how-to/changing-passwords-in-xl-release.html
 Redirect 301 /xl-release/how-to/reset-admin-password-xl-release-server.html /xl-release/how-to/changing-passwords-in-xl-release.html
 Redirect 301 /xl-release/how-to/configure-an-external-database.html /xl-release/how-to/configure-active-hot-standby.html
+Redirect 301 /xl-release/how-to/create-a-script-task.html /xl-release/how-to/create-a-jython-script-task.html
 
 # XL TestView topics
 

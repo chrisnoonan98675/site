@@ -1,5 +1,5 @@
 ---
-title: Create a Script task
+title: Create a Jython Script task
 categories:
 - xl-release
 subject:
@@ -10,11 +10,11 @@ tags:
 - jython
 ---
 
-A Script task contains a Python script that is executed on the XL Release server. This is an automated task that completes automatically when the script finishes successfully.
+A Jython Script task contains a Jython script that is executed on the XL Release server. This is an automated task that completes automatically when the script finishes successfully.
 
-![Script Task Details](../images/script-task-details.png)
+![Jython Script Task Details](../images/script-task-details.png)
 
-Type or paste a Python script in the **Script** field of the Script task details. XL Release 4.7.0 and later supports Jython 2.7. Jython is the Java implementation of Python. This means that you have access to standard Python as well as the Java libraries included in Java 7.
+Type or paste a Jython script in the **Script** field of the Jython Script task details. XL Release 4.7.0 and later supports Jython 2.7. Jython is the Java implementation of Python. This means that you have access to standard Python as well as the Java libraries included in Java 7.
 
 You can access and modify [release variables](/xl-release/concept/variables-in-xl-release.html) in your scripts using the dictionary named `releaseVariables`. This sample script shows how to access and modify a variable:
 
@@ -23,11 +23,11 @@ print(releaseVariables['xldeployPackage'])
 releaseVariables['xldeployPackage'] = 'XL Release'
 {% endhighlight %}
 
-In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), Script tasks have a gray border.
+In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), Jython Script tasks have a gray border.
 
-## Security and Script tasks
+## Security and Jython Script tasks
 
-When a Script task becomes active, the script is executed in a sandbox environment on the XL Release server. This means that the script has very restricted permissions. By default, access to the file system and network are not allowed.
+When a Jython Script task becomes active, the script is executed in a sandbox environment on the XL Release server. This means that the script has very restricted permissions. By default, access to the file system and network are not allowed.
 
 To remove these restrictions, add a `script.policy` file to the `XL_RELEASE_SERVER_HOME/conf` directory. This is a standard [Java Security Policy file](http://docs.oracle.com/javase/7/docs/technotes/guides/security/PolicyFiles.html) that contains the permissions that a script should have. You must restart the XL Release server after creating or changing the `XL_RELEASE_SERVER_HOME/conf/script.policy` file.
 

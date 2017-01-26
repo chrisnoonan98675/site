@@ -189,6 +189,9 @@ html {
 	margin-top: 10px;
 	width: 75%;
 }
+.topic-message-narrow {
+    width: 50%;
+}
 .dashboard-disclaimer {
 	margin-bottom: 0;
 }

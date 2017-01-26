@@ -3,7 +3,7 @@ title: Using XL Release JIRA tasks
 categories:
 - xl-release
 subject:
-- Task types
+- Bundled plugins
 tags:
 - plugin
 - jira

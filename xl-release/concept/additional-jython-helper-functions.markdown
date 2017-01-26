@@ -3,7 +3,7 @@ title: Additional Jython helper functions
 categories:
 - xl-release
 subject:
-- API
+- Public API
 tags:
 - plugin
 - script
@@ -13,7 +13,7 @@ tags:
 weight: 514
 ---
 
-In addition to the [Jython API](/jython-docs/#!/xl-release/4.8.x/), the following helper functions are available in [Script tasks](/xl-release/how-to/create-a-script-task.html) and Python scripts for plugin tasks.
+In addition to the [Jython API](/jython-docs/#!/xl-release/6.1.x/), the following helper functions are available in [Jython Script tasks](/xl-release/how-to/create-a-jython-script-task.html) and Python scripts for plugin tasks.
 
 ### getCurrentTask()
 

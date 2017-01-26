@@ -11,7 +11,7 @@ tags:
 - webhook
 ---
 
-Automatic tasks often need to interact with an external system through a REST interface. You could use a script task to send an HTTP query and parse the response; but to make this easier, XL Release provides the Webhook task type.
+Automatic tasks often need to interact with an external system through a REST interface. You could use a Jython Script task to send an HTTP query and parse the response; but to make this easier, XL Release provides the Webhook task type.
 
 To configure a Webhook, you specify the URL to call and the details of the request (HTTP method, request body, authentication). The task will perform the query, parse the response, and optionally extract results and them it in release variables.
 

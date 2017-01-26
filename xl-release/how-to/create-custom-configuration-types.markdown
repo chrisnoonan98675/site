@@ -3,7 +3,7 @@ title: Create custom configuration types
 categories:
 - xl-release
 subject:
-- Configuration
+- Extending XL Release
 tags:
 - configuration object
 - python
@@ -74,6 +74,54 @@ To add a configuration instance, click **Add** under the type that you need. You
 Enter a symbolic name in the **Title** box. In the XL Release application, the configuration instance is referred to by this name.
 
 To edit or delete an instance, click its name.
+
+## Testing connectivity
+
+In XL Release 6.0.1 and later, you can test the connectivity of the **Shared configuration** options. All types that extend `xlrelease.Configuration` or `configuration.HttpConnection` in `synthetic.xml` are eligible for testing.
+
+To enable the testing feature, place a Python script in the plugin folder with the name of the type. For example, in the case of a Jira server:
+
+    <type type="jira.Server" extends="configuration.HttpConnection"/>
+
+The script should be located in the `jira` folder and called `Server.py`. You can override the location by adding the property `scriptLocation` in the `type` declaration:
+
+    <type type="jira.Server" extends="configuration.HttpConnection">
+      <property name="scriptLocation" default="jira/TestConnection.py" hidden="true" />
+    </type>
+
+The following properties are available in the script context:
+
+{:.table .table-striped}
+| Property | Description |
+| -------- | ----------- |
+| `HttpRequest` | Refer to the [Jython API](/jython-docs/#!/xl-release/6.0.x/service/HttpRequest.HttpRequest) for more information |
+| `HttpResponse` | Refer to the [Jython API](/jython-docs/#!/xl-release/6.0.x/service/HttpRequest.HttpResponse) for more information |
+| `configuration` | Container with all properties from the `type`; for example, if the `type` extends `configuration.HttpConnection`, you can access the user name, password, and so on |
+
+The content of the script can be similar to:
+
+{% highlight python %}
+# get the configuration properties from the UI
+params = { 'url': configuration.url, 'username' : configuration.username, 'password': configuration.password,  'proxyHost': configuration.proxyHost, 'proxyPort': configuration.proxyPort }
+
+# do an http request to the server
+response = HttpRequest(params).get('/', contentType = 'application/json')
+
+# check response status code, if is different than 200 exit with error code
+if reponse.status != 200:
+  sys.exit(1)
+{% endhighlight %}
+
+
+If your type extends from `configuration.HttpConnection`, then you can use a standard simple HTTP connection test script available at path `configuration/HttpConnectionCheck.py`:
+
+    <type type="nexus.Server" extends="configuration.HttpConnection">
+        <property name="scriptLocation" hidden="true" default="configuration/HttpConnectionCheck.py"/>
+        <property name="checkConfigurationPath" hidden="true" default="/service/local/authentication/login"/>
+        <property name="checkConfigurationContentType" hidden="true" default="application/json"/>
+    </type>
+
+This script takes the URL configured in the UI, appends the value of the `checkConfigurationPath` property, and sends a HEAD request with the user name and password provided, also taking proxy settings into account. If the response status code is between 200 and 399, then the configuration is considered to be correct.
 
 ## Reference a configuration instance from a custom task
 

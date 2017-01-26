@@ -3,7 +3,7 @@ title: Using the XL Release Ansible plugin
 categories:
 - xl-release
 subject:
-- Ansible plugin
+- Bundled plugins
 tags:
 - plugin
 - ansible

@@ -29,7 +29,7 @@ The examples shown here are based on a [sample template](https://gist.github.com
 
 The simplest and most effective way to handle failure in a task is to include the appropriate error-handling logic in the task implementation itself. For example:
 
-![Sample Script task with cleanup](../images/automatically-handle-failures/handle-failures-script-task-clean-up.png)
+![Sample Jython Script task with cleanup](../images/automatically-handle-failures/handle-failures-script-task-clean-up.png)
 
 This approach allows you to retry the task multiple times without accumulating a backlog of items that need to be cleaned up later. For example, if a task tries to create a user and then create a ticket, you could add a failure handler around the "create ticket" part so you can delete the user if the ticket was not created successfully. That is, instead of this logic:
 
@@ -45,7 +45,7 @@ You can use this logic:
       deleteUser(newUser)
       sys.exit(1)
 
-You can use this approach with [Remote Script tasks](/xl-release/how-to/remote-script-plugin.html), [Script tasks](/xl-release/how-to/create-a-script-task.html), and [custom tasks](/xl-release/how-to/create-custom-task-types.html). For example, here is a Remote Script task:
+You can use this approach with [Remote Script tasks](/xl-release/how-to/remote-script-plugin.html), [Jython Script tasks](/xl-release/how-to/create-a-jython-script-task.html), and [custom tasks](/xl-release/how-to/create-custom-task-types.html). For example, here is a Remote Script task:
 
 ![Sample Remote Script task with cleanup](../images/automatically-handle-failures/handle-failures-remote-task-clean-up.png)
 
@@ -57,15 +57,15 @@ In cases where the task implementer does not necessarily know which actions need
 
 In this case, the task must:
 
-* Complete its executing without triggering a task failure. That is, a Remote Script task must exit with a non-zero exit code, and a Script task must not throw an exception.
+* Complete its executing without triggering a task failure. That is, a Remote Script task must exit with a non-zero exit code, and a Jython Script task must not throw an exception.
 
 * Set the value of a variable to an appropriate value for the conditional group to determine whether it should execute. In some cases, this may happen by default; for example, there might be a standard output or error. But for HTTP requests, for example, you may want to expose the response code for this purpose.
 
-### Sample Script task
+### Sample Jython Script task
 
-This is an example of a Script task that succeeds and [sets a variable](/xl-release/how-to/create-a-script-task.html) with the response code of the HTTP request it executes.
+This is an example of a Jython Script task that succeeds and [sets a variable](/xl-release/how-to/create-a-script-task.html) with the response code of the HTTP request it executes.
 
-![Sample Script task that sets a variable](../images/automatically-handle-failures/handle-failures-script-task-set-variable.png)
+![Sample Jython Script task that sets a variable](../images/automatically-handle-failures/handle-failures-script-task-set-variable.png)
 
 The associated group then checks the variable in its [precondition](/xl-release/how-to/set-a-precondition-on-a-task.html).
 

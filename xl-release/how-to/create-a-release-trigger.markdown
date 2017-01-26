@@ -3,7 +3,7 @@ title: Create a release trigger
 categories:
 - xl-release
 subject:
-- Releases
+- Triggers
 tags:
 - release
 - template

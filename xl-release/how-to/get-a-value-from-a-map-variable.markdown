@@ -12,7 +12,7 @@ tags:
 weight: 477
 ---
 
-To get a value from a [release variable](/xl-release/how-to/create-release-variables.html) of type key-value map and use the value in a text field, you can add a [Script task](/xl-release/how-to/create-a-script-task.html) that gets the value and stores it in another variable.
+To get a value from a [release variable](/xl-release/how-to/create-release-variables.html) of type key-value map and use the value in a text field, you can add a [Jython Script task](/xl-release/how-to/create-a-jython-script-task.html) that gets the value and stores it in another variable.
 
 Suppose a template contains a variable called `${meals}` of type key-value map. The variable contains:
 
@@ -37,7 +37,7 @@ However, using this syntax in a text field does not work because variables are r
 
 ![Task variable replacement](../images/map-variable/interpretation.png)
 
-Instead, you should add a Script task that will get the value from the key-value map and store it in a new variable called `${mymeal}`.
+Instead, you should add a Jython Script task that will get the value from the key-value map and store it in a new variable called `${mymeal}`.
 
 ## Add a variable and a script
 
@@ -47,11 +47,11 @@ First, go to the template's [Variables screen](/xl-release/how-to/create-release
 
 You can now use `${mymeal}` in tasks without it interfering the creation of a release.
 
-Next, add a Script task called "Set mymeal variable" and move it just before the task that will use the `${mymeal}` variable. The template will look like:
+Next, add a Jython Script task called "Set mymeal variable" and move it just before the task that will use the `${mymeal}` variable. The template will look like:
 
 ![Template with set my meal variable as first task](../images/map-variable/template.png)
 
-In the Script task, you can read and set variables using a Python dictionary called `releaseVariables`. This is the script in the "Set mymeal variable" task:
+In the Jython Script task, you can read and set variables using a Python dictionary called `releaseVariables`. This is the script in the "Set mymeal variable" task:
 
     releaseVariables['mymeal'] = ${meals}['${mealtime}']
 

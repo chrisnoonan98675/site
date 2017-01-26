@@ -3,7 +3,7 @@ title: Upgrade XL Release
 categories:
 - xl-release
 subject:
-- Upgrade
+- Installation
 tags:
 - upgrade
 - system administration

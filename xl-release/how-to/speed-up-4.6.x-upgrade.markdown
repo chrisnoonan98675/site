@@ -3,7 +3,7 @@ title: Speed up the XL Release 4.6.x upgrade
 categories:
 - xl-release
 subject:
-- Upgrade
+- Installation
 tags:
 - upgrade
 - system administration

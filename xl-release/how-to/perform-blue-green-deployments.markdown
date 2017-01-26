@@ -4,7 +4,7 @@ categories:
 - xl-release
 - xl-deploy
 subject:
-- Deployment
+- Calling XL Deploy from XL Release
 tags:
 - blue-green
 - deployment pattern

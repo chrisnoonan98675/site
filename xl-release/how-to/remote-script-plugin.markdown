@@ -3,7 +3,7 @@ title: Using XL Release Remote Script tasks
 categories:
 - xl-release
 subject:
-- Task types
+- Bundled plugins
 tags:
 - plugin
 - script

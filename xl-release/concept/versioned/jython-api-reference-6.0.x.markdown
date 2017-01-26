@@ -5,7 +5,7 @@ title: Jython API Reference 6.0.x
 categories:
 - xl-release
 subject:
-- API
+- Public API
 tags:
 - api
 - jython

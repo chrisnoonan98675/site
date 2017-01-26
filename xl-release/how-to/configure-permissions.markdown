@@ -3,7 +3,7 @@ title: Configure global permissions
 categories:
 - xl-release
 subject:
-- Settings
+- Security
 tags:
 - settings
 - role

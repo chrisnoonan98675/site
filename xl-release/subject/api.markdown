@@ -3,7 +3,7 @@ title: XL Release API
 categories:
 - xl-release
 subject:
-- API
+- Public API
 ---
 
 {% include subject_index.html %}

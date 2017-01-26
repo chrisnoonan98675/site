@@ -3,7 +3,7 @@ title: Create custom task types
 categories:
 - xl-release
 subject:
-- Task types
+- Extending XL Release
 tags:
 - task
 - custom task
@@ -35,8 +35,6 @@ This is an example of the layout of the `ext` directory:
        CreateIssue.py
        UpdateIssue.py
 
-### Sample custom task
-
 You define the custom task in XML in `synthetic.xml`. As an example, this is the definition of the "Create Jira Issue" task:
 
 {% highlight xml %}
@@ -44,7 +42,7 @@ You define the custom task in XML in `synthetic.xml`. As an example, this is the
        xmlns="http://www.xebialabs.com/deployit/synthetic"
        xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
 
-  <type type="jira.CreateIssue" extends="xlrelease.PythonScript">
+  <type type="jira.CreateIssue" extends="xlrelease.PythonScript" label="Create issue">
     <property name="jiraServer"  category="input" label="Server" referenced-type="jira.Server" kind="ci"/>
     <property name="username"    category="input"/>
     <property name="password"    category="input" kind="string" password="true" />
@@ -52,7 +50,6 @@ You define the custom task in XML in `synthetic.xml`. As an example, this is the
     <property name="title"       category="input"/>
     <property name="description" category="input" size="large" />
     <property name="issueType"   category="input" default="Task"/>
-
     <property name="issueId"     category="output"/>
   </type>
 
@@ -63,13 +60,30 @@ You define the custom task in XML in `synthetic.xml`. As an example, this is the
 
 The `<synthetic>` element is the root node. It contains the XML grammar definitions and should not be changed. For XL Deploy users: this is the same definition language that is used to extend XL Deploy.
 
-The `<type` element in `<synthetic>` defines the custom task. The `type` attribute defines the name of the custom task and is always of the form `prefix.TaskName`.
+The `<type>` element in `<synthetic>` defines the custom task. The `type` attribute defines the name of the custom task and is always of the form `prefix.TaskName`:
 
-The prefix is the category of the task (for example, 'jira'). It should be in lowercase.
+* The prefix is the category of the task (for example, 'jira'). It should be in lowercase.
+* The task name is a descriptive name of the task (for example, "CreateIssue"). It should be in camel case.
 
-The task name is a descriptive name of the task (for example, "CreateIssue"). It should be in camel case.
+**Important:** The `extends="xlrelease.PythonScript"` attribute defines the type as a custom task for XL Release. Do not change it.
 
-The attribute `extends="xlrelease.PythonScript"` defines this type as a custom task for XL Release. Do not change it.
+The `label` attribute defines the name of the task that will appear while adding a new task in the release flow. By default, if is not defined, XL Release will create a label for you with the following format: `Prefix: Task Name` using the capital letters as new words (for example: "Jira: Create Issue"). You can override the `prefix` by adding a colon in the `label` attribute; for example, `label="Integration: Create Issue"`.
+
+You can add the following properties to the `<type>` element to further customize your task:
+
+* `scriptLocation`: Specifies a custom script location that overrides the default rules.
+* `iconLocation`: Location of an icon file (PNG or GIF format) that is used in the UI for this task.
+* `taskColor`: The color to use for the task in the UI, specified in HTML hexadecimal RGB format.
+
+For example:
+
+{% highlight xml %}
+<type type="myplugin.MyTask" extends="xlrelease.PythonScript">
+    <property name="scriptLocation" required="false" hidden="true" default="my/custom/dir/script.py" />
+    <property name="iconLocation" required="false" hidden="true" default="my/custom/dir/icon.png" />
+    <property name="taskColor" hidden="true" default="#9C00DB" />
+    ...
+{% endhighlight %}
 
 ### Property element
 
@@ -80,13 +94,23 @@ Next are the properties. They are defined as nested `<property>` elements. The f
 | -------- | ----------- |
 | `name` | Name of the property. This is also the name of the variable by which it is referred in the Python script. |
 | `category` | XL Release supports two categories.<br />`input` appear in the task in the XL Release UI and must be specified before the task starts. They are then passed to the Python script.<br />`output` can be set in the Python script. When the script completes, they can be copied into release variables in XL Release. |
-| `label` | Label used in the XL Release UI. If you do not specify a label, XL Release will attempt to make a readable version of the property name. For example, the "issueType" property will appear as "Issue Type" in the UI. |
+| `label` | Group and label used in the XL Release UI. If you do not specify a group and label, XL Release will attempt to make a readable version. For example, `myCompany.myTask` will appear as a `My Task` task type in the `My Company` group.<br/><br/>In XL Release 6.1.0 and later, you can group task types in your preferred groups by adding the group before a colon in the label; for example, `Other Items: My Task`. |
 | `description` | Help text explaining the property in more detail. This will appear in the UI. |
-| `kind` | The property type, which is `string`, `integer`, `boolean`, or `ci`. In XL Release 4.8.0 and later, the `list_of_string`, `set_of_string`, and `map_string_string` property types are also available. If omitted, this attribute defaults to `string`. |
+| `kind` | The property type, which is `string`, `integer`, `boolean`, or `ci`. In XL Release 4.8.0 and later, the `list_of_string`, `set_of_string`, and `map_string_string` property types are also available. In XL Release 6.1.0 and later, the `enum` type is also available.<br /><br />If omitted, this attribute defaults to `string`. |
 | `password` | Set this attribute to `true` to instruct XL Release to treat the property as a password. The content of password fields are obscured in the UI and encrypted in network traffic and storage. |
 | `size` | Indicates how much space the UI gives to the property. Supported levels are `default`, `small`, `medium`, and `large`. |
 | `default` | The default value of the property. |
 | `referenced-type` | Indicates the type of CI this property can reference (only apply if `kind` is set to `ci`). |
+
+#### Output properties size limit
+
+To prevent performance issues, output properties of type `string` are limited to 32 Kb. If your script adds content that exceeds the limit, XL Release will truncate the property. You can still print the property inside the script and XL Release will attach the content to the task.
+
+You can change this limit for each task type in the `XL_RELEASE_SERVER_HOME/conf/deployit-defaults.properties` file. For example:
+
+    #webhook.JsonWebhook.maxOutputPropertySize=18000
+
+To change the limit, delete the number sign (`#`) at the beginning of the relevant line, change the limit as desired, then save the file and restart the XL Release server.
 
 ### Add custom tasks
 
@@ -98,13 +122,15 @@ This is how the above task definition looks like in the task details window:
 
 ![Jira task](../images/jira-task-details.png)
 
-## Python scripts
+### Python scripts
 
 When the custom task becomes active, it triggers the Python script that is associated with it. For information about the script, refer to [API and scripting overview](/xl-release/how-to/api-and-scripting-overview.html).
 
 Store scripts in a directory that has the same name as the prefix of the task type definition. The script file name has the same name as the name of the task, followed by the `.py` extension. For example, the Python script for the `jira.CreateIssue` task must be stored in `jira/CreatePython.py`.
 
 Input properties are available as variables in the Python script. You can set output values by assigning values to their corresponding variables in the script. After execution, the script variables are copied to the release variables that were specified on the task in the UI.
+
+**Tip:** To concatenate multiple Python scripts and have XL Release schedule them, refer to [Using scheduling in scripts to connect to long running jobs](/xl-release/how-to/using-scheduling-in-scripts.markdown).
 
 For example, this is a possible implementation of the `jira.CreateIssue` task in Python:
 
@@ -163,15 +189,15 @@ else:
     sys.exit(1)
 {% endhighlight %}
 
-**Note:** Since XL Release 4.7.0, Jython scripts of custom task types are not run in a sandboxed environment and do not have any restrictions (in contrast to [Script tasks](/xl-release/how-to/create-a-script-task.html)). You do not have to update the `script.policy` file of your XL Release installation if you need additional access from your custom task type (such as to the filesystem or network). You still need to do this for versions prior to 4.7.0.
+**Note:** Since XL Release 4.7.0, Jython scripts of custom task types are not run in a sandboxed environment and do not have any restrictions (in contrast to [Jython Script tasks](/xl-release/how-to/create-a-jython-script-task.html)). You do not have to update the `script.policy` file of your XL Release installation if you need additional access from your custom task type (such as to the filesystem or network). You still need to do this for versions prior to 4.7.0.
 
-#### HttpRequest
+### HttpRequest
 
 `HttpRequest` is a class provided by XL Release that is used to perform HTTP calls. Refer to the [Jython API](/jython-docs/#!/xl-release/4.7.x//service/HttpRequest.HttpRequest) for more information.
 
-### Examples
+## Examples
 
-#### Posting JSON
+### Posting JSON
 
 {% highlight python %}
 request = HttpRequest({'url': 'http://site'})
@@ -183,7 +209,7 @@ content = response.getResponse()
 status = response.getStatus()
 {% endhighlight %}
 
-#### Using connection credentials
+### Using connection credentials
 
 {% highlight python %}
 request = HttpRequest({'url': 'http://site'}, "username", "password")
@@ -192,7 +218,7 @@ content = response.getResponse()
 status = response.getStatus()
 {% endhighlight %}
 
-#### Using a proxy
+### Using a proxy
 
 {% highlight python %}
 request = HttpRequest({
@@ -204,7 +230,7 @@ content = response.getResponse()
 status = response.getStatus()
 {% endhighlight %}
 
-#### Getting results using a configuration object
+### Getting results using a configuration object
 
 If your task definition has a [configuration object](/xl-release/how-to/create-custom-configuration-types-in-xl-release.html#reference-a-configuration-instance-from-a-custom-task) defined using:
 
@@ -223,27 +249,11 @@ status = response.getStatus()
 
 `HttpRequest` will then use the settings of the HttpConnection.
 
-### XL Release API
+## XL Release API
 
 The [XL Release API](/xl-release/latest/rest-api/) is available for scripts. Refer to the [Jython API reference](/jython-docs/#!/xl-release/4.7.x/) to find a complete description of the methods you can call.
 
 For an extended example, refer to [Creating XL Release tasks dynamically using Jython API](http://blog.xebialabs.com/2015/08/11/creating-xl-release-tasks-dynamically-using-jython-api/).
-
-## Further customization
-
-You can add the following properties to the `<type>` element to further customize your task:
-
-{% highlight xml %}
-<type type="myplugin.MyTask" extends="xlrelease.PythonScript">
-    <property name="scriptLocation" required="false" hidden="true" default="my/custom/dir/script.py" />
-    <property name="iconLocation" required="false" hidden="true" default="my/custom/dir/icon.png" />
-    <property name="taskColor" hidden="true" default="#9C00DB" />
-    ...
-{% endhighlight %}
-
-* `scriptLocation`: Specifies a custom script location that overrides the default rules.
-* `iconLocation`: Location of an icon file (PNG or GIF format) that is used in the UI for this task.
-* `taskColor`: The color to use for the task in the UI, specified in HTML hexadecimal RGB format.
 
 ## Changing or removing customizations
 

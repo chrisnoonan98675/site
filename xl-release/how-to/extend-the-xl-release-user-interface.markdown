@@ -3,7 +3,7 @@ title: Extend the XL Release user interface
 categories:
 - xl-release
 subject:
-- Customization
+- Extending XL Release
 tags:
 - jython
 - gui

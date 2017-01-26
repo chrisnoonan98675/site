@@ -13,11 +13,13 @@ since:
 weight: 184
 ---
 
-**Note:** A version of this topic is available for [XL Deploy 4.5.x and earlier](/xl-deploy/4.5.x/deploy-an-application-4.5.html).
-
 After you have [defined your infrastructure](/xl-deploy/how-to/connect-xl-deploy-to-your-infrastructure.html), [defined an environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html), and added an application to XL Deploy, you can perform the initial deployment of an application to an environment.
 
-**Tip:** Watch the *Performing an initial deployment* video [here](https://www.youtube.com/watch?v=pw17C9j60xY&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=4).
+Notes:
+
+* For information about using the Explorer to deploy an application, refer to [Using the Explorer](/xl-deploy/how-to/using-the-explorer.html).
+* You can watch the *Performing an initial deployment* video [here](https://www.youtube.com/watch?v=pw17C9j60xY&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=4).
+* A version of this topic is available for [XL Deploy 4.5.x and earlier](/xl-deploy/4.5.x/deploy-an-application-4.5.html).
 
 To deploy an application to an environment:
 
@@ -34,7 +36,7 @@ To deploy an application to an environment:
 
 You can also optionally:
 
-* View or edit the properties of a mapped deployable by double-clicking it or by selecting it and clicking ![Edit deployed](/images/button_edit_deployed.png).
+* View or edit the properties of a deployed item by double-clicking it or by selecting it and clicking ![Edit deployed](/images/button_edit_deployed.png).
 * Click **Deployment Properties** to select the [orchestrators](/xl-deploy/concept/understanding-orchestrators.html) that XL Deploy should use when generating the deployment plan.
 * Click **Preview** to preview the deployment plan that XL Deploy generates. You can double-click each step to see the script that XL Deploy will use to execute the step.
 * Click **Advanced** if you want to adjust the deployment plan by skipping steps or inserting pauses.

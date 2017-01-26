@@ -3,7 +3,7 @@ title: Load test data during a release
 categories:
 - xl-release
 subject:
-- Deployment
+- Calling XL Deploy from XL Release
 tags:
 - testing
 - test data
