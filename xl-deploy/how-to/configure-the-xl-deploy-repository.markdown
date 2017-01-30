@@ -30,15 +30,20 @@ XL Deploy can also use a database to store its repository. To use a database, yo
 | Only CIs and CI history | `PersistenceManager` and `FileSystem` |
 | All data (binary artifacts and CIs and CI history) | `DataStore`, `PersistenceManager` and `FileSystem` |
 
-Note that:
-
-* Before installing XL Deploy, create an empty database. XL Deploy will create the database schema during installation.
-* XL Deploy must initialize the repository before it can be used. You must run [XL Deploy's setup wizard](/xl-deploy/how-to/install-xl-deploy.html#run-the-server-setup-wizard) and initialize the repository after making any changes to the repository configuration.
-
 For information about:
 
 * Using a database with Jackrabbit, see the [PersistenceManager FAQ](http://wiki.apache.org/jackrabbit/PersistenceManagerFAQ) and [DataStore FAQ](http://wiki.apache.org/jackrabbit/DataStore)
 * Backing up the database, refer to [Back up XL Deploy](/xl-deploy/how-to/back-up-xl-deploy.html)
+
+### Preparing the database and repository
+
+Before installing XL Deploy, create an empty database. XL Deploy will create the database schema during installation.
+
+The account that accesses the database must be able to create tables during the initial installation and, later, it must be able to write to and delete from tables.
+
+There are no requirements for the character set of the database.
+
+**Important:** XL Deploy must initialize the repository before it can be used. You must run [XL Deploy's setup wizard](/xl-deploy/how-to/install-xl-deploy.html#run-the-server-setup-wizard) and initialize the repository after making any changes to the repository configuration.
 
 ### Using XL Deploy with MySQL
 
