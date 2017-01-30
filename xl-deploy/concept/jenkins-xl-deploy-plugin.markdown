@@ -30,3 +30,36 @@ For more information about using the plugin, refer to:
 * Trigger deployments in XL Deploy
 * Auto-scale deployments to modified environments
 * Execute on Microsoft Windows or Unix slave nodes
+
+## **Using Jenkinsfile**
+
+* In XL Deploy 6.1.0 and later, you can use the Jenkins Pipeline feature with the XL Deploy plugin for Jenkins. This feature allows you to create a "pipeline as code" in a Jenkinsfile, using the Pipeline DSL. You can then store the Jenkinsfile in a source control repository.
+
+* Example:
+ The following Jenkinsfile can be used to build the pipeline and deploy a simple web-application to a tomcat environment configured in xl-deploy.
+
+ node {  
+ stage('Checkout') {  
+    git url: 'https://github.com/xebialabs/rest-o-rant-api.git'  
+ }  
+ stage('Build') {  
+    if (isUnix()) {  
+        sh "./gradlew clean build"  
+    } else {  
+       bat("gradlew.bat clean build")  
+    }  
+  }  
+  stage('Package') {  
+    xldCreatePackage artifactsPath: 'build/libs', manifestPath: 'deployit-manifest.xml', darPath: '$JOB_NAME-$BUILD_NUMBER.0.dar'  
+  }  
+  stage('Publish') {  
+    xldPublishPackage serverCredentials: 'Admin', darPath: '$JOB_NAME-$BUILD_NUMBER.0.dar'  
+  }  
+  stage('Deploy') {  
+    xldDeploy serverCredentials: 'Admin', environmentId: 'Environments/Dev', packageId: 'Applications/rest-o-rant-api/$BUILD_NUMBER.0'  
+  }  
+}  
+
+## **Configuration:**
+  In jenkins add the above Jenkinsfile file content to the pipeline script in jenkins and make sure that the xlDeploy plugin is added to the
+  jenkins setup.
