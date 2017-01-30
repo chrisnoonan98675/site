@@ -28,7 +28,7 @@ With this technology, an external process that you do not manage cannot pretend 
 
 ## Configure secure communication
 
-To configure secure communication between XL Deploy and satellites:
+To configure secure communication between XL Deploy and satellites in XL Deploy 6.2.0 and later:
 
 1. Generate a key and certificate for each satellite server.
 1. Add each satellite certificate to the truststore on the XL Deploy server.
@@ -41,29 +41,29 @@ Each key should be unique to ensure that communication is fully secure.
 
 This example shows how to create keys and certificates using [the `keytool` utility](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html).
 
-First, generate a key for a satellite:
+1. Generate a key for a satellite:
 
-    keytool -genkey -alias satellite -keyalg RSA -keypass k3yp@ss -storepass st0r3p@ss -keystore satellite.jks -validity 360 -keysize 1024
+        keytool -genkey -alias satellite -keyalg RSA -keypass k3yp@ss -storepass st0r3p@ss -keystore satellite.jks -validity 360 -keysize 1024
 
-Then, export the public certificate:
+2. Export the public certificate:
 
-    keytool -export -keystore satellite.jks -alias satellite -file satellite.cer
+        keytool -export -keystore satellite.jks -alias satellite -file satellite.cer
 
-Finally, import the certificate into the truststore on the XL Deploy server:
+3. Import the certificate into the truststore on the XL Deploy server:
 
-    keytool -import -alias satellite -file satellite.cer -storepass st0r3p@ss -keystore xld-truststore.jks
+        keytool -import -alias satellite -file satellite.cer -storepass st0r3p@ss -keystore xld-truststore.jks
 
-Next, generate a key for the XL Deploy server:
+4. Generate a key for the XL Deploy server:
 
-    keytool -genkey -alias xld -keyalg RSA -keypass xldkeypass -storepass xldstorepass -keystore xld.jks -validity 360 -keysize 1024
+        keytool -genkey -alias xld -keyalg RSA -keypass xldkeypass -storepass xldstorepass -keystore xld.jks -validity 360 -keysize 1024
 
-Export the public certificate:
+5. Export the public certificate:
 
-    keytool -export -keystore xld.jks -alias xld -file xld.cer
+        keytool -export -keystore xld.jks -alias xld -file xld.cer
 
-And import the certificate into the truststore on the satellite server:
+6. Import the certificate into the truststore on the satellite server:
 
-    keytool -import -alias xld -file xld.cer -storepass xldstorepass -keystore satellite-truststore.jks
+        keytool -import -alias xld -file xld.cer -storepass xldstorepass -keystore satellite-truststore.jks
 
 ### Create self-signed certificates
 
@@ -81,17 +81,9 @@ If your security policy allows it, you can create self-signed certificates using
     # Importing into the truststore for xld
     keytool -import -alias satellite -file satellite.cer -keystore xld-truststore.jks
 
-After you have a keystore for the satellite and a shared truststore with XL Deploy, you can enable secure communication by modifying `SATELLITE_HOME/conf/satellite.conf` as follows:
-
-    satellite {
-      ssl {
-        enabled = yes
-      }
-    }
-
 ## Configure satellites
 
-After you have configured the truststore on a satellite, update the `SATELLITE_HOME/conf/satellite.conf` configuration file. For example:
+After you have configured the truststore on a satellite, update the `SATELLITE_HOME/conf/satellite.conf` configuration file to enable SSL. For example:
 
     satellite {
       port = 8380
