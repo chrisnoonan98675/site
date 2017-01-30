@@ -1,5 +1,5 @@
 ---
-title: Configure secure communication with a satellite server
+title: Configure secure communication between XL Deploy and satellites
 categories:
 - xl-deploy
 subject:
@@ -12,51 +12,93 @@ since:
 weight: 302
 ---
 
-XL Deploy can communicate with satellite servers over a secure communication channel using [TLS/SSL technology](http://en.wikipedia.org/wiki/Transport_Layer_Security) to encrypt data. This algorithm relies on certificate checking and data encryption using asymmetric keys.
+XL Deploy communicates with satellite servers over a secure communication channel using [TLS/SSL technology](http://en.wikipedia.org/wiki/Transport_Layer_Security) to encrypt data. This algorithm relies on certificate checking and data encryption using asymmetric keys.
 
-**Note:** A version of this topic is available for [XL Deploy 5.0.x](/xl-deploy/5.0.x/configure-secure-communication-with-a-satellite-5.0.html).
+**Note:** For information about secure communication in XL Deploy 5.0.x, refer to [Configure secure communication with a satellite](/xl-deploy/5.0.x/configure-secure-communication-with-a-satellite-5.0.html).
 
 ## TLS in a nutshell
 
-TLS is based on the notion of public and private keys. The server contains a private key and a public certificate. In the Java world, they are stored in a *key store*. The private key must be hidden and can be protected with a passphrase. This key must not be given out or communicated.
+TLS is based on the notion of public and private keys. The server contains a private key and a public certificate. In the Java world, they are stored in a *keystore*. The private key must be hidden and can be protected with a passphrase. This key must not be given out or communicated.
 
-When a client tries to reach a server, it authenticates the destination. The server must prove its identity. To achieve this, the client gets a list of trusted certificates. This is the *trust store*. It contains public certificates that are verified by a trusted authority.
+When a client tries to reach a server, it authenticates the destination. The server must prove its identity. To achieve this, the client gets a list of trusted certificates. This is the *truststore*. It contains public certificates that are verified by a trusted authority.
 
 When a client tries to reach a server, there is a negotiation phase. During this phase, the client challenge the server to authenticate it. Once identified, every bit of data transferred between each side of the communication is encrypted.
 
 With this technology, an external process that you do not manage cannot pretend to be a satellite of yours, and external processes cannot listen to the secure communication.
 
-## How to create self-signed certificates
+## Configure secure communication
 
-Depending on your security policy, you can create self-signed certificates using [the `keytool` utility](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html). For example:
+To configure secure communication between XL Deploy and satellites:
 
-    # Generate a keystore and a self-signed certificate for xl-satellite
-    # storepass is the password for the keystore
-    # keypass is the private password for the key
-    # you can use different algorithm and key strength. Please take a look a keytool reference document from [Oracle](https://docs.oracle.com/cd/E19509-01/820-3503/ggfgo/index.html).
-    keytool -genkey -alias satellite -keyalg RSA -keypass [XXX] -storepass [XXX] -keystore satellite.jks -validity 360 -keysize 1024
+1. Generate a key and certificate for each satellite server.
+1. Add each satellite certificate to the truststore on the XL Deploy server.
 
-    # Extracting the cer of xld
-    keytool -export -keystore satellite.jks -alias satellite -file satellite.cer
+If you are using XL Deploy 6.1.0 or later, you must also configure mutual authentication:
 
-    # Importing into the truststore for xld
-    keytool -import -alias satellite -file satellite.cer -keystore xld-truststore.jks
+1. Generate a key and a public certificate for the XL Deploy server.
+1. Add the certificate to the truststore on each satellite server.
 
-After you have a keystore for the satellite and a shared truststore with XL Deploy, you can enable secure communication by modifying `conf/satellite.conf` as follows:
+To ensure that communication is fully secure, each key should be unique.
+
+### Sample keystore and truststore creation
+
+This example shows how to create keys and self-signed certificates using [the `keytool` utility](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html).
+
+First, configure XL Deploy to trust the satellite:
+
+1. Generate a key for a satellite:
+
+        keytool -genkey -alias satellite -keyalg RSA -keypass k3yp@ss -storepass st0r3p@ss -keystore satellite.jks -validity 360 -keysize 1024
+
+1. Export the public certificate:
+
+        keytool -export -keystore satellite.jks -alias satellite -file satellite.cer
+
+1. Import the certificate into the truststore on the XL Deploy server:
+
+        keytool -import -alias satellite -file satellite.cer -storepass st0r3p@ss -keystore xld-truststore.jks
+
+Repeat this procedure for each satellite.
+
+Then, if you are using XL Deploy 6.1.0 or later, you must configure each satellite to trust XL Deploy:
+
+1. Generate a key for the XL Deploy server:
+
+        keytool -genkey -alias xld -keyalg RSA -keypass xldkeypass -storepass xldstorepass -keystore xld.jks -validity 360 -keysize 1024
+
+1. Export the public certificate:
+
+        keytool -export -keystore xld.jks -alias xld -file xld.cer
+
+1. Import the certificate into the truststore on the satellite server:
+
+        keytool -import -alias xld -file xld.cer -storepass xldstorepass -keystore satellite-truststore.jks
+
+## Configure satellites
+
+After you have configured the truststore on a satellite, update the `SATELLITE_HOME/conf/satellite.conf` configuration file to enable SSL. For example:
 
     satellite {
-      ssl {
-        enabled = yes
+      port = 8380
+      hostname = "win-s2008r2" #Host name or ip address to bind to
+
+      streaming {
+        port = 8480
+        chunk-size = 100000
+        compression = off
+        throttle = off
+        throttle-speed = 10000 #IN kBytes/sec, should be at least 100 kB/sec
       }
-    }
 
-## Security configuration
-
-The satellite security configuration is located in `conf/satellite.conf`:
-
-    satellite {
       ssl {
         enabled = yes
+
+        key-store = "C:\\XLDeploy\\conf\\satellite.jks"
+        key-store-password = "st0r3p@ss"
+        key-password = "k3yp@ss"
+
+        trust-store = "C:\\XLDeploy\\conf\\satellite-truststore.jks"
+        trust-store-password = "xldstorepass"
 
         # Protocol to use for SSL encryption, choose from:
         # Java 7:
@@ -70,25 +112,75 @@ The satellite security configuration is located in `conf/satellite.conf`:
         # http://docs.oracle.com/javase/7/docs/technotes/guides/security/SunProviders.html#SunJCEP
         enabled-algorithms = ["TLS_RSA_WITH_AES_128_CBC_SHA"]
 
-        # Absolute path to the Java Key Store used by the server connection
-        key-store = "keystore"
-        # This password is used for decrypting the key store
-        key-store-password = "changeme"
-        # This password is used for decrypting the key
-        key-password = "changeme"
+        # There are three options, in increasing order of security:
+        # "" or SecureRandom => (default)
+        # "SHA1PRNG" => Can be slow because of blocking issues on Linux
+        # "AES128CounterSecureRNG" => fastest startup and based on AES encryption
+        # "AES256CounterSecureRNG"
+        # The following use one of 3 possible seed sources, depending on
+        # availability: /dev/random, random.org and SecureRandom (provided by Java)
+        # "AES128CounterInetRNG"
+        # "AES256CounterInetRNG" (Install JCE Unlimited Strength Jurisdiction
+        # Policy Files first)
+        # Setting a value here may require you to supply the appropriate cipher
+        # suite (see enabled-algorithms section above)
+        random-number-generator = "AES128CounterSecureRNG"
+      }
 
-        # Absolute path to the TrustStore used by the client and server connection
-        trust-store = "truststore"
-        # This password is used for decrypting the trust store
-        trust-store-password = "changeme"
+      timeout {
+        upload.idle = "30 seconds"
+      }
+
+      directory {
+        work = "workdir"
+        recovery = "recovery"
+      }
+
+      metrics {
+        hostname = ${satellite.hostname}
+        port = 8080
+      }
+
+      maintenance {
+        check-for-running-tasks-delay = 10 seconds
       }
     }
 
-**Important:** These configuration values for `protocol` and `enabled-algorithms` must match the values that XL Deploy uses in `conf/system.conf` file.
+**Important:** The values for `protocol` and `enabled-algorithms` must match the values that XL Deploy uses in the  `XL_DEPLOY_SERVER_HOME/conf/system.conf` file.
 
-## Logging
+## Configure XL Deploy
 
-To enabled logging of secure communications, set the `SATELLITE_OPTS` environment variable before starting the satellite:
+This is a sample `satellite` section of a corresponding `XL_DEPLOY_SERVER_HOME/conf/system.conf` file:
+
+    satellite {
+
+        enabled = true
+        port = 8180
+        # hostname = "token" #Host name or ip address to bind to
+
+        ssl {
+            enabled = yes
+            port = 8280
+
+            key-store = "/Users/sampleuser/xl-software/conf/xld.jks"
+            key-store-password = "xldstorepass"
+            key-password = "xldkeypass"
+
+            trust-store = "/Users/sampleuser/xl-software/conf/xld-truststore.jks"
+            trust-store-password = "st0r3p@ss"
+        }
+
+        timeout {
+            ping = "5 seconds"
+            upload.idle = "30 seconds"
+        }
+    }
+
+If you are using XL Deploy 6.1.0 or later, the `key-store`, `key-store-password`, `key-password`, `trust-store`, and `trust-store-password` parameters are required in the `system.conf` file. In earlier versions, they are not supported.
+
+## Enable logging
+
+To enable logging of secure communications on a satellite, set the `SATELLITE_OPTS` environment variable before starting the satellite:
 
     export SATELLITE_OPTS="$SATELLITE_OPTS -Djavax.net.debug=all"
 
