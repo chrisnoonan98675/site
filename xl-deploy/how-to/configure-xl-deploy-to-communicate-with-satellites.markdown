@@ -29,7 +29,7 @@ Restart XL Deploy and it will be ready to connect to satellites.
 By default, `XL_DEPLOY_SERVER_HOME/conf/system.conf` has the following settings:
 
 	satellite {
-	    hostname = ""
+       hostname = ""
        port = 8180
     }
 

@@ -26,14 +26,44 @@ When a client tries to reach a server, there is a negotiation phase. During this
 
 With this technology, an external process that you do not manage cannot pretend to be a satellite of yours, and external processes cannot listen to the secure communication.
 
-## Create keys and certificates
+## Configure secure communication
 
-To ensure that communication between XL Deploy and satellites is secure:
+To configure secure communication between XL Deploy and satellites:
 
+1. Generate a key and certificate for each satellite server.
+1. Add each satellite certificate to the truststore on the XL Deploy server.
 1. Generate a key and a public certificate for the XL Deploy server.
 1. Add the certificate to the truststore on each satellite server.
-1. Generate a different key and certificate for each satellite server.
-1. Add each satellite certificate to the truststore on the XL Deploy server.
+
+Each key should be unique to ensure that communication is fully secure.
+
+### Sample keystore and truststore creation
+
+This example shows how to create keys and certificates using [the `keytool` utility](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html).
+
+First, generate a key for a satellite:
+
+    keytool -genkey -alias satellite -keyalg RSA -keypass k3yp@ss -storepass st0r3p@ss -keystore satellite.jks -validity 360 -keysize 1024
+
+Then, export the public certificate:
+
+    keytool -export -keystore satellite.jks -alias satellite -file satellite.cer
+
+Finally, import the certificate into the truststore on the XL Deploy server:
+
+    keytool -import -alias satellite -file satellite.cer -storepass st0r3p@ss -keystore xld-truststore.jks
+
+Next, generate a key for the XL Deploy server:
+
+    keytool -genkey -alias xld -keyalg RSA -keypass xldkeypass -storepass xldstorepass -keystore xld.jks -validity 360 -keysize 1024
+
+Export the public certificate:
+
+    keytool -export -keystore xld.jks -alias xld -file xld.cer
+
+And import the certificate into the truststore on the satellite server:
+
+    keytool -import -alias xld -file xld.cer -storepass xldstorepass -keystore satellite-truststore.jks
 
 ### Create self-signed certificates
 
@@ -64,8 +94,26 @@ After you have a keystore for the satellite and a shared truststore with XL Depl
 After you have configured the truststore on a satellite, update the `SATELLITE_HOME/conf/satellite.conf` configuration file. For example:
 
     satellite {
+      port = 8380
+      hostname = "win-s2008r2" #Host name or ip address to bind to
+
+      streaming {
+        port = 8480
+        chunk-size = 100000
+        compression = off
+        throttle = off
+        throttle-speed = 10000 #IN kBytes/sec, should be at least 100 kB/sec
+      }
+
       ssl {
         enabled = yes
+
+        key-store = "C:\\XLDeploy\\conf\\satellite.jks"
+        key-store-password = "st0r3p@ss"
+        key-password = "k3yp@ss"
+
+        trust-store = "C:\\XLDeploy\\conf\\satellite-truststore.jks"
+        trust-store-password = "xldstorepass"
 
         # Protocol to use for SSL encryption, choose from:
         # Java 7:
@@ -79,21 +127,67 @@ After you have configured the truststore on a satellite, update the `SATELLITE_H
         # http://docs.oracle.com/javase/7/docs/technotes/guides/security/SunProviders.html#SunJCEP
         enabled-algorithms = ["TLS_RSA_WITH_AES_128_CBC_SHA"]
 
-        # Absolute path to the Java Key Store used by the server connection
-        key-store = "keystore"
-        # This password is used for decrypting the key store
-        key-store-password = "changeme"
-        # This password is used for decrypting the key
-        key-password = "changeme"
+        # There are three options, in increasing order of security:
+        # "" or SecureRandom => (default)
+        # "SHA1PRNG" => Can be slow because of blocking issues on Linux
+        # "AES128CounterSecureRNG" => fastest startup and based on AES encryption
+        # "AES256CounterSecureRNG"
+        # The following use one of 3 possible seed sources, depending on
+        # availability: /dev/random, random.org and SecureRandom (provided by Java)
+        # "AES128CounterInetRNG"
+        # "AES256CounterInetRNG" (Install JCE Unlimited Strength Jurisdiction
+        # Policy Files first)
+        # Setting a value here may require you to supply the appropriate cipher
+        # suite (see enabled-algorithms section above)
+        random-number-generator = "AES128CounterSecureRNG"
+      }
 
-        # Absolute path to the TrustStore used by the client and server connection
-        trust-store = "truststore"
-        # This password is used for decrypting the trust store
-        trust-store-password = "changeme"
+      timeout {
+        upload.idle = "30 seconds"
+      }
+
+      directory {
+        work = "workdir"
+        recovery = "recovery"
+      }
+
+      metrics {
+        hostname = ${satellite.hostname}
+        port = 8080
+      }
+
+      maintenance {
+        check-for-running-tasks-delay = 10 seconds
       }
     }
 
-**Important:** The values for `protocol` and `enabled-algorithms` must match the values that XL Deploy uses in `XL_DEPLOY_SERVER_HOME/conf/system.conf` file.
+**Important:** The values for `protocol` and `enabled-algorithms` must match the values that XL Deploy uses in the  `XL_DEPLOY_SERVER_HOME/conf/system.conf` file.
+
+This is a sample `satellite` section of a corresponding `XL_DEPLOY_SERVER_HOME/conf/system.conf` file:
+
+    satellite {
+
+        enabled = true
+        port = 8180
+        # hostname = "token" #Host name or ip address to bind to
+
+        ssl {
+            enabled = yes
+            port = 8280
+
+            key-store = "/Users/sampleuser/xl-software/conf/xld.jks"
+            key-store-password = "xldstorepass"
+            key-password = "xldkeypass"
+
+            trust-store = "/Users/sampleuser/xl-software/conf/xld-truststore.jks"
+            trust-store-password = "st0r3p@ss"
+        }
+
+        timeout {
+            ping = "5 seconds"
+            upload.idle = "30 seconds"
+        }
+    }
 
 ## Enable logging
 
