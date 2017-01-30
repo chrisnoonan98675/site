@@ -17,22 +17,30 @@ XL Release stores its data in a repository. By default, the repository is stored
 
 **Note:** If you are installing XL Release for the first time and you are using XL Release 6.0.0 or later, it is recommended that you follow the approach described in [Configure active/hot-standby](/xl-release/how-to/configure-active-hot-standby.html#step-1-configure-external-databases) instead of the approach described here. You can choose to install a stand-alone external database; you are not required to use active/hot-standby clustering.
 
-The properties that you must configure depend on what you want to store in the database:
+To use a database, you must configure the built-in Jackrabbit JCR implementation, depending on what you want to store in the database:
 
 {:.table .table-striped}
 | Type of data to store in the database | Properties to configure |
 | ------------------------------------- | ----------------------- |
 | Only binary artifacts | `DataStore`|
 | Only CIs and CI history | `PersistenceManager` and `FileSystem` |
-| All data (binary artifacts and CIs and CI history) | `DataStore`, `PersistenceManager`, and `FileSystem` |
+| All data (binary artifacts and CIs and CI history) | `DataStore`, `PersistenceManager` and `FileSystem` |
 
-**Note:** XL Release must initialize the repository before it can be used. Run XL Release's setup wizard and initialize the repository after making any changes to the repository configuration.
-
-For more information about:
+For information about:
 
 * Using a database with Jackrabbit, see the [PersistenceManager FAQ](http://wiki.apache.org/jackrabbit/PersistenceManagerFAQ) and [DataStore FAQ](http://wiki.apache.org/jackrabbit/DataStore)
 * Backing up and restoring the database, refer to [Back up XL Release](/xl-release/how-to/back-up-xl-release.html)
 * XL Release's internal archive database, refer to [Configure the archive database](/xl-release/how-to/configure-the-archive-database.html)
+
+## Preparing the database and repository
+
+Before installing XL Release, create an empty database. XL Release will create the database schema during installation.
+
+The account that accesses the database must be able to create tables during the initial installation and, later, it must be able to write to and delete from tables.
+
+There are no requirements for the character set of the database.
+
+**Important:** XL Release must initialize the repository before it can be used. You must run [XL Release's setup wizard](/xl-release/how-to/install-xl-release.html#run-the-server-setup-wizard) and initialize the repository after making any changes to the repository configuration.
 
 ## External databases and failover
 
