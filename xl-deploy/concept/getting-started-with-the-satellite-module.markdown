@@ -39,6 +39,7 @@ To get started deploying applications using a satellite:
 1. [Configure XL Deploy](/xl-deploy/how-to/configure-xl-deploy-to-communicate-with-satellites.html) to communicate with satellites
 1. [Install and configure](/xl-deploy/how-to/install-and-configure-a-satellite-server.html) the software on the satellite server
 1. [Open the necessary ports](/xl-deploy/how-to/install-and-configure-a-satellite-server.html) on the satellite server
+1. [Configure secure communication between XL Deploy and satellites](/xl-deploy/how-to/configure-secure-communication-with-a-satellite.html)
 1. [Create a configuration item (CI)](/xl-deploy/how-to/add-a-satellite-server-to-xl-deploy.html) for the satellite in XL Deploy
 1. [Verify the connection](/xl-deploy/how-to/ping-a-satellite-from-xl-deploy.html) by pinging the satellite from XL Deploy
 1. [Synchronize plugins](/xl-deploy/how-to/synchronize-plugins-with-a-satellite-server.html) between XL Deploy and the satellite

@@ -46,7 +46,7 @@ Satellite servers communicate with XL Deploy through TCP connections. The satell
 
 ### Configure the command handling channel
 
-The `satellite.hostname` property in the `conf/satellite.conf` file defines the command handling channel. If it is blank, the satellite will bind to the first host name that is resolved.
+The `satellite.hostname` property in the `SATELLITE_HOME/conf/satellite.conf` file defines the command handling channel. If it is blank, the satellite will bind to the first host name that is resolved.
 
 You can override the property as follows:
 
@@ -62,7 +62,7 @@ You can then configure the port that is opened in the `satellite.port` property.
 
 In addition to command handling, a satellite needs a port to act as a streaming server for incoming files that are needed for a deployment. This port is automatically exchanged between XL Deploy and the satellite. You do not need to configure it manually. By default, port `8480` is opened on the satellite for file streaming.
 
-The port is defined by the `satellite.streaming.port` property in `conf/satellite.conf`:
+The port is defined by the `satellite.streaming.port` property in `SATELLITE_HOME/conf/satellite.conf`:
 
       satellite {
         streaming {
@@ -74,7 +74,7 @@ The port is defined by the `satellite.streaming.port` property in `conf/satellit
 
 You can configure a file upload idle timeout on a satellite server. The timeout corresponds to an idle TCP connection on the streaming server without an associated command. This will prevent unnecessary connections from being kept open on the satellite.
 
-To configure the file upload idle timeout on a satellite server, change `satellite.timeout.upload.idle` in `conf/satellite.conf`:
+To configure the file upload idle timeout on a satellite server, change `satellite.timeout.upload.idle` in `SATELLITE_HOME/conf/satellite.conf`:
 
     satellite {
       timeout {
@@ -86,7 +86,7 @@ You can specify the ping timeout in milliseconds, seconds, or minutes. For examp
 
 ### Configure the streaming chunk size
 
-To ensure efficient file transfer without saturating the network, files are uploaded by chunk. You can adjust the chunk size to adapt it to the topology of your infrastructure. Set the chunk size (in bytes) with `satellite.streaming.chunk-size` in `conf/satellite.conf`:
+To ensure efficient file transfer without saturating the network, files are uploaded by chunk. You can adjust the chunk size to adapt it to the topology of your infrastructure. Set the chunk size (in bytes) with `satellite.streaming.chunk-size` in `SATELLITE_HOME/conf/satellite.conf`:
 
     satellite {
       streaming {
@@ -98,7 +98,7 @@ To ensure efficient file transfer without saturating the network, files are uplo
 
 To ensure efficient file transfer without saturating the network, you might need to limit the bandwidth that the streaming connection between XL Deploy and a satellite uses. The limit is intended per connection.
 
-To enable this feature, change the following properties in `conf/satellite.conf`:
+To enable this feature, change the following properties in `SATELLITE_HOME/conf/satellite.conf`:
 
     satellite{
       streaming {
@@ -109,7 +109,7 @@ To enable this feature, change the following properties in `conf/satellite.conf`
 
 ### Configure file transfer location
 
-To change the directory where XL Deploy transfers files to the satellite server, change the `satellite.directory.work`property in `conf/satellite.conf`:
+To change the directory where XL Deploy transfers files to the satellite server, change the `satellite.directory.work`property in `SATELLITE_HOME/conf/satellite.conf`:
 
     satellite {
         directory {
@@ -121,13 +121,17 @@ Files are stored in this directory by task.
 
 ### Configure task recovery location
 
-To change the directory where XL Satellite stores task recovery files, change the `satellite.directory.recovery`property in `conf/satellite.conf`:
+To change the directory where XL Satellite stores task recovery files, change the `satellite.directory.recovery`property in `SATELLITE_HOME/conf/satellite.conf`:
 
     satellite {
         directory {
             recovery = "<your directory>"
         }
     }
+
+### Configure secure communication
+
+XL Deploy communicates with satellite servers over a secure communication channel using [TLS/SSL technology](http://en.wikipedia.org/wiki/Transport_Layer_Security) to encrypt data. For information about configuring SSL, refer to [Configure secure communication between XL Deploy and satellites](/xl-deploy/how-to/configure-secure-communication-with-a-satellite.html).
 
 ## Configure the satellite to use Kerberos
 
