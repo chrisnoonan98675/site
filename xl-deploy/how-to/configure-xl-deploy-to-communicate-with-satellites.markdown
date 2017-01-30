@@ -16,7 +16,7 @@ weight: 301
 
 ## Enable communicate with satellites
 
-In XL Deploy 5.0.1 and later, communication with satellites is disabled by default. To enable it, locate the `satellite` section in the `conf/system.conf` file and change `enabled` to  `yes` as follows:
+In XL Deploy 5.0.1 and later, communication with satellites is disabled by default. To enable it, locate the `satellite` section in the `XL_DEPLOY_SERVER_HOME/conf/system.conf` file and change `enabled` to  `yes` as follows:
 
 	satellite {
         enabled = yes
@@ -26,7 +26,7 @@ Restart XL Deploy and it will be ready to connect to satellites.
 
 ## Change default settings to communicate with satellites
 
-By default, `conf/system.conf` has the following settings:
+By default, `XL_DEPLOY_SERVER_HOME/conf/system.conf` has the following settings:
 
 	satellite {
 	    hostname = ""
@@ -39,7 +39,7 @@ By default, `conf/system.conf` has the following settings:
 
 ## Configure the ping timeout
 
-To configure the ping timeout while reaching a satellite, change the `satellite.timeout.ping` property in `conf/system.conf`:
+To configure the ping timeout while reaching a satellite, change the `satellite.timeout.ping` property in `XL_DEPLOY_SERVER_HOME/conf/system.conf`:
 
     satellite {
       timeout {
@@ -51,7 +51,7 @@ You can specify the ping timeout in milliseconds, seconds, or minutes. For examp
 
 ## Configure the upload idle timeout
 
-The upload idle timeout occurs when a satellite has accepted an incoming streaming connection but does not need to accept the uploaded file. This prevents unused TCP connections from remaining open. To configure the upload idle timeout, change the `satellite.timeout.upload.idle` property in `conf/system.conf`:
+The upload idle timeout occurs when a satellite has accepted an incoming streaming connection but does not need to accept the uploaded file. This prevents unused TCP connections from remaining open. To configure the upload idle timeout, change the `satellite.timeout.upload.idle` property in `XL_DEPLOY_SERVER_HOME/conf/system.conf`:
 
     satellite {
       timeout {
@@ -63,7 +63,7 @@ You can specify the ping timeout in milliseconds, seconds, or minutes. For examp
 
 ## Configure the file streaming timeout
 
-In XL Deploy 5.1.2 and later, you can configure the file streaming timeout. This timeout occurs when XL Deploy attempts to connect to satellites for file transfer. To configure this value, change the `satellite.timeout.streaming` property in `conf/system.conf`:
+In XL Deploy 5.1.2 and later, you can configure the file streaming timeout. This timeout occurs when XL Deploy attempts to connect to satellites for file transfer. To configure this value, change the `satellite.timeout.streaming` property in `XL_DEPLOY_SERVER_HOME/conf/system.conf`:
 
     satellite {
       timeout {
@@ -75,7 +75,7 @@ The default timeout is 10 seconds.
 
 ## Configure the maximum upload threads per task
 
-In XL Deploy 5.1.2 and later, you can configure the maximum threads per upload task. To configure this value, change the `satellite.streaming.max-uploads` property in `conf/system.conf`:
+In XL Deploy 5.1.2 and later, you can configure the maximum threads per upload task. To configure this value, change the `satellite.streaming.max-uploads` property in `XL_DEPLOY_SERVER_HOME/conf/system.conf`:
 
     satellite {
         streaming {
