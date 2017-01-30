@@ -192,6 +192,7 @@ Redirect 301 /xl-deploy/concept/xl-deploy-report-dashboard.html /xl-deploy/how-t
 Redirect 301 /xl-deploy/concept/xl-deploy-deployments-report.html /xl-deploy/how-to/using-xl-deploy-reports.html
 Redirect 301 /xl-deploy/concept/xl-deploy-deployed-applications-report.html /xl-deploy/how-to/using-xl-deploy-reports.html
 Redirect 301 /xl-deploy/concept/xl-deploy-key-deployment-indicators-report.html /xl-deploy/how-to/using-xl-deploy-reports.html
+Redirect 301 /xl-deploy/how-to/change-the-repository-database-settings.html /xl-deploy/how-to/configure-the-xl-deploy-repository.html
 
 # XL Release topics
 

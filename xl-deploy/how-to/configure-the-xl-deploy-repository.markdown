@@ -30,12 +30,14 @@ XL Deploy can also use a database to store its repository. To use a database, yo
 | Only CIs and CI history | `PersistenceManager` and `FileSystem` |
 | All data (binary artifacts and CIs and CI history) | `DataStore`, `PersistenceManager` and `FileSystem` |
 
-**Important:** XL Deploy must initialize the repository before it can be used. Run XL Deploy's setup wizard and initialize the repository after making any changes to the repository configuration.
+Note that:
 
-For more information about:
+* Before installing XL Deploy, create an empty database. XL Deploy will create the database schema during installation.
+* XL Deploy must initialize the repository before it can be used. You must run [XL Deploy's setup wizard](/xl-deploy/how-to/install-xl-deploy.html#run-the-server-setup-wizard) and initialize the repository after making any changes to the repository configuration.
+
+For information about:
 
 * Using a database with Jackrabbit, see the [PersistenceManager FAQ](http://wiki.apache.org/jackrabbit/PersistenceManagerFAQ) and [DataStore FAQ](http://wiki.apache.org/jackrabbit/DataStore)
-* Moving the database or changing its configuration, refer to [Change the repository database settings](/xl-deploy/how-to/change-the-repository-database-settings.html)
 * Backing up the database, refer to [Back up XL Deploy](/xl-deploy/how-to/back-up-xl-deploy.html)
 
 ### Using XL Deploy with MySQL
@@ -402,6 +404,14 @@ This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configur
 
 For more information about SQL Server configuration for Jackrabbit, refer to the [Jackrabbit wiki](http://wiki.apache.org/jackrabbit/DataStore#Database_Data_Store). For information about the `MSSqlPersistenceManager` class, refer to the [Jackrabbit documentation](http://jackrabbit.apache.org/api/2.2/org/apache/jackrabbit/core/persistence/db/MSSqlPersistenceManager.html).
 
-## Moving the database
+### Moving the database or changing settings
 
-For important information about moving a repository database or changing its configuration, refer to [Change the repository database settings](/xl-deploy/how-to/change-the-repository-database-settings.html).
+If you store the XL Deploy repository in a database, you may occasionally need to move the database or change settings such as the database username or password (for example, to test a new release against a non-production database).
+
+To do so, you must *manually* update the following files with the new settings:
+
+* `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml`
+* `XL_DEPLOY_REPOSITORY_HOME/workspaces/default/workspace.xml`
+* `XL_DEPLOY_REPOSITORY_HOME/workspaces/security/workspace.xml`
+
+**Important:** If there are additional `workspace.xml` files in the repository directory, you must also update the settings in those files.
