@@ -24,7 +24,7 @@ In XL Deploy 5.0.1 and later, communication with satellites is disabled by defau
 
 Restart XL Deploy and it will be ready to connect to satellites.
 
-## Change default settings to communicate with satellites
+## Configure hostname and port
 
 By default, `XL_DEPLOY_SERVER_HOME/conf/system.conf` has the following settings:
 
@@ -33,7 +33,9 @@ By default, `XL_DEPLOY_SERVER_HOME/conf/system.conf` has the following settings:
        port = 8180
     }
 
-`hostname` must be set to an IP address or a host name that XL Deploy can bind to. XL Deploy will send this value to the satellites. It must be visible from the network(s) where the satellites are located. Satellites will use this value to re-establish connection with XL Deploy if the initial connection breaks. If you do not provide a value, XL Deploy will resolve it from a network interface that is available, or to a loopback address if no interfaces are available.
+Set `hostname` to an IP address or a host name to which XL Deploy can bind. XL Deploy will send this value to the satellites. It must be visible from the network(s) where the satellites are located.
+
+Satellites will use this value to re-establish connection with XL Deploy if the initial connection breaks. If you do not provide a value, XL Deploy will resolve it from a network interface that is available, or to a loopback address if no interfaces are available.
 
 `port` is the port that XL Deploy binds to. It must also be accessible from the satellites. By default, it is set to `8180`.
 
@@ -82,3 +84,7 @@ In XL Deploy 5.1.2 and later, you can configure the maximum threads per upload t
             max-uploads = 5
         }
     }
+
+## Configure secure communication
+
+XL Deploy communicates with satellite servers over a secure communication channel using [TLS/SSL technology](http://en.wikipedia.org/wiki/Transport_Layer_Security) to encrypt data. For information about configuring SSL, refer to [Configure secure communication between XL Deploy and satellites](/xl-deploy/how-to/configure-secure-communication-with-a-satellite.html).

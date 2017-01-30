@@ -129,6 +129,10 @@ To change the directory where XL Satellite stores task recovery files, change th
         }
     }
 
+### Configure secure communication
+
+XL Deploy communicates with satellite servers over a secure communication channel using [TLS/SSL technology](http://en.wikipedia.org/wiki/Transport_Layer_Security) to encrypt data. For information about configuring SSL, refer to [Configure secure communication between XL Deploy and satellites](/xl-deploy/how-to/configure-secure-communication-with-a-satellite.html).
+
 ## Configure the satellite to use Kerberos
 
 If you are going to use Microsoft Windows domain accounts to access remote hosts with the WINRM_INTERNAL connection type, you must configure Kerberos on the satellite. For information about this, refer to [Set up Kerberos for WINRM_INTERNAL](/xl-deploy/how-to/set-up-kerberos-for-a-winrm-connection.html#configure-kerberos-for-the-xl-deploy-satellite-module).
