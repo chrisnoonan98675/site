@@ -42,4 +42,4 @@ For example, suppose you have a shared directory called `SharedDir`, which conta
 
 If `/SharedDir/MyDir/` exists *and* XL Deploy will deploy a folder named `MyDir`, then XL Deploy will not delete `/SharedDir/MyDir/` during the initial deployment (though files with the same name will be overwritten). However, XL Deploy would delete `/SharedDir/MyDir/` during an update or undeployment.
 
-You can also customize the copy commands that the [Remoting plugin](/xl-deploy/concept/remoting-plugin.html) uses for files and directories; refer to the [Overthere connection options](https://github.com/xebialabs/overthere#common-connection-options) for more information.
+You can also customize the copy commands that the [Remoting plugin](/xl-platform/concept/remoting-plugin.html) uses for files and directories; refer to the [Overthere connection options](https://github.com/xebialabs/overthere#common-connection-options) for more information.

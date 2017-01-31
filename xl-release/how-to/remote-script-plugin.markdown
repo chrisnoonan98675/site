@@ -50,7 +50,7 @@ The following properties are common to all Remote Script task types.
 <tbody>
 <tr>
 <td>Jumpstation</td>
-<td>The <a href="/xl-release/how-to/configure-a-jumpstation.html">SHH jumpstation or HTTP proxy</a> to use</td>
+<td>The <a href="/xl-platform/how-to/set-up-ssh.html#connect-xl-release-through-a-jumpstation-or-http-proxy">SHH jumpstation or HTTP proxy</a> to use</td>
 </tr>
 <tr>
 <td>Address and Port</td>

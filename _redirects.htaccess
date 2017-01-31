@@ -193,6 +193,21 @@ Redirect 301 /xl-deploy/concept/xl-deploy-deployments-report.html /xl-deploy/how
 Redirect 301 /xl-deploy/concept/xl-deploy-deployed-applications-report.html /xl-deploy/how-to/using-xl-deploy-reports.html
 Redirect 301 /xl-deploy/concept/xl-deploy-key-deployment-indicators-report.html /xl-deploy/how-to/using-xl-deploy-reports.html
 Redirect 301 /xl-deploy/how-to/change-the-repository-database-settings.html /xl-deploy/how-to/configure-the-xl-deploy-repository.html
+Redirect 301 /xl-deploy/concept/remoting-plugin.html /xl-platform/concept/remoting-plugin.html
+Redirect 301 /xl-deploy/how-to/choose-an-overthere-host-type-and-connection-type.html /xl-platform/how-to/choose-a-host-type-and-connection-type.html
+Redirect 301 /xl-deploy/concept/cifs-winrm-and-telnet-in-the-remoting-plugin.html /xl-platform/how-to/using-cifs-smb-winrm-and-telnet.html
+Redirect 301 /xl-deploy/how-to/set-up-ssh-in-xl-deploy-and-on-a-target-host.html /xl-platform/how-to/set-up-ssh.html
+Redirect 301 /xl-deploy/how-to/useful-winrm-commands.html /xl-platform/how-to/using-cifs-smb-winrm-and-telnet.html
+Redirect 301 /xl-deploy/how-to/set-up-smb-in-xl-deploy-and-on-a-target-host.html /xl-platform/how-to/using-cifs-smb-winrm-and-telnet.html
+Redirect 301 /xl-deploy/how-to/set-up-telnet-in-xl-deploy-and-on-a-target-host.html /xl-platform/how-to/using-cifs-smb-winrm-and-telnet.html
+Redirect 301 /xl-deploy/how-to/set-up-winrm-in-xl-deploy-and-on-a-target-host.html /xl-platform/how-to/using-cifs-smb-winrm-and-telnet.html
+Redirect 301 /xl-deploy/how-to/set-up-kerberos-for-a-winrm-connection.html /xl-platform/how-to/using-cifs-smb-winrm-and-telnet.html
+Redirect 301 /xl-deploy/how-to/set-up-credssp-for-a-winrm-connection.html /xl-platform/how-to/using-cifs-smb-winrm-and-telnet.html
+Redirect 301 /xl-deploy/how-to/troubleshoot-an-ssh-connection.html /xl-platform/how-to/troubleshoot-an-ssh-connection.html
+Redirect 301 /xl-deploy/how-to/troubleshoot-a-cifs-connection.html /xl-platform/how-to/troubleshoot-a-cifs-connection.html
+Redirect 301 /xl-deploy/how-to/troubleshoot-a-winrm-connection.html /xl-platform/how-to/troubleshoot-a-winrm-connection.html
+Redirect 301 /xl-deploy/how-to/troubleshoot-a-telnet-connection.html /xl-platform/how-to/troubleshoot-a-telnet-connection.html
+Redirect 301 /xl-deploy/how-to/expose-additional-overthere-properties.html /xl-platform/concept/remoting-plugin.html
 
 # XL Release topics
 
@@ -242,6 +257,7 @@ Redirect 301 /xl-release/how-to/change-the-admin-password.html /xl-release/how-t
 Redirect 301 /xl-release/how-to/reset-admin-password-xl-release-server.html /xl-release/how-to/changing-passwords-in-xl-release.html
 Redirect 301 /xl-release/how-to/configure-an-external-database.html /xl-release/how-to/configure-active-hot-standby.html
 Redirect 301 /xl-release/how-to/create-a-script-task.html /xl-release/how-to/create-a-jython-script-task.html
+Redirect 301 /xl-release/how-to/configure-a-jumpstation.html /xl-platform/how-to/set-up-ssh.html
 
 # XL TestView topics
 

@@ -39,7 +39,7 @@ To create an environment:
 8. Enter a unique name for the connection in the **Container name** box.
 9. From the **Container type** list, select the type of connection that XL Deploy should use. If the host is the same computer on which XL Deploy is running, choose **overthere.LocalHost**. Otherwise, choose **overthere.CifsHost**.
 
-    For detailed information about the information that is required for each connection type, refer to [Choose an Overthere host type and connection type](/xl-deploy/how-to/choose-an-overthere-host-type-and-connection-type.html).
+    For detailed information about the information that is required for each connection type, refer to [Choose an Overthere host type and connection type](/xl-platform/how-to/choose-a-host-type-and-connection-type.html).
 
 10. Click **Create** to create the connection.
 11. To add your IIS server, click **Create new** next to **iis.Server**. A new window appears.

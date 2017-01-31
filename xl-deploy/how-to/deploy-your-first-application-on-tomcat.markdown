@@ -46,7 +46,7 @@ To create an environment:
     * Running a Unix-based operating system, choose **overthere.SshHost**
     * Running Microsoft Windows, choose **overthere.CifsHost**
 
-    For detailed information about the information that is required for each connection type, refer to [Choose an Overthere host type and connection type](/xl-deploy/how-to/choose-an-overthere-host-type-and-connection-type.html).
+    For detailed information about the information that is required for each connection type, refer to [Choose an Overthere host type and connection type](/xl-platform/how-to/choose-a-host-type-and-connection-type.html).
 
 10. Click **Create** to create the connection.
 11. To add your Tomcat server, click **Create new** next to **tomcat.Server**. A new window appears.

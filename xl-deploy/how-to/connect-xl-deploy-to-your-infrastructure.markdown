@@ -26,7 +26,7 @@ Follow the instructions for the host's operating system and the connection proto
 * [Unix and SSH](#connect-to-a-unix-host-using-ssh)
 * [Windows and WinRM](#connect-to-a-windows-host-using-winrm)
 
-If you would like to use SSH on Windows through WinSSHD or OpenSSH, refer to [Set up SSH in XL Deploy and on a target host](/xl-deploy/how-to/set-up-ssh-in-xl-deploy-and-on-a-target-host.html).
+If you would like to use SSH on Windows through WinSSHD or OpenSSH, refer to [Set up SSH](/xl-platform/how-to/set-up-ssh.html).
 
 **Tip:** To see a host setup and connection check in action, watch the *[Defining infrastructure](https://www.youtube.com/watch?v=ZzYDzql1Iek&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=2)* video.
 
@@ -41,7 +41,7 @@ To connect to a Unix host using SSH:
 4. Select the **Connection Type**:
     * Select **SCP** if the user that will connect to the host has privileges to manipulate files and execute commands.
     * Select **SU** if the user that will connect to the host can use `su` to log in as one user and execute commands as a different user.
-    * Select **SUDO** or **INTERACTIVE_SUDO** if the user that will connect to the host can use `sudo` to execute commands as a different user. Refer to [Set up SSH in XL Deploy and on a target host](/xl-deploy/how-to/set-up-ssh-in-xl-deploy-and-on-a-target-host.html#sudo-and-interactivesudo-connection-types) if you don't know which connection type to choose.
+    * Select **SUDO** or **INTERACTIVE_SUDO** if the user that will connect to the host can use `sudo` to execute commands as a different user. Refer to [Set up SSH](/xl-platform/how-to/set-up-ssh.html) if you don't know which connection type to choose.
 5. In the **Address** box, enter the IP address of the host.
 6. In the **Port** box, enter the port on which XL Deploy should connect to the host (default is 22).
 7. In the **Username** box, enter the user name that XL Deploy should use when connecting to the host.
@@ -54,7 +54,7 @@ To connect to a Unix host using SSH:
 
 ## Connect to a Windows host using WinRM
 
-To check if WinRM is installed on the host, follow <a href="http://technet.microsoft.com/en-us/library/ff520073(WS.10).aspx" target="_blank">the appropriate instructions</a> for the host's version of Windows. If it is not installed, follow [these instructions](/xl-deploy/how-to/set-up-winrm-in-xl-deploy-and-on-a-target-host.html) to install it, then follow the steps below to connect XL Deploy to the host.
+To check if WinRM is installed on the host, follow <a href="http://technet.microsoft.com/en-us/library/ff520073(WS.10).aspx" target="_blank">the appropriate instructions</a> for the host's version of Windows. If it is not installed, follow [these instructions](/xl-platform/how-to/using-cifs-smb-winrm-and-telnet.html) to install it, then follow the steps below to connect XL Deploy to the host.
 
 To connect to a Windows host using WinRM:
 
@@ -79,7 +79,7 @@ To connect to a Windows host using WinRM:
 7. In the **Username** box, enter the user name that XL Deploy should use when connecting to the host.
 8. In the **Password** box, enter the user's password.
 
-      **Tip:** For information about the permissions that the user must have, see the documentation on [WinRM connections](/xl-deploy/how-to/set-up-winrm-in-xl-deploy-and-on-a-target-host.html).
+      **Tip:** For information about the permissions that the user must have, see the documentation on [WinRM connections](/xl-platform/how-to/using-cifs-smb-winrm-and-telnet.html).
 
       ![Sample Windows host with WinRM](images/xl-deploy-trial/xl_deploy_trial_windows_host_winrm.png)
 
@@ -96,4 +96,4 @@ If the connection check succeeds, the state of the steps will be **DONE**.
 
 ![Sample successful connection check](images/xl-deploy-trial/xl_deploy_trial_successful_connection_check_glassfish.png)
 
-If the connection check fails, refer to tips for troubleshooting [SSH](/xl-deploy/how-to/troubleshoot-an-ssh-connection.html) and [WinRM](troubleshoot-a-winrm-connection.html) connections.
+If the connection check fails, refer to tips for troubleshooting [SSH](/xl-platform/how-to/troubleshoot-an-ssh-connection.html) and [WinRM](troubleshoot-a-winrm-connection.html) connections.

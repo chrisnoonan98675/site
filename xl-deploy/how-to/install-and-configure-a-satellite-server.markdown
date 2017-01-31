@@ -135,7 +135,7 @@ XL Deploy communicates with satellite servers over a secure communication channe
 
 ## Configure the satellite to use Kerberos
 
-If you are going to use Microsoft Windows domain accounts to access remote hosts with the WINRM_INTERNAL connection type, you must configure Kerberos on the satellite. For information about this, refer to [Set up Kerberos for WINRM_INTERNAL](/xl-deploy/how-to/set-up-kerberos-for-a-winrm-connection.html#configure-kerberos-for-the-xl-deploy-satellite-module).
+If you are going to use Microsoft Windows domain accounts to access remote hosts with the WINRM_INTERNAL connection type, you must configure Kerberos on the satellite. For information about this, refer to [Set up Kerberos for WinRM](/xl-platform/how-to/using-cifs-smb-winrm-and-telnet.html#set-up-kerberos-for-xl-deploy-satellite).
 
 ## Start the satellite
 
