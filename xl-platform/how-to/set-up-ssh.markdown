@@ -3,6 +3,7 @@ title: Using SSH
 subject:
 - Remoting
 categories:
+- xl-platform
 - xl-deploy
 - xl-release
 tags:

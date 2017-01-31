@@ -1,8 +1,9 @@
 ---
 title: Troubleshoot the Jackrabbit JCR repository
 categories:
-- xl-release
+- xl-platform
 - xl-deploy
+- xl-release
 subject:
 - System administration
 tags:

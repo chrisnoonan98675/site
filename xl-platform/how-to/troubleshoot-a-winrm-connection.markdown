@@ -1,6 +1,7 @@
 ---
 title: Troubleshoot a WinRM connection
 categories:
+- xl-platform
 - xl-deploy
 - xl-release
 subject:

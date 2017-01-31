@@ -3,6 +3,7 @@ title: Using CIFS, SMB, WinRM, and Telnet
 subject:
 - Remoting
 categories:
+- xl-platform
 - xl-deploy
 - xl-release
 tags:

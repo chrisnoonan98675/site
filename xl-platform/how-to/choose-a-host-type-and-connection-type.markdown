@@ -3,6 +3,7 @@ title: Choose a host type and connection type
 subject:
 - Remoting
 categories:
+- xl-platform
 - xl-deploy
 - xl-release
 tags:

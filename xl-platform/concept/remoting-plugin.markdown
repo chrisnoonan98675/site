@@ -3,6 +3,7 @@ title: Introduction to the Remoting plugin
 subject:
 - Remoting
 categories:
+- xl-platform
 - xl-deploy
 - xl-release
 tags:

@@ -1,6 +1,7 @@
 ---
 title: Defining a synthetic enum property
 categories:
+- xl-platform
 - xl-deploy
 - xl-release
 - xl-testview
@@ -9,7 +10,7 @@ subject:
 tags:
 - synthetic
 - enum
-- typesystem
+- type system
 since:
 - XL Deploy 5.2.0
 - XL Release 4.8.0

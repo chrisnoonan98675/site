@@ -1,6 +1,7 @@
 ---
 title: Troubleshoot an SSH connection
 categories:
+- xl-platform
 - xl-deploy
 - xl-release
 subject:

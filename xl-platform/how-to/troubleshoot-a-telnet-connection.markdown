@@ -1,6 +1,7 @@
 ---
 title: Troubleshoot a Telnet connection
 categories:
+- xl-platform
 - xl-deploy
 - xl-release
 subject:

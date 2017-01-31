@@ -1,6 +1,7 @@
 ---
 title: Troubleshoot a CIFS connection
 categories:
+- xl-platform
 - xl-deploy
 - xl-release
 subject:
