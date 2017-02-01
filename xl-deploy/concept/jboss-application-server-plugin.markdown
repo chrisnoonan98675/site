@@ -11,7 +11,7 @@ tags:
 
 The XL Deploy JBoss Application Server (AS) plugin adds the capability to manage deployments and resources on a JBoss Application Server. It works out of the box for deploying and undeploying application artifacts, datasources, and other JMS resources. You can extend the plugin to support more deployment options or management of new artifacts and resources on JBoss Application Server.
 
-For information about the configuration items (CIs) that the JBoss Application Server plugin provides, refer to the [JBoss Application Server Plugin Reference](/xl-deploy/latest/jbossPluginManual.html).
+For information about the configuration items (CIs) that the JBoss Application Server plugin provides, refer to the [JBoss Application Server Plugin Reference](/xl-deploy-jbossas-plugin/latest/jbossPluginManual.html).
 
 ## Features
 

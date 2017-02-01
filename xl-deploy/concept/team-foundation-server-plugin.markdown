@@ -15,7 +15,7 @@ To support the use of XL Deploy from a TFS installation, this plugin provides cu
 
 The build template extends the default build template with an XL Deploy-specific part that packages your software into an XL Deploy DAR archive, uploads it to a specified XL Deploy server, and lets XL Deploy deploy the software to a specified environment. This is achieved using custom activities that you can reuse in your own variants of the build template.
 
-For version-specific information about the TFS plugin, refer to the [Team Foundation Server Plugin Reference](/xl-deploy/latest/tfs-plugin/index.html).
+For version-specific information about the TFS plugin, refer to the [Team Foundation Server Plugin Reference](/xl-deploy-tfs-plugin/latest/tfsPluginManual.html).
 
 ## Features
 

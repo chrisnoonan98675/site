@@ -11,7 +11,7 @@ tags:
 
 The XL Deploy IBM WebSphere MQ (WMQ) plugin allows you to manage resources on a WebSphere MQ environment. The plugin can deploy and undeploy local queues and alias queues on a queue manager, and can be extended to support management of other resources in a WebSphere MQ environment.
 
-For information about the configuration items (CIs) that the plugin provides, refer to the [IBM WebSphere MQ Plugin Reference](/xl-deploy/latest/wmqPluginManual.html).
+For information about the configuration items (CIs) that the plugin provides, refer to the [IBM WebSphere MQ Plugin Reference](/xl-deploy-wmq-plugin/latest/wmqPluginManual.html).
 
 ## Features
 

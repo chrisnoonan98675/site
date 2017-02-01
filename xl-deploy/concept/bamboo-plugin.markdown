@@ -16,7 +16,7 @@ The XL Deploy plugin for [Atlassian Bamboo](https://www.atlassian.com/software/b
 
 These tasks can be executed separately or combined sequentially.
 
-For information about Bamboo requirements and the configuration items (CIs) that the plugin supports, refer to the [Bamboo Plugin Reference](/xl-deploy/latest/bamboo-plugin/index.html). 
+For information about Bamboo requirements and the configuration items (CIs) that the plugin supports, refer to the [Bamboo Plugin Reference](/bamboo-xl-deploy-plugin/latest/bambooPluginManual.html). 
 
 To download the plugin, visit the [Atlassian Marketplace](https://marketplace.atlassian.com/plugins/com.xebialabs.deployit.plugin.bamboo-deployit-plugin/server/overview).
 

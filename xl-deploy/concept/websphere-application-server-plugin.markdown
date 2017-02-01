@@ -13,7 +13,7 @@ The IBM WebSphere Application Server (WAS) plugin adds capability for managing d
 
 The plugin can be extended to support more deployment options or management of new artifacts and resources on WAS.
 
-For information about the configuration items (CIs) that the WAS plugin provides, refer to the [WebSphere Application Server Plugin Reference](/xl-deploy/latest/wasPluginManual.html).
+For information about the configuration items (CIs) that the WAS plugin provides, refer to the [WebSphere Application Server Plugin Reference](/xl-deploy-was-plugin/latest/wasPluginManual.html).
 
 ## Features
 

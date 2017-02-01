@@ -12,7 +12,7 @@ tags:
 
 The XL Deploy Oracle Service Bus (OSB) plugin supports importing and deleting OSB projects.
 
-For information about the configuration items (CIs) that the OSB plugin provides, refer to the [OSB Plugin Reference](/xl-deploy/latest/osbPluginManual.html).
+For information about the configuration items (CIs) that the OSB plugin provides, refer to the [OSB Plugin Reference](/xl-deploy-osb-plugin/latest/osbPluginManual.html).
 
 The `osb.Configuration` CI is a folder that contains:
 

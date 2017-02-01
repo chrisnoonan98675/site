@@ -13,7 +13,7 @@ since:
 
 The Puppet plugin is an XL Deploy plugin that uses the Puppet provisioning tool to install modules and manifests on hosts.
 
-For information about Puppet requirements and the configuration items (CIs) that the plugin supports, refer to the [Puppet Plugin Reference](/xl-deploy/latest/xld-puppet-plugin/index.html).
+For information about Puppet requirements and the configuration items (CIs) that the plugin supports, refer to the [Puppet Plugin Reference](/xl-deploy-xld-puppet-plugin/latest/puppetPluginManual.html).
 
 **Important:** In XL Deploy 6.0.2 and later, the Puppet plugin includes the functionality that was previously implemented by the [XL Deploy Provision Puppet plugin](/xl-deploy/concept/xl-deploy-provision-puppet-plugin.html).
 

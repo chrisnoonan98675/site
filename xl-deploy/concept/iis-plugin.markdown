@@ -12,7 +12,7 @@ tags:
 
 The XL Deploy Microsoft Internet Information Services (IIS) plugin adds the capability to perform IIS deployments and configuration tasks.
 
-For IIS requirements and configuration items (CIs) that the plugin supports, refer to the [IIS Plugin Reference](/xl-deploy/latest/iisPluginManual.html).
+For IIS requirements and configuration items (CIs) that the plugin supports, refer to the [IIS Plugin Reference](/xl-deploy-iis-plugin/latest/iisPluginManual.html).
 
 ## Features
 

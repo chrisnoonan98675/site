@@ -11,7 +11,7 @@ tags:
 
 The XL Deploy Apache Tomcat plugin allows you to manage deployments on a Tomcat server. Standard support includes deploying and undeploying web applications, datasources, mail sessions, resource links, ActiveMQ, and WebSphere MQ resources. The plugin can easily be extended to support more deployment options or management of new artifacts and resources on Tomcat.
 
-For information about Tomcat requirements and the configuration items (CIs) it supports, refer to the [Tomcat Plugin Manual](/xl-deploy/latest/tomcatPluginManual.html).
+For information about Tomcat requirements and the configuration items (CIs) it supports, refer to the [Tomcat Plugin Manual](/xl-deploy-tomcat-plugin/latest/tomcatPluginManual.html).
 
 ## Features
 

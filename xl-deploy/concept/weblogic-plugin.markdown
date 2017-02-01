@@ -12,7 +12,7 @@ tags:
 
 The XL Deploy Oracle WebLogic server (WLS) plugin allows you to manage deployments and resources on a WebLogic server. It can deploy and undeploy application artifacts, as well as datasources and other JMS resources. You can easily [extend](/xl-deploy/how-to/extend-the-xl-deploy-weblogic-plugin.html) the plugin to support more deployment options or management of new artifacts or resources on WebLogic.
 
-For information about WebLogic requirements and the configuration items (CIs) that the plugin supports, refer to the [WebLogic Plugin Reference](/xl-deploy/latest/wlsPluginManual.html).
+For information about WebLogic requirements and the configuration items (CIs) that the plugin supports, refer to the [WebLogic Plugin Reference](/xl-deploy-wls-plugin/latest/wlsPluginManual.html).
 
 ## Features
 

@@ -13,7 +13,7 @@ The XL Deploy GlassFish plugin adds the capability to manage deployments and res
 
 The plugin has the capability of managing application artifacts, datasource and JMS resources via the GlassFish CLI, and can easily be extended to support more deployment options or management of new artifacts/resources on GlassFish.
 
-For information about the configuration items (CIs) that the GlassFish plugin provides, refer to the [GlassFish Plugin Reference](/xl-deploy/latest/glassfishPluginManual.html).
+For information about the configuration items (CIs) that the GlassFish plugin provides, refer to the [GlassFish Plugin Reference](/xl-deploy-glassfish-plugin/latest/glassfishPluginManual.html).
 
 ## Features
 

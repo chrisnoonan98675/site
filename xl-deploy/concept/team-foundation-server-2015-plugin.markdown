@@ -20,7 +20,7 @@ The build template extends a default build template with an XL Deploy-specific p
 
 Also refer to:
 
-* [Team Foundation Server 2015 Plugin Reference](/xl-deploy-vsts-xld-plugin/5.1.x/tfs2015PluginManual.html)
+* [Team Foundation Server 2015 Plugin Reference](/xl-deploy-vsts-xld-plugin/latest/tfs2015PluginManual.html)
 * [The XL Deploy plugin on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=xebialabs.tfs2015-xl-deploy-plugin)
 * [Introduction to the Team Foundation Server plugin](/xl-deploy/concept/team-foundation-server-plugin.html) for the XL Deploy plugin for TFS 2010, TFS 2012, and TFS 2013
 

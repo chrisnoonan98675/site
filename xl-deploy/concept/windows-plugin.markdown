@@ -12,7 +12,7 @@ weight: 364
 
 The XL Deploy Windows plugin enables XL Deploy to perform common Microsoft Windows configuration and deployment tasks.
 
-For information about the configuration items (CIs) that the Windows plugin provides, refer to the [Windows Plugin Reference](/xl-deploy/latest/windowsPluginManual.html).
+For information about the configuration items (CIs) that the Windows plugin provides, refer to the [Windows Plugin Reference](/xl-deploy-windows-plugin/latest/windowsPluginManual.html).
 
 ## Features
 

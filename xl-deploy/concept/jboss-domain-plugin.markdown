@@ -18,7 +18,7 @@ The JBoss Domain (jbossdm) plugin for XL Deploy allows you to manage deployments
 
 The plugin can manage application artifacts, datasources, and other JMS resources using the JBoss command-line interface (CLI). You can extend the plugin to support more deployment options or manage new artifacts and resources on JBoss/WildFly.
 
-For information about JBoss/WildFly requirements and the configuration items (CIs) that the plugin supports, refer to the [JBoss Application Server 7+ Plugin Reference](/xl-deploy/latest/jbossDomainPluginManual.html).
+For information about JBoss/WildFly requirements and the configuration items (CIs) that the plugin supports, refer to the [JBoss Application Server 7+ Plugin Reference](/xl-deploy-jbossdm-plugin/latest/jbossDomainPluginManual.html).
 
 **Tip:** If you're using JBoss Application Server (AS) 4.x, 5.x, or 6.x, refer to the [JBoss Application Server plugin](/xl-deploy/concept/jboss-application-server-plugin.html).
 

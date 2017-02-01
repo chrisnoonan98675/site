@@ -93,7 +93,7 @@
 # XL Deploy provisioning
 
 /xl-deploy-xld-provision/latest/xldProvisioningManual.html : /xl-deploy-xld-provision/5.5.x/xldProvisioningManual.html
-/xl-deploy-xld-aws-ec2-plugin/latest/ec2PluginManual.html : /xl-deploy-xld-aws-ec2-plugin/5.5.x/ec2PluginManual.html
+/xl-deploy-xld-aws-ec2-plugin/latest/ec2PluginManual.html : /xl-deploy-xld-aws-ec2-plugin/6.0.x/ec2PluginManual.html
 /xl-deploy-xld-provision-puppet-plugin/latest/provisionPuppetPluginManual.html : /xl-deploy-xld-provision-puppet-plugin/5.5.x/provisionPuppetPluginManual.html
 
 # XL Scale docs
