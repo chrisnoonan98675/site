@@ -9,3 +9,7 @@
 		{% endif %}
 	{% endfor %}
 </ul>
+
+{% unless page.path contains 'xl-testview' %}
+	<p>You can find documentation for versions that are no longer supported in the <a href="/archive/">Archive</a>.</p>
+{% endunless %}
