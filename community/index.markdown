@@ -59,13 +59,6 @@ For information about the plugins that are supported by the XebiaLabs customer s
 | [XL Release XL Deploy plugin](https://github.com/xebialabs-community/xlr-xldeploy-plugin) | Start a control task, start a deployment, migrate a deployment package to a different server, or get the latest version of an application from XL Deploy |
 | [XL Release XL TestView plugin](https://github.com/xebialabs-community/xlr-xltestview-plugin) | Execute a test specification or check a qualification in XL TestView |
 
-## Community plugins for XL TestView
-
-{:.table}
-| Plugin | Features |
-| ------ | -------- |
-| [XL TestView HP Unified Functional Testing (UFT) plugin](https://github.com/xebialabs-community/xltv-hpuft-plugin) | Parse test results from [HP Unified Functional Testing (UFT)](http://www8.hp.com/us/en/software-solutions/unified-functional-automated-testing/) |
-
 ## Community tools for XebiaLabs products
 
 {:.table}

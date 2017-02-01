@@ -16,12 +16,3 @@
       url: /xl-release/how-to/create-a-release-template.html
     - title: Restart a phase in an active release
       url: /xl-release/how-to/restart-a-phase-in-an-active-release.html
-- product: xl-test
-  product-id: xl-test
-  articles:
-    - title: Install XL Test
-      url: /xl-test/how-to/install-xl-test.html
-    - title: Getting started with XL Test
-      url: /xl-test/how-to/getting-started-with-xl-test.html
-    - title: Key XL Test concepts
-      url: /xl-test/concept/key-xl-test-concepts.html
