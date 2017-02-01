@@ -85,6 +85,9 @@ img {
 .img-dark-border {
   box-shadow: 0px 0px 1px 0px #333;
 }
+td > img {
+    box-shadow: none;
+}
 .mini-logo-img {
 	width: 100px;
 	box-shadow: none;
