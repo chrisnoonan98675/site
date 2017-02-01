@@ -34,7 +34,7 @@ For more information about using the plugin, refer to:
 * Execute on Microsoft Windows or Unix slave nodes
 * Create a "pipeline as code" in a Jenkinsfile (supported in version 6.1.0 and later)
 
-## Configuration
+## Configuration in Jenkins
 
 There are two places to configure the XL Deploy plugin for Jenkins:
 
@@ -61,9 +61,9 @@ In version 6.1.0 and later, you can use the [Jenkins Pipeline](https://jenkins.i
 
 ### Create a Jenkinsfile
 
-For information about creating a Jenkinsfile, refer to the [Jenkins Pipeline documentation](https://jenkins.io/doc/book/pipeline/jenkinsfile/#creating-a-jenkinsfile). To see information about the items that you can use in the Jenkinsfile, create a job and click **Check Pipeline Syntax**.
+To start using Jenkinsfile, create a pipeline job and add the Jenkinsfile content to the **Pipeline** section of the job configuration.
 
-After you create the Jenkinsfile, add it to the pipeline script in Jenkins and ensure that the [Jenkins XL Deploy plugin](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin) is installed.
+For information about the Jenkinsfile syntax, refer to the [Jenkins Pipeline documentation](https://jenkins.io/doc/book/pipeline/jenkinsfile/#creating-a-jenkinsfile). For information about the items you can use in the Jenkinsfile, click **Check Pipeline Syntax** on the job.
 
 ### Jenkinsfile example
 
