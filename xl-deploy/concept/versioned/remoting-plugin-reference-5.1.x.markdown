@@ -4,7 +4,6 @@ destination: https://docs.xebialabs.com/xl-deploy/5.1.x/remotingPluginManual.htm
 title: Remoting Plugin Reference 5.1.x
 categories:
 - xl-deploy
-- xl-release
 subject:
 - Remoting
 tags:
