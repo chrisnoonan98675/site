@@ -128,11 +128,17 @@ For the environment, you must have one or more of the following permissions:
 
 ## Dependencies and composite packages
 
-Composite packages cannot declare dependencies on other applications. However, a deployment package can declare a dependency on a composite package. In this case, the actual composite package must to be installed, not just its constituents.
+Composite packages cannot declare dependencies on other applications. However, a deployment package can declare a dependency on a composite package. In this case, the actual composite package must be installed, not just its constituents.
 
-For example, you want to deploy a deployment package that declares a dependency on composite package AppC version `[1.0.0,1.0.0]`. AppC version 1.0.0 consists of deployment packages AppD version 3.1.0 and AppE version 5.2.2. If AppD 3.1.0 and AppE 5.2.2 are deployed on the environment but AppC 1.0.0 is not, then you will not be able to deploy the package.
+For example, you want to deploy a deployment package that declares a dependency on composite package AppC version [1.0.0,1.0.0]. AppC version 1.0.0 consists of deployment packages AppD version 3.1.0 and AppE version 5.2.2. If AppD 3.1.0 and AppE 5.2.2 are deployed on the environment but AppC 1.0.0 is not, then you will not be able to deploy the package.
 
 When you deploy a composite package, the dependency check is skipped. This means that if its constituents declare any dependencies, these will not be checked. That is, in the above situation, if AppD version 3.1.0 declares any dependencies, the composite package can still be deployed to an empty environment.
+
+### Migrating from composite packages to dependencies
+
+When you deploy an application with dependencies, you have better visibility into what you are deploying than if you use composite packages to group applications. When dependencies are used, the Deployment Workspace, the deployment plan, and the [deployment report](/xl-deploy/how-to/using-xl-deploy-reports.html) show the versions of all applications that were deployed, updated, or undeployed.
+
+A simple way to migrate from composite packages to application dependencies is to create a normal deployment package without any deployables, and configure its dependencies to point to the other packages that you would have added to the composite package. When you deploy the empty package, XL Deploy will automatically pick up the required versions of the other applications.
 
 ## Undeploying application with dependencies
 
