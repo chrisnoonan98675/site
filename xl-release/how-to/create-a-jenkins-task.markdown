@@ -93,6 +93,12 @@ The following Jenkinsfile can be used to build a pipeline and deploy a simple we
 
 ## Release notes
 
+### Version 6.1.1
+
+#### Improvements
+
+* REL-4105 Rename the version parameter on the xldCreateRelease step to releaseTitle
+
 ### Version 6.1.0
 
 #### Improvements
