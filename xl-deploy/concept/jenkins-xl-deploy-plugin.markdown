@@ -45,7 +45,7 @@ There are two places to configure the XL Deploy plugin for Jenkins:
 
 ### Generate an application version automatically
 
-If you practice continuous delivery, you may want to increase the version automatically after each build. To do so, you can use a Jenkins environment variable in the **Version** field; for example, `{{$BUILD_NUMBER}}`. To see the complete list of available variables, refer to [Building a software project](https://wiki.jenkins-ci.org/display/JENKINS/Building+a+software+project).
+If you practice continuous delivery, you may want to increase the version automatically after each build. To do so, you can use a Jenkins environment variable in the **Version** field; for example, `{% raw %}{{$BUILD_NUMBER}}{% endraw %}`. To see the complete list of available variables, refer to [Building a software project](https://wiki.jenkins-ci.org/display/JENKINS/Building+a+software+project).
 
 ### Optimize the plugin for parallel running deployment jobs
 
