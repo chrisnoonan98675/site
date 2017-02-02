@@ -102,6 +102,9 @@ code {
   color: #54636f;
   background-color: #f6f6f6;
 }
+h4 > code {
+    background-color: transparent;
+}
 pre {
   color: #54636f;
   font-size: 12.6px;
