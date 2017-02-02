@@ -86,16 +86,20 @@ When the INTERACTIVE_SUDO connection type is used, every line of the output will
 
 ## Connect XL Deploy through an SSH jumpstation or HTTP proxy
 
-When XL Deploy cannot reach a remote host directly, but that host can be reached by setting up one or more SSH tunnels, configure one or more SSH jumpstations (`overthere.SshJumpstation` CI type) as follows:
+When XL Deploy cannot reach a remote host directly, but that host can be reached by setting up one or more SSH tunnels, configure one or more SSH jumpstations or HTTP proxies as follows:
 
-1. Create an `overthere.SshJumpStation` CI that represents a host to which XL Deploy can connect directly.
-1. For each remote host that cannot be reached directly by XL Deploy, create an `overthere.Host` CI and set the jumpstation property to refer to the `overthere.SshJumpStation` CI created in step 1.
+1. Create an `overthere.SshJumpStation` or `overthere.HttpProxy` CI that represents a host or proxy to which XL Deploy can connect directly.
+1. For each remote host that cannot be reached directly by XL Deploy, create an `overthere.Host` CI and set the jumpstation property to refer to the `overthere.SshJumpStation` or `overthere.HttpProxy` CI created in step 1.
 
-When XL Deploy creates a connection to the remote host and determines that it needs to connect through a jumpstation, and will first open a connection to that SSH jumpstation and then setup a SSH tunnel (also known as a [local port forward](https://en.wikipedia.org/wiki/Port_forwarding#Local_port_forwarding)) to the remote host.
+When XL Deploy creates a connection to the remote host and determines that it needs to connect through a jumpstation or HTTP proxy, it will either:
+
+* Open a connection to the jumpstation and then setup a SSH tunnel (also known as a [local port forward](https://en.wikipedia.org/wiki/Port_forwarding#Local_port_forwarding)) to the remote host
+* Ask the HTTP proxy to connect to the target system with an [HTTP CONNECT request](https://en.wikipedia.org/wiki/HTTP_tunnel#HTTP_CONNECT_tunneling)
 
 Note that:
 
-* SSH jumpstations can refer to other SSH jumpstations or to HTTP proxies for even more complex network setups, but cycles are not allowed.
+* SSH jumpstations can refer to other SSH jumpstations for even more complex network setups, but cycles are not allowed.
+* HTTP proxies cannot refer to other proxies or to SSH jumpstations like SSH jumpstations can. Only the first host in the chain can be an HTTP proxy.
 * Because XL Deploy cannot transfer files through a jumpstation, the *Check connection* control task will fail when it attempts to verify file transfer.
 
 ## Connect XL Release through a jumpstation or HTTP proxy
