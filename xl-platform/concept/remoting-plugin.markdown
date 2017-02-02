@@ -1,5 +1,5 @@
 ---
-title: Introduction to the Remoting plugin
+title: Introduction to remoting functionality
 subject:
 - Remoting
 categories:
