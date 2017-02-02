@@ -7,26 +7,26 @@ categories:
 - xl-deploy
 - xl-release
 tags:
-- plugin
 - connectivity
 - remoting
+- overthere
 weight: 335
 ---
 
-The Remoting plugin allows XL Deploy and XL Release to manipulate files and execute commands on remote hosts. It does so by using the [Overthere](https://github.com/xebialabs/overthere) framework, which is a Java library to manipulate files and execute processes on remote hosts.
+XL Deploy and XL Release both have remoting functionality that enables them to manipulate files and execute commands on remote hosts. This functionality is provided by a plugin called the Remoting plugin, which uses the open-source Java framework [Overthere](https://github.com/xebialabs/overthere).
 
 ## Features
 
-The Remoting plugin:
+The remoting feature in XL Deploy and XL Release:
 
 * Supports SSH for connectivity to Unix, Microsoft Windows, and z/OS hosts
 * Supports CIFS, Telnet, and WinRM for connectivity to Windows hosts
-* Allow SSH jumpstations and HTTP proxies to be used to access hosts to which a direct network connection is not possible (CIFS, Telnet, and WinRM can be tunneled through an SSH jumpstation as well)
-* Implements all connection methods internally in XL Deploy or XL Release, so no external dependencies are required (an exception is the WINRM_NATIVE connection type, which uses the Windows `winrs` command, but you can use a `winrs` proxy for this connection type when XL Deploy or XL Release runs on a Unix host)
+* Allow SSH jumpstations and HTTP proxies to be used to access hosts to which a direct network connection is not possible; CIFS, Telnet, and WinRM can be tunneled through an SSH jumpstation as well
+* Implements all connection methods internally, so no external dependencies are required; an exception is the WINRM_NATIVE connection type, which uses the Windows `winrs` command, but you can use a `winrs` proxy for this connection type when XL Deploy or XL Release runs on a Unix host
 
 ## Host types
 
-The Remoting plugin supports the following protocols for accessing target hosts:
+The remoting feature supports the following protocols for accessing target hosts:
 
 {:.table .table-striped}
 | Host type | Description |

@@ -14,9 +14,7 @@ tags:
 weight: 346
 ---
 
-The [Remoting plugin](/xl-platform/concept/remoting-plugin.html) allows XL Deploy and XL Release to manipulate files and execute commands on remote hosts. It does so by using the [Overthere](https://github.com/xebialabs/overthere) framework, which is a Java library to manipulate files and execute processes on remote hosts.
-
-The Remoting plugin supports SSH for connectivity to Unix, Microsoft Windows, and z/OS hosts. These are configuration errors that can occur when using XL Deploy or XL Release with the SSH protocol.
+The [remoting functionality](/xl-platform/concept/remoting-plugin.html) for XL Deploy and XL Release uses the [Overthere framework](https://github.com/xebialabs/overthere) to manipulate files and execute commands on remote hosts. SSH is supported for connectivity to Unix, Microsoft Windows, and z/OS hosts. These are configuration errors that can occur when using XL Deploy or XL Release with the SSH protocol.
 
 #### Cannot start a process on an SSH server because the server disconnects immediately
 

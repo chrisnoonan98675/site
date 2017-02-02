@@ -7,17 +7,17 @@ categories:
 - xl-deploy
 - xl-release
 tags:
-- plugin
 - connectivity
 - remoting
 - cifs
 - smb
 - winrm
 - telnet
+- overthere
 weight: 338
 ---
 
-The [Remoting plugin](/xl-platform/concept/remoting-plugin.html) for XL Deploy and XL Release uses the [Overthere framework](https://github.com/xebialabs/overthere) to manipulate files and execute commands on remote hosts. The Remoting plugin supports the [CIFS and SMB protocols](http://en.wikipedia.org/wiki/Server_Message_Block) for file manipulation and [WinRM](http://en.wikipedia.org/wiki/WS-Management) and [Telnet](http://en.wikipedia.org/wiki/Telnet) for process execution.
+The [remoting functionality](/xl-platform/concept/remoting-plugin.html) for XL Deploy and XL Release supports the [CIFS and SMB protocols](http://en.wikipedia.org/wiki/Server_Message_Block) for file manipulation and [WinRM](http://en.wikipedia.org/wiki/WS-Management) and [Telnet](http://en.wikipedia.org/wiki/Telnet) for process execution.
 
 Microsoft Windows' built-in file sharing capabilities are based on CIFS and are therefore available and enabled by default, so you should not need to install new software on a target CIFS or SMB host. However, you might need to enable and configure some services.
 

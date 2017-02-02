@@ -16,9 +16,7 @@ tags:
 weight: 349
 ---
 
-The [Remoting plugin](/xl-platform/concept/remoting-plugin.html) allows XL Deploy and XL Release to manipulate files and execute commands on remote hosts. It does so by using the [Overthere](https://github.com/xebialabs/overthere) framework, which is a Java library to manipulate files and execute processes on remote hosts.
-
-The Remoting plugin supports CIFS, Telnet, and WinRM for connectivity to Microsoft Windows hosts. These are configuration errors that can occur when using XL Deploy or XL Release with WinRM.
+The [remoting functionality](/xl-platform/concept/remoting-plugin.html) for XL Deploy and XL Release uses the [Overthere framework](https://github.com/xebialabs/overthere) to manipulate files and execute commands on remote hosts. CIFS, Telnet, and WinRM are supported for connectivity to Microsoft Windows hosts. These are configuration errors that can occur when using XL Deploy or XL Release with WinRM.
 
 For more troubleshooting tips for Kerberos, please refer to the [Kerberos troubleshooting guide in the Java SE documentation](http://docs.oracle.com/javase/6/docs/technotes/guides/security/jgss/tutorials/Troubleshooting.html).
 
