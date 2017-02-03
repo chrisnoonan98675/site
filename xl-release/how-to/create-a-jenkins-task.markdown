@@ -87,7 +87,7 @@ The following Jenkinsfile can be used to build a pipeline and deploy a simple we
         xldDeploy serverCredentials: '<user_name>', environmentId: 'Environments/Dev', packageId: 'Applications/<app_name>/$BUILD_NUMBER.0'  
       }
       stage('Start XLR Release') {
-           xlrCreateRelease serverCredentials: '<user_name>', template: 'Release <app_name>', version: 'Release for $BUILD_TAG', variables: [[propertyName: 'version', propertyValue: '$BUILD_NUMBER.0']], startRelease: true
+           xlrCreateRelease serverCredentials: '<user_name>', template: 'Release <app_name>', releaseTitle: 'Release for $BUILD_TAG', variables: [[propertyName: 'version', propertyValue: '$BUILD_NUMBER.0']], startRelease: true
       }
     }  
 
@@ -97,7 +97,9 @@ The following Jenkinsfile can be used to build a pipeline and deploy a simple we
 
 #### Improvements
 
-* REL-4105 Rename the version parameter on the xldCreateRelease step to releaseTitle
+* REL-4105 Rename the `version` parameter on the `xldCreateRelease` step to `releaseTitle`
+
+**Note:** The `version` parameter is now deprecated.
 
 ### Version 6.1.0
 
@@ -110,7 +112,7 @@ The following Jenkinsfile can be used to build a pipeline and deploy a simple we
 #### Improvements
 
 * Support for XL Release 6.0.0 with folders
-* Variable names shown without '${}'
+* Variable names shown without `${ }`
 
 ### Version 5.0.0
 
