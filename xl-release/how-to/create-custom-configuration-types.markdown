@@ -22,12 +22,12 @@ To use a custom configuration type from a custom task, you need:
 
 ## Configuration type definition
 
-You define the custom configuration type in XML in `synthetic.xml`. For example, this is the definition of the "Jira Server" and "Jenkins Server" types:
+You define the custom configuration type in XML in `synthetic.xml`. For example, this is the definition of the "JIRA Server" and "Jenkins Server" types:
 
     <type type="jira.Server" extends="configuration.HttpConnection"/>
     <type type="jenkins.Server" extends="configuration.HttpConnection"/>
 
-Each configuration type must extend the `xlrelease.Configuration` or `configuration.HttpConnection` root configuration type. The `xlrelease.Configuration` type can be used for simple configuration types, while the `configuration.HttpConnection` should be used if you need to define an HTTP endpoint. In the example, the "Jira Server" and "Jenkins Server" types extend `configuration.HttpConnection`, which defines these properties:
+Each configuration type must extend the `xlrelease.Configuration` or `configuration.HttpConnection` root configuration type. The `xlrelease.Configuration` type can be used for simple configuration types, while the `configuration.HttpConnection` should be used if you need to define an HTTP endpoint. In the example, the "JIRA Server" and "Jenkins Server" types extend `configuration.HttpConnection`, which defines these properties:
 
 {:.table .table-striped}
 | Property | Description |
@@ -42,7 +42,7 @@ The `virtual="true"` attribute means that this type will not appear in the UI an
 
 ## Reference configuration type from custom task definition
 
-To reference a custom configuration type from a custom task, you must add a specific property to the custom task definition in `synthetic.xml`. For example, this is the "Create Jira issue" definition:
+To reference a custom configuration type from a custom task, you must add a specific property to the custom task definition in `synthetic.xml`. For example, this is the "Create JIRA issue" definition:
 
     <type type="jira.CreateIssue" extends="xlrelease.PythonScript">
         <property name="jiraServer" category="input" label="Server" referenced-type="jira.Server" kind="ci"/>
@@ -57,7 +57,7 @@ The required attributes to refer to a custom configuration type are:
 
 ## Configuration page
 
-Use the **Task configurations** page to configure objects that a custom task can reference (such as Jira tasks or Jenkins tasks). This page is accessible to users with Admin permissions.
+Use the **Task configurations** page to configure objects that a custom task can reference (such as JIRA tasks or Jenkins tasks). This page is accessible to users with Admin permissions.
 
 **Note:** Prior to XL Release 6.0.0, the page is called **Configuration**.
 
@@ -65,7 +65,7 @@ The page shows the configuration types that are currently available and allows y
 
 ![Configurations list](/xl-release/images/configurations-list.png)
 
-XL Release includes two configuration types: Jira Server and Jenkins Server.
+XL Release includes two configuration types: JIRA Server and Jenkins Server.
 
 To add a configuration instance, click **Add** under the type that you need. You can then set properties:
 
@@ -79,11 +79,11 @@ To edit or delete an instance, click its name.
 
 In XL Release 6.0.1 and later, you can test the connectivity of the **Shared configuration** options. All types that extend `xlrelease.Configuration` or `configuration.HttpConnection` in `synthetic.xml` are eligible for testing.
 
-To enable the testing feature, place a Python script in the plugin folder with the name of the type. For example, in the case of a Jira server:
+To enable the testing feature, place a Python script in the plugin folder with the name of the type. For example, in the case of a JIRA server:
 
     <type type="jira.Server" extends="configuration.HttpConnection"/>
 
-The script should be located in the `jira` folder and called `Server.py`. You can override the location by adding the property `scriptLocation` in the `type` declaration:
+The script should be located in the `jira` folder and called `Server.py`. You can override the location and file name by adding the property `scriptLocation` in the `type` declaration:
 
     <type type="jira.Server" extends="configuration.HttpConnection">
       <property name="scriptLocation" default="jira/TestConnection.py" hidden="true" />
