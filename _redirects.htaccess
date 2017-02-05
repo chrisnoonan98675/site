@@ -258,6 +258,7 @@ Redirect 301 /xl-release/how-to/reset-admin-password-xl-release-server.html /xl-
 Redirect 301 /xl-release/how-to/configure-an-external-database.html /xl-release/how-to/configure-active-hot-standby.html
 Redirect 301 /xl-release/how-to/create-a-script-task.html /xl-release/how-to/create-a-jython-script-task.html
 Redirect 301 /xl-release/how-to/configure-a-jumpstation.html /xl-platform/how-to/set-up-ssh.html
+Redirect 301 /xl-release/how-to/create-a-new-release-via-rest-api-using-curl.html /xl-release/how-to/create-a-new-release-via-rest-api.html
 
 # XL TestView topics
 
