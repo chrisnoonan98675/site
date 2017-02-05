@@ -53,7 +53,6 @@ Locate the following pages:
 
 * For XL Release: **Working with phases and tasks**
 * For XL Deploy: **Using placeholders and dictionaries**
-* For XL TestView: **Create custom reports**
 
 Please consider:
 
