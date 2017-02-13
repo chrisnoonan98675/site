@@ -126,7 +126,7 @@ This is how the above task definition looks like in the task details window:
 
 When the custom task becomes active, it triggers the Python script that is associated with it. For information about the script, refer to [API and scripting overview](/xl-release/how-to/api-and-scripting-overview.html).
 
-Store scripts in a directory that has the same name as the prefix of the task type definition. The script file name has the same name as the name of the task, followed by the `.py` extension. For example, the Python script for the `jira.CreateIssue` task must be stored in `jira/CreatePython.py`.
+Store scripts in a directory that has the same name as the prefix of the task type definition. The script file name has the same name as the name of the task, followed by the `.py` extension. For example, the Python script for the `jira.CreateIssue` task must be stored in `jira/CreateIssue.py`.
 
 Input properties are available as variables in the Python script. You can set output values by assigning values to their corresponding variables in the script. After execution, the script variables are copied to the release variables that were specified on the task in the UI.
 
