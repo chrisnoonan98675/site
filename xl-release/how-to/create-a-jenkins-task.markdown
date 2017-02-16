@@ -93,13 +93,27 @@ The following Jenkinsfile can be used to build a pipeline and deploy a simple we
 
 ## Release notes
 
+### Version 6.1.2
+
+### Improvements
+
+* REL-4251 Show deprecation warning in Jenkins XL Release plugin when the version parameter is used
+
+### Bug fixes
+
+* REL-4280 Variable names set in Jenkins post-build action are overwritten by first variable in list
+* REL-4282 Jenkins XL Release plugin 6.1.1 does not support Java 1.7
+
 ### Version 6.1.1
 
 #### Improvements
 
 * REL-4105 Rename the `version` parameter on the `xldCreateRelease` step to `releaseTitle`
 
-**Note:** The `version` parameter is now deprecated.
+**Note:**
+
+* Version 6.1.1 of the plugin is not compatible with Java 1.7. To use version 6.1.1, you must use Java 1.8. To use the plugin with Java 1.7, upgrade the plugin to version 6.1.2.
+* The `version` parameter is now deprecated.
 
 ### Version 6.1.0
 
