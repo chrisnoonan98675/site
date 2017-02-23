@@ -3,7 +3,7 @@ title: Using the support accelerator
 categories:
 - xl-release
 subject:
-- system administration
+- System administration
 tags:
 - release
 - gather
