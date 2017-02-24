@@ -8,6 +8,8 @@ tags:
 - release
 - gather
 - support
+since:
+- XL Release 6.1.0
 ---
 
 Using the XL Release support accelerator you can gather data that can help the XebiaLabs Support Team troubleshoot issues.
