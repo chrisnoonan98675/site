@@ -208,6 +208,7 @@ Redirect 301 /xl-deploy/how-to/troubleshoot-a-cifs-connection.html /xl-platform/
 Redirect 301 /xl-deploy/how-to/troubleshoot-a-winrm-connection.html /xl-platform/how-to/troubleshoot-a-winrm-connection.html
 Redirect 301 /xl-deploy/how-to/troubleshoot-a-telnet-connection.html /xl-platform/how-to/troubleshoot-a-telnet-connection.html
 Redirect 301 /xl-deploy/how-to/expose-additional-overthere-properties.html /xl-platform/concept/remoting-plugin.html
+Redirect 301 /xl-deploy/how-to/configure-the-xl-deploy-security-file.html /xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html
 
 # XL Release topics
 

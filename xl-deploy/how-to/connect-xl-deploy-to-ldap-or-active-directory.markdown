@@ -12,7 +12,13 @@ tags:
 weight: 263
 ---
 
-This tutorial describes how to connect XL Deploy to your LDAP or Active Directory.
+By default, XL Deploy authenticates users and retrieves authorization information from its repository. XL Deploy can also be configured to use an LDAP repository to authenticate users and to retrieve role (group) membership. In this scenario, the LDAP users and groups are used as principals in XL Deploy and can be mapped to XL Deploy roles. Role membership and rights assigned to roles are always stored in the JCR repository.
+
+XL Deploy treats the LDAP repository as **read-only**. This means that XL Deploy will use the information from the LDAP repository, but can not make changes to that information.
+
+To configure XL Deploy to use an LDAP repository, you must change the security configuration file (`deployit-security.xml`).
+
+This is a step-by-step procedure describing how to connect XL Deploy to your LDAP or Active Directory.
 
 ## Step 1 Get your LDAP credentials
 
@@ -105,12 +111,12 @@ Also, locate the following section and add `ldapProvider` as an authentication p
 <pre class="highlight">
 &lt;security:authentication-manager alias="authenticationManager"&gt;
   &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt;
-  &lt;security:authentication-provider ref="jcrAuthenticationProvider" /&gt;
+  &lt;security:authentication-provider ref="xlAuthenticationProvider" /&gt;
   <mark>&lt;security:authentication-provider ref="ldapProvider" /&gt;</mark>
 &lt;/security:authentication-manager&gt;
 </pre>
 
-**Note:** `ldapProvider` should come after `jcrAuthenticationProvider`. This ensures that, if there is a problem with LDAP, you can still log in to XL Deploy as a local user.
+**Note:** `ldapProvider` should come after `xlAuthenticationProvider`. This ensures that, if there is a problem with LDAP, you can still log in to XL Deploy as a local user.
 
 Restart XL Deploy and ensure that the server starts without any exceptions.
 
@@ -171,42 +177,45 @@ This sample `deployit-security.xml` file shows the required LDAP configuration i
      </bean>
 
      <bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/>
-     <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.JcrAuthenticationProvider"/>
+     <bean id="xlAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.xlAuthenticationProvider"/>
 
      <security:authentication-manager alias="authenticationManager">
        <security:authentication-provider ref="rememberMeAuthenticationProvider" />
-       <security:authentication-provider ref="jcrAuthenticationProvider" />
+       <security:authentication-provider ref="xlAuthenticationProvider" />
        <security:authentication-provider ref="ldapProvider" />
      </security:authentication-manager>
 
-     <bean id="unanimousBased" class="org.springframework.security.access.vote.UnanimousBased">
-       <constructor-arg>
-    	 <list>
-    	   <bean class="org.springframework.security.access.vote.AuthenticatedVoter"/>
-    	   <bean class="com.xebialabs.deployit.security.LoginPermissionVoter"/>
-    	 </list>
-       </constructor-arg>
-     </bean>
-
-     <bean id="basicAuthenticationFilter" class="com.xebialabs.deployit.security.authentication.BasicAuthWithRememberMeFilter">
-       <constructor-arg ref="authenticationManager"/>
-       <constructor-arg ref="basicAuthenticationEntryPoint"/>
-     </bean>
-
-     <bean id="basicAuthenticationEntryPoint"
-       class="com.xebialabs.deployit.security.authentication.BasicAuthenticationEntryPoint"
-       p:realmName="Deployit"/>
-
-     <security:http security="none" pattern="/deployit/internal/download/**" create-session="never"/>
-     <security:http security="none" pattern="/deployit/internal/configuration/**" create-session="never"/>
-
-     <security:http realm="Deployit" access-decision-manager-ref="unanimousBased" entry-point-ref="basicAuthenticationEntryPoint" create-session="never">
-       <security:csrf disabled="true"/>
-       <!-- The download url has no security access set -->
-       <security:intercept-url pattern="/deployit/**" access="IS_AUTHENTICATED_FULLY"/>
-       <security:intercept-url pattern="/api/**" access="IS_AUTHENTICATED_FULLY"/>
-       <security:custom-filter position="BASIC_AUTH_FILTER" ref="basicAuthenticationFilter"/>
-       <security:session-management session-fixation-protection="none"/>
-     </security:http>
-
     </beans>
+
+## Assign a default role to all authenticated users
+
+If your LDAP is not set up with a group to which all XL Deploy users are assigned, or if you want to use such a group in the default `xlAuthenticationProvider`, you can configure this in the `deployit-security.xml` file.
+
+The following example shows how to set up a group called `everyone`, which is assigned to each user who is authenticated. You could then link this group to an XL Deploy role and, for example, assign it the `login` permission.
+
+{% highlight xml %}
+<beans>
+    ...
+
+    <bean id="ldapProvider" class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider">
+        <constructor-arg>
+            ...
+        </constructor-arg>
+
+        <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
+    </bean>
+
+    <bean id="xlAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.xlAuthenticationProvider">
+        <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
+    </bean>
+
+    <bean id="additionalAuthoritiesMapper" class="com.xebialabs.deployit.security.AdditionalAuthoritiesMapper">
+        <property name="additionalAuthorities">
+            <list>
+                <value>everyone</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>
+{% endhighlight %}
