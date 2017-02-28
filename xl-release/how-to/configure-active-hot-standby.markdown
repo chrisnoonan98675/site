@@ -67,6 +67,14 @@ The following external databases are recommended:
 * PostgreSQL
 * Oracle 11g or 12c
 
+The following set of sql privileges are required (where appliccable):
+
+* REFERENCES
+* INDEX
+* CREATE
+* DROP
+* SELECT, INSERT, UPDATE, DELETE
+
 #### Configure the archive database
 
 The archive database must be shared among all nodes when active/hot-standby is enabled. Ensure that every node has access to the shared archive database.
