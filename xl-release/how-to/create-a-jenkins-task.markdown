@@ -70,6 +70,8 @@ In version 6.1.0 and later, you can use the [Jenkins Pipeline](https://jenkins.i
 
 To start using Jenkinsfile, create a pipeline job and add the Jenkinsfile content to the **Pipeline** section of the job configuration.
 
+For a detailed procedure on how to use the Jenkins Pipeline feature with the Xl Release plugin for Jenkins, refer to [XebiaLabs XL Release Plugin](https://jenkins.io/doc/pipeline/steps/xlrelease-plugin/).
+
 For information about the Jenkinsfile syntax, refer to the [Jenkins Pipeline documentation](https://jenkins.io/doc/book/pipeline/jenkinsfile/#creating-a-jenkinsfile). For information about the items you can use in the Jenkinsfile, click **Check Pipeline Syntax** on the job.
 
 ### Jenkinsfile example
