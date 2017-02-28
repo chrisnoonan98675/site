@@ -103,6 +103,12 @@ In XL Deploy 4.5.3, XL Deploy 5.0.0, and later, the context of a step is enriche
 
 Note that depending on the operation, the `deployed` or `previousDeployed` might not be initialized. For example, if the operation is `CREATE`, the `deployed` is set, but `previousDeployed` is not set.
 
+**Note** You can override the default `deployed` or `previousDeployed` values by explicitly defining a FreeMarker context.
+For example:
+    <freemarker-context>
+        <previousDeployed>example</previousDeployed>
+    </freemarker-context>
+
 ### FreeMarker context
 
 In XL Deploy 4.5.2 and earlier, the `freemarker-context` parameter of a step is calculated as follows:
