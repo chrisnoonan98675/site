@@ -50,8 +50,6 @@ Use the **Repository** to assign local permissions to roles. To add local permis
 
 ## Using the HTML-based GUI
 
-{% include technical_preview.html %}
-
 To configure security in the HTML-based GUI, click **User Management** in the top menu bar.
 
 ### Assign principals to roles

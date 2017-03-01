@@ -92,8 +92,6 @@ When selecting the chart view, the report is shown as a bar graph, for example:
 
 ## Deployment report (HTML version)
 
-{% include technical_preview.html %}
-
 The Technical Preview of the XL Deploy HTML-based user interface includes the deployment report. To access the report, go to `XL_DEPLOY_URL:PORT/technical-preview.html` and click **Reports** in the top menu. Note that, like other reports, this requires the [`report#view`](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#global-permissions) permission.
 
 ![Deployment report in HTML](images/deployment-report-html5.png)
