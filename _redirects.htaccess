@@ -2,6 +2,11 @@
 
 # IN-PRODUCT LINKS
 
+# XL Deploy in-product links
+
+Redirect 301 /xl-deploy/support-request.html https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=30145
+Redirect 301 /xl-deploy/suggest-feature.html https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=94473
+
 # XL Release in-product links
 
 Redirect 301 /xl-release/support-request.html https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=30145
