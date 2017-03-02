@@ -67,6 +67,8 @@ For a detailed procedure on how to use the Jenkins Pipeline feature with the Xl 
 
 For information about the Jenkinsfile syntax, refer to the [Jenkins Pipeline documentation](https://jenkins.io/doc/book/pipeline/jenkinsfile/#creating-a-jenkinsfile). For information about the items you can use in the Jenkinsfile, click **Check Pipeline Syntax** on the job.
 
+For information about how to add steps to Jenkinsfile, refer to the [Jenkins Plugin Steps documentation](https://jenkins.io/doc/pipeline/steps/deployit-plugin/).
+
 ### Jenkinsfile example
 
 The following Jenkinsfile can be used to build the pipeline and deploy a simple web application to a Tomcat environment configured in XL Deploy:
