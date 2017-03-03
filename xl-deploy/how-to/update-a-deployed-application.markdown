@@ -20,6 +20,27 @@ When you want to update a deployed application, the process is the same whether 
 
 **Tip:** Watch the *Performing an update* video [here](https://www.youtube.com/watch?v=S8HuaxCJA00&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=6) and the *Reverting to a previous version* video [here](https://www.youtube.com/watch?v=zfmu75XocCg&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=7).
 
+## Update an application using the XL Deploy default GUI
+
+To update a deployed application:
+
+1. Expand **Environments**, and then expand the environment where the application is deployed.
+1. Hover over the application, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Update**. A new tab appears in the right pane.
+1. In the new tab, select the desired version. You can filter the list of versions by typing in the **Search** box at the top.
+1. Click **Continue**.
+1. You can optionally:
+
+    * View or edit the properties of a deployed item by double-clicking it
+    * Click **Deployment Properties** to configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html)
+
+1. Click **Execute** to start executing the plan immediately.
+
+    If the server does not have the capacity to immediately start executing the plan, it will be in a `QUEUED` state until the server has sufficient capacity.
+
+    If a step in the update fails, XL Deploy stops executing and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
+
+## Update an application using the XL Deploy legacy GUI
+
 To update a deployed application:
 
 1. Click **Deployment** in the top bar.

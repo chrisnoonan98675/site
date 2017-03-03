@@ -17,9 +17,35 @@ You can use XL Deploy's [provisioning feature](/xl-deploy/concept/provisioning-t
 
 **Note:** A version of this topic is available for [XL Deploy 5.5.x](/xl-deploy/5.5.x/provision-an-environment-5.5.html).
 
-## Provision an environment using the GUI
+## Provision an environment using the XL Deploy default GUI
 
-To provision an environment using the XL Deploy GUI:
+To provision an environment:
+
+1. Expand **Applications**, and then expand the application that you want to provision.
+1. Hover over the desired provisioning package, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Deploy**. A new tab appears in the right pane.
+1. In the new tab, select the target environment. You can filter the list of environments by typing in the **Search** box at the top. To see the full path of an environment in the list, hover over it with your mouse pointer.
+
+    XL Deploy automatically maps the provisionables in the package to the providers in the environment.
+
+1. If you are using XL Deploy 6.0.x, click **Execute** to start executing the plan immediately. Otherwise, click **Continue**.
+1. You can optionally:
+
+    * View or edit the properties of a deployed item by double-clicking it
+    * Click **Deployment Properties** to configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html)
+
+    ![Explorer deployment](images/explorer-deploy-02.png)
+
+1. Click **Execute** to immediately start the provisioning.
+
+    If the server does not have the capacity to immediately start executing the plan, it will be in a `QUEUED` state until the server has sufficient capacity.
+
+    ![Explorer deployment](images/explorer-deploy-03.png)
+
+    If a step in the deployment fails, XL Deploy stops executing and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
+
+## Provision an environment using the XL Deploy legacy GUI
+
+To provision an environment:
 
 1. Click **Deployment** in the top bar.
 1. Under **Packages**, locate the provisioning package and expand it to see its versions.
@@ -36,9 +62,9 @@ You can also optionally:
 * Click **Deployment Properties** to select orchestrators or enter placeholder values.
 * Click **Advanced** if you want to adjust the plan by skipping steps or inserting pauses.
 
-If the server does not have the capacity to immediately start executing the plan, the plan will be in a QUEUED state until the server has sufficient capacity.
+If the server does not have the capacity to immediately start executing the plan, the plan will be in a `QUEUED` state until the server has sufficient capacity.
 
-If a step in the provisioning fails, XL Deploy stops executing the provisioning and marks the step as FAILED. Click the step to see information about the failure in the output log.
+If a step in the provisioning fails, XL Deploy stops executing the provisioning and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
 
 ## Provision an environment using the CLI
 

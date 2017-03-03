@@ -12,9 +12,43 @@ tags:
 weight: 186
 ---
 
-When you set up an initial deployment, an upgrade, or an undeployment, you can use the Plan Analyzer to preview the deployment plan that XL Deploy generated based on the deployment configuration. As you map deployables to containers in the deployment configuration, the Plan Analyzer will update and show changes to the plan.
+When you set up an initial deployment, an upgrade, or an undeployment, you can use the Preview option to view the deployment plan that XL Deploy generated based on the deployment configuration. As you map deployables to containers in the deployment configuration, the Preview will update and show changes to the plan.
 
-**Note:** The Plan Analyzer is read-only.
+#Preview the deployment plan using the XL Deploy default GUI
+
+To open the Preview pane from the Explorer, click **Preview**. You can view the steps in the deployment plan.
+
+## Match steps in the plan to deployeds
+
+To see which steps in the deployment plan are related to a specific [deployed], click the deployed. To see which deployed is related to a specific step, click the step.
+
+![Highlighted deployed and steps in Plan Analyzer]
+
+To edit the steps in the deployment plan, click **Modify plan**. You can view and edit the steps in the Execution Plan.
+
+## Using orchestrators
+
+The Preview option is useful when you are applying [orchestrators] to the deployment plan. Orchestrators are used to control the sequence of the generated plan. They are used mainly when dealing with more than one server.
+
+For example, deploying an application to an environment that contains two JBoss servers results in a default deployment plan like this:
+
+![Sample deployment plan with default orchestrator]
+
+In this plan, both servers are stopped simultaneously. This happens because the default orchestrator treats all target middleware as a single pool, so everything is started, stopped, and updated together.
+
+You can change this by applying a different orchestrator. Click **Deployment Properties** to see the orchestrators are available.
+
+This is an example of the deployment plan with the `sequential-by-container` orchestrator applied:
+
+![image]
+
+## Start the deployment
+
+When you are satisfied with the Execution Plan, start the deployment by clicking **Execute**.
+
+![image]
+
+#Preview the deployment plan using the XL Deploy legacy GUI
 
 ## Open the Plan Analyzer
 
@@ -22,6 +56,8 @@ To open the Plan Analyzer from the Deployment Workspace:
 
 * In XL Deploy 4.5.x or earlier, click **Analyze**
 * In XL Deploy 5.0.0 or later, click **Preview**
+
+**Note:** The Plan Analyzer is read-only.
 
 ## Match steps in the plan to deployeds
 

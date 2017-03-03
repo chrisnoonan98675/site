@@ -45,7 +45,7 @@ The following graphs appear on the dashboard:
 
 To refresh the dashboard, press the reload button on the top right corner.
 
-## Deployment report
+## Deployment report (legacy Flash-based GUI)
 
 The deployments report shows deployments done in a given date range. It also allows you to aggregate deployments by selected applications and environments.
 
@@ -90,11 +90,13 @@ When selecting the chart view, the report is shown as a bar graph, for example:
 
 **Note:** If you change the name of an application that was previously deployed, you will not be able to access detailed reports about that application.
 
-## Deployment report (HTML version)
+## Deployment report (default HTML version)
 
-The Technical Preview of the XL Deploy HTML-based user interface includes the deployment report. To access the report, go to `XL_DEPLOY_URL:PORT/technical-preview.html` and click **Reports** in the top menu. Note that, like other reports, this requires the [`report#view`](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#global-permissions) permission.
+The XL Deploy default HTML-based GUI includes the deployment report. To access the report, click **Reports** in the top menu. Note that, like other reports, this requires the [`report#view`](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#global-permissions) permission.
 
 ![Deployment report in HTML](images/deployment-report-html5.png)
+
+The report provides a detailed log of each completed deployment. You can see the Executed Plan and the logged information about each step in the plan.
 
 ## Deployed application report
 

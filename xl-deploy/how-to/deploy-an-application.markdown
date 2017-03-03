@@ -21,6 +21,31 @@ Notes:
 * You can watch the *Performing an initial deployment* video [here](https://www.youtube.com/watch?v=pw17C9j60xY&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=4).
 * A version of this topic is available for [XL Deploy 4.5.x and earlier](/xl-deploy/4.5.x/deploy-an-application-4.5.html).
 
+## Deploy using the XL Deploy default GUI
+
+To deploy an application to an environment:
+
+1. Expand **Applications**, and then expand the application that you want to deploy.
+1. Hover over the desired deployment package or provisioning package, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Deploy**. A new tab appears in the right pane.
+1. In the new tab, select the target environment. You can filter the list of environments by typing in the **Search** box at the top. To see the full path of an environment in the list, hover over it with your mouse pointer.
+1. If you are using XL Deploy 6.0.x, click **Execute** to start executing the plan immediately. Otherwise, click **Continue**.
+1. You can optionally:
+
+    * View or edit the properties of a deployed item by double-clicking it
+    * Click **Deployment Properties** to configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html)
+
+    ![Explorer deployment](images/explorer-deploy-02.png)
+
+1. Click **Execute** to start executing the plan immediately.
+
+    If the server does not have the capacity to immediately start executing the plan, it will be in a `QUEUED` state until the server has sufficient capacity.
+
+    ![Explorer deployment](images/explorer-deploy-03.png)
+
+    If a step in the deployment fails, XL Deploy stops executing and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
+
+## Deploy using the XL Deploy legacy GUI
+
 To deploy an application to an environment:
 
 1. Click **Deployment** in the top bar.

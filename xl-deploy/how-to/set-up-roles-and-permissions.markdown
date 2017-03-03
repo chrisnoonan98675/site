@@ -15,7 +15,7 @@ weight: 261
 
 XL Deploy provides fine-grained security settings based on [roles and permissions](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html) that you can configure in the GUI and through the command-line interface (CLI).
 
-## Using the Flash-based GUI
+## Using the legacy Flash-based GUI
 
 To configure security in the Flash-based GUI, click **Admin** in the top menu bar.
 
@@ -48,9 +48,9 @@ Use the **Repository** to assign local permissions to roles. To add local permis
 2. Select the permissions that you want to assign to the role.
 3. Click **Save** to save the permissions.
 
-## Using the HTML-based GUI
+## Using the default HTML-based GUI
 
-To configure security in the HTML-based GUI, click **User Management** in the top menu bar.
+To configure security in the default GUI, click **User Management** in the top menu bar.
 
 ### Assign principals to roles
 
@@ -62,9 +62,15 @@ Use the **Roles** tab to create and maintain roles in XL Deploy. To add a role, 
 
 ### Assign global permissions to roles
 
-Use the **Global Permissions** tab to assign global permissions to *roles* in XL Deploy. To add global permissions to a role, select the boxes next to it. To clear all permissions from a role, click **Clear**
+Use the **Global Permissions** tab to assign global permissions to *roles* in XL Deploy. To add global permissions to a role, select the boxes next to it. To clear all permissions from a role, click **Clear**.
 
 ![Assign global permissions](images/user-management-permissions.png)
+
+### Assign permissions on applications, environments, infrastructure, and configuration to roles
+
+To assign or edit permissions:
+
+In the Library menu, hover over Applications, Environments, Infrastructure, or Configuration, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Edit permissions**. To add global permissions to a role, select the boxes next to it. To clear all permissions from a role, click **Clear**.
 
 ## Using the CLI
 

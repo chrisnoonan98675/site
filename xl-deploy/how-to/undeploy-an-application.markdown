@@ -13,6 +13,21 @@ weight: 193
 
 To remove an application and its components from an environment, you need to undeploy the application. Similarly, to tear down a cloud-based environment [provisioned by XL Deploy](/xl-deploy/how-to/provision-an-environment.html), you need to deprovision it. Note that before you can deprovision an environment, you must first undeploy all applications that are deployed to it.
 
+## Undeploying an application using the XL Deploy default GUI
+
+To undeploy an application:
+
+1. Expand **Environments**, and then expand the environment where the application is deployed.
+1. Hover over the application, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Undeploy**. A new tab appears in the right pane.
+1. You can optionally configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html) for the undeployment.
+1. Click **Execute** to start executing the plan immediately.
+
+    If the server does not have the capacity to immediately start executing the plan, it will be in a `QUEUED` state until the server has sufficient capacity.
+
+    If a step in the undeployment fails, XL Deploy stops executing and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
+
+## Undeploying an application using the XL Deploy legacy GUI
+
 To undeploy an application or deprovision an environment:
 
 1. Click **Deployment** in the top bar.

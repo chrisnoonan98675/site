@@ -183,7 +183,11 @@ By default, you can import deployment packages from the `importablePackages` dir
 
 After you have configured all options, the setup wizard shows a summary of the configuration that you have selected. Answer `yes` to finish the setup process. Answer `no` to exit setup.
 
-If you answer `yes`, the setup wizard will start XL Deploy and show the URL where you can access it; for example, `http://localhost:4516`. Open this URL in a browser and log in with the username *admin* and the password that you provided during the setup process.
+If you answer `yes`, the setup wizard will start XL Deploy and show the URL where you can access it; for example, `http://localhost:4516`. Open this URL in a browser and log in with the username *admin* and the password that you provided during the setup process. This will open the XL Deploy default GUI.
+
+To access to XL Deploy legacy GUI, click the Gear menu and select **Legacy interface**. You can also access it by opening this URL `http://localhost:4516/legacy-interface.html` in a browser.
+
+If you want to use the default HTML-based XL Deploy UI and the legacy Flash-based XL Deploy UI at the same time, you must open them in different browsers. The default UI and the legacy UI use different authentication methods so the same user cannot log into the XL Deploy interfaces using tabs or windows in the same browser.
 
 **Tip:** For information about starting XL Deploy in the future, refer to [Start XL Deploy](/xl-deploy/how-to/start-xl-deploy.html).
 
