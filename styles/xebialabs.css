@@ -468,8 +468,9 @@ h6:hover .header-link {
 
 /* Google Custom Search overrides */
 
-.gsc-control-wrapper-cse {
-    padding-top: 20px;
+.cse input.gsc-search-button, input.gsc-search-button {
+    background-color: #666 !important;
+    border: 1px solid #666 !important;
 }
 
 /* Scroll-to-top button styles */
