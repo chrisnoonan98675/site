@@ -190,7 +190,7 @@ For more information about configuring satellites, refer to [Install and configu
 
 #### Generate the Kerberos configuration file
 
-It's not always easy to determine the right Windows domain name and the hostnames of all domain controllers. You can generate the configuration by copying the PowerShell script [generate-krb5-conf.ps1](sample-scripts/generate-krb5-conf.ps1) to a Windows machine in the target domain and then running it with the following command:
+It's not always easy to determine the right Windows domain name and the hostnames of all domain controllers. You can generate the configuration by copying the PowerShell script [generate-krb5-conf.ps1](/xl-deploy/how-to/sample-scripts/generate-krb5-conf.ps1) to a Windows machine in the target domain and then running it with the following command:
 
     powershell -f generate-krb5-conf.ps1
 
