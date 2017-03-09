@@ -12,13 +12,17 @@ tags:
 weight: 186
 ---
 
-When you set up an initial deployment, an upgrade, or an undeployment, you can use the Preview option to view the deployment plan that XL Deploy generated based on the deployment configuration. As you map deployables to containers in the deployment configuration, the Preview will update and show changes to the plan.
+When you set up an initial deployment, an update, or an undeployment, you can use the Preview option to view the deployment plan that XL Deploy generated based on the deployment configuration. As you map deployables to containers in the deployment configuration, the Preview will update and show changes to the plan.
 
-#Preview the deployment plan using the XL Deploy default GUI
+## Preview the deployment plan using the default GUI
 
 To open the Preview pane from the Explorer, click **Preview**. You can view the steps in the deployment plan.
+Click the arrow icon on the **Deploy** button and select **Modify plan** if you want to adjust the deployment plan by skipping steps or inserting pauses.
 
-## Match steps in the plan to deployeds
+{% comment %}
+Not yet in default GUI
+
+### Match steps in the plan to deployeds
 
 To see which steps in the deployment plan are related to a specific [deployed], click the deployed. To see which deployed is related to a specific step, click the step.
 
@@ -26,7 +30,7 @@ To see which steps in the deployment plan are related to a specific [deployed], 
 
 To edit the steps in the deployment plan, click **Modify plan**. You can view and edit the steps in the Execution Plan.
 
-## Using orchestrators
+### Using orchestrators
 
 The Preview option is useful when you are applying [orchestrators] to the deployment plan. Orchestrators are used to control the sequence of the generated plan. They are used mainly when dealing with more than one server.
 
@@ -41,16 +45,37 @@ You can change this by applying a different orchestrator. Click **Deployment Pro
 This is an example of the deployment plan with the `sequential-by-container` orchestrator applied:
 
 ![image]
+{% endcomment %}
 
-## Start the deployment
 
-When you are satisfied with the Execution Plan, start the deployment by clicking **Execute**.
+### Preview a step in the plan
 
-![image]
+For deployment plan steps that require a script, you can preview the script that XL Deploy will execute. To open the step preview, double-click the step. Note that this requires the `task#preview_step` [global permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#global-permissions).
 
-#Preview the deployment plan using the XL Deploy legacy GUI
+The step preview also shows:
 
-## Open the Plan Analyzer
+* The [order](/xl-deploy/concept/steps-and-steplists-in-xl-deploy.html#steplist) of the step
+* The Source Path of the script template, relative to XL Deploy's classpath; for example, relative to `XL_DEPLOY_SERVER_HOME/ext` or packaged in the relevant plugin
+* The number of the step
+* The step description
+* The rule the generated the step
+* The script preview
+
+This is an example of a step preview using the legacy GUI:
+
+![Sample Plan Analyzer step preview](images/planalyzer-datasource.png)
+
+If preview is not available, ![Step preview unavailable](/images/button_step_preview_unavailable.png) appears next to the step. To see the step order when preview is not available, hover the mouse pointer over the step and wait for the tooltip to appear. For example:
+
+![Sample Plan Analyzer step tooltip](images/planalyzer-tooltip.png)
+
+### Start the deployment
+
+When you are satisfied with the Deployment Plan, start the deployment by clicking **Deploy**.
+
+## Preview the deployment plan using the XL Deploy legacy GUI
+
+### Open the Plan Analyzer
 
 To open the Plan Analyzer from the Deployment Workspace:
 
@@ -59,30 +84,13 @@ To open the Plan Analyzer from the Deployment Workspace:
 
 **Note:** The Plan Analyzer is read-only.
 
-## Match steps in the plan to deployeds
+### Match steps in the plan to deployeds
 
 To see which steps in the deployment plan are related to a specific [deployed](/xl-deploy/concept/understanding-deployables-and-deployeds.html), click the deployed. To see which deployed is related to a specific step, click the step.
 
 ![Highlighted deployed and steps in Plan Analyzer](images/planalyzer-clickondeployed.png)
 
-## Preview a step in the plan
-
-For deployment plan steps that require a script, you can preview the script that XL Deploy will execute. To do so, double-click ![Step preview button](/images/button_step_preview.png) next to the step. Note that this requires the `task#preview_step` [global permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#global-permissions).
-
-The step preview also shows:
-
-* The [order](/xl-deploy/concept/steps-and-steplists-in-xl-deploy.html#steplist) of the step. The step order determines the sequence of steps in the plan, with lower order numbers coming before higher ones. The selected [orchestrator](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) can influence this.
- * The location of the script template, relative to XL Deploy's classpath; for example, relative to `XL_DEPLOY_SERVER_HOME/ext` or packaged in the relevant plugin.
-
-This is an example of a step preview:
-
-![Sample Plan Analyzer step preview](images/planalyzer-datasource.png)
-
-If preview is not available, ![Step preview unavailable](/images/button_step_preview_unavailable.png) appears next to the step. To see the step order when preview is not available, hover the mouse pointer over the step and wait for the tooltip to appear. For example:
-
-![Sample Plan Analyzer step tooltip](images/planalyzer-tooltip.png)
-
-## Using orchestrators
+### Using orchestrators
 
 The Plan Analyzer is useful when you are applying [orchestrators](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) to the deployment plan. Orchestrators are used to control the sequence of the generated plan. They are used mainly when dealing with more than one server.
 
@@ -98,7 +106,7 @@ This is an example of the deployment plan with the `sequential-by-container` orc
 
 ![image](images/planalyzer-onebyone.png)
 
-## Start the deployment
+### Start the deployment
 
 When you are satisfied with the deployment plan as it appears in the Plan Analyzer, start the deployment by clicking:
 

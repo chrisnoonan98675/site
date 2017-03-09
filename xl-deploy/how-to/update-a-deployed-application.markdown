@@ -20,7 +20,9 @@ When you want to update a deployed application, the process is the same whether 
 
 **Tip:** Watch the *Performing an update* video [here](https://www.youtube.com/watch?v=S8HuaxCJA00&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=6) and the *Reverting to a previous version* video [here](https://www.youtube.com/watch?v=zfmu75XocCg&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=7).
 
-## Update an application using the XL Deploy default GUI
+## Update an application using the default GUI
+
+As of version 6.2.0, the default GUI is HTML-based.
 
 To update a deployed application:
 
@@ -30,10 +32,11 @@ To update a deployed application:
 1. Click **Continue**.
 1. You can optionally:
 
-    * View or edit the properties of a deployed item by double-clicking it
-    * Click **Deployment Properties** to configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html)
+    * View or edit the properties of a deployed item by double-clicking it.
+    * Click **Deployment Properties** to configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html).
+    * Click the arrow icon on the **Deploy** button and select **Modify plan** if you want to adjust the deployment plan by skipping steps or inserting pauses.
 
-1. Click **Execute** to start executing the plan immediately.
+1. Click **Deploy** to start executing the plan immediately.
 
     If the server does not have the capacity to immediately start executing the plan, it will be in a `QUEUED` state until the server has sufficient capacity.
 

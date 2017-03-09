@@ -17,7 +17,9 @@ You can use XL Deploy's [provisioning feature](/xl-deploy/concept/provisioning-t
 
 **Note:** A version of this topic is available for [XL Deploy 5.5.x](/xl-deploy/5.5.x/provision-an-environment-5.5.html).
 
-## Provision an environment using the XL Deploy default GUI
+## Provision an environment using the default GUI
+
+As of version 6.2.0, the default GUI is HTML-based.
 
 To provision an environment:
 
@@ -30,12 +32,14 @@ To provision an environment:
 1. If you are using XL Deploy 6.0.x, click **Execute** to start executing the plan immediately. Otherwise, click **Continue**.
 1. You can optionally:
 
-    * View or edit the properties of a deployed item by double-clicking it
-    * Click **Deployment Properties** to configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html)
+    * View or edit the properties of a deployed item by double-clicking it.
+    * View the relationship between deployables and deployeds by clicking them.
+    * Click **Deployment Properties** to configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html).
+    * Click the arrow icon on the **Deploy** button and select **Modify plan** if you want to adjust the deployment plan by skipping steps or inserting pauses.
 
     ![Explorer deployment](images/explorer-deploy-02.png)
 
-1. Click **Execute** to immediately start the provisioning.
+1. Click **Deploy** to immediately start the provisioning.
 
     If the server does not have the capacity to immediately start executing the plan, it will be in a `QUEUED` state until the server has sufficient capacity.
 
@@ -43,7 +47,7 @@ To provision an environment:
 
     If a step in the deployment fails, XL Deploy stops executing and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
 
-## Provision an environment using the XL Deploy legacy GUI
+## Provision an environment using the legacy GUI
 
 To provision an environment:
 

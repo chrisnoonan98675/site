@@ -21,7 +21,9 @@ Notes:
 * You can watch the *Performing an initial deployment* video [here](https://www.youtube.com/watch?v=pw17C9j60xY&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=4).
 * A version of this topic is available for [XL Deploy 4.5.x and earlier](/xl-deploy/4.5.x/deploy-an-application-4.5.html).
 
-## Deploy using the XL Deploy default GUI
+## Deploy using the default GUI
+
+As of version 6.2.0, the default GUI is HTML-based.
 
 To deploy an application to an environment:
 
@@ -31,12 +33,14 @@ To deploy an application to an environment:
 1. If you are using XL Deploy 6.0.x, click **Execute** to start executing the plan immediately. Otherwise, click **Continue**.
 1. You can optionally:
 
-    * View or edit the properties of a deployed item by double-clicking it
-    * Click **Deployment Properties** to configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html)
+    * View or edit the properties of a deployed item by double-clicking it.
+    * View the relationship between deployables and deployeds by clicking them.
+    * Click **Deployment Properties** to configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html).
+    * Click the arrow icon on the **Deploy** button and select **Modify plan** if you want to adjust the deployment plan by skipping steps or inserting pauses.
 
     ![Explorer deployment](images/explorer-deploy-02.png)
 
-1. Click **Execute** to start executing the plan immediately.
+1. Click **Deploy** to start executing the plan immediately.
 
     If the server does not have the capacity to immediately start executing the plan, it will be in a `QUEUED` state until the server has sufficient capacity.
 
@@ -44,7 +48,7 @@ To deploy an application to an environment:
 
     If a step in the deployment fails, XL Deploy stops executing and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
 
-## Deploy using the XL Deploy legacy GUI
+## Deploy using the legacy GUI
 
 To deploy an application to an environment:
 
@@ -72,7 +76,7 @@ If the server does not have the capacity to immediately start executing the plan
 
 If a step in the deployment fails, XL Deploy stops executing the deployment and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
 
-## Mapping tips
+## Mapping tips when using the legacy GUI
 
 * Instead of dragging-and-dropping a deployment package on the environment, you can right-click the deployment package and select **Deploy**, then right-click the environment and select **Deploy to**.
 
@@ -86,11 +90,16 @@ If a step in the deployment fails, XL Deploy stops executing the deployment and 
 
 ## Skip a deployment step
 
-If you have the appropriate permission in XL Deploy, you can adjust the deployment plan so that one or more steps are skipped. To do so, select the step, right-click, and select **Skip**.
+If you have the appropriate permission in XL Deploy, you can adjust the deployment plan so that one or more steps are skipped.
+To do so, hover over the desired step, and click **Skip**.
+
+If you are using the legacy GUI and you want to skip a step, select the step, right-click, and select **Skip**.
 
 ## Add a pause step
 
-If you have the appropriate permission in XL Deploy, you can insert pause steps in the deployment plan. To do so, select the step just below the point where you want to pause, right-click, and select **Pause**.
+If you have the appropriate permission in XL Deploy, you can insert pause steps in the deployment plan. To do so, hover over the step just below where you want to pause, and click **Pause**.
+
+If you are using the legacy GUI and you want to insert pause steps, select the step just below the point where you want to pause, right-click, and select **Pause**.
 
 ## Stop, abort, or cancel an executing deployment
 
