@@ -187,7 +187,7 @@ If you answer `yes`, the setup wizard will start XL Deploy and show the URL wher
 
 As of version 6.2.0, the default GUI is HTML-based.
 
-To access to legacy GUI, click the Gear menu and select **Go to legacy interface**. You can also access it by opening this URL `http://localhost:4516/legacy-interface.html` in a browser.
+To access to legacy GUI, click the gear menu and select **Go to legacy interface**. You can also access it by opening this URL `http://localhost:4516/legacy-interface.html` in a browser.
 
 If you want to use the default GUI and the legacy GUI at the same time, you must open them in different browsers. The default GUI and the legacy GUI use different authentication methods so the same user cannot log into the XL Deploy interfaces using tabs or windows in the same browser.
 

@@ -17,7 +17,8 @@ When you set up an initial deployment, an update, or an undeployment, you can us
 ## Preview the deployment plan using the default GUI
 
 To open the Preview pane from the Explorer, click **Preview**. You can view the steps in the deployment plan.
-Click the arrow icon on the **Deploy** button and select **Modify plan** if you want to adjust the deployment plan by skipping steps or inserting pauses.
+
+![Preview deployment plan](images/preview-deployment-plan-html5-gui.png)
 
 {% comment %}
 Not yet in default GUI
@@ -47,35 +48,26 @@ This is an example of the deployment plan with the `sequential-by-container` orc
 ![image]
 {% endcomment %}
 
-
 ### Preview a step in the plan
 
-For deployment plan steps that require a script, you can preview the script that XL Deploy will execute. To open the step preview, double-click the step. Note that this requires the `task#preview_step` [global permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#global-permissions).
+To preview information about a step, double-click it. Note that this requires the `task#preview_step` [global permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#global-permissions).
 
-The step preview also shows:
+![Sample step preview](images/step-preview-html-gui.png)
+
+The step preview shows:
 
 * The [order](/xl-deploy/concept/steps-and-steplists-in-xl-deploy.html#steplist) of the step
-* The Source Path of the script template, relative to XL Deploy's classpath; for example, relative to `XL_DEPLOY_SERVER_HOME/ext` or packaged in the relevant plugin
+* The source path of the script, relative to XL Deploy's classpath; for example, relative to `XL_DEPLOY_SERVER_HOME/ext` or packaged in the relevant plugin
 * The number of the step
 * The step description
 * The rule the generated the step
 * The script preview
 
-This is an example of a step preview using the legacy GUI:
-
-![Sample Plan Analyzer step preview](images/planalyzer-datasource.png)
-
-If preview is not available, ![Step preview unavailable](/images/button_step_preview_unavailable.png) appears next to the step. To see the step order when preview is not available, hover the mouse pointer over the step and wait for the tooltip to appear. For example:
-
-![Sample Plan Analyzer step tooltip](images/planalyzer-tooltip.png)
-
 ### Start the deployment
 
-When you are satisfied with the Deployment Plan, start the deployment by clicking **Deploy**.
+When previewing the deployment plan, you can start the deployment immediately by clicking **Deploy** button. If you want to adjust the plan by skipping steps or inserting pauses, click the arrow on the **Deploy** button and select **Modify plan**.
 
-## Preview the deployment plan using the XL Deploy legacy GUI
-
-### Open the Plan Analyzer
+## Preview the deployment plan using the legacy GUI
 
 To open the Plan Analyzer from the Deployment Workspace:
 
@@ -90,21 +82,13 @@ To see which steps in the deployment plan are related to a specific [deployed](/
 
 ![Highlighted deployed and steps in Plan Analyzer](images/planalyzer-clickondeployed.png)
 
-### Using orchestrators
+### Preview a step in the plan
 
-The Plan Analyzer is useful when you are applying [orchestrators](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) to the deployment plan. Orchestrators are used to control the sequence of the generated plan. They are used mainly when dealing with more than one server.
+To preview information about a step, double-click it. Note that this requires the `task#preview_step` [global permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#global-permissions).
 
-For example, deploying an application to an environment that contains two JBoss servers results in a default deployment plan like this:
+![Sample Plan Analyzer step preview](images/planalyzer-datasource.png)
 
-![Sample deployment plan with default orchestrator](images/planalyzer-twoservers.png)
-
-In this plan, both servers are stopped simultaneously. This happens because the default orchestrator treats all target middleware as a single pool, so everything is started, stopped, and updated together.
-
-You can change this by applying a different orchestrator. Click **Deployment Properties** to see the orchestrators are available.
-
-This is an example of the deployment plan with the `sequential-by-container` orchestrator applied:
-
-![image](images/planalyzer-onebyone.png)
+If preview is not available, ![Step preview unavailable](/images/button_step_preview_unavailable.png) appears next to the step. To see the step order when preview is not available, hover the mouse pointer over the step and wait for the tooltip to appear.
 
 ### Start the deployment
 
@@ -112,7 +96,5 @@ When you are satisfied with the deployment plan as it appears in the Plan Analyz
 
 * **Next** in XL Deploy 4.5.x or earlier
 * **Execute** in XL Deploy 5.0.0 or later
-
-![image](images/planalyzer-deploy.png)
 
 This is the final plan that will be executed to perform the deployment. Here, you can adjust the plan by skipping steps or inserting pauses; right-click the plan to do so.

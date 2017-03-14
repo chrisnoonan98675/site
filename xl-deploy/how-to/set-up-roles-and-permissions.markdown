@@ -35,13 +35,15 @@ Use the **Global Permissions** tab to assign global permissions to *roles* in XL
 
 ![Assign global permissions](images/user-management-permissions.png)
 
-### Assign permissions on applications, environments, infrastructure, and configuration to roles
+### Assign local permissions to roles
 
 To assign or edit permissions:
 
-In the Library menu, hover over Applications, Environments, Infrastructure, or Configuration, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Edit permissions**. To add local permissions to a role, select the boxes next to it. To clear all permissions from a role, click **Clear**.
+1. In the Library menu, hover over a root node or a directory and click ![Explorer action menu](/images/menu_three_dots.png).
+1. Select **Edit permissions**.
+1. To add local permissions to a role, select the boxes next to it. To clear all permissions from a role, click **Clear**.
 
-**Note** To add or edit local permissions, you must have the *admin* or *security#edit* global permissions.
+**Note:** To add or edit local permissions, you must have the `admin` or `security#edit` global permission.
 
 ## Using the legacy GUI
 

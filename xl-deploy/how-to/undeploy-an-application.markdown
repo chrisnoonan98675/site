@@ -23,7 +23,7 @@ To undeploy an application:
 1. Hover over the application, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Undeploy**. A new tab appears in the right pane.
 1. You can optionally configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html) for the undeployment.
 
-**Note** Click the arrow icon on the **Undeploy** button and select **Modify plan** if you want to adjust the deployment plan by skipping steps or inserting pauses.
+    **Note:** Click the arrow icon on the **Undeploy** button and select **Modify plan** if you want to adjust the plan by skipping steps or inserting pauses.
 
 1. Click **Undeploy** to start executing the plan immediately.
 
@@ -44,4 +44,4 @@ To undeploy an application or deprovision an environment:
 
 ## Undeploying an application with dependencies
 
-For information about undeploying an application with dependencies, refer to  [Application dependencies in XL Deploy](/xl-deploy/concept/application-dependencies-in-xl-deploy.html).
+For information about undeploying an application with dependencies, refer to  [Application dependencies in XL Deploy](/xl-deploy/concept/application-dependencies-in-xl-deploy.html#undeploying-application-with-dependencies).

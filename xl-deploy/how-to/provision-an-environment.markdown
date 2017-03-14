@@ -32,20 +32,20 @@ To provision an environment:
 1. If you are using XL Deploy 6.0.x, click **Execute** to start executing the plan immediately. Otherwise, click **Continue**.
 1. You can optionally:
 
-    * View or edit the properties of a deployed item by double-clicking it.
-    * View the relationship between deployables and deployeds by clicking them.
+    * View or edit the properties of a provisioned item by double-clicking it.
+    * View the relationship between provisionables and provisioneds by clicking them.
     * Click **Deployment Properties** to configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html).
-    * Click the arrow icon on the **Deploy** button and select **Modify plan** if you want to adjust the deployment plan by skipping steps or inserting pauses.
+    * Click the arrow icon on the **Deploy** button and select **Modify plan** if you want to adjust the provisioning plan by skipping steps or inserting pauses.
 
-    ![Explorer deployment](images/explorer-deploy-02.png)
+    ![Explorer provisioning](images/provisioning-mapping-html-gui.png)
 
-1. Click **Deploy** to immediately start the provisioning.
+1. Click **Deploy** to immediately start provisioning.
 
     If the server does not have the capacity to immediately start executing the plan, it will be in a `QUEUED` state until the server has sufficient capacity.
 
-    ![Explorer deployment](images/explorer-deploy-03.png)
+    ![Explorer provisioning](images/provisioning-execution-html-gui.png)
 
-    If a step in the deployment fails, XL Deploy stops executing and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
+    If a step in the provisioning fails, XL Deploy stops executing and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
 
 ## Provision an environment using the legacy GUI
 

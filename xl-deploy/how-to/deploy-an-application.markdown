@@ -30,21 +30,24 @@ To deploy an application to an environment:
 1. Expand **Applications**, and then expand the application that you want to deploy.
 1. Hover over the desired deployment package or provisioning package, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Deploy**. A new tab appears in the right pane.
 1. In the new tab, select the target environment. You can filter the list of environments by typing in the **Search** box at the top. To see the full path of an environment in the list, hover over it with your mouse pointer.
-1. If you are using XL Deploy 6.0.x, click **Execute** to start executing the plan immediately. Otherwise, click **Continue**.
+1. If you are using XL Deploy 6.0.x or 6.1.0, click **Execute** to start executing the plan immediately. Otherwise, click **Continue**.
+
+    ![Deployment - mapping screen](images/explorer-deploy-02.png)
+
 1. You can optionally:
 
     * View or edit the properties of a deployed item by double-clicking it.
     * View the relationship between deployables and deployeds by clicking them.
     * Click **Deployment Properties** to configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html).
-    * Click the arrow icon on the **Deploy** button and select **Modify plan** if you want to adjust the deployment plan by skipping steps or inserting pauses.
+    * Click the arrow icon on the **Deploy** button and select **Modify plan** to adjust the deployment plan by skipping steps or inserting pauses.
 
-    ![Explorer deployment](images/explorer-deploy-02.png)
+    ![Deployment - pending plan](images/explorer-deploy-03.png)
 
 1. Click **Deploy** to start executing the plan immediately.
 
     If the server does not have the capacity to immediately start executing the plan, it will be in a `QUEUED` state until the server has sufficient capacity.
 
-    ![Explorer deployment](images/explorer-deploy-03.png)
+    ![Deployment - executed](images/explorer-deploy-04.png)
 
     If a step in the deployment fails, XL Deploy stops executing and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
 
@@ -76,7 +79,7 @@ If the server does not have the capacity to immediately start executing the plan
 
 If a step in the deployment fails, XL Deploy stops executing the deployment and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
 
-## Mapping tips when using the legacy GUI
+### Mapping tips when using the legacy GUI
 
 * Instead of dragging-and-dropping a deployment package on the environment, you can right-click the deployment package and select **Deploy**, then right-click the environment and select **Deploy to**.
 
@@ -90,16 +93,15 @@ If a step in the deployment fails, XL Deploy stops executing the deployment and 
 
 ## Skip a deployment step
 
-If you have the appropriate permission in XL Deploy, you can adjust the deployment plan so that one or more steps are skipped.
-To do so, hover over the desired step, and click **Skip**.
+If you have the [`task#skip_step` permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#local-permissions), you can adjust the deployment plan so that one or more steps are skipped. To do so, hover over the desired step and click **Skip**.
 
 If you are using the legacy GUI and you want to skip a step, select the step, right-click, and select **Skip**.
 
 ## Add a pause step
 
-If you have the appropriate permission in XL Deploy, you can insert pause steps in the deployment plan. To do so, hover over the step just below where you want to pause, and click **Pause**.
+You can insert pause steps in the deployment plan. To do so, hover over the step just above or below where you want to pause and click **Pause before** or **Pause after**.
 
-If you are using the legacy GUI and you want to insert pause steps, select the step just below the point where you want to pause, right-click, and select **Pause**.
+If you are using the legacy GUI and you want to insert pause steps, select the step just above or below the point where you want to pause, right-click the step, and select **Pause before** or **Pause after**.
 
 ## Stop, abort, or cancel an executing deployment
 
@@ -109,7 +111,7 @@ You can stop or abort an executing deployment, then continue or cancel it. For i
 
 If a step in the deployment fails, XL Deploy stops executing the deployment and marks the step as `FAILED`.
 
-In some cases, you can click **Continue** to retry the failed step. If the step is incorrect and should be skipped, select it and click **Skip**, then click **Continue**.
+In some cases, you can click **Continue** to retry the failed step. If the step is incorrect and should be skipped, select it and click **Skip**, and then click **Continue**.
 
 ## Roll back a deployment
 

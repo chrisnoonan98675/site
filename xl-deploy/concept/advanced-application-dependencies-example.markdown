@@ -42,6 +42,8 @@ When using the application dependency feature, XL Deploy requires you to use the
 
 To set up a deployment of the latest version of CustomerProfile, hover over the deployment package, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Deploy**.  XL Deploy automatically adds the deployables from the dependent deployment packages.
 
+![Mapped application with dependencies](images/mapping-with-dependent-apps-html-gui.png)
+
 ### Using the legacy GUI
 
 You can set up a deployment of the latest version of CustomerProfile by dragging it to the Deployment Workspace. XL Deploy automatically adds the deployables from the dependent deployment packages.
@@ -70,22 +72,13 @@ For detailed information about version selection, refer to [How XL Deploy checks
 
 This applies to XL Deploy version 6.2.0 and higher.
 
-To update the Inventory application to version 1.9.0, you would:
+You can easily update a deployed application to a new version. For example, to update the Inventory application to version 1.9.0, you would:
 
-1. Expand **Environments**, and then expand the environment where the Inventory 1.5.0 application is deployed.
-1. Hover over the application, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Update**. A new tab appears in the right pane.
-1. In the new tab, select the Inventory 1.9.0 deployment package. You can filter the list of versions by typing in the **Search** box at the top.
-1. Click **Continue**.
-1. You can optionally:
+1. Under **Environments** in the Explorer, click ![Explorer action menu](/images/menu_three_dots.png) next to Inventory 1.5.0 and select **Update**.
+2. In the list of deployment packages, locate Inventory 1.9.0 and then click **Continue**.
+3. Click **Deploy** to start executing the plan.
 
-    * View or edit the properties of a deployed item by double-clicking it
-    * Click **Deployment Properties** to configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html)
-
-1. Click **Deploy** to start executing the plan immediately.
-
-    If the server does not have the capacity to immediately start executing the plan, it will be in a `QUEUED` state until the server has sufficient capacity.
-
-    If a step in the update fails, XL Deploy stops executing and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
+This deployment is possible because Inventory 1.9.0 satisfies the CustomerProfile dependency on Inventory [1.0.0,2.0.0). Updating Inventory to a version such as 2.1.0 is not possible, because 2.1.0 does not satisfy the dependency.
 
 ### Using the legacy GUI
 
