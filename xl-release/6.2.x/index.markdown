@@ -8,8 +8,7 @@ product-id: xl-release
 ## Product reference documentation
 
 * [Release manual](releasemanual.html)
-* [REST API reference](rest-api/)
-* [REST API reference (new format)](rest-docs/html5/)
+* [REST API documentation](rest-docs/)
 * [Jython API reference](/jython-docs/#!/xl-release/6.2.x/)
 * [DSL API reference](dsl-api)
 
