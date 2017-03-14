@@ -56,7 +56,9 @@ The XL Deploy server itself only uses about 70 MB of disk space. The main hard d
 * Number of packages in the system
 * Number of deployments performed (specifically, the amount of logging information stored)
 
-While it is possible to store the repository in an [external database](/xl-deploy/how-to/configure-the-xl-deploy-repository.html), it should not be stored on NFS. Also, XL Deploy always requires that the disk space for the server be persistent. This is important for several reasons:
+While it is possible to store the repository in an [external database](/xl-deploy/how-to/configure-the-xl-deploy-repository.html), the underlying technology requires that the repository itself must not be stored on NFS as this is not supported. 
+
+XL Deploy always requires that the disk space for the server be persistent. This is important for several reasons:
 
 * Lucene indexes are stored in the repository directory; if the disk space is not persistent, these indexes will be rebuilt each time the server starts, which is very time-consuming
 * Configuration files such as `deployit.conf` and `deployit-defaults.properties` are updated by the running system
