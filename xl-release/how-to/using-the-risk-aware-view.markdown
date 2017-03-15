@@ -1,0 +1,33 @@
+---
+title: Using risk awareness in XL Release  
+categories:
+- xl-release
+subject:
+- Risk Awareness
+tags:
+- release
+- risk aware
+- flag
+since:
+- XL Release 6.2.0
+---
+
+XL Release calculates a risk level for each release based on different factors such as flags, failed or failing states, or due dates.
+You can see if a release has a high risk level in the [release overview](/xl-release/how-to/using-the-release-overview.html). An icon next to the release indicates the risk level. Click the icon to see the detailed risk information.
+
+Red icon - Shows **At risk** state, the reason (Example: `Release has tasks flagged as red.`), and a message (Example: `Task name: Flag comment`)
+Amber icon - Shows **Attention needed** state, the reason (Example: `Release has tasks flagged as amber.`), and a message (Example: `Task name: Flag comment`)
+Green icon  - Shows **On track** state - The release is on track.
+
+List of risk assessors used to calculate the risk level of a release:
+
+* Release flags: Red or Amber
+* Release state: Failed or Failing
+* Task flags: Red or Amber
+* Release past due date
+* Task past due date (per task)
+* Retries for a failed task
+
+To order the release overview by risk level, click **Order by** and select **Risk**.
+
+The release overview shows the releases with the highest risk level at the top.

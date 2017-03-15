@@ -15,9 +15,11 @@ To see the list of releases that you have permission to view and that are curren
 
 ## Release overview actions
 
+* Click in any place on a release to open the release in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html)
+* Click the arrow button under a release to expand the phase pipeline view of that release. Click the arrow again to collapse the phase pipeline view.
+
 Next to each release, click:
 
-* **View** to open the release in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html)
 * **Start** to start a release that is in the *planned* state
 * **Abort** to abort the release
 
@@ -36,6 +38,16 @@ The **End date** column shows:
 Overdue dates appear in red.
 
 The **Duration** column shows the duration of the release.
+
+**Note** The release overview shows a percentage complete status based on the number of tasks completed in each release.
+
+## Sorting releases in release overview
+
+To order the release overview, click **Order by** and select:
+
+* **Risk** to show the releases with the highest risk level at the top
+* **Start date** to show the releases with earliest start date on top
+* **End date** to show the release with latest end date on top
 
 ## Filtering the release overview
 
