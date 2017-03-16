@@ -9,7 +9,7 @@ tags:
 - email
 ---
 
-XL Release sends emails when certain events happen in a release. The emails are: 
+XL Release sends emails when certain events happen in a release. The emails are:
 
 * **Task assignment**: An active task has been assigned to somebody else. The new assignee receives a message telling them they are responsible for completion of this task.
 
@@ -20,6 +20,8 @@ XL Release sends emails when certain events happen in a release. The emails are:
 	* If there is no owner or team assigned, the release owner receives a warning message that a task is in progress but no one is responsible for it. In the case of automated tasks, messages are sent to individual owners or team owners so they can track automated procedures they are responsible for. However, a warning message for unassigned tasks is not sent to release owners.
 
 * **Comment added**: When a user adds a comment to a task, a message is sent to the task owner and all team members of the team assigned to the task.
+
+* **Release started**: The release owner is notified when a release has started.
 
 * **Release flagged**: The release owner is notified when a user adds a flag status message to a task or the release to indicate that attention is needed or that the release is at risk.
 
