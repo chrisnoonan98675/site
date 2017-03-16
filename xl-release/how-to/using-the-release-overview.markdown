@@ -20,6 +20,7 @@ To see the list of releases that you have permission to view and that are curren
 
 Next to each release, click:
 
+* **View** to open the release in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html) (XL Release 6.1.0 and earlier)
 * **Start** to start a release that is in the *planned* state
 * **Abort** to abort the release
 
