@@ -28,7 +28,7 @@ The risk assessors used to calculate the risk level of a release are the followi
 * Release state: Failed or Failing
 * Task flags: Red or Amber
 * Release past due date
-* Task past due date (per task)
+* Current task past due date
 * Retries for a failed task
 
 To order the release overview by risk level, click **Order by** and select **Risk**.

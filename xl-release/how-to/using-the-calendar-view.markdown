@@ -11,7 +11,7 @@ tags:
 
 To see an overview of all releases in XL Release on a month-by-month basis, select **Releases** > **Calendar** from the top bar (in XL Release 5.0.x and earlier, click **Calendar** in the top bar).
 
-On the calendar, releases appear as light blue bars. A red exclamation mark icon indicates that there is a dependency conflict; that is, a gate task in a release has a dependency on another release, but the release will end after the start date of the dependent one. This helps you identify "schedule shift", where one or more releases require the completion of other releases.
+On the calendar, releases appear as light blue bars. 
 
 ![Calendar](../images/calendar.png)
 
