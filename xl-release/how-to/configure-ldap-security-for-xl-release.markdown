@@ -75,7 +75,7 @@ To configure XL Release to use an LDAP repository, modify the `xl-release-securi
 
     &lt;bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/&gt;
 
-    &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider"/&gt;
+    &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.xlAuthenticationProvider"/&gt;
 
     &lt;security:authentication-manager alias="authenticationManager"&gt;
         &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt;
@@ -122,7 +122,7 @@ Because `xl-release-security.xml` is an XML file, you must escape certain charac
 
 ## Assign a default role to all authenticated users
 
-If you have an LDAP setup in which there is not a group that contains all XL Release users, and you want to use such a group in the default `XlAuthenticationProvider` (`JcrAuthenticationProvider` in XL Release 4.7.x and earlier), you can configure this in the `xl-release-security.xml` file.
+If you have an LDAP setup in which there is not a group that contains all XL Release users, and you want to use such a group in the default `xlAuthenticationProvider` (`JcrAuthenticationProvider` in XL Release 4.7.x and earlier), you can configure this in the `xl-release-security.xml` file.
 
 This example creates a group called `everyone` that is assigned to each user who is authenticated (the group name can be anything you want). You can then link this group to a XL Release role and assign a [global permission](/xl-release/how-to/configure-permissions.html) to it.
 
@@ -137,7 +137,7 @@ This example creates a group called `everyone` that is assigned to each user who
             <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
         </bean>
 
-        <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider">
+        <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.xlAuthenticationProvider">
             <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
         </bean>
 
