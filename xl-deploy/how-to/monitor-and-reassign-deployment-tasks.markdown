@@ -7,14 +7,22 @@ subject:
 tags:
 - deployment
 - gui
-- security
+- task monitor
 weight: 190
 ---
 
-The XL Deploy GUI incorporates a task monitor from which you can get an overview of the deployment tasks in the system. The task monitor is opened from the help menu in the far top right. By default it shows only tasks belonging to the current user, but by selecting 'All tasks' from the dropdown at the top, a full overview can be obtained.
+The XL Deploy user interface includes a Task Monitor that provides an overview of deployment tasks that are not archived. To access it, select **Task Monitor** from the gear icon menu.
+
+By default, the Task Monitor only shows the tasks that are assigned to you. To see all tasks, select **All tasks** at the top of the Task Monitor.
 
 ![Task Monitor](images/task-monitor.png)
 
-From the task monitor it is possible to reassign tasks. Security-wise there are two different permissions, `task#assign` and `task#takeover`, governing the rules who can do what: if a user has task#takeover, he can reassign tasks to himself. This is done by selecting a task and pressing the 'Assign to me' button at the bottom of the task monitor.
+## Open a task
 
-The `task#assign` permission is a stronger permission, allowing the user to reassign any task from anyone to anyone. By pressing the 'Assign to...' button, a popup will appear in which the user name can be filled in to whom the task should be reassigned.
+To open a task from the Task Monitor, double-click it. You can only open tasks that are assigned to you.
+
+## Reassign a task
+
+To assign a task to yourself, select it and click **Assign to me**. This requires the `task#takeover` [global permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#global-permissions).
+
+To assign a task to another user, select it and click **Assign to...**, and then select the user. This requires the `task#assign` global permission.

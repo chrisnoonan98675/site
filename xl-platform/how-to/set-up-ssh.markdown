@@ -14,7 +14,7 @@ tags:
 weight: 339
 ---
 
-The [Remoting plugin](/xl-platform/concept/remoting-plugin.html) for XL Deploy and XL Release uses the [Overthere framework](https://github.com/xebialabs/overthere) to manipulate files and execute commands on remote hosts. The Remoting plugin supports the [SSH protocol](http://en.wikipedia.org/wiki/Secure_Shell) for connecting to a Unix, Microsoft Windows, or z/OS host. To connect to a remote host using the SSH protocol, you must to install an SSH server on that remote host.
+The [remoting functionality](/xl-platform/concept/remoting-plugin.html) for XL Deploy and XL Release supports the [SSH protocol](http://en.wikipedia.org/wiki/Secure_Shell) for connecting to a Unix, Microsoft Windows, or z/OS hosts. To connect to a remote host using the SSH protocol, you must to install an SSH server on that remote host.
 
 ## Unix remote host
 
@@ -31,7 +31,7 @@ For Microsoft Windows platforms, XL Deploy supports these SSH servers:
 
 ## SSH compatibility
 
-The Remoting plugin uses the [`sshj`](https://github.com/shikhar/sshj) library for SSH and supports all algorithms and formats that are supported by that library:
+Remoting functionality is provided by the XL Deploy or XL Release Remoting plugin, which uses the [`sshj`](https://github.com/shikhar/sshj) library for SSH and supports all algorithms and formats that are supported by that library:
 
 * Ciphers: `aes{128,192,256}-{cbc,ctr}`, `blowfish-cbc`, `3des-cbc`
 * Key Exchange methods: `diffie-hellman-group1-sha1`, `diffie-hellman-group14-sha1`

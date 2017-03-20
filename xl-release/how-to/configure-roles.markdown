@@ -33,5 +33,6 @@ To:
 * Add a new role, click **New role**
 * Delete a role, click the **X** next to it
 * Change the name of a role, click it
+* Add a principal to a role, type the name and press ENTER
 
 Click **Save** to apply your changes. Click **Reset** to discard your changes and reload the current settings from the server.

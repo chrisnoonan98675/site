@@ -18,7 +18,7 @@ The options for the Jenkins task are:
 {:.table .table-striped}
 | Option | Description |
 | ------ | ----------- |
-| Server | The Jenkins server to which XL Release connects. You can configure Jenkins servers in **Settings** > **Shared configuration** (**Settings** > **Configuration** prior to XL Deploy 6.0.0). |
+| Server | The Jenkins server to which XL Release connects. You can configure Jenkins servers in **Settings** > **Shared configuration** (**Settings** > **Configuration** prior to XL Release 6.0.0). |
 | Username | Optional user name to use when connecting to the Jenkins server. Use this property to override the user that was configured on the Jenkins server. |
 | Password | Optional password to use when connecting to the Jenkins server. Use this property to override the password that was configured on the Jenkins server. |
 | Job Name | The name of the job that will be triggered. This job must be configured on the Jenkins server. If the job is located in one or more Jenkins folders, add a `job` segment between each folder. For example, for a job that is located at `Applications/web/my portal`, use `Applications/job/web/job/my portal`. |
@@ -70,7 +70,11 @@ In version 6.1.0 and later, you can use the [Jenkins Pipeline](https://jenkins.i
 
 To start using Jenkinsfile, create a pipeline job and add the Jenkinsfile content to the **Pipeline** section of the job configuration.
 
+For a detailed procedure on how to use the Jenkins Pipeline feature with the Xl Release plugin for Jenkins, refer to [XebiaLabs XL Release Plugin](https://jenkins.io/doc/pipeline/steps/xlrelease-plugin/).
+
 For information about the Jenkinsfile syntax, refer to the [Jenkins Pipeline documentation](https://jenkins.io/doc/book/pipeline/jenkinsfile/#creating-a-jenkinsfile). For information about the items you can use in the Jenkinsfile, click **Check Pipeline Syntax** on the job.
+
+For information about how to add steps to Jenkinsfile, refer to the [Jenkins Plugin Steps documentation](https://jenkins.io/doc/pipeline/steps/xlrelease-plugin/).
 
 ### Jenkinsfile example
 
@@ -87,17 +91,33 @@ The following Jenkinsfile can be used to build a pipeline and deploy a simple we
         xldDeploy serverCredentials: '<user_name>', environmentId: 'Environments/Dev', packageId: 'Applications/<app_name>/$BUILD_NUMBER.0'  
       }
       stage('Start XLR Release') {
-           xlrCreateRelease serverCredentials: '<user_name>', template: 'Release <app_name>', version: 'Release for $BUILD_TAG', variables: [[propertyName: 'version', propertyValue: '$BUILD_NUMBER.0']], startRelease: true
+           xlrCreateRelease serverCredentials: '<user_name>', template: 'Release <app_name>', releaseTitle: 'Release for $BUILD_TAG', variables: [[propertyName: 'version', propertyValue: '$BUILD_NUMBER.0']], startRelease: true
       }
     }  
 
 ## Release notes
 
+### Version 6.1.2
+
+### Improvements
+
+* REL-4251 Show deprecation warning in Jenkins XL Release plugin when the version parameter is used
+
+### Bug fixes
+
+* REL-4280 Variable names set in Jenkins post-build action are overwritten by first variable in list
+* REL-4282 Jenkins XL Release plugin 6.1.1 does not support Java 7
+
 ### Version 6.1.1
 
 #### Improvements
 
-* REL-4105 Rename the version parameter on the xldCreateRelease step to releaseTitle
+* REL-4105 Rename the `version` parameter on the `xldCreateRelease` step to `releaseTitle`
+
+**Note:**
+
+* Version 6.1.1 of the plugin is not compatible with Java 7. To use version 6.1.1, you must use Java 8. To use the plugin with Java 7, upgrade the plugin to version 6.1.2.
+* The `version` parameter is now deprecated.
 
 ### Version 6.1.0
 
@@ -110,7 +130,7 @@ The following Jenkinsfile can be used to build a pipeline and deploy a simple we
 #### Improvements
 
 * Support for XL Release 6.0.0 with folders
-* Variable names shown without '${}'
+* Variable names shown without `${ }`
 
 ### Version 5.0.0
 

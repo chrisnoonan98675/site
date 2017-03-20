@@ -63,7 +63,11 @@ In version 6.1.0 and later, you can use the [Jenkins Pipeline](https://jenkins.i
 
 To start using Jenkinsfile, create a pipeline job and add the Jenkinsfile content to the **Pipeline** section of the job configuration.
 
+For a detailed procedure on how to use the Jenkins Pipeline feature with the Xl Deploy plugin for Jenkins, refer to [XebiaLabs XL Deploy Plugin](https://jenkins.io/doc/pipeline/steps/deployit-plugin/).
+
 For information about the Jenkinsfile syntax, refer to the [Jenkins Pipeline documentation](https://jenkins.io/doc/book/pipeline/jenkinsfile/#creating-a-jenkinsfile). For information about the items you can use in the Jenkinsfile, click **Check Pipeline Syntax** on the job.
+
+For information about how to add steps to Jenkinsfile, refer to the [Jenkins Plugin Steps documentation](https://jenkins.io/doc/pipeline/steps/deployit-plugin/).
 
 ### Jenkinsfile example
 
@@ -83,9 +87,46 @@ The following Jenkinsfile can be used to build the pipeline and deploy a simple 
       stage('Deploy') {  
         xldDeploy serverCredentials: '<user_name>', environmentId: 'Environments/Dev', packageId: 'Applications/<project_name>/$BUILD_NUMBER.0'
       }  
-    }  
+    }
+
+### Configure the artifact path
+
+In version 6.1.1 of the plugin, the configuration of the artifact path specified in the package phase has changed. In version 6.1.0, the `artifactPath` was specified as `build/libs`, which was relative to the Jenkins workspace path. As of version 6.1.1, the path is specified as `build`, and all paths specified in the `deployit-manifest.xml` file are relative to the `build` directory.
+
+For example, this `deployit-manifest.xml` section defines a `jee.War` file artifact that is placed at `<workspace>/build/libs/PetClinic.war`:
+
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8"?>
+<udm.DeploymentPackage version="1.0.0" application="PetPortal">
+ <application />
+ <deployables>
+  <jee.War name="/petclinic" file="/libs/PetClinic.war"/>
+ <dependencyResolution>LATEST</dependencyResolution>
+ <undeployDependencies>false</undeployDependencies>
+</udm.DeploymentPackage>
+{% endhighlight %}
+
+This is the structure of the `build` directory in the Jenkins workspace folder:
+
+    build
+      |--libs
+        |--tomcat.war
+        |--tomcat.war.original
+      |--deployit-manifest.xml
+
+Note that the path of the file specified in the manifest file is `libs/PetClinic.war`; this is relative to the artifact path that is specified in the pipeline configuration. All artifacts should be placed at the same relative path on the disk as specified in the manifest file. The package will only contain the artifacts that are defined in `deployit-manifest.xml`.
 
 ## Release notes
+
+### Version 6.1.1
+
+#### Improvements
+
+* Refer to [Configure the artifact path](#configure-the-artifact-path).
+
+#### Bug fixes
+
+* [DEPL-10899] - xldCreatePackage does not complete if artifactsPath contains darPath
 
 ### Version 6.1.0
 

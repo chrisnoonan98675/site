@@ -2,6 +2,11 @@
 
 # IN-PRODUCT LINKS
 
+# XL Deploy in-product links
+
+Redirect 301 /xl-deploy/support-request.html https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=30145
+Redirect 301 /xl-deploy/suggest-feature.html https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=94473
+
 # XL Release in-product links
 
 Redirect 301 /xl-release/support-request.html https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=30145
@@ -208,6 +213,7 @@ Redirect 301 /xl-deploy/how-to/troubleshoot-a-cifs-connection.html /xl-platform/
 Redirect 301 /xl-deploy/how-to/troubleshoot-a-winrm-connection.html /xl-platform/how-to/troubleshoot-a-winrm-connection.html
 Redirect 301 /xl-deploy/how-to/troubleshoot-a-telnet-connection.html /xl-platform/how-to/troubleshoot-a-telnet-connection.html
 Redirect 301 /xl-deploy/how-to/expose-additional-overthere-properties.html /xl-platform/concept/remoting-plugin.html
+Redirect 301 /xl-deploy/how-to/configure-the-xl-deploy-security-file.html /xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html
 
 # XL Release topics
 
@@ -258,6 +264,7 @@ Redirect 301 /xl-release/how-to/reset-admin-password-xl-release-server.html /xl-
 Redirect 301 /xl-release/how-to/configure-an-external-database.html /xl-release/how-to/configure-active-hot-standby.html
 Redirect 301 /xl-release/how-to/create-a-script-task.html /xl-release/how-to/create-a-jython-script-task.html
 Redirect 301 /xl-release/how-to/configure-a-jumpstation.html /xl-platform/how-to/set-up-ssh.html
+Redirect 301 /xl-release/how-to/create-a-new-release-via-rest-api-using-curl.html /xl-release/how-to/create-a-new-release-via-rest-api.html
 
 # XL TestView topics
 

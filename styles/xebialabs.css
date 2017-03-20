@@ -466,47 +466,11 @@ h6:hover .header-link {
     padding: 6px 10px;
 }
 
-
 /* Google Custom Search overrides */
 
-input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gsc-search-button, .gsc-inline-block {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  line-height: normal;
-}
 .cse input.gsc-search-button, input.gsc-search-button {
-	border-color: #0081c1 !important;
-	background-color: #0081c1 !important;
-	background-image: -moz-linear-gradient(top,#0081c1,#0081c1) !important;
-}
-.gsc-input {
-  width: 400px;
-}
-.gsc-tabsArea div {
-  overflow: visible !important;
-}
-.cse .gsc-control-cse, .gsc-control-cse {
-  background: none !important;
-  border: none !important;
-}
-.gs-title {
-    line-height: 120%;
-}
-.gs-title a {
-  color: #15C !important;
-  text-decoration: underline !important;
-}
-.gs-title a:visited {
-  text-decoration: underline !important;
-}
-.gsc-wrapper {
-	box-shadow: 0;
-}
-#top-bar, .navbar-form, .navbar-right {
-  border: none !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
+    background-color: #666 !important;
+    border: 1px solid #666 !important;
 }
 
 /* Scroll-to-top button styles */

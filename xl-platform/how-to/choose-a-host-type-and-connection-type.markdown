@@ -13,7 +13,7 @@ tags:
 weight: 337
 ---
 
-The [Remoting plugin](/xl-platform/concept/remoting-plugin.html) for XL Deploy and XL Release uses the [Overthere framework](https://github.com/xebialabs/overthere) to manipulate files and execute commands on remote hosts. To determine which type of Overthere host to create and which connection type to use, follow these guidelines.
+The [remoting functionality](/xl-platform/concept/remoting-plugin.html) for XL Deploy and XL Release uses the [Overthere framework](https://github.com/xebialabs/overthere) to manipulate files and execute commands on remote hosts. To determine which type of Overthere host to create and which connection type to use, follow these guidelines.
 
 ## Is the remote host the XL Deploy or XL Release server itself?
 

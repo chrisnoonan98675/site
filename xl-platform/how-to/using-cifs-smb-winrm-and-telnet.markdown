@@ -7,17 +7,17 @@ categories:
 - xl-deploy
 - xl-release
 tags:
-- plugin
 - connectivity
 - remoting
 - cifs
 - smb
 - winrm
 - telnet
+- overthere
 weight: 338
 ---
 
-The [Remoting plugin](/xl-platform/concept/remoting-plugin.html) for XL Deploy and XL Release uses the [Overthere framework](https://github.com/xebialabs/overthere) to manipulate files and execute commands on remote hosts. The Remoting plugin supports the [CIFS and SMB protocols](http://en.wikipedia.org/wiki/Server_Message_Block) for file manipulation and [WinRM](http://en.wikipedia.org/wiki/WS-Management) and [Telnet](http://en.wikipedia.org/wiki/Telnet) for process execution.
+The [remoting functionality](/xl-platform/concept/remoting-plugin.html) for XL Deploy and XL Release supports the [CIFS and SMB protocols](http://en.wikipedia.org/wiki/Server_Message_Block) for file manipulation and [WinRM](http://en.wikipedia.org/wiki/WS-Management) and [Telnet](http://en.wikipedia.org/wiki/Telnet) for process execution.
 
 Microsoft Windows' built-in file sharing capabilities are based on CIFS and are therefore available and enabled by default, so you should not need to install new software on a target CIFS or SMB host. However, you might need to enable and configure some services.
 
@@ -190,7 +190,7 @@ For more information about configuring satellites, refer to [Install and configu
 
 #### Generate the Kerberos configuration file
 
-It's not always easy to determine the right Windows domain name and the hostnames of all domain controllers. You can generate the configuration by copying the PowerShell script [generate-krb5-conf.ps1](sample-scripts/generate-krb5-conf.ps1) to a Windows machine in the target domain and then running it with the following command:
+It's not always easy to determine the right Windows domain name and the hostnames of all domain controllers. You can generate the configuration by copying the PowerShell script [generate-krb5-conf.ps1](/xl-deploy/how-to/sample-scripts/generate-krb5-conf.ps1) to a Windows machine in the target domain and then running it with the following command:
 
     powershell -f generate-krb5-conf.ps1
 

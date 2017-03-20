@@ -1,7 +1,7 @@
 ---
 title: Get started with XL Release
 categories:
-- xl-deploy
+- xl-release
 subject:
 - Getting started
 tags:

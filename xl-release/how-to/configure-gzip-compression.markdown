@@ -1,5 +1,5 @@
 ---
-title: Configure HTTP GZIP Compression
+title: Configure HTTP GZIP compression
 categories:
 - xl-release
 subject:

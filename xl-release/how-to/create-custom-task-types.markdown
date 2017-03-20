@@ -93,7 +93,7 @@ Next are the properties. They are defined as nested `<property>` elements. The f
 | Property | Description |
 | -------- | ----------- |
 | `name` | Name of the property. This is also the name of the variable by which it is referred in the Python script. |
-| `category` | XL Release supports two categories.<br />`input` appear in the task in the XL Release UI and must be specified before the task starts. They are then passed to the Python script.<br />`output` can be set in the Python script. When the script completes, they can be copied into release variables in XL Release. |
+| `category` | XL Release supports two categories.<br />`input` appear in the task in the XL Release UI and must be specified before the task starts. They are then passed to the Python script. If you add an `input` type and do not specify the value for the `required` field, it will be set to the default value `true`. <br />`output` can be set in the Python script. When the script completes, they can be copied into release variables in XL Release. |
 | `label` | Group and label used in the XL Release UI. If you do not specify a group and label, XL Release will attempt to make a readable version. For example, `myCompany.myTask` will appear as a `My Task` task type in the `My Company` group.<br/><br/>In XL Release 6.1.0 and later, you can group task types in your preferred groups by adding the group before a colon in the label; for example, `Other Items: My Task`. |
 | `description` | Help text explaining the property in more detail. This will appear in the UI. |
 | `kind` | The property type, which is `string`, `integer`, `boolean`, or `ci`. In XL Release 4.8.0 and later, the `list_of_string`, `set_of_string`, and `map_string_string` property types are also available. In XL Release 6.1.0 and later, the `enum` type is also available.<br /><br />If omitted, this attribute defaults to `string`. |
@@ -126,11 +126,11 @@ This is how the above task definition looks like in the task details window:
 
 When the custom task becomes active, it triggers the Python script that is associated with it. For information about the script, refer to [API and scripting overview](/xl-release/how-to/api-and-scripting-overview.html).
 
-Store scripts in a directory that has the same name as the prefix of the task type definition. The script file name has the same name as the name of the task, followed by the `.py` extension. For example, the Python script for the `jira.CreateIssue` task must be stored in `jira/CreatePython.py`.
+Store scripts in a directory that has the same name as the prefix of the task type definition. The script file name has the same name as the name of the task, followed by the `.py` extension. For example, the Python script for the `jira.CreateIssue` task must be stored in `jira/CreateIssue.py`.
 
 Input properties are available as variables in the Python script. You can set output values by assigning values to their corresponding variables in the script. After execution, the script variables are copied to the release variables that were specified on the task in the UI.
 
-**Tip:** To concatenate multiple Python scripts and have XL Release schedule them, refer to [Using scheduling in scripts to connect to long running jobs](/xl-release/how-to/using-scheduling-in-scripts.markdown).
+**Tip:** To concatenate multiple Python scripts and have XL Release schedule them, refer to [Using scheduling in scripts to connect to long running jobs](/xl-release/how-to/using-scheduling-in-scripts.html).
 
 For example, this is a possible implementation of the `jira.CreateIssue` task in Python:
 

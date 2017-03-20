@@ -23,6 +23,8 @@ print(releaseVariables['xldeployPackage'])
 releaseVariables['xldeployPackage'] = 'XL Release'
 {% endhighlight %}
 
+In a similar way, you can modify [global variables](/xl-release/how-to/configure-global-variables.html) using the dictionary named `globalVariables`. Note that you can always read the values of the global variables, but if you want to update them, ensure that **Run automated tasks as user** of the release has global _Edit global variables_ permission.
+
 In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), Jython Script tasks have a gray border.
 
 ## Security and Jython Script tasks
