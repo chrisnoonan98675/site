@@ -17,7 +17,7 @@ To create, edit, or delete a blackout period, you must have the *Admin* or *Edit
 To create a new blackout period:
 
 1. Select **Releases** > **Calendar** from the top bar (in XL Release 5.0.x and earlier, click **Calendar** in the top bar).
-1. Click ![Edit calendar day](../images/icon_edit_calendar_day.png) in any day on the calendar.
+1. Click ![Edit calendar day](/images/icon_edit_calendar_day.png) in any day on the calendar.
 1. Select **Set blackout period**.
 1. In the **Label** box, specify a name for the blackout period.
 1. Select a start date and time for the blackout period.
