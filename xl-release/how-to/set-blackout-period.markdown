@@ -26,16 +26,24 @@ To create a new blackout period:
 
 You can see all the blackout periods in the [calendar view](/xl-release/how-to/using-the-calendar-view.html). On the calendar, the blackout period appears as a red hashed area.
 
+![image](/images/blackout.png)
+
 ## Tasks in blackout period
 
-All the tasks that are in progress or have a scheduled start date during the blackout period can be postponed until the end of the blackout period.
+All the tasks can be prevented from starting during a blackout period. You can do this by postponing each task until after the blackout period.
+
+**Note** If a task is already running, it cannot be postponed.
 
 To postpone a task:
 
 1. Go to the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html) and click the task.
 1. Under **Scheduled start date**, click the **Postpone during blackout period** checkbox.
 
+![image](/images/postpone-task.png)
+
 The task scheduled start date is reset to 1 minute after the set end date of the blackout period.
+
+If a task is postponed during blackout period, you can manually override the setting and start the task immediately.
 
 ## Edit or delete blackout period
 
