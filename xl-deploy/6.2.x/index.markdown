@@ -45,7 +45,7 @@ product-id: xl-deploy
 * [WebSphere Application Server plugin](/xl-deploy-was-plugin/6.0.x/wasPluginManual.html)
 * [WebSphere Process Server plugin](/xl-deploy-wps-plugin/6.0.x/wpsPluginManual.html)
 * [WebSphere Liberty Profile Server plugin](/xl-deploy-wlp-plugin/6.0.x/wlpPluginManual.html)
-* [Tomcat plugin](/xl-deploy-tomcat-plugin/6.0.x/tomcatPluginManual.html)
+* [Tomcat plugin](/xl-deploy-tomcat-plugin/6.2.x/tomcatPluginManual.html)
 * [GlassFish plugin](/xl-deploy-glassfish-plugin/6.0.x/glassfishPluginManual.html)
 
 ### .NET middleware plugins
@@ -70,14 +70,14 @@ product-id: xl-deploy
 * [XL Deploy plugin for Bamboo](/bamboo-xl-deploy-plugin/5.1.x/bambooPluginManual.html)
 * [Puppet plugin for XL Deploy](/xl-deploy-xld-puppet-plugin/6.0.x/puppetPluginManual.html)
 * [Chef plugin for XL Deploy](/xl-deploy-xld-chef-plugin/6.0.x/chefPluginManual.html)
-* [Docker plugin for XL Deploy](/xl-deploy-xld-docker-plugin/6.0.x/dockerPluginManual.html)
+* [Docker plugin for XL Deploy](/xl-deploy-xld-docker-plugin/6.2.x/dockerPluginManual.html)
 * [XL Deploy plugin for Team Foundation Server](/xl-deploy-tfs-plugin/6.0.x/tfsPluginManual.html)
 * [XL Deploy plugin for Team Foundation Server 2015](/xl-deploy-vsts-xld-plugin/5.1.x/tfs2015PluginManual.html)
 * [XL Deploy Manifest Editor (Windows only)](/xl-deploy/how-to/using-the-xl-deploy-manifest-editor.html)
 
 ### Provisioning plugins
 
-* [XL Deploy EC2 plugin](/xl-deploy-xld-aws-ec2-plugin/6.0.x/ec2PluginManual.html)
+* [XL Deploy AWS plugin](/xl-deploy-xld-aws-ec2-plugin/6.2.x/awsPluginManual.html)
 
 ### XL Scale
 
