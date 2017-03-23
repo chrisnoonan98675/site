@@ -18,7 +18,7 @@ The Amazon Web Services (AWS) plugin enables XL Deploy to work with Amazon Web S
 
 **Note:** Prior to version 6.2.0, the plugin was called the XL Deploy EC2 plugin.
 
-For information about AWS requirements and the configuration items (CIs) that the plugin supports, refer to the [EC2 Plugin Reference](/xl-deploy-xld-aws-ec2-plugin/latest/ec2PluginManual.html).
+For information about AWS requirements and the configuration items (CIs) that the plugin supports, refer to the [EC2 Plugin Reference](/xl-deploy-xld-aws-plugin/latest/ec2PluginManual.html).
 
 **Note:** The EC2 plugin is written in Python. To extend the plugin, knowledge of the Python programming language is required.
 
