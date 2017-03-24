@@ -116,6 +116,8 @@ When deploying applications with dependencies, the order in which the applicatio
 
 You can combine the `sequential-by-dependency` orchestrator with other orchestrators such as the `sequential-by-deployment-group` orchestrator to support more advanced use cases.
 
+**Note:** If orchestrators are configured on the deployment packages, XL Deploy only uses the orchestrator(s) of the package that you choose when setting up the deployment. The orchestrators on the other packages are ignored.
+
 ## Dependencies and permissions
 
 When you set up a deployment, XL Deploy checks the permissions of all applications that will be deployed because of dependencies. You must at least have `read` permission on all dependent applications.
