@@ -1,6 +1,5 @@
 ---
 title: Using the XL Release cluster functionality
-beta: true
 no_index: true
 ---
 
