@@ -18,6 +18,7 @@ For information about the plugins that are supported by the XebiaLabs customer s
 | Plugin | Features |
 | ------ | -------- |
 | [XL Deploy Atlassian JIRA plugin](https://github.com/xebialabs-community/xld-jira-plugin) | Check whether an [Atlassian JIRA](https://www.atlassian.com/software/jira/) ticket exists, change the state of a JIRA ticket, or add a comment to a JIRA ticket |
+| [XL Deploy Azure App Services plugin](https://github.com/xebialabs-community/xld-azure-app-services-plugin) | Define, deploy, start, stop, and undeploy Web App Services |
 | [XL Deploy CloudFoundry plugin](https://github.com/xebialabs-community/xld-cloud-foundry-plugin) | Deploy an application to [CloudFoundry](https://www.cloudfoundry.org/) |
 | [XL Deploy Docker plugin](https://github.com/xebialabs-community/xld-docker-plugin) | Deploy an application to a [Docker](https://www.docker.com/) container |
 | [XL Deploy Elasticsearch plugin](https://github.com/xebialabs-community/xld-elasticsearch-plugin) | Deploy an [Elasticsearch](https://www.elastic.co/products/elasticsearch) index configuration |
@@ -52,12 +53,12 @@ For information about the plugins that are supported by the XebiaLabs customer s
 | [XL Release HP LoadRunner plugin](https://github.com/xebialabs-community/xlr-loadrunner-plugin) | Execute [HP LoadRunner](http://www8.hp.com/us/en/software-solutions/loadrunner-load-testing/) scenarios from XL Release |
 | [XL Release HP Unified Functional Testing (UFT) plugin](https://github.com/xebialabs-community/xlr-qtp-plugin) | Run tests in [HP Unified Functional Testing (UFT)](http://www8.hp.com/us/en/software-solutions/unified-functional-automated-testing/), formerly called HP QuickTest Professional (QTP) |
 | [XL Release Microsoft Team Foundation Server (TFS) plugin](https://github.com/xebialabs-community/xlr-tfs-plugin) | Create, get, or update a work item in [Microsoft Team Foundation Server (TFS)](https://www.visualstudio.com/en-us/products/tfs-overview-vs.aspx) |
+| [XL Release qTest plugin](https://github.com/xebialabs-community/xlr-qtest-plugin) | Use the [QASymphony qTest API](https://www.qasymphony.com/software-testing-tools/qtest-manager/test-case-management/) from the XL Release User Interface |
 | [XL Release Rally plugin](https://github.com/xebialabs-community/xlr-rally-plugin) | Update properties in [Rally](https://www.rallydev.com/) |
+| [XL Release RTC Jazz plugin](https://github.com/xebialabs-community/xlr-rtcjazz-plugin) | Automatically trigger a new release when a new commit appears in the specified workspace or stream |
 | [XL Release TeamCity plugin](https://github.com/xebialabs-community/xlr-teamcity-plugin) | Trigger a build in [JetBrains TeamCity](https://www.jetbrains.com/teamcity/) |
 | [XL Release ServiceNow plugin](https://github.com/xebialabs-community/xlr-servicenow-plugin) | Create records, check a status, request approval, or update CMDB in [ServiceNow](https://www.servicenow.com/) |
 | [XL Release VersionOne plugin](https://github.com/xebialabs-community/xlr-versionone-plugin) | Create issues in [VersionOne](https://www.versionone.com/) |
-| [XL Release XL Deploy plugin](https://github.com/xebialabs-community/xlr-xldeploy-plugin) | Start a control task, start a deployment, migrate a deployment package to a different server, or get the latest version of an application from XL Deploy |
-| [XL Release XL TestView plugin](https://github.com/xebialabs-community/xlr-xltestview-plugin) | Execute a test specification or check a qualification in XL TestView |
 
 ## Community tools for XebiaLabs products
 
