@@ -12,7 +12,7 @@ weight: 188
 
 ## Stop a running deployment
 
-To gracefully stop a running deployment, click **Stop** under the deployment plan. XL Deploy will wait until the step it is currently executing is finished, then it will stop the deployment.
+To gracefully stop a running deployment, click **Stop** on the deployment plan. XL Deploy will wait until the step it is currently executing is finished, then it will stop the deployment.
 
 After you stop a deployment, you can:
 
@@ -24,16 +24,14 @@ For important information about canceling a deployment, refer to [Cancel a parti
 
 ## Abort a running deployment
 
-If you cannot gracefully stop a running deployment (for example, due to a hanging script), you can forcefully abort it. To do so, click **Abort** under the deployment plan. XL Deploy will attempt to abort the step it is currently executing. After the step is aborted, it is marked as *failed*.
+If you cannot gracefully stop a running deployment (for example, due to a hanging script), you can forcefully abort it. To do so, click **Abort** on the deployment plan. XL Deploy will attempt to abort the step it is currently executing. After the step is aborted, it is marked as `FAILED`.
 
 After you abort a deployment, you can:
 
 * Click **Continue** to continue the deployment from the aborted step
-* Right-click the aborted step and select **Skip step** to skip it, then click **Continue** to continue the deployment from the next step
+* Select **Skip** to skip the aborted step and then click **Continue** to continue the deployment from the next step
 * Click **Rollback** to roll back the steps that XL Deploy has already executed
 * Click **Cancel** to cancel the deployment
-
-For important information about canceling a deployment, refer to [Cancel a partially completed deployment](#cancel-a-partially-completed-deployment).
 
 ## Cancel a partially completed deployment
 

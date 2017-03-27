@@ -71,6 +71,8 @@ To add a template to a provisioning package:
 
 1. Click **Save**.
 
+**Note** As of XL Deploy 6.2.0, you are not required to create a template for container CIs. All the existing provisioneds that are containers will be added to the target environment after provisioning is done.  
+
 ## Step 5 Add a template as a bound template
 
 For XL Deploy to resolve a template and create a CI based on it, you must add the template as a *bound template* on a provisioning package (`udm.ProvisioningPackage`). You can use [*contextual placeholders*](/xl-deploy/how-to/use-provisioning-outputs.html) in the properties of templates.

@@ -63,6 +63,8 @@ Note that the task will _not_ start on the scheduled start date if it is not yet
 
 Click the scheduled start date to select a date and time. When executing the release flow, XL Release will wait until this time (if set) to execute the task. While waiting, the task is marked as "Pending".
 
+If a task is set to **Postpone during blackout period** and you delete de blackout period, the task retains the current scheduled start date.
+
 Dates in XL Release are displayed using the clients operating system's timezone. Dates and times are formatted according to the browser's language settings.
 
 ### Due date

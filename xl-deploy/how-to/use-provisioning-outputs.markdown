@@ -23,7 +23,7 @@ When you map a provisioning package to an environment, XL Deploy creates *provis
 
 You may want to use a provisioned property such as the IP address or host name of a provisioned server in a template or dictionary, but the property will not have a value until provisioning is done. XL Deploy allows you to use *contextual placeholders* for these types of properties. Contextual placeholders can be used for all properties of provisioneds. The format for contextual placeholders is `{% raw %}{{% ... %}}{% endraw %}`.
 
-You can also use contextual placeholders for output properties of some CI types. XL Deploy can automatically populate output property values after provisioning is complete. For example, after you provision an [Amazon Elastic Compute Cloud (EC2)](https://aws.amazon.com/ec2/) AMI, the `aws.ec2.Instance` configuration item (CI) will contain its instance ID, public IP address, and public host name. Refer to the [EC2 Plugin Reference](/xl-deploy-xld-aws-ec2-plugin/latest/ec2PluginManual.html) for information about properties.
+You can also use contextual placeholders for output properties of some CI types. XL Deploy can automatically populate output property values after provisioning is complete. For example, after you provision an [Amazon Elastic Compute Cloud (EC2)](https://aws.amazon.com/ec2/) AMI, the `aws.ec2.Instance` configuration item (CI) will contain its instance ID, public IP address, and public host name. Refer to the [AWS Plugin Reference](/xl-deploy-xld-aws-plugin/latest/awsPluginManual.html) for information about properties.
 
 ## Sample provisioning output usage
 

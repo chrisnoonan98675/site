@@ -54,7 +54,7 @@ _Contextual_ placeholders serve the same purpose as property placeholders; howev
 
 XL Deploy resolves contextual placeholders when executing a [provider](/xl-deploy/how-to/create-a-provider.html) or when finalizing the provisioning plan.
 
-Contextual properties are resolved from properties on the provisioneds they are linked to; therefore, the placeholder name must exactly match the provisioned property name (it is case-sensitive). For example, the contextual placeholders for the [public host name and IP address](/xl-deploy-xld-aws-ec2-plugin/latest/ec2PluginManual.html) of an `aws.ec2.Instance` CI are `{% raw %}{{% publicHostname %}}{% endraw %}` and `{% raw %}{{% publicIp %}}{% endraw %}`.
+Contextual properties are resolved from properties on the provisioneds they are linked to; therefore, the placeholder name must exactly match the provisioned property name (it is case-sensitive). For example, the contextual placeholders for the [public host name and IP address](/xl-deploy-xld-aws-plugin/latest/awsPluginManual.html) of an `aws.ec2.Instance` CI are `{% raw %}{{% publicHostname %}}{% endraw %}` and `{% raw %}{{% publicIp %}}{% endraw %}`.
 
 If value of placeholder is not resolved, then resolution of templates that contain the placeholder will fail.
 

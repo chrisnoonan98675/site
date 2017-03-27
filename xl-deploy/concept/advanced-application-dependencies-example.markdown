@@ -38,6 +38,14 @@ When using the application dependency feature, XL Deploy requires you to use the
 
 ## Set up the deployment
 
+### Using the default GUI
+
+To set up a deployment of the latest version of CustomerProfile, hover over the deployment package, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Deploy**.  XL Deploy automatically adds the deployables from the dependent deployment packages.
+
+![Mapped application with dependencies](images/mapping-with-dependent-apps-html-gui.png)
+
+### Using the legacy GUI
+
 You can set up a deployment of the latest version of CustomerProfile by dragging it to the Deployment Workspace. XL Deploy automatically adds the deployables from the dependent deployment packages.
 
 ![Mapped application with dependencies](images/mapping-with-dependent-apps.png)
@@ -48,7 +56,7 @@ You can set up a deployment of the latest version of CustomerProfile by dragging
 
 This is how XL Deploy selected the right application versions:
 
-1. **CustomerProfile 1.0.0**: This is the latest version of CustomerProfile, so XL Deploy selected it when you dragged the application to the Deployment Workspace.
+1. **CustomerProfile 1.0.0**: This is the latest version of CustomerProfile, so XL Deploy selected it when you clicked ![Explorer action menu](/images/menu_three_dots.png) and selected **Deploy**.
 
 2. **Inventory 1.5.0**: CustomerProfile 1.0.0 depends on Inventory [1.0.0,2.0.0), so XL Deploy selects the highest version between 1.0.0 and 2.0.0, *excluding* 2.0.0.
 
@@ -59,6 +67,20 @@ This is how XL Deploy selected the right application versions:
 For detailed information about version selection, refer to [How XL Deploy checks application dependencies](/xl-deploy/concept/how-xl-deploy-checks-application-dependencies.html).
 
 ## Updating a deployed application
+
+### Using the default GUI
+
+This applies to XL Deploy version 6.2.0 and higher.
+
+You can easily update a deployed application to a new version. For example, to update the Inventory application to version 1.9.0, you would:
+
+1. Under **Environments** in the Explorer, click ![Explorer action menu](/images/menu_three_dots.png) next to Inventory 1.5.0 and select **Update**.
+2. In the list of deployment packages, locate Inventory 1.9.0 and then click **Continue**.
+3. Click **Deploy** to start executing the plan.
+
+This deployment is possible because Inventory 1.9.0 satisfies the CustomerProfile dependency on Inventory [1.0.0,2.0.0). Updating Inventory to a version such as 2.1.0 is not possible, because 2.1.0 does not satisfy the dependency.
+
+### Using the legacy GUI
 
 You can easily update a deployed application to a new version. For example, to update the Inventory application to version 1.9.0, you would:
 

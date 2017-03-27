@@ -45,7 +45,17 @@ The following graphs appear on the dashboard:
 
 To refresh the dashboard, press the reload button on the top right corner.
 
-## Deployment report
+## Deployment report in the default GUI
+
+As of XL Deploy 6.2.0, the default GUI is HTML-based.
+
+The default GUI includes the deployment report. To access the report, click **Reports** in the top menu. Note that, like other reports, this requires the [`report#view`](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#global-permissions) permission.
+
+![Deployment report in HTML](images/deployment-report-html5.png)
+
+The report provides a detailed log of each completed deployment. You can see the executed plan and the logged information about each step in the plan.
+
+## Deployment report in the legacy GUI
 
 The deployments report shows deployments done in a given date range. It also allows you to aggregate deployments by selected applications and environments.
 
@@ -89,14 +99,6 @@ When selecting the chart view, the report is shown as a bar graph, for example:
 ![Deployments aggregated by selected applications chart report](images/report-deployments-aggregated-by-applications-chart.png "Deployments aggregated by selected applications chart report")
 
 **Note:** If you change the name of an application that was previously deployed, you will not be able to access detailed reports about that application.
-
-## Deployment report (HTML version)
-
-{% include technical_preview.html %}
-
-The Technical Preview of the XL Deploy HTML-based user interface includes the deployment report. To access the report, go to `XL_DEPLOY_URL:PORT/technical-preview.html` and click **Reports** in the top menu. Note that, like other reports, this requires the [`report#view`](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#global-permissions) permission.
-
-![Deployment report in HTML](images/deployment-report-html5.png)
 
 ## Deployed application report
 
@@ -180,6 +182,4 @@ The chart shows the selected applications on the x-axis. The chart has two y-axi
 
 ## Exporting to CSV format
 
-If you want to reuse data from XL Deploy in your own reporting, you can download report data as a CSV file by clicking the export button:
-
-![Export to CSV](images/reports-export-to-csv.png "Export to CSV")
+If you want to reuse data from XL Deploy in your own reporting, you can download report data as a CSV file by clicking ![Export to CSV - legacy GUI](images/reports-export-to-csv.png) in the legacy GUI or ![Export to CSV - default GUI](images/reports-export-to-csv-html-gui.png) in the default GUI.

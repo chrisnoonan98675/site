@@ -15,11 +15,36 @@ To see the list of releases that you have permission to view and that are curren
 
 ## Release overview actions
 
+* Click in any place on a release to open the release in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html)
+* Click the arrow button under a release to expand the phase pipeline view of that release. This shows how much of each release has been completed and any flags that have been set on the release or tasks within it. Click the arrow again to collapse the phase pipeline view.
+
 Next to each release, click:
 
-* **View** to open the release in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html)
+* **View** to open the release in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html) (XL Release 6.1.0 and earlier)
 * **Start** to start a release that is in the *planned* state
 * **Abort** to abort the release
+
+## Filter releases
+
+You can filter the releases using different criteria.
+
+Click **Search** to expand the search options and then type a part of a release title or release tags in the **Title** and **Tag(s)** boxes. Click **Search** again to collapse the search options.
+You can also filter the releases by clicking **My Releases** to see only your releases and/or **Flagged** to see the flagged releases.
+
+To filter the release overview by the status of the release, click **Status** and select:
+
+* **Planned** to show releases that have been created but that have not started yet (in the *planned* state)
+* **All active** to show releases that are busy:
+
+   * **In progress** - releases that are in the *in progress* state
+   * **Paused** - releases that are in the *paused* state
+   * **Failing** - releases that are in the *failing* state
+   * **Failed** - releases that are in the *failed* state
+
+* **All completed** to show releases that are completed and aborted (in the *completed* or *aborted* state)
+
+  * **Aborted** - only releases in *aborted* state
+  * **Completed** - only releases in *completed* state
 
 ## Dates in the release overview
 
@@ -37,7 +62,17 @@ Overdue dates appear in red.
 
 The **Duration** column shows the duration of the release.
 
-## Filtering the release overview
+**Note** The release overview shows a percentage complete status based on the number of tasks completed in each release.
+
+## Sorting releases in release overview
+
+To order the release overview, click **Order by** and select:
+
+* **Risk** to show the releases with the highest risk level at the top
+* **Start date** to show the releases with earliest start date on top
+* **End date** to show the release with latest end date on top
+
+## Filtering the release overview (XL Release 6.1.0 and earlier)
 
 To filter the release overview, click **Filter options** and select:
 
