@@ -18,9 +18,9 @@ XL Deploy includes fine-grained access control that ensures the security of your
 
 ## Principals
 
-A security principal is an entity that can be authenticated in XL Deploy. Out of the box, XL Deploy supports only users as principals; users are authenticated by means of a user name and password. When using an LDAP repository, users and groups in LDAP are also treated as principals.
+A security principal is an entity that can be authenticated in XL Deploy. Out of the box, XL Deploy only supports users as principals; users are authenticated by means of a user name and password. When using an LDAP repository, users and groups in LDAP are also treated as principals. For more information about LDAP, refer to [How to connect to your LDAP or Active Directory](/xl-deploy/how-to/connect-ldap-or-active-directory.html).
 
-For more information about LDAP, refer to [How to connect to your LDAP or Active Directory](/xl-deploy/how-to/connect-ldap-or-active-directory.html).
+XL Deploy includes a built-in user called `admin`. When you first install XL Deploy, this user is granted all global and local permissions. Prior to XL Deploy 6.0.0, `admin` was a special user account and you could not change its permissions. In XL Deploy 6.0.0 and later, `admin` is a normal user account with permissions that can be changed. If you assign `admin` to a role, then its default permissions are overridden by the permissions of that role.
 
 ## Roles
 
