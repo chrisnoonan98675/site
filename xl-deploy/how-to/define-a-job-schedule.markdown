@@ -11,12 +11,12 @@ To create a new job schedule:
 1. Click **Job Schedules** the left pane.
 
     You see a list of existing job schedules
-    
-    ![Job Schedules](..images/job-schedule.png)
+
+    ![Job Schedules](/images/job-schedule.png)
 
 1. Click the **New** button.
 
-    ![Job Schedule Detail](..images/job-schedule-detail.png)
+    ![Job Schedule Detail](/images/job-schedule-detail.png)
 
 1. In the required fields, specify the name, group, description, cron expression, user, and password for the job schedule.
 1. Select a defined job type from the **Script Job Type** drop-down list.
