@@ -23,10 +23,13 @@ Target environments, environment configuration settings (dictionaries), applicat
 For more information on how the XL Deploy deployment model works, refer to:
 
 [Deployment overview and Unified Deployment Model](/xl-deploy/concept/deployment-overview-and-unified-deployment-model.html)
+
 [Deployments and plugins](/xl-deploy/concept/xl-deploy-architecture.html#deployments-and-plugins)
+
 [Introduction to the XL Deploy execution engine](/xl-deploy/concept/introduction-to-the-execution-engine.html)
 
 When configuration drift is detected, XL Deploy uses the deployment engine to redeploy the desired state to the target system.
 
 To see how you can create a job schedule for detecting configuration drifts, refer to [Define a job schedule](/xl-deploy/how-to/define-a-job-schedule.html)
+
 To view and correct a configuration drift, refer to [View and correct a detected drift](/xl-deploy/how-to/view-and-correct-drift.html)
