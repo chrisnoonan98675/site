@@ -46,12 +46,22 @@ Other differences between the plugins are listed below:
 | -------------------------- | --------------------------- |
 | `docker.Volume` is present as an embedded CI | `docker.Volume` is present as a type |
 | `docker.Link` | links (only as a property in `docker.Container`) |
-| `docker.EnvironmentVariable` | Not present |
-| `docker.DataFolderVolume` | Not present |
+| `docker.EnvironmentVariable` | A new property of type map_string_string added to docker.Container CI |
+| `docker.DataFolderVolume` | docker.Folder |
 | `docker.DataFileVolume` | Not present |
 | `docker.ComposedContainer` | Not present |
 | `sql.DockerMySqlClient` | Not present |
 | `sql.DockerizedExecutedSqlScripts` | Not present |
-| `docker.DeployedSwarmMachine` | Not present |
+| `docker.DeployedSwarmMachine` | docker.SwarmManager |
 | `docker.DockerMachineDictionary` | Not present |
 | `docker.DeployedDockerMachine` (for provisioning of Docker machine) | Not present |
+| `                            ` | docker.Registry |
+| `                            ` | docker.Service |
+| `                            ` | docker.ServicePort |
+| `                            ` | docker.ServiceSpec |
+| `                            ` | docker.Port |
+| `                            ` | docker.MountedVolume |
+| `                            ` | docker.ContainerSpec |
+| `                            ` | docker.Network |
+| `                            ` | docker.NetworkSpec |
+| `                            ` | docker.DeployedFolder |
