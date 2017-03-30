@@ -10,7 +10,7 @@ To create a new job schedule:
 1. Click **Jobs** in the top menu.
 1. Click **Job Schedules** the left pane.
 
-    You see a list of existing job schedules
+    You see a list of existing job schedules.
 
     ![Job Schedules](/images/job-schedule.png)
 
@@ -25,3 +25,5 @@ To create a new job schedule:
 **Note** Select one or more jobs from the list and click **Resume** to run the jobs or **Pause** to pause them. You can also edit an existing job schedule by selecting it and clicking **Edit**.
 
 To delete one or more job schedules from the list, select them and then click **Delete**.
+
+For more information about configuration drift, refer to [Configuration drift correction in XL Deploy](/xl-deploy/concept/configuration-drift.html).

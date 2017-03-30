@@ -13,6 +13,11 @@ To view drift reports:
     ![Drift Reports](/images/drift-reports.png)
 
 1. Double-click a drift report from the list to view the details.  
-1. If the the run status is *Drift*, you can repair it. Click the **Correct** button.
+
+    ![Drift Report Details](/images/drift-details.png)
+
+1. If the the run status is *Drift*, you can repair it. Click the **Resolve Drift** button.
 
 **Note** To delete a drift report form the list, select it and then click **Delete**.
+
+For more information about configuration drift, refer to [Configuration drift correction in XL Deploy](/xl-deploy/concept/configuration-drift.html).

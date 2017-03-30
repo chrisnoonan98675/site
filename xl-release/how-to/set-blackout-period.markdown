@@ -5,7 +5,8 @@ categories:
 subject:
 - Settings
 tags:
-- blackout period
+- blackout
+- period
 - calendar
 since:
 - XL Release 6.2.0
