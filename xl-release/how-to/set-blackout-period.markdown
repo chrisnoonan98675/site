@@ -3,7 +3,7 @@ title: Set blackout period
 categories:
 - xl-release
 subject:
-- Settings
+- Calendar
 tags:
 - blackout
 - period
