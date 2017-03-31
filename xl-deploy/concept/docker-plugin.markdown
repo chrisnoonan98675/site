@@ -45,20 +45,19 @@ The 'docker.Service' CI is a new added CI to the standard docker plugin. It is s
 
 The 'docker.ServicePort' CI is added in the standard plugin and is used to bind the docker container port to the host port.
 
-The 'docker.ServiceSpec' CI is used a new CI added to the standard docker plugin and is used to create a docker service deployable.
+The 'docker.ServiceSpec' CI is a new CI added to the standard docker plugin and is used to create a docker service deployable.
 
 * The 'docker.Port' CI is a new CI added to the standard docker plugin and is used to create a docker service deployable.
 
-The 'docker.MountedVolume' is a new CI added to the standard docker plugin and is used to create a new Volume.
+The 'docker.MountedVolume' is a new CI added to the standard docker plugin and is used to configure a new Volume.
 
 The 'dockerContainerSpec' is a new CI added to the standard docker plugin and is used to create a deployable for a docker container.
 
-The 'docker.Network' is a new CI added to the standard plugin and is used to create a deployable for a docker container.
+The 'docker.Network' is a new CI added to the standard plugin and is used to configure a docker network.
 
 The 'docker.NetworkSpec' is a new CI added to the standard plugin and is used to create a deployable for a docker network.
 
 The 'docker.DeployedFolder' is a new CI added which is a new CI added to the standard plugin to deploy a folder to the docker host.
-
 
 Other differences between the plugins are listed below:
 
