@@ -85,3 +85,17 @@ Other differences between the plugins are listed below:
 | `                            ` | docker.Network |
 | `                            ` | docker.NetworkSpec |
 | `                            ` | docker.DeployedFolder |
+
+Differences in behaviour (XLD standard docker plugin vs XLD community docker plugin):
+
+1. Differences in way to configure a docker host:
+   In Community plugin we connect to a docker host using an overthere.Connection and creating an instance of docker.Machine while in the standard plugin a new infrastructure item
+   of type docker.Engine and docker.SwarmManager is available establish a connection with the docker connection.
+
+2. Difference in the way to configure the docker registry:
+   In the community plugin we use the properties - Registry Host and Registry Port of docker.RunContainer to integrate the docker registry
+   while in the standard plugin we need to create the docker registry config in the Configuration section and then add the registry to the
+   docker host configuration in the registries section.
+
+3. Docker compose is not supported in the XLD standard docker plugin while its present in the community version.
+
