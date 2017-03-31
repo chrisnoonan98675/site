@@ -39,6 +39,27 @@ The `docker.RunContainer` type in the community plugin is similar to the `docker
 
 The `docker.Network` CI type is an incompatible type that exists in both plugins.
 
+The 'docker.Registry' CI type added in the new plugin. Is is used to register a docker registry with the docker host.
+
+The 'docker.Service' CI is a new added CI to the standard docker plugin. It is similar to the docker.SwarmServiceSpec of community plugin.
+
+The 'docker.ServicePort' CI is added in the standard plugin and is used to bind the docker container port to the host port.
+
+The 'docker.ServiceSpec' CI is used a new CI added to the standard docker plugin and is used to create a docker service deployable.
+
+* The 'docker.Port' CI is a new CI added to the standard docker plugin and is used to create a docker service deployable.
+
+The 'docker.MountedVolume' is a new CI added to the standard docker plugin and is used to create a new Volume.
+
+The 'dockerContainerSpec' is a new CI added to the standard docker plugin and is used to create a deployable for a docker container.
+
+The 'docker.Network' is a new CI added to the standard plugin and is used to create a deployable for a docker container.
+
+The 'docker.NetworkSpec' is a new CI added to the standard plugin and is used to create a deployable for a docker network.
+
+The 'docker.DeployedFolder' is a new CI added which is a new CI added to the standard plugin to deploy a folder to the docker host.
+
+
 Other differences between the plugins are listed below:
 
 {:.table table-striped}
