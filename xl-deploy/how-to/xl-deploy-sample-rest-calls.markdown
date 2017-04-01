@@ -284,7 +284,7 @@ If the CI data is stored in an XML file:
 
 If the CI data is stored in an JSON file:
 
-    curl -u amy:secret01 -X PUT -H "Content-type:application/json" http://localhost:4516/deployit/repository/ci/Environments/TestEnv -d@environment.xml
+    curl -u amy:secret01 -X PUT -H "Content-type:application/json" http://localhost:4516/deployit/repository/ci/Environments/TestEnv -d@environment.json
 
 **Content of the XML file**
 
