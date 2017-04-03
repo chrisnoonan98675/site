@@ -57,6 +57,12 @@ To add a provisionable to a provisioning package:
 
 1. Click **Save**.
 
+### Cardinality in provisionables
+
+Cardinality allows you to create multiple provisioneds based on a single provisionable. For example, an `aws.ec2.InstanceSpec` with a cardinality of 5 will result in five Amazon EC2 instances, all based on the same instance specification. When each provisioned is created, its ordinal will be added to its name, as described in [Provision an environment](/xl-deploy/how-to/provision-an-environment.html#the-unique-provisioning-id).
+
+It is recommended that you use a [placeholder](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) such as `NUMBER_OF_TOMCAT_INSTANCES` for the cardinality property. You can then enter the number of instances in the provisioning properties when setting up the provisioning.
+
 ## Step 4 Add a template to a package
 
 To add a template to a provisioning package:
