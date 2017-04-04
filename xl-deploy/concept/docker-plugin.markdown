@@ -29,6 +29,26 @@ The `docker.Network` CI creates a Docker network for a specified driver and conn
 
 The `docker.Volume` CI creates a Docker volume and connects containers to specified data volumes.
 
+The `docker.Registry` CI registers a Docker registry with the Docker host.
+
+The `docker.ServicePort` CI binds the Docker container port to the host port.
+
+The `docker.ServiceSpec` CI creates a Docker service deployable.
+
+The `docker.Port` CI creates a Docker service deployable.
+
+The `docker.MountedVolume` CI configures a new Volume.
+
+The `docker.ContainerSpec` CI creates a deployable for a Docker container.
+
+The `docker.Network` CI configures a Docker network.
+
+The `docker.NetworkSpec` CI creates a deployable for a Docker network.
+
+The `docker.DeployedFolder` CI deploys a folder to the Docker host.
+
+The `docker.Service` CI is similar to the docker.SwarmServiceSpec from the XL Deploy Docker community plugin.
+
 ## Plugin compatibility
 
 The XL Deploy Docker plugin is not compatible with the [XL Deploy Docker community plugin](https://github.com/xebialabs-community/xld-docker-plugin).
@@ -38,26 +58,6 @@ The community plugin is based on the [Docker command-line interface (CLI)](https
 The `docker.RunContainer` type in the community plugin is similar to the `docker.Container` type in this plugin. However, this plugin does not support the following properties of the `docker.RunContainer` type: `entryPoint`, `args`, `volumesFrom`, `variables`, `extendedPrivileges`, `memory`, `pidNamespace`, `workDirectory`, `removeOnExit`, `dumpLogsAfterStartup`, `checkContainerIsRunning`, `restartAlways`, `registryHost`, and `registryPort`.
 
 The `docker.Network` CI type is an incompatible type that exists in both plugins.
-
-The 'docker.Registry' CI type added in the new plugin. Is is used to register a docker registry with the docker host.
-
-The 'docker.Service' CI is a new added CI to the standard docker plugin. It is similar to the docker.SwarmServiceSpec of community plugin.
-
-The 'docker.ServicePort' CI is added in the standard plugin and is used to bind the docker container port to the host port.
-
-The 'docker.ServiceSpec' CI is a new CI added to the standard docker plugin and is used to create a docker service deployable.
-
-* The 'docker.Port' CI is a new CI added to the standard docker plugin and is used to create a docker service deployable.
-
-The 'docker.MountedVolume' is a new CI added to the standard docker plugin and is used to configure a new Volume.
-
-The 'dockerContainerSpec' is a new CI added to the standard docker plugin and is used to create a deployable for a docker container.
-
-The 'docker.Network' is a new CI added to the standard plugin and is used to configure a docker network.
-
-The 'docker.NetworkSpec' is a new CI added to the standard plugin and is used to create a deployable for a docker network.
-
-The 'docker.DeployedFolder' is a new CI added which is a new CI added to the standard plugin to deploy a folder to the docker host.
 
 Other differences between the plugins are listed below:
 
@@ -75,27 +75,25 @@ Other differences between the plugins are listed below:
 | `docker.DeployedSwarmMachine` | docker.SwarmManager |
 | `docker.DockerMachineDictionary` | Not present |
 | `docker.DeployedDockerMachine` (for provisioning of Docker machine) | Not present |
-| `                            ` | docker.Registry |
-| `                            ` | docker.Service |
-| `                            ` | docker.ServicePort |
-| `                            ` | docker.ServiceSpec |
-| `                            ` | docker.Port |
-| `                            ` | docker.MountedVolume |
-| `                            ` | docker.ContainerSpec |
-| `                            ` | docker.Network |
-| `                            ` | docker.NetworkSpec |
-| `                            ` | docker.DeployedFolder |
+| `Not present` | docker.Registry |
+| `Not present` | docker.Service |
+| `Not present` | docker.ServicePort |
+| `Not present` | docker.ServiceSpec |
+| `Not present` | docker.Port |
+| `Not present` | docker.MountedVolume |
+| `Not present` | docker.ContainerSpec |
+| `Not present` | docker.Network |
+| `Not present` | docker.NetworkSpec |
+| `Not present` | docker.DeployedFolder |
 
-Differences in behaviour (XLD standard docker plugin vs XLD community docker plugin):
+Differences in behavior:
 
-1. Differences in way to configure a docker host:
-   In Community plugin we connect to a docker host using an overthere.Connection and creating an instance of docker.Machine while in the standard plugin a new infrastructure item
-   of type docker.Engine and docker.SwarmManager is available establish a connection with the docker connection.
+1. Differences in configuring a Docker host:
 
-2. Difference in the way to configure the docker registry:
-   In the community plugin we use the properties - Registry Host and Registry Port of docker.RunContainer to integrate the docker registry
-   while in the standard plugin we need to create the docker registry config in the Configuration section and then add the registry to the
-   docker host configuration in the registries section.
+   In the community supported plugin, you can connect to a Docker host using an `overthere.Connection` and creating an instance of `docker.Machine` while in the officially supported plugin, the infrastructure items of the type `docker.Engine` and `docker.SwarmManager` are available to establish a connection with the Docker host.
 
-3. Docker compose is not supported in the XLD standard docker plugin while its present in the community version.
+2. Difference in configuring the Docker registry:
 
+   In the community supported plugin, you can use the Registry Host and Registry Port properties of `docker.RunContainer` to integrate the Docker registry while in the officially supported plugin, you must create the docker registry configuration in the **Configuration** section and then add the registry to the Docker host configuration in the **Registries** section.
+
+3. Docker compose is not supported in the XL Deploy official docker plugin while it is supported in the community plugin.
