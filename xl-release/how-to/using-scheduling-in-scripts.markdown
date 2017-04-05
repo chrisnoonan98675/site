@@ -80,7 +80,7 @@ The status line provided in `task.setStatusLine("Build queued")` will appear in 
 
 ![Task status line](../images/task-status-line-1.png)
 
-The `task.schedule(pollingScriptPath)` call lets XL Release know that after the current script is finished the task does not finish yet. Instead another script should be executed after a delay. You must pass the path to the script in the method argument. You can also specify a wait interval in seconds as a second parameter: `task.schedule(pollingScriptPath, 2)`. If not specified, the the serve will wait 5 seconds before invoking the script. (This value can be configured -- see below).
+The `task.schedule(pollingScriptPath)` call lets XL Release know that after the current script is finished the task does not finish yet. Instead another script should be executed after a delay. You must pass the path to the script in the method argument. You can also specify a wait interval in seconds as a second parameter: `task.schedule(pollingScriptPath, 2)`. If not specified, the server will wait 5 seconds before invoking the script. (This value can be configured -- see below).
 
 To fail the script, use `sys.exit(1)`.
 
