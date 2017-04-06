@@ -13,9 +13,17 @@ weight: 140
 
 Control tasks are actions that you can perform on middleware or middleware resources; for example, checking the connection to a host is a control task. When you trigger a control task, XL Deploy starts a task that executes the steps associated with the control task.
 
+To view a list of control task in the default GUI, click **Task Monitor** and select **Control Tasks**. By default, the Task Monitor only shows the tasks that are assigned to you. To see all tasks, click **All** in the Tasks field of the filters section.
+
 ## Trigger a control task from the GUI
 
-To trigger a control task on a configuration item (CI) in the XL Deploy GUI:
+To trigger a control task on a configuration item (CI) in the default GUI:
+
+1. In the top menu bar, click **Explorer**.
+1. Locate the CI for which you want to trigger a control task. Click ![Explorer action menu](/images/menu_three_dots.png) to see the control tasks that are available.
+2. Select the control task to trigger it. Some control tasks will require you to provide values for parameters before XL Deploy executes the task.
+
+To trigger a control task on a configuration item (CI) in the legacy GUI:
 
 1. In the top menu bar, click **Repository**.
 1. Locate the CI for which you want to trigger a control task. Right-click it to see the control tasks that are available.
@@ -51,7 +59,7 @@ To add a control task to an existing configuration item (CI) type such as `Host`
 	        <method name="stop" description="Stop some process"/>
 	    </type>
 
-2. In the XL Deploy repository, create the container under the host that you want to test.
+2. In the XL Deploy Library (XL Deploy Repository if you are using the legacy UI), create the container under the host that you want to test.
 3. Execute the control task.
 
 ## Create a custom control task
