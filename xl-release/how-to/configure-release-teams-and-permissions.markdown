@@ -110,3 +110,4 @@ The following permissions apply to releases:
 | Abort Release | Users can abort an active or planned release. |
 | Reassign Task | Users can assign tasks to other people. Team assignment is also enabled. |
 | Edit Task | Users can edit individual tasks. |
+| Edit Task Blackout| Users can enable or disable the Postpone during blackout period setting. |

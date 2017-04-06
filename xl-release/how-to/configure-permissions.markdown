@@ -30,6 +30,7 @@ The following global permissions are available:
 | Create Release | Permission to create a release from any template; also see the [Create Release](/xl-release/how-to/create-a-release-template.html#template-permissions) template permission |
 | View Reports | Permission to review reports |
 | Edit Global Variables | Permission to edit [global variables](/xl-release/how-to/configure-global-variables.html) (available in XL Release 4.8.0 and later) |
+| Edit Blackout Period | Permission to create, edit, or delete a blackout period |
 
 Click **Save** to apply your changes. Click **Reset** to discard your changes and reload the current settings from the server.
 

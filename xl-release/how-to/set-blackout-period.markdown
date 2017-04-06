@@ -12,7 +12,7 @@ since:
 ---
 
 XL Release allows you to set a start date and an end date to ensure that specific tasks cannot be performed during the set blackout period.
-To create, edit, or delete a blackout period, you must have the *Admin* or *Edit blackout period* [global permissions](/xl-release/how-to/configure-permissions.html).
+To create, edit, or delete a blackout period, you must have the *Admin* or *Edit Blackout Period* [global permissions](/xl-release/how-to/configure-permissions.html).
 
 To create a new blackout period:
 
@@ -44,6 +44,8 @@ To postpone a task:
 The task scheduled start date is reset to 1 minute after the set end date of the blackout period.
 
 If a task is postponed during blackout period, you can manually override the setting and start the task immediately.
+
+**Note** To enable, disable, or override the **Postpone during blackout period** setting on a task, you must have the *Admin* [global permissions](/xl-release/how-to/configure-permissions.html) or the *Edit Task Blackout* [release permissions](/xl-release/how-to/configure-release-teams-and-permissions.html#release-permissions).
 
 ## Edit or delete blackout period
 
