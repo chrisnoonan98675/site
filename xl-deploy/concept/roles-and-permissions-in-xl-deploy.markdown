@@ -50,6 +50,7 @@ The following table shows the global permissions that XL Deploy supports.
 | `task#preview_step` | The right to inspect scripts that will be executed with steps in the deployment plan. |
 | `report#view` | The right to see all the reports. When granted, the UI will show the Reports tab. To be able to view the full details of an archived task, a user needs read permissions on both the environment and application. |
 | `controltask#execute` | The right to execute control tasks on configuration items. |
+| `task#skip_step`| The right to skip a step in a task that will be executed in the deployment plan.|
 
 ### Local permissions
 
