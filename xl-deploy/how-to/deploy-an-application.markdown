@@ -29,7 +29,7 @@ To deploy an application to an environment:
 
 1. Expand **Applications**, and then expand the application that you want to deploy.
 1. Hover over the desired deployment package or provisioning package, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Deploy**. A new tab appears in the right pane.
-1. In the new tab, select the target environment. You can filter the list of environments by typing in the **Search** box at the top. To see the full path of an environment in the list, hover over it with your mouse pointer.
+1. In the new tab, select the target environment. You can filter the list of environments by typing in the **Search** box at the top.
 1. If you are using XL Deploy 6.0.x or 6.1.0, click **Execute** to start executing the plan immediately. Otherwise, click **Continue**.
 
     ![Deployment - mapping screen](images/explorer-deploy-02.png)
