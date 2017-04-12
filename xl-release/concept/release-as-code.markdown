@@ -17,7 +17,7 @@ With XL Release you can define a release from a Groovy-based DSL script, that de
 
 The Xfile format is a defined structure for a `.groovy` file that can be used to create a release.
 
-Using the [XL Release DSL API](/xl-release/6.2.x/dsl-api) you can create a custom release template file containing phases, multiple tasks, and task-groups. . This allows you to launch an Xfile Groovy script task that creates a release.
+Using the [XL Release DSL API](/xl-release/6.2.x/dsl-api) you can create a custom release template file containing phases, multiple tasks, and task-groups. This allows you to launch an Xfile Groovy script task that creates a release.
 
 ## Example of an Xfile
 
@@ -42,10 +42,7 @@ xlr {
 ## Create a release using Xfile
 
 1. In the XL Release GUI, go to **Design** > **Templates** and open a template.
-1. Add a new **Groovy Script** task to a phase.
-
-  For more information about Groovy Script tasks, refer to [Create a Groovy Script task](/xl-release/how-to/create-a-groovy-script-task.html).
-
+1. Add a new **Groovy Script** task to a phase. For more information about Groovy Script tasks, refer to [Create a Groovy Script task](/xl-release/how-to/create-a-groovy-script-task.html).
 1. Create a release from the template and then start the release.
 
   When the Groovy Script task becomes active, the script is executed and a new release is created.
