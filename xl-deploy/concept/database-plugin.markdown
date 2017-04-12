@@ -74,8 +74,6 @@ Common dependencies that are placed in a sub-folder called `common` are availabl
 
 For example, this is a ZIP file containing Oracle scripts:
 
-	mysqlfolder
-	|
 	|__ 01-CreateTable.sql
 	|
 	|__ 02-CreateUser.sql
