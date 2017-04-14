@@ -57,6 +57,6 @@ So, deployed applications exist in both the **Environment** as well as **Infrast
 
 You can search and filter the CIs in the repository using the search box in the left pane. For example, to search for an application, type a search term in the box and press ENTER.
 
-To clear the search results, click ![Search](/images/button_search_repository.png). 
+To clear the search results, click ![Search](/images/cancel-search.png).
 
 **Tip:** The [`GET /repository/query`](/xl-deploy/5.5.x/rest-api/com.xebialabs.deployit.engine.api.RepositoryService.html#/repository/query:GET) API call provides a more robust search.
