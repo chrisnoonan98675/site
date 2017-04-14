@@ -17,22 +17,22 @@ XL Deploy's database is called the _Repository_. It stores all configuration ite
 
 ## Repository IDs
 
-Each CI in XL Deploy has an ID that uniquely identifies the CI. This ID is a path that determines the place of the CI in the Repository. For instance, a CI with ID "Applications/PetClinic/1.0" will appear in the **PetClinic** subfolder under the **Applications** root folder.
+Each CI in XL Deploy has an ID that uniquely identifies the CI. This ID is a path that determines the place of the CI in the Repository. For instance, a CI with ID "Applications/PetClinic/1.0" will appear in the **PetClinic** subdirectory under the **Applications** root directory.
 
-## Repository folders
+## Repository directory structure
 
-The Repository has a hierarchical layout and a version history. All CIs of all types are stored here. The top-level folders indicate the type of CI stored below it. Depending on the type of CI, the Repository stores it under a particular folder:
+The Repository has a hierarchical layout and a version history. All CIs of all types are stored here. The top-level directories indicate the type of CI stored below it. Depending on the type of CI, the Repository stores it under a particular directory:
 
-* Application and deployment package CIs are stored in the **Applications** folder
-* Environment and dictionary CIs are stored in the **Environments** folder
-* Middleware CIs (representing hosts, servers, and so on) are stored in the **Infrastructure** folder
-* XL Deploy configuration CIs (such as policies and deployment pipelines) are stored in the **Configuration** folder
+* Application and deployment package CIs are stored in the **Applications** directory
+* Environment and dictionary CIs are stored in the **Environments** directory
+* Middleware CIs (representing hosts, servers, and so on) are stored in the **Infrastructure** directory
+* XL Deploy configuration CIs (such as policies and deployment pipelines) are stored in the **Configuration** directory
 
-Also, in XL Deploy 5.5.0 and later:
+Also, in XL Deploy 5.5.x there are additional directories:
 
-* Blueprint and provisioning package CIs are stored in the **Blueprints** folder
-* Provisioning environments and dictionary CIs are stored in the **ProvisioningEnvironments** folder
-* Provider CIs are stored in the **Providers** folder
+* Blueprint and provisioning package CIs are stored in the **Blueprints** directory
+* Provisioning environments and dictionary CIs are stored in the **ProvisioningEnvironments** directory
+* Provider CIs are stored in the **Providers** directory
 
 ## Version control
 
@@ -45,7 +45,7 @@ XL Deploy also retains the history of all changes to _deleted_ CIs. Even if a CI
 XL Deploy's Repository contains CIs that refer to other CIs. There are two ways in which CIs can refer to each other:
 
 * **Containment**. In this case, one CI _contains_ another CI. If the parent CI is removed, so is the child CI. An example of this type of reference is an Environment CI and its deployed applications.
-* **Reference**. In this case, one CI _refers_ to another CI. If the referring CI is removed, the referred CI is unchanged. Removing a CI when it is still being referred to is not allowed. An example of this type of reference is an environment CI and its middleware. The middleware exists in the **Infrastructure** folder independently of the environments the middleware is in.
+* **Reference**. In this case, one CI _refers_ to another CI. If the referring CI is removed, the referred CI is unchanged. Removing a CI when it is still being referred to is not allowed. An example of this type of reference is an environment CI and its middleware. The middleware exists in the **Infrastructure** directory independently of the environments the middleware is in.
 
 ## Deployed applications
 
@@ -55,12 +55,8 @@ So, deployed applications exist in both the **Environment** as well as **Infrast
 
 ## Searching and filtering
 
-You can search and filter the CIs in the Repository using the search box in the left pane. Note that search only searches in the folder that is currently the root node of the Repository. You can set any folder as the root node. For example, to search for an application:
+You can search and filter the CIs in the repository using the search box in the left pane. For example, to search for an application, type a search term in the box and press ENTER.
 
-1. Right-click **Applications**.
-2. Select **Show as Root**.
-3. Type a search term in the box and press ENTER or click ![Search](/images/button_search_repository.png).
-
-To clear the search results, clear the search box and press ENTER or click ![Search](/images/button_search_repository.png). To reset the root node to the defaul, click ![Refresh](/images/button_refresh_repository.png).
+To clear the search results, click ![Search](/images/button_search_repository.png). 
 
 **Tip:** The [`GET /repository/query`](/xl-deploy/5.5.x/rest-api/com.xebialabs.deployit.engine.api.RepositoryService.html#/repository/query:GET) API call provides a more robust search.

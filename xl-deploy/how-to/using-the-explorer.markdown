@@ -11,9 +11,7 @@ since:
 - XL Deploy 6.0.0
 ---
 
-The Explorer gives you a new way to work with XL Deploy. In the Explorer, you can manage the configuration items (CIs) in your repository, deploy and undeploy applications, and provision and deprovision environments, all without installing Flash in your browser.
-
-**Important:** The Explorer is currently available as a Technical Preview, so its functionality is limited. Future releases will add more features to the Explorer. We want your feedback! Please share your experience with the Technical Preview [here](https://www.surveymonkey.com/r/N7JBZSN).
+In the Explorer, you can manage the configuration items (CIs) in your repository, deploy and undeploy applications, and provision and deprovision environments.
 
 ## Requirements and installation
 
@@ -21,7 +19,7 @@ The Explorer is automatically included as a plugin when you install or upgrade t
 
 For general information about system requirements for the XL Deploy server, refer to [Requirements for installing XL Deploy](/xl-deploy/concept/requirements-for-installing-xl-deploy.html).
 
-## Access the Explorer
+## Access the Explorer in XL Deploy versions 6.0.0 and 6.1.0
 
 To access the Explorer, go to `XL_DEPLOY_URL:PORT/technical-preview.html`; for example, `http://xl-deploy.company.com:4516/technical-preview.html`. If you are not already logged in to XL Deploy, you must enter your XL Deploy user name and password when the browser prompts you.
 
