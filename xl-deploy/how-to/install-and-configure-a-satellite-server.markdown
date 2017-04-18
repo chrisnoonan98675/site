@@ -38,7 +38,7 @@ To install the XL Deploy satellite software:
 1. Ensure that the satellite server meets the requirements.
 2. Extract the satellite distribution ZIP file in the location on the server where you want to install the software.
 
-**Tip:** For information about installing XL Deploy satellite as a daemon or service, refer to [Install Xl Deploy satellite as a service](/xl-deploy/how-to/install-satellite-service.html).
+**Tip:** For information about installing XL Satellite as a service, refer to [Install XL Satellite as a service](/xl-deploy/how-to/install-satellite-service.html).
 
 ## Configure the satellite
 
