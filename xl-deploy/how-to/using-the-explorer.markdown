@@ -55,7 +55,7 @@ To delete an existing CI, locate it in the left pane, hover over it and click ![
 
 ## Search for CIs
 
-To search for a CI, type a search term in the **Search** box at the top of the left pane and press ENTER. If there are search results, they appear in the left pane. To open a CI from the search results, double-click it. To clear the search results, click **X** in the **Search** box.
+To search for a CI, type a search term in the **Search** box at the top of the left pane and press ENTER. If there are search results, they appear in the left pane. To open a CI from the search results, double-click it. To clear the search results, click ![Search](/images/cancel-search.png) in the **Search** box.
 
 ![Explorer search results](images/explorer-search-results.png)
 
