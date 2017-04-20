@@ -31,12 +31,12 @@ xlr {
                 tasks {
                     manual("Manual task") {
                         description "Manual task description"
-                      }
                     }
-                  }
                 }
-              }
-            }  
+            }
+        }
+    }
+}
 {% endhighlight %}
 
 ## Create a release using Xfile
