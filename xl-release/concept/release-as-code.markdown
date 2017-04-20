@@ -110,3 +110,5 @@ xlr {
   }
 }
 {% endhighlight %}
+
+**Note** As of XL Release 7.0.0, you can export a template in DSL format. This allows you to see the DSL code corresponding to an existing template. For more information, refer to [XL Release REST API](/xl-release/6.2.x/rest-docs).
