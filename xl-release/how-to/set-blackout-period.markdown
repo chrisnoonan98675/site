@@ -3,9 +3,10 @@ title: Set blackout period
 categories:
 - xl-release
 subject:
-- Settings
+- Calendar
 tags:
-- blackout period
+- blackout
+- period
 - calendar
 since:
 - XL Release 6.2.0

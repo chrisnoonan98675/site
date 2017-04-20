@@ -9,7 +9,7 @@ tags:
 weight: 434
 ---
 
-To see the list of releases that you have permission to view and that are currently active (including releases that are planned, in progress, or failed), select **Releases** > **Overview** from the top bar. The release overview shows the [status](/xl-release/concept/release-life-cycle.html) of each release, as well as any status flags that have been set.
+To see the list of releases that you have permission to view and that are planned, active (including releases that are in progress, paused, failing, or failed), or completed (including aborted), select **Releases** > **Overview** from the top bar. The release overview shows the [status](/xl-release/concept/release-life-cycle.html) of each release, as well as any status flags that have been set.
 
 ![Release Overview](../images/release-overview.png)
 
@@ -17,6 +17,8 @@ To see the list of releases that you have permission to view and that are curren
 
 * Click in any place on a release to open the release in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html)
 * Click the arrow button under a release to expand the phase pipeline view of that release. This shows how much of each release has been completed and any flags that have been set on the release or tasks within it. Click the arrow again to collapse the phase pipeline view.
+
+![Expanded Phase Pipeline](../images/phase-pipeline.png)
 
 Next to each release, click:
 
@@ -71,6 +73,8 @@ To order the release overview, click **Order by** and select:
 * **Risk** to show the releases with the highest risk level at the top
 * **Start date** to show the releases with earliest start date on top
 * **End date** to show the release with latest end date on top
+
+For more information about release risk awareness, refer to [Using risk awareness in XL Release ](/xl-release/how-to/using-the-risk-aware-view.html).
 
 ## Filtering the release overview (XL Release 6.1.0 and earlier)
 
