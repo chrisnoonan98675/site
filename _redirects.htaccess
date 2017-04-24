@@ -215,6 +215,7 @@ Redirect 301 /xl-deploy/how-to/troubleshoot-a-telnet-connection.html /xl-platfor
 Redirect 301 /xl-deploy/how-to/expose-additional-overthere-properties.html /xl-platform/concept/remoting-plugin.html
 Redirect 301 /xl-deploy/how-to/configure-the-xl-deploy-security-file.html /xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html
 Redirect 301 /xl-deploy/concept/xl-deploy-ec2-plugin.html /xl-deploy/concept/xl-deploy-aws-plugin.html
+Redirect 301 /xl-deploy/how-to/import-a-deployment-package.html /xl-deploy/how-to/add-a-package-to-xl-deploy.html
 
 # XL Release topics
 
