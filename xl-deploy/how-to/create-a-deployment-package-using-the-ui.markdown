@@ -17,7 +17,7 @@ weight: 211
 
 **Tip:** For information about creating a deployment package in XL Deploy 5.0.0 and later, refer to [Add a package to XL Deploy](/xl-deploy/how-to/add-a-package-to-xl-deploy.html).
 
-Deployment packages are usually created outside of XL Deploy. For example, packages are built by tools like Maven or Jenkins and then imported using the a XL Deploy plugin. Or you manually write a Manifest.MF file for the XL Deploy Archive format (DAR format) and import the package using the XL Deploy UI.
+Deployment packages are usually created outside of XL Deploy. For example, packages are built by tools like Maven or Jenkins and then imported using the a XL Deploy plugin. You can manually write a Manifest.MF file for the XL Deploy Archive format (DAR format) and import the package using the XL Deploy GUI.
 
 But, while designing a deployment package this may be a cumbersome process. To quickly assemble a package, it is more convenient to edit it in the XL Deploy UI.
 
@@ -25,58 +25,60 @@ But, while designing a deployment package this may be a cumbersome process. To q
 
 In XL Deploy, all deployable content is stored in a deployment package. The deployment package will contain the EAR files, HTML files, SQL scripts, DataSource definitions, etc.
 
-Deployment packages are versions of an application. An application will contain one or more deployment packages. So before we can create a deployment package, we need to create an application.
+Deployment packages are versions of an application. An application will contain one or more deployment packages. Before you can create a deployment package, you must create an application.
 
-To create an application, login to the XL Deploy UI and go to the **Repository** tab.
-Right-click on **Applications** and choose **New** > **Application**
+To create an application, login to the XL Deploy GUI and go to the **Library** pane.
+Hover over **Applications**, click ![Explorer action menu](/images/menu_three_dots.png), and select **New** > **Application**
 
-Give it the name 'MyApp' and press save.
+Enter the name 'MyApp' and click **Save**.
 
 ## Creating a deployment package
 
-Now let's create a deployment package that has all the content of version 1.0 of MyApp.
+To create a deployment package that contains version 1.0 of MyApp:
 
-Right-click on **MyApp** and choose  **New** > **DeploymentPackage**
+Click **Applications** to expand the list of applications. Hover over **MyApp** applications, click ![Explorer action menu](/images/menu_three_dots.png), and select **New** > **DeploymentPackage**.
 
-Give it the name '1.0' and press save.
+Enter the name '1.0' and click **Save**.
 
-We now have an empty MyApp 1.0 package.
+This action creates a new empty MyApp 1.0 package.
 
 ## Adding Deployable content
 
-We're now ready to add actual deployable content to the package. Remember that in XL Deploy, all configuration items (nodes in the repository tree) are _typed_. That is, you have to tell XL Deploy on beforehand which type a configuration item is, so XL Deploy will know what to do with it.
+You can now add actual deployable content to the package. In XL Deploy, all configuration items (nodes in the repository tree) are _typed_. You must specify to XL Deploy beforehand the type of the configuration item, so XL Deploy will know what to do with it.
 
-First we'll add a simple deployable without file content. Let's create a deployable DataSource in the package.
+You can add a simple deployable without file content.
 
-Right-click on **MyApp** and choose  **New** > **jee** > **DataSourceSpec**
+To create a deployable DataSource in the package:
 
-Give it the name 'MyDataSource' and JNDI-name 'jdbc/my-data-source'. Press **Save**.
+Hover over the **MyApp** application, click ![Explorer action menu](/images/menu_three_dots.png), and select **New** > **jee** > **DataSourceSpec**.
 
-That's it! We've just created a functional deployment package that will create a DataSource when deployed to a JEE Application Server like JBoss or WebSphere.
+Enter the name 'MyDataSource' and JNDI-name 'jdbc/my-data-source' and click **Save**.
+
+This creates a functional deployment package that will create a DataSource when deployed to a JEE Application Server like JBoss or WebSphere.
 
 ## Adding artifacts
 
 Artifacts are configuration items that contain files. Examples are EAR files, WAR files, but also plain files or folders.
 
-Let's add an EAR file to our MyApp/1.0 deployment package. It will be of type `jee.Ear`.
+You can add an EAR file to your MyApp/1.0 deployment package using the type `jee.Ear`.
 
-Note that if you're using specific middleware like WebSphere or WebLogic, you also have the option to add and EAR of type `was.Ear`or `wls.Ear`. Only use this if you really need WebSphere or WebLogic-specific features. The `jee.Ear`type will deploy just fine too.
+**Note** If you are using specific middleware like WebSphere or WebLogic, you can also add EAR files with the type `was.Ear` or `wls.Ear`. You can use this if you need the WebSphere or WebLogic-specific features. In other situations it is recommended to deploy using the `jee.Ear` type.
 
-Right-click on **MyApp** and choose  **New** > **jee** > **Ear**
+Hover over the **MyApp** application, click ![Explorer action menu](/images/menu_three_dots.png), and select **New** > **jee** > **Ear**.
 
-Give it the name 'PetClinic.ear'. We can now upload the actual EAR file. Hit 'Browse file' and select an EAR file from your local workstation. If you're running the XL Deploy Server locally, you can  find an example EAR file in `xldeploy-server/importablePackages/PetClinic-ear/1.0/PetClinic-1.0.ear`.
+Enter the name 'PetClinic.ear' and upload the EAR file. Click 'Browse file' and select an EAR file from your local workstation. If you are running the XL Deploy Server locally, you can find an example EAR file in `xldeploy-server/importablePackages/PetClinic-ear/1.0/PetClinic-1.0.ear`.
 
-When creating artifacts (configuration items with file content), there are some things to take into account. First, you can only upload files when creating the configuration item. It's not possible to change the content afterwards. The reason for this is that deployment packages should effectively be read-only. If you change the contents, you may create inconsistencies between what has deployed onto the middleware and what is in the XL Deploy repository. This may lead to surprising errors.
+When creating artifacts (configuration items with file content), there are some things to take into account. You can only upload files when creating the configuration item. It is not possible to change the content afterwards. The reason for this is that deployment packages should effectively be read-only. If you change the contents, you may create inconsistencies between what has deployed onto the middleware and what is in the XL Deploy repository. This may lead to surprising errors.
 
-Placeholder scanning of files is only done when they're uploaded. Use the 'Scan Placeholder' checkbox to enable or disable placeholder scanning of files.
+Placeholder scanning of files is only done when they are uploaded. Use the 'Scan Placeholder' checkbox to enable or disable placeholder scanning of files.
 
-When uploading entire directories for the `file.Folder` type, you will need to zip the directory first, since you can only select a single file for browser upload.
+When uploading entire directories for the `file.Folder` type, you must zip the directory first, since you can only select a single file for browser upload.
 
 ## Specifying property placeholders
 
-It's easy to specify property placeholders. For any deployable configuration item, you can enter a value surrounded by double curly brackets. For example: {% raw %}{{PLACEHOLDER}}{% endraw %}. The actual value used in a deployment will be looked up from a dictionary when a deployment mapping is made.
+It is easy to specify property placeholders. For any deployable configuration item, you can enter a value surrounded by double curly brackets. For example: {% raw %}{{PLACEHOLDER}}{% endraw %}. The actual value used in a deployment will be looked up from a dictionary when a deployment mapping is made.
 
-For example, open MyDataSource and enter JNDI_VALUE as placeholder:
+For example, open 'MyDataSource' and enter 'JNDI_VALUE' as placeholder:
 
 ![image](images/package-placeholder.png)
 
@@ -84,6 +86,6 @@ The value for Jndi Name will be looked up form the dictionary associated with en
 
 ## Export as DAR
 
-When you're finished modeling the application, you can export it as a DAR file. Once downloaded, you can unzip it and inspect its contents. For example, the generated manifest file can server as a basis for automatic generation of the DAR.
+When modeling the application is finished, you can export it as a DAR file. Once downloaded, you can unzip it and inspect the contents. For example, the generated manifest file can serve as a basis for automatic generation of the DAR.
 
 To export as DAR, right-click **1.0** and select **Export**.
