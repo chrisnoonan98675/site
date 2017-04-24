@@ -113,6 +113,13 @@ If a step in the deployment fails, XL Deploy stops executing the deployment and 
 
 In some cases, you can click **Continue** to retry the failed step. If the step is incorrect and should be skipped, select it and click **Skip**, and then click **Continue**.
 
-## Roll back a deployment
+## Rollback a deployment
 
-To roll back a deployment that is in a `STOPPED` or `EXECUTED` state, click **Rollback** on the deployment plan. Executing the rollback plan will revert the deployment to the previous version of the deployed application (or applications, if the deployment involved multiple applications because of [dependencies](/xl-deploy/concept/application-dependencies-in-xl-deploy.html)). It will also revert the deployeds created on execution.
+To rollback a deployment that is in an `ABORTED`, `FAILED`, `STOPPED`, or `EXECUTED` state, click **Rollback** on the deployment plan.
+
+You can perform one of three actions:
+1. Select **Rollback** to open the rollback execution window and start executing the plan.
+1. Select **Modify plan** if you want to make changes to the rollback plan. Click **Rollback** when you want to start the executing the plan.
+1. Select **Schedule** to open the rollback schedule window. Select the date and time that you want to execute the rollback task. Specify the time using your local timezone. Click **Schedule**.
+
+Executing the rollback plan will revert the deployment to the previous version of the deployed application (or applications, if the deployment involved multiple applications because of [dependencies](/xl-deploy/concept/application-dependencies-in-xl-deploy.html)). It will also revert the deployeds created on execution.
