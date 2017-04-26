@@ -13,13 +13,13 @@ since:
 weight: 209
 ---
 
-To deploy an application with XL Deploy, you supply a deployment package. It contains the files (artifacts) and middleware resources that XL Deploy can deploy to a target environment.
+To deploy an application with XL Deploy, you must supply a deployment package. It contains the files (artifacts) and middleware resources that XL Deploy can deploy to a target environment.
 
 You can add a deployment package to XL Deploy by creating it in the XL Deploy interface or by importing a Deployment Archive (DAR) file. A DAR file is a ZIP file with the `.dar` file extension. It contains the files and resources that make up a version of the application, as well as a manifest file (`deployit-manifest.xml`) that describes the package content.
 
-## Create a package in the interface
+## Create a package using the legacy GUI
 
-To create a package in the XL Deploy interface:
+To create a package in the XL Deploy legacy GUI:
 
 1. In the top menu, click **Deployment**.
 1. Click ![Packages](/images/button_add_package_deployment_workspace.png) under **Packages**.
@@ -56,7 +56,23 @@ To create a package in the XL Deploy interface:
 
 ## Import a package
 
-You can import a deployment package from an external storage location, your computer, or the XL Deploy server. To import a package:
+You can import a deployment package from an external storage location, your computer, or the XL Deploy server.
+
+To import a package using the default GUI:
+
+In the left pane, click the **Import package** button. You can select one of three options:
+1. From URL
+    1. Enter the URL.
+    1. If the URL requires authentication, enter the required user name and password.
+    1. Click **Import**.
+1. From your computer
+    1. Click **Browse** and locate the package on your computer.
+    1. Click **Import**.
+1. From XL Deploy server
+    1. Select the package from the list.
+    1. Click **Import**.
+
+To import a package using the legacy GUI:
 
 1. In the top menu, click **Deployment**.
 1. Click ![Packages](/images/button_add_package_deployment_workspace.png) under **Packages**.
