@@ -84,7 +84,7 @@ To configure the archive database, first add the following parameters to the `xl
 {:.table .table-striped}
 | Parameter | Description |
 | --------- | ----------- |
-| `db-driver-classname` | Class name of the database driver to use; for example, `oracle.jdbc.driver.OracleDriver`. |
+| `db-driver-classname` | Class name of the database driver to use; for example, `oracle.jdbc.OracleDriver`. |
 | `db-url` | JDBC URL that describes database connection details; for example, `"jdbc:oracle:thin:@oracle.hostname.com:1521:SID"`. |
 | `db-username` | User name to use when logging into the database. |
 | `db-password` | Password to use when logging into the database (after setup is complete, the password will be encrypted and stored in secured format). |
