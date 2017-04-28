@@ -3,7 +3,7 @@ title: Using the Xfile view
 categories:
 - xl-release
 subject:
-- Release
+- Releases
 tags:
 - as code
 - template
