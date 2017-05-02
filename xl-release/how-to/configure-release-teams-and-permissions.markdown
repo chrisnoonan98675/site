@@ -29,7 +29,7 @@ To configure release teams in XL Release 6.0.0 and later:
 
 1. Select **Design** > **Folders** from the top bar.
 2. Select a folder.
-3. Go to the **Permissions** tab.
+3. Go to the **Teams & Permissions** tab.
 4. Click **Add team** to add a new team.
 5. Add [roles](/xl-release/how-to/configure-roles.html) by typing in the **Global roles** column. Add individual users by typing in the **Users** column.
 6. Click **Save** to save your changes.
@@ -61,7 +61,7 @@ To configure permissions in XL Release 6.0.0 and later:
 
 1. Select **Design** > **Folders** from the top bar.
 2. Select a folder.
-3. Go to the **Permissions** tab.
+3. Go to the **Teams & Permissions** tab.
 
     If the folder is the child of another folder, the **Inherit permissions from parent folder** option is selected by default. If you want this folder to have different permissions, clear this option.
 
