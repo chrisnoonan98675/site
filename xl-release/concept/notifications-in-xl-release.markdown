@@ -43,6 +43,6 @@ XL Release sends emails when certain events happen in a release. The default eve
 
 * **Release flagged**: The release admin team is notified when a user adds a flag status message to a task or the release to indicate that attention is needed or that the release is at risk.
 
-For more information about how to change the default
+For more information about how to change the default notification settings, refer to [Configure notification settings](/how-to/configure-notification-settings.html).
 
 See [Configure SMTP servers in XL Release](/xl-release/how-to/configure-smtp-server.html) for information about configuring the email server and sender for these messages.
