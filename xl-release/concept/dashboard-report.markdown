@@ -32,7 +32,7 @@ The **Release efficiency** section provides an overview of your overall level of
 
 ## Average release duration and automation
 
-The **Average release duration and automation** section allows you to assess whether your level of automated improved over time during the selected time period. It shows the percentage of automated tasks in [completed](/xl-release/concept/release-life-cycle.html) releases during the selected time period, aggregated per month.
+The **Average release duration and automation** section allows you to assess whether your level of automation improved over time during the selected time period. It shows the percentage of automated tasks in [completed](/xl-release/concept/release-life-cycle.html) releases during the selected time period, aggregated per month.
 
 ![Average release duration and automation](../images/dashboard-release-duration.png)
 
