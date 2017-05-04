@@ -86,6 +86,6 @@ The value for Jndi Name will be looked up form the dictionary associated with en
 
 ## Export as DAR
 
-When modeling the application is finished, you can export it as a DAR file. Once downloaded, you can unzip it and inspect the contents. For example, the generated manifest file can serve as a basis for automatic generation of the DAR.
+You can export an application as a DAR file. After you download it, you can unzip it and inspect the contents. For example, the generated manifest file can serve as a basis for automatic generation of the DAR.
 
-To export as DAR, right-click **1.0** and select **Export**.
+To export as DAR, hover over the desired application, click ![Explorer action menu](/images/menu_three_dots.png), and select **Export**.

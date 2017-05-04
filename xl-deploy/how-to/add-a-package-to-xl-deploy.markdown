@@ -69,7 +69,7 @@ In the left pane, click the **Import package** button. You can select one of thr
     1. Click **Browse** and locate the package on your computer.
     1. Click **Import**.
 1. From XL Deploy server
-    1. Select the package from the list.
+    1. Click in the field and select the package from the list.
     1. Click **Import**.
 
 To import a package using the legacy GUI:
