@@ -1,6 +1,17 @@
 ---
 title: Create custom tiles
-no_index: true
+categories:
+- xl-release
+subject:
+- Extending XL Release
+tags:
+- tile
+- custom tile
+- python
+- plugin
+- customization
+since:
+- XL Release 7.0.0
 ---
 
 In XL Release you can customize the [release dashboard](/xl-release/how-to/using-the-release-dashboard.html) by adding new tiles. This topic describes how to create custom tiles.
@@ -10,40 +21,41 @@ In XL Release you can customize the [release dashboard](/xl-release/how-to/using
 A dashboard tile is based on the following concepts:
 
 * It displays a snippet of specific information about a release on the release dashboard.
-* It can be configured. You can define properties of a tile which can be set by a different user per each tile instance. One release dashboard can have several instances of the same tile type with different configurations. Example: [Task progress tile](/xl-release/concept/release-dashboard-tiles.html#task-progress)
+* It can be configured. You can define properties of a tile which can be set by a different user per each tile instance. One release dashboard can have several instances of the same tile type with different configurations. Example: [Task progress tile](/xl-release/concept/release-dashboard-tiles.html#task-progress).
 * It contains a server side Jython script that prepares the information which will be displayed by the tile.
 * It can be displayed in a full screen details view.
 
 This tutorial describes the basic steps needed to create a **Latest commits** tile and uses all the concepts mentioned above. The purpose of the tile is to display latest commits from a GitHub repository. The tile will use a Jython script to fetch the commits and it will contain HTML and CSS code to display them in the XL Release GUI.
 
-**Note** When creating XL Release plugins it is better to start writing code in the `XL_RELEASE_SERVER_HOME/ext/` directory than to package your plugin in a JAR file right away. This allows you to apply changes by refreshing your browser and does not require a restart of the XL Release server. The changes to Jython, HTML, CSS, and possibly to the JavaScript code are applied on every browser refresh. This results in a shorter development cycle. The changes to `synthetic.xml` will still require a restart of the XL Release server. When the code is ready, you can package it in a JAR file of your plugin.
+**Note:** When creating XL Release plugins it is better to start writing code in the `XL_RELEASE_SERVER_HOME/ext/` directory than to package your plugin in a JAR file right away. This allows you to apply changes by refreshing your browser and does not require a restart of the XL Release server. The changes to Jython, HTML, CSS, and possibly to the JavaScript code are applied on every browser refresh. This results in a shorter development cycle. The changes to `synthetic.xml` will still require a restart of the XL Release server. When the code is ready, you can package it in a JAR file of your plugin.
 
 ## Configure a tile
 
 To create a new tile, the first step is defining the tile model in `XL_RELEASE_SERVER_HOME/ext/synthetic.xml`:
 
-    <type type="acme.LatestCommitsTile" label="Latest commits" extends="xlrelease.Tile">
-        <!-- Path to the HTML template of the dashboard view of the tile -->
-        <property name="uri" hidden="true" default="acme/LatestCommitsTile/latest-commits-tile-summary-view.html" />
-        <!-- Title of the tile, this property is predefined in the parent type, but here you override its default value -->
-        <property name="title" description="Display name of the tile" default="Latest commits"/>
+{% highlight xml %}
+<type type="acme.LatestCommitsTile" label="Latest commits" extends="xlrelease.Tile">
+    <!-- Path to the HTML template of the dashboard view of the tile -->
+    <property name="uri" hidden="true" default="acme/LatestCommitsTile/latest-commits-tile-summary-view.html" />
+    <!-- Title of the tile, this property is predefined in the parent type, but here you override its default value -->
+    <property name="title" description="Display name of the tile" default="Latest commits"/>
 
-        <!-- Add custom tile properties here -->
-        <property name="repositoryId" category="input" required="true" default="octocat/Hello-World"
-                  description="GitHub repository ID in format ':owner/:repo', for example 'octocat/Hello-World'." />
-        <property name="branch" category="input" required="true" default="master"
-                  description="Repository branch from which to list the commits." />
-        <property name="accessToken" category="input" required="false" password="true"
-                  description="GitHub OAuth token to use for authentication." />
-    </type>
-
+    <!-- Add custom tile properties here -->
+    <property name="repositoryId" category="input" required="true" default="octocat/Hello-World"
+              description="GitHub repository ID in format ':owner/:repo', for example 'octocat/Hello-World'." />
+    <property name="branch" category="input" required="true" default="master"
+              description="Repository branch from which to list the commits." />
+    <property name="accessToken" category="input" required="false" password="true"
+              description="GitHub OAuth token to use for authentication." />
+</type>
+{% endhighlight %}
 Explanation of the XML snippet example:
 
 * The new tile is created by defining a new type extending from `xlrelease.Tile`. The type label appears in the *Add tile* dialog when you configure the release dashboard.
 * The `uri` is a hidden property that must point to an HTML template used to display the tile on a dashboard. In XL Release all web resources are located under the `web/` folder on the classpath. In this example, you will create a file by path `web/acme/LatestCommitsTile/latest-commits-tile-summary-view.html` in the `XL_RELEASE_SERVER_HOME/ext` folder.
 * There are multiple configuration properties defined for the tile. A property appears in the tile configuration screen if it has `category="input"`. You can also specify the description to explain how to use the property, and a default value.
 
-In this example you can configure from which GitHub repository and from which branch you can get commits. You can also get an access token for authentication that is needed if the repository is not public. For more information about defining properties and what property types are supported, refer to [Create custom task types](/xl-release/how-to/create-custom-task-types.html#property-element).
+In this example you can configure from which GitHub repository and from which branch you get commits. You can also get an access token for authentication that is needed if the repository is not public. For more information about defining properties and what property types are supported, refer to [Create custom task types](/xl-release/how-to/create-custom-task-types.html#property-element).
 
 When the `synthetic.xml` file is ready you can restart XL Release, open a dashboard of any release or template, click *Configure*, and then click *Add tile* to see the new **Latest commits** tile type .
 
@@ -53,31 +65,51 @@ If you add the new tile, the error `Status code: 404 GET static/6.2.0/acme/Lates
 
 ## Add an HTML template
 
-As of XL Release 6.2.0 you can use [AngularJS 1.5.8](https://code.angularjs.org/1.5.8/docs/guide) code in the HTML templates of tiles. The version of AgularJS can be changed in future versions.
+As of XL Release 7.0.0 the custom tiles are embedded under an `HTML IFrame`. This allows you to include any javascript library without any conflicts with already bundled libraries in XL Release.
 
-XL Release provides a default controller (JavaScript logic) that you can use. This controller triggers the  execution of the tile Jython script on the server side, gets the result, and makes it available for your HTML template.
+XL Release provides context information to your tile so you can access different functionality and fields from the current release. This context is injected inside the `window` object of the `IFrame` and is available when the event `xlrelease.load` is emitted.
+
+You can listen to the `xlrelease.load` event with the following JavaScript code:
+{% highlight javascript %}
+window.addEventListener("xlrelease.load", function () {
+  // your JavaScript code here
+}
+{% endhighlight %}
+
+The properties available under your tile context are:
+
+* `window.xlrelease.tile`: JSON representation of your current tile.
+* `window.xlrelease.queryTileData`: A function that you can call to get the tile data, by executing tile's Jython script (explained below in this tutorial). You need to pass your callback function as an argument to the `queryTileData`. When the tile data is ready it will be passed as a single argument to your callback function. See the following example for more detailed explanation.
 
 You can create a file `XL_RELEASE_SERVER_HOME/ext/web/acme/LatestCommitsTile/latest-commits-tile-summary-view.html` with the following content:
 
-    <!-- Tile uses the default AngularJS tile controller which comes from XL Release -->
-    <!-- The variables of the controller will be referenced as vm.* within the <div> -->
-    <div data-ng-controller="xlrelease.dashboard.XlrDefaultTileController as vm" class="latest-commits-tile-summary">
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+  <script>
+  window.addEventListener("xlrelease.load", function () {
 
-        <!-- Display text "Loading..." if vm.loading == true -->
-        <div data-ng-if="vm.loading" style="text-align: center">Loading...</div>
+      // Call the Jython script and put the response inside commits <div>
+      window.xlrelease.queryTileData(function (response) {
+          document.getElementById("commits").innerHTML = JSON.stringify(response.data.data);
+      });
 
-        <!-- When vm.loading == false the data is ready to be displayed, accessible by vm.data -->
-        <div data-ng-if="!vm.loading">
-            {% raw %}{{ vm.data }}{% endraw %}
-        </div>
+  )};
+  </script>
+  <body>
+    <div class="latest-commits-tile-summary">
+      <div id="commits"></div>
     </div>
+  </body>
+</html>
+{% endhighlight %}
 
 Explanation of the HTML snippet example:
 
-* A `<div>` is defined and linked to the XL Release default tile controller: `<div data-ng-controller="xlrelease.dashboard.XlrDefaultTileController as vm">`. The controller can be accessed using an alias `vm` within the contents of this `<div>`.
-* The controller has two fields: `loading` and `data`. When the tile appears on a page, the controller sets `loading = true` and calls the server to execute the tile Jython script. The controller inserts the result into the `data` property and sets `loading = false`.
-* The `data-ng-if` attribute from AngularJS is used to display different snippets when `vm.loading` is `true` or `false`. In the beginning you can see the *Loading...* text.
-* The `{% raw %}{{ vm.data }}{% endraw %}` expression from AngularJS is replaced with the value of the `data` property of the controller.
+* The JavaScript code is addded inside the `window.addEventListener` function to have access to the XL Release API.
+* The callback for `window.xlrelease.queryTileData` is defined to get the results from the Jython script inside the `response` object.
+* `JSON.stringify` converts a `JSON object` into a `string` to allow the browser to render it on screen.
+* `document.getElementById("commits")` finds the `<div id="commits">` in HTML, and using `innerHTML` its contents are filled with the data.
 
 This is the first version of the HTML template for this tile. You can use it to test the Jython script by displaying the results on the page. After you create that Jython script and when the correct data is available, you can make modifications to the HTML template for a better display.
 
@@ -89,32 +121,30 @@ XL Release searches for the Jython script of a tile based on the tile type defin
 
 Create the file `XL_RELEASE_SERVER_HOME/ext/acme/LatestCommitsTile.py` with following content:
 
-    import json
-    from xlrelease.HttpRequest import HttpRequest
+{% highlight python %}
+import json
+from xlrelease.HttpRequest import HttpRequest
 
-    if accessToken is not None and accessToken.strip() == "":
-        accessToken = None
+if accessToken is not None and accessToken.strip() == "":
+    accessToken = None
 
-    url = "/repos/%s/commits?sha=%s%s" % \
-          (repositoryId, branch, "&access_token=" + accessToken if accessToken else "")
+url = "/repos/%s/commits?sha=%s%s" % \
+      (repositoryId, branch, "&access_token=" + accessToken if accessToken else "")
 
-    print "Querying commits from GitHub API by URL %s" % url
+print "Querying commits from GitHub API by URL %s" % url
 
-    request = HttpRequest({"url": "https://api.github.com"})
-    response = request.get(url, contentType='application/json')
+request = HttpRequest({"url": "https://api.github.com"})
+response = request.get(url, contentType='application/json')
 
-    if response.status != 200:
-        raise Exception("Request to GitHub failed with status %s, response %s" % (response.status, response.response))
+if response.status != 200:
+    raise Exception("Request to GitHub failed with status %s, response %s" % (response.status, response.response))
 
-    commits = json.loads(response.response)
+commits = json.loads(response.response)
 
-    data = {
-        "tile_configuration": {
-            "repositoryId": repositoryId,
-            "branch": branch
-        },
-        "commits": commits
-    }
+data = {
+    "commits": commits
+}
+{% endhighlight %}
 
 XL Release replaces the following attributes inside the tile Jython script:
 * All input properties of the tile: you can see that `repositoryId`, `branch`, and `accessToken` are accessed directly in the script.
@@ -139,12 +169,14 @@ Changes in the tile script are not always applied when refreshing the browser pa
 
 By default, script results are cached for 5 minutes. You can override caching settings in the type definition of the tile:
 
-    <type type="acme.LatestCommitsTile" label="Latest commits" extends="xlrelease.Tile">
-        <property name="cacheEnabled" kind="boolean" hidden="true" default="true" description="True if tile data should be cached."/>
-        <property name="userSpecificCache" kind="boolean" hidden="true" default="false" description="True if tile data should be cached per user."/>
-        <property name="expirationTime" kind="integer" hidden="true" default="300" description="Expiration time for a tile cache (in seconds)."/>
-        <property name="maxCacheEntries" kind="integer" hidden="true" default="500" description="Maximum cache entries."/>
-        ...
+{% highlight xml %}
+<type type="acme.LatestCommitsTile" label="Latest commits" extends="xlrelease.Tile">
+    <property name="cacheEnabled" kind="boolean" hidden="true" default="true" description="True if tile data should be cached."/>
+    <property name="userSpecificCache" kind="boolean" hidden="true" default="false" description="True if tile data should be cached per user."/>
+    <property name="expirationTime" kind="integer" hidden="true" default="300" description="Expiration time for a tile cache (in seconds)."/>
+    <property name="maxCacheEntries" kind="integer" hidden="true" default="500" description="Maximum cache entries."/>
+    ...
+{% endhighlight %}
 
 While developing a tile you can temporarily disable the caching using the `cacheEnabled` property. The script will be executed on every browser page refresh, so you can see your changes immediately. Make sure you enable the caching when the tile development is finished.
 
@@ -158,43 +190,76 @@ In a template a required variable can be empty more often. If you want to use th
 
 ## Display the data
 
-You can enhance the `latest-commits-tile-summary-view.html` template to display the data. Update the contents using the following example:
+You can enhance the `latest-commits-tile-summary-view.html` template to display the data. Update the content using the following example:
 
-    <!-- Import the custom stylesheet to the page -->
-    <link rel="stylesheet" href="static/0/acme/LatestCommitsTile/latest-commits-tile.css" type="text/css">
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="latest-commits-tile.css" type="text/css">
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<script>
+    window.addEventListener("xlrelease.load", function () {
 
-    <div data-ng-controller="xlrelease.dashboard.XlrDefaultTileController as vm" class="latest-commits-tile-summary">
-        <div data-ng-if="vm.loading" style="text-align: center">Loading...</div>
+            window.xlrelease.queryTileData(function (response) {
+                var commits = response.data.data.commits;
+                commits.forEach(function (commitData) {
+                    $("#commits").append(
+                        '<li class="commit">' +
+                            '<span class="commit-message">' + commitData.commit.message + '</span>' +
+                            '<span class="commit-author"> (' + commitData.commit.author.name + ')</span>' +
+                        '</li>'
+                    );
+                })
+            });
 
-        <div data-ng-if="!vm.loading">
-            <h4>Latest commits in {% raw %}{{ vm.data.tile_configuration.repositoryId }}{% endraw %}/{% raw %}{{ vm.data.tile_configuration.branch }}{% endraw %}:</h4>
-            <ul>
-                <!-- Iterate through "vm.data.commits", generating a new <li> for each commit -->
-                <li data-ng-repeat="commitData in vm.data.commits" class="commit">
-                    <!-- Print the commit message, stripping it to maximum of 40 characters -->
-                    <span class="commit-message">{% raw %}{{ commitData.commit.message | limitTo : 40 }}{% endraw %}</span>
-                    <span class="commit-author">({% raw %}{{ commitData.commit.author.name }}{% endraw %})</span>
-                </li>
-            </ul>
-        </div>
-    </div>
+            var repositoryId = window.xlrelease.tile.configurationProperties.repositoryId;
+            var branch = window.xlrelease.tile.configurationProperties.branch;
+            $("#title").html("Latest commits in " + repositoryId + "/" + branch);
 
-The first line of the template imports custom CSS to the page to keep the styling separate from the HTML content. You can create the stylesheet file later.
+      )};
+</script>
+<body>
+<div class="latest-commits-tile-summary">
+    <h4 id="title"></h4>
+    <ul id="commits">
 
-The template also contains a list of elements each representing one commit. In AngularJS you can iterate through the data and repeatedly display an HTML element using the attribute `data-ng-repeat="commitData in vm.data.commits"`. For each commit a `<li>` element is generated, and within each of them a specific commit can be accessible as `{% raw %}{{ commitData }}{% endraw %}`.
+    </ul>
+</div>
+</body>
+</html>
+{% endhighlight %}
+
+You can declare external dependencies on the `head` element like `jQuery`, a new font, and the css styles for the tile.
+
+The callback function now instead of displaying the whole response from GitHub, parses the response and creates new HTML tags to show the commit message and the commit author in a list format. You can get tile configuration properties using the `window.xlrelease.tile.configurationProperties`.
 
 You can create a file `XL_RELEASE_SERVER_HOME/ext/web/acme/LatestCommitsTile/latest-commits-tile.css` using the following content:
 
-    .latest-commits-tile-summary ul {
-        margin-left: 5px;
-    }
-    .latest-commits-tile-summary .commit {
-        padding: 2px 0;
-        list-style-type: none;
-    }
-    .latest-commits-tile-summary .commit .commit-author {
-        font-size: smaller;
-    }
+{% highlight css %}
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+.latest-commits-tile-summary {
+  font-size: 12px;
+}
+.latest-commits-tile-summary ul {
+  margin-left: 5px;
+  padding-left: 0;
+}
+.latest-commits-tile-summary .commit {
+  padding: 2px 0;
+  list-style-type: none;
+}
+.latest-commits-tile-summary .commit .commit-author {
+  font-size: smaller;
+}
+{% endhighlight %}
 
 If you refresh the page, the tile looks like this:
 
@@ -202,46 +267,83 @@ If you refresh the page, the tile looks like this:
 
 ## Display data in details view
 
-The content box of a dashboard tile is small and can be expanded only horizontally. To allow a user to see more information, you can define the details view of a tile to match the size of a dashboard. You can switch from the summary view to the details view by clicking anywhere on a tile.
+The content box of a dashboard tile is small and can be expanded only horizontally. To allow a user to see more information, you can define the details view of a tile to match the size of a dashboard. You can switch from the summary view to the details view by clicking anywhere on the tile.
 
 The details view is enabled when you override the `detailsUri` property of your tile with a non-empty default value:
 
-    <type type="acme.LatestCommitsTile" ...>
-        ...
-        <!-- Path to the HTML template of the details view of the tile -->
-        <property name="detailsUri" hidden="true" default="acme/LatestCommitsTile/latest-commits-tile-details-view.html" />
-        ...
+{% highlight xml %}
+<type type="acme.LatestCommitsTile" ...>
+    ...
+    <!-- Path to the HTML template of the details view of the tile -->
+    <property name="detailsUri" hidden="true" default="acme/LatestCommitsTile/latest-commits-tile-details-view.html" />
+    ...
+{% endhighlight %}
 
 If you restart XL Release server, you can click on the tile to go the details view. You can create the HTML template for this view in `XL_RELEASE_SERVER_HOME/ext/web/acme/LatestCommitsTile/latest-commits-tile-details-view.html`:
 
-    <div data-ng-controller="xlrelease.dashboard.XlrDefaultTileController as vm" class="latest-commits-tile-details">
-        <div data-ng-if="!vm.loading">
-            <h3>Latest commits in repository {% raw %}{{ vm.data.tile_configuration.repositoryId }}{% endraw %}, branch {% raw %}{{ vm.data.tile_configuration.branch }}{% endraw %}</h3>
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Bootstrap CSS dependency -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="latest-commits-tile.css" type="text/css">
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<script>
+    window.addEventListener("xlrelease.load", function () {
 
-            <table class="table table-rounded table-striped">
-                <thead>
-                <tr>
-                    <th>User</th>
-                    <th>Message</th>
-                    <th>Date</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr data-ng-repeat="commitData in vm.data.commits">
-                    <td><a href="{% raw %}{{commitData.author.html_url}}{% endraw %}" target="_blank_">{% raw %}{{ commitData.commit.author.name }}{% endraw %}</a></td>
-                    <td><a href="{% raw %}{{commitData.html_url}}{% endraw %}" target="_blank_">{% raw %}{{ commitData.commit.message }}{% endraw %}</a></td>
-                    <td>{% raw %}{{ commitData.commit.author.date | date }}{% endraw %}</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        window.xlrelease.queryTileData(function (response) {
+            var commits = response.data.data.commits;
+            commits.forEach(function (commitData) {
+                $("#commits").append(
+                    '<tr>' +
+                    '<td><a href="' + getAuthorUrl(commitData) + '" target="_blank_">' + commitData.commit.author.name + '</a></td>' +
+                    '<td><a href="' + getCommitUrl(commitData).html_url + '" target="_blank_">' + commitData.commit.message + '</a></td>' +
+                    '<td>' + commitData.commit.author.date + '</td>' +
+                    '</tr>'
+                );
+            })
+        });
 
-        <div data-ng-if="vm.loading" style="text-align: center">Loading...</div>
-    </div>
+        var repositoryId = window.xlrelease.tile.configurationProperties.repositoryId;
+        var branch = window.xlrelease.tile.configurationProperties.branch;
+        $("#title").html("Latest commits in repository " + repositoryId + ", branch " + branch);
 
-As in the summary view, this template also uses the AngularJS controller to fetch the same data from a Jython script and make it available in the HTML template. The only difference is that more data is displayed on the page using this view.
+    });
 
-The data is rendered into a `<table>` element. The styling used is from the [Bootstrap CSS](http://getbootstrap.com/css/#tables) library which is available on XL Release pages. As per XL Release 6.2.0 the version of Bootstrap CSS is 3.3.6, with the possibility to change it in future versions.
+    function getAuthorUrl(commitData) {
+        if (commitData.author) return commitData.author.html_url;
+    }
+
+    function getCommitUrl(commitData) {
+        if (commitData.html_url) return commitData.html_url;
+    }
+</script>
+<body>
+<h3 id="title"></h3>
+<table class="table table-rounded table-striped">
+    <thead>
+    <tr>
+        <th>User</th>
+        <th>Message</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody id="commits">
+
+    </tbody>
+</table>
+</body>
+</html>
+{% endhighlight %}
+
+As in the summary view, all the information from the Jython script is added inside the HTML, in this case inside a table. You can also add a reference to [Bootstrap CSS](http://getbootstrap.com/css/#tables) to style the table.
 
 To see the latest commits rendered as a table, refresh the page and click on the tile.
 
