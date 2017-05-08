@@ -26,18 +26,18 @@ To use SSO authentication, you must download the `xlr-auth-spnego-plugin` zip fi
               keyTabLocation = "file:///home/vagrant/server.keytab"
 
               ldap {
-                url = "ldap://dc01.lab.local"
+                url = "LDAP_SERVER_URL"
                 userDn = "_user@domain_"
                 password = "_password_"
 
                 userSearch {
-                  base = "cn=users,dc=lab,dc=local"
-                  filter = "(&(objectClass=user)(userPrincipalName={0}))"
+                  base = "USER_SEARCH_BASE"
+                  filter = "USER_SEARCH_FILTER"
                 }
 
                 groupSearch {
-                  base = "cn=users,dc=lab,dc=local"
-                  filter = "(&(objectClass=group)(member={0}))"
+                  base = "GROUP_SEARCH_BASE"
+                  filter = "GROUP_SEARCH_FILTER"
                   rolePrefix = ""
                 }
               }
@@ -53,4 +53,4 @@ Open a new instance of XL Release in your browser and click **Sign in with Windo
 
 **Note** Make sure your browser is configured for SSO authentication.
 
-If you are using a Windows machine, the authentication starts immediately. A confirmation message is displayed if you have been successfully authenticated. If you are using a non-Windows machine, you must provide Windows Active Directory credentials to sign in. 
+If you are using a Windows machine, the authentication starts immediately. A confirmation message is displayed if you have been successfully authenticated. If you are using a non-Windows machine, you must provide Windows Active Directory credentials to sign in.
