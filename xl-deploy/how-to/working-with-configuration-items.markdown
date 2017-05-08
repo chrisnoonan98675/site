@@ -23,6 +23,8 @@ To create a new CI in the repository:
 
 If the CI is an _artifact_ CI representing a binary file, you can upload the file from your local machine into XL Deploy. If the CI contains a directory structure then you must first add it to a ZIP file, then upload it.
 
+**Note** In the left pane of the **Explorer**, you can move a CI from one directory to another using drag and drop.
+
 ## Duplicate a CI
 
 You can create a new CI by starting from a copy of an existing CI as a template. This is possible by duplicating an existing CI:
