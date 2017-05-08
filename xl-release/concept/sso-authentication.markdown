@@ -11,15 +11,7 @@ tags:
 since: XL Release 7.0.0
 ---
 
-Using single sign-on (SSO) authentication, you can log in to XL Release automatically without having to type your username or password.
-
-You can log in to XL Release from a Windows machine using Windows SSO authentication.
-
-// move to "how to/setup" section:
-To log in as an external user, make sure you [Configure LDAP security for XL Release](/xl-release/how-to/configure-ldap-security-for-xl-release.html).
-
-// with the username and password used to log in to your Windows machine.
-// say it is a plugin, where to find it, where to put it
+`xl-auth-spnego-plugin` is an authentication plugin for XL Release allowing Kerberos Single Sign-On authentication.
 
 ## Requirements
 
@@ -44,19 +36,26 @@ To log in as an external user, make sure you [Configure LDAP security for XL Rel
 ## Setup
 
 Example setup:
-- windows domain: EXAMPLE.COM
-- windows workgroup: EXAMPLE
-- Windows Domain Controller machine: dc.example.com
-- Windows Workstation machine: client.example.com
-- XL Release server machine: xl-release.example.com
-- Windows Domain administrator user: Administrator@EXAMPLE.COM
+- Windows domain: EXAMPLE.COM
+- Windows workgroup: EXAMPLE
+- Windows Domain Controller machine: `dc.example.com`
+- Windows Workstation machine: `client.example.com`
+- Windows Domain administrator user: `Administrator@EXAMPLE.COM`
+- Some Windows Domain (normal) users: (i.e. Bob@EXAMPLE.COM)
+- XL Release server machine: `xl-release.example.com`
+
+Please adapt the values to your actual environment.
 
 ### Server setup
 
-#### Windows Domain Controller
+#### Example Windows Domain Controller
 
 On `dc.example.com`:
-- create an HTTP server account user for XL Release server in Active Directory (i.e.: HTTP/xl-release@EXAMPLE.COM), with a password (i.e. "Passw0rd");
+- create an HTTP server account user for XL Release server in Active Directory:
+  - Sam account name: `xl-release`
+  - User principal name: `xl-release@example.com`
+  - Service principal names: `HTTP/xl-release.example.com`
+  - Password: `Passw0rd`
 - export the keytab to `C:\example.com-xl-release_keytab`:
 ```ktpass `
     /out C:\example.com_xl-release_keytab `
@@ -67,70 +66,75 @@ On `dc.example.com`:
     /crypt All```
 - copy the keytab to `xl-release.example.com` machine
 
-#### XL Release Server:
+
+#### Example XL Release Server:
+
+We assume XL Release was installed under `XL_RELEASE_SERVER_HOME` directory and that you copied the keytab file under `/tmp`.
 
 On 'xl-release.example.com':
-- // configure...
+- download and unzip the `xl-auth-spnego-plugin` zip file inside `XL_RELEASE_SERVER_HOME/plugins/` directory.
+- edit `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file and add a `xl.security.auth.providers` section:
+```
+xl {
+  security {
+    auth {
+      providers {
+        kerberos {
+          servicePrincipal = "HTTP/xl-release.example.com@EXAMPLE.COM"
+          keyTabLocation = "file:///tmp/example.com_xl-release_keytab"
 
-### Client setup
+          ldap {
+            url = "ldap://dc.example.com"
+            userDn = "xl-release@example.com" // check if it actually works with != Administrator
+            password = "Passw0rd"
 
-// TODO: spend a few words on client setup (i.e. windows workstation).
+            userSearch {
+              base = "cn=users,dc=example,dc=com"
+              filter = "(&(objectClass=user)(userPrincipalName={0}))"
+            }
 
-#### Browser
-
-Chrome and Internet Explorer will work without any further configuration.
-For Firefox on Windows the about:config file needs to be updated.
-
-Navigate to about:config in the url and then type 'negotiate' into the 'Filter' field and set the following fields to:
-
-    ```
-    network.negotiate-auth.delegation-uris  https://xl-release.full.url.or.something
-    network.negotiate-auth.trusted-uris     https://xl-release.full.url.or.something```
-
-
-
-'sspi' into the 'Filter' field and set the field to be:
-
-
-   `network.auth.use-sspi false`
-
-To use SSO authentication, you must download the `xlr-auth-spnego-plugin` zip file and extract it to the `XL_RELEASE_SERVER_HOME/plugins/` folder. In the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file, you must add the following security settings:
-
-    xl {
-      security {
-        auth {
-          providers {
-            kerberos {
-              servicePrincipal = "HTTP/server.lab.local@LAB.LOCAL"
-              keyTabLocation = "file:///home/vagrant/server.keytab"
-
-              ldap {
-                url = "LDAP_SERVER_URL"
-                userDn = "_user@domain_"
-                password = "_password_"
-
-                userSearch {
-                  base = "USER_SEARCH_BASE"
-                  filter = "USER_SEARCH_FILTER"
-                }
-
-                groupSearch {
-                  base = "GROUP_SEARCH_BASE"
-                  filter = "GROUP_SEARCH_FILTER"
-                  rolePrefix = ""
-                }
-              }
+            groupSearch {
+              base = "cn=users,dc=example,dc=com"
+              filter = "(&(objectClass=group)(member={0}))"
+              rolePrefix = ""
             }
           }
         }
       }
     }
+  }
+}
+```
 
-## Log in XL Release with Windows SSO
 
-Open a new instance of XL Release in your browser and click **Sign in with Windows**.
+### Example Windows Client setup
 
-**Note** Make sure your browser is configured for SSO authentication.
+- Make sure you can login into your Windows workstation using a domain user.
+- Add the network interface that will be used to contact `xl-release.example.com` to the list of trusted networks.
+
+#### Browsers
+
+Chrome and Internet Explorer will work without any further configuration.
+For Firefox, some configuration is needed.
+
+Navigate to about:config in the url and then type 'negotiate' into the 'Filter' field and set the following fields to:
+
+    ```
+    network.negotiate-auth.delegation-uris  http://xl-release.example.com
+    network.negotiate-auth.trusted-uris     http://xl-release.example.com```
+
+Note: if your XL Release instance runs on HTTPS, please use https:// instead of http://.
+
+Then type 'sspi' into the 'Filter' field and set the following field to:
+
+   `network.auth.use-sspi false`
+
+### Test it out
+
+- restart XL Release
+- login as a normal domain user on `client.example.com`
+- open a browser and point it to `http://xl-release.example.com/` (or `https://xl-release.example.com/` if you use HTTPS).
+- click **Sign in with Single Sign-On**.
 
 If you are using a Windows machine, the authentication starts immediately. A confirmation message is displayed if you have been successfully authenticated. If you are using a non-Windows machine, you must provide Windows Active Directory credentials to sign in.
 
