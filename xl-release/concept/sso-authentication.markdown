@@ -57,13 +57,16 @@ On `dc.example.com`:
   - Service principal names: `HTTP/xl-release.example.com`
   - Password: `Passw0rd`
 - export the keytab to `C:\example.com-xl-release_keytab`:
-```ktpass `
+
+```
+ktpass `
     /out C:\example.com_xl-release_keytab `
     /mapuser xl-release@EXAMPLE.COM `
     /princ HTTP/xl-release.example.com@EXAMPLE.COM `
     /pass Passw0rd `
     /ptype KRB5_NT_PRINCIPAL `
-    /crypt All```
+    /crypt All    
+```
 - copy the keytab to `xl-release.example.com` machine
 
 
@@ -119,15 +122,15 @@ For Firefox, some configuration is needed.
 
 Navigate to about:config in the url and then type 'negotiate' into the 'Filter' field and set the following fields to:
 
-    ```
+   
     network.negotiate-auth.delegation-uris  http://xl-release.example.com
-    network.negotiate-auth.trusted-uris     http://xl-release.example.com```
+    network.negotiate-auth.trusted-uris     http://xl-release.example.com
 
 Note: if your XL Release instance runs on HTTPS, please use https:// instead of http://.
 
 Then type 'sspi' into the 'Filter' field and set the following field to:
 
-   `network.auth.use-sspi false`
+    network.auth.use-sspi false
 
 ### Test it out
 
