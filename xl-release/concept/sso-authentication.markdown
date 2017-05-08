@@ -88,7 +88,7 @@ xl {
 
           ldap {
             url = "ldap://dc.example.com"
-            userDn = "xl-release@example.com" // check if it actually works with != Administrator
+            userDn = "xl-release@example.com"
             password = "Passw0rd"
 
             userSearch {
