@@ -12,7 +12,7 @@ tags:
 weight: 492
 ---
 
-By default, XL Release server writes informational, warning, and error log messages to standard output and to `XL_RELEASE_SERVER_HOME/log/xl-release.log` when it is running. In addition, XL Release writes an audit trail to `XL_RELEASE_SERVER_HOME/log/audit.log`.
+By default, XL Release server writes informational, warning, and error log messages to standard output and to `XL_RELEASE_SERVER_HOME/log/xl-release.log` when it is running. In addition, XL Release writes an audit trail to `XL_RELEASE_SERVER_HOME/log/audit.log` and access logging to `XL_RELEASE_SERVER_HOME/log/access.log`.
 
 ## The audit log
 
@@ -36,6 +36,10 @@ For each event, the following information is recorded:
 For events involving configuration items (CIs), the CI data submitted as part of the event is logged in XML format.
 
 By default, the audit log is stored in `XL_RELEASE_SERVER_HOME/log/audit.log` and is rolled over daily.
+
+## The access log
+
+Access logging allows you to see all HTTP requests received by XL Release with the following details: URL, the time it took to process, username, the IP address where the request comes from, and the response status code. This logging data can be used to analyze the usage of XL Release and to troubleshoot.
 
 ## Changing logging behavior
 
