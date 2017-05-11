@@ -23,13 +23,6 @@ The Remoting plugin:
 * Allow SSH jumpstations and HTTP proxies to be used to access hosts to which a direct network connection is not possible (CIFS, Telnet and WinRM can be tunneled through an SSH jumpstation as well)
 * Implements all connection methods internally in XL Deploy or XL Release, so no external dependencies are required (an exception is the `WINRM_NATIVE` connection type, which uses the Windows `winrs` command, but you can use a `winrs` proxy for this connection type when XL Deploy or XL Release runs on a Unix host)
 
-
-
-
-* Supports SSH for connectivity to Unix and Microsoft Windows hosts
-* Supports CIFS, Telnet, and WinRM for connectivity to Windows hosts
-* Allows [SSH jumpstations](/xl-platform/how-to/set-up-ssh.html#connect-xl-release-through-a-jumpstation-or-http-proxy) to be used to access hosts to which a direct network connection is not possible
-
 ## Set up a host
 
 To set up a host in XL Release:
