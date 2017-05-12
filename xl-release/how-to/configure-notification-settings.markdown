@@ -27,6 +27,9 @@ The default roles are:
 * Release Admin
 * Task Owner
 * Task Team
+* Watcher
+
+**Note** You can add yourself as a *Watcher* on tasks to receive email notifications when events occur on those tasks. To add users as watchers on a task, you must have the edit task permission.
 
 To edit the default notification email for a specific event, click **Edit message** for that event. You can customize the email template that will be sent when the notification event is triggered.
 
@@ -34,3 +37,21 @@ To edit the default notification email for a specific event, click **Edit messag
 
 You can change the **Subject** and the body text of the email template.
 Click the **High priority** checkbox to assign a high priority to the email notification.
+
+You can use these supported variables in the email template:
+
+* `$ {url}` - the server URL provided in the configuration
+* `$ {release.*}` - the release properties (the variable is available in release, task, and comment emails)
+* `$ {task.*}` - the task properties (the variable is available in task and comment emails)
+* `$ {comment.*}` - the comment properties (the variable is available in comment emails)
+* `$ {release.url}` - the direct URL to the release
+* `$ {task.url}` - the direct URL to the task
+* `$ {task.ownerFullName}` - the full name of the task owner
+* `$ {task.descriptionHtml}` - the task description that was processed by markdown
+* `$ {task.dueInHours}` - the number of hours until the task is due
+* `$ {task.dueInMinutes}` - the number of minutes until the task is due
+* `$ {comment.authorFullName}` - the full name of the author of the comment
+* `$ {comment.textHtml}` - the comment text that was processed by markdown
+
+To open and view the email template in a new browser tab, click **Preview email**.
+If you have made modifications to the email template and you want to revert to the latest saved changes, click **Revert changes**.

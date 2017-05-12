@@ -24,6 +24,9 @@ To configure release properties:
 
 1. Next to **Flag status**, optionally select a yellow (attention needed) or red (release at risk) icon and enter a status message. Flagged releases are highlighted in overviews.
 1. In **Start date** and **Due date**, set the *planned* start and end dates of the release. XL Release uses these dates to show the release on the calendar. These are not the dates that the release actually started or ended.
+
+    **Note:** You can set a release to start automatically at the specified start date by enabling the **Wait for start date** checkbox. You can override this setting by manually starting the release. The default state of the **Wait for start date** checkbox is disabled.
+
 1. Select the person who is responsible for the release from the **Release Owner** list. This person will receive additional [notifications](/xl-release/concept/notifications-in-xl-release.html) if tasks fail or are flagged.
 
     Release owners are automatically added to the Release Admin team when the release is created. This team has all [permissions](/xl-release/how-to/configure-permissions-for-a-release.html) on the release.
