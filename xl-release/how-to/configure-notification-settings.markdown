@@ -36,6 +36,9 @@ To edit the default notification email for a specific event, click **Edit messag
   ![Edit notification message](../images/edit-notification-message.png)
 
 You can change the **Subject** and the body text of the email template.
+
+**Note:** You can style the body text in the email using markdown. For more information, see [Using Markdown in XL Release](/xl-release/how-to/using-markdown-in-xl-release.html).
+
 Click the **High priority** checkbox to assign a high priority to the email notification.
 
 You can use these supported variables in the email template:

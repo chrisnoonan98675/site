@@ -64,15 +64,15 @@ On `dc.example.com`:
   * User principal name: `xl-release@example.com`
   * Service principal names: `HTTP/xl-release.example.com`
   * Password: `Passw0rd`
-1. Export the Kerberos Keytab file to `C:\example.com-xl-release_keytab`:
+1. Export the Kerberos Keytab file to `C:\example.com_xl-release_keytab`:
 
-    ktpass `
-        /out C:\example.com_xl-release_keytab `
-        /mapuser xl-release@EXAMPLE.COM `
-        /princ HTTP/xl-release.example.com@EXAMPLE.COM `
-        /pass Passw0rd `
-        /ptype KRB5_NT_PRINCIPAL `
-        /crypto All    
+        ktpass `
+            /out C:\example.com_xl-release_keytab `
+            /mapuser xl-release@EXAMPLE.COM `
+            /princ HTTP/xl-release.example.com@EXAMPLE.COM `
+            /pass Passw0rd `
+            /ptype KRB5_NT_PRINCIPAL `
+            /crypto All    
 
 1. Copy the Kerberos Keytab file to `xl-release.example.com` machine.
 
