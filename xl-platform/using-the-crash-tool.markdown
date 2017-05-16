@@ -168,3 +168,30 @@ To see information about CRaSH commands, execute `man <COMMAND_NAME>`:
 
 
     %
+
+## Change the repository version of a product or a plugin
+
+In XL Release, XL Deploy, and the supported plugins you can implement upgraders. Using upgraders when installing a new version of a product or a plugin, allows the data stored by the previous version of code to be adjusted for the new version. In various failure scenarios you need to downgrade a version of a product or a plugins to re-run the upgrader by restarting the product. You can do it using the following commands:
+
+	% ls /$configuration/versions
+	/$configuration/versions
+	+-properties
+	| +-xlr-folder-module: '6.1.0'
+	| +-xlr-task-progress-plugin: '6.0.0'
+	| +-xlr-kubernetes-plugin: '5.0.0'
+	...
+	| +-xl-release: '6.1.0#5'
+	+-children
+
+	% node unset /$configuration/versions xl-release
+	node /$configuration/versions
+	% node set /$configuration/versions xl-release "6.1.0#0"
+	node /$configuration/versions
+	% commit
+
+	% ls /$configuration/versions
+	/$configuration/versions
+	+-properties
+	...
+	| +-xl-release: '6.1.0#0'
+	+-children
