@@ -31,6 +31,8 @@ The default roles are:
 
 **Note** You can add yourself as a *Watcher* on tasks to receive email notifications when events occur on those tasks. To add users as watchers on a task, you must have the edit task permission.
 
+## Edit default notification message
+
 To edit the default notification email for a specific event, click **Edit message** for that event. You can customize the email template that will be sent when the notification event is triggered.
 
   ![Edit notification message](../images/edit-notification-message.png)
