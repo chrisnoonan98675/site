@@ -13,14 +13,24 @@ weight: 421
 
 In XL Release, you can schedule your releases by setting start dates and times, end dates and times, and durations on templates, releases, phases, and tasks. When you set dates and durations on phases and tasks, XL Release automatically adjusts other phases and calculates the release duration and end date.
 
-## Default durations
+## Controlling when releases start
 
-By default, XL Release assigns these durations to tasks:
+Since XL Release 7.0.0 you can schedule any planned release to start automatically at a given date and time in the future.
 
-* One hour for manual tasks
-* One minute for automated tasks
+By enabling the **Start automatically on selected date** checkbox on the [release properties page](/xl-release/how-to/configure-release-properties.html) the release will get scheduled to start on the specified **Start date**.
 
-## Viewing and setting dates and durations
+If the checkbox is not enabled, the release will require a manual start; this is the default behaviour.
+
+**Note:** To set a release to start automatically when being created from the API or the XLR DSL, adjust the **autoStart** and **scheduledStartDate** properties to the desired values.
+
+## Controlling when phases and tasks start
+
+If you explicitly set a start date on a phase or task, you can use the **Wait for start date** option in the details view to either:
+
+* Wait to start the phase or task until the configured date and time, even if the release reaches the phase or task before then (this is the default)
+* Allow the phase or task to start when the release reaches it, even if this is earlier than the configured date and time
+
+## Viewing and setting dates and durations in the planner
 
 When you select the **Show dates** option in the [planner](/xl-release/how-to/using-the-xl-release-planner.html):
 
@@ -38,12 +48,12 @@ In the details of a [phase](/xl-release/how-to/add-a-phase-to-a-release-or-templ
 
 You can adjust the dates or duration of a phase or task in its detail view.
 
-## Controlling when phases and tasks start
+## Default durations
 
-If you explicitly set a start date on a phase or task, you can use the **Wait for start date** option in the details view to either:
+By default, XL Release assigns these durations to tasks:
 
-* Wait to start the phase or task until the configured date and time, even if the release reaches the phase or task before then (this is the default)
-* Allow the phase or task to start when the release reaches it, even if this is earlier than the configured date and time
+* One hour for manual tasks
+* One minute for automated tasks
 
 ## Dates and times in exported release data
 
