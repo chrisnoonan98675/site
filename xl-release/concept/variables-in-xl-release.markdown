@@ -53,11 +53,11 @@ You can change the values of variables in an active release, although doing so w
 As of XL Release 7.0.0 you can create a List variable and use it as a possible value for a List box variable.
 
 1. Create a [global variable](/xl-release/how-to/create-release-variables.html#create-a-global-variable) or a [release variable](/xl-release/how-to/create-release-variables.html#create-a-release-variable-on-the-variables-screen) with the type **List**.
-1. When you create a new variable and select the type **List box**, click the button next to the **Possible values** to switch between a list of normal values or a list of variables.
+1. When you create a new variable and select the type **List box**, click the button next to the **Possible values** to switch between a list of normal values or a variable of type **List**.
 
 ![List box variable](../images/variable-list-box.png)
 
-1. If you select the list of variables option, you can add the created **List** type variable.
+1. Select the second option and choose a **List** type variable.
 
 You can use the **List box** variable in templates, releases, or tasks allowing users to select the values from predefined **List** variable.
 
