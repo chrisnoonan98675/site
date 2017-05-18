@@ -8,6 +8,8 @@ tags:
 - notification
 - email
 - settings
+- template
+- watcher
 ---
 
 You can configure the email notification preferences in XL Release by adding or removing events that trigger notifications and by modifying the roles that receive the email notifications.
