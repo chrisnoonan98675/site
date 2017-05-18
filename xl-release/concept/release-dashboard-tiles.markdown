@@ -36,13 +36,15 @@ To see the list of Jenkins builds that are shown, click the tile to go to its de
 
 ## Release health
 
-The release health tile shows a traffic light that indicates the health of the release in a single glance. Its colors indicate:
+The release health tile shows an icon that indicates the health of the release and the risk score of the release.
+
+The icon color indicates:
 
 {:.table table-striped}
 | Color | Description |
 | ----- | ----------- |
 | Red | The release is in a failed state, or there are one or more red ("release at risk") status flags on the release |
-| Yellow | The calculated end date of the release is after its configured due date, or there are one or more yellow ("attention needed") flags on the release |
+| Amber | The calculated end date of the release is after its configured due date, or there are one or more yellow ("attention needed") flags on the release |
 | Green | There are no issues with the release |
 
 To see detailed information about release status flags, click the tile to go to its detail view.

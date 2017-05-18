@@ -37,7 +37,7 @@ To configure the tiles on the release dashboard:
 1. Click **Configure**.
 1. Click ![Gear icon](/images/button_configure_tile.png) on the tile you want to configure.
 1. Make your changes and click **Save**.
-1. Click **Back to view mode** to save your changes.
+1. Click **Back to release dashboard** to save your changes.
 
 ## Arrange tiles on the release dashboard
 
@@ -46,11 +46,11 @@ To arrange tiles on the release dashboard:
 1. Click **Configure**.
 1. Left-click and hold the title bar of a tile, then drag it to the desired position.
 1. To resize a tile, drag its lower right corner.
-1. Click **Back to view mode** to save your changes.
+1. Click **Back to release dashboard** to save your changes.
 
 ## View detailed information for a tile
 
-Many tiles have a detail view that offers additional information. To go to the detail view, click the tile. To return to the release dashboard, click **Back to view mode**.
+Many tiles have a detail view that offers additional information. To go to the detail view, click the tile. To return to the release dashboard, click **Back to release dashboard**.
 
 ## Remove a tile from the release dashboard
 
@@ -58,4 +58,4 @@ To remove a tile from the release dashboard:
 
 1. Click **Configure**.
 1. On the tile that you want to remove, click ![Delete icon](../images/xlr-tile-delete-icon.png). Note that you cannot undo removing a tile.
-1. Click **Back to view mode** to save your changes.
+1. Click **Back to release dashboard** to save your changes.
