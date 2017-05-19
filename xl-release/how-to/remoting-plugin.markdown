@@ -21,7 +21,7 @@ The Remoting plugin:
 * Supports SSH for connectivity to Unix, Microsoft Windows, and z/OS hosts
 * Supports CIFS, Telnet, and WinRM for connectivity to Windows hosts
 * Allow SSH jumpstations and HTTP proxies to be used to access hosts to which a direct network connection is not possible (CIFS, Telnet and WinRM can be tunneled through an SSH jumpstation as well)
-* Implements all connection methods internally in XL Deploy or XL Release, so no external dependencies are required (an exception is the `WINRM_NATIVE` connection type, which uses the Windows `winrs` command, but you can use a `winrs` proxy for this connection type when XL Deploy or XL Release runs on a Unix host)
+* Implements all connection methods internally in XL Deploy or XL Release, so no external dependencies are required (an exception is the `WINRM_NATIVE` connection type, which uses the Windows `winrs` command)
 
 ## Set up a host
 
