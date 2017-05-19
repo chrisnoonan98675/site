@@ -34,18 +34,18 @@ When the XL Release server is configured to use your company's [LDAP directory](
 
 You can use the format from the language defined in your browser or choose a predefined date format:
 
-* **M/d/yy**: Month first, then day, then two-digit year.
-* **dd/MM/yy**: Day first, then month, then two-digit year.
-* **yy/MM/dd**: Two-digit year first, then month, then day.
-* **Browser default**: The format defined by your browser's language.
+* **Month first**: Uses the `M/d/yy` format for short date, `MMM d, y` for medium date and `MMMM d, y` for long date representation.
+* **Day first**: Uses the `dd/MM/yy`, `dd MMM y` and `dd MMMM y` formats.
+* **Year first**: Uses the `yy/MM/dd`, `y MMM dd` and `y MMMM dd` formats.
+* **Browser default**: Uses the date formats defined by your browser’s language.
 
 ### Time format
 
 You can use the format from the language defined in your browser or choose a predefined time format:
 
-* **HH:mm**: 24-hour format.
-* **hh:mm a**: 12-hour format with AM/PM.
-* **Browser default**: The format defined by you browser's language.
+* **24 hours**: Uses the 24-hour format.
+* **12 hours**: Uses the 12-hour format with AM/PM.
+* **Browser default**: Uses the time formats defined by you browser's language.
 
 ### First day of week
 
