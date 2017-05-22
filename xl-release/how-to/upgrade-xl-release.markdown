@@ -53,7 +53,7 @@ Before you upgrade:
 
 To upgrade an XL Release server installation:
 
-1. Extract the server ZIP file. It creates an installation directory called, for example, `xl-release-6.0.0-server`.
+1. Extract the server ZIP file. It creates an installation directory called, for example, `xl-release-7.0.0-server`.
 
 1. [Shut down](/xl-release/how-to/shut-down-xl-release.html) the XL Release server.
 
