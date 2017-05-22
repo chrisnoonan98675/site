@@ -3,7 +3,6 @@ title: XL Release 7.0.x documentation
 product-id: xl-release
 ---
 
-{% include sts_lts_info.html %}
 
 ## Product reference documentation
 
