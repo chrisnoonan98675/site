@@ -36,7 +36,7 @@ To see the list of Jenkins builds that are shown, click the tile to go to its de
 
 ## Release health
 
-The release health tile shows an icon that indicates the health of the release and the risk score of the release.
+The release health tile shows an icon that indicates the health of the release and the maximum risk score of the release.
 
 The icon color indicates:
 
