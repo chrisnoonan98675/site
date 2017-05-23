@@ -12,7 +12,7 @@ tags:
 - watcher
 ---
 
-You can configure the email notification preferences in XL Release by adding events that trigger notifications and by modifying the roles that receive the email notifications.
+You can configure the email notification preferences in XL Release by adding events that trigger notifications and by modifying the recipients that receive the email notifications.
 
 To view or edit the default email notification settings, select **Settings** > **Notification settings** from the top menu.
 
@@ -24,7 +24,7 @@ For each notification event, you can add or remove the recipients that receive t
 To remove a recipient from a notification event, click the **x** next to the recipient name.
 To add a new recipient, click in a row for a specific event, type the name of the recipient you want to add, and then click **Enter**.
 
-The default email recipients are:
+The available email recipients are:
 
 * Release Admin
 * Task Owner
