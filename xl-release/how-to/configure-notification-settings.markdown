@@ -71,3 +71,5 @@ To open and view the email template in a new browser tab, click **Preview email*
   **Note:** The task description is always included by default in the email template.
 
 If you have made modifications to the email template and you want to revert to the latest saved changes, click **Revert changes**.
+
+**Important** If you are using Chrome web browser to open an email notification received for an event that occurred on a task or release and you click **View task** or **View release**, the browser redirects the `http://` link to an `https://` link and you will receive an error message. To fix this, manually replace `https://` with `http://` in the address bar. You can also go to `chrome://net-internals` and select `HSTS`, remove the XL Release domain name and then clear your browser cache.
