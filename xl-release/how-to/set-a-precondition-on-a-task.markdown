@@ -31,11 +31,10 @@ The task will only be started if the variable `jobStatus` is equal to 'Success'.
 
 If you need a more complicated script, you must set the **result** variable. For example:
 
-    print("Executing precondition")
-
-    ...
-
-    result = True
+    if releaseVariables['OS'] == 'Linux' and releaseVariables['pingResult'] == '0':
+        result = True
+    else:
+        result = False
 
 ## Disabling preconditions
 
