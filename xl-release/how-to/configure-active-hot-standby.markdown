@@ -67,7 +67,7 @@ The following external databases are recommended:
 * PostgreSQL
 * Oracle 11g or 12c
 
-The following set of sql privileges are required (where appliccable):
+The following set of SQL privileges are required (where applicable):
 
 * REFERENCES
 * INDEX
