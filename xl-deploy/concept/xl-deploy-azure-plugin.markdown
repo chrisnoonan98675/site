@@ -25,4 +25,6 @@ For information about requirements and the configuration items (CIs) that the Az
 * Provision Virtual Machines associated to their Network Interface (NIC)
 * Automatically destroy machines during undeployment
 
+This is a diagram representing all the resource types we support with their dependencies:
+
 ![Azure types diagram](images/xl-deploy-azure-diagram.png)
