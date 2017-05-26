@@ -60,7 +60,7 @@ You can import a deployment package from an external storage location, your comp
 
 To import a package using the default GUI:
 
-In the left pane, click the **Import package** button. You can select one of three options:
+In the left pane, hover over **Applications**, click ![Explorer action menu](/images/menu_three_dots.png) and select **Import**. You can select one of three options:
 1. From URL
     1. Enter the URL.
     1. If the URL requires authentication, enter the required user name and password.
