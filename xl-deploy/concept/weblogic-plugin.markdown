@@ -83,6 +83,8 @@ Similarly, if the deployed application needs to be upgraded using the *side by s
 * `deployment strategy` = `SIDE_BY_SIDE` (in the XL Deploy user interface, choose SIDE_BY_SIDE from the drop-down list)
 * `retire timeout` = Interval (in seconds) if a timeout period is needed to retire the previous version of the application
 
+**Note:** If `retired timeout` is set to -1 and `deployment strategy` is set to `SIDE_BY_SIDE`, the WebLogic plugin handles retiring the versioned application and does not handle the application undeployment or the removal of artiacts.
+
 ## Updating shared libraries
 
 When updating a shared library (`wls.SharedLibraryWarModule` or `wls.SharedLibraryJarModule`), the plugin will query the repository to find all the applications (`wls.Ear` and `wls.War`, property `sharedLibraries`) that depends on it. For each of them, the plugins will add stop, undeploy, deploy, and start steps before and after the library update.
