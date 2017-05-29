@@ -227,6 +227,38 @@ You can automate the installation of XL Deploy with a set of default values that
 
 Where the `deployit.conf` file contains the installation values that you want to use.
 
+### Sample of `deployit.conf` file
+
+    #XL Deploy configuration file.
+    #
+    #Notes:
+    # * If you modify this file, you must restart the XL Deploy server.
+    # * Use `repository.keystore.password` property to specify the password used to open the repository keystore file,
+    #   which contains the encryption key for the rest of the passwords.
+    # * The other passwords specified in this file are normally encrypted, but you can change their value using plaintext
+    #   and at the next start of the server the modified passwords will be re-encrypted.
+
+    admin.password={{ xld_admin_password }}
+    jcr.repository.path=repository
+    threads.min=3
+    maintenance.forbidden_paths=deployit/task\:POST,deployit/tasks/v2\:POST,deployit/control\:POST
+    client.server_poll.delay=30000
+    ssl=true
+    client.session.remember.enabled=true
+    http.bind.address=0.0.0.0
+    http.context.root=/
+    threads.max=24
+    ssl.mutual=false
+    http.upload.buffer=262144
+    client.session.timeout.minutes=0
+    http.port=4516
+    client.automatically.map.all.deployables=true
+    hide.internals=false
+    importable.packages.path=importablePackages
+    keystore.path=conf/xl-keystore.jks
+    keystore.keypassword={{ keystore_keypassword }}
+    keystore.password= {{ keystore_password }}
+
 ## Install the XL Deploy CLI
 
 For information about installing the XL Deploy command-line interface (CLI), refer to [Install the XL Deploy CLI](/xl-deploy/how-to/install-the-xl-deploy-cli.html).

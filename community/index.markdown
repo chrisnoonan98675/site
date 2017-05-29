@@ -17,14 +17,18 @@ For information about the plugins that are supported by the XebiaLabs customer s
 {:.table}
 | Plugin | Features |
 | ------ | -------- |
+| [XL Deploy AWS ECS plugin](https://github.com/xebialabs-community/xld-aws-ecs-plugin) | Manage [AWS ESC](https://aws.amazon.com/ecs/) container services via XL Deploy |
 | [XL Deploy Atlassian JIRA plugin](https://github.com/xebialabs-community/xld-jira-plugin) | Check whether an [Atlassian JIRA](https://www.atlassian.com/software/jira/) ticket exists, change the state of a JIRA ticket, or add a comment to a JIRA ticket |
 | [XL Deploy Azure App Services plugin](https://github.com/xebialabs-community/xld-azure-app-services-plugin) | Define, deploy, start, stop, and undeploy Web App Services |
 | [XL Deploy CloudFoundry plugin](https://github.com/xebialabs-community/xld-cloud-foundry-plugin) | Deploy an application to [CloudFoundry](https://www.cloudfoundry.org/) |
 | [XL Deploy Docker plugin](https://github.com/xebialabs-community/xld-docker-plugin) | Deploy an application to a [Docker](https://www.docker.com/) container |
 | [XL Deploy Elasticsearch plugin](https://github.com/xebialabs-community/xld-elasticsearch-plugin) | Deploy an [Elasticsearch](https://www.elastic.co/products/elasticsearch) index configuration |
 | [XL Deploy Flyway plugin](https://github.com/xebialabs-community/xld-flyway-plugin) | Migrate a database using [Flyway](http://flywaydb.org/) |
+| [XL Deploy IBM iSeries plugin](https://github.com/xebialabs-community/xld-iseries-plugin) | Execute commands on a remote [iSeries](https://www-03.ibm.com/systems/power/hardware/iseries/) system |
 | [XL Deploy Informatica PowerCenter plugin](https://github.com/xebialabs-community/xld-powercenter-plugin) | Import or delete [Informatica PowerCenter](https://www.informatica.com/products/data-integration/powercenter.html) objects |
 | [XL Deploy Jenkins plugin](https://github.com/xebialabs-community/xld-jenkins-plugin) | Provision or start a [Jenkins CI](https://jenkins-ci.org/) job |
+| [XL Deploy Kubernetes plugin](https://github.com/xebialabs-community/xld-kubernetes-plugin) |  Deploy an application to a [Kubernetes Cluster](https://kubernetes.io/) |
+| [XL Deploy Kubernetes GKE plugin](https://github.com/xebialabs-community/xld-kubernetes-gke-plugin) | Provision a new [Google Container Engine (GKE)](https://cloud.google.com/container-engine/) for Docker Containers and deploying containers on top of it |
 | [XL Deploy LiquiBase plugin](https://github.com/xebialabs-community/xld-liquibase-plugin) | Perform a create, destroy, or modify action in [LiquiBase](http://www.liquibase.org/) |
 | [XL Deploy Microsoft Sharepoint plugin](https://github.com/xebialabs-community/xld-sharepoint-plugin) | Deploy a [Microsoft Sharepoint](https://products.office.com/en-us/sharepoint/collaboration) solution on a Sharepoint instance |
 | [XL Deploy Microsoft SQL Server Integration Services (SSIS) plugin](https://github.com/xebialabs-community/xld-ssis-plugin) | Deploy [Microsoft SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/en-us/library/ms141026.aspx) packages or projects on a Microsoft SQL Server client |
@@ -53,11 +57,13 @@ For information about the plugins that are supported by the XebiaLabs customer s
 | [XL Release HP LoadRunner plugin](https://github.com/xebialabs-community/xlr-loadrunner-plugin) | Execute [HP LoadRunner](http://www8.hp.com/us/en/software-solutions/loadrunner-load-testing/) scenarios from XL Release |
 | [XL Release HP Unified Functional Testing (UFT) plugin](https://github.com/xebialabs-community/xlr-qtp-plugin) | Run tests in [HP Unified Functional Testing (UFT)](http://www8.hp.com/us/en/software-solutions/unified-functional-automated-testing/), formerly called HP QuickTest Professional (QTP) |
 | [XL Release Microsoft Team Foundation Server (TFS) plugin](https://github.com/xebialabs-community/xlr-tfs-plugin) | Create, get, or update a work item in [Microsoft Team Foundation Server (TFS)](https://www.visualstudio.com/en-us/products/tfs-overview-vs.aspx) |
+| [XL Release Orson plugin](https://github.com/xebialabs-community/xlr-orson-plugin) | Use [Orson Test Data](https://www.orsontestdata.com/) from the XL Release User Interface |
 | [XL Release qTest plugin](https://github.com/xebialabs-community/xlr-qtest-plugin) | Use the [QASymphony qTest API](https://www.qasymphony.com/software-testing-tools/qtest-manager/test-case-management/) from the XL Release User Interface |
 | [XL Release Rally plugin](https://github.com/xebialabs-community/xlr-rally-plugin) | Update properties in [Rally](https://www.rallydev.com/) |
 | [XL Release RTC Jazz plugin](https://github.com/xebialabs-community/xlr-rtcjazz-plugin) | Automatically trigger a new release when a new commit appears in the specified workspace or stream |
 | [XL Release TeamCity plugin](https://github.com/xebialabs-community/xlr-teamcity-plugin) | Trigger a build in [JetBrains TeamCity](https://www.jetbrains.com/teamcity/) |
 | [XL Release ServiceNow plugin](https://github.com/xebialabs-community/xlr-servicenow-plugin) | Create records, check a status, request approval, or update CMDB in [ServiceNow](https://www.servicenow.com/) |
+| [XL Release Sonatype Nexus IQ plugin](https://github.com/xebialabs-community/xlr-sonatype-nexus-iq-plugin/) | Enable the evaluation of a binary within [Nexus IQ](http://www.sonatype.org/nexus/category/iq-server/) |
 | [XL Release VersionOne plugin](https://github.com/xebialabs-community/xlr-versionone-plugin) | Create issues in [VersionOne](https://www.versionone.com/) |
 
 ## Community tools for XebiaLabs products

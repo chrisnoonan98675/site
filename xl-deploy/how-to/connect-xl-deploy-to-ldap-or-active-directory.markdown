@@ -111,12 +111,12 @@ Also, locate the following section and add `ldapProvider` as an authentication p
 <pre class="highlight">
 &lt;security:authentication-manager alias="authenticationManager"&gt;
   &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt;
-  &lt;security:authentication-provider ref="xlAuthenticationProvider" /&gt;
+  &lt;security:authentication-provider ref="XlAuthenticationProvider" /&gt;
   <mark>&lt;security:authentication-provider ref="ldapProvider" /&gt;</mark>
 &lt;/security:authentication-manager&gt;
 </pre>
 
-**Note:** `ldapProvider` should come after `xlAuthenticationProvider`. This ensures that, if there is a problem with LDAP, you can still log in to XL Deploy as a local user.
+**Note:** `ldapProvider` should come after `XlAuthenticationProvider`. This ensures that, if there is a problem with LDAP, you can still log in to XL Deploy as a local user.
 
 Restart XL Deploy and ensure that the server starts without any exceptions.
 
@@ -177,11 +177,11 @@ This sample `deployit-security.xml` file shows the required LDAP configuration i
      </bean>
 
      <bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/>
-     <bean id="xlAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.xlAuthenticationProvider"/>
+     <bean id="XlAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider"/>
 
      <security:authentication-manager alias="authenticationManager">
        <security:authentication-provider ref="rememberMeAuthenticationProvider" />
-       <security:authentication-provider ref="xlAuthenticationProvider" />
+       <security:authentication-provider ref="XlAuthenticationProvider" />
        <security:authentication-provider ref="ldapProvider" />
      </security:authentication-manager>
 
@@ -189,7 +189,7 @@ This sample `deployit-security.xml` file shows the required LDAP configuration i
 
 ## Assign a default role to all authenticated users
 
-If your LDAP is not set up with a group to which all XL Deploy users are assigned, or if you want to use such a group in the default `xlAuthenticationProvider`, you can configure this in the `deployit-security.xml` file.
+If your LDAP is not set up with a group to which all XL Deploy users are assigned, or if you want to use such a group in the default `XlAuthenticationProvider`, you can configure this in the `deployit-security.xml` file.
 
 The following example shows how to set up a group called `everyone`, which is assigned to each user who is authenticated. You could then link this group to an XL Deploy role and, for example, assign it the `login` permission.
 
@@ -205,7 +205,7 @@ The following example shows how to set up a group called `everyone`, which is as
         <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
     </bean>
 
-    <bean id="xlAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.xlAuthenticationProvider">
+    <bean id="XlAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider">
         <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
     </bean>
 

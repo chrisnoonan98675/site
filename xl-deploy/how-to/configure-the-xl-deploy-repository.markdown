@@ -229,7 +229,7 @@ This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configur
 
 ### Using XL Deploy with Oracle
 
-To use XL Deploy with [Oracle](http://www.oracle.com/us/products/database/index.html), ensure that the [JDBC driver for Oracle](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html) JAR file is located in `XL_DEPLOY_SERVER_HOME/lib` or on the Java classpath.
+To use XL Deploy with [Oracle](http://www.oracle.com/us/products/database/index.html), ensure that the [JDBC driver for Oracle](http://www.oracle.com/technetwork/database/features/jdbc/default-2280470.html) JAR file is located in `XL_DEPLOY_SERVER_HOME/lib` or on the Java classpath.
 
 This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for Oracle:
 

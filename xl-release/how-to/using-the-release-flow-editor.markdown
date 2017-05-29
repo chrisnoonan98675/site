@@ -30,7 +30,7 @@ Note that you cannot move, edit, or delete a phase that has already been complet
 
 In the release flow editor, you can also work with tasks:
 
-* Add a task by clicking **Add task** in the desired phase
+* [Add a task](/xl-release/how-to/add-a-task-to-a-phase.html) by clicking **Add task** in the desired phase
 * Move a task by dragging and dropping it (unless it is complete)
 * [Edit a task's details](/xl-release/how-to/working-with-tasks.html) by clicking it
 * Assign a task to yourself by clicking ![Task action menu](/images/menu_three_dots.png)

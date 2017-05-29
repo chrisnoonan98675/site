@@ -21,7 +21,7 @@ For general information about system requirements for the XL Deploy server, refe
 
 ## Access the Explorer in XL Deploy versions 6.0.0 and 6.1.0
 
-To access the Explorer, go to `XL_DEPLOY_URL:PORT/technical-preview.html`; for example, `http://xl-deploy.company.com:4516/technical-preview.html`. If you are not already logged in to XL Deploy, you must enter your XL Deploy user name and password when the browser prompts you.
+To access the Explorer in XL Deploy 6.0.0 and 6.1.0, go to `XL_DEPLOY_URL:PORT/technical-preview.html`; for example, `http://xl-deploy.company.com:4516/technical-preview.html`. In XL Deploy 6.2.0 and later, simply go to `XL_DEPLOY_URL:PORT`. If you are not already logged in to XL Deploy, you must enter your XL Deploy user name and password when the browser prompts you.
 
 ![Explorer Technical Preview](images/explorer.png)
 

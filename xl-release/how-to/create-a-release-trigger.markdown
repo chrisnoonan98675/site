@@ -19,7 +19,7 @@ To see the triggers on a template, select **Triggers** from the **Show** menu in
 
 1. Under **Settings**, select **Allow concurrent triggered releases** to allow releases that are started by the trigger's template to run concurrently instead of sequentially.
 
-    For example, if this option is not selected and a trigger's template detects that many releases need to be started in a short time, XL Release will only run one triggered release at a time.
+    For example, if this option is not selected and a trigger's template detects that multiple releases are set to run at the same time, XL Release will only run one triggered release at a time.
 
     ![Trigger settings](../images/triggers-settings.png)
 
