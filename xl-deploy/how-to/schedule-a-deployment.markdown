@@ -48,6 +48,7 @@ To view scheduled deployment tasks using the legacy GUI, click the gear icon and
 
 ## Reschedule a deployment
 
+{% comment %}
 To reschedule a scheduled deployment task using the default GUI:
 
 1. Expand **Applications**, and then expand the application that for which you want to reschedule a deployment.
@@ -56,6 +57,7 @@ To reschedule a scheduled deployment task using the default GUI:
 1. Click the arrow icon on the **Deploy** button and select **Reschedule**.
 1. In the Reschedule window, select a new date and time.
 1. Click **Reschedule**.
+{% endcomment %}
 
 To reschedule a scheduled deployment task using the legacy GUI:
 
