@@ -47,7 +47,7 @@ You can change the **Subject** and the body text of the email template.
 
 **Note:** You can style the body text in the email using HTML or markdown. For more information, see [Using Markdown in XL Release](/xl-release/how-to/using-markdown-in-xl-release.html).
 
-Click the **High priority** checkbox to assign a high priority to the email notification.
+To assign a high priority to the email notification, select **High priority** from the **Priority** drop down menu.
 
 You can use these supported variables in the email template:
 
@@ -70,6 +70,6 @@ To open and view the email template in a new browser tab, click **Preview email*
 
   **Note:** The task description is always included by default in the email template.
 
-If you have made modifications to the email template and you want to revert to the latest saved changes, click **Revert changes**.
+If you have made modifications to the email template and you want to revert to the latest saved changes, click **Cancel**.
 
 **Important** If you are using Chrome web browser to open an email notification received for an event that occurred on a task or release and you click **View task** or **View release**, the browser redirects the `http://` link to an `https://` link and you will receive an error message. To fix this, manually replace `https://` with `http://` in the address bar. You can also go to `chrome://net-internals` and select `HSTS`, remove the XL Release domain name and then clear your browser cache.
