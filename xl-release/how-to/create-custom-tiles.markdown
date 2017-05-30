@@ -255,8 +255,8 @@ You can enhance the `latest-commits-tile-summary-view.html` template to display 
                   })
               });
 
-              var repositoryId = window.xlrelease.tile.configurationProperties.repositoryId;
-              var branch = window.xlrelease.tile.configurationProperties.branch;
+              var repositoryId = window.xlrelease.tile.properties.repositoryId;
+              var branch = window.xlrelease.tile.properties.branch;
               $("#title").html("Latest commits in " + repositoryId + "/" + branch);
 
         });
@@ -275,7 +275,7 @@ You can enhance the `latest-commits-tile-summary-view.html` template to display 
 
 The JavaScript code parses the response from GitHub and creates new HTML tags to show the commit message and the commit author in a list format.
 
-To display the repositoryId and branch, you have access to the tile configuration properties by way of `window.xlrelease.tile.configurationProperties`.
+To display the repositoryId and branch, you have access to the tile configuration properties by way of `window.xlrelease.tile.properties`.
 
 You can declare external dependencies on the `head` element like CSS styles and JavaScript libraries such as jQuery.
 
@@ -351,8 +351,8 @@ Since we made schanges to the `synthetic.xml` file, we need to restart the serve
             })
         });
 
-        var repositoryId = window.xlrelease.tile.configurationProperties.repositoryId;
-        var branch = window.xlrelease.tile.configurationProperties.branch;
+        var repositoryId = window.xlrelease.tile.properties.repositoryId;
+        var branch = window.xlrelease.tile.properties.branch;
         $("#title").html("Latest commits in repository " + repositoryId + ", branch " + branch);
 
     });
