@@ -42,6 +42,12 @@ Add the following lines in `XL_RELEASE_SERVER_HOME/conf/xlr-wrapper-linux.conf` 
 
 Where X is the next number in the `wrapper.java.additional` list.
 
-## Step 5 Start XL Release
+## Step 5 Only for XL Release 7.x and later
+
+Disable the verification of SSL for XL Deploy servers under `XL_RELEASE_SERVER_HOME/conf/deployit-defaults.properties` by adding the line:
+
+    xldeploy.XLDeployServer.verifySSL=false
+
+## Step 6 Start XL Release
 
 You can now [start XL Release](/xl-release/how-to/start-xl-release.html) and [add the XL Deploy server](/xl-release/how-to/configure-xl-deploy-servers-in-xl-release.html).
