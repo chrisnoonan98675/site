@@ -58,11 +58,14 @@ For information about the plugins that are supported by the XebiaLabs customer s
 | [XL Release HP Unified Functional Testing (UFT) plugin](https://github.com/xebialabs-community/xlr-qtp-plugin) | Run tests in [HP Unified Functional Testing (UFT)](http://www8.hp.com/us/en/software-solutions/unified-functional-automated-testing/), formerly called HP QuickTest Professional (QTP) |
 | [XL Release Microsoft Team Foundation Server (TFS) plugin](https://github.com/xebialabs-community/xlr-tfs-plugin) | Create, get, or update a work item in [Microsoft Team Foundation Server (TFS)](https://www.visualstudio.com/en-us/products/tfs-overview-vs.aspx) |
 | [XL Release Orson plugin](https://github.com/xebialabs-community/xlr-orson-plugin) | Use [Orson Test Data](https://www.orsontestdata.com/) from the XL Release User Interface |
+| [XL Release PagerDuty plugin](https://github.com/xebialabs-community/xlr-pagerduty-plugin) | Trigger events in [PagerDuty](https://www.pagerduty.com/) as part of a template or release |
 | [XL Release qTest plugin](https://github.com/xebialabs-community/xlr-qtest-plugin) | Use the [QASymphony qTest API](https://www.qasymphony.com/software-testing-tools/qtest-manager/test-case-management/) from the XL Release User Interface |
 | [XL Release Rally plugin](https://github.com/xebialabs-community/xlr-rally-plugin) | Update properties in [Rally](https://www.rallydev.com/) |
 | [XL Release RTC Jazz plugin](https://github.com/xebialabs-community/xlr-rtcjazz-plugin) | Automatically trigger a new release when a new commit appears in the specified workspace or stream |
 | [XL Release TeamCity plugin](https://github.com/xebialabs-community/xlr-teamcity-plugin) | Trigger a build in [JetBrains TeamCity](https://www.jetbrains.com/teamcity/) |
+| [XL Release SD Elements plugin](https://github.com/xebialabs-community/xlr-sdelements-plugin) | Integrate with [SD Elements](https://www.securitycompass.com/sdelements/) by allowing to qualify a project |
 | [XL Release ServiceNow plugin](https://github.com/xebialabs-community/xlr-servicenow-plugin) | Create records, check a status, request approval, or update CMDB in [ServiceNow](https://www.servicenow.com/) |
+| [XL Release Slack plugin](https://github.com/xebialabs-community/xlr-slack-plugin) | Send direct messages or messages to [Slack](https://slack.com/) channels as part of a template or release |
 | [XL Release Sonatype Nexus IQ plugin](https://github.com/xebialabs-community/xlr-sonatype-nexus-iq-plugin/) | Enable the evaluation of a binary within [Nexus IQ](http://www.sonatype.org/nexus/category/iq-server/) |
 | [XL Release VersionOne plugin](https://github.com/xebialabs-community/xlr-versionone-plugin) | Create issues in [VersionOne](https://www.versionone.com/) |
 
