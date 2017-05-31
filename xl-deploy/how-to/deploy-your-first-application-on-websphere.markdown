@@ -12,7 +12,7 @@ since:
 - XL Deploy 5.0.0
 ---
 
-After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) and the [IBM WebSphere plugin](/xl-deploy/latest/wasPluginManual.html), log in to XL Deploy and follow these instructions to:
+After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) and the [IBM WebSphere plugin](https://docs.xebialabs.com/xl-deploy-was-plugin/latest/wasPluginManual.html), log in to XL Deploy and follow these instructions to:
 
 1. Connect XL Deploy to your IBM WebSphere Application Server (WAS) Network Deployment (ND) or Base installation
 1. Discover your WAS middleware containers
