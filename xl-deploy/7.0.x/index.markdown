@@ -16,7 +16,6 @@ product-id: xl-deploy
 * [XL Deploy Engine SPI Javadoc](/xl-deploy/7.0.x/javadoc/engine-spi/index.html)
 * [XL Endpoints API Javadoc](/xl-deploy/7.0.x/javadoc/xl-endpoints-api/index.html)
 * [XL Deploy satellite module CI reference](/xl-deploy/7.0.x/satellitecireference.html)
-* [XL Deploy satellite module](/xl-deploy/7.0.x/satellitecireference.html)
 
 ## Plugin reference documentation
 
@@ -63,7 +62,7 @@ product-id: xl-deploy
 
 ### Tools
 
-* [XL Deploy plugin for Maven](/xldeploy-maven-plugin/7.0.x/)
+* [XL Deploy plugin for Maven](/xldeploy-maven-plugin/6.0.x/)
 * [XL Deploy plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
 * [XL Deploy plugin for Bamboo](/bamboo-xl-deploy-plugin/5.1.x/bambooPluginManual.html)
 * [Puppet plugin for XL Deploy](/xl-deploy-xld-puppet-plugin/7.0.x/puppetPluginManual.html)
@@ -76,12 +75,6 @@ product-id: xl-deploy
 ### Provisioning plugins
 
 * [XL Deploy AWS plugin](/xl-deploy-xld-aws-plugin/7.0.x/awsPluginManual.html)
-
-### XL Scale
-
-* [XL Scale plugin](/xl-scale-plugin/5.0.x/xlScaleManual.html)
-* [XL Scale EC2 plugin](/xl-scale-ec2-plugin/5.0.x/ec2PluginManual.html)
-* [XL Scale vSphere plugin](/xl-scale-vsphere-plugin/5.0.x/vspherePluginManual.html)
 
 ### Community plugins
 
