@@ -27,7 +27,7 @@ While role memberships and permissions assigned to roles are stored in the XL Re
 
 * Oracle JDK 1.8
 * [XL Release 7.0](/xl-release/concept/requirements-for-installing-xl-release.html) or later
-* XL Release SPNEGO Authentication plugin installed
+* [XL Release SPNEGO Authentication plugin](https://dist.xebialabs.com/customer/xl-release/plugins/xlr-auth-spnego-plugin) installed
 
 ### Environment requirements
 
@@ -82,7 +82,7 @@ It is expected that XL Release was installed under `XL_RELEASE_SERVER_HOME` dire
 
 On `xl-release.example.com`:
 
-1. Download the XL Release SPNEGO Authentication plugin from https://xebialabs.com/products/xl-release/plugins/.
+1. Download the XL Release SPNEGO Authentication plugin ZIP from the [distribution site](https://dist.xebialabs.com/customer/xl-release/plugins/xlr-auth-spnego-plugin).
 1. Unpack the plugin inside the `XL_RELEASE_SERVER_HOME/plugins/` directory.
 1. To configure the SPNEGO Authentication plugin, modify the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file by adding a `xl.security.auth.providers` section:
 
