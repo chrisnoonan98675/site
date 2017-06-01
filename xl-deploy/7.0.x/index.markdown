@@ -9,7 +9,7 @@ product-id: xl-deploy
 * [Steps Reference](referencesteps.html)
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
-* [Jython API Reference](/jython-docs/#!/xl-deploy/6.2.x/)
+* [Jython API Reference](/jython-docs/#!/xl-deploy/7.0.x/)
 * [Javadoc](/xl-deploy/7.0.x/javadoc/udm-plugin-api/index.html)
 * [UDM API Javadoc](/xl-deploy/7.0.x/javadoc/udm-plugin-api/index.html)
 * [XL Deploy Engine API Javadoc](/xl-deploy/7.0.x/javadoc/engine-api/index.html)
@@ -37,12 +37,12 @@ product-id: xl-deploy
 
 * [JBoss Application Server 5 and 6 plugin](/xl-deploy-jbossas-plugin/6.0.x/jbossPluginManual.html)
 * [JBoss Application Server 7 and up plugin](/xl-deploy-jbossdm-plugin/6.0.x/jbossDomainPluginManual.html)
-* [Oracle Service Bus (OSB) plugin](/xl-deploy-osb-plugin/6.0.x/osbPluginManual.html)
+* [Oracle Service Bus (OSB) plugin](/xl-deploy-osb-plugin/7.0.x/osbPluginManual.html)
 * [Oracle Service-Oriented Architecture (SOA) plugin](/xl-deploy-xld-oracle-soa-plugin/5.0.x/oracleSoaPluginManual.html)
-* [WebLogic Application Server plugin](/xl-deploy-wls-plugin/6.0.x/wlsPluginManual.html)
-* [WebSphere Application Server plugin](/xl-deploy-was-plugin/6.0.x/wasPluginManual.html)
-* [WebSphere Process Server plugin](/xl-deploy-wps-plugin/6.0.x/wpsPluginManual.html)
-* [WebSphere Liberty Profile Server plugin](/xl-deploy-wlp-plugin/6.0.x/wlpPluginManual.html)
+* [WebLogic Application Server plugin](/xl-deploy-wls-plugin/7.0.x/wlsPluginManual.html)
+* [WebSphere Application Server plugin](/xl-deploy-was-plugin/7.0.x/wasPluginManual.html)
+* [WebSphere Process Server plugin](/xl-deploy-wps-plugin/7.0.x/wpsPluginManual.html)
+* [WebSphere Liberty Profile Server plugin](/xl-deploy-wlp-plugin/7.0.x/wlpPluginManual.html)
 * [Tomcat plugin](/xl-deploy-tomcat-plugin/6.2.x/tomcatPluginManual.html)
 * [GlassFish plugin](/xl-deploy-glassfish-plugin/6.0.x/glassfishPluginManual.html)
 
@@ -50,32 +50,32 @@ product-id: xl-deploy
 
 * [BizTalk plugin](/xl-deploy-biztalk-plugin/6.0.x/biztalkPluginManual.html)
 * [IIS plugin](/xl-deploy-iis-plugin/6.0.x/iisPluginManual.html)
-* [Windows plugin](/xl-deploy-windows-plugin/6.0.x/windowsPluginManual.html)
+* [Windows plugin](/xl-deploy-windows-plugin/7.0.x/windowsPluginManual.html)
 
 ### Other middleware plugins
 
 * [F5 BIG-IP plugin](/xl-deploy-bigip-plugin/6.0.x/bigipPluginManual.html)
 * [Database plugin (DB2, MS SQL, MySQL, Oracle)](databasePluginManual.html)
 * [Webserver plugin (Apache HTTP server)](webserverPluginManual.html)
-* [WebSphere MQ plugin](/xl-deploy-wmq-plugin/6.0.x/wmqPluginManual.html)
+* [WebSphere MQ plugin](/xl-deploy-wmq-plugin/7.0.x/wmqPluginManual.html)
 * [NetScaler plugin](/xl-deploy-netscaler-plugin/6.0.x/netscalerPluginManual.html)
 * [DataPower plugin](/xl-deploy-xld-datapower-plugin/6.0.x/dataPowerPluginManual.html)
 
 ### Tools
 
-* [XL Deploy plugin for Maven](/xldeploy-maven-plugin/5.1.x/)
+* [XL Deploy plugin for Maven](/xldeploy-maven-plugin/7.0.x/)
 * [XL Deploy plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
 * [XL Deploy plugin for Bamboo](/bamboo-xl-deploy-plugin/5.1.x/bambooPluginManual.html)
-* [Puppet plugin for XL Deploy](/xl-deploy-xld-puppet-plugin/6.0.x/puppetPluginManual.html)
+* [Puppet plugin for XL Deploy](/xl-deploy-xld-puppet-plugin/7.0.x/puppetPluginManual.html)
 * [Chef plugin for XL Deploy](/xl-deploy-xld-chef-plugin/6.0.x/chefPluginManual.html)
-* [Docker plugin for XL Deploy](/xl-deploy-xld-docker-plugin/6.2.x/dockerPluginManual.html)
-* [XL Deploy plugin for Team Foundation Server](/xl-deploy-tfs-plugin/6.0.x/tfsPluginManual.html)
-* [XL Deploy plugin for Team Foundation Server 2015](/xl-deploy-vsts-xld-plugin/5.1.x/tfs2015PluginManual.html)
+* [Docker plugin for XL Deploy](/xl-deploy-xld-docker-plugin/7.0.x/dockerPluginManual.html)
+* [XL Deploy plugin for Team Foundation Server](/xl-deploy-tfs-plugin/7.0.x/tfsPluginManual.html)
+* [XL Deploy plugin for Team Foundation Server 2015](/xl-deploy-vsts-xld-plugin/7.0.x/tfs2015PluginManual.html)
 * [XL Deploy Manifest Editor (Windows only)](/xl-deploy/how-to/using-the-xl-deploy-manifest-editor.html)
 
 ### Provisioning plugins
 
-* [XL Deploy AWS plugin](/xl-deploy-xld-aws-plugin/6.2.x/awsPluginManual.html)
+* [XL Deploy AWS plugin](/xl-deploy-xld-aws-plugin/7.0.x/awsPluginManual.html)
 
 ### XL Scale
 
