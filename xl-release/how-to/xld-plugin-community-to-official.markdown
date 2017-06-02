@@ -23,6 +23,7 @@ The community supported `xlr-xldeploy-plugin` and the officially supported `xlr-
 **Note:** The XL Deploy : Deploy task accepts the package name as *Application_name/package_name* (Example: `PetClinic/1.0`) and the environment as *env_name* (Example: `MyTomcatEnv`). The XL Deploy: Undeploy and Control tasks only accept the full name for the package name and environment.
 
 ## Mapping of CIs:  
+
 {:.table table-striped}  
 | Community supported plugin | Officially supported plugin |
 | -------------------------- | --------------------------- |
