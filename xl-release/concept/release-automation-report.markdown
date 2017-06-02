@@ -18,7 +18,7 @@ To access the report, select **Reports** > **Release automation** from the top m
 
 The **Release duration** section shows the average duration of [completed](/xl-release/concept/release-life-cycle.html) releases by month, while the **Release automation** section shows the average percentage of automated tasks in releases that were completed in each month.
 
-A release's completion date determines the month that it is included in; for example, a release that was started in April and completed in May is included in the averages for May.
+A release's completion date determines the month that it is included in; for example, a release that was started in June and completed in August is included in the averages for August.
 
 ![Release duration and automation](../images/reports-release-duration-and-automation.png)
 
