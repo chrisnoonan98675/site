@@ -24,7 +24,7 @@ The community supported `xlr-xldeploy-plugin` and the officially supported `xlr-
 
 ## Mapping of CIs:  
 
-{:.table table-striped}  
+{:.table table-striped}
 | Community supported plugin | Officially supported plugin |
 | -------------------------- | --------------------------- |
 | xldeploy.Server | xldeploy.XLDeployServer |
