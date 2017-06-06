@@ -291,8 +291,8 @@ If you use the TNSNames Alias syntax to connect to Oracle, you may need to infor
 To use XL Release with [Microsoft SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server/), ensure that the [Microsoft JDBC driver for SQL Server](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx) JAR file is located in `XL_RELEASE_SERVER_HOME/lib` or on the Java classpath.
 
 Make sure the userid accessing the MS SQL Server database is a member of one of the following roles:
-- db_ddladmin, db_datareader, db_datawriter for database initialization and for XL Release version upgrades
-- db_datareader, db_datawriter for ongoing usage
+* db_ddladmin, db_datareader, db_datawriter for database initialization and for XL Release version upgrades
+* db_datareader, db_datawriter for ongoing usage
 
 This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for SQL Server:
 
