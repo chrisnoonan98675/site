@@ -10,7 +10,7 @@ tags:
 weight: 465
 ---
 
-XL Release allows your to style your text using Markdown syntax. Markdown is a way to indicate headers, hyperlink, italics, and so on in your text. In XL Release, markdown is supported in task descriptions and comments.
+XL Release allows your to style your text using Markdown syntax. Markdown is a way to indicate headers, hyperlink, italics, and so on in your text. In XL Release, markdown is supported in task descriptions, script task output, and comments.
 
 This is a brief overview of the most common Markdown commands.
 
@@ -39,6 +39,14 @@ You can also create a link text as follows:
 To italicize text, surround it with a single underscore (`_`). For bold, use a double asterisk (`*`).
 
     Choose between **bold** and _italic_.
+
+## Code highlighting
+
+To display a text in a code block format, wrap the text with three backticks.
+
+```
+Example '```'
+```
 
 ## Lists
 

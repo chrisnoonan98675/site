@@ -16,6 +16,8 @@ A Jython Script task contains a Jython script that is executed on the XL Release
 
 Type or paste a Jython script in the **Script** field of the Jython Script task details. XL Release 4.7.0 and later supports Jython 2.7. Jython is the Java implementation of Python. This means that you have access to standard Python as well as the Java libraries included in Java 7.
 
+**Note:** The output of the Jython Script task is in markdown format. For more information, refer to [Using Markdown in XL Release](/xl-release/how-to/using-markdown-in-xl-release.html).
+
 You can access and modify [release variables](/xl-release/concept/variables-in-xl-release.html) in your scripts using the dictionary named `releaseVariables`. This sample script shows how to access and modify a variable:
 
 {% highlight python %}
