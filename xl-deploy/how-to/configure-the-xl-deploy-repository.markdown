@@ -49,6 +49,10 @@ There are no requirements for the character set of the database.
 
 To use XL Deploy with [MySQL](http://www.mysql.com/), ensure that the [JDBC driver for MySQL](http://dev.mysql.com/downloads/connector/j/) JAR file is located in `XL_DEPLOY_SERVER_HOME/lib` or on the Java classpath.
 
+Make sure the userid accessing the MySQL database has been granted the following permissions:
+* GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, and INDEX on `dbname`.* to *dbuser*@*host* for database initialization and for XL Deploy version upgrades
+* GRANT SELECT, INSERT, UPDATE, and DELETE on `dbname`.* to *dbuser*@*host* for ongoing usage
+
 This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for MySQL:
 
 {% highlight xml %}
