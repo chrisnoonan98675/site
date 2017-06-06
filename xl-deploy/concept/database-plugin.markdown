@@ -52,7 +52,21 @@ SQL scripts are ordered lexicographically based on their file names. This is a s
 * `9-create-user-index.sql`
 * `9-create-user-index-rollback.sql`
 
-Note that in this example, the tenth script, `10-drop-user-index.sql` would be incorrectly executed after the first script, `1-create-user-table.sql`.
+**Important:** In this example, the tenth script, `10-drop-user-index.sql` would be incorrectly executed after the first script, `1-create-user-table.sql`.
+
+To execute the scripts in a correct order, make sure you add prefix to your script names accordingly using `01-`, `02-` instead of `1-`, `2-`.
+
+For example:
+
+* `01-create-user-table.sql`
+* `01-create-user-table-rollback.sql`
+* `02-insert-user.sql`
+* `02-insert-user-rollback.sql`
+* `...`
+* `09-create-user-index.sql`
+* `09-create-user-index-rollback.sql`
+* `10-drop-user-index.sql`
+* `10-drop-user-index-rollback.sql`
 
 ## Upgrading SQL scripts
 
