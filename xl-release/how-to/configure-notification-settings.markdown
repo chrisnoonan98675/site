@@ -29,11 +29,15 @@ The available email recipients are:
 * Release Admin
 * Task Owner
 * Task Team
-* Watcher (optional)
+* Watcher
 
 ## Add watchers on tasks
 
-You can add yourself as a *Watcher* on tasks to receive email notifications when events occur on those tasks. To add other users as watchers on a task, you must have the edit task permission. For more information on how to add a *Watcher* on a task, refer to [Working with tasks](/xl-release/how-to/working-with-tasks.html).
+You can add yourself as a *Watcher* on tasks to receive email notifications when events occur on those tasks. To add other users as watchers on a task, you must have the edit task permission.
+
+  ![Task details](../images/task-details.png)
+
+For more information on how to add a *Watcher* on a task, refer to [Working with tasks](/xl-release/how-to/working-with-tasks.html).
 
 **Note:** When only the task owner is set in the notifications settings screen for an event and there is no task owner set on a task, the email notifications are sent to the task team.
 
