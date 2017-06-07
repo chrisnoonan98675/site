@@ -104,7 +104,7 @@ Note that:
 
 ### How to reach a Key Distribution Centre (KDC) through an SSH jumpstation
 
-If you want XL Deploy to communicate with the KDC to retrieve a ticket from Kerberos:
+When XL Deploy must communicate with a target host on Windows and when Kerberos, SSH, and a SSH jumpstation are in use, to allow XL Deploy to communicate with the KDC to retrieve a ticket from Kerberos, you must manually perform these actions:
 
 1. Start a SSH tunnel to the jumpstation with the `-L` option of the SSH command line tool:
 
