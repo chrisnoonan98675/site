@@ -9,10 +9,10 @@ tags:
 - cloud
 - plugin
 since:
-- XL Deploy 7.0
+- XL Deploy 7.0.0
 ---
 
-The XL Deploy Azure plugin enables to work with Microsoft Azure cloud computing service. It allows to provision Virtual Machines and define security groups, public ip and configure network settings for them.
+The XL Deploy Azure plugin enables XL Deploy to work with the Microsoft Azure cloud computing service. It allows you to provision Virtual Machines and define security groups, public IP, and configure network settings for them.
 
 For information about requirements and the configuration items (CIs) that the Azure plugin provides, refer to the [Azure Plugin Reference](/xl-deploy-xld-azure-plugin/latest/azurePluginManual.html).
 
@@ -25,6 +25,6 @@ For information about requirements and the configuration items (CIs) that the Az
 * Provision Virtual Machines associated to their Network Interface (NIC)
 * Automatically destroy machines during undeployment
 
-This is a diagram representing all the resource types we support with their dependencies:
+This is a diagram representing all the resource types XL Deploy Azure plugin supports and their dependencies:
 
 ![Azure types diagram](images/xl-deploy-azure-diagram.png)

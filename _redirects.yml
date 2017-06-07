@@ -92,8 +92,9 @@
 
 # XL Deploy provisioning
 
+/xl-deploy-xld-azure-plugin/latest/azurePluginManual.html : /xl-deploy-xld-azure-plugin/7.0.x/azurePluginManual.html
 /xl-deploy-xld-provision/latest/xldProvisioningManual.html : /xl-deploy-xld-provision/5.5.x/xldProvisioningManual.html
-/xl-deploy-xld-aws-plugin/latest/awsPluginManual.html : /xl-deploy-xld-aws-plugin/6.2.x/awsPluginManual.html
+/xl-deploy-xld-aws-plugin/latest/awsPluginManual.html : /xl-deploy-xld-aws-plugin/7.0.x/awsPluginManual.html
 /xl-deploy-xld-provision-puppet-plugin/latest/provisionPuppetPluginManual.html : /xl-deploy-xld-provision-puppet-plugin/5.5.x/provisionPuppetPluginManual.html
 
 # XL Scale docs
