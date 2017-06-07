@@ -139,7 +139,7 @@ This is an example of the `xl.repository` configuration for a stand-alone databa
                 maxPoolSize = 20
             }
             jackrabbit {
-                artifacts.location="repository"
+                artifacts.location="/mnt/nfs"
                 bundleCacheSize = 128
             }
         }
