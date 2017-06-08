@@ -71,7 +71,7 @@ To see detailed information, including releases that depend on or block this rel
 
 ## Task progress
 
-The task progress tile shows an overview of the progress of tasks that are tagged with a [tag or tags](/xl-release/how-to/working-with-tasks.html#tags) that you specify. It is available as a plugin for XL Release 6.0.0 and later.
+The task progress tile shows an overview of the progress of tasks that are tagged with a [tag or tags](/xl-release/how-to/working-with-tasks.html#tags) that you specify. It is available as a plugin for XL Release 6.0.0 and 6.1.0, and is included in the XL Release base product as of version 6.2.0.
 
 ## Users and teams
 
