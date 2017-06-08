@@ -413,6 +413,70 @@ This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configur
 
 For more information about SQL Server configuration for Jackrabbit, refer to the [Jackrabbit wiki](http://wiki.apache.org/jackrabbit/DataStore#Database_Data_Store). For information about the `MSSqlPersistenceManager` class, refer to the [Jackrabbit documentation](http://jackrabbit.apache.org/api/2.2/org/apache/jackrabbit/core/persistence/db/MSSqlPersistenceManager.html).
 
+## Use XL Deploy with PostgreSQL
+
+This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [PostgreSQL](https://www.postgresql.org/) database:
+
+{% highlight xml %}
+<Repository>
+    <DataSources>
+        <DataSource name="ds1">
+            <param name="driver" value="org.postgresql.Driver" />
+            <param name="url" value="jdbc:postgresql://*host*:*port*/*database*" />
+            <param name="user" value="xld_user" />
+            <param name="password" value="test" />
+            <param name="databaseType" value="postgresql" />
+            <param name="maxPoolSize" value="100" />
+        </DataSource>
+    </DataSources>
+
+    <FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">
+        <param name="path" value="${rep.home}/repository" />
+    </FileSystem>
+
+    <DataStore class="org.apache.jackrabbit.core.data.FileDataStore" />
+
+    <Security appName="Jackrabbit">
+        <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
+        <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
+
+        <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
+            <param name="anonymousId" value="anonymous" />
+            <param name="adminId" value="jcr_admin" />
+        </LoginModule>
+    </Security>
+
+    <Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
+
+    <Workspace name="${wsp.name}">
+        <FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">
+            <param name="path" value="${wsp.home}" />
+        </FileSystem>
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.PostgreSQLPersistenceManager">
+            <param name="dataSourceName" value="ds1" />
+            <param name="schemaObjectPrefix" value="${wsp.name}_" />
+        </PersistenceManager>
+        <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
+            <param name="path" value="${wsp.home}/index" />
+        </SearchIndex>
+    </Workspace>
+
+    <Versioning rootPath="${rep.home}/version">
+        <FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">
+            <param name="path" value="${rep.home}/version" />
+        </FileSystem>
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.PostgreSQLPersistenceManager">
+            <param name="dataSourceName" value="ds1" />
+            <param name="schemaObjectPrefix" value="pm_ver_" />
+        </PersistenceManager>
+    </Versioning>
+
+    <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
+        <param name="path" value="${rep.home}/repository/index" />
+    </SearchIndex>
+</Repository>
+{% endhighlight %}
+
 ### Moving the database or changing settings
 
 If you store the XL Deploy repository in a database, you may occasionally need to move the database or change settings such as the database username or password (for example, to test a new release against a non-production database).
