@@ -33,6 +33,15 @@ Also refer to:
 
 **Note:** If you are using TFS 2015 or TFS 2015 Update 1, the Team Foundation Server 2015 version of the plugin is still available.
 
+## Supported versions
+
+{:.table .table-striped}
+| VSTS/TFS versions | Plugin |
+| ----------------- | ------ |
+| TFS 2010, 2012, 2013 | [Team Foundation Server plugin](/xl-deploy/concept/team-foundation-server-plugin.html) |
+| TFS 2015 or TFS 2015 Update 1 | Team Foundation Server 2015 version of the plugin |
+| TFS 2015 Update 2, 2017, VSTS | Visual Studio Team Services (VSTS) plugin |
+
 ## Features
 
 - Create a deployment package (DAR file)
