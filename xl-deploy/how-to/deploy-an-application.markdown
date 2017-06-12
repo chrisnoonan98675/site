@@ -51,6 +51,10 @@ To deploy an application to an environment:
 
     If a step in the deployment fails, XL Deploy stops executing and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
 
+### Mapping deployables using the default GUI
+
+* You can manually map a specific deployable by dragging it from the left side and dropping it on a specific container in the deployment execution screen. The cursor will indicate whether it is possible to map the deployable type to the container type.        
+
 ## Deploy using the legacy GUI
 
 To deploy an application to an environment:
