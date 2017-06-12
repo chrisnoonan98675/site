@@ -38,6 +38,8 @@ The amount of time that you can schedule a task in the future is limited by a sy
 
 When a task is scheduled, the task is created and the status is set to *scheduled*. It will automatically start executing when the scheduled time has passed. If there is no executor available, the task will be _queued_.
 
+For more information, refer to [Schedule or reschedule a task](/xl-deploy/how-to/schedule-reschedule-task.html) and [Schedule a deployment](/xl-deploy/how-to/schedule-a-deployment.html).
+
 ### Scheduled time zone
 
 XL Deploy stores the scheduled date and time using the Coordinated Universal Time (UTC) timezone; this means that, for example, log entries will show the UTC time.
