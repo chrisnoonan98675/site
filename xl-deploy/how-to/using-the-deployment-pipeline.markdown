@@ -21,4 +21,8 @@ To view the deployment pipeline:
 
 A new tab appears in the right pane containing all the environments where the application is deployed.
 
+![image](/images/deployment-pipeline.png),
+
 **Note:** Click **Refresh** to retrieve the latest data from the server.
+
+You can search for an environment by name in the deployment pipeline.
