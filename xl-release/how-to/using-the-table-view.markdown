@@ -19,6 +19,11 @@ The XL Release table view provides an alternative view of a template or release 
 * Directly open a task by clicking its name
 * Use the task action menu (![Task action menu](/images/menu_three_dots.png)) to quickly assign a task to yourself, change its type, duplicate it, or delete it
 
+You can select multiple tasks from the list and perform various actions:
+* Assign to - Assign the selected tasks to a user or team
+* Delete - Delete the selected tasks
+* Add comment - Add a comment on all the selected tasks
+
 To access the table view, click **Table** at the top of the release flow page.
 
 ![XL Release table view](../images/release-table-view.png)
