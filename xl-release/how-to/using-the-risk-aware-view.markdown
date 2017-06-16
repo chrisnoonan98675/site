@@ -52,24 +52,24 @@ The risk assessors used to calculate the risk level of a release are the followi
 | Risk assessor | Score |
 | ------------- | ----- |
 | Release flags | Red - 80 |
-| - | Amber - 30 |
+| | Amber - 30 |
 | Release state | Failed - 90 |
-| - | Failing - 70 |
+| | Failing - 70 |
 | Task red flag | Red |
-| - | * 1 red flag: 65 |
-| - | * 2-3 red flags: 70 |
-| - | * 4-6 red flags: 75 |
-| - | * >6 red flags: 80 |
+| | * 1 red flag: 65 |
+| | * 2-3 red flags: 70 |
+| | * 4-6 red flags: 75 |
+| | * >6 red flags: 80 |
 | Task amber flag | amber |
-| - | * 1 amber flag: 10 |
-| - | * 2-3 amber flags: 20 |
-| - | * 4-6 amber flags: 30 |
-| - | * >6 amber flags: 40 |
+| | * 1 amber flag: 10 |
+| | * 2-3 amber flags: 20 |
+| | * 4-6 amber flags: 30 |
+| | * >6 amber flags: 40 |
 | Release past due date | 30 |
 | Task past due date | 1 task - 25 |
-| - | >1 task - 35 |
+| | >1 task - 35 |
 | Retries for failed task | Task failed once - 50 |
-| - | Risk score increases by 10 for each subsequent task failure |
-| - | When task failed more than 6 times, the score is 100 |
+| | Risk score increases by 10 for each subsequent task failure |
+| | When task failed more than 6 times, the score is 100 |
 
 **Important** To order the release overview by risk level, click **Order by** and select **Risk**. The sorting is done based on risk calculation, displaying the release with the maximum risk score at the top. If multiple releases have the same maximum risk score, a second sorting rule is applied calculating the total risk sum for each release.
