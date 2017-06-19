@@ -52,7 +52,7 @@ You can create a control task in XL Release by adding a task of type XL Deploy -
 
 The deploy task is an automated task that tells XL Deploy to deploy a certain application to an environment. Both the application (Package below) and environment (Environment below) must be configured in XL Deploy. The task gives live updates of the deployment process and completes automatically when the deployment succeeds.
 
-You can create a deploy task in XL Release by adding a task of type XL Deploy -> Deploy Task with following properties:
+You can create a deploy task in XL Release by adding a task of type XL Deploy -> Deploy with following properties:
   * `Server`: [Required] XL Deploy Server to connect to.
   * `Package`: [Required] ID of the package to deploy (Example: `PetClinic/1.0`). Autocomplete supported.
   * `Environment`: [Required] ID of the environment to deploy (Example: SITEnv). Autocomplete supported.
@@ -60,13 +60,17 @@ You can create a deploy task in XL Release by adding a task of type XL Deploy ->
   * `Password`: Required if not provided in Shared Configuration.
   * `Rollback On Failure`: Whether rollback should be done if the deployment fails.
 
+  ![image](../images/xl-deploy-task.png)
+
 ## Add an undeploy task
 
 The undeploy task is an automated task that tells XL Deploy to undeploy an application from an environment. The name of the deployed application holds the complete information about the environment and the package to be undeployed. For example: Undeploy `Environments/SITEnv/PetClinic` tells that package PetClinic must be undeployed from Environment SITEnv.
 
-You can create an undeploy task in XL Release by adding a task of type XL Deploy -> Undeploy Task with following properties:
+You can create an undeploy task in XL Release by adding a task of type XL Deploy -> Undeploy with following properties:
   * `Server`: [Required] XL Deploy Server to connect to.
   * `Deployed Application`: [Required] Name of the deployed application you want to undeploy (Example: `Environments/SITEnv/PetClinic`). Autocomplete supported.
   * `Username`: Required if not provided in Shared configuration.
   * `Password`: Required if not provided in Shared configuration.
   * `Rollback On Failure`: Whether rollback should be done if the undeployment fails.
+
+For more information about using the deployment rollback option, refer to [Perform deployment rollback](/xl-release/how-to/perform-deployment-rollback.html).  
