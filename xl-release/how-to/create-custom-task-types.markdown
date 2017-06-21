@@ -251,7 +251,7 @@ status = response.getStatus()
 
 ## XL Release API
 
-The [XL Release API](/xl-release/latest/rest-api/) is available for scripts. Refer to the [Jython API reference](/jython-docs/#!/xl-release/4.7.x/) to find a complete description of the methods you can call.
+The [XL Release API](/xl-release/latest/rest-api/) is available for scripts. Refer to the [Jython API reference](/xl-release/latest/jython-api/index.html) to find a complete description of the methods you can call.
 
 For an extended example, refer to [Creating XL Release tasks dynamically using Jython API](http://blog.xebialabs.com/2015/08/11/creating-xl-release-tasks-dynamically-using-jython-api/).
 

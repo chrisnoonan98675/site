@@ -13,7 +13,7 @@ since:
 weight: 511
 ---
 
-XL Release has an [API](/jython-docs/#!/xl-release/6.1.x/) that you can use to manipulate releases and tasks. You can access the API from [Jython Script tasks](/xl-release/how-to/create-a-jython-script-task.html) and from XL Release plugin scripts. This is an example of a simple Jython script in a Script task. It uses a script to add a comment to the task.
+XL Release has an [API](/xl-release/latest/jython-api/index.html) that you can use to manipulate releases and tasks. You can access the API from [Jython Script tasks](/xl-release/how-to/create-a-jython-script-task.html) and from XL Release plugin scripts. This is an example of a simple Jython script in a Script task. It uses a script to add a comment to the task.
 
 1. Go to the [release overview](/xl-release/how-to/using-the-release-overview.html) and click **New release** (because this is a simple example, you can create an empty release that is not based on a template).
 1. In the release properties, set the **Release Name** to _Script example_.
