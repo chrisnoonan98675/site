@@ -150,3 +150,10 @@ This example creates a group called `everyone` that is assigned to each user who
         </bean>
 
     </beans>
+
+## Example of team security setup
+
+You can setup an LDAP/Active Directory group called *devs* to be used by the members of a team in XL Release. Assign this group to a role in XL Release called *Developers*.
+At folder or release level, you can add permissions for a team called *Dev Team* that contains the XL Release role *Developers*. This role contains the created LDAP/Active Directory group called *devs*.
+
+When you log in as a user to the *devs* group using LDAP/Active Directory, you automatically have the permissions for the *Developers* role at folder or release level.  
