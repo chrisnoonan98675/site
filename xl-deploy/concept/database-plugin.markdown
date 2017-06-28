@@ -30,6 +30,57 @@ A rollback script **must** have the same name as the installation script it is a
 
 **Important:** In XL Deploy 4.5.x and earlier, if a script fails and you perform a rollback, XL Deploy executes *all* rollback scripts, not only the rollback scripts that correspond to the installation scripts that were successfully executed. In XL Deploy 5.0.0 and later, XL Deploy tracks which installation scripts were executed successfully and *only* executes their associated rollback scripts. Refer to [Extend the XL Deploy Database plugin](/xl-deploy/how-to/extend-the-xl-deploy-database-plugin.html) for information about rollback behavior for custom CI types that are based on `sql.SqlScripts`.
 
+### Example of a ZIP file structure containing SQL scripts
+
+|__ deployit-manifest.xml
+|
+|__ sql
+		|
+		|__ 01-create-tableA-rollback.sql
+		|
+		|__ 01-create-tableA.sql
+		|
+		|__ 01-create-tableZ-rollback.sql
+		|
+		|__ 01-create-tableZ.sql
+		|
+		|__ 02-create-tableA-view.sql
+		|
+		|__ 02-create-tableZ-view.sql
+		|
+		|__ 03-INSERT-tableA-data.sql
+
+With the manifest file:
+
+		<udm.DeploymentPackage version="1.1" application="acme-app">
+		  <deployables>
+		    <sql.SqlScripts name="sql" file="sql"/>
+		  </deployables>
+		</udm.DeploymentPackage>
+
+As of XL Deploy version 7.0.0, you can also use a ZIP file containing SQL scripts:
+
+
+Archive:  sql.zip
+
+    testing: 01-create-tableA-rollback.sql   OK
+    testing: 01-create-tableA.sql     OK
+    testing: 01-create-tableZ-rollback.sql   OK
+    testing: 01-create-tableZ.sql     OK
+    testing: 02-create-tableA-view.sql   OK
+    testing: 02-create-tableZ-view.sql   OK
+    testing: 03-INSERT-tableA-data.sql   OK
+
+With the manifest file:
+
+		<udm.DeploymentPackage version="1.1" application="acme-app">
+		  <deployables>
+		    <sql.SqlScripts name="sql" file="sql.zip"/>
+		  </deployables>
+		</udm.DeploymentPackage>
+
+**Note:** If the ZIP file contains a subdirectory, the SQL scripts will not be executed.		
+
 ## Naming SQL scripts
 
 XL Deploy uses a regular expression to identify SQL scripts. The regular expression is defined by the `scriptRecognitionRegex` and `rollbackScriptRecognitionRegex` properties of the `sql.ExecutedSqlScripts` CI.
