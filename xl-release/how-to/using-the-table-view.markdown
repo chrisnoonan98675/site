@@ -24,6 +24,12 @@ You can select multiple tasks from the list and perform various actions:
 * Delete - Delete the selected tasks
 * Add comment - Add a comment on all the selected tasks
 
+Click the **More actions** button and select an option from the list:
+* Complete - Complete the selected tasks
+* Skip - Skip the selected tasks
+* Fail - Fail the selected tasks
+* Retry - Retry the selected tasks
+
 To access the table view, click **Table** at the top of the release flow page.
 
 ![XL Release table view](../images/release-table-view.png)
