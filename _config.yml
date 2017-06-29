@@ -30,8 +30,8 @@ jira_dashboard:
   data_file: '' # '_data/development_status.yaml' use for testing purposes
   dir: 'tracker'
   jira_url: 'https://xebialabs.atlassian.net/rest/api/2'
-  jira_username: 'xl-ci'
-  jira_password: '8ace886bbe7e'
+  jira_username: 'documentation@xebialabs.com'
+  jira_password: '18docs_ci1313#'
 
 defaults:
     -
