@@ -54,9 +54,9 @@ To reschedule a scheduled deployment task using the default GUI:
 1. Expand **Applications**, and then expand the application that for which you want to reschedule a deployment.
 1. Hover over the desired deployment package or provisioning package, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Deploy**. A new tab appears in the right pane.
 1. Select the target environment and click **Continue**.
-1. Click the arrow icon on the **Deploy** button and select **Reschedule**.
-1. In the Reschedule window, select a new date and time.
-1. Click **Reschedule**.
+1. Click the arrow icon on the **Deploy** button and select **Schedule**.
+1. In the Schedule window, select a new date and time.
+1. Click **Schedule**.
 {% endcomment %}
 
 To reschedule a scheduled deployment task using the legacy GUI:
