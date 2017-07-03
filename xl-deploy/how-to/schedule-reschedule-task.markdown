@@ -19,6 +19,6 @@ If you are performing an initial deployment, an update deployment, an undeployme
 1. In the Schedule screen, select the date and time that you want to execute the task. Specify the time using your local timezone.
 1. Click **Schedule**.
 
-**Note** You can also open and reschedule a task in _PENDING_ state from the list of deployment tasks in the Task Monitor.
+**Note** You can also open and reschedule a task in _PENDING_ state from the list of deployment tasks in the Task Monitor. To cancel the task from the Task Monitor, click **Cancel task** or close the tab.
 
 For more information about scheduling tasks in XL Deploy, refer to [Understanding tasks in XL Deploy](/xl-deploy/concept/understanding-tasks-in-xl-deploy.html#scheduling-tasks).
