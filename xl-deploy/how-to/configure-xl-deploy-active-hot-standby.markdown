@@ -17,7 +17,7 @@ since:
 
 As of XL Deploy 7.1.0, you can configure XL Deploy in a clustered active/hot-standby mode. Running XL Deploy in this mode ensures that you have a Highly Available (HA) XL Deploy. This topic describes the procedure to enable active/hot-standby mode.
 
-![Active/hot-standby configuration](../images/diagram-active-hot-standby.png)
+![Active/hot-standby configuration]
 
 **Tip:** If you do not want to use active/hot-standby mode, you can set up failover handling as described n [Configure failover for XL Deploy](/xl-deploy/how-to/configure-failover.html).
 
@@ -122,21 +122,21 @@ Next, add the following parameters to the `xl.repository.persistence` section of
 
 This is an example of the `xl.repository` configuration for a stand-alone database:
 
-    xl {
-        repository {
-        # placeholder for repository configuration overrides
-        configuration = XLD_CONFIGURATION
-        jackrabbit.artifacts.location = XLD_SHARED_LOCATION
-        cluster.nodeId = XLD_HOSTNAME
+      xl {
+          repository {
+          # placeholder for repository configuration overrides
+          configuration = XLD_CONFIGURATION
+          jackrabbit.artifacts.location = XLD_SHARED_LOCATION
+          cluster.nodeId = XLD_HOSTNAME
 
-        persistence {
-          jdbcUrl = XLD_DB_REPOSITORY_URL
-          username = XLD_DB_USER
-          password = XLD_DB_PASS
-          maxPoolSize = 20
-        }
-      }
-    }
+          persistence {
+            jdbcUrl = XLD_DB_REPOSITORY_URL
+            username = XLD_DB_USER
+            password = XLD_DB_PASS
+            maxPoolSize = 20
+          }
+        }
+      }
 
 ### Step 2 Set up the cluster
 
