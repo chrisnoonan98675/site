@@ -19,11 +19,11 @@ As of XL Deploy 7.1.0, you can configure XL Deploy in a clustered active/hot-sta
 
 ![Active/hot-standby configuration](../images/diagram-active-hot-standby.png)
 
-**Tip:** If you do not want to use active/hot-standby mode, you can set up failover handling as described n [Configure failover for XL Release](/xl-release/how-to/configure-failover.html).
+**Tip:** If you do not want to use active/hot-standby mode, you can set up failover handling as described n [Configure failover for XL Deploy](/xl-deploy/how-to/configure-failover.html).
 
 ## Requirements
 
-Using XL Release in active/hot-standby mode requires the following:
+Using XL Deploy in active/hot-standby mode requires the following:
 
 * You must meet the [standard system requirements for XL Deploy](/xl-deploy/concept/requirements-for-installing-xl-deploy.html).
 
@@ -89,7 +89,7 @@ Place the JAR file containing the JDBC driver of the selected database in the `X
 | ---------- | ------------ | ------- |
 | MySQL      | [Connector\J 5.1.30 driver download](http://dev.mysql.com/downloads/connector/j/)| None. |
 | Oracle     | [JDBC driver downloads](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html) | For Oracle 12c, use the 12.1.0.1 driver (`ojdbc7.jar`). It is recommended that you only use the thin drivers; refer to the [Oracle JDBC driver FAQ](http://www.oracle.com/technetwork/topics/jdbc-faq-090281.html) for more information. |
-| PostgreSQL | [PostgreSQL JDBC driver](https://jdbc.postgresql.org/download.html)| Use the JDBC42 version, because XL Release 4.8.0 and later requires Java 1.8. |
+| PostgreSQL | [PostgreSQL JDBC driver](https://jdbc.postgresql.org/download.html)| None |
 
 #### Configure the repository database
 
@@ -156,13 +156,24 @@ All active/hot-standby configuration settings must be provided in the `XL_DEPLOY
 | `hostname` | IP address or host name of the machine where the node is running. Note that a loopback address such as `127.0.0.1` or `localhost` should not be used when running cluster nodes on different machines. |
 | `clusterPort` | Port used for cluster-wide communications; defaults to `5531`. |
 
-### Step 3 Set up the first node
+### Step 3 Set up task recovery
+
+When the active XL Deploy node becomes unavailable, the deployment or control tasks that were running on the previously active node will have the `failed` status. You can configure XL Deploy to restart these tasks after another node has become the new active node. This option is enabled by adding this code to the `XL_DEPLOY_SERVER_HOME/conf/system.conf` file:
+
+    task {
+      recovery-dir = work
+      step {
+        retry-delay = 5 seconds
+        execution-threads = 32
+      }
+
+### Step 4 Set up the first node
 
 At a command prompt, run the following server setup command and follow the on-screen instructions:
 
     ./bin/run.sh -setup
 
-### Step 4 Prepare each node in the cluster
+### Step 5 Prepare each node in the cluster
 
 1. Zip the distribution that you created in [Step 2 Set up the cluster](#step-2-set-up-the-cluster).
 1. Copy the ZIP file to all other nodes and unzip each one.
@@ -170,7 +181,7 @@ At a command prompt, run the following server setup command and follow the on-sc
 
 **Note:** You do not need to run the server setup command on each node.
 
-### Step 5 Set up the load balancer
+### Step 6 Set up the load balancer
 
 To use active/hot-standby, you must front the XL Deploy servers with a load balancer. The load balancer must check the `/ha/health` endpoint with a `GET` request to verify that the node is up. This endpoint will return:
 
@@ -185,7 +196,7 @@ For instance, for HAProxy, you can add the following configuration:
       option httpchk get /ha/health HTTP/1.0
       server docker_xlr-node_1 docker_xlr-node_1:5516 check inter 2000 rise 2 fall 3
 
-### Step 6 Start the nodes
+### Step 7 Start the nodes
 
 Start XL Deploy on each node, beginning with the first node that you configured. Ensure that each node is fully up and running before starting the next one.
 
