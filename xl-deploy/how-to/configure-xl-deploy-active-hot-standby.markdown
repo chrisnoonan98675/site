@@ -289,6 +289,26 @@ This is a sample `system.conf` configuration for one node that uses a MySQL repo
     }
 
 
+### Optional settings
+
+There are a few optional settings in the `cluster` sections of `system.conf` that you can tweak - see the following table:
+
+{:.table .table-striped}
+| Parameter             | Description                                                | Default value          |
+| --------------------- | ----------------------------------------------------------------------------------- |
+| name                  | the hot-standby management akka cluster name               | xld-hotstandby-cluster |
+| membership.heartbeat  | How often a node should write liveness info into the db    | 10 seconds             |
+| membership.ttl        | How long liveness info remains valid                       | 60 seconds             |
+| akka.cluster.auto-down-unreachable-after | How much time passes before the akka cluster decides that a node has gone down | 15 seconds |
+
+The `heartbeat` and `ttl` settings are relevant for cluster bootstrapping. A newly starting node will look in the database
+to find live nodes and try to join the cluster running on those nodes.
+
+The `auto-down-unreachable-after` setting determines how quickly the cluster decides that a node has gone down, and thus (in case of
+the active node) whether a standby node must be activated. Setting this to a lower value means that hot-standby takeover takes place more
+quickly, but in case of transient network issues may cause spurious takeover while the original node is still alive. Using a longer value
+does the opposite: the cluster is more resilient against transient network failures, but takeover takes more time in case of a real crash.
+
 **Note:** After the first run, passwords in the configuration file will be encrypted and replaced with base64-encoded values.
 
 ## Sample `haproxy.cfg` configuration
