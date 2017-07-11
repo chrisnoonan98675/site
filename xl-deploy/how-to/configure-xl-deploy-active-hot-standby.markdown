@@ -19,7 +19,7 @@ As of XL Deploy 7.1.0, you can configure XL Deploy in a clustered active/hot-sta
 
 ![Active/hot-standby configuration]
 
-**Tip:** If you do not want to use active/hot-standby mode, you can set up failover handling as described n [Configure failover for XL Deploy](/xl-deploy/how-to/configure-failover.html).
+**Tip:** If you do not want to use active/hot-standby mode, you can set up failover handling as described in [Configure failover for XL Deploy](/xl-deploy/how-to/configure-failover.html).
 
 ## Requirements
 
@@ -39,12 +39,12 @@ Using XL Deploy in active/hot-standby mode requires the following:
 
 ## Limitation on HTTP session sharing and resiliency
 
-In active/hot-standby mode, there is always at most one "active" XL Deploy node. The nodes use a health REST endpoint (`/ha/health`) to tell the load balancer which node is the active one. The load balancer will always route users to the active node; calling a standby node directly will result in incorrect behavior.
+In active/hot-standby mode, there is always at most one "active" XL Deploy node. The nodes use a health REST endpoint (`/ha/health`) to tell the load balancer which node is the active one. The load balancer should always route users to the active node; calling a standby node directly will result in incorrect behavior.
 
 However, XL Deploy does not share HTTP sessions among nodes. If the active XL Deploy node becomes unavailable:
 
 * All users will effectively be logged out and will lose any work that was not yet persisted to the database.
-* Any deployment or control tasks that were running on the previously active node will have the `failed` status. After another node has become the new active node (which will happen automatically), you can restart these tasks.
+* Any deployment tasks that were running on the previously active node will have the `failed` status. After another node has become the new active node (which will happen automatically), you can restart these tasks. Any control tasks must be re-initiated from scratch.
 
 ## Active/Hot-standby setup procedure
 
@@ -74,6 +74,9 @@ The following set of SQL privileges are required (where applicable):
 
 #### Configure JDBC drivers
 
+
+**This table is not relevant for XLD**
+
 {:.table .table-striped}
 | Parameter | Description |
 | --------- | ----------- |
@@ -98,15 +101,15 @@ The repository database must be shared among all nodes when when active/hot-stan
 To configure the repository database, first add the `xl.repository.configuration` property to the `repository.conf` configuration file. This property identifies the predefined repository configuration that you want to use. Supported values are:
 
 {:.table .table-striped}
-| Parameter             | Description                                                        |
-| --------------------- | ------------------------------------------------------------------ |
-| `default`               | Default configuration that uses an embedded Apache Derby database.  |
-| `mysql-standalone`      | Single instance configuration that uses a MySQL database.           |
-| `mysql-cluster`         | Cluster-ready configuration that uses a MySQL database.             |
-| `oracle-standalone`     | Single instance configuration that uses an Oracle database.         |
-| `oracle-cluster`        | Cluster-ready configuration that uses an Oracle database.          |
-| `postgresql-standalone` | Single instance configuration that uses a PostgreSQL database.      |
-| `postgresql-cluster`    | Cluster-ready configuration that uses a PostgreSQL database.        |
+| Parameter             | Description                                                                             |
+| --------------------- | --------------------------------------------------------------------------------------- |
+| `default`               | Default (single instance) configuration that uses an embedded Apache Derby database.  |
+| `mysql-standalone`      | Single instance configuration that uses a MySQL database.                             |
+| `mysql-cluster`         | Cluster-ready configuration that uses a MySQL database.                               |
+| `oracle-standalone`     | Single instance configuration that uses an Oracle database.                           |
+| `oracle-cluster`        | Cluster-ready configuration that uses an Oracle database.                             |
+| `postgresql-standalone` | Single instance configuration that uses a PostgreSQL database.                        |
+| `postgresql-cluster`    | Cluster-ready configuration that uses a PostgreSQL database.                          |
 
 Next, add the following parameters to the `xl.repository.persistence` section of `repository.conf`:
 
@@ -119,6 +122,9 @@ Next, add the following parameters to the `xl.repository.persistence` section of
 | `maxPoolSize` | Database connection pool size; suggested value is 20. |
 
 #### Sample database configuration
+
+
+**First explain what `jackrabbit.artifacts.location` is and what `cluster.nodeId` is for
 
 This is an example of the `xl.repository` configuration for a stand-alone database:
 
@@ -142,12 +148,10 @@ This is an example of the `xl.repository` configuration for a stand-alone databa
 
 All active/hot-standby configuration settings must be provided in the `XL_DEPLOY_SERVER_HOME/conf/system.conf` file, which uses the [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format. In this file on one node:
 
-1. Enable clustering by:
-    * Setting `xl.cluster.enabled` to `true`
-    * Setting `xl.cluster.mode` to `hot-standby`
-1. Set `xl.repository.configuration` to the appropriate `<database>-cluster` option from [Configure the repository database](#configure-the-repository-database). Do not change the `xl.repository.persistence` options that you have already configured.
+1. Enable clustering by setting `cluster.mode` to `hot-standby`
+1. **This is part of step 1** Set `xl.repository.configuration` to the appropriate `<database>-cluster` option from [Configure the repository database](#configure-the-repository-database). Do not change the `xl.repository.persistence` options that you have already configured.
 1. Set `xl.repository.jackrabbit.artifacts.location` to a shared filesystem (such as NFS) that all nodes can access. This is required for storage of binary data (artifacts).
-1. Define ports for different types of incoming TCP connections in the `xl.cluster.node` section:
+1. **This is not relevant for XLD hot-standby** Define ports for different types of incoming TCP connections in the `xl.cluster.node` section:
 
 {:.table .table-striped}
 | Parameter | Description |
@@ -159,6 +163,8 @@ All active/hot-standby configuration settings must be provided in the `XL_DEPLOY
 ### Step 3 Set up task recovery
 
 When the active XL Deploy node becomes unavailable, the deployment or control tasks that were running on the previously active node will have the `failed` status. You can configure XL Deploy to restart these tasks after another node has become the new active node. This option is enabled by adding this code to the `XL_DEPLOY_SERVER_HOME/conf/system.conf` file:
+
+**This section is already there, it's just that the recovery-dir should be set to a shared location (if we're doing task recovery after failover)**
 
     task {
       recovery-dir = work
@@ -177,7 +183,7 @@ At a command prompt, run the following server setup command and follow the on-sc
 
 1. Zip the distribution that you created in [Step 2 Set up the cluster](#step-2-set-up-the-cluster).
 1. Copy the ZIP file to all other nodes and unzip each one.
-1. On each node, edit the `xl.cluster.node` section of the `XL_DEPLOY_SERVER_HOME/conf/system.conf` file. Update the values for the specific node.
+1. On each node, edit the `xl.repository.cluster.nodeId` setting of the `XL_DEPLOY_SERVER_HOME/conf/repository.conf` file. Update the values for the specific node.
 
 **Note:** You do not need to run the server setup command on each node.
 
@@ -185,8 +191,8 @@ At a command prompt, run the following server setup command and follow the on-sc
 
 To use active/hot-standby, you must front the XL Deploy servers with a load balancer. The load balancer must check the `/ha/health` endpoint with a `GET` request to verify that the node is up. This endpoint will return:
 
-* A `503` HTTP status code if the service is unavailable
-* A `204` HTTP status code if there is no content
+* A `503` HTTP status code if this node is running as standby (non-active) node
+* A `204` HTTP status code if this is the active node. All user traffic should be sent to this node.
 
 **Note:** Performing a simple TCP check or `GET` operation on `/` is not sufficient, as that will only determine whether the node is running; it will not indicate whether the node is in standby mode.
 
@@ -194,7 +200,7 @@ For instance, for HAProxy, you can add the following configuration:
 
     backend default_service
       option httpchk get /ha/health HTTP/1.0
-      server docker_xlr-node_1 docker_xlr-node_1:5516 check inter 2000 rise 2 fall 3
+      server docker_xld-node_1 docker_xld-node_1:4516 check inter 2000 rise 2 fall 3
 
 ### Step 7 Start the nodes
 
@@ -205,7 +211,7 @@ Start XL Deploy on each node, beginning with the first node that you configured.
 This is a sample `system.conf` configuration for one node that uses a MySQL repository database.
 
     task {
-      recovery-dir = work
+      recovery-dir = /shared/work
       step {
         retry-delay = 5 seconds
         execution-threads = 32
@@ -269,6 +275,19 @@ This is a sample `system.conf` configuration for one node that uses a MySQL repo
       }
 
     }
+
+    cluster {
+      mode = hot-standby
+
+      membership {
+        jdbc {
+          url = "jdbc:mysql://db/xldrepo?useSSL=false"
+          username = xld
+          password = t0pS3creT
+        }
+      }
+    }
+
 
 **Note:** After the first run, passwords in the configuration file will be encrypted and replaced with base64-encoded values.
 
