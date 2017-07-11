@@ -44,7 +44,7 @@ In active/hot-standby mode, there is always at most one "active" XL Deploy node.
 However, XL Deploy does not share HTTP sessions among nodes. If the active XL Deploy node becomes unavailable:
 
 * All users will effectively be logged out and will lose any work that was not yet persisted to the database.
-* Any deployment tasks that were running on the previously active node will have the `failed` status. After another node has become the new active node (which will happen automatically), you can restart these tasks. Any control tasks must be re-initiated from the start.
+* Any deployment tasks that were running on the previously active node will have the `failed` status. Any control tasks must be re-initiated from the start.
 
 ## Active/Hot-standby setup procedure
 
@@ -140,26 +140,13 @@ All active/hot-standby configuration settings must be provided in the `XL_DEPLOY
 1. Enable clustering by setting `cluster.mode` to `hot-standby`. Set `xl.repository.configuration` to the appropriate `<database>-cluster` option from [Configure the repository database](#configure-the-repository-database). Do not change the `xl.repository.persistence` options that you have already configured.
 1. Set `xl.repository.jackrabbit.artifacts.location` to a shared filesystem (such as NFS) that all nodes can access. This is required for storage of binary data (artifacts).
 
-### Step 3 Set up task recovery
-
-When the active XL Deploy node becomes unavailable, the deployment tasks that were running on the previously active node will have the `failed` status. XL Deploy can restart these tasks after another node has become the new active node. This option is enabled by this code section in the `XL_DEPLOY_SERVER_HOME/conf/system.conf` file:
-
-    task {
-      recovery-dir = /shared/work
-      step {
-        retry-delay = 5 seconds
-        execution-threads = 32
-      }
-
-Make sure you set the `recovery-dir` to a known shared location.
-
-### Step 4 Set up the first node
+### Step 3 Set up the first node
 
 At a command prompt, run the following server setup command and follow the on-screen instructions:
 
     ./bin/run.sh -setup
 
-### Step 5 Prepare each node in the cluster
+### Step 4 Prepare each node in the cluster
 
 1. Zip the distribution that you created in [Step 2 Set up the cluster](#step-2-set-up-the-cluster).
 1. Copy the ZIP file to all other nodes and unzip each one.
@@ -167,7 +154,7 @@ At a command prompt, run the following server setup command and follow the on-sc
 
 **Note:** You do not need to run the server setup command on each node.
 
-### Step 6 Set up the load balancer
+### Step 5 Set up the load balancer
 
 To use active/hot-standby, you must front the XL Deploy servers with a load balancer. The load balancer must check the `/ha/health` endpoint with a `GET` request to verify that the node is up. This endpoint will return:
 
@@ -182,21 +169,13 @@ For instance, for HAProxy, you can add the following configuration:
       option httpchk get /ha/health HTTP/1.0
       server docker_xld-node_1 docker_xld-node_1:4516 check inter 2000 rise 2 fall 3
 
-### Step 7 Start the nodes
+### Step 6 Start the nodes
 
 Start XL Deploy on each node, beginning with the first node that you configured. Ensure that each node is fully up and running before starting the next one.
 
 ## Sample `system.conf` configuration
 
 This is a sample `system.conf` configuration for one node that uses a MySQL repository database.
-
-    task {
-      recovery-dir = /shared/work
-      step {
-        retry-delay = 5 seconds
-        execution-threads = 32
-      }
-    }
 
     satellite {
 
