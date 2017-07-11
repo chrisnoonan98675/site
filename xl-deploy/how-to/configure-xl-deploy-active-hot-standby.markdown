@@ -291,12 +291,13 @@ This is a sample `system.conf` configuration for one node that uses a MySQL repo
 
 ### Optional settings
 
-There are a few optional settings in the `cluster` sections of `system.conf` that you can tweak - see the following table:
+There are a few optional settings in the `cluster` section of `system.conf` that you can tweak - see the following table:
 
 {:.table .table-striped}
 | Parameter             | Description                                                | Default value          |
 | --------------------- | ----------------------------------------------------------------------------------- |
 | name                  | the hot-standby management akka cluster name               | xld-hotstandby-cluster |
+| membership.jdbc.driver | The database driver class name, e.g. `oracle.jdbc.OracleDriver` | determined from the db URL |
 | membership.heartbeat  | How often a node should write liveness info into the db    | 10 seconds             |
 | membership.ttl        | How long liveness info remains valid                       | 60 seconds             |
 | akka.cluster.auto-down-unreachable-after | How much time passes before the akka cluster decides that a node has gone down | 15 seconds |
