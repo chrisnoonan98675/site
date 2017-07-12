@@ -35,6 +35,8 @@ For information about:
 * Using a database with Jackrabbit, see the [PersistenceManager FAQ](http://wiki.apache.org/jackrabbit/PersistenceManagerFAQ) and [DataStore FAQ](http://wiki.apache.org/jackrabbit/DataStore)
 * Backing up the database, refer to [Back up XL Deploy](/xl-deploy/how-to/back-up-xl-deploy.html)
 
+**Note:** If you are installing XL Deploy for the first time and you are using XL Deploy 7.1.0 or later, it is recommended that you follow the approach described in [Configure active/hot-standby](/xl-deploy/how-to/configure-xl-deploy-active-hot-standby.html) instead of the approach described here. You can choose to install a stand-alone external database; you are not required to use active/hot-standby clustering.
+
 ### Preparing the database and repository
 
 Before installing XL Deploy, create an empty database. XL Deploy will create the database schema during installation.
