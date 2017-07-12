@@ -44,7 +44,7 @@ In active/hot-standby mode, there is always at most one "active" XL Deploy node.
 However, XL Deploy does not share HTTP sessions among nodes. If the active XL Deploy node becomes unavailable:
 
 * All users will effectively be logged out and will lose any work that was not yet persisted to the database.
-* Any deployment tasks that were running on the previously active node will have the `failed` status. Any control tasks must be re-initiated from the start.
+* Any deployment or control tasks that were running on the previously active node will need to be manually recovered. Previously running tasks will not be automatically visible from the newly active node since this may lead to data corruption in split-brain scenarios.
 
 ## Active/Hot-standby setup procedure
 
@@ -72,7 +72,7 @@ The following set of SQL privileges are required (where applicable):
 * DROP
 * SELECT, INSERT, UPDATE, DELETE
 
-#### Configure JDBC drivers
+#### Provide JDBC drivers
 
 Place the JAR file containing the JDBC driver of the selected database in the `XL_DEPLOY_SERVER_HOME/lib` directory. To download the JDBC database drivers:
 
@@ -85,9 +85,9 @@ Place the JAR file containing the JDBC driver of the selected database in the `X
 
 #### Configure the repository database
 
-The repository database must be shared among all nodes when when active/hot-standby is enabled. Ensure that every node has access to the shared repository database.
+The repository database must be shared among all nodes when active/hot-standby is enabled. Ensure that every node has access to the shared repository database.
 
-To configure the repository database, first add the `xl.repository.configuration` property to the `repository.conf` configuration file. This property identifies the predefined repository configuration that you want to use. Supported values are:
+To configure the repository database, first add the `xl.repository.configuration` property to the `repository.conf` configuration file, which uses the [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format. This property identifies the predefined repository configuration that you want to use. Supported values are:
 
 {:.table .table-striped}
 | Parameter             | Description                                                                             |
@@ -110,10 +110,13 @@ Next, add the following parameters to the `xl.repository.persistence` section of
 | `password`    | Password to use when logging into the database (after setup is complete, the password will be encrypted and stored in secured format). |
 | `maxPoolSize` | Database connection pool size; suggested value is 20. |
 
-#### Sample database configuration
+#### Further settings in `repository.conf`
 
-The `jackrabbit.artifacts.location` property defines the location required for storage of binary data (artifacts).
-You must set the `cluster.nodeId` to a unique value. The `cluster.nodeID` is used to identify the entries in the DB for each running `jackrabbit` instance.
+Set `xl.repository.jackrabbit.artifacts.location` to a shared filesystem (such as NFS) location that all nodes can access. This is required for storage of binary data (artifacts).
+
+Set property `xl.repository.cluster.nodeId` to a unique value on each node. The value of `xl.repository.cluster.nodeID` is used to distinguish entries in the DB for each running `jackrabbit` instance.
+
+#### Sample database configuration
 
 This is an example of the `xl.repository` configuration for a stand-alone database:
 
@@ -135,10 +138,31 @@ This is an example of the `xl.repository` configuration for a stand-alone databa
 
 ### Step 2 Set up the cluster
 
-All active/hot-standby configuration settings must be provided in the `XL_DEPLOY_SERVER_HOME/conf/system.conf` file, which uses the [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format. In this file on one node:
+Additional active/hot-standby configuration settings must be provided in the `XL_DEPLOY_SERVER_HOME/conf/system.conf` file, which also uses the [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format. In this file on each node:
 
-1. Enable clustering by setting `cluster.mode` to `hot-standby`. Set `xl.repository.configuration` to the appropriate `<database>-cluster` option from [Configure the repository database](#configure-the-repository-database). Do not change the `xl.repository.persistence` options that you have already configured.
-1. Set `xl.repository.jackrabbit.artifacts.location` to a shared filesystem (such as NFS) that all nodes can access. This is required for storage of binary data (artifacts).
+1. Enable clustering by setting `cluster.mode` to `hot-standby`.
+1. Provide database access for registering active nodes to a membership table by adding a `cluster.membership` configuration containing the following keys:
+
+{:.table .table-striped}
+| Parameter        | Description |
+| ---------        | ----------- |
+| `jdbc.url`       | JDBC URL that describes the database connection details; for example, `"jdbc:oracle:thin:@oracle.hostname.com:1521:SID"`. |
+| `jdbc.username`  | User name to use when logging into the database. |
+| `jdbc.password`  | Password to use when logging into the database (after setup is complete, the password will be encrypted and stored in secured format). |
+
+An minimal example section looks like this (see below for additional optional settings):
+
+    cluster {
+      mode = hot-standby
+
+      membership {
+        jdbc {
+          url = "jdbc:mysql://db/xldrepo?useSSL=false"
+          username = xld
+          password = t0pS3creT
+        }
+      }
+    }
 
 ### Step 3 Set up the first node
 
@@ -176,6 +200,14 @@ Start XL Deploy on each node, beginning with the first node that you configured.
 ## Sample `system.conf` configuration
 
 This is a sample `system.conf` configuration for one node that uses a MySQL repository database.
+
+    task {
+      recovery-dir = work
+      step {
+        retry-delay = 5 seconds
+        execution-threads = 32
+      }
+    }
 
     satellite {
 
@@ -261,7 +293,7 @@ There are a various optional settings in the `cluster` section of `system.conf` 
 | membership.ttl        | How long liveness information remains valid                       | 60 seconds             |
 | akka.cluster.auto-down-unreachable-after | How much time passes before the akka cluster decides that a node has gone down | 15 seconds |
 
-The `heartbeat` and `ttl` settings are relevant for cluster bootstrapping. A newly starting node will look in the database to find live nodes and try to join the cluster running on those nodes.
+The `heartbeat` and `ttl` settings are relevant for cluster bootstrapping. A newly starting node will look in the database to find live nodes and try to join the cluster with the given `name` running on those nodes.
 
 The `auto-down-unreachable-after` setting determines how fast the cluster decides that a node has gone down, and (in case of the active node) if a standby node must be activated. Setting this to a lower value means that hot-standby takeover takes place faster, but in case of transient network issues, it may cause a takeover while the original node is still alive. Using a longer value does the opposite: the cluster is more resilient against transient network failures, but takeover takes more time when a real crash occurs.
 
