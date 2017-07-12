@@ -123,19 +123,19 @@ Finally, set `xl.repository.cluster.nodeId` to a unique value on each node. The 
 This is an example of the `xl.repository` configuration for a stand-alone database:
 
     xl {
-        repository {
+      repository {
         # placeholder for repository configuration overrides
         configuration = XLD_CONFIGURATION
         jackrabbit.artifacts.location = XLD_SHARED_LOCATION
         cluster.nodeId = XLD_HOSTNAME
 
         persistence {
-            jdbcUrl = XLD_DB_REPOSITORY_URL
-            username = XLD_DB_USER
-            password = XLD_DB_PASS
-            maxPoolSize = 20
-            }
+          jdbcUrl = XLD_DB_REPOSITORY_URL
+          username = XLD_DB_USER
+          password = XLD_DB_PASS
+          maxPoolSize = 20
         }
+      }
     }
 
 ### Step 2 Set up the cluster
