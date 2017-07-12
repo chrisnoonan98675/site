@@ -16,6 +16,8 @@ XL Deploy allows you to store the [repository](/xl-deploy/how-to/configure-the-x
 
 **Important:** Both nodes must use the same [Java version](/xl-deploy/concept/requirements-for-installing-xl-deploy.html#server-requirements).
 
+**Tip:** If you are using XL Deploy 7.1.0 or later, you can use the failover approach described in this topic, or you can use an active/hot-standby configuration.
+
 ## Initial setup
 
 To set up a master node (called `node1`) and a failover node (called `node2`):

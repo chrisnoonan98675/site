@@ -44,7 +44,11 @@ In active/hot-standby mode, there is always at most one "active" XL Deploy node.
 However, XL Deploy does not share HTTP sessions among nodes. If the active XL Deploy node becomes unavailable:
 
 * All users will effectively be logged out and will lose any work that was not yet persisted to the database.
-* Any deployment or control tasks that were running on the previously active node will need to be manually recovered. Previously running tasks will not be automatically visible from the newly active node since this may lead to data corruption in split-brain scenarios.
+* Any deployment or control tasks that were running on the previously active node must be manually recovered. Tasks that were previously running will not automatically be visible from the newly active node because this may lead to data corruption in split-brain scenarios.
+
+## Limitation on satellite usage
+
+Use of the [satellite module](/xl-deploy/concept/getting-started-with-the-satellite-module.html) with an active/hot-standby installation of XL Deploy is not supported.
 
 ## Active/Hot-standby setup procedure
 
@@ -79,9 +83,9 @@ Place the JAR file containing the JDBC driver of the selected database in the `X
 {:.table .table-striped}
 | Database   | JDBC drivers | Notes   |
 | ---------- | ------------ | ------- |
-| MySQL      | [Connector\J 5.1.30 driver download](http://dev.mysql.com/downloads/connector/j/)| None. |
+| MySQL      | [Connector\J 5.1.30 driver download](http://dev.mysql.com/downloads/connector/j/) | None. |
 | Oracle     | [JDBC driver downloads](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html) | For Oracle 12c, use the 12.1.0.1 driver (`ojdbc7.jar`). It is recommended that you only use the thin drivers; refer to the [Oracle JDBC driver FAQ](http://www.oracle.com/technetwork/topics/jdbc-faq-090281.html) for more information. |
-| PostgreSQL | [PostgreSQL JDBC driver](https://jdbc.postgresql.org/download.html)| None |
+| PostgreSQL | [PostgreSQL JDBC driver](https://jdbc.postgresql.org/download.html)| None. |
 
 #### Configure the repository database
 
@@ -110,31 +114,29 @@ Next, add the following parameters to the `xl.repository.persistence` section of
 | `password`    | Password to use when logging into the database (after setup is complete, the password will be encrypted and stored in secured format). |
 | `maxPoolSize` | Database connection pool size; suggested value is 20. |
 
-#### Further settings in `repository.conf`
+Next, set `xl.repository.jackrabbit.artifacts.location` to a shared filesystem (such as NFS) location that all nodes can access. This is required for storage of binary data (artifacts).
 
-Set `xl.repository.jackrabbit.artifacts.location` to a shared filesystem (such as NFS) location that all nodes can access. This is required for storage of binary data (artifacts).
-
-Set property `xl.repository.cluster.nodeId` to a unique value on each node. The value of `xl.repository.cluster.nodeID` is used to distinguish entries in the DB for each running `jackrabbit` instance.
+Finally, set `xl.repository.cluster.nodeId` to a unique value on each node. The value of `xl.repository.cluster.nodeID` is used to distinguish entries in the database for each running `jackrabbit` instance.
 
 #### Sample database configuration
 
 This is an example of the `xl.repository` configuration for a stand-alone database:
 
-      xl {
-          repository {
-          # placeholder for repository configuration overrides
-          configuration = XLD_CONFIGURATION
-          jackrabbit.artifacts.location = XLD_SHARED_LOCATION
-          cluster.nodeId = XLD_HOSTNAME
+    xl {
+        repository {
+        # placeholder for repository configuration overrides
+        configuration = XLD_CONFIGURATION
+        jackrabbit.artifacts.location = XLD_SHARED_LOCATION
+        cluster.nodeId = XLD_HOSTNAME
 
-          persistence {
-            jdbcUrl = XLD_DB_REPOSITORY_URL
-            username = XLD_DB_USER
-            password = XLD_DB_PASS
-            maxPoolSize = 20
-          }
-        }
-      }
+        persistence {
+            jdbcUrl = XLD_DB_REPOSITORY_URL
+            username = XLD_DB_USER
+            password = XLD_DB_PASS
+            maxPoolSize = 20
+            }
+        }
+    }
 
 ### Step 2 Set up the cluster
 
@@ -150,7 +152,7 @@ Additional active/hot-standby configuration settings must be provided in the `XL
 | `jdbc.username`  | User name to use when logging into the database. |
 | `jdbc.password`  | Password to use when logging into the database (after setup is complete, the password will be encrypted and stored in secured format). |
 
-An minimal example section looks like this (see below for additional optional settings):
+An minimal example section looks like this:
 
     cluster {
       mode = hot-standby
@@ -164,6 +166,8 @@ An minimal example section looks like this (see below for additional optional se
       }
     }
 
+Refer to [Optional cluster settings](#optional-cluster-settings) for additional settings that are available for `system.conf`.
+
 ### Step 3 Set up the first node
 
 At a command prompt, run the following server setup command and follow the on-screen instructions:
@@ -172,7 +176,7 @@ At a command prompt, run the following server setup command and follow the on-sc
 
 ### Step 4 Prepare each node in the cluster
 
-1. Zip the distribution that you created in [Step 2 Set up the cluster](#step-2-set-up-the-cluster).
+1. Compress the distribution that you created in [Step 2 Set up the cluster](#step-2-set-up-the-cluster) in a ZIP file.
 1. Copy the ZIP file to all other nodes and unzip each one.
 1. On each node, edit the `xl.repository.cluster.nodeId` setting of the `XL_DEPLOY_SERVER_HOME/conf/repository.conf` file. Update the values for the specific node.
 
@@ -180,14 +184,14 @@ At a command prompt, run the following server setup command and follow the on-sc
 
 ### Step 5 Set up the load balancer
 
-To use active/hot-standby, you must front the XL Deploy servers with a load balancer. The load balancer must check the `/ha/health` endpoint with a `GET` request to verify that the node is up. This endpoint will return:
+To use active/hot-standby, you must use a load balancer in front of the XL Deploy servers. The load balancer must check the `/ha/health` endpoint with a `GET` request to verify that the node is up. This endpoint will return:
 
 * A `503` HTTP status code if this node is running as standby (non-active) node.
 * A `204` HTTP status code if this is the active node. All user traffic should be sent to this node.
 
 **Note:** Performing a simple TCP check or `GET` operation on `/` is not sufficient, as that will only determine whether the node is running; it will not indicate whether the node is in standby mode.
 
-For instance, for HAProxy, you can add the following configuration:
+For example, for HAProxy, you can add the following configuration:
 
     backend default_service
       option httpchk get /ha/health HTTP/1.0
@@ -195,7 +199,7 @@ For instance, for HAProxy, you can add the following configuration:
 
 ### Step 6 Start the nodes
 
-Start XL Deploy on each node, beginning with the first node that you configured. Ensure that each node is fully up and running before starting the next one.
+Start XL Deploy on each node, starting with the first node that you configured. Ensure that each node is fully up and running before starting the next one.
 
 ## Sample `system.conf` configuration
 
@@ -280,24 +284,24 @@ This is a sample `system.conf` configuration for one node that uses a MySQL repo
     }
 
 
-#### Additional configuration settings
+#### Optional cluster settings
 
-There are a various optional settings in the `cluster` section of `system.conf` that you can configure:
+You can optionally configure the following additional settings in the `cluster` section of `system.conf`:
 
 {:.table .table-striped}
 | Parameter             | Description                                                | Default value          |
 | --------------------- | ----------------------------------------------------------------------------------- |
-| name                  | The hot-standby management akka cluster name               | xld-hotstandby-cluster |
-| membership.jdbc.driver | The database driver class name, e.g. `oracle.jdbc.OracleDriver` | determined from the db URL |
-| membership.heartbeat  | How often a node should write liveness information into the database | 10 seconds             |
-| membership.ttl        | How long liveness information remains valid                       | 60 seconds             |
-| akka.cluster.auto-down-unreachable-after | How much time passes before the akka cluster decides that a node has gone down | 15 seconds |
+| `name`                  | The hot-standby management Akka cluster name.               | `xld-hotstandby-cluster` |
+| `membership.jdbc.driver` | The database driver class name. For example, `oracle.jdbc.OracleDriver`. | Determined from the database URL |
+| `membership.heartbeat`  | How often a node should write liveness information into the database. | 10 seconds |
+| `membership.ttl`        | How long liveness information remains valid.                       | 60 seconds |
+| `akka.cluster.auto-down-unreachable-after` | The amount of time that passes before the Akka cluster determines that a node has gone down. | 15 seconds |
 
 The `heartbeat` and `ttl` settings are relevant for cluster bootstrapping. A newly starting node will look in the database to find live nodes and try to join the cluster with the given `name` running on those nodes.
 
-The `auto-down-unreachable-after` setting determines how fast the cluster decides that a node has gone down, and (in case of the active node) if a standby node must be activated. Setting this to a lower value means that hot-standby takeover takes place faster, but in case of transient network issues, it may cause a takeover while the original node is still alive. Using a longer value does the opposite: the cluster is more resilient against transient network failures, but takeover takes more time when a real crash occurs.
+The `auto-down-unreachable-after` setting determines how fast the cluster decides that a node has gone down and, in case of the active node, whether a standby node must be activated. Changing this setting to a lower value means that hot-standby takeover takes place faster; but in the case of transient network issues, it may cause a takeover while the original node is still alive. Using a longer value does the opposite; the cluster is more resilient against transient network failures, but takeover takes more time when a real crash occurs.
 
-**Note:** After the first run, passwords in the configuration file will be encrypted and replaced with base64-encoded values.
+**Note:** After the first run, passwords in the configuration file will be encrypted and replaced with Base64-encoded values.
 
 ## Sample `haproxy.cfg` configuration
 
