@@ -279,7 +279,7 @@ This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configur
         </FileSystem>
 
         <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.OraclePersistenceManager">
-            <param name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+            <param name="driver" value="oracle.jdbc.OracleDriver"/>
             <param name="url" value="jdbc:oracle:thin:@ABCD1234:1522/XLD"/>
             <param name="databaseType" value="oracle" />
             <param name="user" value="deployit" />
@@ -304,7 +304,7 @@ This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configur
         </FileSystem>
 
         <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.OraclePersistenceManager">
-            <param name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+            <param name="driver" value="oracle.jdbc.OracleDriver"/>
             <param name="url" value="jdbc:oracle:thin:@ABCD1234:1522/XLD"/>
             <param name="databaseType" value="oracle" />
             <param name="user" value="deployit" />
