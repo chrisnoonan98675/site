@@ -1,0 +1,887 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+	<link href="http://gmpg.org/xfn/11" rel="profile">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="author" content="XebiaLabs Inc.">
+	<meta name="keywords" content="XL Deploy, Deployit, XLD, XL Release, XLR, XL Scale, XLS, XL TestView, XLT, XLTV, XebiaLabs">
+
+
+
+	<link rel="icon" type="image/ico" href="https://docs.xebialabs.com/favicon.ico"/>
+
+	<title>
+
+			XL Release Fix Tracker &#124;&#124; XebiaLabs documentation
+
+	</title>
+
+	<!-- Styles -->
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/styles/xebialabs.css" type="text/css">
+    <link rel="stylesheet" href="/styles/syntax.css" type="text/css">
+    <link rel="stylesheet" href="/fonts/online-doc-icons/styles.css" type="text/css">
+    <link rel="stylesheet" href="/styles/magnific-popup.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+    <!-- Javascript -->
+	<script src="/js/jquery-3.1.1.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="/js/scroll_button_show_hide.js"></script>
+	<script src="/js/scroll_button_scroll_to_top.js"></script>
+	<script src="/js/toc.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#toc').toc({ listType: 'ul', noBackToTopLinks: true, showSpeed: 0 });
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.magnific').magnificPopup({
+			  type:'image',
+			  removalDelay: 300,
+			  mainClass: 'mfp-fade'
+			});
+			$('.magnific-youtube').magnificPopup({
+			  disableOn: 700,
+			  type: 'iframe',
+			  mainClass: 'mfp-fade',
+			  removalDelay: 300,
+			  preloader: false,
+			  fixedContentPos: false
+			});
+		});
+	</script>
+
+
+    <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/jquery.navgoco.js"></script>
+
+	<!-- Google Analytics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-32396304-2', 'auto');
+	  ga('send', 'pageview');
+	</script>
+
+	<!-- Jekyll SEO plugin -->
+	<!-- Begin Jekyll SEO tag v2.0.0 -->
+<title>XL Release Fix Tracker - XebiaLabs documentation</title>
+<meta property="og:title" content="XL Release Fix Tracker" />
+<meta name="description" content="Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise." />
+<meta property="og:description" content="Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise." />
+<link rel="canonical" href="https://docs.xebialabs.com/tracker/xl-release-tracker.html" />
+<meta property="og:url" content="https://docs.xebialabs.com/tracker/xl-release-tracker.html" />
+<meta property="og:site_name" content="XebiaLabs documentation" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@xebialabs" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "headline": "XL Release Fix Tracker",
+    "description": "Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise.",
+    "logo": "https://docs.xebialabs.com/images/logos/xebialabs-standard.png",
+    "url": "https://docs.xebialabs.com/tracker/xl-release-tracker.html"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+
+
+<main id="main">
+
+	<div id="top-bar">
+		<div class="container-fluid">
+			<div class="row hidden-print">
+				<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 xebialabs-logo">
+					<a href="https://xebialabs.com"><img height="50" class="img-no-border" src="/images/logos/xebialabs-standard.png"></a>
+				</div>
+				<!-- Google Custom Search -->
+				<div class="col-lg-4 col-md-4 col-sm-6 hidden-xs pull-right">
+					<script>
+					  (function() {
+					    var cx = '001962156878164368335:2zdytqwe4ms';
+					    var gcse = document.createElement('script');
+					    gcse.type = 'text/javascript';
+					    gcse.async = true;
+					    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+					    var s = document.getElementsByTagName('script')[0];
+					    s.parentNode.insertBefore(gcse, s);
+					  })();
+					</script>
+					<gcse:search></gcse:search>
+				</div>
+				<div class="col-lg-5 col-md-5 hidden-sm hidden-xs pull-right">
+					<ul class="list-inline xltopmenu pull-right">
+						<li><a href="http://blog.xebialabs.com">Blog</a></li>
+						<li><a href="/support.html">Support</a></li>
+						<li><a href="http://xebialabs.com/contact/">Contact</a></li>
+					</ul>
+				</div>
+			</div> <!-- /.row -->
+		</div><!-- /.container-fluid -->
+	</div><!-- /#top-bar -->
+
+	<div id="top-ribbon">
+		<div class="container-fluid">
+			<div class="row">
+			</div>
+		</div>
+	</div>
+
+	<!-- Page content -->
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="sidebar-nav">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <span class="visible-xs navbar-brand">Toggle navigation</span>
+        </div> <!-- /.navbar-header -->
+        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+            <ul id="sidebar" class="nav">
+                <li><a href="/">Docs Home</a></li>
+                <li><a href="/getting-started">Getting started</a></li>
+                <li><a href="/xl-deploy">XL Deploy</a></li>
+                <li><a href="/xl-release">XL Release</a></li>
+                <li><a href="/videos">Videos</a></li>
+                <li><a href="/community">Community</a></li>
+                <li><a href="/tracker">Fix Tracker</a></li>
+                <li><a href="/archive">Archive</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div> <!-- /.navbar -->
+</div><!-- /.sidebar-nav -->
+
+		</div><!-- /.col -->
+		<div class="col-sm-9">
+
+                <div id="content" class="dashboard">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="well dashboard-disclaimer">
+                                This tracker shows planned major releases and maintenance releases of XL Release and its plugins.
+                                    To filter the list, click an icon below or enter a search term (such as an issue number) in the box.
+                                    Note that, while this information indicates the planned delivery of improvements and bug fixes, it does not represent a
+                                    commitment.
+                            </div>
+                            <div class="col-xs-12 text-center">
+                                <h2><img src="/images/logos/xl-release-logo.png" class="logo"
+                                         alt="XL Release"> Fix Tracker</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div>
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#upcoming" aria-controls="upcoming" role="tab" data-toggle="tab">Upcoming releases</a>
+                                        </li>
+                                        <li role="presentation"><a href="#history" aria-controls="history" role="tab" data-toggle="tab">Release history</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="upcoming">
+                                            <div class="row filters">
+    <div class="col-md-offset-2 col-md-7 col-xs-12 text-center">
+        <span><i class="icon icon-trophy text-product"></i> <a href="#" class="filter-target">Product</a></span>
+        <span><i class="icon icon-plug text-plugin"></i> <a href="#" class="filter-target">Plugins</a></span>
+                <span><i class="glyphicon glyphicon-flag text-major"></i> <a href="#"
+                                                                             class="filter-type">Major</a></span>
+                <span><i class="icon icon-bug text-maintenance"></i> <a href="#"
+                                                                        class="filter-type">Maintenance</a></span>
+        <span><i class="icon icon-sort text-all"></i> <a href="#" class="filter-off">Show all</a></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-offset-2 col-md-7">
+        <form class="form-search form-inline">
+            <input name="issue-filter" type="text" class="form-control search-query input-sm issue-filter"
+                   placeholder="Search issue..."/>
+        </form>
+        <br>
+
+        <div class="alert alert-info btn-group-sm text-center no-results" role="alert"
+             style="display: none; padding: 5px;">No issues found
+        </div>
+    </div>
+</div>
+
+<div class="row release" data-release-type="Major"
+     data-release-target="Product">
+    <hr>
+    <div class="col-md-2">
+
+<span class="label bg-product">
+    <i class="icon icon-trophy"></i>
+    <span>Product</span>
+</span>
+
+
+<span class="label bg-major">
+    <i class="glyphicon glyphicon-flag"></i>
+    <span>Major</span>
+</span>
+
+    </div>
+    <div class="col-md-7">
+        <div class="row">
+            <div class="col-md-12 section collapsed" data-toggle="collapse" data-target="#32600-upcoming-issues" style="cursor: pointer; cursor: hand;">
+                <span>Fixes in Xl Release 7.1.0</span>
+            </div>
+        </div>
+        <div class="row collapse" id="32600-upcoming-issues">
+            <div class="col-md-12">
+                <ul class="list-unstyled issue-list" style="margin-left: 22px;">
+    <ul class="list-unstyled issue-sublist">
+
+
+        <span class="issue-header">Improvements</span>
+        <hr/>
+
+        <li class="issue">REL-4794 - Help link on Notification Setting screen
+
+        </li>
+
+    </ul>
+
+    <ul class="list-unstyled issue-sublist">
+
+
+        <span class="issue-header">Bug fixes</span>
+        <hr/>
+
+        <li class="issue">REL-4558 - Disable 'Complete' action for User Input Task when required variables are left empty
+
+        </li>
+
+
+        <li class="issue">REL-4751 - Memory leak in plugin task scheduler
+
+        </li>
+
+
+        <li class="issue">REL-4780 - Logo in Notification message not displayed in Outlook
+
+        </li>
+
+    </ul>
+</ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <b>Planned release:</b>
+        <br/>
+
+        <p class="text-all">
+
+            August
+
+            2017
+        </p>
+    </div>
+</div>
+
+<div class="row release" data-release-type="Maintenance"
+     data-release-target="Product">
+    <hr>
+    <div class="col-md-2">
+
+<span class="label bg-product">
+    <i class="icon icon-trophy"></i>
+    <span>Product</span>
+</span>
+
+
+<span class="label bg-maintenance">
+    <i class="icon icon-bug"></i>
+    <span>Maintenance</span>
+</span>
+
+    </div>
+    <div class="col-md-7">
+        <div class="row">
+            <div class="col-md-12 section collapsed" data-toggle="collapse" data-target="#33201-upcoming-issues" style="cursor: pointer; cursor: hand;">
+                <span>Fixes in Xl Release 7.0.2</span>
+            </div>
+        </div>
+        <div class="row collapse" id="33201-upcoming-issues">
+            <div class="col-md-12">
+                <ul class="list-unstyled issue-list" style="margin-left: 22px;">
+    <ul class="list-unstyled issue-sublist">
+
+    </ul>
+
+    <ul class="list-unstyled issue-sublist">
+
+
+        <span class="issue-header">Bug fixes</span>
+        <hr/>
+
+        <li class="issue">REL-4388 - Variable order in user input task issue
+
+            <a href="#" data-toggle="33201-REL-4388-desc" class="issue-more" style="font-size: 75%">more</a><br/>
+            <div id="33201-REL-4388-desc" class="issue-description" style="display: none;"><p>The ordering of variables in a user input task is not preserved. It will always follow the same order in the release's Variable configuration.</p>
+
+<p>To reproduce:<br/>
+1. Create a release<br/>
+2. Add a few variables to the release<br/>
+3. Add a User Input task<br/>
+4. Add the variables to the task in random order and save the task<br/>
+5. Exit the task and enter the task again, the ordering would be altered to be the same as how it is in the release's Variable configuration</p>
+
+<p>Regression in XLR 6.x.x. Tested negative in 5.0.1</p></div>
+
+        </li>
+
+
+        <li class="issue">REL-4558 - Disable 'Complete' action for User Input Task when required variables are left empty
+
+        </li>
+
+    </ul>
+</ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <b>Planned release:</b>
+        <br/>
+
+        <p class="text-all">
+
+            August
+
+            2017
+        </p>
+    </div>
+</div>
+
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="history">
+                                            <div class="row filters">
+    <div class="col-md-offset-2 col-md-7 col-xs-12 text-center">
+        <span><i class="icon icon-trophy text-product"></i> <a href="#" class="filter-target">Product</a></span>
+        <span><i class="icon icon-plug text-plugin"></i> <a href="#" class="filter-target">Plugins</a></span>
+                <span><i class="glyphicon glyphicon-flag text-major"></i> <a href="#"
+                                                                             class="filter-type">Major</a></span>
+                <span><i class="icon icon-bug text-maintenance"></i> <a href="#"
+                                                                        class="filter-type">Maintenance</a></span>
+        <span><i class="icon icon-sort text-all"></i> <a href="#" class="filter-off">Show all</a></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-offset-2 col-md-7">
+        <form class="form-search form-inline">
+            <input name="issue-filter" type="text" class="form-control search-query input-sm issue-filter"
+                   placeholder="Search issue..."/>
+        </form>
+        <br>
+
+        <div class="alert alert-info btn-group-sm text-center no-results" role="alert"
+             style="display: none; padding: 5px;">No issues found
+        </div>
+    </div>
+</div>
+
+<div class="row release-group">
+    <hr>
+    <div class="col-md-2 section" data-toggle="collapse" data-target="#June-2017">
+        <h3 style="cursor: pointer; cursor: hand; margin-top: 0; margin-bottom: 0;">June 2017</h3>
+    </div>
+    <div class="col-md-10 collapse in" id="June-2017">
+
+        <div class="row release" data-release-type="Maintenance"
+             data-release-target="Product">
+
+            <div class="col-md-12">
+                <!-- release row -->
+                <div class="row">
+                    <div class="col-md-5 section collapsed" data-toggle="collapse" data-target="#32501-issues" style="cursor: pointer; cursor: hand;">
+                        <span>Fixes in Xl Release 7.0.1</span>
+                    </div>
+                    <div class="col-md-3">
+
+<span class="label bg-product">
+    <i class="icon icon-trophy"></i>
+    <span>Product</span>
+</span>
+
+
+<span class="label bg-maintenance">
+    <i class="icon icon-bug"></i>
+    <span>Maintenance</span>
+</span>
+
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://support.xebialabs.com/hc/en-us/search?utf8=%E2%9C%93&query=xl-release-7.0.1&commit=Search">Announcement</a>&nbsp;&nbsp;
+                        <a href="#" onclick="downloadComponent('xl-release', 'xl-release', '7.0.1'); return false;">Download</a>
+                    </div>
+                </div>
+                <!-- issues row -->
+                <div class="row collapse" id="32501-issues">
+                    <div class="col-md-12">
+                        <ul class="list-unstyled issue-list" style="margin-left: 22px;">
+    <ul class="list-unstyled issue-sublist">
+
+
+        <span class="issue-header">Improvements</span>
+        <hr/>
+
+        <li class="issue">REL-4794 - Help link on Notification Setting screen
+
+        </li>
+
+    </ul>
+
+    <ul class="list-unstyled issue-sublist">
+
+
+        <span class="issue-header">Bug fixes</span>
+        <hr/>
+
+        <li class="issue">REL-4751 - Memory leak in plugin task scheduler
+
+        </li>
+
+
+        <li class="issue">REL-4780 - Logo in Notification message not displayed in Outlook
+
+        </li>
+
+    </ul>
+</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row release" data-release-type="Major"
+             data-release-target="Product">
+
+            <hr>
+
+            <div class="col-md-12">
+                <!-- release row -->
+                <div class="row">
+                    <div class="col-md-5 section collapsed" data-toggle="collapse" data-target="#31000-issues" style="cursor: pointer; cursor: hand;">
+                        <span>Fixes in Xl Release 7.0.0</span>
+                    </div>
+                    <div class="col-md-3">
+
+<span class="label bg-product">
+    <i class="icon icon-trophy"></i>
+    <span>Product</span>
+</span>
+
+
+<span class="label bg-major">
+    <i class="glyphicon glyphicon-flag"></i>
+    <span>Major</span>
+</span>
+
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://support.xebialabs.com/hc/en-us/search?utf8=%E2%9C%93&query=xl-release-7.0.0&commit=Search">Announcement</a>&nbsp;&nbsp;
+                        <a href="#" onclick="downloadComponent('xl-release', 'xl-release', '7.0.0'); return false;">Download</a>
+                    </div>
+                </div>
+                <!-- issues row -->
+                <div class="row collapse" id="31000-issues">
+                    <div class="col-md-12">
+                        <ul class="list-unstyled issue-list" style="margin-left: 22px;">
+    <ul class="list-unstyled issue-sublist">
+
+
+        <span class="issue-header">Improvements</span>
+        <hr/>
+
+        <li class="issue">REL-4289 - Upgrade service wrapper to yajsw-stable-12.08
+
+        </li>
+
+    </ul>
+
+    <ul class="list-unstyled issue-sublist">
+
+
+        <span class="issue-header">Bug fixes</span>
+        <hr/>
+
+        <li class="issue">REL-4554 - Unable to create global variable via Jython script task
+
+        </li>
+
+
+        <li class="issue">REL-4567 - Scheduled/due dates not set when creating a release using DSL
+
+        </li>
+
+
+        <li class="issue">REL-4621 - External script task cannot use token instead of password
+
+        </li>
+
+    </ul>
+</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row release-group">
+    <hr>
+    <div class="col-md-2 section" data-toggle="collapse" data-target="#March-2017">
+        <h3 style="cursor: pointer; cursor: hand; margin-top: 0; margin-bottom: 0;">March 2017</h3>
+    </div>
+    <div class="col-md-10 collapse in" id="March-2017">
+
+        <div class="row release" data-release-type="Major"
+             data-release-target="Product">
+
+            <div class="col-md-12">
+                <!-- release row -->
+                <div class="row">
+                    <div class="col-md-5 section collapsed" data-toggle="collapse" data-target="#29900-issues" style="cursor: pointer; cursor: hand;">
+                        <span>Fixes in XL Release 6.2.0</span>
+                    </div>
+                    <div class="col-md-3">
+
+<span class="label bg-product">
+    <i class="icon icon-trophy"></i>
+    <span>Product</span>
+</span>
+
+
+<span class="label bg-major">
+    <i class="glyphicon glyphicon-flag"></i>
+    <span>Major</span>
+</span>
+
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://support.xebialabs.com/hc/en-us/search?utf8=%E2%9C%93&query=xl-release-6.2.0&commit=Search">Announcement</a>&nbsp;&nbsp;
+                        <a href="#" onclick="downloadComponent('xl-release', 'xl-release', '6.2.0'); return false;">Download</a>
+                    </div>
+                </div>
+                <!-- issues row -->
+                <div class="row collapse" id="29900-issues">
+                    <div class="col-md-12">
+                        <ul class="list-unstyled issue-list" style="margin-left: 22px;">
+    <ul class="list-unstyled issue-sublist">
+
+    </ul>
+
+    <ul class="list-unstyled issue-sublist">
+
+
+        <span class="issue-header">Bug fixes</span>
+        <hr/>
+
+        <li class="issue">REL-3442 - SVN poll plugin doesn't take into consideration the branch that you specify but it polls the whole repository
+
+        </li>
+
+
+        <li class="issue">REL-4193 - Multiple releases from one template do not appear in folder
+
+        </li>
+
+
+        <li class="issue">REL-4312 -  suPassword field is logged in plain text when debug logging is enabled
+
+        </li>
+
+    </ul>
+</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row release-group">
+    <hr>
+    <div class="col-md-2 section" data-toggle="collapse" data-target="#January-2017">
+        <h3 style="cursor: pointer; cursor: hand; margin-top: 0; margin-bottom: 0;">January 2017</h3>
+    </div>
+    <div class="col-md-10 collapse in" id="January-2017">
+
+        <div class="row release" data-release-type="Maintenance"
+             data-release-target="Product">
+
+            <div class="col-md-12">
+                <!-- release row -->
+                <div class="row">
+                    <div class="col-md-5 section collapsed" data-toggle="collapse" data-target="#28601-issues" style="cursor: pointer; cursor: hand;">
+                        <span>Fixes in XL Release 6.0.1</span>
+                    </div>
+                    <div class="col-md-3">
+
+<span class="label bg-product">
+    <i class="icon icon-trophy"></i>
+    <span>Product</span>
+</span>
+
+
+<span class="label bg-maintenance">
+    <i class="icon icon-bug"></i>
+    <span>Maintenance</span>
+</span>
+
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://support.xebialabs.com/hc/en-us/search?utf8=%E2%9C%93&query=xl-release-6.0.1&commit=Search">Announcement</a>&nbsp;&nbsp;
+                        <a href="#" onclick="downloadComponent('xl-release', 'xl-release', '6.0.1'); return false;">Download</a>
+                    </div>
+                </div>
+                <!-- issues row -->
+                <div class="row collapse" id="28601-issues">
+                    <div class="col-md-12">
+                        <ul class="list-unstyled issue-list" style="margin-left: 22px;">
+    <ul class="list-unstyled issue-sublist">
+
+
+        <span class="issue-header">Improvements</span>
+        <hr/>
+
+        <li class="issue">REL-3012 - Prevent releaseVariables from overwriting external changes to variables
+
+        </li>
+
+
+        <li class="issue">REL-3986 - Limit size of output properties of string type
+
+        </li>
+
+    </ul>
+
+    <ul class="list-unstyled issue-sublist">
+
+
+        <span class="issue-header">Bug fixes</span>
+        <hr/>
+
+        <li class="issue">REL-3565 - Setting the hour to 12 reverts to 00 on 24 hour timepicker on task scheduler
+
+        </li>
+
+
+        <li class="issue">REL-3954 - Task types are repeated on Task Access screen
+
+        </li>
+
+
+        <li class="issue">REL-4036 - Adding folder does not trigger event
+
+        </li>
+
+
+        <li class="issue">REL-4113 - Cannot start release with integer variable through public API
+
+        </li>
+
+    </ul>
+</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    String.prototype.format = function() {
+        var newStr = this, i = 0;
+        while (/%s/.test(newStr)) {
+            newStr = newStr.replace("%s", arguments[i++]);
+        }
+        return newStr;
+    };
+
+    function downloadComponent(product, component, version) {
+        var url = "https://dist.xebialabs.com/";
+        switch(product) {
+            case "xl-deploy":
+                if(component.endsWith("plugin")) {
+                    if(component.indexOf("jenkins") > -1) {
+                        url = "http://updates.jenkins-ci.org/download/plugins/deployit-plugin/%s/deployit-plugin.hpi".format(version);
+                    } else if(component.indexOf("maven") > -1) {
+                        url += "public/maven2/com/xebialabs/xldeploy/xldeploy-maven-plugin/%s".format(version);
+                    } else if(component.indexOf("tfs") > -1) {
+                        url += "public/xl-deploy/ci/tfs/";
+                    } else if(component.indexOf("bamboo") > -1) {
+                        url += "public/xl-deploy/ci/bamboo/bamboo-xl-deploy-plugin/%s/bamboo-xl-deploy-plugin-%s.jar".format(version, version)
+                    } else {
+                        url += "customer/xl-deploy/plugins/%s/%s/%s-%s-distribution.zip".format(component, version, component, version)
+                    }
+                } else {
+                    url += "customer/%s/server/%s".format(product, version)
+                }
+                break;
+            case "xl-release":
+                if(component.indexOf("jenkins") > -1) {
+                    url = "https://updates.jenkins-ci.org/download/plugins/xlrelease-plugin/%s/xlrelease-plugin.hpi".format(version)
+                } else {
+                    url += "customer/%s/%s".format(product, version);
+                }
+                break;
+            case "xl-test":
+                if(component.indexOf("jenkins") > -1) {
+                    url += "customer/%s/jenkins-plugin/%s".format(product, version);
+                } else {
+                    url += "customer/%s/server/%s".format(product, version);
+                }
+                break;
+        }
+        window.location.href = url;
+    }
+</script>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <script type="application/javascript">
+                function toggleNoResultsMsg() {
+                    if ($(".release:visible").length == 0) {
+                        $(".tab-pane.active .no-results").show();
+                    }
+                    else {
+                        $(".tab-pane.active .no-results").hide();
+                    }
+                }
+                function toggleView(parent, childSelector, keyword) {
+                    if(!parent) return;
+
+                    var visibleChildren = parent.find(childSelector).filter(function () {
+                        return $(this).css('display') != 'none';
+                    });
+
+                    if (visibleChildren.length == 0 && keyword) {
+                        parent.hide();
+                    }
+                    else {
+                        parent.show();
+                        if(keyword) {
+                            parent.parents(".collapse").collapse("show");
+                        }
+                    }
+                }
+
+                function filterIssues(keyword) {
+                    $(".tab-pane.active .issue-list").each(function () {
+                        $(this).find("li").each(function () {
+                            if ($(this).text().search(new RegExp(keyword.trim(), "i")) < 0) {
+                                $(this).hide();
+                            } else {
+                                $(this).show();
+                            }
+                        });
+
+                        $(this).children(".issue-sublist").each(function () {
+                            toggleView($(this), ".issue", keyword);
+                        });
+
+                        var $release = $(this).parents(".release");
+                        toggleView($release, ".issue-sublist", keyword);
+
+                        var $releaseGroup = $release.parents(".release-group");
+                        toggleView($releaseGroup, ".release", keyword);
+                    });
+                    toggleNoResultsMsg();
+                }
+
+                $(document).ready(function () {
+                    $('.collapse').collapse({
+                        toggle: false
+                    })
+                    $("a.issue-more").click(function () {
+                        var $target = $("#" + $(this).data("toggle"));
+                        $target.toggle();
+                        if ($target.is(':visible')) {
+                            $(this).text("less");
+                        } else {
+                            $(this).text("more");
+                        }
+                        return false;
+                    });
+
+                    var $issueFilter = $("input.issue-filter");
+                    filterIssues($issueFilter.val());
+                    $issueFilter.keyup(function (e) {
+                        filterIssues($(this).val());
+                    });
+
+                    $issueFilter.on('keyup keypress', function (e) {
+                        if (e.keyCode == 13) {
+                            e.preventDefault();
+                            return false;
+                        }
+                    });
+
+                    $(".filters a").click(function () {
+                        $(".tab-pane.active .issue-filter").val("");
+                        filterIssues("");
+
+                        var text = $(this).text();
+                        var attribute;
+                        if ($(this).hasClass("filter-target")) {
+                            attribute = "release-target";
+                        }
+                        else if ($(this).hasClass("filter-type")) {
+                            attribute = "release-type";
+                        }
+
+                        $(".tab-pane.active .release").each(function () {
+                            if (attribute) {
+                                if ($(this).data(attribute) === text) {
+                                    $(this).show();
+                                    $(this).parents(".collapse").collapse("show");
+                                }
+                                else {
+                                    $(this).hide();
+                                }
+                            }
+                            else {
+                                $(this).show();
+                            }
+                        });
+                        toggleNoResultsMsg();
+                        return false;
+                    });
+                });
+            </script>
+
+        </div><!-- /.col-sm-9 -->
+    </div><!-- /.row -->
+</div><!-- /.container-fluid -->
