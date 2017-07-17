@@ -30,35 +30,39 @@ A rollback script **must** have the same name as the installation script it is a
 
 **Important:** In XL Deploy 4.5.x and earlier, if a script fails and you perform a rollback, XL Deploy executes *all* rollback scripts, not only the rollback scripts that correspond to the installation scripts that were successfully executed. In XL Deploy 5.0.0 and later, XL Deploy tracks which installation scripts were executed successfully and *only* executes their associated rollback scripts. Refer to [Extend the XL Deploy Database plugin](/xl-deploy/how-to/extend-the-xl-deploy-database-plugin.html) for information about rollback behavior for custom CI types that are based on `sql.SqlScripts`.
 
-### Example of a ZIP file structure containing SQL scripts
+### Sample ZIP file structure
+
+This is an example of the structure of a ZIP file that contains SQL scripts:
 
 	|__ deployit-manifest.xml
 	|
 	|__ sql
-			|
-			|__ 01-create-tableA-rollback.sql
-			|
-			|__ 01-create-tableA.sql
-			|
-			|__ 01-create-tableZ-rollback.sql
-			|
-			|__ 01-create-tableZ.sql
-			|
-			|__ 02-create-tableA-view.sql
-			|
-			|__ 02-create-tableZ-view.sql
-			|
-			|__ 03-INSERT-tableA-data.sql
+		|
+		|__ 01-create-tableA-rollback.sql
+		|
+		|__ 01-create-tableA.sql
+		|
+		|__ 01-create-tableZ-rollback.sql
+		|
+		|__ 01-create-tableZ.sql
+		|
+		|__ 02-create-tableA-view.sql
+		|
+		|__ 02-create-tableZ-view.sql
+		|
+		|__ 03-INSERT-tableA-data.sql
 
-With the manifest file:
+The content of the `deployit-manifest.xml` file is:
 
-	<udm.DeploymentPackage version="1.1" application="acme-app">
-	  <deployables>
-	    <sql.SqlScripts name="sql" file="sql"/>
-	  </deployables>
-	</udm.DeploymentPackage>
+{% highlight xml %}
+<udm.DeploymentPackage version="1.1" application="acme-app">
+  <deployables>
+    <sql.SqlScripts name="sql" file="sql"/>
+  </deployables>
+</udm.DeploymentPackage>
+{% endhighlight %}
 
-As of XL Deploy 7.0.0, you can also use a ZIP file containing SQL scripts:
+As of XL Deploy 7.0.0, you can also provide a ZIP file that contains SQL scripts:
 
 	Archive:  sql.zip
 
@@ -70,13 +74,15 @@ As of XL Deploy 7.0.0, you can also use a ZIP file containing SQL scripts:
 	    testing: 02-create-tableZ-view.sql       OK
 	    testing: 03-INSERT-tableA-data.sql       OK
 
-With the manifest file:
+With the following `deployit-manifest.xml` file content:
 
-	<udm.DeploymentPackage version="1.1" application="acme-app">
-	  <deployables>
-	    <sql.SqlScripts name="sql" file="sql.zip"/>
-	  </deployables>
-	</udm.DeploymentPackage>
+{% highlight xml %}
+<udm.DeploymentPackage version="1.1" application="acme-app">
+  <deployables>
+    <sql.SqlScripts name="sql" file="sql.zip"/>
+  </deployables>
+</udm.DeploymentPackage>
+{% endhighlight %}
 
 **Note:** If the ZIP file contains a subdirectory, the SQL scripts will not be executed.		
 
@@ -136,7 +142,7 @@ Common dependencies that are placed in a sub-folder called `common` are availabl
 
 ### Dependencies example
 
-For example, this is a ZIP file containing Oracle scripts:
+This is an example of a ZIP file structure that contains Oracle scripts:
 
 	|__ 01-CreateTable.sql
 	|
@@ -169,7 +175,7 @@ The `02-CreateUser.sql` script can use its dependencies or common dependencies a
 	@02-CreateUser/create_power_users.sql
 	COMMIT;
 
-**Note:** The syntax for including the dependent scripts varies between databases. For example, Microsoft SQL databases use `include <script file name>`.
+**Note:** The syntax for including the dependent scripts varies among database types. For example, Microsoft SQL databases use `include <script file name>`.
 
 ### Updating dependencies
 
@@ -188,12 +194,3 @@ Using the example above, assume that `create_admin_users.sql` has been modified 
 * DB/2
 
 When SQL scripts are deployed to an SQL client, each script to be executed is run against the SQL client in turn. The SQL client can be configured with a username and password that is used to connect to the database. The credentials can be overridden on each SQL script if required.
-
-## Use in deployment packages
-
-The following is a manifest snippet that shows how SQL file and folder CIs can be included in a deployment package. The SQL scripts CI refers to a folder, `sql`, in the deployment package.
-
-    <udm.DeploymentPackage version="2.0" application="PetClinic-ear">
-        <jee.Ear name="PetClinic" file="PetClinic-2.0.ear"/>
-    	<sql.SqlScripts name="sql" file="sql" />
-    </udm.DeploymentPackage>
