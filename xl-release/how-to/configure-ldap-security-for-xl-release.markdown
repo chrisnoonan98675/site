@@ -105,7 +105,8 @@ Update `xl-release-security.xml` with information about your LDAP setup:
 
 After you enter your values, restart the XL Release server. Add the user and group as principals in the XL Release interface and assign them permission to log in.
 
-**Tip:** Use an LDAP browser such as [JXplorer](http://jxplorer.org/) to verify that the credentials are correct.
+**Tip:** Below we provide a concrete example how a possible LDAP configuration could look like.
+**Tip:** Use an LDAP browser such as [JXplorer](http://jxplorer.org/) to verify that the credentials are correct. 
 
 ## Escaping special characters
 
@@ -119,6 +120,62 @@ Because `xl-release-security.xml` is an XML file, you must escape certain charac
 | `'` | `&apos;` |
 | `<` | `&lt;` |
 | `>` | `&gt;` |
+
+## Example: Allow users of a certain group to login only
+For convenience we provide a filled in security.xml to show you how this could work. Like the template description above, the interesting bits have been marked.
+
+
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+    "&gt;
+    &lt;bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/&gt;
+    &lt;security:authentication-manager alias="authenticationManager"&gt;
+        &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt;
+        &lt;!--     &lt;security:authentication-provider ref="xlAuthenticationProvider"/&gt;--&gt;
+        &lt;security:authentication-provider ref="ldapProvider" /&gt;
+    &lt;/security:authentication-manager&gt;
+    &lt;bean id="ldapServer" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource"&gt;
+        &lt;constructor-arg value="<mark>ldap://192.168.0.1:389</mark>" /&gt;
+        &lt;property name="userDn" value="<mark>cn=admin,dc=test,dc=com</mark>" /&gt;
+        &lt;property name="password" value="<mark>myPassword</mark>" /&gt;
+        &lt;property name="baseEnvironmentProperties"&gt;
+            &lt;map&gt;
+                &lt;entry key="java.naming.referral" value="ignore"/&gt;
+            &lt;/map&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+    &lt;bean id="ldapUserSearch" class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch"&gt;
+        &lt;constructor-arg index="0" value="dc=test,dc=com"/&gt;
+        <mark>&lt;!-- Use this LDAP filter query to allow only users from a specific Organisational Unit --&gt</mark>
+        &lt;constructor-arg index="1" value="<mark>(&amp;(objectclass=posixAccount)(entryDN=cn={0},cn=MY_AD_GROUP,ou=Security,ou=Groups,ou=France,ou=Regions,dc=test,dc=com)</mark>"/&gt;
+        &lt;constructor-arg index="2" ref="ldapServer"/&gt;
+    &lt;/bean&gt;
+    &lt;bean id="ldapProvider" class="com.xebialabs.xlrelease.security.authentication.LdapAuthenticationProvider"&gt;
+        &lt;constructor-arg&gt;
+            &lt;bean class="org.springframework.security.ldap.authentication.BindAuthenticator"&gt;
+                &lt;constructor-arg ref="ldapServer" /&gt;
+                &lt;property name="userSearch" ref="ldapUserSearch"/&gt;
+            &lt;/bean&gt;
+        &lt;/constructor-arg&gt;
+        &lt;constructor-arg&gt;
+            &lt;bean class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator"&gt;
+                &lt;constructor-arg ref="ldapServer" /&gt;
+                <mark>&lt;!-- Do note that this filter is used for authorities, not logging in --&gt</mark>
+                &lt;constructor-arg value="<mark>dc=test,dc=com</mark>" /&gt;
+                &lt;property name="groupSearchFilter" value="<mark>(&amp;(objectclass=group)(member={0}))</mark>" /&gt;
+                &lt;property name="rolePrefix" value="" /&gt;
+                &lt;property name="searchSubtree" value="true" /&gt;
+                &lt;property name="convertToUpperCase" value="false" /&gt;
+            &lt;/bean&gt;
+        &lt;/constructor-arg&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;
+</pre>
 
 ## Assign a default role to all authenticated users
 
