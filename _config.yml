@@ -26,7 +26,7 @@ gems:
   - jekyll-seo-tag
 
 jira_dashboard:
-  generate: false
+  generate: true
   data_file: '' # '_data/development_status.yaml' use for testing purposes
   dir: 'tracker'
   jira_url: 'https://xebialabs.atlassian.net/rest/api/2'
