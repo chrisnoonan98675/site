@@ -122,8 +122,11 @@ Because `xl-release-security.xml` is an XML file, you must escape certain charac
 | `>` | `&gt;` |
 
 ## Example: Allow users of a certain group to login only
-For convenience we provide a filled in security.xml to show you how this could work. Like the template description above, the interesting bits have been marked.
+For convenience we provide a filled in security.xml to show you how this could work. 
 
+Like the template description above, the interesting bits have been marked.
+
+Do note that this is based on an [openldap](http://www.openldap.org/) implementation. Filter queries may differ based on your ldap setup and vendor.
 
 <pre>
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
@@ -151,7 +154,7 @@ For convenience we provide a filled in security.xml to show you how this could w
     &lt;/bean&gt;
     &lt;bean id="ldapUserSearch" class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch"&gt;
         &lt;constructor-arg index="0" value="dc=test,dc=com"/&gt;
-        <mark>&lt;!-- Use this LDAP filter query to allow only users from a specific Organisational Unit --&gt</mark>
+        <mark>&lt;!-- Use this LDAP filter query to allow only users from a specific Organisational Unit --&gt;</mark>
         &lt;constructor-arg index="1" value="<mark>(&amp;(objectclass=posixAccount)(entryDN=cn={0},cn=MY_AD_GROUP,ou=Security,ou=Groups,ou=France,ou=Regions,dc=test,dc=com)</mark>"/&gt;
         &lt;constructor-arg index="2" ref="ldapServer"/&gt;
     &lt;/bean&gt;
@@ -165,7 +168,7 @@ For convenience we provide a filled in security.xml to show you how this could w
         &lt;constructor-arg&gt;
             &lt;bean class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator"&gt;
                 &lt;constructor-arg ref="ldapServer" /&gt;
-                <mark>&lt;!-- Do note that this filter is used for authorities, not logging in --&gt</mark>
+                <mark>&lt;!-- Do note that this filter is used for authorities, not logging in --&gt;</mark>
                 &lt;constructor-arg value="<mark>dc=test,dc=com</mark>" /&gt;
                 &lt;property name="groupSearchFilter" value="<mark>(&amp;(objectclass=group)(member={0}))</mark>" /&gt;
                 &lt;property name="rolePrefix" value="" /&gt;
