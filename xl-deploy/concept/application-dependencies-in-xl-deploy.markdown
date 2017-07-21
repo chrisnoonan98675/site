@@ -35,8 +35,6 @@ Some examples of deployment package names that use the SemVer scheme are:
 * 1.0.0
 * 1.0.0-alpha
 * 1.0.0-alpha.1
-* 1.0.0-0.3.7
-* 1.0.0-x.7.z.92
 
 ## Version ranges
 
