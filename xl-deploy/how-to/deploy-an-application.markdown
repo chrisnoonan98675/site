@@ -55,6 +55,10 @@ To deploy an application to an environment:
 
 As of XL Deploy 7.1.0, you can deploy the latest version of an application. Expand **Applications** in the left pane, hover over the desired application, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Deploy latest**.
 
+**Note:** The deployment packages in XL Deploy are sorted using [Semantic Versioning (SemVer) 2.0.0](http://semver.org/) and lexicographically. The packages that are defined using SemVer are displayed first and other packages are sorted in lexicographical ordering.
+
+When you want to deploy the [latest version of an application](/xl-deploy/latest/udmcireference.html#udmapplication), XL Deploy selects the last version of the deployment package from the list of sorted packages.
+
 ### Mapping deployables using the default GUI
 
 * You can manually map a specific deployable by dragging it from the left side and dropping it on a specific container in the deployment execution screen. The cursor will indicate whether it is possible to map the deployable type to the container type.        
