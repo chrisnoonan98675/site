@@ -31,3 +31,15 @@ To view the deployment pipeline of an application:
 **Note:** Click **Refresh** to retrieve the latest data from the server.
 
 You can search for an environment by name in the deployment pipeline.
+
+## View environment information
+
+For each environment in the deployment pipeline of an application you can view valuable information:
+
+* A drop down list of all the deployment or provisioning package versions for the selected application
+* Data about the last deployment of the application to this environment
+* To view the [deployment checklist items](/xl-deploy/how-to/create-a-deployment-checklist.html), click the **Deployment checklist** button
+
+  **Note:** When you select a package form the drop down list, XL Deploy verifies if there is a deployment checklist for the selected package and environment. If you click **Deployment checklist**, the checklist items are shown and you can change the status of the items in the list. If all the checklist items are satisfied, the **Deploy** button is enabled.  
+
+* To upgrade or downgrade the selected application, click **Deploy** and follow the instructions on the screen
