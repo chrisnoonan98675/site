@@ -135,11 +135,11 @@ xld {
 }
 {% endhighlight %}
 
-## Export environment as an Xfile
+## Generate an environment as an Xfile
 
-To export an environment as an Xfile, you must have the *export#dsl* [local permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html).
+To generate an environment as an Xfile, you must have the *export#dsl* [local permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html).
 
-There are multiple options to export an environment from XL Deploy.
+There are multiple options to generate an environment from XL Deploy.
 
 ### Using the Command Line (CLI)
 
@@ -156,15 +156,18 @@ To generate multiple directories and print the Groovy code to an Xfile:
 
 ### Using the XL Deploy default GUI
 
-## Import environment from an Xfile
+1. Expand **Environments** or **Infrastructure** from the left pane.
+1. Hover over a dictionary, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Generate**.  
 
-To import an environment as an Xfile, you must have the *repo#edit* [local permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html).
+## Apply an environment from an Xfile
 
-There are multiple options to import an environment to XL Deploy.
+To apply an environment as an Xfile, you must have the *repo#edit* [local permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html).
+
+There are multiple options to apply an environment to XL Deploy.
 
 ### Using the Command Line (CLI)
 
-To import an Xfile via the CLI:
+To apply an Xfile via the CLI:
 
     from java.io import File
     repository.applyDsl(File("/path/to/file.groovy"))
