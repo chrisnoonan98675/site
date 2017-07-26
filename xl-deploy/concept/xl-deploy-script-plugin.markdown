@@ -15,7 +15,7 @@ The XL Deploy Script plugin enables XL Deploy to install and provision scripts o
 
 The plugin introduces a new *provisioner* that can run an arbitrary script file based on any `interpreter` after the environment is set up.
 
-The `interpreter` (examples: shell, perl, awk, python) which will be run by the program loader, must exist on the host before executing it.
+The [interpreter](http://tldp.org/LDP/abs/html/sha-bang.html) (examples: shell, perl, awk, python) which will be run by the program loader, must exist on the host before executing it.
 
 For more information about requirements and the configuration items (CIs) that the Script plugin provides, refer to the [Script Plugin Reference](/xl-deploy-xld-script-plugin/latest/scriptPluginManual.html).
 
