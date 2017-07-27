@@ -143,7 +143,7 @@ There are multiple options to generate an environment from XL Deploy.
 
 ### Using the Command Line (CLI)
 
-To generate multiple directories and print the Groovy code to the CLI:
+To generate multiple directories and display the Groovy code in the console:
 
     repository.generateDsl(["Infrastructure/MyInfra","/Infrastructure/Experimental"])
 
@@ -157,7 +157,7 @@ To generate multiple directories and print the Groovy code to an Xfile:
 ### Using the XL Deploy default GUI
 
 1. Expand **Environments** or **Infrastructure** from the left pane.
-1. Hover over a dictionary, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Generate**.  
+1. Hover over a dictionary, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Generate**. A `.groovy` file is generated and saved on your local machine.
 
 ## Apply an environment from an Xfile
 
