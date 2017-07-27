@@ -57,6 +57,8 @@ As of XL Deploy 7.1.0, you can deploy the latest version of an application. Expa
 
 **Note:** The deployment packages in XL Deploy are sorted using [Semantic Versioning (SemVer) 2.0.0](http://semver.org/) and lexicographically. The packages that are defined using SemVer are displayed first and other packages are sorted in lexicographical ordering.
 
+The change in sorting deployment packages applies as of XL Deploy 7.1.0. After upgrading to XL Deploy version 7.1.0, the deployment packages will still be sorted lexicographically. You must create a new package for an application to apply the new method that includes both SemVer and lexicographical sorting.
+
 When you want to deploy the [latest version of an application](/xl-deploy/latest/udmcireference.html#udmapplication), XL Deploy selects the last version of the deployment package from the list of sorted packages.
 
 #### Example of deployment package sorting
