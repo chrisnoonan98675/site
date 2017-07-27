@@ -57,6 +57,7 @@
 /xl-deploy/latest/powershellPluginManual.html : /xl-deploy/7.0.x/powershellPluginManual.html
 /xl-deploy/latest/pythonPluginManual.html : /xl-deploy/7.0.x/pythonPluginManual.html
 /xl-deploy/latest/remotingPluginManual.html : /xl-deploy/7.0.x/remotingPluginManual.html
+/xl-deploy-xld-script-plugin/latest/scriptPluginManual.html : /xl-deploy-xld-script-plugin/7.0.x/scriptPluginManual.html
 /xl-deploy/latest/webserverPluginManual.html : /xl-deploy/7.0.x/webserverPluginManual.html
 /xl-deploy/latest/triggerPluginManual.html : /xl-deploy/7.0.x/triggerPluginManual.html
 
