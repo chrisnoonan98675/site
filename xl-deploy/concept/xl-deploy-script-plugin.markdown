@@ -3,7 +3,7 @@ title: Introduction to the XL Deploy Script plugin
 categories:
 - xl-deploy
 subject:
-- Script
+- Bundled plugins
 tags:
 - provisioning
 - plugin
