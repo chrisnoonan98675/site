@@ -57,10 +57,10 @@ To filter on dates, use the **From** and **To** options.
 
 ## Ordering tasks
 
-To order tasks within releases you can do so by clicking on the order options at the right of the filter options.
+To order tasks within releases, click on the order options at the right of the filter options.
 
-* **None** Order tasks by their ID (usual behavior)
+* **None** Order tasks by their ID (default behavior)
 * **Task start date** Order tasks by their task start date
-* **Task due date** Order tasks by their due date.
+* **Task due date** Order tasks by their due date
 
-Using ordering you can bring up tasks that need your attention right away.
+Using task ordering you can bring up the tasks that need your attention right away.
