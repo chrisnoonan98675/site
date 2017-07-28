@@ -20,3 +20,5 @@ To assign a satellite to a host in XL Deploy:
 3. Under **Advanced**, select the satellite server from the list.
 
     ![image](images/attach-a-satellite.png)
+
+**Note:** You can only assign a satellite to one host at a time. If you try to assign the same satellite to multiple hosts, the deployments will fail.
