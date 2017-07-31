@@ -16,6 +16,8 @@ A Groovy Script task contains a [Groovy script](http://www.groovy-lang.org/) tha
 
 ![Goovy Script Task Details](../images/groovy-script-task.png)
 
+**Note:** The output of the remote script task is in markdown format. For more information, refer to [Using Markdown in XL Release](/xl-release/how-to/using-markdown-in-xl-release.html).
+
 In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), Groovy Script tasks have a gray border.
 
 ## Variables and public API access

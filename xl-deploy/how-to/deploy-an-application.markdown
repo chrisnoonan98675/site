@@ -147,7 +147,7 @@ In some cases, you can click **Continue** to retry the failed step. If the step 
 
 ## Rollback a deployment
 
-To rollback a deployment that is in an `ABORTED`, `FAILED`, `STOPPED`, or `EXECUTED` state, click **Rollback** on the deployment plan.
+To rollback a deployment that is in a `STOPPED`or `EXECUTED` state, click **Rollback** on the deployment plan.
 
 You can perform one of three actions:
 1. Select **Rollback** to open the rollback execution window and start executing the plan.

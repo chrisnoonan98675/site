@@ -40,7 +40,7 @@ The [Jython Script task type](/xl-release/how-to/create-a-script-task.html) allo
 
 The scripting language used is [Jython](http://www.jython.org/), which is a [Python](https://www.python.org/) dialect that runs on the Java VM. XL Release 4.6.x and earlier uses Jython 2.5, while XL Release 4.7.0 and later uses Jython 2.7. Because it runs on a Java VM, the complete API of Java 7 can also be used.
 
-Jython Script tasks have access to the XL Release through the [XL Release Jython API](/jython-docs/#!/xl-release/6.1.x/). This API is equivalent to the REST API.
+Jython Script tasks have access to the XL Release through the [XL Release Jython API](/xl-release/latest/jython-api/index.html). This API is equivalent to the REST API.
 
 ### Plugin tasks
 

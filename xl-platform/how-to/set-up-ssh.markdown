@@ -102,6 +102,23 @@ Note that:
 * HTTP proxies cannot refer to other proxies or to SSH jumpstations like SSH jumpstations can. Only the first host in the chain can be an HTTP proxy.
 * Because XL Deploy cannot transfer files through a jumpstation, the *Check connection* control task will fail when it attempts to verify file transfer.
 
+### How to reach a Key Distribution Centre (KDC) through an SSH jumpstation
+
+When XL Deploy must communicate with a target host on Windows and when Kerberos, SSH, and a SSH jumpstation are in use, to allow XL Deploy to communicate with the KDC to retrieve a ticket from Kerberos, you must manually perform these actions:
+
+1. Start a SSH tunnel to the jumpstation with the `-L` option of the SSH command line tool:
+
+        $ ssh -L 2088:kdcl.windows.example.com:88
+
+    Kerberos runs on port 88 on both UDP and TCP.
+
+1. Modify your `krb5.conf` file to use the specified tunnel:
+
+        [realms]
+        XEBIALABS.LOCAL = {
+              kdc = localhost:2088
+        }
+
 ## Connect XL Release through a jumpstation or HTTP proxy
 
 When XL Release cannot reach a remote host directly, but that host can be reached via one or more SSH tunnels or HTTP proxies, you can configure these as follows:

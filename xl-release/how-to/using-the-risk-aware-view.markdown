@@ -14,13 +14,17 @@ since:
 
 XL Release calculates a risk level for each release based on different factors such as flags, failed or failing states, or due dates. This allows you to see which releases have a high risk level so you can take the appropriate actions.
 
-You can see if a release has a high risk level in the [release overview](/xl-release/how-to/using-the-release-overview.html). An icon next to the release indicates the risk level. Click the icon to see the detailed risk information.
+You can see if a release has a high risk level in the [release overview](/xl-release/how-to/using-the-release-overview.html). An icon next to the release indicates the risk level.
 
 ![image](/images/at-risk.png) - Shows **At risk** state, the reason (Example: `Release has tasks flagged as red.`), and a message (Example: `Task name: Flag comment`)
 
 ![image](/images/attention-needed.png) - Shows **Attention needed** state, the reason (Example: `Release has tasks flagged as amber.`), and a message (Example: `Task name: Flag comment`)
 
 ![image](/images/on-track.png) - Shows **On track** state - The release is on track.
+
+Click the icon to see the detailed risk information and the risk score.
+
+![image](../images/risk-information.png)
 
 ## Risk assessors
 
@@ -37,7 +41,7 @@ The risk assessors used to calculate the risk level of a release are the followi
 
 {:.table table-striped}
 | Flag | Score |
-| ----- | ----------- |
+| ---- | ----- |
 | Red | 50 - 100 |
 | Amber | 10 -49 |
 | Green | < 10 |
@@ -46,7 +50,7 @@ The risk assessors used to calculate the risk level of a release are the followi
 
 {:.table table-striped}
 | Risk assessor | Score |
-| ----- | ----------- |
+| ------------- | ----- |
 | Release flags | Red - 80 |
 | | Amber - 30 |
 | Release state | Failed - 90 |

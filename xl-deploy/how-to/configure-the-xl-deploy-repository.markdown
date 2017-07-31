@@ -51,6 +51,10 @@ There are no requirements for the character set of the database.
 
 To use XL Deploy with [MySQL](http://www.mysql.com/), ensure that the [JDBC driver for MySQL](http://dev.mysql.com/downloads/connector/j/) JAR file is located in `XL_DEPLOY_SERVER_HOME/lib` or on the Java classpath.
 
+Make sure the userid accessing the MySQL database has been granted the following permissions:
+* GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, and INDEX on `dbname`.* to *dbuser*@*host* for database initialization and for XL Deploy version upgrades
+* GRANT SELECT, INSERT, UPDATE, and DELETE on `dbname`.* to *dbuser*@*host* for ongoing usage
+
 This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for MySQL:
 
 {% highlight xml %}
@@ -277,7 +281,7 @@ This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configur
         </FileSystem>
 
         <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.OraclePersistenceManager">
-            <param name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+            <param name="driver" value="oracle.jdbc.OracleDriver"/>
             <param name="url" value="jdbc:oracle:thin:@ABCD1234:1522/XLD"/>
             <param name="databaseType" value="oracle" />
             <param name="user" value="deployit" />
@@ -302,7 +306,7 @@ This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configur
         </FileSystem>
 
         <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.OraclePersistenceManager">
-            <param name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+            <param name="driver" value="oracle.jdbc.OracleDriver"/>
             <param name="url" value="jdbc:oracle:thin:@ABCD1234:1522/XLD"/>
             <param name="databaseType" value="oracle" />
             <param name="user" value="deployit" />
@@ -410,6 +414,70 @@ This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configur
 {% endhighlight %}
 
 For more information about SQL Server configuration for Jackrabbit, refer to the [Jackrabbit wiki](http://wiki.apache.org/jackrabbit/DataStore#Database_Data_Store). For information about the `MSSqlPersistenceManager` class, refer to the [Jackrabbit documentation](http://jackrabbit.apache.org/api/2.2/org/apache/jackrabbit/core/persistence/db/MSSqlPersistenceManager.html).
+
+## Use XL Deploy with PostgreSQL
+
+This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [PostgreSQL](https://www.postgresql.org/) database:
+
+{% highlight xml %}
+<Repository>
+    <DataSources>
+        <DataSource name="ds1">
+            <param name="driver" value="org.postgresql.Driver" />
+            <param name="url" value="jdbc:postgresql://*host*:*port*/*database*" />
+            <param name="user" value="xld_user" />
+            <param name="password" value="test" />
+            <param name="databaseType" value="postgresql" />
+            <param name="maxPoolSize" value="100" />
+        </DataSource>
+    </DataSources>
+
+    <FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">
+        <param name="path" value="${rep.home}/repository" />
+    </FileSystem>
+
+    <DataStore class="org.apache.jackrabbit.core.data.FileDataStore" />
+
+    <Security appName="Jackrabbit">
+        <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
+        <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
+
+        <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
+            <param name="anonymousId" value="anonymous" />
+            <param name="adminId" value="jcr_admin" />
+        </LoginModule>
+    </Security>
+
+    <Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
+
+    <Workspace name="${wsp.name}">
+        <FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">
+            <param name="path" value="${wsp.home}" />
+        </FileSystem>
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.PostgreSQLPersistenceManager">
+            <param name="dataSourceName" value="ds1" />
+            <param name="schemaObjectPrefix" value="${wsp.name}_" />
+        </PersistenceManager>
+        <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
+            <param name="path" value="${wsp.home}/index" />
+        </SearchIndex>
+    </Workspace>
+
+    <Versioning rootPath="${rep.home}/version">
+        <FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">
+            <param name="path" value="${rep.home}/version" />
+        </FileSystem>
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.PostgreSQLPersistenceManager">
+            <param name="dataSourceName" value="ds1" />
+            <param name="schemaObjectPrefix" value="pm_ver_" />
+        </PersistenceManager>
+    </Versioning>
+
+    <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
+        <param name="path" value="${rep.home}/repository/index" />
+    </SearchIndex>
+</Repository>
+{% endhighlight %}
 
 ### Moving the database or changing settings
 

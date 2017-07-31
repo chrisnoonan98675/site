@@ -6,7 +6,9 @@ The archive allows you to access documentation about product versions that are n
 
 ## XL Deploy
 
+* [XL Deploy 6.2.x](/xl-deploy/6.2.x/)
 * [XL Deploy 6.1.x](/xl-deploy/6.1.x/)
+* [XL Deploy 5.1.x](/xl-deploy/5.1.x/)
 * [XL Deploy 5.0.x](/xl-deploy/5.0.x/)
 * [XL Deploy 4.5.x](/xl-deploy/4.5.x/)
 * [XL Deploy 4.0.x](/xl-deploy/4.0.x/)
@@ -14,6 +16,7 @@ The archive allows you to access documentation about product versions that are n
 
 ## XL Release
 
+* [XL Release 6.2.x](/xl-release/6.2.x/)
 * [XL Release 6.1.x](/xl-release/6.1.x/)
 * [XL Release 4.7.x](/xl-release/4.7.x/)
 * [XL Release 4.6.x](/xl-release/4.6.x/)

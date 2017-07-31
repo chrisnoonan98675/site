@@ -116,6 +116,29 @@ This is the structure of the `build` directory in the Jenkins workspace folder:
 
 Note that the path of the file specified in the manifest file is `libs/PetClinic.war`; this is relative to the artifact path that is specified in the pipeline configuration. All artifacts should be placed at the same relative path on the disk as specified in the manifest file. The package will only contain the artifacts that are defined in `deployit-manifest.xml`.
 
+### Deploy the same package to two XL Deploy instances
+
+You can publish the same deployment package using one job to two XL Deploy instances to avoid duplicate builds.
+
+1. Install the XL Deploy plugin version 6.1.0 or higher in Jenkins.
+1. Create a Jenkins Pipeline project.
+1. Create a Jenkinsfile and with this content:
+
+       code {
+          stage('Publish') {  
+            xldPublishPackage serverCredentials: 'xld-admin',   darPath: 'app_new-1.0.dar'
+            }
+          stage('Publish') {  
+            xldPublishPackage serverCredentials: 'xld2', darPath: 'app_new-1.0.dar'
+          }
+          stage('Deploy') {  
+            xldDeploy serverCredentials: 'xld-admin', environmentId: 'Environments/env', packageId: 'Applications/app_new/1.0'
+          }
+          stage('Deploy') {  
+            xldDeploy serverCredentials: 'xld2', environmentId: 'Environments/env', packageId: 'Applications/app_new/1.0'
+          }
+        }
+
 ## Release notes
 
 ### Version 6.1.1

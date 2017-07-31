@@ -8,7 +8,6 @@
   installation-link: /xl-deploy/how-to/install-xl-deploy.html
   versions:
     - 7.0.x
-    - 6.2.x
     - 6.0.x
     - 5.5.x
     - 5.1.x
@@ -19,7 +18,6 @@
   installation-link: /xl-release/how-to/install-xl-release.html
   versions:
     - 7.0.x
-    - 6.2.x
     - 6.0.x
     - 5.0.x
     - 4.8.x

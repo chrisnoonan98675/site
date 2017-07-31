@@ -33,4 +33,4 @@ You create endpoints on a per-project basis. To create an XL Deploy endpoint:
 
 Now you can refer to this endpoint from an XL Deploy build task.
 
-For more information, refer to [Introduction to the Team Foundation Server 2015 plugin](/xl-deploy/concept/tfs-2015-plugin.html).
+For more information, refer to [Introduction to the VSTS/TFS plugin](/xl-deploy/concept/team-foundation-server-2015-plugin.html).

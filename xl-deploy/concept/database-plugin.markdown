@@ -30,6 +30,62 @@ A rollback script **must** have the same name as the installation script it is a
 
 **Important:** In XL Deploy 4.5.x and earlier, if a script fails and you perform a rollback, XL Deploy executes *all* rollback scripts, not only the rollback scripts that correspond to the installation scripts that were successfully executed. In XL Deploy 5.0.0 and later, XL Deploy tracks which installation scripts were executed successfully and *only* executes their associated rollback scripts. Refer to [Extend the XL Deploy Database plugin](/xl-deploy/how-to/extend-the-xl-deploy-database-plugin.html) for information about rollback behavior for custom CI types that are based on `sql.SqlScripts`.
 
+### Sample ZIP file structure
+
+This is an example of the structure of a ZIP file that contains SQL scripts:
+
+	|__ deployit-manifest.xml
+	|
+	|__ sql
+		|
+		|__ 01-create-tableA-rollback.sql
+		|
+		|__ 01-create-tableA.sql
+		|
+		|__ 01-create-tableZ-rollback.sql
+		|
+		|__ 01-create-tableZ.sql
+		|
+		|__ 02-create-tableA-view.sql
+		|
+		|__ 02-create-tableZ-view.sql
+		|
+		|__ 03-INSERT-tableA-data.sql
+
+The content of the `deployit-manifest.xml` file is:
+
+{% highlight xml %}
+<udm.DeploymentPackage version="1.1" application="acme-app">
+  <deployables>
+    <sql.SqlScripts name="sql" file="sql"/>
+  </deployables>
+</udm.DeploymentPackage>
+{% endhighlight %}
+
+As of XL Deploy 7.0.0, you can also provide a ZIP file that contains SQL scripts:
+
+	Archive:  sql.zip
+
+	    testing: 01-create-tableA-rollback.sql   OK
+	    testing: 01-create-tableA.sql            OK
+	    testing: 01-create-tableZ-rollback.sql   OK
+	    testing: 01-create-tableZ.sql            OK
+	    testing: 02-create-tableA-view.sql       OK
+	    testing: 02-create-tableZ-view.sql       OK
+	    testing: 03-INSERT-tableA-data.sql       OK
+
+With the following `deployit-manifest.xml` file content:
+
+{% highlight xml %}
+<udm.DeploymentPackage version="1.1" application="acme-app">
+  <deployables>
+    <sql.SqlScripts name="sql" file="sql.zip"/>
+  </deployables>
+</udm.DeploymentPackage>
+{% endhighlight %}
+
+**Note:** If the ZIP file contains a subdirectory, the SQL scripts will not be executed.		
+
 ## Naming SQL scripts
 
 XL Deploy uses a regular expression to identify SQL scripts. The regular expression is defined by the `scriptRecognitionRegex` and `rollbackScriptRecognitionRegex` properties of the `sql.ExecutedSqlScripts` CI.
@@ -52,7 +108,21 @@ SQL scripts are ordered lexicographically based on their file names. This is a s
 * `9-create-user-index.sql`
 * `9-create-user-index-rollback.sql`
 
-Note that in this example, the tenth script, `10-drop-user-index.sql` would be incorrectly executed after the first script, `1-create-user-table.sql`.
+**Important:** In this example, the tenth script, `10-drop-user-index.sql` would be incorrectly executed after the first script, `1-create-user-table.sql`.
+
+To execute the scripts in a correct order, make sure you add prefix to your script names accordingly using `01-`, `02-` instead of `1-`, `2-`.
+
+For example:
+
+* `01-create-user-table.sql`
+* `01-create-user-table-rollback.sql`
+* `02-insert-user.sql`
+* `02-insert-user-rollback.sql`
+* `...`
+* `09-create-user-index.sql`
+* `09-create-user-index-rollback.sql`
+* `10-drop-user-index.sql`
+* `10-drop-user-index-rollback.sql`
 
 ## Upgrading SQL scripts
 
@@ -72,10 +142,8 @@ Common dependencies that are placed in a sub-folder called `common` are availabl
 
 ### Dependencies example
 
-For example, this is a ZIP file containing Oracle scripts:
+This is an example of a ZIP file structure that contains Oracle scripts:
 
-	mysqlfolder
-	|
 	|__ 01-CreateTable.sql
 	|
 	|__ 02-CreateUser.sql
@@ -107,7 +175,7 @@ The `02-CreateUser.sql` script can use its dependencies or common dependencies a
 	@02-CreateUser/create_power_users.sql
 	COMMIT;
 
-**Note:** The syntax for including the dependent scripts varies between databases. For example, Microsoft SQL databases use `include <script file name>`.
+**Note:** The syntax for including the dependent scripts varies among database types. For example, Microsoft SQL databases use `include <script file name>`.
 
 ### Updating dependencies
 
@@ -126,12 +194,3 @@ Using the example above, assume that `create_admin_users.sql` has been modified 
 * DB/2
 
 When SQL scripts are deployed to an SQL client, each script to be executed is run against the SQL client in turn. The SQL client can be configured with a username and password that is used to connect to the database. The credentials can be overridden on each SQL script if required.
-
-## Use in deployment packages
-
-The following is a manifest snippet that shows how SQL file and folder CIs can be included in a deployment package. The SQL scripts CI refers to a folder, `sql`, in the deployment package.
-
-    <udm.DeploymentPackage version="2.0" application="PetClinic-ear">
-    	<jee.Ear name="PetClinic" file="PetClinic-2.0.ear"/>
-    	<sql.SqlScripts name="sql" file="sql" />
-    </udm.DeploymentPackage>

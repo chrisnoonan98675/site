@@ -32,7 +32,7 @@ When a deployment fails, you have several options in the XL Deploy GUI:
 
 The first two options (continuing the deployment and rolling it back) leave the system in a known state. The final two options require an administrator to ensure that the target environment is restored to the expected state.
 
-To fully automate rollback behavior, the failure modes and desired state must be known. A tool such as XL Release can be set up to provide an automated route to a known state. The [XL Deploy plugin for XL Release](https://github.com/xebialabs-community/xlr-xldeploy-plugin) provides fine-grained control of deployment actions which cater for many failure scenarios.
+To fully automate rollback behavior, the failure modes and desired state must be known. A tool such as XL Release can be set up to provide an automated route to a known state. Both the official [XL Deploy plugin for XL Release](/xl-release/how-to/xld-plugin.html) that is part of the bundled plugins and the community supported [XL Deploy community plugin for XL Release](https://github.com/xebialabs-community/xlr-xldeploy-plugin) provide fine-grained control of deployment actions which cater for many failure scenarios.
 
 The alternative is a "fix-forward" approach in which a subsequent release of the software is deployed successfully, taking the environment to an even later version of the application.
 
@@ -56,26 +56,26 @@ After the release reaches the task and XL Deploy starts executing the deployment
 
 The `script_output.log` file attached to the task shows the following log messages:
 
-	Upgrading deployment 
-	Mapping all deployables 
-	Creating a deployment task 
+	Upgrading deployment
+	Mapping all deployables
+	Creating a deployment task
 	Execute task with id: 95223aae-0e6c-45bf-9abe-fed0587a5892
-	Task 95223aae-0e6c-45bf-9abe-fed0587a5892 now in state EXECUTING 
-	Task 95223aae-0e6c-45bf-9abe-fed0587a5892 now in state FAILED 
-	Task 95223aae-0e6c-45bf-9abe-fed0587a5892 now in state EXECUTING 
-	Task 95223aae-0e6c-45bf-9abe-fed0587a5892 now in state FAILED 
-	Task 95223aae-0e6c-45bf-9abe-fed0587a5892 now in state EXECUTING 
-	Task 95223aae-0e6c-45bf-9abe-fed0587a5892 now in state FAILED 
-	Task 95223aae-0e6c-45bf-9abe-fed0587a5892 now in state EXECUTING 
-	Task 95223aae-0e6c-45bf-9abe-fed0587a5892 now in state FAILED 
-	
+	Task 95223aae-0e6c-45bf-9abe-fed0587a5892 now in state EXECUTING
+	Task 95223aae-0e6c-45bf-9abe-fed0587a5892 now in state FAILED
+	Task 95223aae-0e6c-45bf-9abe-fed0587a5892 now in state EXECUTING
+	Task 95223aae-0e6c-45bf-9abe-fed0587a5892 now in state FAILED
+	Task 95223aae-0e6c-45bf-9abe-fed0587a5892 now in state EXECUTING
+	Task 95223aae-0e6c-45bf-9abe-fed0587a5892 now in state FAILED
+	Task 95223aae-0e6c-45bf-9abe-fed0587a5892 now in state EXECUTING
+	Task 95223aae-0e6c-45bf-9abe-fed0587a5892 now in state FAILED
+
 	... DEPLOYMENT STEPS SHOWN HERE ...      
-	
-	Going to rollback 
-	
-	Task 0f2818c2-2595-4c86-acd9-89b570bdd23a now in state EXECUTING 
-	
-	Task 0f2818c2-2595-4c86-acd9-89b570bdd23a now in state EXECUTED 
+
+	Going to rollback
+
+	Task 0f2818c2-2595-4c86-acd9-89b570bdd23a now in state EXECUTING
+
+	Task 0f2818c2-2595-4c86-acd9-89b570bdd23a now in state EXECUTED
 
 This leaves the target environment in its original state, with PetPortal 1.0 deployed:
 

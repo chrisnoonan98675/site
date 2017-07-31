@@ -139,7 +139,7 @@ This is an example of the `xl.repository` configuration for a stand-alone databa
                 maxPoolSize = 20
             }
             jackrabbit {
-                artifacts.location="repository"
+                artifacts.location="/mnt/nfs"
                 bundleCacheSize = 128
             }
         }
@@ -155,9 +155,7 @@ This is an example of the `xl.repository` configuration for a stand-alone databa
 
 All active/hot-standby configuration settings must be provided in the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file, which uses the [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format. In this file on one node:
 
-1. Enable clustering by:
-    * Setting `xl.cluster.enabled` to `true`
-    * Setting `xl.cluster.mode` to `hot-standby`
+1. Enable clustering by setting `xl.cluster.mode` to `hot-standby`.
 1. Set `xl.repository.configuration` to the appropriate `<database>-cluster` option from [Configure the repository database](#configure-the-repository-database). Do not change the `xl.repository.persistence` options that you have already configured.
 1. Set `xl.repository.jackrabbit.artifacts.location` to a shared filesystem (such as NFS) that all nodes can access. This is required for storage of binary data (artifacts).
 1. Define ports for different types of incoming TCP connections in the `xl.cluster.node` section:
@@ -210,8 +208,6 @@ This is a sample `xl-release.conf` configuration for one node that uses a MySQL 
         cluster {
             # xl.cluster.mode: "default", "hot-standby"
             mode=hot-standby
-            # xl.cluster.enabled - true or false
-            enabled=true
             # xl.cluster.name - name of the cluster
             name="xlr_cluster"
             # xl.cluster.node - this cluster node specific parameters

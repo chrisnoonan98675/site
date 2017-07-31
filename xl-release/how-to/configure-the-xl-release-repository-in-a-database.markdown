@@ -53,76 +53,78 @@ However, if you are using XL Release 6.0.0 or later, you can take advantage of c
 This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [MySQL](http://www.mysql.com/):
 
 {% highlight xml %}
-<Security appName="Jackrabbit">
-    <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
-    <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
-    <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
-        <param name="anonymousId" value="anonymous" />
-        <param name="adminId" value="admin" />
-    </LoginModule>
-</Security>
+<Repository>
+    <Security appName="Jackrabbit">
+        <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
+        <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
+        <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
+            <param name="anonymousId" value="anonymous" />
+            <param name="adminId" value="admin" />
+        </LoginModule>
+    </Security>
 
-<FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
-    <param name="driver" value="com.mysql.jdbc.Driver"/>
-    <param name="url" value="jdbc:mysql://localhost:3306/xlrelease"/>
-    <param name="schemaObjectPrefix" value="rep_" />
-    <param name="schema" value="mysql" />
-    <param name="user" value="xlrelease" />
-    <param name="password" value="XL Release" />
-</FileSystem>
-
-<DataStore class="org.apache.jackrabbit.core.data.db.DbDataStore">
-    <param name="driver" value="com.mysql.jdbc.Driver"/>
-    <param name="url" value="jdbc:mysql://localhost:3306/xlrelease"/>
-    <param name="databaseType" value="mysql"/>
-    <param name="user" value="xlrelease" />
-    <param name="password" value="XL Release" />
-</DataStore>
-
-<Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
-
-<Workspace name="${wsp.name}">
     <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
         <param name="driver" value="com.mysql.jdbc.Driver"/>
         <param name="url" value="jdbc:mysql://localhost:3306/xlrelease"/>
-        <param name="schemaObjectPrefix" value="${wsp.name}_" />
+        <param name="schemaObjectPrefix" value="rep_" />
         <param name="schema" value="mysql" />
         <param name="user" value="xlrelease" />
         <param name="password" value="XL Release" />
     </FileSystem>
 
-    <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.MySqlPersistenceManager">
-        <param name="driver" value="com.mysql.jdbc.Driver"/>
-        <param name="url" value="jdbc:mysql://localhost:3306/xlrelease" />
-        <param name="user" value="xlrelease" />
-        <param name="password" value="XL Release" />
-        <param name="schemaObjectPrefix" value="${wsp.name}_" />
-    </PersistenceManager>
-
-    <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
-        <param name="path" value="${wsp.home}/index" />
-        <param name="supportHighlighting" value="true" />
-    </SearchIndex>
-
-</Workspace>
-
-<Versioning rootPath="${rep.home}/version">
-    <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
+    <DataStore class="org.apache.jackrabbit.core.data.db.DbDataStore">
         <param name="driver" value="com.mysql.jdbc.Driver"/>
         <param name="url" value="jdbc:mysql://localhost:3306/xlrelease"/>
-        <param name="schemaObjectPrefix" value="version_" />
-        <param name="schema" value="mysql" />
+        <param name="databaseType" value="mysql"/>
         <param name="user" value="xlrelease" />
         <param name="password" value="XL Release" />
-    </FileSystem>
+    </DataStore>
 
-    <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.MySqlPersistenceManager">
-        <param name="url" value="jdbc:mysql://localhost:3306/xlrelease" />
-        <param name="user" value="xlrelease" />
-        <param name="password" value="XL Release" />
-        <param name="schemaObjectPrefix" value="version_" />
-    </PersistenceManager>
-</Versioning>
+    <Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
+
+    <Workspace name="${wsp.name}">
+        <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
+            <param name="driver" value="com.mysql.jdbc.Driver"/>
+            <param name="url" value="jdbc:mysql://localhost:3306/xlrelease"/>
+            <param name="schemaObjectPrefix" value="${wsp.name}_" />
+            <param name="schema" value="mysql" />
+            <param name="user" value="xlrelease" />
+            <param name="password" value="XL Release" />
+        </FileSystem>
+
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.MySqlPersistenceManager">
+            <param name="driver" value="com.mysql.jdbc.Driver"/>
+            <param name="url" value="jdbc:mysql://localhost:3306/xlrelease" />
+            <param name="user" value="xlrelease" />
+            <param name="password" value="XL Release" />
+            <param name="schemaObjectPrefix" value="${wsp.name}_" />
+        </PersistenceManager>
+
+        <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
+            <param name="path" value="${wsp.home}/index" />
+            <param name="supportHighlighting" value="true" />
+        </SearchIndex>
+
+    </Workspace>
+
+    <Versioning rootPath="${rep.home}/version">
+        <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
+            <param name="driver" value="com.mysql.jdbc.Driver"/>
+            <param name="url" value="jdbc:mysql://localhost:3306/xlrelease"/>
+            <param name="schemaObjectPrefix" value="version_" />
+            <param name="schema" value="mysql" />
+            <param name="user" value="xlrelease" />
+            <param name="password" value="XL Release" />
+        </FileSystem>
+
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.MySqlPersistenceManager">
+            <param name="url" value="jdbc:mysql://localhost:3306/xlrelease" />
+            <param name="user" value="xlrelease" />
+            <param name="password" value="XL Release" />
+            <param name="schemaObjectPrefix" value="version_" />
+        </PersistenceManager>
+    </Versioning>
+<Repository>
 {% endhighlight %}
 
 ## Use XL Release with DB2
@@ -130,77 +132,79 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configu
 This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [DB2](http://www-01.ibm.com/software/data/db2/):
 
 {% highlight xml %}
-<Security appName="Jackrabbit">
-    <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
-    <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
-    <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
-        <param name="anonymousId" value="anonymous" />
-        <param name="adminId" value="admin" />
-    </LoginModule>
-</Security>
+<Repository>
+    <Security appName="Jackrabbit">
+        <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
+        <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
+        <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
+            <param name="anonymousId" value="anonymous" />
+            <param name="adminId" value="admin" />
+        </LoginModule>
+    </Security>
 
-<FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
-    <param name="driver" value="com.ibm.db2.jcc.DB2Driver"/>
-    <param name="url" value="jdbc:db2://localhost:50002/xlrelease"/>
-    <param name="schemaObjectPrefix" value="rep_" />
-    <param name="schema" value="db2" />
-    <param name="user" value="xlrelease" />
-    <param name="password" value="XL Release" />
-</FileSystem>
-
-<DataStore class="org.apache.jackrabbit.core.data.db.DbDataStore">
-    <param name="driver" value="com.ibm.db2.jcc.DB2Driver"/>
-    <param name="url" value="jdbc:db2://localhost:50002/xlrelease"/>
-    <param name="databaseType" value="db2"/>
-    <param name="user" value="xlrelease" />
-    <param name="password" value="XL Release" />
-</DataStore>
-
-<Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
-
-<Workspace name="${wsp.name}">
     <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
         <param name="driver" value="com.ibm.db2.jcc.DB2Driver"/>
         <param name="url" value="jdbc:db2://localhost:50002/xlrelease"/>
-        <param name="schemaObjectPrefix" value="${wsp.name}_" />
+        <param name="schemaObjectPrefix" value="rep_" />
         <param name="schema" value="db2" />
         <param name="user" value="xlrelease" />
         <param name="password" value="XL Release" />
     </FileSystem>
 
-    <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.BundleDbPersistenceManager">
-        <param name="driver" value="com.ibm.db2.jcc.DB2Driver"/>
-        <param name="url" value="jdbc:db2://localhost:50002/xlrelease" />
-        <param name="user" value="xlrelease" />
-        <param name="password" value="XL Release" />
-        <param name="databaseType" value="db2" />
-        <param name="schemaObjectPrefix" value="${wsp.name}_" />
-    </PersistenceManager>
-
-    <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
-        <param name="path" value="${wsp.home}/index" />
-        <param name="supportHighlighting" value="true" />
-    </SearchIndex>
-</Workspace>
-
-<Versioning rootPath="${rep.home}/version">
-    <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
+    <DataStore class="org.apache.jackrabbit.core.data.db.DbDataStore">
         <param name="driver" value="com.ibm.db2.jcc.DB2Driver"/>
         <param name="url" value="jdbc:db2://localhost:50002/xlrelease"/>
-        <param name="schemaObjectPrefix" value="version_" />
-        <param name="schema" value="db2" />
+        <param name="databaseType" value="db2"/>
         <param name="user" value="xlrelease" />
         <param name="password" value="XL Release" />
-    </FileSystem>
-    <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.BundleDbPersistenceManager">
-        <param name="driver" value="com.ibm.db2.jcc.DB2Driver"/>
-        <param name="url" value="jdbc:db2://localhost:50002/xlrelease" />
-        <param name="user" value="xlrelease" />
-        <param name="password" value="XL Release" />
-        <param name="databaseType" value="db2" />
-        <param name="schemaObjectPrefix" value="version_" />
-    </PersistenceManager>
-</Versioning>
+    </DataStore>
+
+    <Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
+
+    <Workspace name="${wsp.name}">
+        <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
+            <param name="driver" value="com.ibm.db2.jcc.DB2Driver"/>
+            <param name="url" value="jdbc:db2://localhost:50002/xlrelease"/>
+            <param name="schemaObjectPrefix" value="${wsp.name}_" />
+            <param name="schema" value="db2" />
+            <param name="user" value="xlrelease" />
+            <param name="password" value="XL Release" />
+        </FileSystem>
+
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.BundleDbPersistenceManager">
+            <param name="driver" value="com.ibm.db2.jcc.DB2Driver"/>
+            <param name="url" value="jdbc:db2://localhost:50002/xlrelease" />
+            <param name="user" value="xlrelease" />
+            <param name="password" value="XL Release" />
+            <param name="databaseType" value="db2" />
+            <param name="schemaObjectPrefix" value="${wsp.name}_" />
+        </PersistenceManager>
+
+        <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
+            <param name="path" value="${wsp.home}/index" />
+            <param name="supportHighlighting" value="true" />
+        </SearchIndex>
+    </Workspace>
+
+    <Versioning rootPath="${rep.home}/version">
+        <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
+            <param name="driver" value="com.ibm.db2.jcc.DB2Driver"/>
+            <param name="url" value="jdbc:db2://localhost:50002/xlrelease"/>
+            <param name="schemaObjectPrefix" value="version_" />
+            <param name="schema" value="db2" />
+            <param name="user" value="xlrelease" />
+            <param name="password" value="XL Release" />
+        </FileSystem>
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.BundleDbPersistenceManager">
+            <param name="driver" value="com.ibm.db2.jcc.DB2Driver"/>
+            <param name="url" value="jdbc:db2://localhost:50002/xlrelease" />
+            <param name="user" value="xlrelease" />
+            <param name="password" value="XL Release" />
+            <param name="databaseType" value="db2" />
+            <param name="schemaObjectPrefix" value="version_" />
+        </PersistenceManager>
+    </Versioning>
+<Repository>
 {% endhighlight %}
 
 ## Use XL Release with Oracle
@@ -208,80 +212,82 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configu
 This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [Oracle](http://www.oracle.com/us/products/database/index.html):
 
 {% highlight xml %}
-<Security appName="Jackrabbit">
-    <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
-    <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
-    <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
-        <param name="anonymousId" value="anonymous" />
-        <param name="adminId" value="admin" />
-    </LoginModule>
-</Security>
+<Repository>
+    <Security appName="Jackrabbit">
+        <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
+        <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
+        <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
+            <param name="anonymousId" value="anonymous" />
+            <param name="adminId" value="admin" />
+        </LoginModule>
+    </Security>
 
-<FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
-    <param name="driver" value="oracle.jdbc.OracleDriver"/>
-    <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
-    <param name="schemaObjectPrefix" value="rep_"/>
-    <param name="schema" value="oracle" />
-    <param name="user" value="xlrelease" />
-    <param name="password" value="XL Release" />
-</FileSystem>
-
-<DataStore class="org.apache.jackrabbit.core.data.db.DbDataStore">
-    <param name="driver" value="oracle.jdbc.OracleDriver"/>
-    <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
-    <param name="databaseType" value="oracle"/>
-    <param name="user" value="xlrelease" />
-    <param name="password" value="XL Release" />
-</DataStore>
-
-<Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
-
-<Workspace name="${wsp.name}">
     <FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
         <param name="driver" value="oracle.jdbc.OracleDriver"/>
         <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
-        <param name="schemaObjectPrefix" value="${wsp.name}_"/>
+        <param name="schemaObjectPrefix" value="rep_"/>
         <param name="schema" value="oracle" />
         <param name="user" value="xlrelease" />
         <param name="password" value="XL Release" />
     </FileSystem>
 
-    <PersistenceManager
-        class="org.apache.jackrabbit.core.persistence.bundle.OraclePersistenceManager">
+    <DataStore class="org.apache.jackrabbit.core.data.db.DbDataStore">
         <param name="driver" value="oracle.jdbc.OracleDriver"/>
         <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+        <param name="databaseType" value="oracle"/>
         <param name="user" value="xlrelease" />
         <param name="password" value="XL Release" />
-        <param name="databaseType" value="oracle" />
-        <param name="schemaObjectPrefix" value="${wsp.name}_" />
-    </PersistenceManager>
+    </DataStore>
 
-    <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
-        <param name="path" value="${wsp.home}/index" />
-        <param name="supportHighlighting" value="true" />
-    </SearchIndex>
-</Workspace>
+    <Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
 
-<Versioning rootPath="${rep.home}/version">
-    <FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
-        <param name="driver" value="oracle.jdbc.OracleDriver"/>
-        <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
-        <param name="schemaObjectPrefix" value="version_"/>
-        <param name="schema" value="oracle" />
-        <param name="user" value="xlrelease" />
-        <param name="password" value="XL Release" />
-    </FileSystem>
+    <Workspace name="${wsp.name}">
+        <FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
+            <param name="driver" value="oracle.jdbc.OracleDriver"/>
+            <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+            <param name="schemaObjectPrefix" value="${wsp.name}_"/>
+            <param name="schema" value="oracle" />
+            <param name="user" value="xlrelease" />
+            <param name="password" value="XL Release" />
+        </FileSystem>
 
-    <PersistenceManager
-        class="org.apache.jackrabbit.core.persistence.bundle.OraclePersistenceManager">
-        <param name="driver" value="oracle.jdbc.OracleDriver"/>
-        <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
-        <param name="user" value="xlrelease" />
-        <param name="password" value="XL Release" />
-        <param name="databaseType" value="oracle" />
-        <param name="schemaObjectPrefix" value="version_" />
-    </PersistenceManager>
-</Versioning>
+        <PersistenceManager
+            class="org.apache.jackrabbit.core.persistence.bundle.OraclePersistenceManager">
+            <param name="driver" value="oracle.jdbc.OracleDriver"/>
+            <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+            <param name="user" value="xlrelease" />
+            <param name="password" value="XL Release" />
+            <param name="databaseType" value="oracle" />
+            <param name="schemaObjectPrefix" value="${wsp.name}_" />
+        </PersistenceManager>
+
+        <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
+            <param name="path" value="${wsp.home}/index" />
+            <param name="supportHighlighting" value="true" />
+        </SearchIndex>
+    </Workspace>
+
+    <Versioning rootPath="${rep.home}/version">
+        <FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
+            <param name="driver" value="oracle.jdbc.OracleDriver"/>
+            <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+            <param name="schemaObjectPrefix" value="version_"/>
+            <param name="schema" value="oracle" />
+            <param name="user" value="xlrelease" />
+            <param name="password" value="XL Release" />
+        </FileSystem>
+
+        <PersistenceManager
+            class="org.apache.jackrabbit.core.persistence.bundle.OraclePersistenceManager">
+            <param name="driver" value="oracle.jdbc.OracleDriver"/>
+            <param name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+            <param name="user" value="xlrelease" />
+            <param name="password" value="XL Release" />
+            <param name="databaseType" value="oracle" />
+            <param name="schemaObjectPrefix" value="version_" />
+        </PersistenceManager>
+    </Versioning>
+<Repository>
 {% endhighlight %}
 
 If you use the TNSNames Alias syntax to connect to Oracle, you may need to inform the driver where to find the `TNSNAMES` file. Refer to the Oracle documentation for more information.
@@ -291,72 +297,138 @@ If you use the TNSNames Alias syntax to connect to Oracle, you may need to infor
 To use XL Release with [Microsoft SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server/), ensure that the [Microsoft JDBC driver for SQL Server](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx) JAR file is located in `XL_RELEASE_SERVER_HOME/lib` or on the Java classpath.
 
 Make sure the userid accessing the MS SQL Server database is a member of one of the following roles:
-- db_ddladmin, db_datareader, db_datawriter for database initialization and for XL Release version upgrades
-- db_datareader, db_datawriter for ongoing usage
+* db_ddladmin, db_datareader, db_datawriter for database initialization and for XL Release version upgrades
+* db_datareader, db_datawriter for ongoing usage
 
 This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for SQL Server:
 
 {% highlight xml %}
-<DataStore class="org.apache.jackrabbit.core.data.FileDataStore" />
+<Repository>
+    <DataStore class="org.apache.jackrabbit.core.data.FileDataStore" />
 
-<Security appName="Jackrabbit">
-    <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
-    <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
-    <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
-        <param name="anonymousId" value="anonymous" />
-        <param name="adminId" value="admin" />
-    </LoginModule>
-</Security>
+    <Security appName="Jackrabbit">
+        <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
+        <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
+        <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
+            <param name="anonymousId" value="anonymous" />
+            <param name="adminId" value="admin" />
+        </LoginModule>
+    </Security>
 
-<Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
+    <Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
 
-<Workspace name="${wsp.name}">
-    <FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
-      <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-		<param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLRelease" />
-		<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
-		<param name="user" value="username" />
-		<param name="password" value="password" />
-		<param name="schemaObjectPrefix" value="${wsp.name}_" />
-    </FileSystem>
+    <Workspace name="${wsp.name}">
+        <FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
+          <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+    		<param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLRelease" />
+    		<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
+    		<param name="user" value="username" />
+    		<param name="password" value="password" />
+    		<param name="schemaObjectPrefix" value="${wsp.name}_" />
+        </FileSystem>
 
-    <PersistenceManager class ="org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager">
-		<param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-		<param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLRelease" />
-		<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
-		<param name="user" value="username" />
-		<param name="password" value="password" />
-		<param name="schemaObjectPrefix" value="${wsp.name}_" />
-    </PersistenceManager>
+        <PersistenceManager class ="org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager">
+    		<param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+    		<param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLRelease" />
+    		<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
+    		<param name="user" value="username" />
+    		<param name="password" value="password" />
+    		<param name="schemaObjectPrefix" value="${wsp.name}_" />
+        </PersistenceManager>
 
-    <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
-        <param name="path" value="${wsp.home}/index" />
-        <param name="supportHighlighting" value="true" />
-    </SearchIndex>
-</Workspace>
+        <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
+            <param name="path" value="${wsp.home}/index" />
+            <param name="supportHighlighting" value="true" />
+        </SearchIndex>
+    </Workspace>
 
-<Versioning rootPath="${rep.home}/version">
-    <FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
-      <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-		<param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLRelease" />
-		<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
-		<param name="user" value="username" />
-		<param name="password" value="password" />
-		<param name="schemaObjectPrefix" value="version_"/>
-    </FileSystem>
+    <Versioning rootPath="${rep.home}/version">
+        <FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
+          <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+    		<param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLRelease" />
+    		<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
+    		<param name="user" value="username" />
+    		<param name="password" value="password" />
+    		<param name="schemaObjectPrefix" value="version_"/>
+        </FileSystem>
 
-    <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager">
-      <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-		<param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLRelease" />
-		<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
-		<param name="user" value="username" />
-		<param name="password" value="password" />
-		<param name="schemaObjectPrefix" value="version_" />
-    </PersistenceManager>
-</Versioning>
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager">
+          <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+    		<param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLRelease" />
+    		<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
+    		<param name="user" value="username" />
+    		<param name="password" value="password" />
+    		<param name="schemaObjectPrefix" value="version_" />
+        </PersistenceManager>
+    </Versioning>
+<Repository>
 {% endhighlight %}
 
 For more information about SQL Server configuration for Jackrabbit, refer to the [Jackrabbit wiki](http://wiki.apache.org/jackrabbit/DataStore#Database_Data_Store). For information about the `MSSqlPersistenceManager` class, refer to the [Jackrabbit documentation](http://jackrabbit.apache.org/api/2.2/org/apache/jackrabbit/core/persistence/db/MSSqlPersistenceManager.html).
+
+## Use XL Release with PostgreSQL
+
+This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [PostgreSQL](https://www.postgresql.org/) database:
+
+{% highlight xml %}
+<Repository>
+    <DataSources>
+        <DataSource name="ds1">
+            <param name="driver" value="org.postgresql.Driver" />
+            <param name="url" value="jdbc:postgresql://*host*:*port*/*database*" />
+            <param name="user" value="xlr_user" />
+            <param name="password" value="test" />
+            <param name="databaseType" value="postgresql" />
+            <param name="maxPoolSize" value="100" />
+        </DataSource>
+    </DataSources>
+
+    <FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">
+        <param name="path" value="${rep.home}/repository" />
+    </FileSystem>
+
+    <DataStore class="org.apache.jackrabbit.core.data.FileDataStore" />
+
+    <Security appName="Jackrabbit">
+        <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
+        <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
+
+        <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
+            <param name="anonymousId" value="anonymous" />
+            <param name="adminId" value="jcr_admin" />
+        </LoginModule>
+    </Security>
+
+    <Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
+
+    <Workspace name="${wsp.name}">
+        <FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">
+            <param name="path" value="${wsp.home}" />
+        </FileSystem>
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.PostgreSQLPersistenceManager">
+            <param name="dataSourceName" value="ds1" />
+            <param name="schemaObjectPrefix" value="${wsp.name}_" />
+        </PersistenceManager>
+        <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
+            <param name="path" value="${wsp.home}/index" />
+        </SearchIndex>
+    </Workspace>
+
+    <Versioning rootPath="${rep.home}/version">
+        <FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">
+            <param name="path" value="${rep.home}/version" />
+        </FileSystem>
+        <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.PostgreSQLPersistenceManager">
+            <param name="dataSourceName" value="ds1" />
+            <param name="schemaObjectPrefix" value="pm_ver_" />
+        </PersistenceManager>
+    </Versioning>
+
+    <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
+        <param name="path" value="${rep.home}/repository/index" />
+    </SearchIndex>
+<Repository>
+{% endhighlight %}
 
 ## Use Jackrabbit clustering mode
 

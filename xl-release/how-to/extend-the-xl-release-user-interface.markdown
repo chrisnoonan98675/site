@@ -48,6 +48,10 @@ For example, `xl-ui-plugin.xml` could contain:
 
 Menus are enclosed in the `<plugin>` tag. The `xl-ui-plugin.xsd` schema verifies the way that menus are defined.
 
+In this example, `<menu-ref ref="xlrelease.menu.Main">` defines an extension for XL Release's main menu, which has the ID `xlrelease.menu.Main`.
+
+`<menu id="xlrelease.menu.Custom" label="Custom" weight="45">` adds a new menu with ID `xlrelease.menu.Custom`. This menu will have the label `Custom` and will be placed between the menus with IDs `xlrelease.menu.Reports` and `xlrelease.menu.Settings`, because weight 45 is between their respective weights.
+
 ## Referring to predefined menu items
 
 `<menu-ref>` allows you to refer to the predefined XL Release menus. Predefined menus have structure similar to:
@@ -75,10 +79,6 @@ Menus are enclosed in the `<plugin>` tag. The `xl-ui-plugin.xsd` schema verifies
     </menu>
 </menu>
 {% endhighlight %}
-
-In this example, `<menu-ref ref="xlrelease.menu.Main">` defines an extension for XL Release's main menu, which has the ID `xlrelease.menu.Main`.
-
-`<menu id="xlrelease.menu.Custom" label="Custom" weight="45">` adds a new menu with ID `xlrelease.menu.Custom`. This menu will have the label `Custom` and will be placed between the menus with IDs `xlrelease.menu.Reports` and `xlrelease.menu.Settings`, because weight 45 is between their respective weights.
 
 ## Nesting menu references
 

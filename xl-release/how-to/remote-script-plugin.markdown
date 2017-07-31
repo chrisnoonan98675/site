@@ -65,7 +65,7 @@ The following properties are common to all Remote Script task types.
 <li>Windows (SSH): SFTP_CYGWIN, or SFTP_WINSSHD</li>
 <li>z/OS: This option is not present, and SFTP will be used (unless overridden in the <code>remoteScript.Zos.connectionType</code> setting in the <code>deployit-defaults.properties</code> file)</li>
 </ul>
-<b>Tip:</b> The easiest way to connect to a Windows host is to use the WINRM_INTERNAL connection type. 
+<b>Tip:</b> The easiest way to connect to a Windows host is to use the WINRM_INTERNAL connection type.
 
 </td>
 </tr>
@@ -81,6 +81,8 @@ The following output properties are available:
 | -------- | ----------- |
 | Output | The variable in which the standard output will be stored |
 | Err | The variable in which the error output will be stored |
+
+**Note:** The output of the remote script task is in markdown format. For more information, refer to [Using Markdown in XL Release](/xl-release/how-to/using-markdown-in-xl-release.html).
 
 ## Unix remote script
 

@@ -25,6 +25,7 @@ This tutorial assumes that you:
 
 * Know how to create CI types, as described in [Customizing the XL Deploy type system](/xl-deploy/how-to/working-with-configuration-items.html)
 * Understand the concepts of XL Deploy planning, as described in [Understanding XL Deploy architecture](/xl-deploy/concept/xl-deploy-architecture.html)
+* Are familiar with the objects and properties available in rules, as described in [Objects and properties available in rules](/xl-deploy/concept/objects-and-properties-available-to-rules.html)
 
 For reference, the code provided in this tutorial is available as a demo plugin in the `samples` directory of your XL Deploy installation.
 
