@@ -89,7 +89,7 @@ Every endpoint should be represented by an `endpoint` element that can contain f
 {:.table .table-striped}
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| `path` | Yes | Relative REST path which be exposed to run the Jython script. |
+| `path` | Yes | Relative REST path which will be exposed to run the Jython script. |
 | `method` | No | HTTP method type (`GET`, `POST`, `DELETE`, `PUT`); default value is `GET`. |
 | `script` | Yes | Relative path to the Jython script in the classpath. |
 

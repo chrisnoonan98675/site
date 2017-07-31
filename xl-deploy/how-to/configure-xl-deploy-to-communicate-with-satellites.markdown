@@ -39,6 +39,8 @@ Satellites will use this value to re-establish connection with XL Deploy if the 
 
 `port` is the port that XL Deploy binds to. It must also be accessible from the satellites. By default, it is set to `8180`.
 
+**Note:** You cannot connect multiple XL Deploy server instances to the same satellite. XL Deploy allows you to assign the same satellite to multiple hosts from the same XL Deploy instance.
+
 ## Configure the ping timeout
 
 To configure the ping timeout while reaching a satellite, change the `satellite.timeout.ping` property in `XL_DEPLOY_SERVER_HOME/conf/system.conf`:
