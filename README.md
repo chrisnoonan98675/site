@@ -15,7 +15,7 @@ For general information about XebiaLabs documentation, refer to [Technical docum
 To generate the Jekyll-based part of the documentation site locally:
 
 1. Clone this repository.
-1. Install the latest version of Jekyll and its requirements:
+1. Install Jekyll version 3.4.4 and its requirements:
     * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/). **Important:** If you're using OS X 10.11 (El Capitan) or later, [read this important info](http://jekyllrb.com/docs/troubleshooting/#jekyll-amp-mac-os-x-1011)!
     * Windows users, follow [these instructions](https://jekyllrb.com/docs/windows/#installation)
 1. Install the `jekyll-seo-tag` gem.
