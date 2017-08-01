@@ -51,6 +51,38 @@ To deploy an application to an environment:
 
     If a step in the deployment fails, XL Deploy stops executing and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
 
+### Deploy latest version
+
+As of XL Deploy 7.1.0, you can deploy the latest version of an application. Expand **Applications** in the left pane, hover over the desired application, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Deploy latest**.
+
+**Note:** The deployment packages in XL Deploy are sorted using [Semantic Versioning (SemVer) 2.0.0](http://semver.org/) and lexicographically. The packages that are defined using SemVer are displayed first and other packages are sorted in lexicographical ordering.
+
+The change in sorting deployment packages applies as of XL Deploy 7.1.0. After upgrading to XL Deploy version 7.1.0, the deployment packages will still be sorted lexicographically. You must create a new package for an application to apply the new method that includes both SemVer and lexicographical sorting.
+
+When you want to deploy the [latest version of an application](/xl-deploy/latest/udmcireference.html#udmapplication), XL Deploy selects the last version of the deployment package from the list of sorted packages.
+
+#### Example of deployment package sorting
+
+* 1.0
+* 2.0
+* 2.0-alpha
+* 2.0-alpha1
+* 3.0
+* 4.0
+* 5.0
+* 6.0
+* 7.0
+* 8.0
+* 9.0
+* 10.0
+* 11.0
+
+In this example, the latest version of the application is 11.0.
+
+### Mapping deployables using the default GUI
+
+* You can manually map a specific deployable by dragging it from the left side and dropping it on a specific container in the deployment execution screen. The cursor will indicate whether it is possible to map the deployable type to the container type.        
+
 ## Deploy using the legacy GUI
 
 To deploy an application to an environment:

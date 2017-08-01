@@ -35,4 +35,6 @@ To:
 * Change the name of a role, click it
 * Add a principal to a role, type the name and press ENTER
 
+**Note:** To filter the lists of roles or principals, click in one of the search boxes and type the assigned role or principal you want to find.
+
 Click **Save** to apply your changes. Click **Reset** to discard your changes and reload the current settings from the server.

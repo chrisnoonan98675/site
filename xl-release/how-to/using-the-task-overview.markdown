@@ -54,3 +54,13 @@ To filter the task overview, click **Filter options** and select:
 To filter on the task title, use the **Search** box.
 
 To filter on dates, use the **From** and **To** options.
+
+## Ordering tasks
+
+To order tasks within releases, click on the order options at the right of the filter options.
+
+* **None** Order tasks by their ID (default behavior)
+* **Task start date** Order tasks by their task start date
+* **Task due date** Order tasks by their due date
+
+Using task ordering you can bring up the tasks that need your attention right away.
