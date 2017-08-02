@@ -48,18 +48,18 @@
 
 # XL Deploy bundled plugins
 
-/xl-deploy/latest/commandPluginManual.html : /xl-deploy/7.0.x/commandPluginManual.html
-/xl-deploy/latest/databasePluginManual.html : /xl-deploy/7.0.x/databasePluginManual.html
-/xl-deploy/latest/groupOrchestratorPluginManual.html : /xl-deploy/7.0.x/groupOrchestratorPluginManual.html
-/xl-deploy/latest/filePluginManual.html : /xl-deploy/7.0.x/filePluginManual.html
-/xl-deploy/latest/genericPluginManual.html : /xl-deploy/7.0.x/genericPluginManual.html
-/xl-deploy/latest/jeePluginManual.html : /xl-deploy/7.0.x/jeePluginManual.html
-/xl-deploy/latest/powershellPluginManual.html : /xl-deploy/7.0.x/powershellPluginManual.html
-/xl-deploy/latest/pythonPluginManual.html : /xl-deploy/7.0.x/pythonPluginManual.html
-/xl-deploy/latest/remotingPluginManual.html : /xl-deploy/7.0.x/remotingPluginManual.html
-/xl-deploy-xld-script-plugin/latest/scriptPluginManual.html : /xl-deploy-xld-script-plugin/7.0.x/scriptPluginManual.html
-/xl-deploy/latest/webserverPluginManual.html : /xl-deploy/7.0.x/webserverPluginManual.html
-/xl-deploy/latest/triggerPluginManual.html : /xl-deploy/7.0.x/triggerPluginManual.html
+/xl-deploy/latest/commandPluginManual.html : /xl-deploy/7.1.x/commandPluginManual.html
+/xl-deploy/latest/databasePluginManual.html : /xl-deploy/7.1.x/databasePluginManual.html
+/xl-deploy/latest/groupOrchestratorPluginManual.html : /xl-deploy/7.1.x/groupOrchestratorPluginManual.html
+/xl-deploy/latest/filePluginManual.html : /xl-deploy/7.1.x/filePluginManual.html
+/xl-deploy/latest/genericPluginManual.html : /xl-deploy/7.1.x/genericPluginManual.html
+/xl-deploy/latest/jeePluginManual.html : /xl-deploy/7.1.x/jeePluginManual.html
+/xl-deploy/latest/powershellPluginManual.html : /xl-deploy/7.1.x/powershellPluginManual.html
+/xl-deploy/latest/pythonPluginManual.html : /xl-deploy/7.1.x/pythonPluginManual.html
+/xl-deploy/latest/remotingPluginManual.html : /xl-deploy/7.1.x/remotingPluginManual.html
+/xl-deploy-xld-script-plugin/latest/scriptPluginManual.html : /xl-deploy-xld-script-plugin/7.1.x/scriptPluginManual.html
+/xl-deploy/latest/webserverPluginManual.html : /xl-deploy/7.1.x/webserverPluginManual.html
+/xl-deploy/latest/triggerPluginManual.html : /xl-deploy/7.1.x/triggerPluginManual.html
 
 # XL Deploy middleware plugins
 
@@ -95,7 +95,7 @@
 
 /xl-deploy-xld-azure-plugin/latest/azurePluginManual.html : /xl-deploy-xld-azure-plugin/7.0.x/azurePluginManual.html
 /xl-deploy-xld-provision/latest/xldProvisioningManual.html : /xl-deploy-xld-provision/5.5.x/xldProvisioningManual.html
-/xl-deploy-xld-aws-plugin/latest/awsPluginManual.html : /xl-deploy-xld-aws-plugin/7.0.x/awsPluginManual.html
+/xl-deploy-xld-aws-plugin/latest/awsPluginManual.html : /xl-deploy-xld-aws-plugin/7.1.x/awsPluginManual.html
 /xl-deploy-xld-provision-puppet-plugin/latest/provisionPuppetPluginManual.html : /xl-deploy-xld-provision-puppet-plugin/5.5.x/provisionPuppetPluginManual.html
 
 # XL Scale docs

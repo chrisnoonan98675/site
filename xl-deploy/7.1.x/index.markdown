@@ -9,14 +9,14 @@ product-id: xl-deploy
 * [Steps Reference](referencesteps.html)
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
-* [Jython API Reference](/jython-docs/#!/xl-deploy/7.0.x/)
-* [Javadoc](/xl-deploy/7.0.x/javadoc/udm-plugin-api/index.html)
-* [UDM API Javadoc](/xl-deploy/7.0.x/javadoc/udm-plugin-api/index.html)
-* [XL Deploy Engine API Javadoc](/xl-deploy/7.0.x/javadoc/engine-api/index.html)
-* [XL Deploy Engine SPI Javadoc](/xl-deploy/7.0.x/javadoc/engine-spi/index.html)
-* [XL Endpoints API Javadoc](/xl-deploy/7.0.x/javadoc/xl-endpoints-api/index.html)
-* [XL Deploy satellite module CI reference](/xl-deploy/7.0.x/satellitecireference.html)
-* [XL Deploy satellite module](/xl-deploy/7.0.x/satellitecireference.html)
+* [Jython API Reference](/jython-docs/#!/xl-deploy/7.1.x/)
+* [Javadoc](/xl-deploy/7.1.x/javadoc/udm-plugin-api/index.html)
+* [UDM API Javadoc](/xl-deploy/7.1.x/javadoc/udm-plugin-api/index.html)
+* [XL Deploy Engine API Javadoc](/xl-deploy/7.1.x/javadoc/engine-api/index.html)
+* [XL Deploy Engine SPI Javadoc](/xl-deploy/7.1.x/javadoc/engine-spi/index.html)
+* [XL Endpoints API Javadoc](/xl-deploy/7.1.x/javadoc/xl-endpoints-api/index.html)
+* [XL Deploy satellite module CI reference](/xl-deploy/7.1.x/satellitecireference.html)
+* [XL Deploy satellite module](/xl-deploy/7.1.x/satellitecireference.html)
 
 ## Plugin reference documentation
 
