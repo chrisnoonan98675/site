@@ -34,50 +34,54 @@ Permissions are rights in XL Deploy. Permissions control what actions a user can
 
 ### Global permissions
 
-Global permissions apply to XL Deploy and its repository.
+Global permissions apply to XL Deploy and all of its repository. In cases where there is a local version and a global version of a permission, the global permission takes precedence over the local permission.
 
-The following table shows the global permissions that XL Deploy supports.
+XL Deploy supports the following global permissions:
 
 {:.table .table-striped}
 | Permission | Description |
 | ---------- | ----------- |
 | `admin` | This permission grants all rights within XL Deploy. |
+| `controltask#execute` | The right to execute control tasks on configuration items. |
 | `discovery` | The right to perform discovery of middleware. |
 | `login` | The right to log into the XL Deploy application. This permission does not automatically allow the user access to nodes in the repository. |
-| `security#edit` | The right to administer security permissions. |
-| `task#assign` | The right to reassign any task to someone else. |
-| `task#takeover` | The right to assign any task to yourself. |
-| `task#preview_step` | The right to inspect scripts that will be executed with steps in the deployment plan. |
 | `report#view` | The right to see all the reports. When granted, the UI will show the Reports tab. To be able to view the full details of an archived task, a user needs read permissions on both the environment and application. |
-| `controltask#execute` | The right to execute control tasks on configuration items. |
-| `task#skip_step`| The right to skip a step in a task that will be executed in the deployment plan.|
+| `security#edit` | The right to administer principals, roles, and permissions. |
+| `task#assign` | The right to assign a task to another user. |
+| `task#move_step` | This permission has no effect. |
+| `task#preview_step` | The right to inspect scripts that will be executed for steps in an execution plan. |
+| `task#skip_step`| The right to skip a step in an execution plan. |
+| `task#takeover` | The right to assign a task to yourself. |
 
 ### Local permissions
 
-In XL Deploy, you can set local security permissions on repository nodes (such as Applications or Environments) and on directories in the repository.
+In XL Deploy, you can set local security permissions on repository nodes (such as **Applications** or **Environments**) and on directories in the repository. In cases where there is a local version and a global version of a permission, the global permission takes precedence over the local permission.
 
-The following table shows the local permissions that XL Deploy supports.
+XL Deploy supports the following local permissions:
 
 {:.table .table-striped}
-| Permission | Description |
-| ---------- | ----------- |
-| `controltask#execute` | The right to execute control tasks on configuration items. |
-| `deploy#initial` | The right to perform an initial deployment of a package to an environment. Applies only for the Environment CIs within the containing directory. |
-| `deploy#undeploy` | The right to undeploy an application. Applies only for the environment CIs within the containing directory. |
-| `deploy#upgrade` | The right to perform an upgrade of a deployment on an environment. Note that this does not allow deploying items from the package to new targets. Applies only for the environment CIs within the containing directory. |
-| `import#initial` | The right to import a package for which the application does not yet exist in the repository and for which a new application will be created. |
-| `import#remove` | The right to remove an application or package. Applies only for application and deployment package CIs within the containing directory. |
-| `import#upgrade` | The right to import a package for which the application already exists in the repository. Applies only for application CIs within the containing directory. |
-| `read` | The right to see CIs in the repository. |
-| `repo#edit` | The right to edit (create and modify) CIs in the repository. The user must also have read access to CIs to be able to edit them. Applies only for the CIs within the containing directory. |
-| `task#assign` | The right to transfer a task to another user. |
-| `task#skip_step` | The right to skip steps in the generated step list before starting a deployment. Applies only for deployments executed on environment CIs in the containing directory. |
-| `task#takeover` | The right to assign any task to yourself. |
+| Permission | Description | Applies to... |
+| ---------- | ----------- | ------------- |
+| `controltask#execute` | The right to execute control tasks on configuration items. | Applications, Environments, Infrastructure, and Configuration  |
+| `generate#dsl` | The right to generate the contents of a directory as a Groovy file. | Applications, Environments, Infrastructure, and Configuration |
+| `deploy#initial` | The right to perform an initial deployment of an application to an environment. | Environments |
+| `deploy#undeploy` | The right to undeploy an application from an environment. | Environments |
+| `deploy#upgrade` | The right to perform an update deployment of an application to an environment. Note that this permission does not allow the user to deploy deployables in the package to new targets. | Environments |
+| `import#initial` | The right to import a package for an application that does not exist in the repository. | Applications |
+| `import#remove` | The right to remove an application or package. | Applications |
+| `import#upgrade` | The right to import a package for an application that already exists in the repository. | Applications |
+| `read` | The right to see CIs in the repository. | Applications, Environments, Infrastructure, and Configuration |
+| `repo#edit` | The right to create and modify CIs in the repository. The user must also have read access to CIs to be able to edit them. | Applications, Environments, Infrastructure, and Configuration |
+| `task#move_step` | This permission has no effect. | Environments |
+| `task#skip_step` | The right to skip a step in an execution plan. | Environments |
+| `task#takeover` | The right to assign a task to yourself. | Environments |
 
 ### How local permissions work in the hierarchy
 
-The security settings on a lower level overwrite all permissions from a higher level. There is no inheritance from higher levels, combining settings from various directories. If there are no permissions set on a directory, the permission settings from the parent are taken (recursively). So if you have a deep hierarchy of nested directories, but you do not set any permissions on them, XL Deploy will take the permissions set on the root node.
+In the hierarchy of the XL Deploy repository, the permissions that are configured on a lower level of the hierarchy overwrite all permissions from a higher level. There is no inheritance from higher levels; that is, XL Deploy does not combine settings from various directories. If there are no permissions set on a directory, the permission settings from the parent are taken (recursively). This means that, if you have a deep hierarchy of nested directories and you do not set any permissions on them, XL Deploy will take the permissions set on the root node.
 
-All directories higher up in a hierarchy must provide read permission for the roles defined in the lowest directory. Otherwise, the permissions themselves cannot be read. This analogous to file permissions on Unix directories.
+All directories higher up in a hierarchy must provide `read` permission for the roles defined in the lowest directory. Otherwise, the permissions themselves cannot be read. This analogous to file permissions on Unix directories.
 
-For example, if you have read permission on the **Environments** root node, you will have read permissions on the directories and environments that it contains. If the **Environments/production** directory has its own permissions set, your access to the **Environments/production/PROD-1** environment depends on the permissions set on the **Environments/production** directory CI itself.
+For example, if you have read permission on the **Environments** root node, you will have read permissions on the directories and environments that it contains. If the **Environments/production** directory has its own permissions set, then your access to the **Environments/production/PROD-1** environment depends on the permissions set on the **Environments/production** directory CI itself.
+
+ In cases where there is a local version and a global version of a permission, the global permission takes precedence over the local permission at all levels of the hierarchy.
