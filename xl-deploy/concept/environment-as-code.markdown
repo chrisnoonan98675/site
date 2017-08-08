@@ -17,7 +17,7 @@ XL Deploy 7.1.0 introduces the environment-as-code feature, which enables you to
 
 ## The Xfile
 
-The Xfile is a Groovy file that describes the desired state of infrastructure and/or environment configuration items (CIs) in the XL Deploy repository. In the Xfile, you define the CIs that should exist, their properties, and their relationships with other CIs; when you apply the Xfile using the REST API or command-line interface (CLI), XL Deploy determines whether CIs need to be created, deleted, or modified to achieve the state described in the Xfile.
+The Xfile is a Groovy file that describes the desired state of infrastructure and/or environment configuration items (CIs) in the XL Deploy repository. In the Xfile, you define the CIs that should exist, their properties, and their relationships with other CIs; when you apply the Xfile using the [REST API](/xl-deploy/7.1.x/rest-api/com.xebialabs.deployit.core.api.DslService.html) or command-line interface (CLI), XL Deploy determines whether CIs need to be created, deleted, or modified to achieve the state described in the Xfile.
 
 Every CI or set of CIs defined in the Xfile must have a `scope`, which is the directory in which CIs should be created or modified, or from which CIs should be deleted. The scope ensures that you do not inadvertently change or delete CIs that are not related to the Xfile. The Xfile also supports setting or changing local permissions on the directory or directories that are in scope.
 
