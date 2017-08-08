@@ -75,13 +75,8 @@ product-id: xl-deploy
 
 ### Provisioning plugins
 
+* [XL Deploy Azure plugin](/xl-deploy-xld-azure-plugin/7.0.x/azurePluginManual.html)
 * [XL Deploy AWS plugin](/xl-deploy-xld-aws-plugin/7.1.x/awsPluginManual.html)
-
-### XL Scale
-
-* [XL Scale plugin](/xl-scale-plugin/5.0.x/xlScaleManual.html)
-* [XL Scale EC2 plugin](/xl-scale-ec2-plugin/5.0.x/ec2PluginManual.html)
-* [XL Scale vSphere plugin](/xl-scale-vsphere-plugin/5.0.x/vspherePluginManual.html)
 
 ### Community plugins
 

@@ -74,7 +74,7 @@ product-id: xl-deploy
 
 ### Provisioning plugins
 
-* [Azure plugin](/xl-deploy-xld-azure-plugin/7.0.x/azurePluginManual.html)
+* [XL Deploy Azure plugin](/xl-deploy-xld-azure-plugin/7.0.x/azurePluginManual.html)
 * [XL Deploy AWS plugin](/xl-deploy-xld-aws-plugin/7.0.x/awsPluginManual.html)
 
 ### Community plugins
