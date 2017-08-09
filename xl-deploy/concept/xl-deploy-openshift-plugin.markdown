@@ -69,55 +69,55 @@ Create a new application with the name *Resources* and create a New -> Deploymen
 
 Specify the name **hello-pod** for the new **PodResource** and do not enter information in the other text fields. Add the following code to the new `hello-pod.json` file, and load it as an artifact:
 
-{
-  "kind": "Pod",
-  "apiVersion": "v1",
-  "metadata": {
-    "name": "hello-openshift",
-    "creationTimestamp": null,
-    "labels": {
-      "name": "hello-openshift"
-    }
-  },
-  "spec": {
-    "containers": [
-      {
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
         "name": "hello-openshift",
-        "image": "openshift/hello-openshift",
-        "ports": [
+        "creationTimestamp": null,
+        "labels": {
+          "name": "hello-openshift"
+        }
+      },
+      "spec": {
+        "containers": [
           {
-            "containerPort": 8080,
-            "protocol": "TCP"
+            "name": "hello-openshift",
+            "image": "openshift/hello-openshift",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {},
+            "volumeMounts": [
+              {
+                "name":"tmp",
+                "mountPath":"/tmp"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "imagePullPolicy": "IfNotPresent",
+            "capabilities": {},
+            "securityContext": {
+              "capabilities": {},
+              "privileged": false
+            }
           }
         ],
-        "resources": {},
-        "volumeMounts": [
+        "volumes": [
           {
             "name":"tmp",
-            "mountPath":"/tmp"
+            "emptyDir": {}
           }
         ],
-        "terminationMessagePath": "/dev/termination-log",
-        "imagePullPolicy": "IfNotPresent",
-        "capabilities": {},
-        "securityContext": {
-          "capabilities": {},
-          "privileged": false
-        }
-      }
-    ],
-    "volumes": [
-      {
-        "name":"tmp",
-        "emptyDir": {}
-      }
-    ],
-    "restartPolicy": "Always",
-    "dnsPolicy": "ClusterFirst",
-    "serviceAccount": ""
-  },
-  "status": {}
-}
+        "restartPolicy": "Always",
+        "dnsPolicy": "ClusterFirst",
+        "serviceAccount": ""
+      },
+      "status": {}
+    }
 
 Load the new artifact into XL Deploy and save it.
 
@@ -125,28 +125,28 @@ Click on *First Resources* and deploy the pod. When the pod is running, you can 
 
 Under the *First Resources* deployment package, create a **New** > **OpenShift** > **ServiceResource** and enter the name *hello-service*. Add the following code to the new `hello-service.json` file and load it as an artifact:
 
-{
-    "metadata": {
-        "name": "hello-openshift"
-    },
-    "kind": "Service",
-    "spec": {
-        "sessionAffinity": "None",
-        "ports": [
-            {
-                "targetPort": 8080,
-                "nodePort": 0,
-                "protocol": "TCP",
-                "port": 80
-            }
-        ],
-        "type": "ClusterIP",
-        "selector": {
+    {
+        "metadata": {
             "name": "hello-openshift"
-        }
-    },
-    "apiVersion": "v1"
-}
+        },
+        "kind": "Service",
+        "spec": {
+            "sessionAffinity": "None",
+            "ports": [
+                {
+                    "targetPort": 8080,
+                    "nodePort": 0,
+                    "protocol": "TCP",
+                    "port": 80
+                }
+            ],
+            "type": "ClusterIP",
+            "selector": {
+                "name": "hello-openshift"
+            }
+        },
+        "apiVersion": "v1"
+    }
 
 Load the artifact into XL Deploy and save it. You can re-deploy the *First Resources* deployment package to add the `hello-service` service to the OpenShift instance.
 
@@ -156,18 +156,18 @@ The new pod has the port 8080 exposed and the service connected to it exposes po
 
 To create a route, click **New** > **OpenShift** > **RouteResource** and enter the name *hello-route*. Add the following code into the new `hello-route.json` file and load it as an artifact:
 
-{
-    "metadata": {
-        "name": "hello-route"
-    },
-    "kind": "Route",
-    "spec": {
-        "to": {
-            "kind": "Service",
-            "name": "hello-openshift"
-        }
-    },
-    "apiVersion": "v1"
-}
+    {
+        "metadata": {
+            "name": "hello-route"
+        },
+        "kind": "Route",
+        "spec": {
+            "to": {
+                "kind": "Service",
+                "name": "hello-openshift"
+            }
+        },
+        "apiVersion": "v1"
+    }
 
 Load the artifact into XL Deploy and save it. Re-deploy the *First Resources* deployment package to allow the new route to expose the service connected to a pod. If you go to the OpenShift Console, it should show the public URL. Click the URL to display the `Hello Openshift!` message.
