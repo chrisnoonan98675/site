@@ -138,7 +138,13 @@ Note that:
 * Nested directories are defined as separate scopes within the Xfile.
 * When you generate an Xfile that contains an `enum` CI property, the property value will contain the full Java name. For example, you can specify the value `unix` for the `os` property on an `overthere.SshHost` CI, but when the Xfile is generated, the value will be `com.xebialabs.overthere.OperatingSystemFamily.UNIX`. You can also use the full Java name when applying an Xfile.
 
-{% comment %}### Generate an Xfile using the REST API {% endcomment %}
+### Generate an Xfile using the REST API
+
+This is an example of generating an Xfile using cURL:
+
+{% highlight curl %}
+curl --user "matt:secret01" --request GET 'http://localhost:4516/deployit/dsl/generate?folder=Environments/MyEnvs'
+{% endhighlight %}
 
 ### Generate an Xfile using the CLI
 
@@ -168,7 +174,13 @@ You can use the XL Deploy REST API or the command-line interface (CLI) to apply 
 
 **Note:** For security reasons, Xfiles are applied in a sandbox that does not have access to XL Deploy APIs.
 
-{% comment %}### Apply an Xfile using the REST API {% endcomment %}
+### Apply an Xfile using the REST API
+
+This is an example of applying an Xfile using cURL:
+
+{% highlight curl %}
+curl -v --user "matt:secret01" --request POST -H "Content-Type: text/plain" --data 'xld {scope(forEnvironments: "Environments/MyEnvs"){}}' 'http://localhost:4516/deployit/dsl/apply'
+{% endhighlight %}
 
 ### Apply an Xfile using the CLI
 
