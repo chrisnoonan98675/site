@@ -194,7 +194,7 @@ To use active/hot-standby, you must use a load balancer in front of the XL Deplo
 For example, for HAProxy, you can add the following configuration:
 
     backend default_service
-      option httpchk get /ha/health HTTP/1.0
+      option httpchk get /deployit/ha/health HTTP/1.0
       server docker_xld-node_1 docker_xld-node_1:4516 check inter 2000 rise 2 fall 3
 
 ### Step 6 Start the nodes
@@ -347,6 +347,6 @@ This is a sample `haproxy.cfg` configuration. Ensure that your configuration is 
       maxconn 4096
       default_backend default_service
     backend default_service
-      option httpchk head /ha/health HTTP/1.0
+      option httpchk head /deployit/ha/health HTTP/1.0
       server docker_xlr-node_1 docker_xlr-node_1:5516 check inter 2000 rise 2 fall 3
       server docker_xlr-seed_1 docker_xlr-seed_1:5516 check inter 2000 rise 2 fall 3
