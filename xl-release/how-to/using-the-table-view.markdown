@@ -19,12 +19,10 @@ The XL Release table view provides an alternative view of a template or release 
 * Directly open a task by clicking its name
 * Use the task action menu (![Task action menu](/images/menu_three_dots.png)) to quickly assign a task to yourself, change its type, duplicate it, or delete it
 
-You can select multiple tasks from the list and perform various actions:
+You can select multiple tasks from the list and perform various actions. Click the **More actions** button and select an option from the list:
 * Assign to - Assign the selected tasks to a user or team
 * Delete - Delete the selected tasks
 * Add comment - Add a comment on all the selected tasks
-
-Click the **More actions** button and select an option from the list:
 * Complete - Complete the selected tasks
 * Skip - Skip the selected tasks
 * Fail - Fail the selected tasks
