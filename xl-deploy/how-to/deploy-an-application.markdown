@@ -51,6 +51,14 @@ To deploy an application to an environment:
 
     If a step in the deployment fails, XL Deploy stops executing and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
 
+### Perform a quick deployment    
+
+As of XL Deploy version 7.2.0, you can start a quick deployment by clicking the **Quick deployment** tile on the **Welcome** screen. A new **Deployment** tab is opened.
+1. Locate the application under **Packages** in the left pane and expand it to see the versions (deployment packages).
+1. Locate the environment under **Environments** on the right pane.
+1. Drag the version of the application that you want to deploy and drop it on the environment where you want to deploy it.
+1. Click **Deploy** to start executing the plan immediately.
+
 ### Deploy latest version
 
 As of XL Deploy 7.1.0, you can deploy the latest version of an application. Expand **Applications** in the left pane, hover over the desired application, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Deploy latest**.

@@ -28,7 +28,7 @@ Additionally, deployment packages and all other configuration items (CIs) stored
 
 ## UDM in the GUI
 
-This screenshot depicts the main UDM concepts as they appear in XL Deploy's Deployment Workspace:
+This screenshot depicts the main UDM concepts as they appear in the Deployment Workspace of the XL Deploy User Interface:
 
 ![Unified Deployment Model](images/udm-highlevel-deployit.png)
 
