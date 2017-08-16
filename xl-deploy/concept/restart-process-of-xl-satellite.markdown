@@ -14,7 +14,7 @@ since:
 weight: 312
 ---
 
-After you [synchronize plugins](/xl-deploy/how-to/synchronize-plugins-with-a-satellite-server.html) on an XL Deploy satellite, or if the connection between XL Deploy and a satellite breaks, the satellite must be restarted.
+After you [synchronize plugins](/xl-deploy/how-to/synchronize-plugins-with-a-satellite-server.html) on an XL Deploy satellite, the satellite must be restarted.
 
 This is required because:
 
