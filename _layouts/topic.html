@@ -5,7 +5,7 @@ layout: default
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-3">
-			{% include sidebar.html %}
+			{% include sidebar-navigation-beta.html %}
 		</div><!-- /.col -->
 		<div class="col-sm-9">
 			{% if page.since or page.deprecated or page.removed %}
@@ -23,7 +23,7 @@ layout: default
 				{% if page.beta %}
 					<div class="alert alert-danger topic-message" role="alert">This information is in beta and is subject to change.</div>
 				{% endif %}
-			
+
 				{% if page.pre_rules %}
 					<div class="alert alert-info topic-message" role="alert">XL Deploy 4.5.0 introduced a new, easy-to-use rules system for customizing deployment plans. Refer to <a href="/xl-deploy/concept/understanding-xl-deploy-rules.html">Understanding XL Deploy rules</a> to learn more.</div>
 				{% endif %}
