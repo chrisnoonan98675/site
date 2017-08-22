@@ -251,6 +251,7 @@ Redirect 301 /xl-release/how-to/configure-the-reporting-database.html /xl-releas
 Redirect 301 /xl-release/how-to/configure-properties-for-a-release.html /xl-release/how-to/configure-release-properties.html
 Redirect 301 /xl-release/how-to/use-variables-in-xl-release.html /xl-release/concept/variables-in-xl-release.html
 Redirect 301 /xl-release/4.0.x/rest-api /xl-release/latest/rest-api
+Redirect 301 /xl-release/4.0.x/rest-api/com.xebialabs.xlrelease.api.internal.ReleaseResource.html /xl-release/latest/rest-api
 Redirect 301 /xl-release/7.0.x/rest-api /xl-release/latest/rest-docs/index.html
 Redirect 301 /xl-release/7.1.x/rest-api /xl-release/latest/rest-docs/index.html
 Redirect 301 /xl-release/how-to/use-a-configuration-object-to-share-global-variables.html /xl-release/how-to/using-a-configuration-object-to-share-global-variables.html
