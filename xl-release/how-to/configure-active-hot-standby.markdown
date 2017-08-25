@@ -175,9 +175,12 @@ At a command prompt, run the following server setup command and follow the on-sc
 
 ### Step 4 Prepare each node in the cluster
 
-1. Zip the distribution that you created in [Step 2 Set up the cluster](#step-2-set-up-the-cluster).
-1. Copy the ZIP file to all other nodes and unzip each one.
-1. On each node, edit the `xl.cluster.node` section of the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file. Update the values for the specific node.
+* Zip the distribution, that you created in [Step 2 Set up the cluster](#step-2-set-up-the-cluster).
+
+**Important**: Ensure the `repository` folder is excluded from the packaged distribution - other nodes should be started without an existing local repository.
+
+* Copy the ZIP file to all other nodes and unzip each one.
+* On each node, edit the `xl.cluster.node` section of the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file. Update the values for the specific node.
 
 **Note:** You do not need to run the server setup command on each node.
 
