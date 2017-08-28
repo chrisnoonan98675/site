@@ -50,7 +50,6 @@ Redirect 301 /xl-release/help/release-value-stream.html /xl-release/concept/rele
 Redirect 301 /xl-release/help/variables.html /xl-release/how-to/create-release-variables.html
 Redirect 301 /xl-release/help/global-variables.html /xl-release/how-to/configure-global-variables.html
 Redirect 301 /xl-release/help/xfile.html /xl-release/how-to/using-the-xfile-view.html
-Redirect 301 /xl-deploy/how-to/configure-the-release-dashboard.html /xl-deploy/concept/advanced-release-dashboard-example.html
 Redirect 301 /xl-release/help/configure-notification-settings.html /xl-release/how-to/configure-notification-settings.html
 
 # XL TestView in-product links
@@ -218,6 +217,7 @@ Redirect 301 /xl-deploy/how-to/expose-additional-overthere-properties.html /xl-p
 Redirect 301 /xl-deploy/how-to/configure-the-xl-deploy-security-file.html /xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html
 Redirect 301 /xl-deploy/concept/xl-deploy-ec2-plugin.html /xl-deploy/concept/xl-deploy-aws-plugin.html
 Redirect 301 /xl-deploy/how-to/import-a-deployment-package.html /xl-deploy/how-to/add-a-package-to-xl-deploy.html
+Redirect 301 /xl-deploy/how-to/configure-the-release-dashboard.html /xl-deploy/how-to/create-a-deployment-checklist.html
 
 # XL Release topics
 
