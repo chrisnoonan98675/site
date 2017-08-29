@@ -46,6 +46,10 @@ Satellite servers communicate with XL Deploy through TCP connections. The satell
 
 **Note:** If you change the satellite configuration, you must restart the satellite process. You do not have to restart XL Deploy.
 
+As of XL Deploy version 7.2.0, XL Satellite does not require a restart after communication failure. The `satellite.conf` file is divided into two sections: for configuring the `akka` communication system and for configuring the `akka` task system. If a communication failure occurs between the satellite and the XL Deploy server, the `akka` task system continues to function and only the `akka` communication system will require a restart.
+
+If you added configuration options in `satellite.conf` under the `akka` key and you upgrade to XL Deploy version 7.2.0, the satellite will not start. The satellite log will show an error and you will have to move the configuration options to `satellite.communication.akka` or `satellite.tasks.akka`.
+
 ### Configure the command handling channel
 
 The `satellite.hostname` property in the `SATELLITE_HOME/conf/satellite.conf` file defines the command handling channel. If it is blank, the satellite will bind to the first host name that is resolved.
