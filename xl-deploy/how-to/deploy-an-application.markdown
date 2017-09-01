@@ -21,7 +21,7 @@ Notes:
 * You can watch the *Performing an initial deployment* video [here](https://www.youtube.com/watch?v=pw17C9j60xY&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=4).
 * A version of this topic is available for [XL Deploy 4.5.x and earlier](/xl-deploy/4.5.x/deploy-an-application-4.5.html).
 
-## Deploy using the default GUI
+## Deploy using the deployment wizard in the default GUI
 
 As of version 6.2.0, the default GUI is HTML-based.
 
@@ -51,9 +51,9 @@ To deploy an application to an environment:
 
     If a step in the deployment fails, XL Deploy stops executing and marks the step as `FAILED`. Click the step to see information about the failure in the output log.
 
-### Perform a quick deployment    
+### Use the deployment workspace   
 
-As of XL Deploy version 7.2.0, you can start a quick deployment by clicking the **Quick deployment** tile on the **Welcome** screen. A new **Deployment** tab is opened.
+As of XL Deploy version 7.2.0, you can start open the deployment workspace by clicking the **Start a deployment** tile on the **Welcome** screen. A new **Deployment** tab is opened.
 1. Locate the application under **Packages** in the left pane and expand it to see the versions (deployment packages).
 1. Locate the environment under **Environments** on the right pane.
 1. Drag the version of the application that you want to deploy and drop it on the environment where you want to deploy it.
