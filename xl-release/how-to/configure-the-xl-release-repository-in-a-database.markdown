@@ -304,64 +304,81 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configu
 
 {% highlight xml %}
 <Repository>
-    <DataStore class="org.apache.jackrabbit.core.data.FileDataStore" />
 
-    <Security appName="Jackrabbit">
-        <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
-        <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
-        <LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
-            <param name="anonymousId" value="anonymous" />
-            <param name="adminId" value="admin" />
-        </LoginModule>
-    </Security>
+	<Security appName="Jackrabbit">
+		<SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager" workspaceName="security" />
+		<AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager" />
+		<LoginModule class="org.apache.jackrabbit.core.security.authentication.DefaultLoginModule">
+			<param name="anonymousId" value="anonymous" />
+			<param name="adminId" value="admin" />
+		</LoginModule>
+	</Security>
 
-    <Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
+	<FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
+		<param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+		<param name="url" value="jdbc:sqlserver://192.168.0.12:1433;DatabaseName=xlr"/>
+		<param name="schemaObjectPrefix" value="default_" />
+		<param name="schema" value="mssql" /> <!-- warning, this is not the schema name, it is the DB type -->
+		<param name="user" value="sa" />
+		<param name="password" value="password" />
+	</FileSystem>
 
-    <Workspace name="${wsp.name}">
-        <FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
-          <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-    		<param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLRelease" />
-    		<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
-    		<param name="user" value="username" />
-    		<param name="password" value="password" />
-    		<param name="schemaObjectPrefix" value="${wsp.name}_" />
-        </FileSystem>
+	<DataStore class="org.apache.jackrabbit.core.data.db.DbDataStore">
+		<param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+		<param name="url" value="jdbc:sqlserver://192.168.0.12:1433;DatabaseName=xlr"/>
+		<param name="databaseType" value="mssql"/>
+		<param name="user" value="sa" />
+		<param name="password" value="password" />
+	</DataStore>
 
-        <PersistenceManager class ="org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager">
-    		<param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-    		<param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLRelease" />
-    		<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
-    		<param name="user" value="username" />
-    		<param name="password" value="password" />
-    		<param name="schemaObjectPrefix" value="${wsp.name}_" />
-        </PersistenceManager>
 
-        <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
-            <param name="path" value="${wsp.home}/index" />
-            <param name="supportHighlighting" value="true" />
-        </SearchIndex>
-    </Workspace>
+	<Workspaces rootPath="${rep.home}/workspaces" defaultWorkspace="default" />
 
-    <Versioning rootPath="${rep.home}/version">
-        <FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
-          <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-    		<param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLRelease" />
-    		<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
-    		<param name="user" value="username" />
-    		<param name="password" value="password" />
-    		<param name="schemaObjectPrefix" value="version_"/>
-        </FileSystem>
+	<Workspace name="${wsp.name}">
+		<FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
+			<param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+			<param name="url" value="jdbc:sqlserver://192.168.0.12:1433;DatabaseName=xlr" />
+			<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
+			<param name="user" value="sa" />
+			<param name="password" value="password" />
+			<param name="schemaObjectPrefix" value="${wsp.name}_" />
+		</FileSystem>
 
-        <PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager">
-          <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-    		<param name="url" value="jdbc:sqlserver://sqlservername:1433;DatabaseName=XLRelease" />
-    		<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
-    		<param name="user" value="username" />
-    		<param name="password" value="password" />
-    		<param name="schemaObjectPrefix" value="version_" />
-        </PersistenceManager>
-    </Versioning>
-<Repository>
+		<PersistenceManager class ="org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager">
+			<param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+			<param name="url" value="jdbc:sqlserver://192.168.0.12:1433;DatabaseName=xlr" />
+			<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
+			<param name="user" value="sa" />
+			<param name="password" value="password" />
+			<param name="schemaObjectPrefix" value="${wsp.name}_" />
+		</PersistenceManager>
+
+		<SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
+			<param name="path" value="${wsp.home}/index" />
+			<param name="supportHighlighting" value="true" />
+		</SearchIndex>
+	</Workspace>
+
+	<Versioning rootPath="${rep.home}/version">
+		<FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
+			<param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+			<param name="url" value="jdbc:sqlserver://192.168.0.12:1433;DatabaseName=xlr" />
+			<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
+			<param name="user" value="sa" />
+			<param name="password" value="password" />
+			<param name="schemaObjectPrefix" value="version_"/>
+		</FileSystem>
+
+		<PersistenceManager class="org.apache.jackrabbit.core.persistence.bundle.MSSqlPersistenceManager">
+			<param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+			<param name="url" value="jdbc:sqlserver://192.168.0.12:1433;DatabaseName=xlr" />
+			<param name="schema" value="mssql" /><!-- warning, this is not the schema name, it is the DB type -->
+			<param name="user" value="sa" />
+			<param name="password" value="password" />
+			<param name="schemaObjectPrefix" value="version_" />
+		</PersistenceManager>
+	</Versioning>
+</Repository>
 {% endhighlight %}
 
 For more information about SQL Server configuration for Jackrabbit, refer to the [Jackrabbit wiki](http://wiki.apache.org/jackrabbit/DataStore#Database_Data_Store). For information about the `MSSqlPersistenceManager` class, refer to the [Jackrabbit documentation](http://jackrabbit.apache.org/api/2.2/org/apache/jackrabbit/core/persistence/db/MSSqlPersistenceManager.html).
