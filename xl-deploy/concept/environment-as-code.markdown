@@ -1,5 +1,5 @@
 ---
-title: Environment as code using Xfile
+title: Environment as code using Deployfile
 categories:
 - xl-deploy
 subject:
@@ -7,174 +7,191 @@ subject:
 tags:
 - as code
 - environment
-- xfile
+- deployfile
 - dsl
 since:
 - XL Deploy 7.1.0
 ---
 
-As of XL Deploy version 7.1.0, you can store information about your environments in a Groovy-based DSL script that you can keep in version control. This allows you to maintain and update environment information outside of the XL Deploy repository. The environment information can be updated by multiple users or teams or automatically updated by infrastructure automation tools.
+XL Deploy 7.1.0 introduces the environment-as-code feature, which enables you to store information about your infrastructure and environments in a _Deployfile_, a Groovy file that you can store in source control. This feature allows you to maintain and update environment and infrastructure information outside of the XL Deploy repository, where it can be updated by multiple teams or automatically updated by infrastructure automation tools.
 
-Environment as code provides the option to manage changes in your dynamic infrastructure data.
+## The Deployfile
 
-The Xfile format is a defined structure for a `.groovy` file that can be used to store your environment information.
+The Deployfile is a Groovy file that describes the desired state of infrastructure and/or environment configuration items (CIs) in the XL Deploy repository. In the Deployfile, you define the CIs that should exist, their properties, and their relationships with other CIs; when you apply the Deployfile using the [REST API](/xl-deploy/7.1.x/rest-api/com.xebialabs.deployit.core.api.DslService.html) or command-line interface (CLI), XL Deploy determines whether CIs need to be created, deleted, or modified to achieve the state described in the Deployfile.
 
-## Example of an Xfile
+Every CI or set of CIs defined in the Deployfile must have a `scope`, which is the directory in which CIs should be created or modified, or from which CIs should be deleted. The scope ensures that you do not inadvertently change or delete CIs that are not related to the Deployfile. The Deployfile also supports setting or changing local permissions on the directory or directories that are in scope.
+
+The Deployfile determines whether a CI or set of CIs should be created under the **Environments** or **Infrastructure** parent node in the repository, as identified by the `forEnvironments` and `forInfrastructure` keywords.
+
+Note that:
+
+* The scope must be a directory under the **Environments** or **Infrastructure** parent node. The scope cannot be a parent node itself.
+* At this time, the Deployfile cannot be used to define CIs under **Applications** or **Configuration**.
+
+### Sample Deployfile
+
+This is a sample Deployfile that defines a `docker.SwarmManager` CI, an environment, and a dictionary.
 
 {% highlight groovy %}
 xld {
-  scope(forInfrastructure: 'Infrastructure/MyInfra', forEnvironments: 'Environments/MyEnvs') {
-    def myHost = infrastructure('MyHost', 'overthere.LocalHost') {
-      os = 'unix'
+    scope(
+      forInfrastructure: directory('Infrastructure/MyInfra') {
+        permissions = [
+          'admins': ['read', 'controltask#execute', 'generate#dsl', 'repo#edit'],
+          'deployer': ['read', 'controltask#execute', 'repo#edit']
+        ]
+      }
+    ) {
+      infrastructure('dkr-prd-mgr', 'docker.SwarmManager') {
+        dockerHost = 'tcp://192.168.99.103:2376'
+        registries = [
+          ref('Configuration/Docker/Docker Hub')
+        ]
+      }
     }
-    environment('MyEnv') {
-      members = [myHost]
+    scope(
+      forEnvironments: 'Environments/Production'
+      ) {
+       environment('PROD') {
+        members = [
+           ref('Infrastructure/Docker/dkr-prd-mgr')
+         ]
+         dictionaries = [dictionary('Production Settings', ['logFilePath': '/tmp', 'HOST_PORT': '8181', 'title': 'Dockerized SampleApp', 'timeout': '8', 'logLevel': 'WARN'])]
+      }
     }
-  }
 }
 {% endhighlight %}
 
-## Define CI properties in an Xfile
+### Define CI properties
 
-You can define properties for your infrastructure using the `forInfrastructure` syntax or properties for your environment using the `forEnvironments` syntax.
+These are examples of the Groovy format for CI property kinds:
 
-Here is an example for defining containers in an infrastructure and dictionaries for your environment:
+{:.table .table-bordered}
+| Property kind | Groovy format example |
+| ------------- | --------------------- |
+| Integer | `integerProp = 123` |
+| String | `stringProp = 'value1'` |
+| Strings | <code>stringsProp = [<br />&nbsp;&nbsp;'value1',<br />&nbsp;&nbsp;'value2'<br />]</code> |
+| Encrypted strings | <code>stringsEncryptedProp = [<br />&nbsp;&nbsp;encrypted('value1'),<br />&nbsp;&nbsp;encrypted('value2')<br />]</code> |
+| Map of strings | <code>stringsMap = [<br />&nbsp;&nbsp;'key1': 'value1',<br />&nbsp;&nbsp;'key2': 'value2'<br />] |
+| Boolean | `booleanProp = true` |
+| Date | `date('2017-06-28T18:40:35')` |
+| Enum | `FRIDAY` or `java.time.DayOfWeek.FRIDAY` |
+
+### Set permissions on directories
+
+You can set local permissions on the directories that will be created or modified when a Deployfile is applied. For example, to create an empty directory with permissions set on it:
 
 {% highlight groovy %}
 xld {
-  scope(forInfrastructure: 'Infrastructure/MyInfra') {
-    infrastructure('LocalHost', 'overthere.LocalHost') {
-      os = com.xebialabs.overthere.OperatingSystemFamily.UNIX
-    }
-    infrastructure('container3', 'dummyCis-test.DummyTestContainer') {
-      integerProp = 123
-      stringProp = 'name'
-      booleanProp = true
-      dateProp = date('2017-06-28T18:40:35')
-      enumProp = java.time.DayOfWeek.FRIDAY
-      stringsProp = [
-        'bla',
-        'test'
-      ]
-      stringsEncryptedProp = [
-        encrypted('bla2'),
-        encrypted('test2')
-      ]
-      stringsMap = [
-        'a': 'b'
+  scope(
+    forInfrastructure: directory('Infrastructure/Empty') {
+      permissions = [
+        'admins': ['read', 'controltask#execute', 'generate#dsl', 'repo#edit'],
+        'deployer': ['read', 'controltask#execute', 'generate#dsl', 'repo#edit'],
+        'developer': ['read', 'generate#dsl', 'repo#edit']
       ]
     }
-  }
-  scope(forEnvironments: directory('Environments/MyEnvs') {
-    permissions = [
-        'Dev': ['deploy#initial'],
-        'QA' : ['deploy#upgrade']
-    ]
-  }) {
-    environment('DEV') {
+  ) { }
+}
+{% endhighlight %}
+
+If you do not specify the `permissions` property, the directory's local permissions will not be modified.
+
+### Refer to another CI
+
+You can refer to a CI that is defined in another part of the Deployfile or to a CI that already exists in the XL Deploy repository. For example:
+
+{% highlight groovy %}
+xld {
+  scope(
+    forEnvironments: 'Environments/Internal/Testing'
+  ) {
+    environment('ACC01') {
       members = [
-        ref('Infrastructure/MyInfra/LocalHost')
+        ref('Infrastructure/Other middleware/apache-22/webserver1'),
+        ref('Infrastructure/JBoss/jboss-51/jboss-8080-1'),
+        ref('Infrastructure/Other middleware/localhost/Final smoke test station'),
+        ref('Infrastructure/Other middleware/ora-10g-express-unix/10gXE')
       ]
       dictionaries = [
-        ref('Environments/MyEnvs/dictionary1')
+        ref('Environments/Dictionaries/Portal settings'),
+        ref('Environments/Master dictionaries/JBoss config'),
+        ref('Environments/Internal/Testing/Custom settings')
       ]
     }
-    dictionary('dictionary1', [
-      'key1': 'value1',
-      'key2': 'value2',
-      'key3': encrypted('value3')
+    dictionary('Custom settings', [
+      'LOGO': '/web/images/custom-logo.png',
+      'TITLE': 'Custom User Portal Test'
     ])
-    dictionary('dictionary3', [
-      'key': 'value'
-    ]) {
-      restrictToContainers = [
-        ref('Infrastructure/MyInfra/LocalHost')
-      ]
-    }
   }
 }
 {% endhighlight %}
 
-## Set permissions on directories using Xfile
+## Generate a Deployfile
 
-To set local permissions on directories, create and Xfile with the following content:
+An easy way to get started with the Deployfile format is to generate Deployfiles from the directories that are already defined in your XL Deploy repository. You can use the XL Deploy REST API, the command-line interface (CLI), or the default graphical user interface to generate Deployfiles. To generate a Deployfile, you must have the *export#dsl* [local permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html).
 
-{% highlight groovy %}
-xld {
-    scope(forInfrastructure: 'Infrastructure/MyInfra', forEnvironments: directory('Environments/MyEnvs') {
-        permissions = [
-            'Dev': ['deploy#initial'],
-            'QA' : ['deploy#upgrade']
-        ]
-    }) {}
-}
+Note that:
+
+* You can only generate a Deployfile from a directory or directories, not from the **Environments** or **Infrastructure** parent node.
+* Nested directories are defined as separate scopes within the Deployfile.
+* When you generate a Deployfile that contains an `enum` CI property, the property value will contain the full Java name. For example, you can specify the value `unix` for the `os` property on an `overthere.SshHost` CI, but when the Deployfile is generated, the value will be `com.xebialabs.overthere.OperatingSystemFamily.UNIX`. You can also use the full Java name when applying a Deployfile.
+
+### Generate a Deployfile using the REST API
+
+This is an example of generating a Deployfile using cURL:
+
+{% highlight curl %}
+curl --user "matt:secret01" --request GET 'http://localhost:4516/deployit/dsl/generate?folder=Environments/MyEnvs'
 {% endhighlight %}
 
-## Refer to a CI defined in another part of a Groovy file
+### Generate a Deployfile using the CLI
 
-To add a reference to a CI defined in another part of an Xfile, add the following code:
+To generate a Deployfile from multiple directories and print the Groovy code in the console, execute:
 
-{% highlight groovy %}
-xld {
-    scope(forInfrastructure: 'Infrastructure/MyInfra', forEnvironments: 'Environments/MyEnvs') {
-
-        def myHost = infrastructure('MyHost', 'overthere.LocalHost') {
-            os = 'unix'
-        }
-        environment('MyEnv') {
-            members = [ref("Infrastructure/MyInfra/LocalHost"), myHost]
-        }
-    }
-    scope(forInfrastructure: 'Infrastructure/MyInfra') {
-         infrastructure('LocalHost', 'overthere.LocalHost') {
-            os = 'unix'
-        }
-
-    }
-
-}
+{% highlight python %}
+repository.generateDsl(["Infrastructure/MyInfra","/Infrastructure/Experimental"])
 {% endhighlight %}
 
-## Generate an environment as an Xfile
+To generate a Deployfile from multiple directories and print the Groovy code to a file, execute:
 
-To generate an environment as an Xfile, you must have the *export#dsl* [local permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html).
+{% highlight python %}
+from java.io import File
+repository.generateDsl(["Infrastructure/MyInfra","Infrastructure/Experimental"],File("/path/to/file.groovy"))
+{% endhighlight %}
 
-There are multiple options to generate an environment from XL Deploy.
+### Generate a Deployfile using the user interface
 
-### Using the Command Line (CLI)
-
-To generate multiple directories and display the Groovy code in the console:
-
-    repository.generateDsl(["Infrastructure/MyInfra","/Infrastructure/Experimental"])
-
-To generate multiple directories and print the Groovy code to an Xfile:
-
-    from java.io import File
-    repository.generateDsl(["Infrastructure/MyInfra","Infrastructure/Experimental"],File("/path/to/file.groovy"))
-
-### Using the REST API
-
-### Using the XL Deploy default GUI
+To generate a Deployfile using the default XL Deploy user interface:
 
 1. Expand **Environments** or **Infrastructure** from the left pane.
-1. Hover over a dictionary, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Generate**. A `.groovy` file is generated and saved on your local machine.
+1. Hover over a folder, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Generate DSL**. A `.groovy` file is generated and saved on your local machine.
 
-## Apply an environment from an Xfile
+## Apply a Deployfile
 
-To apply an environment as an Xfile, you must have the *repo#edit* [local permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html).
+You can use the XL Deploy REST API or the command-line interface (CLI) to apply Deployfiles to the XL Deploy repository. To apply a Deployfile, you must have the *repo#edit* [local permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html) in the parts of the repository affected by the Deployfile.
 
-There are multiple options to apply an environment to XL Deploy.
+**Note:** For security reasons, Deployfiles are applied in a sandbox that does not have access to XL Deploy APIs.
 
-### Using the Command Line (CLI)
+### Apply a Deployfile using the REST API
 
-To apply an Xfile via the CLI:
+This is an example of applying a Deployfile using cURL:
 
-    from java.io import File
-    repository.applyDsl(File("/path/to/file.groovy"))
+{% highlight curl %}
+curl -v --user "matt:secret01" --request POST -H "Content-Type: text/plain" --data 'xld {scope(forEnvironments: "Environments/MyEnvs"){}}' 'http://localhost:4516/deployit/dsl/apply'
+{% endhighlight %}
 
-### Using the REST API
+### Apply a Deployfile using the CLI
+
+To apply a Deployfile, execute:
+
+{% highlight python %}
+from java.io import File
+repository.applyDsl(File("/path/to/file.groovy"))
+{% endhighlight %}
 
 ## Security recommendations when using environment as code
 
-* Use the *export#dsl* local permission to limit the number of users that can export CIs containing sensitive data (encrypted property values such as password properties).
+* Use the *export#dsl* local permission to limit the users who can export CIs containing sensitive data (encrypted property values such as password properties).
 * Use [property placeholders](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html#property-placeholders) instead of storing sensitive data directly in CIs.
