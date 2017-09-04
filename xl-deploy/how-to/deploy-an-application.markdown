@@ -135,6 +135,8 @@ If a step in the deployment fails, XL Deploy stops executing the deployment and 
 
 If you have the [`task#skip_step` permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#local-permissions), you can adjust the deployment plan so that one or more steps are skipped. To do so, hover over the desired step and click **Skip**.
 
+You can select multiple steps using the `CTRL/CMD` or `SHIFT` buttons and skip the steps by clicking **Skip selected steps**.
+
 If you are using the legacy GUI and you want to skip a step, select the step, right-click, and select **Skip**.
 
 ## Add a pause step
