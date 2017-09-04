@@ -27,4 +27,4 @@ XL Release includes several release planning and management views to meet the ne
 
 * The [release planner](/xl-release/how-to/using-the-xl-release-planner.html) is an interactive Gantt chart that shows the timing of phases and tasks in a release.
 
-* The [xfile view](/xl-release/how-to/using-the-xfile-view.html) shows the current template in XFile format.
+* The [Releasefile view](/xl-release/how-to/using-the-xfile-view.html) shows the current template in Releasefile format.

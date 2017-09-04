@@ -1,5 +1,5 @@
 ---
-title: Release as code using Xfile
+title: Release as code using the Releasefile
 categories:
 - xl-release
 subject:
@@ -7,7 +7,7 @@ subject:
 tags:
 - as code
 - release
-- xfile
+- releasefile
 - dsl
 since:
 - XL Release 6.1.0
@@ -15,11 +15,11 @@ since:
 
 With XL Release you can define a release from a Groovy-based DSL script, that describes all the phases, tasks, and task-groups in the release. This allows you to store release definitions as code in version control and gives you programmatic control over a release when creating it.
 
-The Xfile format is a defined structure for a `.groovy` file that can be used to create a release.
+The Releasefile format is a defined structure for a `.groovy` file that can be used to create a release.
 
-Using the [XL Release DSL API](/xl-release/6.2.x/dsl-api) you can create a custom release template file containing phases, multiple tasks, and task-groups. This allows you to launch an Xfile Groovy script task that creates a release.
+Using the [XL Release DSL API](/xl-release/6.2.x/dsl-api) you can create a custom release template file containing phases, multiple tasks, and task-groups. This allows you to launch a Releasefile Groovy script task that creates a release.
 
-## Example of an Xfile
+## Example of a Releasefile
 
 {% highlight groovy %}
 xlr {
@@ -39,7 +39,7 @@ xlr {
 }
 {% endhighlight %}
 
-## Create a release using Xfile
+## Create a release using Releasefile
 
 1. In the XL Release GUI, go to **Design** > **Templates** and open a template.
 1. Add a new **Groovy Script** task to a phase. For more information about Groovy Script tasks, refer to [Create a Groovy Script task](/xl-release/how-to/create-a-groovy-script-task.html).
@@ -47,9 +47,9 @@ xlr {
 
   When the Groovy Script task becomes active, the script is executed and a new release is created.
 
-**Note** You can also start a release directly from a repository using an Xfile. Create a master template that creates a release from the code for every commit, and add the Xfile script to the template. For more information, refer to [Create a release from a Git repository](/xl-release/how-to/create-a-release-from-a-git-repository.html).
+**Note** You can also start a release directly from a repository using a Releasefile. Create a master template that creates a release from the code for every commit, and add the Releasefile script to the template. For more information, refer to [Create a release from a Git repository](/xl-release/how-to/create-a-release-from-a-git-repository.html).
 
-## Example of an Xfile containing a task that creates a release
+## Example of a Releasefile containing a task that creates a release
 
 {% highlight groovy %}
 xlr {
@@ -84,7 +84,7 @@ xlr {
 }
 {% endhighlight %}
 
-## Example of an Xfile that creates a release with multiple phases
+## Example of a Releasefile that creates a release with multiple phases
 
 **Note** Using the `it` iterator in the array you can create multiple phases or tasks.
 
@@ -111,4 +111,4 @@ xlr {
 }
 {% endhighlight %}
 
-**Note** As of XL Release 7.0.0, you can export a template in DSL format. This allows you to see the DSL code corresponding to an existing template. For more information, refer to [XL Release REST API](/xl-release/6.2.x/rest-docs). You can also see the current XFile from a template using the [XFile view](/xl-release/how-to/using-the-xfile-view.html)
+**Note** As of XL Release 7.0.0, you can export a template in DSL format. This allows you to see the DSL code corresponding to an existing template. For more information, refer to [XL Release REST API](/xl-release/6.2.x/rest-docs). You can also see the current Releasefile from a template using the [Releasefile view](/xl-release/how-to/using-the-xfile-view.html)

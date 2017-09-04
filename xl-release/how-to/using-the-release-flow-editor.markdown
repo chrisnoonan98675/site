@@ -53,4 +53,4 @@ You use the release flow editor for templates, planned releases, and active rele
 | Restart Phase | Abort a phase in a release that is active and [restart the release](/xl-release/how-to/restart-a-phase-in-an-active-release.html) from any past phase | Active release |
 | Export Excel | Download the current release in Microsoft Excel format (.xlsx) | Planned release<br />Active release |
 | Export XLR | Download the template in ZIP format; you can [import a template](/xl-release/how-to/import-a-release-template.html) in the Template Overview | Template |
-| Export XFile| Download the template in [XFile](/xl-release/concept/release-as-code.html) format | Template |
+| Export Releasefile| Download the template in [Releasefile](/xl-release/concept/release-as-code.html) format | Template |

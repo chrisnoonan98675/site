@@ -1,5 +1,5 @@
 ---
-title: Using the Xfile view
+title: Using the Releasefile view
 categories:
 - xl-release
 subject:
@@ -7,16 +7,16 @@ subject:
 tags:
 - as code
 - template
-- xfile
+- releasefile
 - dsl
 since:
 - XL Release 7.0.0
 ---
 
-The XL Release XFile view allows you to use see the current template in XFile format.
+The XL Release Releasefile view allows you to use see the current template in Releasefile format.
 
-To access the Xfile view in XL Release 7.0.0 or later, click **XFile** at the top of the release flow page.
+To access the Releasefile view in XL Release 7.0.0 or later, click **Releasefile** at the top of the release flow page.
 
-![XFile: xfile view](../images/xfile-view.png)
+![Releasefile: releasefile view](../images/xfile-view.png)
 
-For more information about how to use XFile, refer to [release as code](/xl-release/concept/release-as-code.html) page.
+For more information about how to use Releasefile, refer to [release as code](/xl-release/concept/release-as-code.html) page.
