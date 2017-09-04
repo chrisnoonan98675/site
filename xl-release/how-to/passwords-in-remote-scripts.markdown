@@ -19,16 +19,16 @@ You can use and mask password in custom script tasks like the [Jenkins task](/xl
 1. In your custom remote script, define a token for the password you want to use (For example `[PASSWORD]`).
 1. In the `synthetic.xml` file, you must modify an existing task type.
 
-      <type-modification type="remoteScript.RemoteScript">
-          <property name="customPassword" kind="string" password="true" category="input"/>
-          <property name="scriptLocation" hidden="true" default="remoteScript/MyRemoteScript.py" />
-      </type-modification>
+        <type-modification type="remoteScript.RemoteScript">
+            <property name="customPassword" kind="string" password="true" category="input"/>
+            <property name="scriptLocation" hidden="true" default="remoteScript/MyRemoteScript.py" />
+        </type-modification>
 
-        This code snippet extends the Remote Script task type by adding a new `customPassword` property.
+  This code snippet extends the Remote Script task type by adding a new `customPassword` property.
 
 **Note:** After every change to the `synthetic.xml` file, make sure you restart your XL Release server.
 
-1. You must modify the python script file for the script task.
+* You must modify the python script file for the script task.
 
 For the Remote Script task, you must go to `XL_RELEASE_SERVER_HOME/lib` and in the `xlr-remotescript-plugin` file you can find the `remoteScript` folder containing the `RemoteScriptWrapper.py` file. Modify the file by adding this snippet:
 
@@ -38,6 +38,6 @@ For the Remote Script task, you must go to `XL_RELEASE_SERVER_HOME/lib` and in t
 
       This will replace the `[PASSWORD]` token in your custom script from the Remote Script task with the value in the `customPassword` variable.
 
-1. To mask the value of the password add this line in the `RemoteScriptWrapper.py` file:
+* To mask the value of the password add this line in the `RemoteScriptWrapper.py` file:
 
-      output = string.replace(output, customPassword, '********')
+        output = string.replace(output, customPassword, '********')
