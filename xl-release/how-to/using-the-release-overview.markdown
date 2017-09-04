@@ -26,7 +26,7 @@ Next to each release, click:
 * **Start** to start a release that is in the *planned* state
 * **Abort** to abort the release
 
-Click the checkbox next to a release to select the release. You can start or abort multiple releases at the same time.
+**Note:** You can start or abort multiple releases at the same time. Click the checkbox next to each release to select the release.
 
 ## Filter releases
 
