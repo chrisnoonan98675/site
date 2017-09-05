@@ -36,6 +36,12 @@ Some examples of deployment package names that use the SemVer scheme are:
 * 1.0.0-alpha
 * 1.0.0-alpha.1
 
+## Application dependencies without Semantic Versioning
+
+As of XL Deploy version 7.2.0, you can create a simple, one-to-one dependency on a deployment package that does not use the Semantic Versioning naming convention.
+
+**Note:** This type of application dependency does not support version ranges.
+
 ## Version ranges
 
 You can use parentheses and square brackets to version dependency ranges. The range formats are:
