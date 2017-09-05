@@ -12,30 +12,21 @@ tags:
 - winrm
 - cifs
 - smb
-deprecated:
-- XL Deploy 5.0.0
 weight: 336
 ---
 
-After you have installed [XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) and logged in for the first time, follow these instructions to connect XL Deploy to the host on which your middleware is running.
-
-**Tip:** In XL Deploy 5.0.0 and later, you can [connect to your infrastructure and create an environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html) in a single step.
-
-Follow the instructions for the host's operating system and the connection protocol that you want XL Deploy to use:
+After you have installed [XL Deploy](/xl-deploy/how-to/install-xl-deploy.html) and logged in for the first time, use these instructions to connect XL Deploy to the host on which your middleware is running. Follow the instructions for the host's operating system and the connection protocol that you want XL Deploy to use:
 
 * [Unix and SSH](#connect-to-a-unix-host-using-ssh)
 * [Windows and WinRM](#connect-to-a-windows-host-using-winrm)
 
 If you would like to use SSH on Windows through WinSSHD or OpenSSH, refer to [Set up SSH](/xl-platform/how-to/set-up-ssh.html).
 
-**Tip:** To see a host setup and connection check in action, watch the *[Defining infrastructure](https://www.youtube.com/watch?v=ZzYDzql1Iek&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=2)* video.
-
 ## Connect to a Unix host using SSH
 
 To connect to a Unix host using SSH:
 
-1. Click **Repository** in XL Deploy.
-1. Right-click **Infrastructure** and select **New** > **overthere** > **SshHost**. A new tab appears.
+1. In the Explorer, click ![Context menu](/images/menu_three_dots.png) next to **Infrastructure** and select **New** > **overthere** > **SshHost**. A new tab appears.
 2. In the **Name** box, enter a name for the host.
 3. Select **UNIX** from the **Operating system** list.
 4. Select the **Connection Type**:
@@ -46,11 +37,8 @@ To connect to a Unix host using SSH:
 6. In the **Port** box, enter the port on which XL Deploy should connect to the host (default is 22).
 7. In the **Username** box, enter the user name that XL Deploy should use when connecting to the host.
 8. In the **Password** box, enter the user's password.
-9. If you chose the connection type SU, SUDO, or INTERACTIVE_SUDO, click the **Advanced** tab and enter the user name and password (in the case of SU) that XL Deploy should use.
-
-      ![Sample Unix host with SSH](images/xl-deploy-trial/xl_deploy_trial_unix_host_ssh.png)
-
-10. Click **Save**. XL Deploy saves the host in the Repository.
+9. If you chose the connection type SU, SUDO, or INTERACTIVE_SUDO, go to the **Advanced** section and enter the user name and password (in the case of SU) that XL Deploy should use.
+10. Click **Save**.
 
 ## Connect to a Windows host using WinRM
 
@@ -58,8 +46,7 @@ To check if WinRM is installed on the host, follow <a href="http://technet.micro
 
 To connect to a Windows host using WinRM:
 
-1. Click **Repository** in XL Deploy.
-1. Right-click **Infrastructure** and select **New** > **overthere** > **SmbHost**. A new tab appears.
+1. In the Explorer, click ![Context menu](/images/menu_three_dots.png) next to **Infrastructure** and select **New** > **overthere** > **SmbHost**. A new tab appears.
 
     **Tip:** SMB is supported in XL Deploy 5.5.6, 6.0.0, and later. When using earlier versions of XL Deploy, you can use the CIFS protocol instead (`overthere.CifsHost`).
 
@@ -74,26 +61,22 @@ To connect to a Windows host using WinRM:
 5. In the **Address** box, enter the IP address of the host.
 6. In the **Port** box, optionally enter the port on which Telnet or WinRM runs.
 
-      **Note:** You can change the port on which the CIFS or SMB server runs on the **CIFS** or **SMB** tab (defaults to 445).
+      **Note:** You can change the port on which the CIFS or SMB server runs in the **CIFS** or **SMB** section (defaults to 445).
 
 7. In the **Username** box, enter the user name that XL Deploy should use when connecting to the host.
 8. In the **Password** box, enter the user's password.
 
       **Tip:** For information about the permissions that the user must have, see the documentation on [WinRM connections](/xl-platform/how-to/using-cifs-smb-winrm-and-telnet.html).
 
-      ![Sample Windows host with WinRM](images/xl-deploy-trial/xl_deploy_trial_windows_host_winrm.png)
-
-10. Click **Save**. XL Deploy saves the host in the Repository.
+10. Click **Save**..
 
 ## Verify the connection
 
 After you configure the host, verify that XL Deploy can connect to it:
 
-1. Under **Infrastructure**, right-click the host and select **Check connection**. A new tab appears with the steps that XL Deploy will execute to check the connection.
+1. Under **Infrastructure**, click ![Context menu](/images/menu_three_dots.png) next to the host and select **Check connection**. A new tab appears with the steps that XL Deploy will execute to check the connection.
 2. Click **Execute**. XL Deploy verifies that it can transfer files to the host and execute commands on it.
 
 If the connection check succeeds, the state of the steps will be **DONE**.
-
-![Sample successful connection check](images/xl-deploy-trial/xl_deploy_trial_successful_connection_check_glassfish.png)
 
 If the connection check fails, refer to tips for troubleshooting [SSH](/xl-platform/how-to/troubleshoot-an-ssh-connection.html) and [WinRM](troubleshoot-a-winrm-connection.html) connections.
