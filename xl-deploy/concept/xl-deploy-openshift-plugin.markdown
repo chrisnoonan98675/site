@@ -13,7 +13,7 @@ since:
 
 The XL Deploy OpenShift plugin allows you to deploy OpenShift and Kubernetes resource types directly from XL Deploy.
 
-For information about the plugin requirements and the supported OpenShift version, refer to the [OpenShift Plugin Reference](/xld-openshift-plugin/latest/puppetPluginManual.html).
+For information about the plugin requirements and the supported OpenShift version, refer to the [OpenShift Plugin Reference](/xld-openshift-plugin/7.1.0/openshiftPluginManual.html).
 
 The supported basic resource types are:
 
