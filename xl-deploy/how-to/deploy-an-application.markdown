@@ -34,12 +34,13 @@ To deploy an application to an environment:
 
     ![Deployment - mapping screen](images/explorer-deploy-02.png)
 
-1. You can optionally:
+You can optionally:
 
-    * View or edit the properties of a deployed item by double-clicking it.
-    * View the relationship between deployables and deployeds by clicking them.
-    * Click **Deployment Properties** to configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html).
-    * Click the arrow icon on the **Deploy** button and select **Modify plan** to adjust the deployment plan by skipping steps or inserting pauses.
+* View or edit the properties of a deployed item by double-clicking it.
+* View the relationship between deployables and deployeds by clicking them.
+* Click **Deployment Properties** to configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html).
+* Click **Preview** to preview the deployment plan that XL Deploy generates. You can double-click each step to see the script that XL Deploy will use to execute the step. In preview mode, when you click a deployable, deployed, or a step, XL Deploy highlights all the related deployables, deployeds, and steps.
+* Click the arrow icon on the **Deploy** button and select **Modify plan** to adjust the deployment plan by skipping steps or inserting pauses.
 
     ![Deployment - pending plan](images/explorer-deploy-03.png)
 
@@ -110,7 +111,7 @@ You can also optionally:
 
 * View or edit the properties of a deployed item by double-clicking it or by selecting it and clicking ![Edit deployed](/images/button_edit_deployed.png).
 * Click **Deployment Properties** to select the [orchestrators](/xl-deploy/concept/understanding-orchestrators.html) that XL Deploy should use when generating the deployment plan.
-* Click **Preview** to preview the deployment plan that XL Deploy generates. You can double-click each step to see the script that XL Deploy will use to execute the step.
+* Click **Preview** to preview the deployment plan that XL Deploy generates. You can double-click each step to see the script that XL Deploy will use to execute the step. In preview mode, when you click a deployable, deployed, or a step, XL Deploy highlights all the related deployables, deployeds, and steps.
 * Click **Advanced** if you want to adjust the deployment plan by skipping steps or inserting pauses.
 
 **Note:** Double-clicking the **Advanced** button causes XL Deploy to generate two deployment tasks instead of one. This is a known issue. To remove the unneeded task, go to the [Task Monitor](/xl-deploy/how-to/monitor-and-reassign-deployment-tasks.html), open the pending task, and cancel it.
