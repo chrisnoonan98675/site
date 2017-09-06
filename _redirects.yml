@@ -120,7 +120,7 @@
 /xl-release/latest/markdownsyntax.html : /xl-release/4.5.x/markdownsyntax.html
 /xl-release/latest/rest-api/index.html : /xl-release/7.1.x/rest-docs/
 /xl-release/latest/rest-docs/index.html : /xl-release/7.1.x/rest-docs/
-/xl-release/latest/jython-api/index.html : /jython-docs/#!/xl-release/7.0.x/
+/xl-release/latest/jython-api/index.html : /jython-docs/#!/xl-release/7.1.x/
 
 # XL Release plugins
 
