@@ -42,6 +42,8 @@ As of XL Deploy version 7.2.0, you can create a simple, one-to-one dependency on
 
 **Note:** This type of application dependency does not support version ranges.
 
+The syntax for the simple dependency contains only the package name without the square brackets or parentheses that are used in Semantic Versioning. For example: 1.0.0, 1.0-beta, App1.
+
 ## Version ranges
 
 You can use parentheses and square brackets to version dependency ranges. The range formats are:
@@ -54,7 +56,9 @@ You can use parentheses and square brackets to version dependency ranges. The ra
 | `(version1,version2)` | The application depends on any version between `version1` and `version2`, excluding both versions | AppA depends on AppB (1.0.0,2.0.0), so AppA works with AppB 1.5.5 and 1.9.3, but does not work with AppB 1.0.0 or 2.0.0 |
 | `[version1,version2)` | The application depends on any version between `version1` and `version2`, including `version1` and excluding `version2` | AppA depends on AppB [1.0.0,2.0.0), so AppA works with AppB 1.0.0, 1.5.5, and 1.9.3, but does not work with AppB 2.0.0 |
 | `(version1,version2]` | The application depends on any version between `version1` and `version2`, excluding `version1` and including `version2` | AppA depends on AppB (1.0.0,2.0.0], so AppA works with App B 1.5.5, 1.9.3, and 2.0.0, but does not work with AppB 1.0.0 |
-| `version1` | The application depends on any version above `version1`, including `version1` | AppA depends on AppB 1.0.0, so AppA works with AppB 1.0.0, 1.0.1, 1.1.0, and so on |
+| `version1` | The application depends on `version1` and only `version1` | AppA depends on AppB 1.0.1, so AppA works only with AppB 1.0.1 |
+
+**Note:** In XL Deploy version 7.1.x and earlier, the syntax `version1` is used with the SemVer rules. This means that the application depends on any version above `version1`, including `version1`. For example: AppA depends on AppB 1.0.0, so AppA works with AppB 1.0.0, 1.0.1, 1.1.0, and so on.
 
 ## Simple dependency example
 
