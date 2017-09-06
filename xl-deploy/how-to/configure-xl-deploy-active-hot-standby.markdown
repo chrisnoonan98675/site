@@ -46,10 +46,6 @@ However, XL Deploy does not share HTTP sessions among nodes. If the active XL De
 * All users will effectively be logged out and will lose any work that was not yet persisted to the database.
 * Any deployment or control tasks that were running on the previously active node must be manually recovered. Tasks that were previously running will not automatically be visible from the newly active node because this may lead to data corruption in split-brain scenarios.
 
-## Limitation on satellite usage
-
-Use of the [satellite module](/xl-deploy/concept/getting-started-with-the-satellite-module.html) with an active/hot-standby installation of XL Deploy is not supported.
-
 ## Active/Hot-standby setup procedure
 
 The initial active/hot-standby setup is:
