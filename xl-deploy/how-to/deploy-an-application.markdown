@@ -54,7 +54,7 @@ You can optionally:
 
 ### Use the deployment workspace   
 
-As of XL Deploy version 7.2.0, you can start open the deployment workspace by clicking the **Start a deployment** tile on the **Welcome** screen. A new **Deployment** tab is opened.
+As of XL Deploy version 7.2.0, you can open the deployment workspace by clicking the **Start a deployment** tile on the **Welcome** screen. A new **Deployment** tab is opened.
 1. Locate the application under **Packages** in the left pane and expand it to see the versions (deployment packages).
 1. Locate the environment under **Environments** on the right pane.
 1. Drag the version of the application that you want to deploy and drop it on the environment where you want to deploy it.
