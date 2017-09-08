@@ -42,7 +42,7 @@ To install the XL Deploy satellite software:
 
 ## Configure the satellite
 
-Satellite servers communicate with XL Deploy through TCP connections. The satellite side of the connection is considered to be the server side. The satellite must open two ports and wait for XL Deploy to connect. One port is required for command handling, and the other is required for file (artifact) upload. You may need to configure satellite communication ports and ensure that firewalls are opened for outgoing traffic from XL Deploy to satellites.
+Satellite servers communicate with XL Deploy through TCP connections. The satellite side of the connection is considered to be the server side. The satellite must open two ports and wait for XL Deploy to connect. One port is required for command handling, and the other is required for file (artifact) upload. You may need to configure satellite communication ports and ensure that firewalls are opened for both incoming and outgoing traffic from XL Deploy to satellites and from satellites to XL Deploy.
 
 **Note:** If you change the satellite configuration, you must restart the satellite process. You do not have to restart XL Deploy.
 
