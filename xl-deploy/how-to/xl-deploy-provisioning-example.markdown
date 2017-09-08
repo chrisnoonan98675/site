@@ -8,7 +8,7 @@ tags:
 - provisioning
 - cloud
 since:
-- XL Deploy 6.0.0
+- XL Deploy 7.2.0
 weight: 158
 ---
 
