@@ -1,5 +1,5 @@
 ---
-title: XL Deploy provisioning example
+title: XL Deploy provisioning example (XL Deploy 7.1.x)
 categories:
 - xl-deploy
 subject:
@@ -8,7 +8,9 @@ tags:
 - provisioning
 - cloud
 since:
-- XL Deploy 7.2.0
+- XL Deploy 6.0.0
+removed:
+- Xl Deploy 7.2.0
 weight: 158
 ---
 
@@ -32,7 +34,8 @@ If XL Deploy is already installed, [start the XL Deploy server](/xl-deploy/how-t
 
 XL Deploy uses the same model for deployment packages and provisioning packages, so you must first create an _application_ that will serve as a logical grouping of provisioning packages. A provisioning package describes the infrastructure items that should be created and the details of the environment to which infrastructure items will be associated. To create a new application:
 
-1. Hover over **Applications** in the left pane, click ![Explorer action menu](/images/menu_three_dots.png), and then select and select **New** > **Application**.
+1. Click **Repository** in the top bar.
+1. Right-click **Applications** and select **New** > **Application**.
 1. In the **Name** box, enter `PetClinicEnv`.
 1. Click **Save**.
 
@@ -40,7 +43,7 @@ XL Deploy uses the same model for deployment packages and provisioning packages,
 
 To create a new provisioning package:
 
-1. Expand **Applications**, hover over **PetClinicEnv**, click ![Explorer action menu](/images/menu_three_dots.png), and then select **New** > **Provisioning Package**.
+1. Right-click **PetClinicEnv** and select **New** > **Provisioning Package**.
 1. In the **Name** box, enter `1.0.0`.
 1. Click **Save**.
 
@@ -50,13 +53,13 @@ A provisioning package consists of provisionables, which are virtual machine spe
 
 ### Create an instance specification
 
-To create a new provisionable,  hover over the **1.0.0** package, click ![Explorer action menu](/images/menu_three_dots.png), and select **New** > **aws** > **InstanceSpec**. Enter the following properties:
+To create a new provisionable, right-click the **1.0.0** package and select **New** > **aws** > **ec2.InstanceSpec**. Enter the following properties:
 
 {:.table .table-striped}
 | Property | Value | Description |
 | -------- | ----- | ----------- |
 | Name | `tomcat-instance-spec` | The name of the CI |
-| AWS AMI | Your AWS AMI ID (for example, `ami-d91be1ae`) | The ID of an AMI where Puppet is installed |
+| AWS AMI ID | Your AWS AMI ID (for example, `ami-d91be1ae`) | The ID of an AMI where Puppet is installed |
 | Region | The EC2 region of the AMI (for example, `eu-west-1`) | The EC2 region, which must be valid for the AMI that you selected |
 | AWS Security Group | `default` | The security group of the AMI |
 | Instance Type | `m1.small` | The size of the instance |
@@ -68,7 +71,7 @@ Click **Save** to save the CI.
 
 ### Create an SSH host template
 
-Hover over the **1.0.0** package, click ![Explorer action menu](/images/menu_three_dots.png), and select **template** > **SshHost**. Enter the following properties:
+Right-click the **1.0.0** package and select **template** > **overthere.SshHost**. Enter the following properties:
 
 {:.table .table-striped}
 | Property | Value | Description |
@@ -87,7 +90,7 @@ Click **Save** to save the CI.
 
 ### Create a Tomcat server template
 
-Next, hover over the **tomcat-host** CI, click ![Explorer action menu](/images/menu_three_dots.png), and select **New** > **Server**. Enter the following properties:
+Next, right-click the **tomcat-host** CI and select **New** > **tomcat.Server**. Enter the following properties:
 
 {:.table .table-striped}
 | Property | Value | Description |
@@ -103,7 +106,7 @@ Click **Save** to save the CI.
 
 ### Create a Tomcat virtual host template
 
-Next, hover over the **tomcat-server** CI, click ![Explorer action menu](/images/menu_three_dots.png), and select **New** > **VirtualHost**. Enter the following properties:
+Next, right-click the **tomcat-server** CI and select **New** > **tomcat.VirtualHost**. Enter the following properties:
 
 {:.table .table-striped}
 | Property | Value | Description |
@@ -118,7 +121,7 @@ Click **Save** to save the CI.
 
 Finally, create a directory to store the CIs that XL Deploy will generated from the templates:
 
-1. Hover over **Infrastructure**, click ![Explorer action menu](/images/menu_three_dots.png), and select **New** > **Directory**.
+1. Right-click **Infrastructure** and select **Directory**.
 1. In the **Name** box, enter `Tomcat`.
 1. Click **Save**.
 
@@ -127,8 +130,8 @@ Finally, create a directory to store the CIs that XL Deploy will generated from 
 To bind the *tomcat-host* template to the *tomcat-instance-spec* provisionable:
 
 1. Double-click **tomcat-instance-spec** to open it.
-1. Go to the **Common** section.
-1. Under **Bound Templates**, select `Applications/PetClinicEnv/1.0.0/tomcat-host` from the drop down list.
+1. Go to the **Provisioning** tab.
+1. Under **Bound Templates**, select `Applications/PetClinicEnv/1.0.0/tomcat-host` and click ![Right arrow button](/images/button_add_container.png) to move it to the **Members** list.
 1. Click **Save**.
 
 ![Sample aws.ec2.InstanceSpec with bound template](images/provisioning-aws-ec2-instancespec-bound-template.png)
@@ -137,10 +140,10 @@ To bind the *tomcat-host* template to the *tomcat-instance-spec* provisionable:
 
 To add Puppet as a provisioner:
 
-1. Hover over **tomcat-instance-spec**, click ![Explorer action menu](/images/menu_three_dots.png), and select **New** > **Manifest** to create a new Puppet manifest.
+1. Right-click **tomcat-instance-spec** and select **provisioner.Manifest** to create a new Puppet manifest.
 1. In the **Name** box, enter `install-tomcat`.
-1. Select `tomcat-host` from the **Host Template** list.
-1. Under **Choose file**, click **Browse** and upload a Puppet manifest file that will install Tomcat. You can also specify the Artifact location in **File Uri** field.
+1. Select `tomcat-host` from the **Host** list.
+1. Under **Artifact**, upload a Puppet manifest file that will install Tomcat.
 1. Click **Save**.
 
 ![Sample puppet.provisioner.Manifest CI](images/provisioning-puppet-provisioner.png)
@@ -149,7 +152,7 @@ To add Puppet as a provisioner:
 
 Add Puppet modules to the provisioner:
 
-1. Hover over the **install-tomcat** CI, click ![Explorer action menu](/images/menu_three_dots.png), and select **New** > **ModuleSpec**.
+1. Right-click the **install-tomcat** CI and select **New** > **provisioner.ModuleSpec**.
 1. In the **Name** box and the **Module Name** box, enter `puppetlabs-tomcat`.
 1. Click **Save**.
 1. Repeat this process to create a module for `puppetlabs-java`.
@@ -162,7 +165,7 @@ Now, if you open the *install-tomcat* CI, you will see the modules:
 
 Create a new provider for Amazon Web Services (AWS):
 
-1. Hover over **Infrastructure**, click ![Explorer action menu](/images/menu_three_dots.png), and select **New** > **aws** > **aws.ec2.Cloud**.
+1. Right-click **Infrastructure** and select **New** > **aws** > **ec2.Cloud**.
 1. In the **Name** box, enter `AWS-EC2`.
 1. Enter your Amazon Web Services credentials in the **Access Key ID** and **Secret Access Key** boxes.
 1. Click **Save**.
@@ -173,9 +176,9 @@ Create a new provider for Amazon Web Services (AWS):
 
 Create an environment where the package will be provisioned:
 
-1. Hover over **Environments**, click ![Explorer action menu](/images/menu_three_dots.png), and select **New** > **Environment**.
+1. Right-click **Environments** and select **New** > **Environment**.
 1. In the **Name** box, enter `Cloud`.
-1. Under **Containers**, select `Infrastructure/AWS-EC2` from the drop down list.
+1. Under **Providers**, select `Infrastructure/AWS-EC2` and click ![Right arrow button](/images/button_add_container.png) to move it to the **Members** list.
 1. Go to the **Provisioning** tab.
 1. In the **Directory Path** box, enter `Tomcat`.
 1. Click **Save**.
@@ -186,7 +189,7 @@ Create an environment where the package will be provisioned:
 
 To provision the environment:
 
-1. Open the **Deployment workspace**.
+1. Click **Deployment** in the top bar.
 1. Under **Packages**, select **PetClinicEnv** and drag it to the left side of the Deployment Workspace.
 1. Under **Environments**, select **Cloud** and drag it to the right side of the Deployment Workspace.
 1. Optionally, click **Preview** to preview the provisioning plan.
@@ -194,7 +197,7 @@ To provision the environment:
     ![Provisioning plan preview](images/provisioning-with-preview.png)
 
 1. Optionally, click **Deployment Properties** and go to the **Provisioning** tab. The value in the **Provisioning Id** field is automatically generated by XL Deploy. To prevent name collisions, this ID will be prepended to CIs that are generated from bound templates.
-1. Click **Deploy** to perform the provisioning.
+1. Click **Execute** to perform the provisioning.
 
 ## Conclusion
 
