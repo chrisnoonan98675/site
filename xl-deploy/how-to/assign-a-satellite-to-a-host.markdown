@@ -15,9 +15,8 @@ weight: 308
 
 To assign satellites to a host in XL Deploy:
 
-1. Click **Repository** in XL Deploy.
-2. Double-click the host CI to which you want to assign a satellite.
-3. Under **Advanced**, select the satellite server or satellite server group from the list.
+1. In the left pane, double-click the host CI to which you want to assign a satellite.
+1. Under **Advanced**, select the satellite server or satellite server group from the drop down list.
 
     ![image](images/attach-a-satellite.png)
 
