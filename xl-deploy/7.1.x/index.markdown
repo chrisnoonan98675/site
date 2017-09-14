@@ -69,8 +69,7 @@ product-id: xl-deploy
 * [Puppet plugin for XL Deploy](/xl-deploy-xld-puppet-plugin/7.0.x/puppetPluginManual.html)
 * [Chef plugin for XL Deploy](/xl-deploy-xld-chef-plugin/6.0.x/chefPluginManual.html)
 * [Docker plugin for XL Deploy](/xl-deploy-xld-docker-plugin/7.0.x/dockerPluginManual.html)
-* [XL Deploy plugin for Team Foundation Server](/xl-deploy-tfs-plugin/7.0.x/tfsPluginManual.html)
-* [XL Deploy plugin for Team Foundation Server 2015](/xl-deploy-vsts-xld-plugin/7.0.x/tfs2015PluginManual.html)
+* [XL Deploy plugin for Visual Studio Team Services](/xl-deploy-vsts-xld-plugin/7.1.x/vstsPluginManual.html)
 * [XL Deploy Manifest Editor (Windows only)](/xl-deploy/how-to/using-the-xl-deploy-manifest-editor.html)
 
 ### Provisioning plugins
