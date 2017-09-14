@@ -65,7 +65,7 @@ To compare multiple CIs, follow these steps:
 1. **Select the reference CI in the Explorer**. The reference CI is the basis for the comparison, the CI that the other CIs are compared against. In the **Explorer**, locate in the left pane an existing CI you want to use as reference CI, hover over it and click ![Explorer action menu](/images/menu_three_dots.png), and then select **Compare > With other CI**.
 2. **Drag comparison CIs into the Comparison Tab**. To add more CIs into the comparison, locate them in the left pane and drag them into the Comparison Tab. XL Deploy will mark the properties that are different in red.
 
-You can only compare CIs that have the same type.
+You can only compare CIs that have the same type and a maximum number of 5 CIs.
 
 ### Comparing against previous versions
 
