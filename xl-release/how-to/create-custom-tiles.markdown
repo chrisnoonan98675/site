@@ -319,7 +319,7 @@ The details view is enabled when you override the `detailsUri` property of your 
     ...
 {% endhighlight %}
 
-Since we made schanges to the `synthetic.xml` file, we need to restart the server. After restarting, you can click on the tile to go the details view. You can create the HTML template for this view in `XL_RELEASE_SERVER_HOME/ext/web/acme/LatestCommitsTile/latest-commits-tile-details-view.html`:
+Since we made changes to the `synthetic.xml` file, we need to restart the server. After restarting, you can click on the tile to go the details view. You can create the HTML template for this view in `XL_RELEASE_SERVER_HOME/ext/web/acme/LatestCommitsTile/latest-commits-tile-details-view.html`:
 
 {% highlight html %}
 <!DOCTYPE html>
