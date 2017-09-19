@@ -30,12 +30,15 @@ By default, `XL_DEPLOY_SERVER_HOME/conf/system.conf` has the following settings:
 
 	satellite {
        hostname = ""
+			 bind-hostname = "0.0.0.0"
        port = 8180
     }
 
 Set `hostname` to an IP address or a host name to which XL Deploy can bind. XL Deploy will send this value to the satellites. It must be visible from the network(s) where the satellites are located.
 
 Satellites will use this value to re-establish connection with XL Deploy if the initial connection breaks. If you do not provide a value, XL Deploy will resolve it from a network interface that is available, or to a loopback address if no interfaces are available.
+
+Set `bind-hostname` to an IP address or a host name to listen on. The default setting listens on all network interfaces. 
 
 `port` is the port that XL Deploy binds to. It must also be accessible from the satellites. By default, it is set to `8180`.
 

@@ -156,7 +156,18 @@ This is a sample `satellite` section of a corresponding `XL_DEPLOY_SERVER_HOME/c
 
         enabled = true
         port = 8180
-        # hostname = "token" #Host name or ip address to bind to
+
+        # The public hostname of this system.
+        # Must be resolvable for all satellites.
+        # If empty, the name of the system will be resolved and the returned address will be used.
+        #
+        # hostname = ""
+
+        # The host name to listen on.
+        # The default setting will listen on all network interfaces.
+        # A specific interface can be targeted by name or address.
+        #
+        # bind-hostname = "0.0.0.0"
 
         ssl {
             enabled = yes
