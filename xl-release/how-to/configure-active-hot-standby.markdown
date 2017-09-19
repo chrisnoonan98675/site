@@ -20,7 +20,7 @@ As of XL Release 6.0.0, you can configure XL Release in a clustered active/hot-s
 
 ![Active/hot-standby configuration](../images/diagram-active-hot-standby.png)
 
-**Tip:** If you do not want to use active/hot-standby mode, you can set up failover handling as described n [Configure failover for XL Release](/xl-release/how-to/configure-failover.html).
+**Tip:** If you do not want to use active/hot-standby mode, you can set up failover handling as described in [Configure failover for XL Release](/xl-release/how-to/configure-failover.html).
 
 ## Requirements
 
