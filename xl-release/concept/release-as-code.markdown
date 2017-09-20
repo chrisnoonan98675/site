@@ -49,6 +49,17 @@ xlr {
 
 **Note** You can also start a release directly from a repository using an Xfile. Create a master template that creates a release from the code for every commit, and add the Xfile script to the template. For more information, refer to [Create a release from a Git repository](/xl-release/how-to/create-a-release-from-a-git-repository.html).
 
+### Security and script tasks
+
+When a script task becomes active, the script is executed in a sandbox environment on the XL Release server. This means that the script has very restricted permissions. By default, access to the file system and network are not allowed.
+
+To remove these restrictions, add a `script.policy` file to the `XL_RELEASE_SERVER_HOME/conf` directory. This is a standard [Java Security Policy file](http://docs.oracle.com/javase/7/docs/technotes/guides/security/PolicyFiles.html) that contains the permissions that a script should have. You must restart the XL Release server after creating or changing the `XL_RELEASE_SERVER_HOME/conf/script.policy` file.
+
+**Note** As of XL Release 7.1.0 the `script.policy` file was changed to allow recursive permissions for the `work` directory using `work/-`.
+
+      permission  java.io.FilePermission "work", "read";
+      permission  java.io.FilePermission "work/-", "read, write";
+
 ## Example of an Xfile containing a task that creates a release
 
 {% highlight groovy %}
