@@ -28,6 +28,8 @@ Next to each release, click:
 
 **Note:** You can start or abort multiple releases at the same time. Click the checkbox next to each release to select the release.
 
+**Note:** When any action is performed on multiple releases at the same time, only one notification email is sent to each recipient containing the action performed and the list of releases.
+
 ## Filter releases
 
 You can filter the releases using different criteria.
