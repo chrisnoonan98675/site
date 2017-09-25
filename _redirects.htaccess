@@ -338,4 +338,3 @@ Redirect 301 /general/community.html http://xebialabs-community.github.io/
 Redirect 301 /faq/index.html /index.html
 Redirect 301 /generated/xl-release/4.0.x/index.html /xl-release/4.0.x/index.html
 Redirect 301 /generated/xl-release/3.0.x/index.html /xl-release/3.0.x/index.html
-Redirect 301 https://support.xebialabs.com/hc/en-us/articles/115003299946-Supported-XebiaLabs-product-versions https://support.xebialabs.com/hc/en-us/articles/115003299946-Supported-XebiaLabs-product-versions
