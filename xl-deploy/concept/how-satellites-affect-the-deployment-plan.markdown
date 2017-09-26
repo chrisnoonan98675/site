@@ -36,7 +36,7 @@ In the following example, the deployment to the **env** environment will be exec
 
 ![Deployment plan with steps executed on satellite](images/step-executed-on-satellite.png)
 
-**Note:** XL Deploy does not support rolling back a deployment to satellites.
+**Note:** XL Deploy versions 5.5.x and earlier do not support rolling back a deployment to satellites.
 
 ## Satellite cleanup phase
 

@@ -19,6 +19,10 @@ weight: 439
 
 You can also create JDBC export hooks. These allow you to insert information about releases into a SQL database; for example, for reporting purposes. JDBC export hooks give you access to the `java.sql.Connection` object.
 
+You can do this using the community supported [XLR-SQL Export hook](https://github.com/xebialabs-community/xlr-sql-export-hook) that can be found on GitHub.
+
+This topic describes how to create a JDBC Export Hook from scratch.
+
 ## Step 1 Define a new export hook
 
 Add a new synthetic type to `conf/synthetic.xml`. For example:

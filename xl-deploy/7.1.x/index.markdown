@@ -9,14 +9,14 @@ product-id: xl-deploy
 * [Steps Reference](referencesteps.html)
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
-* [Jython API Reference](/jython-docs/#!/xl-deploy/7.0.x/)
-* [Javadoc](/xl-deploy/7.0.x/javadoc/udm-plugin-api/index.html)
-* [UDM API Javadoc](/xl-deploy/7.0.x/javadoc/udm-plugin-api/index.html)
-* [XL Deploy Engine API Javadoc](/xl-deploy/7.0.x/javadoc/engine-api/index.html)
-* [XL Deploy Engine SPI Javadoc](/xl-deploy/7.0.x/javadoc/engine-spi/index.html)
-* [XL Endpoints API Javadoc](/xl-deploy/7.0.x/javadoc/xl-endpoints-api/index.html)
-* [XL Deploy satellite module CI reference](/xl-deploy/7.0.x/satellitecireference.html)
-* [XL Deploy satellite module](/xl-deploy/7.0.x/satellitecireference.html)
+* [Jython API Reference](/jython-docs/#!/xl-deploy/7.1.x/)
+* [Javadoc](/xl-deploy/7.1.x/javadoc/udm-plugin-api/index.html)
+* [UDM API Javadoc](/xl-deploy/7.1.x/javadoc/udm-plugin-api/index.html)
+* [XL Deploy Engine API Javadoc](/xl-deploy/7.1.x/javadoc/engine-api/index.html)
+* [XL Deploy Engine SPI Javadoc](/xl-deploy/7.1.x/javadoc/engine-spi/index.html)
+* [XL Endpoints API Javadoc](/xl-deploy/7.1.x/javadoc/xl-endpoints-api/index.html)
+* [XL Deploy satellite module CI reference](/xl-deploy/7.1.x/satellitecireference.html)
+* [XL Deploy satellite module](/xl-deploy/7.1.x/satellitecireference.html)
 
 ## Plugin reference documentation
 
@@ -69,19 +69,14 @@ product-id: xl-deploy
 * [Puppet plugin for XL Deploy](/xl-deploy-xld-puppet-plugin/7.0.x/puppetPluginManual.html)
 * [Chef plugin for XL Deploy](/xl-deploy-xld-chef-plugin/6.0.x/chefPluginManual.html)
 * [Docker plugin for XL Deploy](/xl-deploy-xld-docker-plugin/7.0.x/dockerPluginManual.html)
-* [XL Deploy plugin for Team Foundation Server](/xl-deploy-tfs-plugin/7.0.x/tfsPluginManual.html)
-* [XL Deploy plugin for Team Foundation Server 2015](/xl-deploy-vsts-xld-plugin/7.0.x/tfs2015PluginManual.html)
+* [XL Deploy plugin for Visual Studio Team Services](/xl-deploy-vsts-xld-plugin/7.1.x/vstsPluginManual.html)
 * [XL Deploy Manifest Editor (Windows only)](/xl-deploy/how-to/using-the-xl-deploy-manifest-editor.html)
 
 ### Provisioning plugins
 
+* [XL Deploy Azure plugin](/xl-deploy-xld-azure-plugin/7.0.x/azurePluginManual.html)
 * [XL Deploy AWS plugin](/xl-deploy-xld-aws-plugin/7.1.x/awsPluginManual.html)
-
-### XL Scale
-
-* [XL Scale plugin](/xl-scale-plugin/5.0.x/xlScaleManual.html)
-* [XL Scale EC2 plugin](/xl-scale-ec2-plugin/5.0.x/ec2PluginManual.html)
-* [XL Scale vSphere plugin](/xl-scale-vsphere-plugin/5.0.x/vspherePluginManual.html)
+* [XL Deploy OpenShift plugin](/xl-deploy-xld-openshift-plugin/7.1.x/openshiftPluginManual.html)
 
 ### Community plugins
 

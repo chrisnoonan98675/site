@@ -17,6 +17,11 @@ weight: 438
 
 You can use the *export hook* feature to configure XL Release to run a Jython script for every release that is about to be [archived](/xl-release/concept/how-archiving-works.html).
 
+For example, you can use export hooks to store all completed releases in an SQL database and later use a reporting tool to query over the data.
+You can do this using the community supported [XLR-SQL Export hook](https://github.com/xebialabs-community/xlr-sql-export-hook) that can be found on GitHub.
+
+This topic describes how to create an Export Hook from scratch.
+
 ## Step 1 Define a new export hook
 
 Add a new synthetic type to `conf/synthetic.xml`. For example:

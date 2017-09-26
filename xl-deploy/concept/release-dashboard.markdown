@@ -58,4 +58,4 @@ A user's [permissions](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.htm
 * When viewing a deployment pipeline, the user can only see the environments that he or she can access. For example, if a user has access to the DEV and TEST environments, he or she will only see those environments in a pipeline that includes the DEV, TEST, ACC, and PROD environments.
 * Normal deployment permissions (`deploy#initial`, `deploy#upgrade`) apply when a deployment is initiated from the release dashboard.
 
-You can also specify roles for specific checks in a deployment checklist; refer to [Advanced release dashboard example](/xl-deploy/concept/advanced-release-dashboard-example.html#assign-security-roles-to-checks) for more information.
+You can also specify roles for specific checks in a deployment checklist; refer to [Create a deployment checklist](/xl-deploy/how-to/create-a-deployment-checklist.html#assign-security-roles-to-checks) for more information.

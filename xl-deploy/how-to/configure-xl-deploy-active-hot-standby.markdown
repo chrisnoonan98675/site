@@ -46,10 +46,6 @@ However, XL Deploy does not share HTTP sessions among nodes. If the active XL De
 * All users will effectively be logged out and will lose any work that was not yet persisted to the database.
 * Any deployment or control tasks that were running on the previously active node must be manually recovered. Tasks that were previously running will not automatically be visible from the newly active node because this may lead to data corruption in split-brain scenarios.
 
-## Limitation on satellite usage
-
-Use of the [satellite module](/xl-deploy/concept/getting-started-with-the-satellite-module.html) with an active/hot-standby installation of XL Deploy is not supported.
-
 ## Active/Hot-standby setup procedure
 
 The initial active/hot-standby setup is:
@@ -194,7 +190,7 @@ To use active/hot-standby, you must use a load balancer in front of the XL Deplo
 For example, for HAProxy, you can add the following configuration:
 
     backend default_service
-      option httpchk get /ha/health HTTP/1.0
+      option httpchk get /deployit/ha/health HTTP/1.0
       server docker_xld-node_1 docker_xld-node_1:4516 check inter 2000 rise 2 fall 3
 
 ### Step 6 Start the nodes
@@ -347,6 +343,6 @@ This is a sample `haproxy.cfg` configuration. Ensure that your configuration is 
       maxconn 4096
       default_backend default_service
     backend default_service
-      option httpchk head /ha/health HTTP/1.0
+      option httpchk head /deployit/ha/health HTTP/1.0
       server docker_xlr-node_1 docker_xlr-node_1:5516 check inter 2000 rise 2 fall 3
       server docker_xlr-seed_1 docker_xlr-seed_1:5516 check inter 2000 rise 2 fall 3

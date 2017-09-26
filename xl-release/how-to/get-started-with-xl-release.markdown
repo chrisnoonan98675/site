@@ -20,6 +20,8 @@ When you log in to XL Release for the first time, you'll see the task overview s
 
 ![Welcome release](../images/xl-release-welcome-get-started.png)
 
+**Note:** If you do not want to have new users receive this *Welcome release*, you can delete the **Welcome to XL Release** template from your **Samples & Tutorials** folder.
+
 ## Step 2 Model a release pipeline
 
 In XL Release, you model a release pipeline as a _template_. Each time you want to release your software, you create a _release_ based on the template. This ensures that each release follows a consistent set of steps.
