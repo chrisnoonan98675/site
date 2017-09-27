@@ -20,6 +20,8 @@ The **Releases at risk** section is available only in XL Release versions 7.1 an
 
 ![Releases at risk](../images/dashboard-releases-at-risk.png)
 
+**Note:** You can view the risk state of your releases in the Release Overview page.
+
 ## Release efficiency
 
 The **Release efficiency** section provides an overview of your overall level of automation during the selected time period. It shows the following information about [completed](/xl-release/concept/release-life-cycle.html) releases in the selected time period:
