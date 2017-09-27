@@ -43,19 +43,19 @@ After NRPE is successfully installed, install the `check_jmx` plugin that monito
 1. Copy the SSL `truststore` to `/usr/local/nagios/libexec/`
 1. Change the permissions on `truststore` to user `nagios`:
 
-      chmod +x <trustore_file_name>
-      chown nagios:nagios <trustore_file_name>
+          chmod +x <trustore_file_name>
+          chown nagios:nagios <trustore_file_name>
 
 1. Change the content of `/usr/local/nagios/libexec/check_jmx` to:
 
-      #!/bin/sh
-      #
-      # Nagios plugin to monitor Java JMX (http://java.sun.com/jmx)attributes.
-      #
+          #!/bin/sh
+          #
+          # Nagios plugin to monitor Java JMX (http://java.sun.com/jmx)attributes.
+          #
 
-      RDIR=`dirname $0`
-      JMX_SSL_OPS='-Djavax.net.ssl.trustStore='$RDIR'/<trustore_file_name> -Djavax.net.ssl.trustStorePassword=<trustore_password>'
-      java $JMX_SSL_OPS -jar $RDIR/jmxquery.jar "$@"
+          RDIR=`dirname $0`
+          JMX_SSL_OPS='-Djavax.net.ssl.trustStore='$RDIR'/<trustore_file_name> -Djavax.net.ssl.trustStorePassword=<trustore_password>'
+          java $JMX_SSL_OPS -jar $RDIR/jmxquery.jar "$@"
 
 **Note:** Replace <trustore_file_name> and <trustore_password> with the actual values.
 
@@ -71,7 +71,7 @@ The sample output:
 
 * To execute the `check_jmx` plugin, you must define a command for this plugin in the `nrpe.cfg` file on the Satellite server. Edit the `/usr/local/nagios/etc/nrpe.cfg` file by executing the following command:
 
-    vi /usr/local/nagios/etc/nrpe.cfg
+        vi /usr/local/nagios/etc/nrpe.cfg
 
 Add the following line to the end of the file:
 
@@ -81,29 +81,32 @@ Add the following line to the end of the file:
 
 * To test the check from the Nagios server, establish a terminal session to your Nagios server and execute the following command:
 
-    /usr/local/nagios/libexec/check_nrpe -H <satellite_host> -c check_jmx -a '-U service:jmx:rmi:///jndi/rmi://<satellite_host>:<jmx_port>/jmxrmi -O com.xebialabs.satellite.metrics:name=task.done -A Count'
+        /usr/local/nagios/libexec/check_nrpe -H <satellite_host> -c check_jmx -a '-U service:jmx:rmi:///jndi/rmi://<satellite_host>:<jmx_port>/jmxrmi -O com.xebialabs.satellite.metrics:name=task.done -A Count'
 
 Make sure you replace <satellite_host> with the IP address of your Xl Satellite server.
 
 The sample output:
 
-  JMX OK - Count=0 | Count=0
+      JMX OK - Count=0 | Count=0
 
-## Create the monitoring configuration in the Nagios Web UI.  
+## Create the monitoring configuration in the Nagios Web UI  
 
 * Open the Nagios Web UI, in the top menu bar, go to **Configure** > **Run a configuring wizard**, and select the NRPE wizard.
 
 ![image](images/config_wizard_step1.png)
 
+
 * On *Step 1*,  specify the address and the OS type of the Satellite server.
 
 ![image](images/config_wizard_step1_1.png)
+
 
 * On *Step 2*, specify the host name.
 
 ![image](images/config_wizard_step2.png)
 
 **Note:**  Skip the NRPE agent installation step because it was already done.
+
 
 * In the **command args** fields, specify the following command arguments:
 
@@ -117,7 +120,7 @@ For **Satellite Task Active**
 
 ![image](images/config_wizard_step2_1.png)    
 
-Click **Next** and complete the wizard by choosing the required options in steps 3 to 5. Click **Finish** in the final step of the wizard. This creates the new hosts and service and begins monitoring.
+Click **Next** and complete the wizard by choosing the required options in Steps 3 to 5. Click **Finish** in the final step of the wizard. This creates the new hosts and service and begins monitoring.
 
 After the wizard applies the configuration, click the **View status details** for the XL Satellite link to see the new host and service that was created.    
 
