@@ -104,6 +104,12 @@ The fields described above must be present in the scopes that you can provide fr
 5. XL Release does not support `nonce` in the OIDC handshake (protection against replay attacks).
 6. OpenID Connect provider and XL Release instances should be time synchronized (for example on NTP).
 
+## Login as an Internal User
+The plugin offers a seamless user experience by automatically redirecting an unathenticated user to the Identity Provider's login page.
+This does not allow you to sign in directly as an Internal User. If you want to sign in as an Internal User, you can browse directly to `xl-release.example.com/login`.
+
+**Note**: The `xl-release.example.com/login` page is also an entry point when a local account has an identical username with another user from your Identity Provider. The user is automatically redirected to the page with a corresponding message.
+
 ## Integration with Keycloak Identity provider
 
 ### Installing Keycloak
