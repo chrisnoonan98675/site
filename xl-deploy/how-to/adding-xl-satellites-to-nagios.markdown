@@ -39,6 +39,26 @@ After NRPE is successfully installed, install the `check_jmx` plugin that monito
       chmod +x *jmx*
       chown nagios:nagios *jmx*
 
+* If the JMX agent on the XL Satellite server has SSL enabled, execute the following steps:
+1. Copy the SSL `truststore` to `/usr/local/nagios/libexec/`
+1. Change the permissions on `truststore` to user `nagios`:
+
+      chmod +x <trustore_file_name>
+      chown nagios:nagios <trustore_file_name>
+
+1. Change the content of `/usr/local/nagios/libexec/check_jmx` to:
+
+      #!/bin/sh
+      #
+      # Nagios plugin to monitor Java JMX (http://java.sun.com/jmx)attributes.
+      #
+
+      RDIR=`dirname $0`
+      JMX_SSL_OPS='-Djavax.net.ssl.trustStore='$RDIR'/<trustore_file_name> -Djavax.net.ssl.trustStorePassword=<trustore_password>'
+      java $JMX_SSL_OPS -jar $RDIR/jmxquery.jar "$@"
+
+**Note:** Replace <trustore_file_name> and <trustore_password> with the actual values.
+
 * Test the `check_jmx` plugin from the Nagios Server by executing this command:
 
       /usr/local/nagios/libexec/check_jmx -U service:jmx:rmi:///jndi/rmi://<satellite_host>:<jmx_port>/jmxrmi -O com.xebialabs.satellite.metrics:name=task.done -A Count
