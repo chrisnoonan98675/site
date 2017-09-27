@@ -97,6 +97,37 @@ You can provide the required claims from the following configuration properties:
 
 The fields described above must be present in the scopes that you can provide from **scopes**.
 
+The `issuer`, `accessTokenUri`, `userAuthorizationUri`, and `logoutUri` options are also usually presented in the JSON metadata that the Identity Porvider server publishes at the discovery endpoint.
+
+**Note:** The `redirectUri` endpoint must always point to the `/oidc-login` XL Release endpoint. The `redirectUri` is an endpoint where authentication responses can be sent and received by XL Release. It must exactly match one of the `redirect_uris` you registered in OKTA and Azure AD portal and it must be URL encoded. For Keycloak you can register a pattern for `redirect_uri` from the Keycloak Admin Panel (For example, you can provide a mask such as: `http://example.com/mask**` that matches `http://example.com/mask/` or `http://example.com/mask`).
+
+## Public key
+When you can get only JSON Web Key (JWK), you can use one of the Open Source scripts in order to convert the JWK to a PEM for use in `publicKey` (for example [jwk-to-pem](https://www.npmjs.com/package/jwk-to-pem)).
+You must provide only a key without the start and end headers.
+
+Example:
+
+        -----BEGIN RSA PUBLIC KEY-----
+        yourPublicKeyLine1
+        yourPublicKeyLine2
+        yourPublicKeyLineN
+        -----END RSA PUBLIC KEY-------
+
+The `publicKey` value should look like this:
+
+        xl {
+          security {
+            auth {
+              providers {
+                oidc {
+                  publicKey="yourPublicKeyLine1yourPublicKeyLine2yourPublicKeyLineN"
+        // other configurations fields...
+
+## OpenID Connect Logout
+The logout works by directing the user’s browser to the end-session endpoint of the OpenID Connect provider, with the logout request parameters encoded in the URL query string.
+If you need to redirect to the login page after logout, you can use your `redirectUri` as the `post_logout_redirect_uri` parameter.
+Example: https://xl-release.example.com/auth/realms/XLRelease/protocol/openid-connect/logout?post_logout_redirect_uri=https://xl-release.example.com/oidc-login
+
 ## Current setup limitations
 1. The supported tokens are JWT tokens with RS256 signatures
 1. Unsigned tokens and HS256 signed tokens are not supported.
