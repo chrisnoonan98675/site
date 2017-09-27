@@ -14,9 +14,9 @@ The XL Release dashboard report provides important information such as releases 
 
 To access the report, select **Reports** > **Dashboard** from the top menu. Use the buttons at the top of the report to select a time period such as "last six months" or a specific date range.
 
-## Releases at risk
+## Releases at risk (Removed as of XL Release version 7.2)
 
-The **Releases at risk** section shows [active](/xl-release/concept/release-life-cycle.html) releases that contain one or more tasks that are [flagged](/xl-release/concept/xl-release-task-overview.html#task-details). Click a release to open its summary.
+The **Releases at risk** section is available only in XL Release versions 7.1 and earlier and shows [active](/xl-release/concept/release-life-cycle.html) releases that contain one or more tasks that are [flagged](/xl-release/concept/xl-release-task-overview.html#task-details). Click a release to open its summary.
 
 ![Releases at risk](../images/dashboard-releases-at-risk.png)
 
