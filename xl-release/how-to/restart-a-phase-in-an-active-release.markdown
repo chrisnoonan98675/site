@@ -31,7 +31,7 @@ This is an example of how restarting a phase works in practice. Suppose you have
 
 The QA phase was started with version 1.0 of the product, but bugs were found and QA could not sign off. So the **Sign off by QA** task failed. The Dev team is notified and produces a fix: version 1.0.1. You can now start the QA phase again for version 1.0.1.
 
-Click **Restart Phase...** in the top bar to open the *Restart phase* window. Select the list of phases you want to choose from: **All phases** or **Most recent**. Select the phase and task from which the release should be restarted.
+Click **Restart Phase...** in the top bar to open the *Restart phase* window. Select the version of the phase: **Latest** or **Original**. Select the phase and task from which the release should be restarted.
 
 ![Restart confirmation dialog](../images/restart-dialog-1.png)
 
