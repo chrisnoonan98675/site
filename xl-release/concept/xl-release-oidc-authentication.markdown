@@ -21,6 +21,9 @@ OIDC defines a sign-in flow that enables a client application to authenticate a 
 You can log into XL Release using various Identity providers that support the OIDC authentication protocol,
 such as OKTA, [Keycloak](http://www.keycloak.org/downloads.html), and Azure Active Directory (Office 365).
 
+You can easily add an additional layer of security for XL Release by enabling multi-factor authentication (MFA).
+Using MFA and depending on your identity provider settings, users are required to acknowledge a verification phone call, text message, or app notification on their smart phones after correctly entering their passwords.
+
 ## Requirements
 
 ### Server requirements
