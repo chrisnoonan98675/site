@@ -29,7 +29,7 @@ To [install](/xl-release/how-to/install-xl-release.html) the XL Release server, 
 * **XL Release license:** See [XL Release licensing](/xl-release/concept/xl-release-licensing.html)
 * **Operating system:** Microsoft Windows or a Unix-family operating system
 * **Java SE Development Kit (JDK):**
-    * For XL Release 4.8.0 and later: JDK 8 (Oracle or IBM)
+    * For XL Release 4.8.0 and later: JDK 1.8.0_25 or later 
     * For XL Release 4.7.x and earlier: JDK 7 (Oracle or IBM)
 
 ### Server hardware requirements

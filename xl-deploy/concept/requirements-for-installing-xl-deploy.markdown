@@ -26,7 +26,7 @@ To [install](/xl-deploy/how-to/install-xl-deploy.html) the XL Deploy server, you
 * **Oracle, IBM, or Apple Java Development Kit (JDK):**
     * For XL Deploy 5.1.0 and earlier: JDK 7
     * For XL Deploy 5.1.1 and later: JDK 7 or 8
-    * For XL Deploy 5.5.0 and later: JDK 8
+    * For XL Deploy 5.5.0 and later: JDK 1.8.0_25 or later
 
     **Warning:** It is a known issue that using XL Deploy 5.1.1, 5.1.2, or 5.1.3 with JDK 8 may prevent pending tasks from being recovered after the XL Deploy server is restarted. To prevent this issue, use JDK 7 with these versions. Note that XL Deploy 5.1.0 and earlier should not be used with JDK 8.
 
@@ -56,7 +56,7 @@ The XL Deploy server itself only uses about 70 MB of disk space. The main hard d
 * Number of packages in the system
 * Number of deployments performed (specifically, the amount of logging information stored)
 
-While it is possible to store the repository in an [external database](/xl-deploy/how-to/configure-the-xl-deploy-repository.html), the underlying technology requires that the repository itself must not be stored on NFS as this is not supported. 
+While it is possible to store the repository in an [external database](/xl-deploy/how-to/configure-the-xl-deploy-repository.html), the underlying technology requires that the repository itself must not be stored on NFS as this is not supported.
 
 XL Deploy always requires that the disk space for the server be persistent. This is important for several reasons:
 
