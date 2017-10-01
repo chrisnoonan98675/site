@@ -13,31 +13,58 @@ since:
 - XL Deploy 7.2.0
 ---
 
-The Lightweight CLI is a Python based command line interface that allows you to connect to an XL Deploy server, to generate a Deployfile, or to apply a Deployfile.
+The Lightweight CLI is a Python-based command-line interface that allows you to connect to an XL Deploy server and generate or apply a  [Deployfile](/xl-deploy/concept/environment-as-code.html).
 
 ## Requirements
 
-* The [pip](https://pypi.python.org/pypi/pip) tool for installing Python packages
-* XL Deploy version 7.2.0
+* The [`pip`](https://pypi.python.org/pypi/pip) tool for installing Python packages
+* XL Deploy 7.2.0 or later
 
 ## Install the Lightweight CLI
 
-The `xld-py-cli` Lightweight CLI package is available in the XL Deploy product bundle.
+To install the XL Deploy Lightweight CLI, use `pip` to install [xld-py-cli](https://pypi.python.org/pypi/xld-py-cli/).
 
-To install the lightweight CLI:
-1. Create an installation directory such as `/opt/xebialabs/xld-py-cli` or `C:\Program Files\XL Deploy\Python CLI` (referred to as `XL_DEPLOY_PY_CLI_HOME` in this topic).
-1. Copy the XL Deploy Lightweight CLI archive to the directory.
-1. Extract the archive in the directory.
-1. Open a terminal window or command prompt and execute this command:
+## Commands and options
 
-    $ pip install xld-py-cli
+The Lightweight CLI supports the following commands:
+
+{:.table .table-striped}
+| Command | Description |
+| ------- | ----------- |
+| `xld` | Identifies a Lightweight CLI command |
+| `apply` | Apply a Deployfile to the XL Deploy repository |
+| `generate` | Generate a Deployfile from a directory in the XL Deploy repository |
+
+The Lightweight CLI supports the following options:
+
+{:.table .table-striped}
+| Option | Description |
+| ------ | ----------- |
+| `--url` | Location of the XL Deploy server (including port number) |
+| `--username` | User name to use when authenticate with the server |
+| `--password` | Password for authenticating with the server |
+
+### Environment variables
+
+You can store connection data for the Lightweight CLI in the following environment variables:
+
+{:.table .table-striped}
+| Option | Description |
+| ------ | ----------- |
+| `XL_DEPLOY_URL` | Location of the XL Deploy server (including port number) |
+| `XL_DEPLOY_USERNAME` | User name to use when authenticate with the server |
+| `XL_DEPLOY_PASSWORD` | Password for authenticating with the server |
+
+If command-line options are specified, they take precedence over environment variable values.
 
 ## Sample command to apply a Deployfile
 
-    $ xld --url *URL* --username *USERNAME* --password *PASSWORD* apply *PATH_TO_FILENAME*
+To apply a Deployfile:
 
-## Sample commands to generate a Deployfile
+    xld --url http://xl-deploy.mycompany.com:4516 --username john --password secret01 apply /Users/john/Deployfile
 
-* Deployfile containing multiple directories
+## Sample command to generate a Deployfile
 
-    $ xld --url *URL* --username *USERNAME* --password *PASSWORD* generate *PATH_TO_DIRECTORIES*
+To generate a Deployfile:
+
+    xld --url http://xl-deploy.mycompany.com:4516 --username john --password secret01 generate /Infrastructure/MyTeam/TestInfra
