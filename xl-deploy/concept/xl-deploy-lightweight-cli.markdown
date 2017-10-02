@@ -9,6 +9,7 @@ tags:
 - script
 - python
 - lightweight
+- Deployfile
 since:
 - XL Deploy 7.2.0
 ---
@@ -57,14 +58,24 @@ You can store connection data for the Lightweight CLI in the following environme
 
 If command-line options are specified, they take precedence over environment variable values.
 
-## Sample command to apply a Deployfile
+## Apply a Deployfile
 
 To apply a Deployfile:
 
     xld --url http://xl-deploy.mycompany.com:4516 --username john --password secret01 apply /Users/john/Deployfile
 
-## Sample command to generate a Deployfile
+You can only apply one Deployfile at a time.
 
-To generate a Deployfile:
+## Generate a Deployfile
+
+This example shows how to generate a Deployfile from a directory in the XL Deploy repository:
 
     xld --url http://xl-deploy.mycompany.com:4516 --username john --password secret01 generate /Infrastructure/MyTeam/TestInfra
+
+To generate multiple Deployfiles:
+
+    xld --url http://xl-deploy.mycompany.com:4516 --username john --password secret01 generate /Infrastructure/AWS Environments/Cloud
+
+By default, the output of the `generate` command is written to `stdout`. To redirect the output to a file, use the `>` character:
+
+    xld --url http://xl-deploy.mycompany.com:4516 --username john --password secret01 generate /Infrastructure/AWS Environments/Cloud > Deployfile
