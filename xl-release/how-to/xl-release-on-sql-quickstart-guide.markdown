@@ -1,5 +1,5 @@
 ---
-title: Persistence Configuration Manual
+title: XL Release on SQL Quickstart Guide
 categories:
 - xl-release
 subject:
