@@ -73,7 +73,7 @@ xl {
 
 ## SQL Database configuration
 
-The `xl.database` section in `xl-release.conf` is composed by following entries:
+The `xl.database` section in `xl-release.conf` is composed by the following entries:
 
 * `db-driver-classname`: the full class name of the driver, refer to the table above
 * `db-url`: the jdbc url pointing to the database
@@ -139,8 +139,16 @@ xl {
 }
 {% endhighlight %}
 
-// TODO: add notes about MySQL server configuration
 
+Note: MySQL server configuration should include the following entries:
+
+`my.cnf`:
+
+{% highlight config %}
+[mysqld]
+sql_mode="NO_AUTO_VALUE_ON_ZERO"
+max_allowed_packet=16M
+{% endhighlight %}
 
 ### Oracle
 
