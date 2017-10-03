@@ -21,8 +21,6 @@ Global settings, user profiles and shared configurations are still persisted in 
 
 Like previous versions, XL Release 7.2 uses an SQL database to archive completed and aborted releases.
 
-# Configuration
-
 ## Overview
 
 There are now three entries in the `xl-release.conf` configuration file that needs to be defined:
@@ -36,9 +34,10 @@ There are now three entries in the `xl-release.conf` configuration file that nee
 
 To enable this new feature, you need to:
 
-1. Set `xl.repository.sql` to `true`;
-2. Configure `xl.database` to point to an existing SQL database;
-3. Download the correct JDBC driver for your database and copy it under `XL_RELEASE_SERVER_HOME/lib`.
+1. Start from a fresh installation of XL Release 7.2.0
+2. Set `xl.repository.sql` to `true`;
+3. Configure `xl.database` to point to an existing SQL database;
+4. Download the correct JDBC driver for your database and copy it under `XL_RELEASE_SERVER_HOME/lib`.
 
 Detailed instructions for each supported database can be found in the "Configuration" section below.
 
@@ -48,13 +47,13 @@ Detailed instructions for each supported database can be found in the "Configura
 Currently we support the following SQL databases:
 
 {:.table .table-striped}
-| SQL Database  | Version   | Driver class name                        |  Driver download URL     |
-| ------------- | --------- | ---------------------------------------- | -------------------------|
-| Derby         |           | `org.apache.derby.jdbc.AutoloadedDriver` | _included in XL Release_ |
-| H2            |           | `org.h2.Driver`                          | _included in XL Release_ |
-| PostgreSQL    | 9.5       | `org.postgresql.Driver`                  | PostgreSQL JDBC Driver [https://jdbc.postgresql.org/download.html](https://jdbc.postgresql.org/download.html) |
-| MySQL         | 5.7       | `com.mysql.jdbc.Driver`                  | MySQL Connector/J [https://dev.mysql.com/downloads/connector/j/](https://dev.mysql.com/downloads/connector/j/) |
-| Oracle        | xe-11g    | `oracle.jdbc.OracleDriver`               | OJDBC Driver [http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html)
+| SQL Database  | Version   |
+| ------------- | --------- |
+| Derby         |           |
+| H2            |           |
+| PostgreSQL    | 9.5       |
+| MySQL         | 5.7       |
+| Oracle        | xe-11g    |
 
 
 ## Minimal setup
@@ -71,10 +70,42 @@ xl {
 }
 {% endhighlight %}
 
-## Basic setup
 
-`xl-release.conf`:
+## SQL Database configuration
 
+The `xl.database` section in `xl-release.conf` is composed by following entries:
+
+* `db-driver-classname`: the full class name of the driver, refer to the table above
+* `db-url`: the jdbc url pointing to the database
+* `db-username`: username used to access the database
+* `db-password`: password for `db-username`
+* `max-pool-size`: maximum number of database connections to use
+
+Note: the `xl.reporting` section is similar except that `max-pool-size` cannot be configured and defaults to 10.
+
+The following table shows the value for `db-driver-class-name` for each supported database and directions to obtain the corresponding jdbc driver.
+
+{:.table .table-striped}
+| SQL Database  | Driver class name                        |  Driver download URL     |
+| ------------- | ---------------------------------------- | -------------------------|
+| Derby         | `org.apache.derby.jdbc.AutoloadedDriver` | _included in XL Release_ |
+| H2            | `org.h2.Driver`                          | _included in XL Release_ |
+| PostgreSQL    | `org.postgresql.Driver`                  | [PostgreSQL JDBC Driver](https://jdbc.postgresql.org/download.html) |
+| MySQL         | `com.mysql.jdbc.Driver`                  | [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) |
+| Oracle        | `oracle.jdbc.OracleDriver`               | [OJDBC Driver](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html)
+
+
+## Configuration examples
+
+We assume the following if not otherwise stated:
+
+* the database server is at `db1.example.com`
+* the database uses its default port
+* the name of the database is "xlreleasedb"
+* the username used to connect to the database is "xlrelease"
+* the password is "secret"
+
+### PostgreSQL
 
 {% highlight config %}
 xl {
@@ -83,89 +114,78 @@ xl {
     }
     database {
         db-driver-classname = "org.postgresql.Driver"
-        db-url = "jdbc:derby:repository/db;create=true"
-        db-username = ""
-        db-password = ""
-        max-pool-size = 10
+        db-url = "jdbc:postgresql://db1.example.com:5432/xlreleasedb"
+        db-username = "xlrelease"
+        db-password = "secret"
+        max-pool-size = 100
     }
 }
 {% endhighlight %}
 
-
-## Default Configuration
-
-The default configuration has SQL mode disabled, but if enabled, it will use an embedded Derby database in `XL_RELEASE_SERVER_HOME/repository/db`.
-
-For more information about configuring jackrabbit (`xl.repository`) and the archive (`xl.reporting`), please refer to the
-"Configure the XL Release repository in a database" how-to:
-[https://docs.xebialabs.com/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html](https://docs.xebialabs.com/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html).
-
-These are the default settings in `xl-release.conf`:
+### MySQL
 
 {% highlight config %}
 xl {
     repository {
-        # location of the repository configuration file (jackrabbit-repository.xml by default)
-        # if configuration file is not present on the filesystem, repository configuration will be taken from xl.repository.configuration profile
-        configurationLocation = "jackrabbit-repository.xml"
-
-        # configuration profile to load when configurationLocation does not exist (jackrabbit-repository-default.xml in this case)
-        configuration = "default"
-
-        # connection details for the repository database
-        persistence {
-          # default maxPoolSize
-          maxPoolSize = 20
-        }
-
-        cluster {
-          enabled = no
-        }
-
-        # jackrabbit configuration
-        jackrabbit {
-          # bundle cache size for the "default" workspace, default value -1 means the size is determined dynamically based on the heap size, one 10th is then used approx.
-          bundleCacheSize = -1
-          # settings related to jackrabbit datastore
-          artifacts {
-            # datastore location on filesystem, mandatory property in provided clustered configurations
-            # location = ""
-          }
-        }
-
-        # 'false' if passwords should be encrypted when retrieved from the repository, 'true' for backwards compatible behaviour
-        decryptPasswords = false
-
-        # SQL database mode (beta feature)
-        sql = false
+        sql = true
     }
-
-    # SQL database for active releases, folders and permissions. Defaults to embedded Derby database in repository/db
     database {
-        db-driver-classname = "org.apache.derby.jdbc.AutoloadedDriver"
-        db-url = "jdbc:derby:repository/db;create=true"
-        db-username = ""
-        db-password = ""
-        max-pool-size = 10
+        db-driver-classname = "com.mysql.jdbc.Driver"
+        db-url = "jdbc:mysql://db1.example.com:3306/xlreleasedb"
+        db-username = "xlrelease"
+        db-password = "secret"
+        max-pool-size = 100
     }
-
-    # SQL database for archived releases. Defaults to embedded Derby database in archive/db
-    reporting {
-        db-driver-classname = "org.apache.derby.jdbc.AutoloadedDriver"
-        db-url = "jdbc:derby:archive/db;create=true"
-        db-username = ""
-        db-password = ""
-    }
-
 }
 {% endhighlight %}
 
-In the following sections, we will describe example configurations for each supported database.
-You can of course do the same for the "reporting" database, but keep in mind that `repository`, `database` and `reporting` cannot share the same database.
+// TODO: add notes about MySQL server configuration
 
-## H2
 
-Driver: // TODO: url to h2 driver here
+### Oracle
+
+Please note that in this example there is no database name since Oracle uses the username instead.
+
+{% highlight config %}
+xl {
+    repository {
+        sql = true
+    }
+    database {
+        db-driver-classname = "oracle.jdbc.OracleDriver"
+        db-url = "jdbc:oracle:thin:db1.example.com:1521/xe"
+        db-username = "xlrelease"
+        db-password = "secret"
+        max-pool-size = 100
+    }
+}
+{% endhighlight %}
+
+
+### Derby
+
+This example will use a local directory, namely `XL_RELEASE_SERVER_HOME/repository/db` for storage.
+
+{% highlight config %}
+xl {
+    repository {
+        sql = true
+    }
+    database {
+        db-driver-classname = "org.apache.derby.jdbc.AutoloadedDriver"
+        db-url = "jdbc:derby:directory:repository/db"
+        db-username = "xlrelease"
+        db-password = "secret"
+        max-pool-size = 100
+    }
+}
+{% endhighlight %}
+
+For more information about the jdbc url, please refer to Derby documentation: [Derby Database connection examples](https://db.apache.org/derby/docs/10.8/devguide/rdevdvlp22102.html#rdevdvlp22102)
+
+### H2
+
+This example will use a local file, namely `XL_RELEASE_SERVER_HOME/repository/db` for storage
 
 {% highlight config %}
 xl {
@@ -174,39 +194,12 @@ xl {
     }
     database {
         db-driver-classname = "org.h2.Driver"
-        db-url = "jdbc:h2:file:./repository/db
+        db-url = "jdbc:h2:file:repository/db"
         db-username = "xlrelease"
-        db-password = "secretpassword"
-        max-pool-size = 10
+        db-password = "secret"
+        max-pool-size = 100
     }
 }
 {% endhighlight %}
 
-## Derby
-
-No additional drivers needed.
-
-{% highlight config %}
-xl {
-    database {
-        db-driver-classname = "org.apache.derby.jdbc.AutoloadedDriver"
-        db-url = "jdbc:derby:repository/db;create=true"
-        db-username = "xlrelease"
-        db-password = "secretpassword"
-        max-pool-size = 10
-    }
-}
-{% endhighlight %}
-
-## PostgreSQL
-
-Driver: [http://repo1.maven.org/maven2/org/postgresql/postgresql/9.4.1211/postgresql-9.4.1211.jar](http://repo1.maven.org/maven2/org/postgresql/postgresql/9.4.1211/postgresql-9.4.1211.jar)
-
-
-## MySQL
-
-Driver: [http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.39/mysql-connector-java-5.1.39.jar](http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.39/mysql-connector-java-5.1.39.jar)
-
-## Oracle
-
-Driver: // TODO
+For more information about the jdbc url, please refer to H2 documentation: [H2 Database URL](http://www.h2database.com/html/features.html#database_url)
