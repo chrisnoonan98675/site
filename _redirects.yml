@@ -96,7 +96,12 @@
 /xl-deploy-xld-azure-plugin/latest/azurePluginManual.html : /xl-deploy-xld-azure-plugin/7.0.x/azurePluginManual.html
 /xl-deploy-xld-provision/latest/xldProvisioningManual.html : /xl-deploy-xld-provision/5.5.x/xldProvisioningManual.html
 /xl-deploy-xld-aws-plugin/latest/awsPluginManual.html : /xl-deploy-xld-aws-plugin/7.2.x/awsPluginManual.html
-/xl-deploy-xld-provision-puppet-plugin/latest/provisionPuppetPluginManual.html : /xl-deploy-xld-provision-puppet-plugin/6.0.x/provisionPuppetPluginManual.html
+/xl-deploy-xld-provision-puppet-plugin/latest/provisionPuppetPluginManual.html : /xl-deploy-xld-provision-puppet-plugin/5.5.x/provisionPuppetPluginManual.html # The Provision Puppet plugin was merged into the Puppet plugin in XLD 6.0.2
+
+# XL Deploy container platforms
+
+/xl-deploy-xld-openshift-plugin/latest/openshiftPluginManual.html : /xl-deploy-xld-openshift-plugin/7.2.x/openshiftPluginManual.html
+/xl-deploy-xld-kubernetes-plugin/latest/kubernetesPluginManual.html : /xl-deploy-xld-kubernetes-plugin/7.2.x/kubernetesPluginManual.html
 
 # XL Scale docs
 

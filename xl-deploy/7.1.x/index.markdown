@@ -76,6 +76,9 @@ product-id: xl-deploy
 
 * [XL Deploy Azure plugin](/xl-deploy-xld-azure-plugin/7.0.x/azurePluginManual.html)
 * [XL Deploy AWS plugin](/xl-deploy-xld-aws-plugin/7.1.x/awsPluginManual.html)
+
+### Container platform plugins
+
 * [XL Deploy OpenShift plugin](/xl-deploy-xld-openshift-plugin/7.1.x/openshiftPluginManual.html)
 
 ### Community plugins
