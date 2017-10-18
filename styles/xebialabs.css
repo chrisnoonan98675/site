@@ -466,11 +466,10 @@ h6:hover .header-link {
     padding: 6px 10px;
 }
 
-/* Google Custom Search overrides */
+/* SiteSearch360 search box */
 
-.cse input.gsc-search-button, input.gsc-search-button {
-    background-color: #666 !important;
-    border: 1px solid #666 !important;
+.sitesearch360 {
+  padding-top: 10px;   
 }
 
 /* Scroll-to-top button styles */
