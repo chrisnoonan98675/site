@@ -9,3 +9,16 @@ tags:
 - setup
 - system requirements
 ---
+
+## Client requirements
+
+The following web browsers are supported for the XL Release user interface:
+
+* Chrome
+* Firefox
+
+## Server requirements
+
+### Server hardware requirements
+
+### External systems
