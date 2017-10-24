@@ -35,7 +35,7 @@ Next to each task, click:
 
 If a task has already started, its start date appears.
 
-If the task is schedule to start at a specific future date, that date appears. *Planned* indicates that the task is waiting for a preceding task to complete, while *Schedule* indicates that the task is waiting for its scheduled start date.
+If the task is scheduled to start at a specific future date, that date appears. *Planned* indicates that the task is waiting for a preceding task to complete, while *Schedule* indicates that the task is waiting for its scheduled start date.
 
 If the task has a due date set, that date appears.
 
