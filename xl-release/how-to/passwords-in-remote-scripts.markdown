@@ -1,7 +1,7 @@
 ---
 title: Use passwords variables in the script of a Remote Script task
 subject:
-- tasks
+- Tasks
 categories:
 - xl-release
 tags:

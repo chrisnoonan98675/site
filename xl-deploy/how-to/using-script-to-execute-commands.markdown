@@ -3,7 +3,7 @@ title: Using a script to execute commands as part of a deployment
 categories:
 - xl-deploy
 subject:
-- rules
+- Rules
 tags:
 - rules
 - script
