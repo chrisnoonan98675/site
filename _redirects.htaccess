@@ -52,6 +52,7 @@ Redirect 301 /xl-release/help/global-variables.html /xl-release/how-to/configure
 Redirect 301 /xl-release/help/xfile.html /xl-release/how-to/using-the-xfile-view.html
 Redirect 301 /xl-deploy/how-to/configure-the-release-dashboard.html /xl-deploy/concept/advanced-release-dashboard-example.html
 Redirect 301 /xl-release/help/configure-notification-settings.html /xl-release/how-to/configure-notification-settings.html
+Redirect 301 /xl-release/help/configure-risk-settings.html /xl-release/how-to/configure-risk-settings.html
 
 # XL TestView in-product links
 
