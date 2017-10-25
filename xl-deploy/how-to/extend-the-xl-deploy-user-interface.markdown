@@ -72,9 +72,12 @@ You can call the following services from an HTML page created by a UI extension:
 * [XL Deploy REST API services](https://docs.xebialabs.com/xl-deploy/latest/rest-api)
 * [REST endpoints created by the extension](#declaring-server-endpoints)
 
-In both cases, the extension must authenticate itself with a basic HTTP authentication header appended to each request. You can retrieve the value of this header from the main XL Deploy application:
+**Important:** As of XL Deploy version 7.0.0, the authentication was changed to a Session-based Authentication and it is used for the default HTML5 based UI. If you are using the legacy Flex based UI, the Token-based Authentication security model is applied.
 
-    var authHeader = parent.getAuthToken()
+When you are using the legacy UI, the UI extension must authenticate itself with a basic HTTP authentication header appended to each request. You can retrieve the value of this header from the main XL Deploy application:
+
+    if (parent && parent.getAuthToken)
+      var authHeader = parent.getAuthToken()
 
 **Note:** When you are logged in to XL Deploy with the user name `admin` and password `admin`, the `authHeader` variable will contain the string `'Basic YWRtaW46YWRtaW4'`.
 
