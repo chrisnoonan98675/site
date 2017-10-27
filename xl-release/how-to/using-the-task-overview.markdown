@@ -35,7 +35,7 @@ Next to each task, click:
 
 If a task has already started, its start date appears.
 
-If the task is schedule to start at a specific future date, that date appears. *Planned* indicates that the task is waiting for a preceding task to complete, while *Schedule* indicates that the task is waiting for its scheduled start date.
+If the task is scheduled to start at a specific future date, that date appears. *Planned* indicates that the task is waiting for a preceding task to complete, while *Scheduled* indicates that the task is waiting for its scheduled start date.
 
 If the task has a due date set, that date appears.
 
@@ -44,9 +44,9 @@ If the task has a due date set, that date appears.
 To filter the task overview, click **Filter options** and select:
 
 * **Active tasks** to show tasks that are currently active (clear this option to also see tasks that are in the *planned* state)
-* **Assigned to me** to show tasks that are assigned to your
+* **Assigned to me** to show tasks that are assigned to you
 * **Assigned to my teams** to show tasks that are assigned to the teams that you are in
-* **Assigned to others** to show tasks that are assigned to others and to teams that you are not in
+* **Assigned to anybody** to show tasks that are assigned to anyone
 * **Not assigned** to show tasks that are not assigned to a user or a team
 
 **Tip:** Select *Not assigned* and *Active tasks* to see the tasks that are active but not being handled by anyone.
