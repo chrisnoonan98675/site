@@ -3,8 +3,9 @@ title: Configure OpenID Connect(OIDC) Authentication for XL Release
 categories:
 - xl-release
 subject:
-- System administration
+- Authentication
 tags:
+- authentication
 - security
 - sso
 - 2fa

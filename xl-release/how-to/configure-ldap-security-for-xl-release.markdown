@@ -3,8 +3,9 @@ title: Configure LDAP security for XL Release
 categories:
 - xl-release
 subject:
-- System administration
+- Authentication
 tags:
+- authentication
 - security
 - ldap
 - active directory
@@ -106,7 +107,7 @@ Update `xl-release-security.xml` with information about your LDAP setup:
 After you enter your values, restart the XL Release server. Add the user and group as principals in the XL Release interface and assign them permission to log in.
 
 **Tip:** Below we provide a concrete example how a possible LDAP configuration could look like.
-**Tip:** Use an LDAP browser such as [JXplorer](http://jxplorer.org/) to verify that the credentials are correct. 
+**Tip:** Use an LDAP browser such as [JXplorer](http://jxplorer.org/) to verify that the credentials are correct.
 
 ## Escaping special characters
 
@@ -122,7 +123,7 @@ Because `xl-release-security.xml` is an XML file, you must escape certain charac
 | `>` | `&gt;` |
 
 ## Example: Allow users of a certain group to login only
-For convenience we provide a filled in security.xml to show you how this could work. 
+For convenience we provide a filled in security.xml to show you how this could work.
 
 Like the template description above, the interesting bits have been marked.
 
