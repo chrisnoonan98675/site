@@ -15,16 +15,16 @@ XL Impact is a DevOps analysis application that is used with XL Release to analy
 
 ### Projects in XL Impact
 
-XL Impact collects all the possible data and provides information limited to a defined scope such as a project, a team, or a product. To define a scope, you can create new project.
+XL Impact collects all the possible data and provides information limited to a defined scope such as a project, a team, or a product. To define a scope, you need to create new project.
 
 During the project definition you can configure:
 
 *  The pieces of data that are relevant to your project (scope). For example, you can filter by the Github repository, the XL Release template name, or by the Jenkins job name.
 * The **Release to client** for this project (Select either XL Release or Jenkins build).
-* The **Jira issue done state** for this project refers to a subset of all the possible Jira issue states that are considered as `done` (completed, done, resolved).
+* The **Jira issue done state** for this project refers to a subset of all the possible Jira issue states that are considered as `done` (e.g. completed, done, resolved).
 * The **Production issue** for this project. This is to distinguish between normal product issues (product development according to roadmap) and issues reported by customers (complaints).
 
-To edit a project, go to **Projects** and click the pencil icon. Each **Data Source** block contains a different block type and for each block type you can add or remove filters. In a filter you can define a **Field**, select an **Operator**, and specify the values you want to use. On the right side of the page, charts are displayed showing how many pieces of data are filtered by the filter you configured.
+To create a project, go to **Projects** and click **Create project**, to edit a project, click the pencil icon. Each **Data Source** block contains a different block type and for each block type you can add or remove filters. In a filter you can define a **Field**, select an **Operator**, and specify the values you want to use. On the right side of the page, charts are displayed showing how many pieces of data are filtered by the filter you configured and distribution of these pieces on a timeline. 
 
 #### Release to Client filter
 
@@ -35,8 +35,7 @@ release to client).
 
 Inside this subgraph, XL Impact searches for references to commits (mentioned by either the Releases or the Jenkins jobs).
 
-XL Impact walks through the commit tree starting from the commits found on the previous step, through parents to the very first commit in each repository. These commits are marked as "known to this release
-to client".
+XL Impact walks through the commit tree starting from the commits found on the previous step, through parents to the very first commit in each repository. These commits are marked as "known to this release to client".
 
 ##### Sample scenario
 
