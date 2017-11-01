@@ -3,7 +3,7 @@ title: Release as code using the Releasefile
 categories:
 - xl-release
 subject:
-- Release
+- Releasefile
 tags:
 - as code
 - release

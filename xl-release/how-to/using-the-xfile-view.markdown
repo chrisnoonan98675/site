@@ -3,7 +3,7 @@ title: Using the Releasefile view
 categories:
 - xl-release
 subject:
-- Releases
+- Releasefile
 tags:
 - as code
 - template
