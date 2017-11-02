@@ -24,9 +24,20 @@ During the project definition you can configure:
 * The **Jira issue done state** for this project refers to a subset of all the possible Jira issue states that are considered as `done` (e.g. completed, done, resolved).
 * The **Production issue** for this project. This is to distinguish between normal product issues (product development according to roadmap) and issues reported by customers (complaints).
 
-To create a project, go to **Projects** and click **Create project**, to edit a project, click the pencil icon. Each **Data Source** block contains a different block type and for each block type you can add or remove filters. In a filter you can define a **Field**, select an **Operator**, and specify the values you want to use. On the right side of the page, charts are displayed showing how many pieces of data are filtered by the filter you configured and distribution of these pieces on a timeline. 
+To create a project, go to **Projects** and click **Create project**, to edit a project, click the pencil icon.
+
+There are four major types of filter blocks:
+
+1. **Data Set Filter**
+1. **Release to Client Filter**
+1. **Jira Final Status Filter**
+1. **Jira Production Issue Filter**
+
+Each **Data Source** block contains a different block type and for each block type you can add or remove filters. In a filter you can define a **Field**, select an **Operator**, and specify the values you want to use. On the right side of the page, charts are displayed showing how many pieces of data are filtered by the filter you configured and distribution of these pieces on a timeline.
 
 #### Release to Client filter
+
+For a more detailed description of the Release to Client concept, refer to [The mechanics of tHe Release to Client Filter](/xl-impact/concept/release-to-client-filter.markdown).
 
 The **Release to Client** filter can be either a release from XL Release or a Jenkins Job. It is important that XL Impact expects a release to client to occur multiple times and at similar intervals (weekly, bi-weekly, monthly, quarterly). In the XL Release example, the releases to client are versions 7.0, 7.1, 7.2 and so on.
 
