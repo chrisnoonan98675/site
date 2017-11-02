@@ -15,7 +15,7 @@ Before installing XL Impact, [ensure that you meet the system requirements](/xl-
 
 * Connecting XL Release to XL Impact to display the UI
 
-Download the `xlr-xli-ui-plugin` from the distribution site. Copy the plugin to the XL Release plugins directory, add following snippet to configuration file, and restart XL Release server.
+Download the `xlr-xli-ui-plugin` from the distribution site. Unpack the plugin inside the `XL_RELEASE_SERVER_HOME/plugins/` directory, add following snippet to configuration file, and restart XL Release server.
 
           xl {
             plugin {
@@ -36,7 +36,7 @@ Download the `xlr-xli-ui-plugin` from the distribution site. Copy the plugin to 
 
 * Connecting XL Release to XL Impact to retrieve XL Release data
 
-Download the `xlr-xli-data-plugin` from the distribution site. Copy the plugin to the XL Release plugins directory, add following snippet to configuration file, and restart XL Release server.
+Download the `xlr-xli-data-plugin` from the distribution site. Unpack the plugin inside the `XL_RELEASE_SERVER_HOME/plugins/` directory, add following snippet to configuration file, and restart XL Release server.
 
         xl {
           plugin {

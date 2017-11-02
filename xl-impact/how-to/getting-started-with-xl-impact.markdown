@@ -28,12 +28,24 @@ To create a project, go to **Projects** and click **Create project**, to edit a 
 
 There are four major types of filter blocks:
 
-1. **Data Set Filter**
-1. **Release to Client Filter**
-1. **Jira Final Status Filter**
-1. **Jira Production Issue Filter**
+* **Data Set Filter**
+* **Release to Client Filter**
+* **Jira Final Status Filter**
+* **Jira Production Issue Filter**
 
-Each **Data Source** block contains a different block type and for each block type you can add or remove filters. In a filter you can define a **Field**, select an **Operator**, and specify the values you want to use. On the right side of the page, charts are displayed showing how many pieces of data are filtered by the filter you configured and distribution of these pieces on a timeline.
+Each filter block contains one or more **Data Source** blocks.
+
+You can select a data source from the drop down list:
+
+* XLR Releases
+* Commit
+* Pull Request
+* Branch
+* Jenkins Build
+* Jira Issue
+* Jira Issue Version
+
+For each **Data Source** block you can add or remove filter rows. In a filter row you can define a **Field**, select an **Operator**, and specify the values you want to use. On the right side of the page, charts are displayed showing how many pieces of data are filtered by the filter you configured and distribution of these pieces on a timeline.
 
 #### Release to Client filter
 
