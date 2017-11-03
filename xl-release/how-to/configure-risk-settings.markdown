@@ -29,3 +29,5 @@ To create a new risk profile, click **New Risk Profile** and specify a name for 
 To save the risk profile, click **Create risk profile**.
 
 ![Create risk profile](../images/new-risk-profile.png)
+
+**Note:** You can assign a risk profile to a template or a release, or change the risk profile after a release has started.
