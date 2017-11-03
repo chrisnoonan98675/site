@@ -1,5 +1,5 @@
 ---
-title: Configure risk settings
+title: Configure profile risk settings
 categories:
 - xl-release
 subject:
@@ -21,6 +21,8 @@ as `Attention Needed` or `At Risk`.
 ## Manage risk profiles
 
 In XL Release, you can create or edit risk profiles to assign different values to the Risk Assessors and apply the custom risk profiles to your releases. You can view the details of the **Default risk profile**, create an exact copy of it and the edit the copied risk profile.
+
+For more information about the risk score and the risk assessors, refer to [Using risk awareness in XL Release](/xl-release/how-to/using-the-risk-aware-view.html).
 
 To create a new risk profile, click **New Risk Profile** and specify a name for the risk profile. You can change the score for each Risk Assessor in the list or disable it by clicking the **Disable** icon next to it.
 

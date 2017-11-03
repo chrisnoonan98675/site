@@ -58,6 +58,7 @@ To create a template:
 1. In the **Template Name** box, enter a name to identify the template.
 1. In **Scheduled start date** and **Due date**, set the planned start and end dates of the release. XL Release uses these dates to show the release on the calendar. Only the start date is required.
 1. If you want the release to be aborted when a task fails, select **Abort on failure**.
+1. In **Use risk profile**, select a risk profile from the drop down list. If no risk profile is selected, the **Default risk profile** is used. For more information, refer to [Configure profile risk settings](/xl-release/how-to/configure-risk-settings.html).
 1. In the Description box, optionally enter detailed information about the release. This field allows [Markdown](/xl-release/how-to/use-markdown-in-xl-release.html).
 1. In **Run release as user** and **Password for user that runs the release**, enter the user name and password of the XL Release user account that should be used to execute scripts.
 1. Next to **Tags**, optionally add tags to the release to make it easier to find in the release overview.
