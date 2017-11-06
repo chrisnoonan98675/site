@@ -66,6 +66,18 @@ defaults:
             layout: "topic"
     -
         scope:
+            path: "xl-impact/concept"
+            type: "pages"
+        values:
+            layout: "topic"
+    -
+        scope:
+            path: "xl-impact/how-to"
+            type: "pages"
+        values:
+            layout: "topic"
+    -
+        scope:
             path: "xl-testview/how-to"
             type: "pages"
         values:

@@ -19,12 +19,12 @@ XL Impact collects all the possible data and provides information limited to a d
 
 During the project definition you can configure:
 
-*  The pieces of data that are relevant to your project (scope). For example, you can filter by the Github repository, the XL Release template name, or by the Jenkins job name.
+*  The pieces of data that are relevant to your project (scope). For example, you can filter by the GitHub repository, the XL Release template name, or by the Jenkins job name.
 * The **Release to client** for this project (Select either XL Release or Jenkins build).
 * The **Jira issue done state** for this project refers to a subset of all the possible Jira issue states that are considered as `done` (e.g. completed, done, resolved).
 * The **Production issue** for this project. This is to distinguish between normal product issues (product development according to roadmap) and issues reported by customers (complaints).
 
-To create a project, go to **Projects** and click **Create project**, to edit a project, click the pencil icon.
+To create a project, go to **Projects** and click **Create project**. To edit a project, click the pencil icon.
 
 There are four major types of filter blocks:
 
