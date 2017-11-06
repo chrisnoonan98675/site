@@ -49,7 +49,7 @@ For each **Data Source** block you can add or remove filter rows. In a filter ro
 
 #### Release to Client filter
 
-For a more detailed description of the Release to Client concept, refer to [The mechanics of tHe Release to Client Filter](/xl-impact/concept/release-to-client-filter.markdown).
+For a more detailed description of the Release to Client concept, refer to [The mechanics of the Release to Client Filter](/xl-impact/concept/release-to-client-filter.markdown).
 
 The **Release to Client** filter can be either a release from XL Release or a Jenkins Job. It is important that XL Impact expects a release to client to occur multiple times and at similar intervals (weekly, bi-weekly, monthly, quarterly). In the XL Release example, the releases to client are versions 7.0, 7.1, 7.2 and so on.
 
@@ -58,7 +58,7 @@ release to client).
 
 Inside this subgraph, XL Impact searches for references to commits (mentioned by either the Releases or the Jenkins jobs).
 
-XL Impact walks through the commit tree starting from the commits found on the previous step, through parents to the very first commit in each repository. These commits are marked as "known to this release to client".
+XL Impact walks through the commit tree, starting from the commits found on the previous step, through parents, to the very first commit in each repository. These commits are marked as "known to this release to client".
 
 ##### Sample scenario
 
@@ -70,8 +70,9 @@ The Jira issues and pull requests are considered to be a part of the release "th
 
 #### Jira Issues and Jira Issue Versions
 
-In XL Impact, Jira issues are variable as opposed to other processed entities that are invariable such as commits and Jenkins jobs. As a result, XL Impact analyzes not only the Jira issues, but also the Jira issue versions (or Jira issue changes).
-When XL Impact tries to determine "how many issues were done during the week", it queries "how many changes to jira issue versions occurred during a week" with the condition that before a change happened, the issue did not match the filter "Jira issue done state" according to project definition and after the change, the issue matched that filter.
+In XL Impact, Jira issues are variable, as opposed to other processed entities that are invariable such as commits and Jenkins jobs. As a result, XL Impact analyzes not only the Jira issues, but also the Jira issue versions (or Jira issue changes).
+
+When XL Impact tries to determine "how many issues were done during the week", it queries "how many changes to Jira issue versions occurred during a week". The query must follow the conditions: before a change happened, the issue did not match the filter "Jira issue done state" according to project definition; after the change, the issue matched that filter.
 For some criteria, you must configure filters for both Jira issue and Jira issue versions.
 
 #### Time period on insights and metric tiles
@@ -81,8 +82,8 @@ On the chart timeline the time period is displayed and on metric tiles the time 
 
 Two time periods are calculated for the "report date":
 
-* current period: starting from "report date minus the period length" to "report date"
-* previous period: starting from "report date minus two times the period length" to "report date minus the period length"
+* Current period: starting from "report date minus the period length" to "report date"
+* Previous period: starting from "report date minus two times the period length" to "report date minus the period length"
 
 #### Create a new project
 

@@ -8,21 +8,21 @@ tags:
 - filter
 ---
 
-The **Release to Client Filter** is a core concept that XL Impact is based on.**Release to Client** is a filter that helps XL Impact discover when a new version was released and when the version becomes visible for real clients.
+The **Release to Client Filter** is a core concept that XL Impact is based on. Release to Client is a filter that helps XL Impact discover when a new version was released and when the version becomes visible for real clients.
 
-**Important** You must ensure the **Releases to Client** is correctly configured.
+**Important** You must ensure the **Release to Client Filter** is correctly configured.
 
 For the majority of **Insights**, XL Impacts tries to analyze every event and determine to which **Release to Client** it belongs to.
 
-Examples of **Release to Client**:
+Examples of Release to Client filters:
 
 * A Jenkins job that uploads a new release version of an application to the **Downloads** section of company website
 * A Jenkins job that pushes a new version of a web application to the production infrastructure
 
-At the moment, you can select only one of two options as the **Release to Client** filter: **Jenkins build** or **XLR Release**.
+At the moment, you can select only one of two options as the Release to Client filter: **Jenkins build** or **XLR Release**.
 To use only successful Jenkins builds or XLR Releases as releases to client, it is recommended to add a **Success state** type filter.
 
-Ensure that the events filtered by the **Release to client** filter are correct. Example: If you perform a release once every two weeks, then the filtered events should also occur once every two weeks.
+Ensure that the events filtered by the Release to client filter are correct. Example: If you perform a release once every two weeks, then the filtered events should also occur once every two weeks.
 
 **Note:** If your release pipeline contains `hotfixes` (small releases with the purpose of bug fixing), you should not consider these as **Release to Client**. The optimal outcome is to obtain correct and relevant statistics and not to mix up long (normal) releases with short (`hotfix`) releases.
 

@@ -12,13 +12,14 @@ tags:
 
 ## Client requirements
 
-The following web browsers are supported for the XL Release user interface:
+The following web browsers are supported for the XL Impact user interface:
 
 * Chrome
 * Firefox
 
 ## Server requirements
 
-### Server hardware requirements
+To install and use XL Impact, you must have an XL Release server installed and configured. For more information about XL Release system requirements, refer to [Requirements for installing XL Release](/xl-release/concept/requirements-for-installing-xl-release.html).
 
-### External systems
+* The `xlr-xli-data-plugin`data plugin
+* The `xlr-xli-ui-plugin` UI plugin
