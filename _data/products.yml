@@ -10,8 +10,6 @@
     - 7.2.x
     - 7.0.x
     - 6.0.x
-    - 5.5.x
-    - 5.1.x
 - name: XL Release
   id: xl-release
   blurb: XL Release is an end-to-end pipeline orchestration tool for Continuous Delivery and DevOps teams. It handles automated tasks, manual tasks, and complex dependencies and release trains. And XL Release is designed to integrate with your change and release management tools.
@@ -21,8 +19,6 @@
     - 7.2.x
     - 7.0.x
     - 6.0.x
-    - 5.0.x
-    - 4.8.x
 - name: XL TestView
   id: xl-testview
   blurb: XL TestView lets you define, execute, and analyze all of the tests relevant to an application's quality. You can easily manage complex test sets and execute tests across a wide spectrum of tools.
