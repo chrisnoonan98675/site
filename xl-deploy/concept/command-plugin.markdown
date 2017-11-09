@@ -25,9 +25,9 @@ You can also use the Command plugin to reuse existing deployment scripts with XL
 
 ### Command
 
-A command encapsulates an operating system-specific command, as you would enter at the command prompt of a native operating system (OS) command shell. The OS command is captured in the command's `commandLine` property; for example, `echo hello >> /tmp/hello.txt`.
+A command encapsulates an operating system-specific command, as you would enter at the command prompt of a native operating system (OS) command shell. The OS command is captured in the command's `commandLine` property; for example, `echo hello`.
 
-The command can also upload dependent artifacts to the target system and make them available to the `commandLine` with the use of a placeholder in the `${filename}` format; for example, `cat ${uploadedHello.txt} >> /tmp/hello.txt`.
+The command can also upload dependent artifacts to the target system and make them available to the `commandLine` with the use of a placeholder in the `${filename}` format; for example, `cat ${uploadedHello.txt}`.
 
 ### Undo command
 
