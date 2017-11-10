@@ -22,7 +22,7 @@
 - name: XL Impact
   id: xl-impact
   blurb: XL Impact is the world’s first goal-based team instrument focused on improving your software delivery pipeline and software delivery process. Based on goals and KPI’s, it shows the current state of your delivery process and tool usage. On top of this current state, it provides concrete improvement suggestions about where to improve your organisation. XL Impact aggregates data from your continuous delivery tools and searches for patterns to come up with these improvements that make an impact on your organisation. After setup, devops managers and devops teams are the typical users of this instrument to discover where to improve. Agile transformation leads and team coaches can use it to determine where to focus their effort. Senior executives in organisations can use it to determine the ROI on the budget they spend on transforming their organisation.
-  key-concepts-link: /xl-impact/concept/release-to-client-filter.html
+  key-concepts-link: /xl-impact/concept/release-to-customer-filter.html
   installation-link: /xl-impact/how-to/install-xl-impact.html
   versions:
     - 1.0.x
