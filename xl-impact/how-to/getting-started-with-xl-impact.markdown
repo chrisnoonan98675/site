@@ -20,16 +20,16 @@ XL Impact collects all the possible data and provides information limited to a d
 During the project definition you can configure:
 
 *  The pieces of data that are relevant to your project (scope). For example, you can filter by the GitHub repository, the XL Release template name, or by the Jenkins job name.
-* The **Release to client** for this project (Select either XL Release or Jenkins build).
+* The **Release to customer** for this project (Select either XL Release or Jenkins build).
 * The **Jira issue done state** for this project refers to a subset of all the possible Jira issue states that are considered as `done` (e.g. completed, done, resolved).
-* The **Production issue** for this project. This is to distinguish between normal product issues (product development according to roadmap) and issues reported by customers (complaints).
+* The **Production issue** for this project. This is to distinguish between normal product issues (product development according to roadmap) and issues reported by customers (complaints). This allows you to create your definition of production issue for you project. This filter helps XL Impact identify production issues. Everything that matches this filter is considered a production issue, everything that does not match this filter is not considered a production issue.
 
 To create a project, go to **Projects** and click **Create project**. To edit a project, click the pencil icon.
 
 There are four major types of filter blocks:
 
 * **Data Set Filter**
-* **Release to Client Filter**
+* **Release to Customer Filter**
 * **Jira Final Status Filter**
 * **Jira Production Issue Filter**
 
@@ -47,22 +47,22 @@ You can select a data source from the drop down list:
 
 For each **Data Source** block you can add or remove filter rows. In a filter row you can define a **Field**, select an **Operator**, and specify the values you want to use. On the right side of the page, charts are displayed showing how many pieces of data are filtered by the filter you configured and distribution of these pieces on a timeline.
 
-#### Release to Client filter
+#### Release to Customer filter
 
-For a more detailed description of the Release to Client concept, refer to [The mechanics of the Release to Client Filter](/xl-impact/concept/release-to-client-filter.markdown).
+For a more detailed description of the Release to Customer concept, refer to [The mechanics of the Release to Customer Filter](/xl-impact/concept/release-to-customer-filter.markdown).
 
-The **Release to Client** filter can be either a release from XL Release or a Jenkins Job. It is important that XL Impact expects a release to client to occur multiple times and at similar intervals (weekly, bi-weekly, monthly, quarterly). In the XL Release example, the releases to client are versions 7.0, 7.1, 7.2 and so on.
+The **Release to Customer** filter can be either a release from XL Release or a Jenkins Job. It is important that XL Impact expects a release to customer to occur multiple times and at similar intervals (weekly, bi-weekly, monthly, quarterly). In the XL Release example, the releases to customer are versions 7.0, 7.1, 7.2 and so on.
 
-For each **Release to Client**, XL Impact collects all the downstream releases from XL Release (child releases) and Jenkins jobs, obtaining a subgraph of related events (Releases and Jenkins jobs that were used to make a
-release to client).
+For each **Release to Customer**, XL Impact collects all the downstream releases from XL Release (child releases) and Jenkins jobs, obtaining a subgraph of related events (Releases and Jenkins jobs that were used to make a
+release to customer).
 
 Inside this subgraph, XL Impact searches for references to commits (mentioned by either the Releases or the Jenkins jobs).
 
-XL Impact walks through the commit tree, starting from the commits found on the previous step, through parents, to the very first commit in each repository. These commits are marked as "known to this release to client".
+XL Impact walks through the commit tree, starting from the commits found on the previous step, through parents, to the very first commit in each repository. These commits are marked as "known to this release to customer".
 
 ##### Sample scenario
 
-For example, if a team is working on a feature and commits to a branch, and the branch is not merged into the master branch when master is released, then the commits of this branch are not marked as "known to this release to client".
+For example, if a team is working on a feature and commits to a branch, and the branch is not merged into the master branch when master is released, then the commits of this branch are not marked as "known to this release to customer".
 
 The commits that are known to release "N" and not known to release "N - 1" (the release previous to N) are marked as "commits that belong to release N" which means that "these commits were released with release N".
 
