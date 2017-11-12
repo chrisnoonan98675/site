@@ -10,7 +10,7 @@ tags:
 
 The **Release to Customer Filter** is a core concept that XL Impact is based on. Release to Customer is a filter that helps XL Impact discover when a new version was released and when the version becomes visible to your customers.
 
-**Important** You must ensure the **Release to Customer Filter** is correctly configured. By configuring Release to Customer, you are creating your own definition of a release (for example: releasing a version of an application to your customer). 
+**Important:** You must ensure the **Release to Customer Filter** is correctly configured. By configuring Release to Customer, you are creating your own definition of a release (for example: releasing a version of an application to your customer). 
 
 For the majority of **Insights**, XL Impacts tries to analyze every event and determine to which **Release to Customer** it belongs to.
 

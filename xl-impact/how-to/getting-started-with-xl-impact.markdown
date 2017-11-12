@@ -9,7 +9,7 @@ tags:
 - getting started
 ---
 
-XL Impact is a DevOps analysis application that is used with XL Release to analyze the data from the tools you use to create and deploy software. XL Impact enables you to improve the effectiveness of your teams to produce better software products.
+XL Impact is a DevOps analytics application that is used with XL Release to analyze the data from the tools you use across your development pipeline. XL Impact enables you to improve the effectiveness of your teams to produce better software products.
 
 ## Understanding XL Impact concepts
 
