@@ -38,7 +38,7 @@ product-id: xl-deploy
 * [JBoss Application Server 5 and 6 plugin](/xl-deploy-jbossas-plugin/6.0.x/jbossPluginManual.html)
 * [JBoss Application Server 7 and up plugin](/xl-deploy-jbossdm-plugin/6.0.x/jbossDomainPluginManual.html)
 * [Oracle Service Bus (OSB) plugin](/xl-deploy-osb-plugin/7.0.x/osbPluginManual.html)
-* [Oracle Service-Oriented Architecture (SOA) plugin](/xl-deploy-xld-oracle-soa-plugin/5.0.x/oracleSoaPluginManual.html)
+* [Oracle Service-Oriented Architecture (SOA) plugin](/xl-deploy-xld-oracle-soa-plugin/6.0.x/oracleSoaPluginManual.html)
 * [WebLogic Application Server plugin](/xl-deploy-wls-plugin/7.0.x/wlsPluginManual.html)
 * [WebSphere Application Server plugin](/xl-deploy-was-plugin/7.0.x/wasPluginManual.html)
 * [WebSphere Process Server plugin](/xl-deploy-wps-plugin/7.0.x/wpsPluginManual.html)
@@ -50,7 +50,7 @@ product-id: xl-deploy
 
 * [BizTalk plugin](/xl-deploy-biztalk-plugin/6.0.x/biztalkPluginManual.html)
 * [IIS plugin](/xl-deploy-iis-plugin/6.0.x/iisPluginManual.html)
-* [Windows plugin](/xl-deploy-windows-plugin/7.0.x/windowsPluginManual.html)
+* [Windows plugin](/xl-deploy-windows-plugin/6.0.x/windowsPluginManual.html)
 
 ### Other middleware plugins
 
@@ -63,13 +63,13 @@ product-id: xl-deploy
 
 ### Tools
 
-* [XL Deploy plugin for Maven](/xldeploy-maven-plugin/7.0.x/)
+* [XL Deploy plugin for Maven](/xldeploy-maven-plugin/6.0.x/)
 * [XL Deploy plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
-* [XL Deploy plugin for Bamboo](/bamboo-xl-deploy-plugin/5.1.x/bambooPluginManual.html)
+* [XL Deploy plugin for Bamboo](/bamboo-xl-deploy-plugin/6.0.x/bambooPluginManual.html)
 * [Puppet plugin for XL Deploy](/xl-deploy-xld-puppet-plugin/7.0.x/puppetPluginManual.html)
 * [Chef plugin for XL Deploy](/xl-deploy-xld-chef-plugin/6.0.x/chefPluginManual.html)
 * [Docker plugin for XL Deploy](/xl-deploy-xld-docker-plugin/7.0.x/dockerPluginManual.html)
-* [XL Deploy plugin for Team Foundation Server](/xl-deploy-tfs-plugin/7.0.x/tfsPluginManual.html)
+* [XL Deploy plugin for Team Foundation Server](/xl-deploy-tfs-plugin/6.0.x/tfsPluginManual.html)
 * [XL Deploy plugin for Team Foundation Server 2015](/xl-deploy-vsts-xld-plugin/7.0.x/tfs2015PluginManual.html)
 * [XL Deploy Manifest Editor (Windows only)](/xl-deploy/how-to/using-the-xl-deploy-manifest-editor.html)
 
