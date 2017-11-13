@@ -9,13 +9,13 @@ tags:
 - getting started
 ---
 
-XL Impact is a DevOps analytics application that is used with XL Release to analyze the data from the tools you use across your development pipeline. XL Impact enables you to improve the effectiveness of your teams to produce better software products.
+XL Impact is a DevOps analytics application that is used with XL Release to analyze the data from the tools you use across your delivery pipeline. XL Impact enables you to improve the effectiveness of your teams to produce better software products.
 
 ## Understanding XL Impact concepts
 
 ### Projects in XL Impact
 
-XL Impact collects all the possible data and provides information limited to a defined scope such as a project, a team, or a product. To define a scope, you need to create new project.
+XL Impact collects hard data correlated from tools such as XL Release, Jenkins, Jira, and GitHub and provides information limited to a defined scope such as a project, a team, or a product. To define a scope, you need to create new project.
 
 During the project definition you can configure:
 
