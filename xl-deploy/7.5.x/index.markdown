@@ -83,12 +83,6 @@ product-id: xl-deploy
 * [XL Deploy OpenShift plugin](/xl-deploy-xld-openshift-plugin/7.2.x/openshiftPluginManual.html)
 * [XL Deploy Kubernetes plugin](/xl-deploy-xld-kubernetes-plugin/7.2.x/kubernetesPluginManual.html)
 
-### XL Scale
-
-* [XL Scale plugin](/xl-scale-plugin/5.0.x/xlScaleManual.html)
-* [XL Scale EC2 plugin](/xl-scale-ec2-plugin/5.0.x/ec2PluginManual.html)
-* [XL Scale vSphere plugin](/xl-scale-vsphere-plugin/5.0.x/vspherePluginManual.html)
-
 ### Community plugins
 
 For information about XL Deploy community plugins, refer to the [Community page](/community/index.html).
