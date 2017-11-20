@@ -12,7 +12,7 @@ tags:
 
 The XL Release dashboard report provides important information such as releases that have been flagged and which releases have the highest level of automation. The data for this report comes from XL Release's [archive database](/xl-release/concept/how-archiving-works.html). Releases that are completed but not yet archived do not appear in reports. The exception is the **Releases at risk** section; this section is about [active](/xl-release/concept/release-life-cycle.html) releases, so its data comes from XL Release's repository.
 
-To access the report, select **Reports** > **Dashboard** from the top menu. Use the buttons at the top of the report to select a time period such as "last six months" or a specific date range.
+To access the report, select **Reports** > **Dashboard** from the top menu. Use the buttons at the top of the report to select a time period such as "Last 6 months" or a specific date range. Type a part of a release title or release tags in the **Filter by title...** and **Add a tag...** boxes. When you start typing the release tag name, the tag autocompletes from a database of a maximum of 500 tags.
 
 ## Releases at risk (Removed as of XL Release version 7.2)
 

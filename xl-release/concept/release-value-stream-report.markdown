@@ -14,7 +14,7 @@ The XL Release release value stream report focuses on the quality of [completed 
 
 Releases appear in this report in descending order. Under each phase of a release, you can see its duration and the proportion of the total duration that the phase took.
 
-To access the XL Release release value stream report, select **Reports** > **Release value stream** from the top menu. Use the buttons at the top of the report to select a time period such as "last six months" or a specific date range.
+To access the XL Release release value stream report, select **Reports** > **Release value stream** from the top menu. Use the buttons at the top of the report to select a time period such as "Last 6 months" or a specific date range. Type a part of a release title or release tags in the **Filter by title...** and **Add a tag...** boxes. When you start typing the release tag name, the tag autocompletes from a database of a maximum of 500 tags.
 
 ![Release Value Stream](../images/release-value-stream.png)
 
@@ -26,7 +26,7 @@ Each release phase can show these criticality metrics:
 * Failures: Total number of task failures in the phase
 * Delays: Total number of tasks in the phase that were completed after their due date
 
-XL Release marks a phase as "critical" when the sum of these metrics is greater than 6; you can customize this value in the [report settings](/xl-release/how-to/configure-xl-release-general-settings.html#reports). 
+XL Release marks a phase as "critical" when the sum of these metrics is greater than 6; you can customize this value in the [report settings](/xl-release/how-to/configure-xl-release-general-settings.html#reports).
 
 The name of a critical phase appears on a red background. The total number of critical phases in a release is shown in the release header.
 
@@ -42,4 +42,4 @@ Click a release to open it in the [release flow editor](/xl-release/how-to/using
 
 ![Completed release](../images/completed-release.png)
 
-Each task shows its individual value for the criticality metrics (if non-zero). The failure count appears in yellow if there were at least two failures and in red if there were at least four failures. You can customize these values in the [report settings](/xl-release/how-to/configure-xl-release-general-settings.html#reports). 
+Each task shows its individual value for the criticality metrics (if non-zero). The failure count appears in yellow if there were at least two failures and in red if there were at least four failures. You can customize these values in the [report settings](/xl-release/how-to/configure-xl-release-general-settings.html#reports).

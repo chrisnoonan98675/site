@@ -12,7 +12,7 @@ tags:
 
 The XL Release release automation report shows the level of automation used in your releases. The data for this report comes from XL Release's [archive database](/xl-release/concept/how-archiving-works.html). Releases that are completed but not yet archived do not appear in reports.
 
-To access the report, select **Reports** > **Release automation** from the top menu. Use the buttons at the top of the report to select a time period such as "last six months" or a specific date range.
+To access the report, select **Reports** > **Release automation** from the top menu. Use the buttons at the top of the report to select a time period such as "Last 6 months" or a specific date range. Type a part of a release title or release tags in the **Filter by title...** and **Add a tag...** boxes. When you start typing the release tag name, the tag autocompletes from a database of a maximum of 500 tags.
 
 ## Release duration and automation
 
