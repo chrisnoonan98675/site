@@ -14,6 +14,8 @@ This is an overview of the data architecture of XL Impact:
 
 ![image](../images/data-structure-diagram.png)
 
+**Note:** The diagram shows the data flow and infrastructure for an individual customer. The components and data are not shared between multiple customers.
+
 Components of the infrastructure (XL Impact cloud environment):
 
 * GCS - Google Cloud Storage    
