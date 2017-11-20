@@ -33,13 +33,12 @@ The following graphs appear on the dashboard:
 {:.table .table-striped}
 | Graph | Description |
 | ----- | ----------- |
-| Status Overview | The percentage for successful, retried, rollback, and aborted deployments |
-| Average Duration of Successful Deployments | Average duration of successful deployments as a frequency diagram; shows the duration distribution over all deployments and identifies any outliers |
-| Throughput | Throughput of deployments divided into successful, successful with manual intervention, failed deployments, and rollbacks over the last 6 months; the black line indicates the percentage of successful deployments per month |
-| Deployment Duration over Time | Average deployment duration over the last 6 months |
-| Top 5 Successful Deployments | Top 5 applications with most successful deployments over the last 30 days |
-| Top 5 Re-tried Deployments | Top 5 applications with most retries (manual intervention) during deployments over the last 30 days |
-| Top 5 Longest Running Deployments | Top 5 applications with longest running deployments over the last 30 days |
+| Deployment status overview | The percentage for successful, retried, rollback, and aborted deployments |
+| Number of deployments over time | Number of deployments divided into successful, successful with manual intervention, failed deployments, and rollbacks over the last 6 months |
+| Average deployment duration over time | Average deployment duration over the last 6 months |
+| Top 10 successful deployments | Top 10 applications with most successful deployments over the last 30 days |
+| Top 10 retried deployments | Top 10 applications with most retries (manual intervention) during deployments over the last 30 days |
+| Top 10 longest deployments | Top 10 applications with longest running deployments over the last 30 days |
 
 **Note:** Rollbacks never count towards successful deployments, even if the rollback is executed successfully.
 
