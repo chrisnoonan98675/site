@@ -4,6 +4,7 @@
 
 
 * We start with a clean slate approach in this document. An external migrator application is needed to move data from a previous version of XL Release. This is discussed in a separate document.
+* Note that you can't migrate data to into an XL Release 7.5.0 version that already has already been started. When upgrading, the use another database schema.
 
 
 ## Download and install
