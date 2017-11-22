@@ -5,7 +5,7 @@ This document describes how to migrate data to an XL Release 7.5.x  server from 
 ## Prerequisites
 
 * Upgrade source XL Release server to at least 7.0.x or 7.2.0.
-* Set up the target XL Release 7.5.0 server in a _different_ installation directory. See **Setting up XL Release 7.5.0 with active releases in SQL database**.
+* (!!!) External database connection for `xlrelease` only.
 
 ## Set up and install
 
@@ -15,7 +15,7 @@ Download the [xl-release-sql-migrator-7.5.0-beta.1.zip](!!! MISSING LINK !!!) pa
 
 The configuration of the migrator is done in `conf/xl-release-sql-migrator.conf`.
 
-Set the connection properties using the xlrelease database of the **target** XL Release 7.5.0 server.
+Configure the `xlrelease` database that will be used by the **target** XL Release 7.5.0 server.
 
 For example:
 
@@ -28,14 +28,17 @@ For example:
       }
     }
 
-You can copy the relevant section of the `conf/xl-release.conf` file of the target XL Release 7.5.0. Make sure to use an **unencrypted** password.
 
-The migrator application contains only JDBC drivers for the `H2` database. If you migrate to another database, you must include the JDBC driver jar file inside the `lib` folder of the migration tool.
+The migrator application contains only JDBC drivers for the embedded databases, Derby and H2. If you migrate to another database, you must include the JDBC driver jar file inside the `lib` folder of the migration tool.
+
+!!! Driver versions and links !!!
 	
-
-You can set the page size used to fetch releases from the JCR repository or the archiving repository using the following configuration snippet:
+You can set the page size used to fetch releases from the JCR repository using the following configuration snippet:
 
     xl {
+      database {
+        ...
+      }
       migrator {
         pageSize = 100 # page size when fetching JCR or archived releases
       }
@@ -64,7 +67,7 @@ you should issue the following command:
 /opt/xl-release-7.0.1-server/$ /opt/xl-release-sql-migrator-7.5.0/bin/xl-release-sql-migrator
 ```
 
-The source server does not need to be running. The migrator does not alter the repository of the source server. However, we recommend to make a backup of the production server and run the migrator from the backup directory.
+The source server must not need to be running. The migrator does not alter the repository of the source server. However, we recommend to make a backup of the production server and run the migrator from the backup directory.
 
 Note that the you don't need to specify the installation directory of the **target** server. Configuring the database location is sufficient.
 
