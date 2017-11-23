@@ -15,6 +15,11 @@
     margin-top: 40px;
     font-size: 15px;
 }
+@media print {
+  #sidebar-navigation-beta {
+      display: none;
+  }
+}
 #nav-beta ul {
 	list-style: none;
 	padding: 3px 0 0 0;
