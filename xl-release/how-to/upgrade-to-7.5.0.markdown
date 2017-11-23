@@ -12,7 +12,6 @@ tags:
 weight: 408
 ---
 
-# Upgrade to XL Release 7.5.x
 
 This document describes how to upgrade XL Release 7.5.x  server from a previous version. In-place upgrade is not supported for the upgrade to 7.5, since the storage solution is a completely different architecture. Version before 7.5 used JCR/JackRabbit as storage and in XLR 7.5 we made the transition to a relational database model.
 
@@ -20,11 +19,11 @@ This document describes how to upgrade XL Release 7.5.x  server from a previous 
 
 * Upgrade source XL Release server to version 7.0.x or 7.2.0.
 * External database for the storage of XL Release data. Supported databases:
- * Oracle
- * PostgreSQL
- * MySQL
- * Microsoft SQL
- * DB2
+    * Oracle
+    * PostgreSQL
+    * MySQL
+    * Microsoft SQL
+    * DB2
  
 * Note that the archive database is still needed. The structure and functionality is not changed in this upgrade. 
 
