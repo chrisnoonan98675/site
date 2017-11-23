@@ -23,6 +23,8 @@ This document describes how to upgrade XL Release 7.5.x  server from a previous 
  * Oracle
  * PostgreSQL
  * MySQL
+ * Microsoft SQL
+ * DB2
  
 * Note that the archive database is still needed. The structure and functionality is not changed in this upgrade. 
 
@@ -71,9 +73,12 @@ The migrator application contains only JDBC drivers for the embedded databases, 
 {:.table .table-striped}
 | Database   | JDBC drivers | Notes   |
 | ---------- | ------------ | ------- |
-| MySQL      | [Connector\J 5.1.30 driver download](http://dev.mysql.com/downloads/connector/j/)| None. |
 | Oracle     | [JDBC driver downloads](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html) | For Oracle 12c, use the 12.1.0.1 driver (`ojdbc7.jar`). It is recommended that you only use the thin drivers; refer to the [Oracle JDBC driver FAQ](http://www.oracle.com/technetwork/topics/jdbc-faq-090281.html) for more information. |
 | PostgreSQL | [PostgreSQL JDBC driver](https://jdbc.postgresql.org/download.html)| Use the JDBC42 version, because XL Release 4.8.0 and later requires Java 1.8. |
+| MySQL      | [Connector\J 5.1.30 driver download](http://dev.mysql.com/downloads/connector/j/)| None. |
+| Microsoft SQL | [MSSQL JDBC driver](https://www.microsoft.com/en-us/download/details.aspx?id=55539)| Also available on GitHub: [Microsoft/mssql-jdbc
+](https://github.com/Microsoft/mssql-jdbc) |
+| DB2 | [DB2 JDBC driver](http://www-01.ibm.com/support/docview.wss?uid=swg21363866)| Download the JDBC 4.0 driver that matches your DB2 version |
 
 ### Migrator database configuration
 
