@@ -42,16 +42,18 @@ The upgrade procedure to XL Release 7.5 is different than before. Here's an over
 
 ## 1. Install XL Release 7.5.0
 
-* Download xl-release-7.5.0-beta-1.zip
-* Unzip xl-release-7.5.0-beta-1
+* Download xl-release-7.5.0.zip
+* Unzip xl-release-7.5.0.zip
 
 Don't start the server just yet.
 
 ## 2. Database setup
 
-Create the following database / user in the database:
+Create the following database / user in your SQL database:
 
-* `xlrelease` for active releases
+* 'xlrelease' -- this database will contain the active releases and configuration data.
+
+The user must have access to create tables. Tables are created during the upgrade procedure, not during operation.
 
 The **archive database** remains as-is and is copied / configured in the final configuration steps.
 
@@ -59,7 +61,7 @@ The **archive database** remains as-is and is copied / configured in the final c
 
 ### Installation
 
-Download the **xl-release-sql-migrator-7.5.0-beta.1.zip**
+Download the **xl-release-sql-migrator-7.5.0.zip**
 <!-- 
            !!! MISSING LINK !! 
 -->
@@ -75,8 +77,7 @@ The migrator application contains only JDBC drivers for the embedded databases, 
 | Oracle     | [JDBC driver downloads](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html) | For Oracle 12c, use the 12.1.0.1 driver (`ojdbc7.jar`). It is recommended that you only use the thin drivers; refer to the [Oracle JDBC driver FAQ](http://www.oracle.com/technetwork/topics/jdbc-faq-090281.html) for more information. |
 | PostgreSQL | [PostgreSQL JDBC driver](https://jdbc.postgresql.org/download.html)| Use the JDBC42 version, because XL Release 4.8.0 and later requires Java 1.8. |
 | MySQL      | [Connector\J 5.1.30 driver download](http://dev.mysql.com/downloads/connector/j/)| None. |
-| Microsoft SQL | [MSSQL JDBC driver](https://www.microsoft.com/en-us/download/details.aspx?id=55539)| Also available on GitHub: [Microsoft/mssql-jdbc
-](https://github.com/Microsoft/mssql-jdbc) |
+| Microsoft SQL | [MSSQL JDBC driver](https://www.microsoft.com/en-us/download/details.aspx?id=55539)| Also available on GitHub: [Microsoft/mssql-jdbc](https://github.com/Microsoft/mssql-jdbc) |
 | DB2 | [DB2 JDBC driver](http://www-01.ibm.com/support/docview.wss?uid=swg21363866)| Download the JDBC 4.0 driver that matches your DB2 version |
 
 ### Migrator database configuration
@@ -152,9 +153,9 @@ The migrator supports incremental migration. If you stop it in the middle of the
 
 ## 6. Configure database in XL Release 7.5.0
 
-* Get the database driver file (see Step 3) and install the jar file in the `plugins` folder.
+Get the database driver file (see Step 3) and install the jar file in the `plugins` folder.
 
-* Edit `conf/xl-release.conf` and configure database details to point to your database instance.
+Edit `conf/xl-release.conf` and configure database details to point to your database instance.
 
 ```
 xl {
@@ -196,11 +197,11 @@ _Please note that passwords will be encrypted in this file by XL Release_
 
 ## 7. Starting XL Release 7.5.0
 
-1. [Start the XL Release server interactively](/xl-release/how-to/start-xl-release.html) to allow automatic repository upgraders to run.
+[Start the XL Release server interactively](/xl-release/how-to/start-xl-release.html) to allow automatic repository upgraders to run.
 
 	**Note:** If you are running XL Release in cluster mode, you must start a single XL Release server instance and run the upgraders only on that instance. After the upgraders have sucessfully finished you can boot up the rest of the cluster.
 
-1. If you normally run the XL Release server [as a service](/xl-release/how-to/install-xl-release-as-a-service.html), shut it down and restart it as you normally do.
+If you normally run the XL Release server [as a service](/xl-release/how-to/install-xl-release-as-a-service.html), shut it down and restart it as you normally do.
 
 
 ## Troubleshooting
