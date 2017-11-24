@@ -101,7 +101,7 @@ This task allows you to retrieve multiple Work Items IDs by specifying a WIQL qu
 
 To customize the output properties, use the Script Task or the [XL Release Variable Manipulation Community Plugin](https://github.com/xebialabs-community/xlr-variable-manipulation-plugin).
 
-These properties are available:
+These input properties are available:
 
 * Server: The VSTS/TFS instance to be used
 * Query: Specify a query written in WIQL language
@@ -109,3 +109,66 @@ These properties are available:
 Output properties:
 
 * Retrieved IDs: List of work item IDs that are retrieved by the query
+
+![Query Work Item](../images/query-work-items.png)
+
+## Build operations tasks
+
+### Queue new build task
+
+The Queue new build task allows you to queue a build on your VSTS/TFS server.
+
+These input properties are available:
+
+* Server: The VSTS/TFS instance to be used
+* Team Project Name: The name of the project where the build definition is set
+* Build definition name: The name of the build definition from where you want to trigger a build
+
+Output properties:
+
+* Build ID: Unique identifier of the build run
+* Build Number: The assigned value from the build engine based on the Build number format option in your build definition
+* Build Result: Build run result
+
+![Queue new build](../images/queue-new-build.png)
+
+**Note:** If the queued build fails, the task will also fail.
+
+### Tag a build task
+
+The task to tag a build allows you do add one or more tags on your build.
+
+These input properties are available:
+
+* Server: The VSTS/TFS instance to be used
+* Team Project Name: The name of the project where the build definition is set
+* Build ID: The ID of the build where to apply the tag(s)
+* Tags: A list of strings that are added to the build as tags
+
+![Add tag build](../images/add-tag-build.png)
+
+## Using Triggers
+
+### The git commit trigger
+
+If you want your release to be created and started by a commit in a VSTS/TFS Git repository, you can setup this trigger.
+
+These input properties are available:
+
+* Server: The VSTS/TFS instance to be used
+* Project: The name of the project where the Git repository is created
+* Repository: The name of the Git repository
+* Branch: The branch that should be monitored for the changes
+
+![Git commit trigger](../images/git-trigger.png)
+
+### The TFVC `changeset` trigger
+
+If you want your release to be created and started by a new `changeset` in a TFVC repository, you must setup this trigger.
+
+These input properties are available:
+
+* Server: The VSTS/TFS instance to be used
+* Project: The name of the project where the associated TFVC repository should be monitored
+
+![TFVC trigger](../images/tfvc-trigger.png)
