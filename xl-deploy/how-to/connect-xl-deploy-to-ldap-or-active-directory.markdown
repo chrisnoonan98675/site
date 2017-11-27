@@ -79,29 +79,28 @@ Restart XL Deploy and ensure that the server starts without any exceptions.
 
 Add the following code to `deployit-security.xml`. Replace the placeholders with your credentials.
 <pre class="highlight">
+&lt;bean id="userSearch" class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch"&gt;
+  &lt;constructor-arg index="0" value="<mark>USER_SEARCH_BASE</mark>" /&gt;
+  &lt;constructor-arg index="1" value="<mark>USER_SEARCH_FILTER</mark>" /&gt;
+  &lt;constructor-arg index="2" ref="ldapServer" /&gt;
+&lt;/bean&gt;
+&lt;bean id="authoritiesPopulator" class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator"&gt;
+  &lt;constructor-arg ref="ldapServer" /&gt;
+  &lt;constructor-arg value="<mark>GROUP_SEARCH_BASE</mark>" /&gt;
+  &lt;property name="groupSearchFilter" value="<mark>GROUP_SEARCH_FILTER</mark>" /&gt;
+  &lt;property name="rolePrefix" value="" /&gt;
+  &lt;property name="searchSubtree" value="true" /&gt;
+  &lt;property name="convertToUpperCase" value="false" /&gt;
+&lt;/bean&gt;
 &lt;bean id="ldapProvider" class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider"&gt;
   &lt;constructor-arg&gt;
     &lt;bean class="org.springframework.security.ldap.authentication.BindAuthenticator"&gt;
       &lt;constructor-arg ref="ldapServer" /&gt;
         &lt;property name="userSearch"&gt;
-        &lt;bean id="userSearch" class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch"&gt;
-          &lt;constructor-arg index="0" value="<mark>USER_SEARCH_BASE</mark>" /&gt;
-          &lt;constructor-arg index="1" value="<mark>USER_SEARCH_FILTER</mark>" /&gt;
-          &lt;constructor-arg index="2" ref="ldapServer" /&gt;
-        &lt;/bean&gt;
       &lt;/property&gt;
     &lt;/bean&gt;
   &lt;/constructor-arg&gt;
-  &lt;constructor-arg&gt;
-    &lt;bean class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator"&gt;
-      &lt;constructor-arg ref="ldapServer" /&gt;
-      &lt;constructor-arg value="<mark>GROUP_SEARCH_BASE</mark>" /&gt;
-      &lt;property name="groupSearchFilter" value="<mark>GROUP_SEARCH_FILTER</mark>" /&gt;
-      &lt;property name="rolePrefix" value="" /&gt;
-      &lt;property name="searchSubtree" value="true" /&gt;
-      &lt;property name="convertToUpperCase" value="false" /&gt;
-    &lt;/bean&gt;
-  &lt;/constructor-arg&gt;
+  &lt;constructor-arg ref="authoritiesPopulator" /&gt;
 &lt;/bean&gt;  
 </pre>
 
@@ -151,29 +150,28 @@ This sample `deployit-security.xml` file shows the required LDAP configuration i
     	 </property>
      </bean>
 
+     <bean id="userSearch" class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
+         <constructor-arg index="0" value="dc=springframework,dc=org" />
+         <constructor-arg index="1" value="(&amp;(uid={0})(objectClass=inetOrgPerson))" />
+         <constructor-arg index="2" ref="ldapServer" />
+     </bean>
+     <bean id="authoritiesPopulator" class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator">
+         <constructor-arg ref="ldapServer" />
+         <constructor-arg value="ou=groups,dc=springframework,dc=org" />
+         <property name="groupSearchFilter" value="(member={0})" />
+         <property name="rolePrefix" value="" />
+         <property name="searchSubtree" value="true" />
+         <property name="convertToUpperCase" value="false" />
+     </bean>
+
      <bean id="ldapProvider" class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider">
-      <constructor-arg>
-       <bean class="org.springframework.security.ldap.authentication.BindAuthenticator">
-    	 <constructor-arg ref="ldapServer" />
-    	 <property name="userSearch">
-    		<bean id="userSearch" class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
-    		  <constructor-arg index="0" value="dc=example,dc=com" />
-    		  <constructor-arg index="1" value="(&amp;(uid={0})(objectClass=inetOrgPerson))" />
-    		  <constructor-arg index="2" ref="ldapServer" />
-    		</bean>
-    	 </property>
-       </bean>
-      </constructor-arg>
-      <constructor-arg>
-       <bean class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator">
-    	 <constructor-arg ref="ldapServer" />
-    	 <constructor-arg value="ou=groups,dc=example,dc=com" />
-    	 <property name="groupSearchFilter" value="(memberUid={0})" />
-    	 <property name="rolePrefix" value="" />
-    	 <property name="searchSubtree" value="true" />
-    	 <property name="convertToUpperCase" value="false" />
-       </bean>
-      </constructor-arg>
+       <constructor-arg>
+            <bean class="org.springframework.security.ldap.authentication.BindAuthenticator">
+                <constructor-arg ref="ldapServer" />
+                <property name="userSearch" ref="userSearch"/>
+            </bean>
+       </constructor-arg>
+       <constructor-arg ref="authoritiesPopulator"/>
      </bean>
 
      <bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/>
