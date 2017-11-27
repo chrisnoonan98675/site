@@ -1,6 +1,6 @@
 ---
 title: Upgrade to XL Release 7.5
-no_index: true <!-- Remove when XL Release 7.5 is released
+no_index: true
 categories:
 - xl-release
 subject:
