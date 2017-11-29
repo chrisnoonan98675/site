@@ -17,6 +17,7 @@ Briefly, the process of upgrading XL Release is:
 1. Obtain a new version of the XL Release software and, if necessary, a new license from [XebiaLabs](https://dist.xebialabs.com/).
 1. Read the [release manual](/xl-release/latest/releasemanual.html) so you are aware of the new functionality and possible upgrade considerations.
 1. Stop the current version of XL Release if it is running and ensure that there are no active tasks. In a hot-standby configuration, all nodes must be stopped.
+1. Make a backup of your current repository and archive database.
 1. Create a new installation directory for the new version of XL Release (so the existing version is still available in case of problems).
 1. Extract the new XL Release software release into the new installation directory.
 1. Copy the data from the previous XL Release installation directory into the new installation directory.
@@ -57,7 +58,7 @@ To upgrade an XL Release server installation:
 
 1. [Shut down](/xl-release/how-to/shut-down-xl-release.html) the XL Release server.
 
-1. Copy the `repository` directory from the old installation directory to the new installation directory.
+1. If you are using an embedded repository, copy the `repository` directory from the old installation directory to the new installation directory.
 
 1. If you have implemented any custom plugins, copy them from the `plugins` directory from the previous installation directory to the new installation directory.
 

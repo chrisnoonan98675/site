@@ -41,7 +41,7 @@ Start the server with the `-h` flag to see the options it supports. They are:
 | Option | Description |
 | ------ | ----------- |
 | `-repository-keystore-password VAL` | Identifies the password to use to access the repository keystore. If not specified and the repository keystore does require a password, XL Release will prompt you for it. |
-| `-reinitialize` | Reinitialize the repository. Used only in conjunction with `-setup`.<br />**Note:** This flag only works if XL Release is running on the filesystem repository. It does not work when you have configured XL Release to run against a database. |
+| `-reinitialize` | Reinitialize the repository. Used only in conjunction with `-setup`.<br />**Note:** This flag only works for XL Release 7.2 or earlier and if XL Release is running on the filesystem repository. It does not work when you have configured XL Release to run against a database. |
 | `-setup` | Runs the XL Release setup wizard. |
 | `-setup-defaults VAL` | Specifies a file that contains default values for configuration properties set in the setup wizard.
 
