@@ -31,7 +31,10 @@ To [install](/xl-release/how-to/install-xl-release.html) the XL Release server, 
 * **XL Release license:** See [XL Release licensing](/xl-release/concept/xl-release-licensing.html)
 * **Operating system:** Microsoft Windows or a Unix-family operating system
 * **Java SE Development Kit (JDK):**
-    * For XL Release 4.8.0 and later: JDK 1.8.x (Java 9 is not yet supported)
+    * For XL Release 4.8.0 and later: JDK 1.8.x
+
+    **Important:** XL Release is not compatible with Java Development Kit 9 (JDK 9).
+
     * For XL Release 4.7.x and earlier: JDK 7 (Oracle or IBM)
 
 ### Server hardware requirements
@@ -42,12 +45,13 @@ To [install](/xl-release/how-to/install-xl-release.html) the XL Release server, 
 
 ### External systems
 
-* **Database:** By default, XL Release is installed with an embedded database, we **strongly** recommend to use an external database such as PostgreSQL. See [Configure the XL Release repository in a database](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html) for details.
+* **Database:** By default, XL Release is installed with an embedded database. It is strongly recommended to use an external database such as PostgreSQL. See [Configure the XL Release SQL repository in a database](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html) for details.
+If you are using XL Release version 7.2 or earlier, see [Configure the XL Release JCR repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html) for details.
 * **LDAP:** To connect XL Release to your corporate Active Directory or LDAP server, see [Configure LDAP security for XL Release](/xl-release/how-to/configure-ldap-security-for-xl-release.html).
 
 ## Reference setup
 
-### XL Release
+### XL Release server
 
 * Two Quad Intel(R) Xeon(R) CPU E5450 @ 3.00GHz
 * 16 GB of RAM
@@ -92,7 +96,7 @@ Postgres configuration:
 | synchronous_commits | off |
 | max_wal_size | 1GB |
 
-See [tunning postgreSQL server](https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server) for more details on the configuration.
+For more details about the configuration, see [tunning postgreSQL server](https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server).
 
 This configuration supports up to 2000 concurrent users running a test set with 200 active releases, 200 templates and 200 completed releases and 200 folders, with a mean response time less then 100 milliseconds.
 

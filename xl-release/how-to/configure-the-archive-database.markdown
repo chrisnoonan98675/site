@@ -40,7 +40,7 @@ In XL Release 7.5.0 and later, you can use the following products as archive dat
 * DB2 Express-C
 * SQL Server 2017
 
-XL Release **recommends** using Postgres 9.6 or later.
+**Important:** It is recommended to use Postgres version 9.6 or later.
 
 To change the database, do the following before initializing the XL Release repository:
 

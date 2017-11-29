@@ -20,7 +20,7 @@ As of XL Release 6.0.0, you can configure XL Release in a clustered active/hot-s
 
 ![Active/hot-standby configuration](../images/diagram-active-hot-standby.png)
 
-**Tip:** If you do not want to use active/hot-standby mode, you can set up failover handling as described n [Configure failover for XL Release](/xl-release/how-to/configure-failover.html).
+**Tip:** If you do not want to use active/hot-standby mode, you can set up failover handling as described in [Configure failover for XL Release](/xl-release/how-to/configure-failover.html).
 
 ## Requirements
 
@@ -71,7 +71,7 @@ The following external databases are recommended:
 * H2 (For testing only)
 * Derby (For testing only)
 
-The following set of sql privileges are required (where appliccable):
+The following set of SQL privileges are required (where applicable):
 
 * REFERENCES
 * INDEX
@@ -120,7 +120,7 @@ This is an example of the `xl-release.conf` configuration for a stand-alone data
             max-pool-size=20
         }
     }
-    
+
 
 
 ### Step 2 Set up the cluster
@@ -198,7 +198,7 @@ This is a sample `xl-release.conf` configuration for one node that uses a MySQL 
             max-pool-size=20
         }
     }
-    
+
 
 
 **Note:** After the first run, passwords in the configuration file will be encrypted and replaced with base64-encoded values.

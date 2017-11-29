@@ -15,7 +15,7 @@ since:
 - XL Release 7.5.0
 ---
 
-XL Release stores its data in a repository. By default, the repository is stored in an embedded Derby database at `XL_RELEASE_SERVER_HOME/repository`. However, you can choose to store binary data (artifacts), configuration items (CIs), and CI history in an external database. This topic describes an approach to configuring the built-in Derby implementation to use an external database.
+XL Release stores its data in a repository. By default, the repository is stored in an embedded Derby database at `XL_RELEASE_SERVER_HOME/repository`. You can store binary data (artifacts), configuration items (CIs), and CI history in an external database. This topic describes how to configure the built-in Derby implementation to use an external database.
 
 For information about:
 * Backing up and restoring the database, refer to [Back up XL Release](/xl-release/how-to/back-up-xl-release.html)
@@ -28,8 +28,8 @@ The account that accesses the database must be able to create tables during the 
 
 ## External databases and failover
 
-If you take the approach described in this topic, you can optionally [create a failover configuration](/xl-release/how-to/configure-failover.html) with multiple instances of XL Release that will use the same database as your master instance. However, this is a limited setup in which only one instance of XL Release can access the database at a time.
-However, if you are using XL Release 6.0.0 or later, you can take advantage of clustering in an active/hot-standby configuration, which requires a different configuration for the external database. Refer to [Configure active/hot-standby](/xl-release/how-to/configure-active-hot-standby.html) for instructions.
+If you take the approach described in this topic, you can optionally [create a failover configuration](/xl-release/how-to/configure-failover.html) with multiple instances of XL Release that will use the same database as your master instance. This is a limited setup in which only one instance of XL Release can access the database at a time.
+If you are using XL Release 6.0.0 or later, you can take advantage of clustering in an active/hot-standby configuration, which requires a different configuration for the external database. Refer to [Configure active/hot-standby](/xl-release/how-to/configure-active-hot-standby.html) for instructions.
 
 **note**: For XL Release 7.5.0 you can use an [active/active](/xl-release/how-to/configure-active-active.html) setup.
 
@@ -89,7 +89,7 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` configuration for
          ...
        }
 
-If you use the TNSNames Alias syntax to connect to Oracle, you may need to inform the driver where to find the `TNSNAMES` file. Refer to the Oracle documentation for more information.
+If you use the TNSNames Alias syntax to connect to Oracle, you must specify where the driver can find the `TNSNAMES` file. Refer to the Oracle documentation for more information.
 
 ## Use XL Release with SQL Server
 
