@@ -76,6 +76,7 @@ The **Duration** column shows the duration of the release.
 To order the release overview, click **Order by** and select:
 
 * **Risk** to show the releases with the highest risk level at the top
+**Note:** The sorting is done based on risk calculation, displaying the release with the maximum risk score at the top. If multiple releases have the same maximum risk score, a second sorting rule is applied calculating the total risk sum for each release.
 * **Start date** to show the releases with earliest start date on top
 * **End date** to show the release with latest end date on top
 

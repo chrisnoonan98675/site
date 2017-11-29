@@ -37,7 +37,7 @@ The risk assessors used to calculate the risk level of a release are the followi
 * Current task past due date
 * Retries for a failed task
 
-## The risk threshold:
+## The default risk threshold:
 
 {:.table table-striped}
 | Flag | Score |
@@ -46,7 +46,9 @@ The risk assessors used to calculate the risk level of a release are the followi
 | Amber | 10 -49 |
 | Green | < 10 |
 
-## The risk score:
+## The default risk score:
+
+The default values for the risk assessors are used in the default risk profile. For more information about risk profiles, refer to [Configure risk profile settings](/xl-release/how-to/configure-risk-settings.html). 
 
 {:.table table-striped}
 | Risk assessor | Score |
