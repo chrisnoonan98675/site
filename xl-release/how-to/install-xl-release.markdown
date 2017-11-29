@@ -207,3 +207,4 @@ If you store the XL Release repository in a [database](/xl-release/how-to/config
 
 * [Configure failover for XL Release](/xl-release/how-to/configure-failover.html)
 * [Configure active/hot-standby mode](/xl-release/how-to/configure-active-hot-standby.html) (supported in XL Release 6.0.0 and later)
+* [Configure active/active mode](/xl-release/how-to/configure-active-active.html) (supported in XL Release 7.5.0 and later)

@@ -39,7 +39,7 @@ If a repository upgrade is required, XL Release will detect that it is running a
 
 ### Upgrading an existing hot-standby configuration to a new version
 
-When upgrading a [hot-standby configuration](/xl-release/how-to/configure-active-hot-standby.html), all nodes must be stopped. Then, you can copy configuration data from existing nodes. Keep in mind that the node ID in the configuration must be unique for each node. You do not have to copy the data that is shared among all nodes (because it is normally stored on NFS), but ensure that you do back up the data.
+When upgrading a [hot-standby configuration](/xl-release/how-to/configure-active-hot-standby.html) or an [active/active configuration](/xl-release/how-to/configure-active-active.html) all nodes must be stopped. Then, you can copy configuration data from existing nodes. Keep in mind that the node ID in the configuration must be unique for each node. You do not have to copy the data that is shared among all nodes (because it is normally stored on NFS), but ensure that you do back up the data.
 
 You can then proceed by starting a single node in the cluster. After starting the node, wait until all upgraders are executed and the node is fully started before starting the other nodes, one by one.
 

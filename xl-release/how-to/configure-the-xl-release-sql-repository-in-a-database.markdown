@@ -31,6 +31,8 @@ The account that accesses the database must be able to create tables during the 
 If you take the approach described in this topic, you can optionally [create a failover configuration](/xl-release/how-to/configure-failover.html) with multiple instances of XL Release that will use the same database as your master instance. However, this is a limited setup in which only one instance of XL Release can access the database at a time.
 However, if you are using XL Release 6.0.0 or later, you can take advantage of clustering in an active/hot-standby configuration, which requires a different configuration for the external database. Refer to [Configure active/hot-standby](/xl-release/how-to/configure-active-hot-standby.html) for instructions.
 
+**note**: For XL Release 7.5.0 you can use an [active/active](/xl-release/how-to/configure-active-active.html) setup.
+
 ## Use XL Release with MySQL
 
 This is a sample `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` configuration for [MySQL](http://www.mysql.com/). Ensure that the [Mysql JDBC driver](http://dev.mysql.com/downloads/connector/j/) JAR file is located in `XL_RELEASE_SERVER_HOME/lib` or on the Java classpath.:
