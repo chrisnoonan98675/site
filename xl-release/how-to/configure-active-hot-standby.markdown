@@ -119,32 +119,6 @@ This is an example of the `xl-release.conf` configuration for a stand-alone data
             db-username=xlrelease
             max-pool-size=20
         }
-        development {
-            # Increase this to test slow server response
-            restSlowDownDelay="0 milliseconds"
-        }
-        durations {
-            watcherUnregisterDelay="1 second"
-        }
-        flexyPool {
-            enabled=false
-        }
-        initialization {
-            createSampleTemplates=true
-        }
-        metrics {
-            enabled=false
-        }
-        reporting {
-            db-driver-classname="org.postgresql.Driver"
-            db-password="xlarchive"
-            db-url="jdbc:postgresql://localhost:5432/xlarchive"
-            db-username=xlarchive
-        }
-        timeouts {
-            # Increase idle life of a release actor and decrease timeout for watcher to make tests more stable, see REL-2940
-            releaseActorReceive="2 minutes"
-        }
     }
     
 
@@ -222,32 +196,6 @@ This is a sample `xl-release.conf` configuration for one node that uses a MySQL 
             db-url="jdbc:mysql://localhost:3306/xlrelease?useSSL=false"
             db-username=xlrelease
             max-pool-size=20
-        }
-        development {
-            # Increase this to test slow server response
-            restSlowDownDelay="0 milliseconds"
-        }
-        durations {
-            watcherUnregisterDelay="1 second"
-        }
-        flexyPool {
-            enabled=false
-        }
-        initialization {
-            createSampleTemplates=true
-        }
-        metrics {
-            enabled=true
-        }
-        reporting {
-            db-driver-classname="com.mysql.jdbc.Driver"
-            db-password="xlarchive"
-            db-url="jdbc:mysql://localhost:3306/xlarchive?useSSL=false"
-            db-username=xlarchive
-        }
-        timeouts {
-            # Increase idle life of a release actor and decrease timeout for watcher to make tests more stable, see REL-2940
-            releaseActorReceive="2 minutes"
         }
     }
     

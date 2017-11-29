@@ -11,7 +11,7 @@ tags:
 - database
 - repository
 removed:
-- XL Release 7.5
+- XL Release 7.5.0
 weight: 493
 ---
 
