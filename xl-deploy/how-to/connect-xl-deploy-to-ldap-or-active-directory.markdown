@@ -96,7 +96,7 @@ Add the following code to `deployit-security.xml`. Replace the placeholders with
   &lt;constructor-arg&gt;
     &lt;bean class="org.springframework.security.ldap.authentication.BindAuthenticator"&gt;
       &lt;constructor-arg ref="ldapServer" /&gt;
-        &lt;property name="userSearch"&gt;
+        &lt;property name="userSearch" ref="userSearch"&gt;
       &lt;/property&gt;
     &lt;/bean&gt;
   &lt;/constructor-arg&gt;
