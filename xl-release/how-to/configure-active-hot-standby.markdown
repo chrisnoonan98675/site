@@ -66,6 +66,10 @@ The following external databases are recommended:
 * MySQL
 * PostgreSQL
 * Oracle 11g or 12c
+* DB2
+* MSSql
+* H2 (For testing only)
+* Derby (For testing only)
 
 The following set of sql privileges are required (where appliccable):
 
@@ -89,67 +93,61 @@ To configure the archive database, first add the following parameters to the `xl
 | `db-username` | User name to use when logging into the database. |
 | `db-password` | Password to use when logging into the database (after setup is complete, the password will be encrypted and stored in secured format). |
 
-Then, place the JAR file containing the JDBC driver of the selected database in the `XL_RELEASE_SERVER_HOME/lib` directory. To download the JDBC database drivers:
+Then, place the JAR file containing the JDBC driver of the selected database in the `XL_RELEASE_SERVER_HOME/lib` directory. To download the JDBC database drivers see [Configure the XL Release SQL repository in a database](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html)
 
-{:.table .table-striped}
-| Database   | JDBC drivers | Notes   |
-| ---------- | ------------ | ------- |
-| MySQL      | [Connector\J 5.1.30 driver download](http://dev.mysql.com/downloads/connector/j/)| None. |
-| Oracle     | [JDBC driver downloads](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html) | For Oracle 12c, use the 12.1.0.1 driver (`ojdbc7.jar`). It is recommended that you only use the thin drivers; refer to the [Oracle JDBC driver FAQ](http://www.oracle.com/technetwork/topics/jdbc-faq-090281.html) for more information. |
-| PostgreSQL | [PostgreSQL JDBC driver](https://jdbc.postgresql.org/download.html)| Use the JDBC42 version, because XL Release 4.8.0 and later requires Java 1.8. |
-
-#### Configure the repository database
-
-The repository database must be shared among all nodes when when active/hot-standby is enabled. Ensure that every node has access to the shared repository database.
-
-To configure the repository database, first add the `xl.repository.configuration` property to the `xl-release.conf` configuration file. This property identifies the predefined repository configuration that you want to use. Supported values are:
-
-{:.table .table-striped}
-| Parameter             | Description                                                        |
-| --------------------- | ------------------------------------------------------------------ |
-| `default`               | Default configuration that uses an embedded Apache Derby database.  |
-| `mysql-standalone`      | Single instance configuration that uses a MySQL database.           |
-| `mysql-cluster`         | Cluster-ready configuration that uses a MySQL database.             |
-| `oracle-standalone`     | Single instance configuration that uses an Oracle database.         |
-| `oracle-cluster`        | Cluster-ready configuration that uses an Oracle database.          |
-| `postgresql-standalone` | Single instance configuration that uses a PostgreSQL database.      |
-| `postgresql-cluster`    | Cluster-ready configuration that uses a PostgreSQL database.        |
-
-Next, add the following parameters to the `xl.repository.persistence` section of `xl-release.conf`:
-
-{:.table .table-striped}
-| Parameter     | Description |
-| ---------     | ----------- |
-| `jdbcUrl`     | JDBC URL that describes the database connection details; for example, `"jdbc:oracle:thin:@oracle.hostname.com:1521:SID"`. |
-| `username`    | User name to use when logging into the database. |
-| `password`    | Password to use when logging into the database (after setup is complete, the password will be encrypted and stored in secured format). |
-| `maxPoolSize` | Database connection pool size; suggested value is 20. |
 
 #### Sample database configuration
 
-This is an example of the `xl.repository` configuration for a stand-alone database:
+This is an example of the `xl-release.conf` configuration for a stand-alone database:
 
     xl {
-        repository {
-            configuration = postgresql-standalone
-            persistence {
-                jdbcUrl = "jdbc:postgresql://db/xlrelease?ssl=false"
-                username = "xlrelease"
-                password = "xlrelease"
-                maxPoolSize = 20
+        akka {
+            jvm-exit-on-fatal-error=on
+        }
+        cluster {
+            enabled=no
+            node {
+                clusterPort=5531
+                hostname="127.0.0.1"
+                id=node1
             }
-            jackrabbit {
-                artifacts.location="repository"
-                bundleCacheSize = 128
-            }
+        }
+        database {
+            db-driver-classname="org.postgresql.Driver"
+            db-password="xlrelease"
+            db-url="jdbc:postgresql://localhost:5432/xlrelease"
+            db-username=xlrelease
+            max-pool-size=20
+        }
+        development {
+            # Increase this to test slow server response
+            restSlowDownDelay="0 milliseconds"
+        }
+        durations {
+            watcherUnregisterDelay="1 second"
+        }
+        flexyPool {
+            enabled=false
+        }
+        initialization {
+            createSampleTemplates=true
+        }
+        metrics {
+            enabled=false
         }
         reporting {
-            db-driver-classname=org.postgresql.Driver
-            db-url="jdbc:postgresql://db/xlrarchive?ssl=false"
-            db-password="xlrarchive"
-            db-username="xlrarchive"
+            db-driver-classname="org.postgresql.Driver"
+            db-password="xlarchive"
+            db-url="jdbc:postgresql://localhost:5432/xlarchive"
+            db-username=xlarchive
+        }
+        timeouts {
+            # Increase idle life of a release actor and decrease timeout for watcher to make tests more stable, see REL-2940
+            releaseActorReceive="2 minutes"
         }
     }
+    
+
 
 ### Step 2 Set up the cluster
 
@@ -158,8 +156,6 @@ All active/hot-standby configuration settings must be provided in the `XL_RELEAS
 1. Enable clustering by:
     * Setting `xl.cluster.enabled` to `true`
     * Setting `xl.cluster.mode` to `hot-standby`
-1. Set `xl.repository.configuration` to the appropriate `<database>-cluster` option from [Configure the repository database](#configure-the-repository-database). Do not change the `xl.repository.persistence` options that you have already configured.
-1. Set `xl.repository.jackrabbit.artifacts.location` to a shared filesystem (such as NFS) that all nodes can access. This is required for storage of binary data (artifacts).
 1. Define ports for different types of incoming TCP connections in the `xl.cluster.node` section:
 
 {:.table .table-striped}
@@ -207,46 +203,55 @@ Start XL Release on each node, beginning with the first node that you configured
 This is a sample `xl-release.conf` configuration for one node that uses a MySQL repository database.
 
     xl {
+        akka {
+            jvm-exit-on-fatal-error=on
+        }
         cluster {
-            # xl.cluster.mode: "default", "hot-standby"
-            mode=hot-standby
-            # xl.cluster.enabled - true or false
+            mode="hot-standby
             enabled=true
-            # xl.cluster.name - name of the cluster
-            name="xlr_cluster"
-            # xl.cluster.node - this cluster node specific parameters
+            name = "xlr_cluster"
             node {
-                id=xlr-node-1
-                hostname=xlr-node-1
                 clusterPort=5531
+                hostname="127.0.0.1"
+                id=node1
             }
         }
-        repository {
-            # xl.repository.configuration - one of the predefined and recommended jackrabbit repository configurations
-            # available configurations: default, mysql-standalone, mysql-cluster, oracle-standalone, oracle-cluster, postgresql-standalone, postgresql-cluster
-            configuration = "mysql-cluster"
-            # xl.repository.persistence - repository database connection parameters
-            persistence {
-                jdbcUrl = "jdbc:mysql://db/xlrelease"
-                username = "xlrelease"
-                password = "xlrelease"
-                maxPoolSize = "20"
-            }
-            jackrabbit {
-                # xl.repository.jackrabbit.artifacts.location - location for shared files - should be shared filesystem (e.g. NFS)
-                artifacts.location = "repository"
-                # xl.repository.jackrabbit.bunleCacheSize - bundle cache size in MB - default is 8 MB
-                bundleCacheSize = 128
-            }
+        database {
+            db-driver-classname="com.mysql.jdbc.Driver"
+            db-password="xlrelease"
+            db-url="jdbc:mysql://localhost:3306/xlrelease?useSSL=false"
+            db-username=xlrelease
+            max-pool-size=20
         }
-        # xl.reporting - reporting/archive database connection parameters
+        development {
+            # Increase this to test slow server response
+            restSlowDownDelay="0 milliseconds"
+        }
+        durations {
+            watcherUnregisterDelay="1 second"
+        }
+        flexyPool {
+            enabled=false
+        }
+        initialization {
+            createSampleTemplates=true
+        }
+        metrics {
+            enabled=true
+        }
         reporting {
             db-driver-classname="com.mysql.jdbc.Driver"
-            db-url="jdbc:mysql://db/xlrarchive"
-            db-username="xlrarchive"
-            db-password="xlrarchive"
+            db-password="xlarchive"
+            db-url="jdbc:mysql://localhost:3306/xlarchive?useSSL=false"
+            db-username=xlarchive
+        }
+        timeouts {
+            # Increase idle life of a release actor and decrease timeout for watcher to make tests more stable, see REL-2940
+            releaseActorReceive="2 minutes"
         }
     }
+    
+
 
 **Note:** After the first run, passwords in the configuration file will be encrypted and replaced with base64-encoded values.
 
