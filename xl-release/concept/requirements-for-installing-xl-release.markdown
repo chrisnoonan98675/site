@@ -73,7 +73,7 @@ XL Release configuration:
 | `threads.min` | `64` | `XL_RELEASE_SERVER_HOME/conf/xl-release-server.conf` | Sets the minimum number of HTTP threads to 64  |
 | `threads.max` | `256` | `XL_RELEASE_SERVER_HOME/conf/xl-release-server.conf` | Sets the maximum number of HTTP threads to 256  |
 | `xl.executors.scheduler.maxThreadsCount` | `50` | `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` | Sets the maximum number of threads for asynchronous operations to 50  |
-| `xl.database.max_pool_size` | `256` | `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` | Sets the maximum number of threads for database pool to 256  |
+| `xl.database.max_pool_size` | `64` | `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` | Sets the maximum number of threads for database pool to 64  |
 
 ### SQL Database
 
