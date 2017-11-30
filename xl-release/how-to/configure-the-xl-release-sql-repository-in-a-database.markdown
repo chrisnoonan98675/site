@@ -51,7 +51,6 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` configuration for
 
 Your MySql instance should be configured in your `cnf` file as:
 
-    sql_mode="NO_AUTO_VALUE_ON_ZERO"
     skip-character-set-client-handshake
     collation_server=utf8_unicode_ci
     character_set_server=utf8
