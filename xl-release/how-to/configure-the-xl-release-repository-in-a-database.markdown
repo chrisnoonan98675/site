@@ -1,5 +1,5 @@
 ---
-title: Configure the XL Release repository in a database
+title: Configure the XL Release JCR repository in a database
 categories:
 - xl-release
 subject:
@@ -10,6 +10,8 @@ tags:
 - setup
 - database
 - repository
+removed:
+- XL Release 7.5.0
 weight: 493
 ---
 

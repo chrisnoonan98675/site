@@ -1,5 +1,5 @@
 ---
-title: Configure active/hot-standby mode
+title: Configure active/hot-standby mode for JCR repository
 categories:
 - xl-release
 subject:
@@ -14,6 +14,8 @@ tags:
 weight: 496
 since:
 - XL Release 6.0.0
+removed:
+- XL Release 7.5.0
 ---
 
 As of XL Release 6.0.0, you can configure XL Release in a clustered active/hot-standby mode. Running XL Release in this mode ensures that you have a Highly Available (HA) XL Release. This topic describes the procedure to enable active/hot-standby mode.
@@ -64,12 +66,10 @@ To set up an active/hot-standby cluster, you must do some manual configuration b
 The following external databases are recommended:
 
 * MySQL
-* PostgreSQL
+* PostgreSQL 
 * Oracle 11g or 12c
+* Microsoft SQL Server 2012
 * DB2
-* MsSql
-* H2 (For testing only)
-* Derby (For testing only)
 
 The following set of SQL privileges are required (where applicable):
 
@@ -88,48 +88,80 @@ To configure the archive database, first add the following parameters to the `xl
 {:.table .table-striped}
 | Parameter | Description |
 | --------- | ----------- |
-| `db-driver-classname` | Class name of the database driver to use; for example, `oracle.jdbc.driver.OracleDriver`. |
+| `db-driver-classname` | Class name of the database driver to use; for example, `oracle.jdbc.OracleDriver`. |
 | `db-url` | JDBC URL that describes database connection details; for example, `"jdbc:oracle:thin:@oracle.hostname.com:1521:SID"`. |
 | `db-username` | User name to use when logging into the database. |
 | `db-password` | Password to use when logging into the database (after setup is complete, the password will be encrypted and stored in secured format). |
 
-Then, place the JAR file containing the JDBC driver of the selected database in the `XL_RELEASE_SERVER_HOME/lib` directory. To download the JDBC database drivers see [Configure the XL Release SQL repository in a database](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html)
+Then, place the JAR file containing the JDBC driver of the selected database in the `XL_RELEASE_SERVER_HOME/lib` directory. To download the JDBC database drivers:
 
+{:.table .table-striped}
+| Database   | JDBC drivers | Notes   |
+| ---------- | ------------ | ------- |
+| MySQL      | [Connector\J 5.1.30 driver download](http://dev.mysql.com/downloads/connector/j/)| None. |
+| Oracle     | [JDBC driver downloads](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html) | For Oracle 12c, use the 12.1.0.1 driver (`ojdbc7.jar`). It is recommended that you only use the thin drivers; refer to the [Oracle JDBC driver FAQ](http://www.oracle.com/technetwork/topics/jdbc-faq-090281.html) for more information. |
+| PostgreSQL | [PostgreSQL JDBC driver](https://jdbc.postgresql.org/download.html)| Use the JDBC42 version, because XL Release 4.8.0 and later requires Java 1.8. |
+
+#### Configure the repository database
+
+The repository database must be shared among all nodes when when active/hot-standby is enabled. Ensure that every node has access to the shared repository database.
+
+To configure the repository database, first add the `xl.repository.configuration` property to the `xl-release.conf` configuration file. This property identifies the predefined repository configuration that you want to use. Supported values are:
+
+{:.table .table-striped}
+| Parameter             | Description                                                        |
+| --------------------- | ------------------------------------------------------------------ |
+| `default`               | Default configuration that uses an embedded Apache Derby database.  |
+| `mysql-standalone`      | Single instance configuration that uses a MySQL database.           |
+| `mysql-cluster`         | Cluster-ready configuration that uses a MySQL database.             |
+| `oracle-standalone`     | Single instance configuration that uses an Oracle database.         |
+| `oracle-cluster`        | Cluster-ready configuration that uses an Oracle database.          |
+| `postgresql-standalone` | Single instance configuration that uses a PostgreSQL database.      |
+| `postgresql-cluster`    | Cluster-ready configuration that uses a PostgreSQL database.        |
+
+Next, add the following parameters to the `xl.repository.persistence` section of `xl-release.conf`:
+
+{:.table .table-striped}
+| Parameter     | Description |
+| ---------     | ----------- |
+| `jdbcUrl`     | JDBC URL that describes the database connection details; for example, `"jdbc:oracle:thin:@oracle.hostname.com:1521:SID"`. |
+| `username`    | User name to use when logging into the database. |
+| `password`    | Password to use when logging into the database (after setup is complete, the password will be encrypted and stored in secured format). |
+| `maxPoolSize` | Database connection pool size; suggested value is 20. |
 
 #### Sample database configuration
 
-This is an example of the `xl-release.conf` configuration for a stand-alone database:
+This is an example of the `xl.repository` configuration for a stand-alone database:
 
     xl {
-        akka {
-            jvm-exit-on-fatal-error=on
-        }
-        cluster {
-            enabled=no
-            node {
-                clusterPort=5531
-                hostname="127.0.0.1"
-                id=node1
+        repository {
+            configuration = postgresql-standalone
+            persistence {
+                jdbcUrl = "jdbc:postgresql://db/xlrelease?ssl=false"
+                username = "xlrelease"
+                password = "xlrelease"
+                maxPoolSize = 20
+            }
+            jackrabbit {
+                artifacts.location="/mnt/nfs"
+                bundleCacheSize = 128
             }
         }
-        database {
-            db-driver-classname="org.postgresql.Driver"
-            db-password="xlrelease"
-            db-url="jdbc:postgresql://localhost:5432/xlrelease"
-            db-username=xlrelease
-            max-pool-size=20
+        reporting {
+            db-driver-classname=org.postgresql.Driver
+            db-url="jdbc:postgresql://db/xlrarchive?ssl=false"
+            db-password="xlrarchive"
+            db-username="xlrarchive"
         }
     }
-
-
 
 ### Step 2 Set up the cluster
 
 All active/hot-standby configuration settings must be provided in the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file, which uses the [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format. In this file on one node:
 
-1. Enable clustering by:
-    * Setting `xl.cluster.enabled` to `true`
-    * Setting `xl.cluster.mode` to `hot-standby`
+1. Enable clustering by setting `xl.cluster.mode` to `hot-standby`.
+1. Set `xl.repository.configuration` to the appropriate `<database>-cluster` option from [Configure the repository database](#configure-the-repository-database). Do not change the `xl.repository.persistence` options that you have already configured.
+1. Set `xl.repository.jackrabbit.artifacts.location` to a shared filesystem (such as NFS) that all nodes can access. This is required for storage of binary data (artifacts).
 1. Define ports for different types of incoming TCP connections in the `xl.cluster.node` section:
 
 {:.table .table-striped}
@@ -147,9 +179,12 @@ At a command prompt, run the following server setup command and follow the on-sc
 
 ### Step 4 Prepare each node in the cluster
 
-1. Zip the distribution that you created in [Step 2 Set up the cluster](#step-2-set-up-the-cluster).
-1. Copy the ZIP file to all other nodes and unzip each one.
-1. On each node, edit the `xl.cluster.node` section of the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file. Update the values for the specific node.
+* Zip the distribution, that you created in [Step 2 Set up the cluster](#step-2-set-up-the-cluster).
+
+**Important**: Ensure the `repository` folder is excluded from the packaged distribution - other nodes should be started without an existing local repository.
+
+* Copy the ZIP file to all other nodes and unzip each one.
+* On each node, edit the `xl.cluster.node` section of the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file. Update the values for the specific node.
 
 **Note:** You do not need to run the server setup command on each node.
 
@@ -177,29 +212,44 @@ Start XL Release on each node, beginning with the first node that you configured
 This is a sample `xl-release.conf` configuration for one node that uses a MySQL repository database.
 
     xl {
-        akka {
-            jvm-exit-on-fatal-error=on
-        }
         cluster {
-            mode="hot-standby
-            enabled=true
-            name = "xlr_cluster"
+            # xl.cluster.mode: "default", "hot-standby"
+            mode=hot-standby
+            # xl.cluster.name - name of the cluster
+            name="xlr_cluster"
+            # xl.cluster.node - this cluster node specific parameters
             node {
+                id=xlr-node-1
+                hostname=xlr-node-1
                 clusterPort=5531
-                hostname="127.0.0.1"
-                id=node1
             }
         }
-        database {
+        repository {
+            # xl.repository.configuration - one of the predefined and recommended jackrabbit repository configurations
+            # available configurations: default, mysql-standalone, mysql-cluster, oracle-standalone, oracle-cluster, postgresql-standalone, postgresql-cluster
+            configuration = "mysql-cluster"
+            # xl.repository.persistence - repository database connection parameters
+            persistence {
+                jdbcUrl = "jdbc:mysql://db/xlrelease"
+                username = "xlrelease"
+                password = "xlrelease"
+                maxPoolSize = "20"
+            }
+            jackrabbit {
+                # xl.repository.jackrabbit.artifacts.location - location for shared files - should be shared filesystem (e.g. NFS)
+                artifacts.location = "repository"
+                # xl.repository.jackrabbit.bunleCacheSize - bundle cache size in MB - default is 8 MB
+                bundleCacheSize = 128
+            }
+        }
+        # xl.reporting - reporting/archive database connection parameters
+        reporting {
             db-driver-classname="com.mysql.jdbc.Driver"
-            db-password="xlrelease"
-            db-url="jdbc:mysql://localhost:3306/xlrelease?useSSL=false"
-            db-username=xlrelease
-            max-pool-size=20
+            db-url="jdbc:mysql://db/xlrarchive"
+            db-username="xlrarchive"
+            db-password="xlrarchive"
         }
     }
-
-
 
 **Note:** After the first run, passwords in the configuration file will be encrypted and replaced with base64-encoded values.
 

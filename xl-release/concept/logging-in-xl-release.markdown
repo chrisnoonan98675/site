@@ -9,6 +9,8 @@ tags:
 - logging
 - audit
 - security
+removed:
+- XL Release 7.5.0
 weight: 492
 ---
 

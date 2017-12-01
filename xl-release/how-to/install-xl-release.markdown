@@ -90,11 +90,11 @@ To use the default password of *admin*, press ENTER twice. If you plan to connec
 
 ##### Step 2 Initialize the repository
 
-The setup wizard will ask if you want to initialize the repository. Answer `yes` to create the repository, or `no` to connect to an existing repository.
+**Important**: This applies only to XL Release 7.2 or earlier. The setup wizard will ask if you want to initialize the repository. Answer `yes` to create the repository, or `no` to connect to an existing repository.
 
 **Warning:** If you choose to initialize the repository and you have installed XL Release in the same location before, any information stored in the repository will be lost.
 
-By default, the repository is stored in an embedded Derby database at `XL_RELEASE_SERVER_HOME/repository`. For information about using an external database, refer to [Configure the XL Release repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html).
+By default, the repository is stored in an embedded Derby database at `XL_RELEASE_SERVER_HOME/repository`. For information about using an external database, refer to [Configure the XL Release SQL repository](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html) or [Configure the XL Release JCR repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html).
 
 ##### Step 3 Generate an encryption key
 
@@ -158,11 +158,11 @@ The setup wizard will prompt you for the minimum and maximum number of threads t
 
 ##### Step 8 Configure the repository
 
-The setup wizard will ask where you want to store the JCR repository. If the directory does not exist, XL Release will create it. The setup wizard will also ask if you want to initialize the repository.
+**Note**: This applies only to XL Release 7.2 or earlier. The setup wizard will ask where you want to store the JCR repository. If the directory does not exist, XL Release will create it. The setup wizard will also ask if you want to initialize the repository.
 
 **Warning:** If you choose to initialize the repository and you have installed XL Release in the same location before, any information stored in the repository will be lost.
 
-By default, the repository is stored in an embedded Derby database at `XL_RELEASE_SERVER_HOME/repository`. For information about using an external database, refer to [Configure the XL Release repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html).
+By default, the repository is stored in an embedded Derby database at `XL_RELEASE_SERVER_HOME/repository`. For information about using an external database, refer to [Configure the XL Release SQL repository](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html) or [Configure the XL Release JCR repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html).
 
 ##### Step 9 Generate an encryption key
 
@@ -207,3 +207,4 @@ If you store the XL Release repository in a [database](/xl-release/how-to/config
 
 * [Configure failover for XL Release](/xl-release/how-to/configure-failover.html)
 * [Configure active/hot-standby mode](/xl-release/how-to/configure-active-hot-standby.html) (supported in XL Release 6.0.0 and later)
+* [Configure active/active mode](/xl-release/how-to/configure-active-active.html) (supported in XL Release 7.5.0 and later)
