@@ -24,8 +24,8 @@ This document describes how to upgrade XL Release 7.5.x  server from a previous 
     * MySQL
     * Microsoft SQL
     * DB2
- 
-* Note that the archive database is still needed. The structure and functionality is not changed in this upgrade. 
+
+* Note that the archive database is still needed. The structure and functionality is not changed in this upgrade.
 
 ## Steps
 
@@ -62,8 +62,8 @@ The **archive database** remains as-is and is copied / configured in the final c
 ### Installation
 
 Download the **xl-release-sql-migrator-7.5.0.zip**
-<!-- 
-           !!! MISSING LINK !! 
+<!--
+           !!! MISSING LINK !!
 -->
 package and unzip it in a directory on the same machine as the **source** XL Release server.
 
@@ -97,7 +97,7 @@ For example:
       }
     }
 
-### Page size	
+### Page size
 
 You can set the page size used to fetch releases from the JCR repository using the following configuration snippet in `conf/xl-release-sql-migrator.conf`.
 
@@ -110,22 +110,28 @@ You can set the page size used to fetch releases from the JCR repository using t
       }
     }
 
-This can be useful when you have large releases that contain a large number of comments for example. 
+This can be useful when you have large releases that contain a large number of comments for example.
 
 The migration tool uses 4Gb JVM heap, but if you get an `OutOfMemoryError` during migration then you can fix it by decreasing the page size.
 
 
+### Custom classpath
+
+If you have modified your `xlr-wrapper-*.conf` from XL Release, you have to add your custom classpath on `bin/xl-release-sql-migrator` like:
+
+      CLASSPATH=$APP_HOME/conf:$APP_HOME/lib/*:./conf:./ext:./hotfix/*:./plugins/*
+
 ## 4. Running the migrator
 
-You must run the application from the `XL_RELEASE_SERVER_HOME` folder of the **source** server. The migration tool will load your XL Release `conf`, `ext`, and `plugins` folder to load extra synthetic types. 
+You must run the application from the `XL_RELEASE_SERVER_HOME` folder of the **source** server. The migration tool will load your XL Release `conf`, `ext`, and `plugins` folder to load extra synthetic types.
 
-For example, if the **source** XL Release installation is under 
+For example, if the **source** XL Release installation is under
 
     /opt/xl-release-7.0.1-server
-    
-and the migration tool is under 
 
-	/opt/xl-release-sql-migrator-7.5.0 
+and the migration tool is under
+
+	/opt/xl-release-sql-migrator-7.5.0
 
 you should issue the following command:
 
@@ -168,11 +174,8 @@ xl {
     }
 }
 ```
-If the reporting archive is configured to use an external database, also configure the connection settings in `conf/xl-release.conf`. If you are using the embedded archive database, you don't need to configure it.
 
-<!-- 
-           !!! Check details !! 
--->
+If the reporting archive is configured to use an external database, also configure the connection settings in `conf/xl-release.conf`.
 
 ```
 xl {
@@ -192,6 +195,25 @@ xl {
 }
 ```
 
+
+If you are using the embedded derby archived database, you need to upgrade it, this can be done by just adding at the end of the connection url `;upgrade=true`.
+
+```
+xl {
+    reporting {
+        db-driver-classname=...
+        db-url="jdbc:.......;upgrade=true"
+        db-username=...
+        db-password=...
+    }
+}
+```
+
+<!--
+           !!! Check details !!
+-->
+
+
 _Please note that passwords will be encrypted in this file by XL Release_
 
 
@@ -209,4 +231,3 @@ If you normally run the XL Release server [as a service](/xl-release/how-to/inst
 * Make sure the configuration file to set up the database in XLR (`conf/xl-release.conf`) matches exactly with the database configuration in the migrator tool.
 
 * If you need to adjust the configuration in XL Release, rerun the migrator afterwards and it will create the new tables and migrate the existing data with the new settings.
-
