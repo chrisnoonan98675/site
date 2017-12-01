@@ -26,8 +26,6 @@ Components of the infrastructure (XL Impact cloud environment):
 * Data Processing - Has permission to read from GCS, process the data and write to ES.
 * Crawlers - There are two types of crawlers: the crawlers on premises that are present in the customer network and the crawlers inside the XL Impact environment. The crawlers communicate through Remote Procedure Call (RPC) only with Data Ingestion. The crawlers require customer credentials to access the data sources (for example: Jira credentials).
 
-Accessing and using XL Impact is done through XL Release authorization. Only users with the *Admin* global permission in XL Release have access to XL Impact. For more information, refer to [Configure roles in XL Release](https://docs.xebialabs.com/xl-release/how-to/configure-roles.html).
-
 There are two accounts types set up in XL Impact to be used: one for all the users and one for crawlers.
 
 The information transfer and communication between the components is secured through the SSL protocol and with API keys. The authentication when communicating with the GCS is done using Google authentication.
