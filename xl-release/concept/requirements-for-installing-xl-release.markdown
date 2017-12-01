@@ -45,7 +45,7 @@ To [install](/xl-release/how-to/install-xl-release.html) the XL Release server, 
 
 ### External systems
 
-* **Database:** By default, XL Release is installed with an embedded database. It is strongly recommended to use an external database such as PostgreSQL. See [Configure the XL Release SQL repository in a database](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html) for details.
+* **Database:** By default, XL Release is installed with an embedded database. The embedded database is meant for easy setup in evaluation and test environments. For production use, it is strongly recommended to use an industrial-grade external database server such as PostgreSQL, MySQL, Oracle, Microsoft SQL Server or DB2. See [Configure the XL Release SQL repository in a database](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html) for details.
 If you are using XL Release version 7.2 or earlier, see [Configure the XL Release JCR repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html) for details.
 * **LDAP:** To connect XL Release to your corporate Active Directory or LDAP server, see [Configure LDAP security for XL Release](/xl-release/how-to/configure-ldap-security-for-xl-release.html).
 
