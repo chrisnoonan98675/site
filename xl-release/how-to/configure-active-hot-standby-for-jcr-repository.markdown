@@ -66,8 +66,10 @@ To set up an active/hot-standby cluster, you must do some manual configuration b
 The following external databases are recommended:
 
 * MySQL
-* PostgreSQL
+* PostgreSQL 
 * Oracle 11g or 12c
+* Microsoft SQL Server 2012
+* DB2
 
 The following set of SQL privileges are required (where applicable):
 
