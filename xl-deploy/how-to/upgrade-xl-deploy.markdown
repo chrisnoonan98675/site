@@ -21,7 +21,7 @@ Briefly, the process of upgrading XL Deploy is:
 1. Redo custom changes that you made to configuration files and startup scripts.
 1. Start the new version of XL Deploy so that automatic upgraders can run.
 
-You can find release notes and version-specific upgrade notes on the page for each version; for example, [XL Deploy 5.1.x](/xl-deploy/5.1.x/).
+You can find release notes and version-specific upgrade notes on the page for each version; for example, [XL Deploy 6.0.x](/xl-deploy/6.0.x/).
 
 ## About upgrading
 
@@ -36,6 +36,11 @@ When upgrading, you can skip XL Deploy versions. XL Deploy will sequentially app
 ### Upgrading the repository
 
 If a repository upgrade is required, XL Deploy will detect that it is running against an old repository and will automatically execute an upgrade when it is first started. The server log will contain extensive logging of the repository upgrade process. Save this log for future reference.
+
+**Important:** If you are upgrading to version 7.5.0: during the upgrading process, the application requires additional privileges to perform the required changes to the schema. These privileges include:
+* ALTER, CREATE, and DROP privileges for tables, views, indexes, and triggers
+* REFERENCES privilege (if applicable)
+* INSERT, SELECT, UPDATE, and DELETE privileges (like in a normal operation)
 
 ### Upgrading plugins
 
