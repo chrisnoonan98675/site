@@ -22,9 +22,20 @@ The **Releases at risk** section is available only in XL Release versions 7.1 an
 
 **Note:** You can view the risk state of your releases in the Release Overview page.
 
+## Release information tiles
+
+* **Completed releases** tile: The number of completed releases and the number of templates used to start the releases.
+* **Longest task type** tile: The type of the task that has the longest duration and the number of releases where the task is present.
+* **Avg. release duration** tile: The average duration of a release and the longest duration of a release.
+* **Avg. task duration** tile: The average duration of a task and the longest duration of a task.
+
+## Task efficiency and time spent
+
+The **Task efficiency** chart displays the percentages of automated tasks and manual tasks out of the total number of executed tasks. The **Time spent** chart displays the percentages of time spent for automated tasks and manual tasks out of the total number of days.
+
 ## Release efficiency
 
-The **Release efficiency** section provides an overview of your overall level of automation during the selected time period. It shows the following information about [completed](/xl-release/concept/release-life-cycle.html) releases in the selected time period:
+The **Release efficiency** section displays a graph that provides an overview of your overall level of automation during the selected time period. It shows the following information about [completed](/xl-release/concept/release-life-cycle.html) releases in the selected time period:
 
 * Total numbers of tasks and time spent
 * A comparison of the percentage of automated tasks and manual tasks
@@ -32,15 +43,15 @@ The **Release efficiency** section provides an overview of your overall level of
 
 ![Releases efficiency](../images/dashboard-release-efficiency.png)
 
-## Average release duration and automation
+## Average release duration over time
 
-The **Average release duration and automation** section allows you to assess whether your level of automation improved over time during the selected time period. It shows the percentage of automated tasks in [completed](/xl-release/concept/release-life-cycle.html) releases during the selected time period, aggregated per month.
+The **Average release duration over time** section allows you to assess whether your level of automation improved over time during the selected time period. It shows the percentage of automated tasks in [completed](/xl-release/concept/release-life-cycle.html) releases during the selected time period, aggregated per month.
 
 ![Average release duration and automation](../images/dashboard-release-duration.png)
 
-## Releases per month
+## Number of releases
 
-The **Releases per month** section shows how many releases were [completed](/xl-release/concept/release-life-cycle.html) in each month in the selected time period.
+The **Number of releases** section shows how many releases were [completed](/xl-release/concept/release-life-cycle.html) in each month in the selected time period.
 
 ![Releases per month](../images/dashboard-release-number.png)
 
@@ -58,7 +69,7 @@ The **Top-10 Longest Tasks** section shows the ten tasks with status *completed*
 
 ![Top-10 Longest Tasks](../images/dashboard-longest-tasks.png)
 
-## Top 10 people most involved
+## Top 10 people most involved (Removed as of XL Release version 7.5)
 
 The **Top-10 People Most Involved** section shows the users who spent the most time and handled the most tasks in the selected time period. To calculate this, XL Release groups the tasks with status *completed* or *completed in advance* by owner (that is, the most recent assignee), calculates their durations, and sorts them in descending order.
 
