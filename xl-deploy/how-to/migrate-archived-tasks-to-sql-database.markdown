@@ -10,13 +10,13 @@ tags:
 since: XL Deploy 7.5.0
 ---
 
-As of XL Deploy version 7.5, the archived tasks are no longer stored as part of the regular Jackrabbit (JCR) repository and are offloaded into a separate SQL database. All the reports starting with version 7.5 are running on top of the SQL database. The purpose of this change is to reduce the overall size of the JCR repository containing active tasks. This also reduces the recovery time after a crash, provides more efficient reporting, and additionally induces a smaller load on the *live* JCR database.
+As of XL Deploy version 7.5.0, the archived tasks are no longer stored as part of the regular Jackrabbit (JCR) repository and are offloaded into a separate SQL database. All the reports starting with version 7.5 are running on top of the SQL database. The purpose of this change is to improve the overall performance and to reduce size of the JCR repository containing active tasks. This also reduces the recovery time after a crash, provides more efficient reporting, and additionally induces a smaller load on the *live* JCR database.
 
 **Important:** Make sure you set up the database configuration correctly before starting the migration.
 
 Except from configuring the database connection, this migration is a fully transparent operation running as a background process that takes place during a normal XL Deploy operation. The XL Deploy data cannot be moved all at once. During the migration period, the reports on past tasks may be incomplete. Data is migrated from newest to oldest and the reports on recent data will be available first.
 
-The migration process starts automatically when you launch XL Deploy. The system remains available to use during the migration with a possible small impact on performance. It is recommended to perform the migration during a low activity period (example: night, weekend. or holiday).
+The migration process starts automatically when you launch XL Deploy. The system remains available to use during the migration with a possible small impact on performance. It is recommended to perform the migration during a low activity period (example: night, weekend, or holiday).
 
 Depending on the size of the data you want to migrate, the process can take from minutes to a few days to fully complete.  Example: approximately 6000 records in 45 minutes and approximately 180.000 records in 20 hours. The duration of the entire process depends on the sizing of the machine or environment, the usage of the system, etc.
 
