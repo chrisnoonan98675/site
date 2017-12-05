@@ -27,6 +27,15 @@ For information about AWS requirements and the configuration items (CIs) that th
 * Create virtual machines on Elastic Compute Cloud (EC2) with a specified Amazon Machine Image (AMI)
 * Automatically destroy EC2 instances during undeployment
 * Provision a Simple Storage Service (S3) bucket
+* Create/Destroy Network Elements like VPC, Subnets, Routing Tables etc.
+* Create Clusters and deploy service on Elastic Container Service 
+* Elastic Container Registry
+* Lambda
+* API Gateway
+* Relational Database Service (RDS)
+* Auto Scaling groups
+* Save a running instance as AMI (Fits into CD pipeline)
+
 
 ### Attach an elastic IP address with a non-Virtual Private Cloud (VPC) EC2 instance
 
