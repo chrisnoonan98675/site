@@ -15,6 +15,17 @@ The XL Deploy OpenShift plugin allows you to deploy OpenShift and Kubernetes res
 
 For information about the plugin requirements and the supported OpenShift version, refer to the [OpenShift Plugin Reference](/xl-deploy-xld-openshift-plugin/latest/openshiftPluginManual.html).
 
+**Note:** The XL Deploy OpenShift plugin extends Kubernetes plugin. That is, you would need both the plugins installed in order to work with the OpenShift plugin.
+
+## Features
+
+* Supports both property-based-deployables (form based) and artifact-based-deployable (yaml/resource file)
+* Create project on OpenShift cluster
+* Supports all the objects supported by Kubernetes Plugin
+* Create OpenShift route
+* Create OpenShift image streams
+* Create OpenShift build config and deployment config
+
 The supported basic resource types are:
 
 * `Project` - a Kubernetes namespace with additional annotations, and the main entity used by users to deploy and manage resources
