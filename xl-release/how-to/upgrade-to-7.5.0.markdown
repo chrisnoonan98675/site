@@ -30,7 +30,7 @@ This document describes how to upgrade XL Release 7.5.x  server from a previous 
 
 * Note that the archive database is still needed. The structure and functionality is not changed in this upgrade.
 
-## Steps
+## Overview
 
 The upgrade procedure to XL Release 7.5 is different than before. Here's an overview of the steps that need to be taken.
 
