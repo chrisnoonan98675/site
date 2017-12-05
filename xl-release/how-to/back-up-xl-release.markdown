@@ -13,7 +13,10 @@ since:
  - XL Release 7.5.0
 ---
 
-_This document describes how to do a backup for XL Release 7.5 and later versions. For XL Release 7.2 and before, please refer to [Back up XL Release (XL Release 7.2 and previous versions)](/xl-release/how-to/back-up-xl-release-jcr.html)_
+<div class="alert alert-warning" style="width: 60%">
+This document describes how to do a backup for XL Release 7.5 and later versions. For XL Release 7.2 and before, please refer to <a href="/xl-release/how-to/back-up-xl-release-jcr.html">Back up XL Release (XL Release 7.2 and previous versions)</a>.
+</div>
+
 
 It is recommended that you regularly create a backup of your XL Release server. It is especially important to back up XL Release before [upgrading to a new version](/xl-release/how-to/upgrade-xl-release.html).
 
