@@ -123,6 +123,15 @@ To use the default password of `admin`, press ENTER twice. If you plan to connec
 
 The setup wizard will prompt you to set up secure communication (SSL) between the XL Deploy graphical user interface (GUI) and the XL Deploy server.
 
+**Important:** If SSL is enabled, the `secure.cookie.enabled` attribute is automatically set to `true`. As an `admin`, you can manually configure the `secure.cookie.enabled` attribute in the `XL_DEPLOY_SERVER_HOME/conf/deployit.conf` file.
+
+When `secure.cookie.enabled == true`:
+1. If you are using HTTP, you cannot log in to XL Deploy and the `SESSION_XLD` cookie is marked as `secure`.
+1. If you are using HTTPS, you can log in to XL Deploy and the `SESSION_XLD` cookie is marked as `secure`.
+When `secure.cookie.enabled == false`:
+1. If you are using HTTP, you can log in to XL Deploy and the `SESSION_XLD` cookie is marked as `not secure`.
+1. If you are using HTTPS, you can log in to XL Deploy and the `SESSION_XLD` cookie is marked as `secure`.
+
 #### Step 3 Generate a self-signed certificate
 
 A digital certificate is required for secure communication; normally, certificates are signed by a Certificate Authority (CA). However, if you choose secure communication between the GUI and the server, the setup wizard will ask if you want XL Deploy to generate a self-signed digital certificate.
