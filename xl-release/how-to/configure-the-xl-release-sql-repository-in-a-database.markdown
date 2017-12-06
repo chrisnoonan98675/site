@@ -21,7 +21,7 @@ This document describes the database configuration for XL Release 7.5 and later 
 
 XL Release stores its data in a repository. By default, this an embedded database stored in `XL_RELEASE_SERVER_HOME/repository`. 
 
-Completed releases and reporting information is stored in another database. By default, this is also an embedded database stored in `XL_RELEASE_SERVER_HOME/archive`.
+Completed releases and reporting information is stored in another database called 'archive'. By default, this is also an embedded database stored in `XL_RELEASE_SERVER_HOME/archive`.
 
 The embedded databases are automatically created when XL Release is started for the first time.
 
@@ -33,11 +33,11 @@ The embedded databases are meant for easy setup in evaluation and test environme
 * Microsoft SQL Server 2012
 * DB2
 
-To run XL Release in a cluster set up (Active/active or active/hot standby) it is required to have the repository stored in an external database.
+To run XL Release in a cluster setup (Active/active or active/hot standby) it is required to have the repository stored in an external database.
 
 Note that it is currently not possible to migrate the repository from an embedded database to an external database. So configure production setups with an external database from the start. When migrating from a previous JCR version of XL Release (version 7.2 and lower), make sure to migrate to an external database.
 
-For information about:
+More information:
 
 * Active/active mode: [Configure active/active](/xl-release/how-to/configure-active-active.html)
 * Active/hot standby mode: [Configure active/hot-standby](/xl-release/how-to/configure-active-hot-standby.html) 
@@ -47,8 +47,8 @@ For information about:
 
 To use an external database, two empty database schemas should be created.
 
-1. **xlrelease**. This schema contains the active release data and configuration data.
-2. **xlarchive**. This schema contains the completed releases and reporting data. [Note] [1]
+1. **xlrelease** - active release data and configuration data.
+2. **xlarchive** - completed releases and reporting data. [Note] [1]
 
 The account that accesses the database must be able to create tables during the initial installation and, later, it must be able to write to and delete from tables.
 
@@ -99,7 +99,7 @@ This is a sample configuration for PostgreSQL:
 
 Driver:
 
- * [Mysql JDBC driver](http://dev.mysql.com/downloads/connector/j/)
+ * [MySQL JDBC driver](http://dev.mysql.com/downloads/connector/j/)
  
 Place the driver JAR file in the `XL_RELEASE_SERVER_HOME/lib` folder.
 
