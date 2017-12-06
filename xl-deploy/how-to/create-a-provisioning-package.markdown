@@ -59,9 +59,22 @@ To add a provisionable to a provisioning package:
 
 ### Cardinality in provisionables
 
-Cardinality allows you to create multiple provisioneds based on a single provisionable. For example, an `aws.ec2.InstanceSpec` with a cardinality of 5 will result in five Amazon EC2 instances, all based on the same instance specification. When each provisioned is created, its ordinal will be added to its name, as described in [Provision an environment](/xl-deploy/how-to/provision-an-environment.html#the-unique-provisioning-id).
+If you are using XL Deploy version 7.2.x or earlier, you can use the cardinality functionality that allows you to create multiple provisioneds based on a single provisionable. For example, an `aws.ec2.InstanceSpec` with a cardinality of 5 will result in five Amazon EC2 instances, all based on the same instance specification. When each provisioned is created, its ordinal will be added to its name, as described in [Provision an environment](/xl-deploy/how-to/provision-an-environment.html#the-unique-provisioning-id).
 
 It is recommended that you use a [placeholder](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) such as `NUMBER_OF_TOMCAT_INSTANCES` for the cardinality property. You can then enter the number of instances in the provisioning properties when setting up the provisioning.
+
+As of XL Deploy version 7.5.0, the `cardinality` and `ordinal` properties are set to `hidden=true` by default. If you want to use the cardinality functionality, you must modify the properties in the `synthetic.xml` file. Example of `<type-modification>` in the `synthetic.xml`:
+
+      <type-modification type="dummy-provider.Provisionable">
+          <property name="cardinality" kind="string" category="Provisioning" description="Number of instances to launch." hidden="false" default="1"/>
+      </type-modification>
+
+      <type type="dummy-provider.Provisioned" extends="udm.BaseProvisioned" deployable-type="dummy-provider.Provisionable"
+          container-type="dummy-provider.Provider">
+        <generate-deployable type="dummy-provider.Provisionable" extends="udm.BaseProvisionable"
+                             copy-default-values="true"/>
+        <property name="ordinal" kind="integer" required="false" category="output" hidden="false"/>
+      </type>
 
 ## Step 4 Add a template to a package
 
