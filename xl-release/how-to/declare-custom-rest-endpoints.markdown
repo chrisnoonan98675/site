@@ -45,15 +45,10 @@ Jython scripts should implement the logic of REST endpoints. Typically, every sc
 
 In a script, you have access to XL Release services and to the following objects:
 
-* Request: <a href="/jython-docs/#!/xl-deploy/7.2.x/service/com.xebialabs.xlplatform.endpoints.JythonRequest">JythonRequest</a>
-* Response: <a href="https://docs.xebialabs.com/jython-docs/#!/xl-deploy/7.2.x/service/com.xebialabs.xlplatform.endpoints.JythonResponse">JythonResponse</a>
+* Request: [JythonRequest](https://docs.xebialabs.com/jython-docs/#!/xl-deploy/7.2.x/service/com.xebialabs.xlplatform.endpoints.JythonRequest)
+* Response: [JythonResponse](https://docs.xebialabs.com/jython-docs/#!/xl-deploy/7.2.x/service/com.xebialabs.xlplatform.endpoints.JythonResponse)
 
-Refer to the <a href="/jython-docs/#!/xl-release/7.2.x/">XL Release Jython API</a> for the complete information.
-
-The exposed Jython APIs return by default configuration items with encrypted passwords.
-If you require access to un-encrypted passwords please use the `securityApi` to decrypt the configuration items.
-
-    server = securityApi.decrypt(configurationApi.getConfiguration(request.query['serverId']))
+Refer to the [XL Release Jython API](https://docs.xebialabs.com/jython-docs/#!/xl-release/7.2.x/) for the complete information.
 
 ### HTTP response
 

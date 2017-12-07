@@ -14,8 +14,6 @@ weight: 302
 
 XL Deploy communicates with satellite servers over a secure communication channel using [TLS/SSL technology](http://en.wikipedia.org/wiki/Transport_Layer_Security) to encrypt data. This algorithm relies on certificate checking and data encryption using asymmetric keys.
 
-**Note:** For information about secure communication in XL Deploy 5.0.x, refer to [Configure secure communication with a satellite](/xl-deploy/5.0.x/configure-secure-communication-with-a-satellite-5.0.html).
-
 ## TLS in a nutshell
 
 TLS is based on the notion of public and private keys. The server contains a private key and a public certificate. In the Java world, they are stored in a *keystore*. The private key must be hidden and can be protected with a passphrase. This key must not be given out or communicated.

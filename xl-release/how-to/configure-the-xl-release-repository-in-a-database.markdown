@@ -126,7 +126,7 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configu
             <param name="schemaObjectPrefix" value="version_" />
         </PersistenceManager>
     </Versioning>
-<Repository>
+</Repository>
 {% endhighlight %}
 
 ## Use XL Release with DB2
@@ -206,7 +206,7 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configu
             <param name="schemaObjectPrefix" value="version_" />
         </PersistenceManager>
     </Versioning>
-<Repository>
+</Repository>
 {% endhighlight %}
 
 ## Use XL Release with Oracle
@@ -289,7 +289,7 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configu
             <param name="schemaObjectPrefix" value="version_" />
         </PersistenceManager>
     </Versioning>
-<Repository>
+</Repository>
 {% endhighlight %}
 
 If you use the TNSNames Alias syntax to connect to Oracle, you may need to inform the driver where to find the `TNSNAMES` file. Refer to the Oracle documentation for more information.
@@ -446,7 +446,7 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/jackrabbit-repository.xml` configu
     <SearchIndex class="org.apache.jackrabbit.core.query.lucene.SearchIndex">
         <param name="path" value="${rep.home}/repository/index" />
     </SearchIndex>
-<Repository>
+</Repository>
 {% endhighlight %}
 
 ## Use Jackrabbit clustering mode

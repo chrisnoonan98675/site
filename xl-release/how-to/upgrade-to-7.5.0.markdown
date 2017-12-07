@@ -1,5 +1,9 @@
 ---
 title: Upgrade to XL Release 7.5
+no_index: true
+---
+
+<!--
 categories:
 - xl-release
 subject:
@@ -9,9 +13,8 @@ tags:
 - system administration
 - installation
 - migration
-weight: 408
 ---
-
+-->
 
 This document describes how to upgrade XL Release 7.5.x  server from a previous version. In-place upgrade is not supported for the upgrade to 7.5, since the storage solution is a completely different architecture. Version before 7.5 used JCR/JackRabbit as storage and in XLR 7.5 we made the transition to a relational database model.
 
@@ -27,7 +30,7 @@ This document describes how to upgrade XL Release 7.5.x  server from a previous 
 
 * Note that the archive database is still needed. The structure and functionality is not changed in this upgrade.
 
-## Steps
+## Overview
 
 The upgrade procedure to XL Release 7.5 is different than before. Here's an overview of the steps that need to be taken.
 
@@ -114,13 +117,6 @@ This can be useful when you have large releases that contain a large number of c
 
 The migration tool uses 4Gb JVM heap, but if you get an `OutOfMemoryError` during migration then you can fix it by decreasing the page size.
 
-
-### Custom classpath
-
-If you have modified your `xlr-wrapper-*.conf` from XL Release, you have to add your custom classpath on `bin/xl-release-sql-migrator` like:
-
-      CLASSPATH=$APP_HOME/conf:$APP_HOME/lib/*:./conf:./ext:./hotfix/*:./plugins/*
-
 ## 4. Running the migrator
 
 You must run the application from the `XL_RELEASE_SERVER_HOME` folder of the **source** server. The migration tool will load your XL Release `conf`, `ext`, and `plugins` folder to load extra synthetic types.
@@ -174,8 +170,11 @@ xl {
     }
 }
 ```
+If the reporting archive is configured to use an external database, also configure the connection settings in `conf/xl-release.conf`. If you are using the embedded archive database, you don't need to configure it.
 
-If the reporting archive is configured to use an external database, also configure the connection settings in `conf/xl-release.conf`.
+<!--
+           !!! Check details !!
+-->
 
 ```
 xl {
@@ -194,25 +193,6 @@ xl {
     }
 }
 ```
-
-
-If you are using the embedded derby archived database, you need to upgrade it, this can be done by just adding at the end of the connection url `;upgrade=true`.
-
-```
-xl {
-    reporting {
-        db-driver-classname=...
-        db-url="jdbc:.......;upgrade=true"
-        db-username=...
-        db-password=...
-    }
-}
-```
-
-<!--
-           !!! Check details !!
--->
-
 
 _Please note that passwords will be encrypted in this file by XL Release_
 

@@ -31,7 +31,7 @@ To [install](/xl-release/how-to/install-xl-release.html) the XL Release server, 
 * **XL Release license:** See [XL Release licensing](/xl-release/concept/xl-release-licensing.html)
 * **Operating system:** Microsoft Windows or a Unix-family operating system
 * **Java SE Development Kit (JDK):**
-    * For XL Release 4.8.0 and later: JDK 1.8.x
+    * For XL Release 4.8.0 and later: JDK 1.8.0_25 or later
 
     **Important:** XL Release is not compatible with Java Development Kit 9 (JDK 9).
 

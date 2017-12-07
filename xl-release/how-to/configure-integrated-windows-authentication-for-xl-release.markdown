@@ -3,8 +3,9 @@ title: Configure Integrated Windows Authentication for XL Release
 categories:
 - xl-release
 subject:
-- System administration
+- Authentication
 tags:
+- authentication
 - security
 - sso
 - iwa
@@ -165,3 +166,21 @@ Navigate to `about:config` in the URL, type 'negotiate' into the **Filter** fiel
 1. Click **Log in with Windows**.
 
 If you are using a Windows machine, the authentication starts immediately. A confirmation message is displayed if you have been successfully authenticated. If you are using a non-Windows machine, you must manually enter your Active Directory credentials into the login form.
+
+### Troubleshooting
+
+##### org.ietf.jgss.GSSException: Defective token detected (Mechanism level: GSSHeader did not find the right tag)
+
+The client is initiating an NTLM handshake instead of a SPNEGO handshake. Verify that the browser is correctly configured and that the XL Release server is accessed using a fully qualified domain name.
+
+##### Encryption type AES256 CTS mode with HMAC SHA1-96 is not supported/enabled
+
+The JCE framework within JDK includes an ability to enforce restrictions regarding the cryptographic algorithms and maximum cryptographic strengths available to applications.
+These restrictions are specified in "jurisdiction policy files". The jurisdiction policy files bundled in Java SE limit the maximum key length.
+To use the AES256 encryption type, you will need to install the JCE crypto policy with the unlimited version to allow AES with 256-bit key.
+
+The JCE files can be downloaded from:
+
+[http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)
+
+Read the README file from inside the package and install the 2 JAR files accordingly.

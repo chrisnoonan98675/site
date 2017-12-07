@@ -46,7 +46,7 @@ Move `myCliTruststore.jks` from `XL_DEPLOY_SERVER_HOME/conf` to `XL_DEPLOY_CLI_H
 
 Set the [CLI options](/xl-deploy/how-to/install-the-xl-deploy-cli.html#set-environment-variables) (or, equivalently, change `XL_DEPLOY_CLI_HOME/bin/cli.sh` or `cli.cmd`) to use the truststore. Use the password specified when creating the truststore in the step above:
 
-    set DEPLOYIT_CLI_OPTS=-Xmx512m -XX:MaxPermSize=256m -Djavax.net.ssl.trustStore=conf/myCliTruststore.jks -Djavax.net.ssl.trustStorePassword=secret
+    export DEPLOYIT_CLI_OPTS="-Xmx512m -XX:MaxPermSize=256m -Djavax.net.ssl.trustStore=conf/myCliTruststore.jks -Djavax.net.ssl.trustStorePassword=secret"
 
 ## Step 5 Start the CLI
 

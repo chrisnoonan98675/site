@@ -19,6 +19,8 @@ Most organizations have a process around releasing software to their environment
 
 Before using the release dashboard, you need to define a deployment pipeline, deployment checklists, and checklist items.
 
+**Note:** The release dashboard view is available only in the legacy UI. For more information about the deployment pipeline, refer to [Using the deployment pipeline view](/xl-deploy/how-to/using-the-deployment-pipeline.html). 
+
 ### Define a deployment pipeline
 
 A deployment pipeline is the sequence of environments to which an application is deployed during its lifecycle. Each application can be configured with its own deployment pipeline. An application version starts in the first environment and is promoted to each of the following environments in turn. It is also possible for a particular version to be deployed to multiple environments at once.

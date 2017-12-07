@@ -36,6 +36,7 @@ For information about the plugins that are supported by the XebiaLabs customer s
 | [XL Deploy MongoDB plugin](https://github.com/xebialabs-community/xld-mongodb-plugin) | Execute scripts on a [MongoDB](https://www.mongodb.org/) instance |
 | [XL Deploy Mule Management Console plugin](https://github.com/xebialabs-community/xld-mule-mc-plugin) |  Deploy an application to [Mule](https://developer.mulesoft.com/) |
 | [XL Deploy Oracle SOA plugin](https://github.com/xebialabs-community/xld-oracle-soa-plugin) | Deploy SOA composites to [Oracle Fusion](https://www.oracle.com/middleware/index.html) |
+| [XL Deploy Pega plugin(https://github.com/xebialabs-community/xld-pega-plugin)]| Install exports from [Pegasystems](https://www.pega.com) |
 | [XL Deploy Red Hat OpenShift plugin](https://github.com/xebialabs-community/xld-openshift-plugin) | Deploy an application to [Red Hat OpenShift](https://www.openshift.com/) |
 | [XL Deploy RPM plugin](https://github.com/xebialabs-community/xld-rpm-plugin) | Package and deploy [RPM files](https://en.wikipedia.org/wiki/RPM_Package_Manager) |
 | [XL Deploy Tibco BusinessWorks plugin](https://github.com/xebialabs-community/xld-tibcobw-plugin) | Deploy an application to [Tibco BusinessWorks](http://www.tibco.com/products/automation/application-integration/activematrix-businessworks) |

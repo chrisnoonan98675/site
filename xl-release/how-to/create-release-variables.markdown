@@ -41,6 +41,7 @@ In XL Release 4.8.0 and later, you can also create release variables using the V
     * **Number**: An integer
     * **List**: A list of values that can be reordered and can contain duplicates
     * **Set**: A set of values that cannot be reordered and cannot contain duplicates
+    * **Date**: A date format (available since XL Release 7.1.0)
     * **Key-value map**: A set of keys and corresponding values
     * **XL Deploy environment**: An [environment](/xl-deploy/concept/key-xl-deploy-concepts.html#environments) defined in an [XL Deploy server](/xl-release/how-to/configure-xl-deploy-servers-in-xl-release.html) ([available prior to XL Release 6.1.0](/xl-release/6.1.x/releasemanual.html#xl-release-610-upgrade-notes))
     * **XL Deploy package**: A [deployment package](/xl-deploy/concept/key-xl-deploy-concepts.html#deployment-packages) defined in an XL Deploy server ([available prior to XL Release 6.1.0](/xl-release/6.1.x/releasemanual.html#xl-release-610-upgrade-notes))

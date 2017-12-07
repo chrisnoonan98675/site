@@ -10,8 +10,6 @@
     - 7.2.x
     - 7.0.x
     - 6.0.x
-    - 5.5.x
-    - 5.1.x
 - name: XL Release
   id: xl-release
   blurb: XL Release is an end-to-end pipeline orchestration tool for Continuous Delivery and DevOps teams. It handles automated tasks, manual tasks, and complex dependencies and release trains. And XL Release is designed to integrate with your change and release management tools.
@@ -21,12 +19,10 @@
     - 7.2.x
     - 7.0.x
     - 6.0.x
-    - 5.0.x
-    - 4.8.x
 - name: XL Impact
   id: xl-impact
-  blurb: XL Impact is the world’s first goal-based team instrument focused on improving your software delivery pipeline and software delivery process. Based on goals and KPI’s, it shows the current state of your delivery process and tool usage. On top of this current state, it provides concrete improvement suggestions about where to improve your organisation. XL Impact aggregates data from your continuous delivery tools and searches for patterns to come up with these improvements that make an impact on your organisation. After setup, devops managers and devops teams are the typical users of this instrument to discover where to improve. Agile transformation leads and team coaches can use it to determine where to focus their effort. Senior executives in organisations can use it to determine the ROI on the budget they spend on transforming their organisation.
-  key-concepts-link: /xl-impact/concept/release-to-client-filter.html
+  blurb: The first goal-based DevOps Intelligence solution, XL Impact delivers integrated KPIs to show the health of your Continuous Delivery pipeline. It combines DevOps best practices with historical analysis, machine learning, and data from across your tool chain to show trends, predict outcomes, and recommend actions. Use XL Impact to optimize your delivery pipeline, drive ROI, and mitigate risk.
+  key-concepts-link: /xl-impact/concept/release-to-customer-filter.html
   installation-link: /xl-impact/how-to/install-xl-impact.html
   versions:
     - 1.0.x

@@ -151,14 +151,14 @@ curl --user "matt:secret01" --request GET 'http://localhost:4516/deployit/dsl/ge
 To generate a Deployfile from multiple directories and print the Groovy code in the console, execute:
 
 {% highlight python %}
-repository.generateDsl(["Infrastructure/MyInfra","/Infrastructure/Experimental"])
+repository.generateDeployfile(["Infrastructure/MyInfra","/Infrastructure/Experimental"])
 {% endhighlight %}
 
 To generate a Deployfile from multiple directories and print the Groovy code to a file, execute:
 
 {% highlight python %}
 from java.io import File
-repository.generateDsl(["Infrastructure/MyInfra","Infrastructure/Experimental"],File("/path/to/file.groovy"))
+repository.generateDeployfile(["Infrastructure/MyInfra","Infrastructure/Experimental"],File("/path/to/file.groovy"))
 {% endhighlight %}
 
 ### Generate a Deployfile using the user interface
@@ -188,7 +188,7 @@ To apply a Deployfile, execute:
 
 {% highlight python %}
 from java.io import File
-repository.applyDsl(File("/path/to/file.groovy"))
+repository.applyDeployfile(File("/path/to/file.groovy"))
 {% endhighlight %}
 
 ## Security recommendations when using environment as code

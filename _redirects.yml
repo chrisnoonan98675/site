@@ -126,6 +126,7 @@
 /xl-release/latest/rest-api/index.html : /xl-release/7.2.x/rest-docs/
 /xl-release/latest/rest-docs/index.html : /xl-release/7.2.x/rest-docs/
 /xl-release/latest/jython-api/index.html : /jython-docs/#!/xl-release/7.2.x/
+/xl-release/latest/dsl-api/index.html : /generated/xl-release/7.2.x/dsl-api/
 
 # XL Release plugins
 

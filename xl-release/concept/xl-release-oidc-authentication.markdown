@@ -3,8 +3,9 @@ title: Configure OpenID Connect(OIDC) Authentication for XL Release
 categories:
 - xl-release
 subject:
-- System administration
+- Authentication
 tags:
+- authentication
 - security
 - sso
 - 2fa
@@ -41,14 +42,90 @@ Using MFA and depending on your identity provider settings, users are required t
 
 ## Setup
 
+### Current setup limitations
+
+1. **Important** Only static configuration is supported. If an OIDC provider changes the encryption keys, the XL Release instance must be reconfigured and rebooted.
+1. The supported tokens are JWT tokens with RS256 signatures
+1. Unsigned tokens and HS256 signed tokens are not supported.
+1. XL Release does not support `nonce` in the OIDC handshake (protection against replay attacks).
+1. OpenID Connect provider and XL Release instances should be time synchronized (for example on NTP).
+
+### Login as an Internal User
+
+The plugin offers a seamless user experience by automatically redirecting an unathenticated user to the Identity Provider's login page.
+This does not allow you to sign in directly as an Internal User. If you want to sign in as an Internal User, you can browse directly to `xl-release.example.com/login`.
+
+**Note**: The `xl-release.example.com/login` page is also an entry point when a local account has an identical username with another user from your Identity Provider. The user is automatically redirected to the page with a corresponding message.
+
 ### Server setup
 
 On `xl-release.example.com`:
 
-1. Download the XL Release OIDC Authentication plugin ZIP from the [distribution site](https://dist.xebialabs.com/customer/xl-release/plugins/xlr-auth-oidc-plugin).
-2. Unpack the plugin inside the `XL_RELEASE_SERVER_HOME/plugins/` directory.
-3. Remove the Default Authentication plugin `xlr-auth-default-plugin-*.jar` from the `XL_RELEASE_SERVER_HOME/plugins/` directory.
-4. To configure the OIDC Authentication plugin, modify the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file by adding a `xl.security.auth.providers` section:
+#### Step 1. Download the plugin
+
+Download the XL Release OIDC Authentication plugin ZIP from the [distribution site](https://dist.xebialabs.com/customer/xl-release/plugins/xlr-auth-oidc-plugin).
+
+#### Step 2. Unpack the plugin
+
+Unpack the plugin inside the `XL_RELEASE_SERVER_HOME/plugins/` directory.
+
+#### Step 3. Remove the Default Authentication plugin
+
+Remove the Default Authentication plugin `xlr-auth-default-plugin-*.jar` from the `XL_RELEASE_SERVER_HOME/plugins/` directory.
+
+#### Step 4. Configure the OIDC Authentication plugin
+
+##### Retrieve metadata using a discovery endpoint
+
+The discovery endpoint is a static page that you use to retrieve metadata about your OIDC Identity Provider.
+
+In most of the cases the discovery endpoint is available through `/.well-known/openid-configuration` relative to the base address of your Identity Provider.
+For example: `https://login.microsoftonline.com/xebialabs.com/.well-known/openid-configuration`
+
+The field names and values are defined in the [OpenID Connect Discovery Specification](https://openid.net/specs/openid-connect-discovery-1_0.html).
+
+In OIDC there are notions called **scopes** and **claims** that define the settings to obtain information about a specific user, such as the username, name, email, and group.
+
+You can provide the required claims from the following configuration properties:
+* `rolesClaim` - In XL Release, the OIDC roles become principals that you can assign to roles inside XL Release. Each time you login, the `rolesClaim` is matched to the principal assigned to the role in XL Release. This grants access according to the permissions of the role in Xl Release.  
+* `userNameClaim` - Unique username for both internal and external users. You cannot sign in with a user if a local account with the same username exists.
+* `emailClaim` - The email address is required to send notifications, for example: when a task that is assigned to you starts.             
+* `fullNameClaim` - The full name of the user profile.
+
+**Note:** The `userNameClaim`, `emailClaim`, and `fullNameClaim` properties are used only the first time you login to create the user profile. If you change the email in the Identity Provider, that change will not reflect in the user profile. Roles are used dynamically.
+
+The fields described above must be present in the scopes that you can provide from **scopes**.
+
+The `issuer`, `accessTokenUri`, `userAuthorizationUri`, and `logoutUri` options are also usually presented in the JSON metadata that the Identity Porvider server publishes at the discovery endpoint.
+
+**Note:** The `redirectUri` endpoint must always point to the `/oidc-login` XL Release endpoint. The `redirectUri` is an endpoint where authentication responses can be sent and received by XL Release. It must exactly match one of the `redirect_uris` you registered in OKTA and Azure AD portal and it must be URL encoded. For Keycloak you can register a pattern for `redirect_uri` from the Keycloak Admin Panel (For example, you can provide a mask such as: `http://example.com/mask**` that matches `http://example.com/mask/` or `http://example.com/mask`).
+
+##### Setting up a public key from JWK
+
+When you can get only JSON Web Key (JWK), you can use one of the Open Source scripts in order to convert the JWK to a PEM for use in `publicKey` (for example [jwk-to-pem](https://www.npmjs.com/package/jwk-to-pem)).
+You must provide only a key without the start and end headers.
+
+Example:
+
+        -----BEGIN RSA PUBLIC KEY-----
+        yourPublicKeyLine1
+        yourPublicKeyLine2
+        yourPublicKeyLineN
+        -----END RSA PUBLIC KEY-------
+
+The `publicKey` value should look like this:
+
+        xl {
+          security {
+            auth {
+              providers {
+                oidc {
+                  publicKey="yourPublicKeyLine1yourPublicKeyLine2yourPublicKeyLineN"
+        // other configurations fields...
+
+##### Modify the `xl-release.conf` file
+
+To configure the OIDC Authentication plugin, modify the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file by adding a `xl.security.auth.providers` section:
 
         xl {
           security {
@@ -81,68 +158,11 @@ On `xl-release.example.com`:
 
 **Note**: Only one authentication plugin at a time is supported. Make sure that your plugins directory contains only one `xlr-auth-*.jar` plugin.
 
-### Discovery endpoint
+##### Setup the post-logout URL
 
-The discovery endpoint is a static page that you use to retrieve metadata about your OIDC Identity Provider.
-
-In most of the cases the discovery endpoint is available through `/.well-known/openid-configuration` relative to the base address of your Identity Provider.
-For example: `https://login.microsoftonline.com/xebialabs.com/.well-known/openid-configuration`
-
-The field names and values are defined in the [OpenID Connect Discovery Specification](https://openid.net/specs/openid-connect-discovery-1_0.html).
-
-In OIDC there are notions called **scopes** and **claims** that define the settings to obtain information about a specific user, such as the username, name, email, and group.
-
-You can provide the required claims from the following configuration properties:
-* `rolesClaim` - In XL Release, the OIDC roles become principals that you can assign to roles inside XL Release.
-* `userNameClaim` - Unique username for both internal and external users. You cannot sign in with a user if a local account with the same username exists.
-* `emailClaim` - The email address is required to send notifications, for example: when a task that is assigned to you starts.             
-* `fullNameClaim` - The full name of the user profile.
-
-The fields described above must be present in the scopes that you can provide from **scopes**.
-
-The `issuer`, `accessTokenUri`, `userAuthorizationUri`, and `logoutUri` options are also usually presented in the JSON metadata that the Identity Porvider server publishes at the discovery endpoint.
-
-**Note:** The `redirectUri` endpoint must always point to the `/oidc-login` XL Release endpoint. The `redirectUri` is an endpoint where authentication responses can be sent and received by XL Release. It must exactly match one of the `redirect_uris` you registered in OKTA and Azure AD portal and it must be URL encoded. For Keycloak you can register a pattern for `redirect_uri` from the Keycloak Admin Panel (For example, you can provide a mask such as: `http://example.com/mask**` that matches `http://example.com/mask/` or `http://example.com/mask`).
-
-## Public key
-When you can get only JSON Web Key (JWK), you can use one of the Open Source scripts in order to convert the JWK to a PEM for use in `publicKey` (for example [jwk-to-pem](https://www.npmjs.com/package/jwk-to-pem)).
-You must provide only a key without the start and end headers.
-
-Example:
-
-        -----BEGIN RSA PUBLIC KEY-----
-        yourPublicKeyLine1
-        yourPublicKeyLine2
-        yourPublicKeyLineN
-        -----END RSA PUBLIC KEY-------
-
-The `publicKey` value should look like this:
-
-        xl {
-          security {
-            auth {
-              providers {
-                oidc {
-                  publicKey="yourPublicKeyLine1yourPublicKeyLine2yourPublicKeyLineN"
-        // other configurations fields...
-
-## OpenID Connect Logout
 The logout works by directing the user’s browser to the end-session endpoint of the OpenID Connect provider, with the logout request parameters encoded in the URL query string.
 If you need to redirect to the login page after logout, you can use your `redirectUri` as the `post_logout_redirect_uri` parameter.
 Example: https://xl-release.example.com/auth/realms/XLRelease/protocol/openid-connect/logout?post_logout_redirect_uri=https://xl-release.example.com/oidc-login
-
-## Current setup limitations
-1. The supported tokens are JWT tokens with RS256 signatures
-1. Unsigned tokens and HS256 signed tokens are not supported.
-1. Only static configuration is supported. If an OIDC provider changes the encryption keys, the XL Release instance must be reconfigured and rebooted.
-5. XL Release does not support `nonce` in the OIDC handshake (protection against replay attacks).
-6. OpenID Connect provider and XL Release instances should be time synchronized (for example on NTP).
-
-## Login as an Internal User
-The plugin offers a seamless user experience by automatically redirecting an unathenticated user to the Identity Provider's login page.
-This does not allow you to sign in directly as an Internal User. If you want to sign in as an Internal User, you can browse directly to `xl-release.example.com/login`.
-
-**Note**: The `xl-release.example.com/login` page is also an entry point when a local account has an identical username with another user from your Identity Provider. The user is automatically redirected to the page with a corresponding message.
 
 ## Integration with Keycloak Identity provider
 
