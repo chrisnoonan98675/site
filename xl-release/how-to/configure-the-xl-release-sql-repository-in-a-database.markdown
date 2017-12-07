@@ -65,6 +65,14 @@ The following set of SQL privileges are required.
 
 * SELECT, INSERT, UPDATE, DELETE
 
+## The configuration file: xl-release.conf
+
+All configuration takes place in `XL_RELEASE_SERVER_HOME/conf/xl-release.conf`.
+
+This file is in [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format. 
+
+After the first run, passwords in the configuration file will be encrypted and replaced with the base64-encoded encrypted values.
+
 
 ## PostgreSQL configuration in XL Release
 
@@ -237,4 +245,4 @@ This is a sample for SQL Server:
 
 --
 
-[1]: Note that when migrating from a previous version of XL Release with the archive  configured in the `archive`directory as an embedded database, the data will remain in the embedded database and this schema should not be created in the external database.
+[1]: When migrating from a previous version of XL Release with the archive  configured in the `archive`directory as an embedded database, the data will remain in the embedded database and this schema should not be created in the external database.
