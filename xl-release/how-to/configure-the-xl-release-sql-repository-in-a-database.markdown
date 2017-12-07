@@ -111,16 +111,16 @@ This is a sample for MySQL:
         ...
         database {
             db-driver-classname = "com.mysql.jdbc.Driver"
-            db-url = "jdbc:mysql://localhost:3306/xlrelease?useSSL=false"
+            db-url = "jdbc:mysql://localhost:3306/xlrelease?useSSL=false&nullNamePatternMatchesAll=true"
             db-username = "xlrelease"
             db-password = "xlrelease"
         }
-	    reporting {
+        reporting {
 	        db-driver-classname = "com.mysql.jdbc.Driver"
-	        db-url = "jdbc:mysql://localhost:3306/xlrelease?useSSL=false"
+	        db-url = "jdbc:mysql://localhost:3306/xlrelease?useSSL=false&nullNamePatternMatchesAll=true"
 	        db-username = "xlarchive"
 	        db-password = "xlarchive"
-	    }
+	     }
 	    ...
     }
 
