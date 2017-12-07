@@ -28,7 +28,7 @@ Using MFA and depending on your identity provider settings, users are required t
 
 ### Server requirements
 
-* [XL Deploy 7.5](/xl-Deploy/concept/requirements-for-installing-xl-Deploy.html) or later
+* [XL Deploy 7.5](/xl-deploy/concept/requirements-for-installing-xl-deploy.html) or later
 * [XL Deploy OIDC Authentication plugin](https://dist.xebialabs.com/customer/xl-deploy/plugins/xld-auth-oidc-plugin) installed
 
 ### Environment requirements
