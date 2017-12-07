@@ -90,11 +90,14 @@ To use the default password of *admin*, press ENTER twice. If you plan to connec
 
 ##### Step 2 Initialize the repository
 
-**Important**: This applies only to XL Release 7.2 or earlier. The setup wizard will ask if you want to initialize the repository. Answer `yes` to create the repository, or `no` to connect to an existing repository.
+ The setup wizard will ask if you want to initialize the repository. Answer `yes` to create the repository as an embedded database, or `no` to connect to an existing external database.
+
+By default, the repository is stored in an embedded database at `XL_RELEASE_SERVER_HOME/repository`. For information about using an external database, refer to 
+
+ * [Configure the XL Release SQL repository](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html) (XL Release 7.5 and higher)
+ * [Configure the XL Release JCR repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html) (XL Release 7.2 and before)
 
 **Warning:** If you choose to initialize the repository and you have installed XL Release in the same location before, any information stored in the repository will be lost.
-
-By default, the repository is stored in an embedded Derby database at `XL_RELEASE_SERVER_HOME/repository`. For information about using an external database, refer to [Configure the XL Release SQL repository](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html) or [Configure the XL Release JCR repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html).
 
 ##### Step 3 Generate an encryption key
 
@@ -158,11 +161,14 @@ The setup wizard will prompt you for the minimum and maximum number of threads t
 
 ##### Step 8 Configure the repository
 
-**Note**: This applies only to XL Release 7.2 or earlier. The setup wizard will ask where you want to store the JCR repository. If the directory does not exist, XL Release will create it. The setup wizard will also ask if you want to initialize the repository.
+ The setup wizard will ask if you want to initialize the repository. Answer `yes` to create the repository as an embedded database, or `no` to connect to an existing external database.
+
+By default, the repository is stored in an embedded database at `XL_RELEASE_SERVER_HOME/repository`. For information about using an external database, refer to 
+
+ * [Configure the XL Release SQL repository](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html) (XL Release 7.5 and higher)
+ * [Configure the XL Release JCR repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html) (XL Release 7.2 and before)
 
 **Warning:** If you choose to initialize the repository and you have installed XL Release in the same location before, any information stored in the repository will be lost.
-
-By default, the repository is stored in an embedded Derby database at `XL_RELEASE_SERVER_HOME/repository`. For information about using an external database, refer to [Configure the XL Release SQL repository](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html) or [Configure the XL Release JCR repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html).
 
 ##### Step 9 Generate an encryption key
 
@@ -192,19 +198,21 @@ If you answer `yes`, the setup wizard will start XL Release and show the URL whe
 
 After the XL Release installation file is extracted, the following directory structure exists in the installation directory:
 
-* `bin`: Contains the server binaries
-* `conf`: Contains server configuration files
-* `ext`: Contains server Java extensions
+* `archive`: Embedded archive / reporting database
+* `bin`: Server startup scripts
+* `conf`: Configuration files
+* `ext`: XL Release extensions in exploded format
 * `hotfix`: Contains hotfixes that correct issues with the server software
-* `lib`: Contains libraries that the server needs
-* `log`: contains server log files
+* `lib`: Binary libraries 
+* `log`: Server log files
+* `plugins`: XL Release extensions that are packaged as plugins
+* `repository`: Embedded XL Release database
 
 The installation directory is referred to as `XL_RELEASE_SERVER_HOME`.
 
-## Failover configuration
+## Cluster configuration
 
-If you store the XL Release repository in a [database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html), you can set up a failover configuration as described in:
+Storing the XL Release repository in an [external database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html), is a requirement to run a multi-node setup. For more information, see:
 
-* [Configure failover for XL Release](/xl-release/how-to/configure-failover.html)
 * [Configure active/hot-standby mode](/xl-release/how-to/configure-active-hot-standby.html) (supported in XL Release 6.0.0 and later)
 * [Configure active/active mode](/xl-release/how-to/configure-active-active.html) (supported in XL Release 7.5.0 and later)

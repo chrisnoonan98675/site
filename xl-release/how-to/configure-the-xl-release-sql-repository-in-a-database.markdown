@@ -15,48 +15,190 @@ since:
 - XL Release 7.5.0
 ---
 
-XL Release stores its data in a repository. By default, the repository is stored in an embedded Derby database at `XL_RELEASE_SERVER_HOME/repository`. You can store binary data (artifacts), configuration items (CIs), and CI history in an external database. This topic describes how to configure the built-in Derby implementation to use an external database.
+<div class="alert alert-warning" style="width: 60%">
+This document describes the database configuration for XL Release 7.5 and later versions. For previous versions that use the JCR/JackRabbit repository, please refer to <a href="xl-release/how-to/configure-the-xl-release-repository-in-a-database.html">Configure the XL Release JCR repository in a database</a>.
+</div>
 
-For information about:
-* Backing up and restoring the database, refer to [Back up XL Release](/xl-release/how-to/back-up-xl-release.html)
-* XL Release's internal archive database, refer to [Configure the archive database](/xl-release/how-to/configure-the-archive-database.html)
+XL Release stores its data in a repository. By default, this an embedded database stored in `XL_RELEASE_SERVER_HOME/repository`. 
 
-## Preparing the database and repository
+Completed releases and reporting information is stored in another database called 'archive'. By default, this is also an embedded database stored in `XL_RELEASE_SERVER_HOME/archive`.
 
-Before installing XL Release, create an empty database. XL Release will create the database schema during installation.
+The embedded databases are automatically created when XL Release is started for the first time.
+
+The embedded databases are meant for easy setup in evaluation and test environments. For production use, it is strongly recommended to use an industrial-grade external database server. the following databases are supported:
+
+* PostgreSQL 
+* MySQL
+* Oracle 11g or 12c
+* Microsoft SQL Server 2012
+* DB2
+
+To run XL Release in a cluster setup (Active/active or active/hot standby) it is required to have the repository stored in an external database.
+
+Note that it is currently not possible to migrate the repository from an embedded database to an external database. So configure production setups with an external database from the start. When migrating from a previous JCR version of XL Release (version 7.2 and lower), make sure to migrate to an external database.
+
+More information:
+
+* Active/active mode: [Configure active/active](/xl-release/how-to/configure-active-active.html)
+* Active/hot standby mode: [Configure active/hot-standby](/xl-release/how-to/configure-active-hot-standby.html) 
+* Backing up and restore: [Back up XL Release](/xl-release/how-to/back-up-xl-release.html)
+
+## Preparing the external database
+
+To use an external database, two empty database schemas should be created.
+
+1. **xlrelease** - active release data and configuration data.
+2. **xlarchive** - completed releases and reporting data. [Note] [1]
+
 The account that accesses the database must be able to create tables during the initial installation and, later, it must be able to write to and delete from tables.
 
-## External databases and failover
+The following set of SQL privileges are required.
 
-If you take the approach described in this topic, you can optionally [create a failover configuration](/xl-release/how-to/configure-failover.html) with multiple instances of XL Release that will use the same database as your master instance. This is a limited setup in which only one instance of XL Release can access the database at a time.
-If you are using XL Release 6.0.0 or later, you can take advantage of clustering in an active/hot-standby configuration, which requires a different configuration for the external database. Refer to [Configure active/hot-standby](/xl-release/how-to/configure-active-hot-standby.html) for instructions.
+**During installation / upgrade**:
 
-**note**: For XL Release 7.5.0 you can use an [active/active](/xl-release/how-to/configure-active-active.html) setup.
+* REFERENCES
+* INDEX
+* CREATE
+* DROP
 
-## Use XL Release with MySQL
+**During operation**:
 
-This is a sample `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` configuration for [MySQL](http://www.mysql.com/). Ensure that the [Mysql JDBC driver](http://dev.mysql.com/downloads/connector/j/) JAR file is located in `XL_RELEASE_SERVER_HOME/lib` or on the Java classpath.:
+* SELECT, INSERT, UPDATE, DELETE
+
+## The configuration file: xl-release.conf
+
+All configuration takes place in `XL_RELEASE_SERVER_HOME/conf/xl-release.conf`.
+
+This file is in [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format. 
+
+After the first run, passwords in the configuration file will be encrypted and replaced with the base64-encoded encrypted values.
+
+
+## PostgreSQL configuration in XL Release
+
+Driver:
+
+ * [PostgreSQL JDBC driver](https://jdbc.postgresql.org/download.html)
+ 
+Place the driver JAR file in the `XL_RELEASE_SERVER_HOME/lib` folder.
+
+Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema.
+
+This is a sample configuration for PostgreSQL:
 
     xl {
         ...
         database {
-            db-driver-classname="com.mysql.jdbc.Driver"
-            db-password=xlrelease
-            db-url="jdbc:mysql://localhost:3306/xlrelease?useSSL=false"
-            db-username=xlrelease
-            max-pool-size=20
+            db-driver-classname = "org.postgresql.Driver"
+            db-url = "jdbc:postgresql://localhost:5432/xlrelease"
+            db-username = "xlrelease"
+            db-password = "xlrelease"
         }
+	    reporting {
+	        db-driver-classname = "org.postgresql.Driver"
+	        db-url = "jdbc:postgresql://localhost:5432/xlarchive"
+	        db-username = "xlarchive"
+	        db-password = "xlarchive"
+	    }
+       ...
+	}
+
+## MySQL configuration in XL Release
+
+Driver:
+
+ * [MySQL JDBC driver](http://dev.mysql.com/downloads/connector/j/)
+ 
+Place the driver JAR file in the `XL_RELEASE_SERVER_HOME/lib` folder.
+
+Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema.
+
+This is a sample for MySQL:
+
+    xl {
         ...
+        database {
+            db-driver-classname = "com.mysql.jdbc.Driver"
+            db-url = "jdbc:mysql://localhost:3306/xlrelease?useSSL=false&nullNamePatternMatchesAll=true"
+            db-username = "xlrelease"
+            db-password = "xlrelease"
+        }
+        reporting {
+	        db-driver-classname = "com.mysql.jdbc.Driver"
+	        db-url = "jdbc:mysql://localhost:3306/xlrelease?useSSL=false&nullNamePatternMatchesAll=true"
+	        db-username = "xlarchive"
+	        db-password = "xlarchive"
+	     }
+	    ...
     }
 
-Your MySql instance should be configured in your `cnf` file as:
+Your MySQL instance should be configured in your `cnf` file as:
 
     skip-character-set-client-handshake
     collation_server=utf8_unicode_ci
     character_set_server=utf8
 
 
-## Use XL Release with DB2
+## Oracle configuration in XL Release
+
+Driver:
+
+ * [Oracle JDBC driver](http://www.oracle.com/technetwork/database/features/jdbc/index- 091264.html)
+ 
+Place the driver JAR file in the `XL_RELEASE_SERVER_HOME/lib` folder.
+
+Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema.
+
+This is a sample for Oracle:
+
+    xl {
+        ...
+        database {
+            db-driver-classname="oracle.jdbc.driver.OracleDriver"
+            db-url="jdbc:oracle:thin:@localhost:1521:XE"
+            db-username = "xlrelease"
+            db-password = "xlrelease"
+        }
+	    reporting {
+	        db-driver-classname="oracle.jdbc.driver.OracleDriver"
+	        db-url="jdbc:oracle:thin:@localhost:1521:XE"
+	        db-username = "xlarchive"
+	        db-password = "xlarchive"
+	    }
+	    ...
+    }
+
+
+If you use the TNSNames Alias syntax to connect to Oracle, you must specify where the driver can find the `TNSNAMES` file. Refer to the Oracle documentation for more information.
+
+## DB2 configuration in XL Release
+
+Driver:
+
+ * [DB2 JDBC driver](http://www-01.ibm.com/support/docview.wss?uid=swg21363866)
+ 
+Place the driver JAR file in the `XL_RELEASE_SERVER_HOME/lib` folder.
+
+Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema.
+
+This is a sample for DB2:
+
+    xl {
+        ...
+        database {
+            db-driver-classname="com.ibm.db2.jcc.DB2Driver"
+            db-url="jdbc:db2://127.0.0.1:50000/xlr"
+            db-username = "xlrelease"
+            db-password = "xlrelease"
+        }
+	    reporting {
+	        db-driver-classname="com.ibm.db2.jcc.DB2Driver"
+	        db-url="jdbc:db2://127.0.0.1:50000/xlr"
+	        db-username = "xlarchive"
+	        db-password = "xlarchive"
+	    }
+	    ...
+    }
 
 This is a sample `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` configuration for [DB2](http://www-01.ibm.com/software/data/db2/). Ensure that the [DB2 JDBC driver](http://www-01.ibm.com/support/docview.wss?uid=swg21363866) JAR file is located in `XL_RELEASE_SERVER_HOME/lib` or on the Java classpath.
 
@@ -72,28 +214,18 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` configuration for
           ...
        }
 
-## Use XL Release with Oracle
+## SQL Server configuration in XL Release
 
-This is a sample `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` configuration for [Oracle](http://www.oracle.com/us/products/database/index.html), ensure that the [Oracle JDBC driver](http://www.oracle.com/technetwork/database/features/jdbc/index- 091264.html) JAR file is located in `XL_RELEASE_SERVER_HOME/lib` or on the Java classpath.:
+Driver:
 
-       xl {
-         ...
-         database {
-           db-driver-classname="oracle.jdbc.driver.OracleDriver"
-           db-password=xlrelease
-           db-url="jdbc:oracle:thin:@localhost:1521:XE"
-           db-username=xlrelease
-           max-pool-size=20
-         }
-         ...
-       }
+ * [Microsoft JDBC driver for SQL Server](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx)
+ 
+Place the driver JAR file in the `XL_RELEASE_SERVER_HOME/lib` folder.
 
-If you use the TNSNames Alias syntax to connect to Oracle, you must specify where the driver can find the `TNSNAMES` file. Refer to the Oracle documentation for more information.
+Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema.
 
-## Use XL Release with SQL Server
+This is a sample for SQL Server:
 
-To use XL Release with [Microsoft SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server/), ensure that the [Microsoft JDBC driver for SQL Server](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx) JAR file is located in `XL_RELEASE_SERVER_HOME/lib` or on the Java classpath.
-This is a sample `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` configuration for SQL Server:
     xl {
         ...
         database {
@@ -101,24 +233,16 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` configuration for
             db-url = "jdbc:sqlserver://localhost:1433;databaseName=xlrelease"
             db-username = "xlrelease"
             db-password = "xlrelease"
-            max-pool-size = 20
         }
-        ...
+	    reporting {
+	        db-driver-classname = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+	        db-url = "jdbc:sqlserver://localhost:1433;databaseName=xlarchive"
+	        db-username = "xlarchive"
+	        db-password = "xlarchive"
+	    }
+	    ...
     }
 
-## Use XL Release with Postgresql
+--
 
-To use XL Release with [Postgresql](https://www.postgresql.org/docs/), ensure that the [Postgresl JDBC driver](https://jdbc.postgresql.org/download.html) JAR file is located in `XL_RELEASE_SERVER_HOME/lib` or on the Java classpath.
-This is a sample `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` configuration for SQL Server:
-
-    xl {
-        ...
-        database {
-            db-driver-classname="org.postgresql.Driver"
-            db-password="{b64}wyCfV+HXKRAo9GT9QWeqDw=="
-            db-url="jdbc:postgresql://localhost:5432/xlrelease"
-            db-username=xlrelease
-            max-pool-size=20
-        }
-        ...
-    }
+[1]: When migrating from a previous version of XL Release with the archive  configured in the `archive`directory as an embedded database, the data will remain in the embedded database and this schema should not be created in the external database.
