@@ -51,8 +51,7 @@ On `xl-deploy.example.com`:
                   clientSecret="<your client secret here>"        
 
                   keyRetrievalUri="https://oidc.example.com/endpoint/keys"
-
-                  keyRetrievalSchedule = "<cron_schedule>"
+                  keyRetrievalSchedule="<cron_schedule>"
 
                   issuer="<OpenID Provider Issuer here>"
 
