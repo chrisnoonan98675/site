@@ -31,14 +31,6 @@ Using MFA and depending on your identity provider settings, users are required t
 * [XL Deploy 7.5](/xl-deploy/concept/requirements-for-installing-xl-deploy.html) or later
 * [XL Deploy OIDC Authentication plugin](https://dist.xebialabs.com/customer/xl-deploy/plugins/xld-auth-oidc-plugin) installed
 
-### Environment requirements
-
-### Client requirements
-
-* Chrome
-* Internet Explorer 11 or later
-* Firefox
-
 ## Setup
 
 ### Server setup
@@ -46,7 +38,7 @@ Using MFA and depending on your identity provider settings, users are required t
 On `xl-deploy.example.com`:
 
 1. Download the XL Deploy OIDC Authentication plugin ZIP from the [distribution site](https://dist.xebialabs.com/customer/xl-deploy/plugins/xld-auth-oidc-plugin).
-1. Unpack the plugin inside the `XL_Deploy_SERVER_HOME/lib/` directory.
+1. Copy the plugin inside the `XL_Deploy_SERVER_HOME/lib/` directory.
 1. Remove the Default Authentication plugin `security-plugin-default-*.jar` from the `XL_DEPLOY_SERVER_HOME/lib/` directory.
 1. To configure the OIDC Authentication plugin, create the `XL_DEPLOY_SERVER_HOME/conf/auth-oidc.conf` file with this content:
 
@@ -59,6 +51,7 @@ On `xl-deploy.example.com`:
                   clientSecret="<your client secret here>"        
 
                   keyRetrievalUri="https://oidc.example.com/endpoint/keys"
+
                   keyRetrievalSchedule = "<cron_schedule>"
 
                   issuer="<OpenID Provider Issuer here>"
@@ -68,17 +61,18 @@ On `xl-deploy.example.com`:
                   logoutUri="<The logout endpoint to revoke token via the browser>"
                   redirectUri="https://xl-deploy.example.com/login/external-login"
 
-                  rolesClaim="<your roles claim here>"
-                  userNameClaim="<your username claim here>"
+                  rolesClaimName="<your roles claim here>"
+                  userNameClaimName="<your username claim here>"
                 }
               }
             }
           }
         }
 
-**Note:** Only one authentication plugin at a time is supported. Make sure that your plugins directory contains only one `security-plugin-*.jar` plugin.
-
-**Note:** To obtain the signing keys from the Identity provider, XL Deploy checks the `keyRetrievalUri` endpoint periodically. To set a specific time interval, set the value of `keyRetrievalSchedule` to a cron expression.   
+**Notes:**
+1. To determine the actual values for the variables in the `auth-oidc.conf` file, see *Discovery endpoint*.
+1. Only one authentication plugin at a time is supported. Make sure that your plugins directory contains only one `security-plugin-*.jar` plugin.
+1. To obtain the signing keys from the Identity provider, XL Deploy checks the `keyRetrievalUri` endpoint periodically. To set a specific time interval, set the value of `keyRetrievalSchedule` to a cron expression.   
 
 ### Discovery endpoint
 
@@ -89,19 +83,21 @@ For example: `https://login.microsoftonline.com/xebialabs.com/.well-known/openid
 
 The field names and values are defined in the [OpenID Connect Discovery Specification](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
-In OIDC there are notions called **claims** that define the settings to obtain information about a specific user, such as the username and roles.
-
-You can provide the required claims from the following configuration properties:
-* `rolesClaim` - In XL Deploy, the OIDC roles become principals that you can assign to roles inside XL Deploy.
-* `userNameClaim` - Unique username for both internal and external users. You cannot sign in with a user if a local account with the same username exists.
-
-The `issuer`, `accessTokenUri`, `userAuthorizationUri`, `jwks_uri`, and `logoutUri` options are also usually presented in the JSON metadata that the Identity Porvider server publishes at the discovery endpoint. The path obtained in the `jwks_uri` is used as a value for `keyRetrievalUri` in the `XL_DEPLOY_SERVER_HOME/conf/auth-oidc.conf` file.
+The `issuer`, `accessTokenUri`, `userAuthorizationUri`, `jwks_uri`, and `logoutUri` options are also usually presented in the JSON metadata that the Identity Provider server publishes at the discovery endpoint. The path obtained in the `jwks_uri` is used as a value for `keyRetrievalUri` in the `XL_DEPLOY_SERVER_HOME/conf/auth-oidc.conf` file.
 
 **Note:** The `redirectUri` endpoint must always point to the `/login/external-login` XL Deploy endpoint. The `redirectUri` is an endpoint where authentication responses can be sent and received by XL Deploy. It must exactly match one of the `redirect_uris` you registered in OKTA and Azure AD portal and it must be URL encoded. For Keycloak you can register a pattern for `redirect_uri` from the Keycloak Admin Panel (For example, you can provide a mask such as: `http://example.com/mask**` that matches `http://example.com/mask/` or `http://example.com/mask`).
 
+### Select *claims* for a specific user
+
+In OIDC there are notions called **claims** that define the settings to obtain information about a specific user, such as the username and roles. When a user logs in, the XL Deploy server receives a token with a number of claims (a number of key-value pairs). From these claims, you must select two keys that represent the username and the user roles.
+
+You can provide the required claims from the following configuration properties:
+* `rolesClaimName` - In XL Deploy, the OIDC roles become principals that you can assign to roles inside XL Deploy.
+* `userNameClaimName` - Unique username for both internal and external users. You cannot sign in with a user if a local account with the same username exists.
+
 ## OpenID Connect Logout
 The logout works by directing the user’s browser to the end-session endpoint of the OpenID Connect provider, with the logout request parameters encoded in the URL query string.
-If you need to redirect to the login page after logout, you can use your `redirectUri` as the `post_logout_redirect_uri` parameter.
+If you need to redirect to the login page after logout, you can use your `redirectUri` as the `post_logout_redirect_uri` query parameter.
 Example: https://xl-deploy.example.com/auth/realms/XLDeploy/protocol/openid-connect/logout?post_logout_redirect_uri=https://xl-deploy.example.com/login/external-login
 
 ## Current setup limitations
@@ -111,10 +107,8 @@ Example: https://xl-deploy.example.com/auth/realms/XLDeploy/protocol/openid-conn
 1. OpenID Connect provider and XL Deploy instances should be time synchronized (for example on NTP).
 
 ## Login as an Internal User
-The plugin offers a seamless user experience by automatically redirecting an unathenticated user to the Identity Provider's login page.
+The plugin offers a seamless user experience by automatically redirecting an unauthenticated user to the Identity Provider's login page.
 This does not allow you to sign in directly as an Internal User. If you want to sign in as an Internal User, you can browse directly to `xl-deploy.example.com/login`.
-
-**Note**: The `xl-deploy.example.com/login` page is also an entry point when a local account has an identical username with another user from your Identity Provider. The user is automatically redirected to the page with a corresponding message.
 
 ## Integration with Keycloak Identity provider
 
