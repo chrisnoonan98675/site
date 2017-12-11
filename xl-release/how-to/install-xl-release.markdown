@@ -214,5 +214,5 @@ The installation directory is referred to as `XL_RELEASE_SERVER_HOME`.
 
 Storing the XL Release repository in an [external database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html), is a requirement to run a multi-node setup. For more information, see:
 
-* [Configure active/hot-standby mode](/xl-release/how-to/configure-active-hot-standby.html) (supported in XL Release 6.0.0 and later)
-* [Configure active/active mode](/xl-release/how-to/configure-active-active.html) (supported in XL Release 7.5.0 and later)
+* [Configure active/hot-standby mode](/xl-release/how-to/configure-active-hot-standby.html) (supported in XL Release 6.0 - 7.2 and later)
+* [Configure cluster mode](/xl-release/how-to/configure-cluster.html) (supported in XL Release 7.5 and later; also supports active/active)
