@@ -1,5 +1,5 @@
 ---
-title: Back up XL Release (XL Release 7.2 and previous versions)
+title: Back up XL Release (XL Release 7.2 and earlier)
 categories:
 - xl-release
 subject:
@@ -14,7 +14,7 @@ removed:
 ---
 
 <div class="alert alert-warning" style="width: 60%">
-This document describes how to do a backup for XL Release 7.2 and previous versions, that use JCR as storage technology. For XL Release 7.5 and higher, please refer to <a href="/xl-release/how-to/back-up-xl-release.html">Back up XL Release (XL Release 7.5 and later</a>.
+This document describes how to do a backup for XL Release 7.2 and previous versions, that use JCR as storage technology. For XL Release 7.5 and higher, please refer to <a href="/xl-release/how-to/back-up-xl-release.html">Back up XL Release (XL Release 7.5 and later)</a>.
 </div>
 
 

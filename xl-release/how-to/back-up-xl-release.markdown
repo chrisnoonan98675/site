@@ -26,7 +26,7 @@ It is recommended that you regularly create a backup of your XL Release server. 
 
 To back up XL Release, it is recommended that you back up the complete installation folder (referred to here as `XL_RELEASE_SERVER_HOME`); for example, by compressing it in a ZIP file.
 
-If you store the XL Release repository in a [database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html#using-a-database), back up the database using the tools provided by your database vendor. Make sure you back up both `xlrelease` and `archive` databases.
+If you store the XL Release repository in an external database, back up the database using the tools provided by your database vendor. Make sure you back up both `xlrelease` and `archive` databases.
 
 ## Restore a backup
 

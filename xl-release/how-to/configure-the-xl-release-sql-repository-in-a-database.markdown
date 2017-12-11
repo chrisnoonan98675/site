@@ -1,5 +1,5 @@
 ---
-title: Configure the XL Release SQL repository in a database
+title: Configure the XL Release SQL repository in a database (XL Release 7.5 and later)
 categories:
 - xl-release
 subject:
@@ -73,8 +73,9 @@ This file is in [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.
 
 After the first run, passwords in the configuration file will be encrypted and replaced with the base64-encoded encrypted values.
 
+## Database-specific configuration in XL Release
 
-## PostgreSQL configuration in XL Release
+### PostgreSQL 
 
 Driver:
 
@@ -103,7 +104,7 @@ This is a sample configuration for PostgreSQL:
        ...
 	}
 
-## MySQL configuration in XL Release
+### MySQL
 
 Driver:
 
@@ -139,7 +140,7 @@ Your MySQL instance should be configured in your `cnf` file as:
     character_set_server=utf8
 
 
-## Oracle configuration in XL Release
+### Oracle
 
 Driver:
 
@@ -171,7 +172,7 @@ This is a sample for Oracle:
 
 If you use the TNSNames Alias syntax to connect to Oracle, you must specify where the driver can find the `TNSNAMES` file. Refer to the Oracle documentation for more information.
 
-## DB2 configuration in XL Release
+### DB2
 
 Driver:
 
@@ -214,7 +215,7 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` configuration for
           ...
        }
 
-## SQL Server configuration in XL Release
+### SQL Server
 
 Driver:
 

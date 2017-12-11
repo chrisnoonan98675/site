@@ -1,5 +1,5 @@
 ---
-title: Configure active/hot-standby mode
+title: Configure cluster mode (XL Release 7.5 and higher)
 categories:
 - xl-release
 subject:

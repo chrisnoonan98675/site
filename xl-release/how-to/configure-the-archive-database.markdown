@@ -14,7 +14,14 @@ since:
 weight: 437
 ---
 
-Since XL Release 4.7.0, completed releases are exported to the internal [archive database](/xl-release/concept/how-archiving-works.html), which is used to generate reports. By default, XL Release uses Apache Derby, with data stored at `XL_RELEASE_SERVER_HOME/archive/db`.
+XL Release stores completed releases in a database that is separate from the repository: the archvive database. Besides the completed releases, metadata for reporting is stored in this database.
+
+For more information about the archiving process, see [How archiving works](/xl-release/concept/how-archiving-works.html).
+
+In the default setup, an embedded database is used and the data is stored in the 
+`XL_RELEASE_SERVER_HOME/archive/` directory.
+
+For XL Release 7.5.0 
 
 ## Change the location of the Apache Derby database
 
