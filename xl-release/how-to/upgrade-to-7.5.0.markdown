@@ -117,7 +117,12 @@ This can be useful when you have large releases that contain a large number of c
 
 The migration tool uses 4Gb JVM heap, but if you get an `OutOfMemoryError` during migration then you can fix it by decreasing the page size.
 
+### Custom classpath
 
+If you have modified your `xlr-wrapper-*.conf` from XL Release, you have to add your custom classpath on `bin/xl-release-sql-migrator` like:
+
+      CLASSPATH=$APP_HOME/conf:$APP_HOME/lib/*:./conf:./ext:./hotfix/*:./plugins/*
+      
 ## 4. Running the migrator
 
 You must run the application from the `XL_RELEASE_SERVER_HOME` folder of the **source** server. The migration tool will load your XL Release `conf`, `ext`, and `plugins` folder to load extra synthetic types.
