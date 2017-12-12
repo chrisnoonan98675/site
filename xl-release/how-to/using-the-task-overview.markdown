@@ -46,7 +46,8 @@ To filter the task overview, click **Filter options** and select:
 * **Active tasks** to show tasks that are currently active (clear this option to also see tasks that are in the *planned* state)
 * **Assigned to me** to show tasks that are assigned to you
 * **Assigned to my teams** to show tasks that are assigned to the teams that you are in
-* **Assigned to anybody** to show tasks that are assigned to anyone
+* **Assigned to others** (version 7.2 and earlier) to show tasks that are assigned to others and to teams that you are not in
+* **Assigned to anybody** (version 7.5 and later) to show tasks that are assigned to anyone
 * **Not assigned** to show tasks that are not assigned to a user or a team
 
 **Tip:** Select *Not assigned* and *Active tasks* to see the tasks that are active but not being handled by anyone.
