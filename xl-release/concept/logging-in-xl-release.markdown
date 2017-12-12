@@ -9,43 +9,22 @@ tags:
 - logging
 - audit
 - security
-removed:
-- XL Release 7.5.0
 weight: 492
 ---
 
-By default, XL Release server writes informational, warning, and error log messages to standard output and to `XL_RELEASE_SERVER_HOME/log/xl-release.log` when it is running. In addition, XL Release writes an audit trail to `XL_RELEASE_SERVER_HOME/log/audit.log` and access logging to `XL_RELEASE_SERVER_HOME/log/access.log`.
+By default, XL Release server writes informational, warning, and error log messages to standard output and to `XL_RELEASE_SERVER_HOME/log/xl-release.log` when it is running. 
 
-## The audit log
-
-XL Release keeps an audit log of each human-initiated event on the server, which complements the auditing provided by the [release activity logs](/xl-release/concept/release-activity-logs.html) (which track activity for each release at a more domain-specific level of granularity).
-
-Some of the events that are logged in the audit trail are:
-
-* The system is started or stopped
-* An application is imported
-* A CI is created, updated, moved, or deleted
-* A security role is created, updated, or deleted
-* A task is started, cancelled, or aborted
-
-For each event, the following information is recorded:
-
-* The user making the request
-* The event timestamp
-* The component producing the event
-* An informational message describing the event
-
-For events involving configuration items (CIs), the CI data submitted as part of the event is logged in XML format.
-
-By default, the audit log is stored in `XL_RELEASE_SERVER_HOME/log/audit.log` and is rolled over daily.
-
-## The access log
-
-Access logging allows you to see all HTTP requests received by XL Release with the following details: URL, the time it took to process, username, the IP address where the request comes from, and the response status code. This logging data can be used to analyze the usage of XL Release and to troubleshoot.
+In addition, XL Release writes an audit trail to `XL_RELEASE_SERVER_HOME/log/audit.log` and access logging to `XL_RELEASE_SERVER_HOME/log/access.log`.
 
 ## Changing logging behavior
 
-It is possible to change the logging behavior (for example, to write log output to a file or to log output from a specific source). To do so, edit the `XL_RELEASE_SERVER_HOME/conf/logback.xml` file. This is a sample `logback.xml` file:
+It is possible to change the logging behavior (for example, to write log output to a file or to log output from a specific source).
+
+XL Release uses [Logback](http://logback.qos.ch/) as logging technology. The Logback configuration is stored in `XL_RELEASE_SERVER_HOME/conf/logback.xml`. 
+
+For detailed information about the `logback.xml` file, please refer to the [Logback documentation](http://logback.qos.ch/manual/).
+
+This is a sample `logback.xml` file:
 
 {% highlight xml %}
 <configuration>
@@ -83,9 +62,37 @@ It is possible to change the logging behavior (for example, to write log output 
 </configuration>
 {% endhighlight %}
 
-For information about the `logback.xml` file, refer to the [Logback documentation](http://logback.qos.ch/manual/).
 
-### Enable low-level audit logging
+
+
+## The audit log
+
+<div class="alert alert-warning" style="width: 60%">
+**Note:** the audit log is not availabkle in XL Release 7.5.0.
+</div>
+
+XL Release keeps an audit log of each human-initiated event on the server, which complements the auditing provided by the [release activity logs](/xl-release/concept/release-activity-logs.html) (which track activity for each release at a more domain-specific level of granularity).
+
+Some of the events that are logged in the audit trail are:
+
+* The system is started or stopped
+* An application is imported
+* A CI is created, updated, moved, or deleted
+* A security role is created, updated, or deleted
+* A task is started, cancelled, or aborted
+
+For each event, the following information is recorded:
+
+* The user making the request
+* The event timestamp
+* The component producing the event
+* An informational message describing the event
+
+For events involving configuration items (CIs), the CI data submitted as part of the event is logged in XML format.
+
+By default, the audit log is stored in `XL_RELEASE_SERVER_HOME/log/audit.log` and is rolled over daily.
+
+### Enable audit logging
 
 You can enable low-level audit logging by changing the log level of the `audit` logger in `XL_RELEASE_SERVER_HOME/conf/logback.xml`:
 
@@ -109,3 +116,12 @@ This is an example of the audit stream with the level of the audit logger set to
 	  <username>foo</username>
 	  <password>{b64}C7JZetqurQo2B8x2V8qUhg==</password>
 	</jenkins.Server>
+
+## The access log
+
+Access logging allows you to see all HTTP requests received by XL Release with the following details: URL, the time it took to process, username, the IP address where the request comes from, and the response status code. This logging data can be used to analyze the usage of XL Release and to troubleshoot.
+
+The access log is written to `XL_RELEASE_SERVER_HOME/log/access.log`.
+
+
+
