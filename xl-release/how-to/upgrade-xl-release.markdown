@@ -52,6 +52,10 @@ Before you upgrade:
 
 ## Upgrade the server
 
+<div class="alert alert-warning" style="width: 60%">
+When upgrading to XL Release 7.5, a database migration needs to be carried out with a separate Migrator tool. Please follow the instructions in <a href="/xl-release/how-to/upgrade-to-7.5.0.html">Upgrade to XL Release 7.5</a>.
+</div>
+
 To upgrade an XL Release server installation:
 
 1. Extract the server ZIP file. It creates an installation directory called, for example, `xl-release-7.0.0-server`.
