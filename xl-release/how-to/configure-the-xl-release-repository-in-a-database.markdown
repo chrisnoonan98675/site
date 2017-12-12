@@ -1,5 +1,5 @@
 ---
-title: Configure the XL Release JCR repository in a database
+title: Configure the JCR repository in a database (XL Release 7.2 and earlier)
 categories:
 - xl-release
 subject:
@@ -14,6 +14,10 @@ removed:
 - XL Release 7.5.0
 weight: 493
 ---
+
+<div class="alert alert-warning" style="width: 60%">
+This document describes the database configuration for XL Release 7.2 and earlier versions. For later versions that use the SQL repository, please refer to <a href="xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html">Configure the XL Release SQL repository in a database</a>.
+</div>
 
 XL Release stores its data in a repository. By default, the repository is stored in an embedded Derby database at `XL_RELEASE_SERVER_HOME/repository`. However, you can choose to store binary data (artifacts), configuration items (CIs), and CI history in an external database. This topic describes an approach to configuring the built-in Jackrabbit JCR implementation to use an external database.
 
