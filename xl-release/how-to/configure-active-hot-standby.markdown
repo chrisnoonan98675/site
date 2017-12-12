@@ -1,5 +1,5 @@
 ---
-title: Configure active/hot-standby mode
+title: Configure active/hot-standby mode (XL Release 7.2 and earlier)
 categories:
 - xl-release
 subject:
@@ -14,6 +14,8 @@ tags:
 weight: 496
 since:
 - XL Release 6.0.0
+removed:
+- XL Release 7.5.0
 ---
 
 <div class="alert alert-warning" style="width: 60%">
