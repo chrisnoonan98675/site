@@ -4,7 +4,7 @@ removed:
 - XL Release 7.5.0
 ---
 
-<div class="alert alert-warning" style="width: 60%">This topic describes procedures that are valid only for XL Release versions pre 6.0.0. For XL Release versions 6.0.0 to 7.2.x, you can find the related topic <a href="/xl-release/how-to/configure-active-hot-standby-for-jcr-repository.html">here</a>. For XL Release versions 7.5.0 and later, you can find the related topic <a href="/xl-release/how-to/configure-active-hot-standby.html">here</a>.</div>
+<div class="alert alert-warning" style="width: 60%">This topic describes procedures that are valid only for XL Release versions pre 6.0.0. For XL Release versions 6.0.0 to 7.2.x, you can find the related topic <a href="/xl-release/how-to/configure-active-hot-standby.html">here</a>. For XL Release versions 7.5.0 and later, you can find the related topic <a href="/xl-release/how-to/configure-cluster.html">here</a>.</div>
 
 XL Release allows you to store its [repository](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html) and [archive database](/xl-release/how-to/configure-the-archive-database.html) in an external database instead of on the filesystem. If you use a database, then you can set up failover handling by creating additional instances of XL Release that will use the same database as your master instance. Note that this is not an active/active setup; only one instance of XL Release can access the database at a time.
 
