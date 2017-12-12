@@ -92,10 +92,10 @@ To use the default password of *admin*, press ENTER twice. If you plan to connec
 
  The setup wizard will ask if you want to initialize the repository. Answer `yes` to create the repository as an embedded database, or `no` to connect to an existing external database.
 
-By default, the repository is stored in an embedded database at `XL_RELEASE_SERVER_HOME/repository`. For information about using an external database, refer to 
+By default, the repository is stored in an embedded database at `XL_RELEASE_SERVER_HOME/repository`. For information about using an external database, refer to:
 
- * [Configure the XL Release SQL repository](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html) (XL Release 7.5 and higher)
- * [Configure the XL Release JCR repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html) (XL Release 7.2 and before)
+ * [Configure the XL Release SQL repository](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html) (XL Release 7.5 and later)
+ * [Configure the XL Release JCR repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html) (XL Release 7.2 and earlier)
 
 **Warning:** If you choose to initialize the repository and you have installed XL Release in the same location before, any information stored in the repository will be lost.
 
@@ -163,10 +163,10 @@ The setup wizard will prompt you for the minimum and maximum number of threads t
 
  The setup wizard will ask if you want to initialize the repository. Answer `yes` to create the repository as an embedded database, or `no` to connect to an existing external database.
 
-By default, the repository is stored in an embedded database at `XL_RELEASE_SERVER_HOME/repository`. For information about using an external database, refer to 
+By default, the repository is stored in an embedded database at `XL_RELEASE_SERVER_HOME/repository`. For information about using an external database, refer to:
 
- * [Configure the XL Release SQL repository](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html) (XL Release 7.5 and higher)
- * [Configure the XL Release JCR repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html) (XL Release 7.2 and before)
+ * [Configure the XL Release SQL repository](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html) (XL Release 7.5 and later)
+ * [Configure the XL Release JCR repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html) (XL Release 7.2 and earlier)
 
 **Warning:** If you choose to initialize the repository and you have installed XL Release in the same location before, any information stored in the repository will be lost.
 
@@ -203,7 +203,7 @@ After the XL Release installation file is extracted, the following directory str
 * `conf`: Configuration files
 * `ext`: XL Release extensions in exploded format
 * `hotfix`: Contains hotfixes that correct issues with the server software
-* `lib`: Binary libraries 
+* `lib`: Binary libraries
 * `log`: Server log files
 * `plugins`: XL Release extensions that are packaged as plugins
 * `repository`: Embedded XL Release database
@@ -212,7 +212,7 @@ The installation directory is referred to as `XL_RELEASE_SERVER_HOME`.
 
 ## Cluster configuration
 
-Storing the XL Release repository in an [external database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html), is a requirement to run a multi-node setup. For more information, see:
+Storing the XL Release repository in an [external database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html) is a requirement to run a multi-node setup. For more information, see:
 
-* [Configure active/hot-standby mode](/xl-release/how-to/configure-active-hot-standby.html) (supported in XL Release 6.0 - 7.2 and later)
-* [Configure cluster mode](/xl-release/how-to/configure-cluster.html) (supported in XL Release 7.5 and later; also supports active/active)
+* [Configure active/hot-standby mode](/xl-release/how-to/configure-active-hot-standby.html) (supported in XL Release versions 6.0 to 7.2 and later)
+* [Configure cluster mode](/xl-release/how-to/configure-cluster.html) (supported in XL Release 7.5 and later; this also supports active/active mode)

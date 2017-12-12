@@ -9,15 +9,13 @@ tags:
 - backup
 - maintenance
 - database
-removed: 
+removed:
  - XL Release 7.5.0
 ---
 
 <div class="alert alert-warning" style="width: 60%">
 This document describes how to do a backup for XL Release 7.2 and previous versions, that use JCR as storage technology. For XL Release 7.5 and higher, please refer to <a href="/xl-release/how-to/back-up-xl-release.html">Back up XL Release (XL Release 7.5 and later)</a>.
 </div>
-
-
 
 It is recommended that you regularly create a backup of your XL Release server. It is especially important to back up XL Release before [upgrading to a new version](/xl-release/how-to/upgrade-xl-release.html).
 

@@ -14,19 +14,18 @@ since:
 weight: 437
 ---
 
-XL Release stores completed releases in a database that is separate from the repository: the archvive database. Besides the completed releases, metadata for reporting is stored in this database.
+XL Release stores completed releases in a database that is separate from the repository: the archived database. Besides the completed releases, metadata for reporting is stored in this database.
 
 For more information about the archiving process, see [How archiving works](/xl-release/concept/how-archiving-works.html).
 
-In the default setup, an embedded database is used and the data is stored in the 
+In the default setup, an embedded database is used and the data is stored in the
 `XL_RELEASE_SERVER_HOME/archive/` directory.
 
 You must configure the archive database before setting up the repository; that is, before starting XL Release for the first time. XL Release does not support automatic migration to a different location or vendor after the schema and data are present in the database.
 
-
 ## Configure the archive database (XL Release 4.8.0 - 7.2.0)
 
-For XL Release 4.8.0 until 7.2.0, you can use the following products as archive database:
+For XL Release versions 4.8.0 to 7.2.x, you can use the following products as archive database:
 
 * Apache Derby (embedded)
 * H2 (embedded)
@@ -65,8 +64,7 @@ For more information, refer to [Character Sets and Collations in General](https:
 
 ## Configure the archive database (XL Release 7.5.0 and later)
 
-For setting up the archive database in **XL Release 7.5.0 and later**, please refer to [Configure the XL Release SQL repository in a database](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html).
-
+For setting up the archive database in **XL Release 7.5.0 and later**, refer to [Configure the XL Release SQL repository in a database](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html).
 
 ## Change the location of the embedded archive database
 
@@ -79,5 +77,3 @@ You can move the Apache Derby database by changing the configuration in `XL_RELE
     }
 
 If you are already using the archive database, you must move it to the new location while XL Release is not running.
-
-

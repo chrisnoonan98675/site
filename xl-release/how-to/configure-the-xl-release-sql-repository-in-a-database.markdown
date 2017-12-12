@@ -16,18 +16,18 @@ since:
 ---
 
 <div class="alert alert-warning" style="width: 60%">
-This document describes the database configuration for XL Release 7.5 and later versions. For previous versions that use the JCR/JackRabbit repository, please refer to <a href="xl-release/how-to/configure-the-xl-release-repository-in-a-database.html">Configure the XL Release JCR repository in a database</a>.
+This document describes the database configuration for XL Release 7.5 and later versions. For previous versions that use the JackRabbit (JCR) repository, refer to <a href="xl-release/how-to/configure-the-xl-release-repository-in-a-database.html">Configure the XL Release JCR repository in a database</a>.
 </div>
 
-XL Release stores its data in a repository. By default, this an embedded database stored in `XL_RELEASE_SERVER_HOME/repository`. 
+XL Release stores its data in a repository. By default, this an embedded database stored in `XL_RELEASE_SERVER_HOME/repository`.
 
-Completed releases and reporting information is stored in another database called 'archive'. By default, this is also an embedded database stored in `XL_RELEASE_SERVER_HOME/archive`.
+Completed releases and reporting information are stored in another database called 'archive'. By default, this is also an embedded database stored in `XL_RELEASE_SERVER_HOME/archive`.
 
 The embedded databases are automatically created when XL Release is started for the first time.
 
-The embedded databases are meant for easy setup in evaluation and test environments. For production use, it is strongly recommended to use an industrial-grade external database server. the following databases are supported:
+The purpose for the embedded databases is the easy setup in evaluation and test environments. For production use, it is strongly recommended to use an industrial-grade external database server. The following databases are supported:
 
-* PostgreSQL 
+* PostgreSQL
 * MySQL
 * Oracle 11g or 12c
 * Microsoft SQL Server 2012
@@ -35,12 +35,12 @@ The embedded databases are meant for easy setup in evaluation and test environme
 
 To run XL Release in a cluster setup (Active/active or active/hot standby) it is required to have the repository stored in an external database.
 
-Note that it is currently not possible to migrate the repository from an embedded database to an external database. So configure production setups with an external database from the start. When migrating from a previous JCR version of XL Release (version 7.2 and lower), make sure to migrate to an external database.
+**Note:** It is currently not possible to migrate the repository from an embedded database to an external database. Ensure that you configure production setup with an external database from the start. When migrating from a previous JCR version of XL Release (version 7.2 and earlier) make sure to migrate to an external database.
 
 More information:
 
 * Active/active mode: [Configure active/active](/xl-release/how-to/configure-active-active.html)
-* Active/hot standby mode: [Configure active/hot-standby](/xl-release/how-to/configure-active-hot-standby.html) 
+* Active/hot standby mode: [Configure active/hot-standby](/xl-release/how-to/configure-active-hot-standby.html)
 * Backing up and restore: [Back up XL Release](/xl-release/how-to/back-up-xl-release.html)
 
 ## Preparing the external database
@@ -65,22 +65,22 @@ The following set of SQL privileges are required.
 
 * SELECT, INSERT, UPDATE, DELETE
 
-## The configuration file: xl-release.conf
+## The configuration file: `xl-release.conf`
 
-All configuration takes place in `XL_RELEASE_SERVER_HOME/conf/xl-release.conf`.
+All the configuration is done in `XL_RELEASE_SERVER_HOME/conf/xl-release.conf`.
 
-This file is in [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format. 
+This file is in [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format.
 
 After the first run, passwords in the configuration file will be encrypted and replaced with the base64-encoded encrypted values.
 
 ## Database-specific configuration in XL Release
 
-### PostgreSQL 
+### PostgreSQL
 
 Driver:
 
  * [PostgreSQL JDBC driver](https://jdbc.postgresql.org/download.html)
- 
+
 Place the driver JAR file in the `XL_RELEASE_SERVER_HOME/lib` folder.
 
 Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema.
@@ -109,7 +109,7 @@ This is a sample configuration for PostgreSQL:
 Driver:
 
  * [MySQL JDBC driver](http://dev.mysql.com/downloads/connector/j/)
- 
+
 Place the driver JAR file in the `XL_RELEASE_SERVER_HOME/lib` folder.
 
 Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema.
@@ -139,13 +139,12 @@ Your MySQL instance should be configured in your `cnf` file as:
     collation_server=utf8_unicode_ci
     character_set_server=utf8
 
-
 ### Oracle
 
 Driver:
 
  * [Oracle JDBC driver](http://www.oracle.com/technetwork/database/features/jdbc/index- 091264.html)
- 
+
 Place the driver JAR file in the `XL_RELEASE_SERVER_HOME/lib` folder.
 
 Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema.
@@ -170,14 +169,14 @@ This is a sample for Oracle:
     }
 
 
-If you use the TNSNames Alias syntax to connect to Oracle, you must specify where the driver can find the `TNSNAMES` file. Refer to the Oracle documentation for more information.
+If you use the TNSNames Alias syntax to connect to Oracle, you must specify where the driver can find the `TNSNAMES` file. For more information, refer to the Oracle documentation.
 
 ### DB2
 
 Driver:
 
  * [DB2 JDBC driver](http://www-01.ibm.com/support/docview.wss?uid=swg21363866)
- 
+
 Place the driver JAR file in the `XL_RELEASE_SERVER_HOME/lib` folder.
 
 Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema.
@@ -220,7 +219,7 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` configuration for
 Driver:
 
  * [Microsoft JDBC driver for SQL Server](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx)
- 
+
 Place the driver JAR file in the `XL_RELEASE_SERVER_HOME/lib` folder.
 
 Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema.
@@ -246,4 +245,4 @@ This is a sample for SQL Server:
 
 --
 
-[1]: When migrating from a previous version of XL Release with the archive  configured in the `archive`directory as an embedded database, the data will remain in the embedded database and this schema should not be created in the external database.
+[1]: When migrating from a previous version of XL Release with the archive configured in the `archive` directory as an embedded database, the data will remain in the embedded database and this schema should not be created in the external database.

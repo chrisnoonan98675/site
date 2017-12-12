@@ -39,7 +39,7 @@ If a repository upgrade is required, XL Release will detect that it is running a
 
 ### Upgrading an existing hot-standby configuration to a new version
 
-When upgrading a [hot-standby configuration](/xl-release/how-to/configure-active-hot-standby.html) or an [active/active configuration](/xl-release/how-to/configure-active-active.html) all nodes must be stopped. Then, you can copy configuration data from existing nodes. Keep in mind that the node ID in the configuration must be unique for each node. You do not have to copy the data that is shared among all nodes (because it is normally stored on NFS), but ensure that you do back up the data.
+When upgrading a [hot-standby configuration](/xl-release/how-to/configure-active-hot-standby.html) or an [active/active configuration](/xl-release/how-to/configure-active-active.html), all nodes must be stopped. You can copy the configuration data from the existing nodes. The node ID in the configuration must be unique for each node. You do not have to copy the data that is shared among all the nodes (this is normally stored on NFS), but ensure that you back up the data.
 
 You can then proceed by starting a single node in the cluster. After starting the node, wait until all upgraders are executed and the node is fully started before starting the other nodes, one by one.
 
@@ -48,12 +48,12 @@ You can then proceed by starting a single node in the cluster. After starting th
 Before you upgrade:
 
 * Carefully read the [release manual](/xl-release/latest/releasemanual.html) and note any changes that may apply to your situation.
-* Check whether there are any hotfixes installed in the `hotfix` directory. If hotfixes are installed, [contact the XebiaLabs support team](https://support.xebialabs.com/hc/en-us/requests/new) before upgrading.
+* Check if there are any hotfixes installed in the `hotfix` directory. If hotfixes are installed, [contact the XebiaLabs support team](https://support.xebialabs.com/hc/en-us/requests/new) before upgrading.
 
 ## Upgrade the server
 
 <div class="alert alert-warning" style="width: 60%">
-When upgrading to XL Release 7.5, a database migration needs to be carried out with a separate Migrator tool. Please follow the instructions in <a href="/xl-release/how-to/upgrade-to-7.5.0.html">Upgrade to XL Release 7.5</a>.
+When upgrading to XL Release 7.5, a database migration must be performed using a separate Migrator tool. Please follow the instructions in <a href="/xl-release/how-to/upgrade-to-7.5.0.html">Upgrade to XL Release 7.5</a>.
 </div>
 
 To upgrade an XL Release server installation:
