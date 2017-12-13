@@ -9,8 +9,6 @@ tags:
 - installation
 - setup
 - system requirements
-since:
-XL Release 7.5.0
 weight: 401
 ---
 

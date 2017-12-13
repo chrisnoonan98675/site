@@ -48,7 +48,9 @@ More information:
 To use an external database, two empty database schemas should be created.
 
 1. **xlrelease** - active release data and configuration data.
-2. **xlarchive** - completed releases and reporting data. [Note] [1]
+2. **xlarchive** - completed releases and reporting data.
+
+**Note:** When migrating from a previous version of XL Release with the archive configured in the `archive` directory as an embedded database, the data will remain in the embedded database and this schema should not be created in the external database.
 
 The account that accesses the database must be able to create tables during the initial installation and, later, it must be able to write to and delete from tables.
 
@@ -242,7 +244,3 @@ This is a sample for SQL Server:
 	    }
 	    ...
     }
-
---
-
-[1]: When migrating from a previous version of XL Release with the archive configured in the `archive` directory as an embedded database, the data will remain in the embedded database and this schema should not be created in the external database.
