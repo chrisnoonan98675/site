@@ -12,7 +12,7 @@ tags:
 weight: 492
 ---
 
-By default, XL Release server writes informational, warning, and error log messages to standard output and to `XL_RELEASE_SERVER_HOME/log/xl-release.log` when it is running. 
+By default, XL Release server writes informational, warning, and error log messages to standard output and to `XL_RELEASE_SERVER_HOME/log/xl-release.log` when it is running.
 
 In addition, XL Release writes an audit trail to `XL_RELEASE_SERVER_HOME/log/audit.log` and access logging to `XL_RELEASE_SERVER_HOME/log/access.log`.
 
@@ -20,9 +20,9 @@ In addition, XL Release writes an audit trail to `XL_RELEASE_SERVER_HOME/log/aud
 
 It is possible to change the logging behavior (for example, to write log output to a file or to log output from a specific source).
 
-XL Release uses [Logback](http://logback.qos.ch/) as logging technology. The Logback configuration is stored in `XL_RELEASE_SERVER_HOME/conf/logback.xml`. 
+XL Release uses [Logback](http://logback.qos.ch/) as logging technology. The Logback configuration is stored in `XL_RELEASE_SERVER_HOME/conf/logback.xml`.
 
-For detailed information about the `logback.xml` file, please refer to the [Logback documentation](http://logback.qos.ch/manual/).
+For detailed information about the `logback.xml` file, refer to the [Logback documentation](http://logback.qos.ch/manual/).
 
 This is a sample `logback.xml` file:
 
@@ -62,13 +62,10 @@ This is a sample `logback.xml` file:
 </configuration>
 {% endhighlight %}
 
-
-
-
 ## The audit log
 
 <div class="alert alert-warning" style="width: 60%">
-**Note:** the audit log is not availabkle in XL Release 7.5.0.
+**Note:** The audit log is not available in XL Release 7.5.0.
 </div>
 
 XL Release keeps an audit log of each human-initiated event on the server, which complements the auditing provided by the [release activity logs](/xl-release/concept/release-activity-logs.html) (which track activity for each release at a more domain-specific level of granularity).
@@ -122,6 +119,3 @@ This is an example of the audit stream with the level of the audit logger set to
 Access logging allows you to see all HTTP requests received by XL Release with the following details: URL, the time it took to process, username, the IP address where the request comes from, and the response status code. This logging data can be used to analyze the usage of XL Release and to troubleshoot.
 
 The access log is written to `XL_RELEASE_SERVER_HOME/log/access.log`.
-
-
-
