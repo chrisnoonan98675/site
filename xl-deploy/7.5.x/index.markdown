@@ -36,11 +36,11 @@ product-id: xl-deploy
 ### Java middleware plugins
 
 * [JBoss Application Server 5 and 6 plugin](/xl-deploy-jbossas-plugin/6.0.x/jbossPluginManual.html)
-* [JBoss Application Server 7 and up plugin](/xl-deploy-jbossdm-plugin/6.0.x/jbossDomainPluginManual.html)
+* [JBoss Application Server 7 and up plugin](/xl-deploy-jbossdm-plugin/7.5.x/jbossDomainPluginManual.html)
 * [Oracle Service Bus (OSB) plugin](/xl-deploy-osb-plugin/7.0.x/osbPluginManual.html)
 * [Oracle Service-Oriented Architecture (SOA) plugin](/xl-deploy-xld-oracle-soa-plugin/5.0.x/oracleSoaPluginManual.html)
 * [WebLogic Application Server plugin](/xl-deploy-wls-plugin/7.0.x/wlsPluginManual.html)
-* [WebSphere Application Server plugin](/xl-deploy-was-plugin/7.0.x/wasPluginManual.html)
+* [WebSphere Application Server plugin](/xl-deploy-was-plugin/7.5.x/wasPluginManual.html)
 * [WebSphere Process Server plugin](/xl-deploy-wps-plugin/7.0.x/wpsPluginManual.html)
 * [WebSphere Liberty Profile Server plugin](/xl-deploy-wlp-plugin/7.0.x/wlpPluginManual.html)
 * [Tomcat plugin](/xl-deploy-tomcat-plugin/6.2.x/tomcatPluginManual.html)
@@ -75,13 +75,13 @@ product-id: xl-deploy
 
 ### Provisioning plugins
 
-* [XL Deploy Azure plugin](/xl-deploy-xld-azure-plugin/7.2.x/azurePluginManual.html)
-* [XL Deploy AWS plugin](/xl-deploy-xld-aws-plugin/7.2.x/awsPluginManual.html)
+* [XL Deploy Azure plugin](/xl-deploy-xld-azure-plugin/7.5.x/azurePluginManual.html)
+* [XL Deploy AWS plugin](/xl-deploy-xld-aws-plugin/7.5.x/awsPluginManual.html)
 
 ### Container platform plugins
 
-* [XL Deploy OpenShift plugin](/xl-deploy-xld-openshift-plugin/7.2.x/openshiftPluginManual.html)
-* [XL Deploy Kubernetes plugin](/xl-deploy-xld-kubernetes-plugin/7.2.x/kubernetesPluginManual.html)
+* [XL Deploy OpenShift plugin](/xl-deploy-xld-openshift-plugin/7.5.x/openshiftPluginManual.html)
+* [XL Deploy Kubernetes plugin](/xl-deploy-xld-kubernetes-plugin/7.5.x/kubernetesPluginManual.html)
 
 ### Community plugins
 
