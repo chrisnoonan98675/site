@@ -40,7 +40,7 @@ The upgrade procedure to XL Release 7.5 is different than before. Here's an over
 
 ## 1. Install XL Release 7.5.0
 
-* Download xl-release-7.5.0.zip
+* [Download xl-release-7.5.0.zip](https://dist.xebialabs.com/)
 * Unzip xl-release-7.5.0.zip
 
 Don't start the server just yet.
@@ -59,11 +59,7 @@ The **archive database** remains as-is and is copied / configured in the final c
 
 ### Installation
 
-Download the **xl-release-sql-migrator-7.5.0.zip**
-<!--
-           !!! MISSING LINK !!
--->
-package and unzip it in a directory on the same machine as the **source** XL Release server.
+Download the **xl-release-sql-migrator-7.5.0.zip** package from the [Customer download area](https://dist.xebialabs.com/) (requires customer log-in) and unzip it in a directory on the same machine as the **source** XL Release server.
 
 ### Database drivers
 
