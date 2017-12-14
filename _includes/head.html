@@ -109,6 +109,68 @@
 	      siteId: 'docs.xebialabs.com',
 	      // a CSS selector that points to your search  box
 	      searchBoxSelector: '#searchBox',
+				searchBoxStyle: {
+		        text: {
+		            color: '#333333',
+		            size: '14px',
+		        },
+		        background: {
+		            color: '#ffffff',
+		        },
+		        padding: '10px',
+		        icon: {
+		            image: 'magnifier',
+		        },
+		        border: {
+		            color: '#dddddd',
+		            radius: '0px',
+		        },
+		        button: {
+		            text: 'search',
+		            icon: undefined
+		        }
+		    },
+		    placeholder: 'search',
+		    searchButton: undefined,
+		    /********* Search Suggestions *********/
+		    showSearchSuggestions: true,
+		    suggestionsStyle: {
+		        text: {
+		            color: '#333333',
+		        },
+		        background: {
+		            color: '#ffffff'
+		        },
+		        padding: '10px',
+		        distanceFromTop: '0px',
+		        border: {
+		            color: '#dddddd',
+		            radius: '0px',
+		        },
+		    },
+		    showImagesSuggestions: false,
+		    numSuggestions: 6,
+		    maxQuerySuggestions: 3,
+		    minChars: 3,
+		    highlight: true,
+		    /********* Search Results *********/
+		    searchResults: undefined,
+		    searchResultsCaption: 'We found #COUNT# results for your query "#QUERY#"',
+		    numResults: 50,
+		    navigation: 'top',
+		    highlightQueryTerms: true,
+		    showImagesResults: false,
+		    showResultLink: true,
+		    queryCorrectionText: 'Did you mean "#CORRECTION#"?',
+		    noResultsText: 'Sorry, we have not found any matches for your query.',
+		    otherContentGroupName: 'Other',
+		    ignoreOtherContentGroup: false,
+		    moreResultsButton: undefined,
+		    moreResultsPagingSize: 50,
+		    groupResults: true,
+		    loader: {
+		        type: 'circle'
+		    }
 	   };
 	</script>
 	<script src="https://sitesearch360.com/cdn/sitesearch360-v7.min.js"></script>
