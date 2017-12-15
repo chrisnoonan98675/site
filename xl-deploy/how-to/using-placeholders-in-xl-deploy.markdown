@@ -69,6 +69,14 @@ After changing `deployit-defaults.properties`, you must restart XL Deploy for th
 
 **Tip:** For information about disabling scanning of artifacts, refer to [Disable placeholder scanning in XL Deploy](/xl-deploy/how-to/disable-placeholder-scanning-in-xl-deploy.html).
 
+### Placeholder scanning using the Jenkins plugin
+
+When you import of a package, XL Deploy applies placeholder scanning and checksum calculation to all the artifacts in the package. The CI tools can pre-process the artifacts in the deployment archive and perform the placeholder scanning and the checksum calculation. With this change, the XL Deploy server is no longer required to perform these actions on the deployment archive.
+
+Scanning for all placeholders in artifacts is provisioned to be performed by the [XL Deploy Jenkins plugin](/xl-deploy/concept/jenkins-xl-deploy-plugin.html) at the time of packaging the `DAR` file. An artifact in a deployable must have the `scanPlaceholders` property set as `true` to be scanned. For example: when the XL Deploy Jenkins plugin creates the artifacts, it sets the `scanPlaceholders` to `true` for the artifact before packaging the `DAR`. After a successful scanning, the deployment manifest contains the scanned placeholders for the corresponding artifact and sets the `preScannedPlaceholders` property to `true`. When the package is imported in XL Deploy, it will not be scanned for placeholders.
+
+If do not want to use the XL Deploy Jenkins plugin to scan placeholders and you want to scan the packages while importing, you can modify the deployment manifest and change the `preScannedPlaceholders` to `false` with `scanPlaceholders` set as `true`.
+
 ## Property placeholders
 
 _Property_ placeholders are used in CI properties by specifying them in the package's manifest. In contrast to file placeholders, property placeholders do not necessarily need to get a value from a dictionary. If the placeholder can not be resolved from a dictionary:

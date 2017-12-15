@@ -18,6 +18,7 @@ To specify metadata for a release or template, select **Properties** from the **
 To configure release properties:
 
 1. In the **Release Name** box, enter the name of the release. If the release is running, you can change its name.
+1. In **Use risk profile**, select a risk profile from the drop down list. If no risk profile is selected, the **Default risk profile** is used. For more information, refer to [Configure profile risk settings](/xl-release/how-to/configure-risk-settings.html). 
 1. In the **Description** box, optionally enter detailed information about the release. This field allows [Markdown](/xl-release/how-to/use-markdown-in-xl-release.html).
 
     Under the description, you can see links to the template that the release is based on and the release that [started it](/xl-release/how-to/create-a-create-release-task.html) (if applicable).

@@ -20,6 +20,7 @@ You can create a release from a template by:
 When you create a release from a template, it is first in a *planned* state. This is important because, before the release starts and users are notified by email that tasks are assigned to them, the release owner must:
 
 1. Assign values to [variables](/xl-release/concept/variables-in-xl-release.html)
-2. Populate the [release teams](/xl-release/how-to/configure-teams-for-a-release.html) or revise the members of the teams
-3. Optionally set scheduled start and due dates on tasks
-4. Revise dependencies on other releases (dependencies can only be set on active releases, so they are not specified in the template)
+1. Populate the [release teams](/xl-release/how-to/configure-teams-for-a-release.html) or revise the members of the teams
+1. Assign a risk profile to the release
+1. Optionally set scheduled start and due dates on tasks
+1. Revise dependencies on other releases (dependencies can only be set on active releases, so they are not specified in the template)

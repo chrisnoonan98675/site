@@ -43,37 +43,59 @@ To [install](/xl-release/how-to/install-xl-release.html) the XL Release server, 
 
 ### External systems
 
-* **Database:** By default, XL Release is installed with an embedded database, but it can be configured to use an external relational database. See [Configure the XL Release repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html) for details.
+* **Database:** By default, XL Release is installed with an embedded database. The embedded database is meant for easy setup in evaluation and test environments. For production use, it is strongly recommended to use an industrial-grade external database server such as PostgreSQL, MySQL, Oracle, Microsoft SQL Server or DB2. See [Configure the XL Release SQL repository in a database](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html) for details.
+If you are using XL Release version 7.2 or earlier, see [Configure the XL Release JCR repository in a database](/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html) for details.
 * **LDAP:** To connect XL Release to your corporate Active Directory or LDAP server, see [Configure LDAP security for XL Release](/xl-release/how-to/configure-ldap-security-for-xl-release.html).
 
 ## Reference setup
 
-The server that XebiaLabs uses for reference has:
+### XL Release server
 
 * Two Quad Intel(R) Xeon(R) CPU E5450 @ 3.00GHz
 * 16 GB of RAM
 * Two 300 GB 10K SAS 2.5" disks
 
-It is configured as follows:
-
 {:.table .table-bordered}
 | Operating system | CentOS Linux 7.2 |
 | Installed software | A single XL Release instance running as a service, and monitoring systems |
-| XL Release version | 6.1.0 |
+| XL Release version | 7.5.0 |
 | XL Release mode | Standalone, non-clustered |
-| XL Release persistence | Embedded Derby, local file system (out-of-the-box settings) |
 | Java version | Oracle JDK 1.8.0_74 |
 
-The relevant configuration settings are:
+XL Release configuration:
 
 {:.table .table-striped}
 | Parameter | Value | Location  | Description |
 | -------- |-------- | -------- | ---------------- |
-| `wrapper.java.additional.1` | `-Xms1024m -Xmx4096m` | `XL_RELEASE_SERVER_HOME/conf/xlr-wrapper-linux.conf` | Sets the heap size to minimum 1 GB and maximum 4 GB |
-| `threads.max` | `125` | `XL_RELEASE_SERVER_HOME/conf/xl-release-server.conf` | Sets the maximum number of HTTP threads to 125  |
+| `wrapper.java.additional.1` | `-Xms4096m -Xmx12288m` | `XL_RELEASE_SERVER_HOME/conf/xlr-wrapper-linux.conf` | Sets the heap size to minimum 4 GB and maximum 12 GB |
+| `threads.min` | `64` | `XL_RELEASE_SERVER_HOME/conf/xl-release-server.conf` | Sets the minimum number of HTTP threads to 64  |
+| `threads.max` | `256` | `XL_RELEASE_SERVER_HOME/conf/xl-release-server.conf` | Sets the maximum number of HTTP threads to 256  |
 | `xl.executors.scheduler.maxThreadsCount` | `50` | `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` | Sets the maximum number of threads for asynchronous operations to 50  |
-| `xl.repository.jackrabbit.bundleCacheSize` | `256` | `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` | Sets the JCR cache size to 256 MB  |
+| `xl.database.max_pool_size` | `64` | `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` | Sets the maximum number of threads for database pool to 64  |
 
-This configuration supports up to 100 concurrent users running a test set with 200 active releases, 200 templates and 500 completed releases, with a mean response time less then 3 seconds.
+### SQL Database
 
-**Note:** Other configuration settings may be optimal for your environment (external database, shared filesystem, hot-standby) and load profile (number of concurrent users, release structure).
+* Two Quad Intel(R) Xeon(R) CPU E5450 @ 3.00GHz
+* 16 GB of RAM
+* Two 300 GB 10K SAS 2.5" disks
+
+{:.table .table-bordered}
+| Operating system | CentOS Linux 7.2 |
+| XL Release persistence | Postgres 9.5 |
+
+Postgres configuration:
+
+{:.table .table-striped}
+| Parameter | Value |
+| -------- |-------- |
+| max_connections | 512 |
+| shared_buffers | 4GB |
+| effective_cache_size | 12GB |
+| synchronous_commits | off |
+| max_wal_size | 1GB |
+
+For more details about the configuration, see [tunning postgreSQL server](https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server).
+
+This configuration supports up to 2000 concurrent users running a test set with 200 active releases, 200 templates and 200 completed releases and 200 folders, with a mean response time less then 100 milliseconds.
+
+**Note:** Other configuration settings may be optimal for your environment (active-active, hot-standby) and load profile (number of concurrent users, release structure).

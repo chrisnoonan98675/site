@@ -1,5 +1,5 @@
 ---
-title: Configure active/hot-standby mode
+title: Configure active/hot-standby mode (XL Release 7.2 and earlier)
 categories:
 - xl-release
 subject:
@@ -14,9 +14,15 @@ tags:
 weight: 496
 since:
 - XL Release 6.0.0
+removed:
+- XL Release 7.5.0
 ---
 
-As of XL Release 6.0.0, you can configure XL Release in a clustered active/hot-standby mode. Running XL Release in this mode ensures that you have a Highly Available (HA) XL Release. This topic describes the procedure to enable active/hot-standby mode.
+<div class="alert alert-warning" style="width: 60%">
+See <a href="/xl-release/how-to/configure-cluster.html">Configure cluster mode</a> for instructions on how to set up the cluster in XL Release version 7.5 and later. Starting with XL Release version 7.5.0, the active/active mode is also supported.
+</div>
+
+As of XL Release 6.0.0, you can configure XL Release in a clustered active/hot-standby mode. Running XL Release in this mode ensures that you have a Highly Available (HA) XL Release. This topic describes the procedure to enable active/hot-standby for versions 6.0.0 to 7.2.x.
 
 ![Active/hot-standby configuration](../images/diagram-active-hot-standby.png)
 

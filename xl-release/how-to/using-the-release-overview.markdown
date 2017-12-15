@@ -34,7 +34,8 @@ Next to each release, click:
 
 You can filter the releases using different criteria.
 
-Click **Search** to expand the search options and then type a part of a release title or release tags in the **Title** and **Tag(s)** boxes. Click **Search** again to collapse the search options.
+Click **Search** to expand the search options and then type a part of a release title or release tags in the **Title** and **Tag(s)** boxes. When you start typing the release tag name, the tag autocompletes from a database of a maximum of 500 tags. Click **Search** again to collapse the search options.
+
 You can also filter the releases by clicking **My Releases** to see only your releases and/or **Flagged** to see the flagged releases.
 
 To filter the release overview by the status of the release, click **Status** and select:
@@ -75,6 +76,7 @@ The **Duration** column shows the duration of the release.
 To order the release overview, click **Order by** and select:
 
 * **Risk** to show the releases with the highest risk level at the top
+**Note:** The sorting is done based on risk calculation, displaying the release with the maximum risk score at the top. If multiple releases have the same maximum risk score, a second sorting rule is applied calculating the total risk sum for each release.
 * **Start date** to show the releases with earliest start date on top
 * **End date** to show the release with latest end date on top
 
