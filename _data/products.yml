@@ -8,7 +8,6 @@
   installation-link: /xl-deploy/how-to/install-xl-deploy.html
   versions:
     - 7.5.x
-    - 7.2.x
     - 7.0.x
     - 6.0.x
 - name: XL Release
@@ -18,7 +17,6 @@
   installation-link: /xl-release/how-to/install-xl-release.html
   versions:
     - 7.5.x
-    - 7.2.x
     - 7.0.x
     - 6.0.x
 - name: XL Impact
