@@ -63,7 +63,7 @@
 
 # XL Deploy middleware plugins
 
-/xl-deploy-jbossas-plugin/latest/jbossPluginManual.html : /xl-deploy-jbossas-plugin/6.0.x/jbossPluginManual.html
+/xl-deploy-jbossas-plugin/latest/jbossPluginManual.html : /xl-deploy-jbossas-plugin/7.5.x/jbossPluginManual.html
 /xl-deploy-jbossdm-plugin/latest/jbossDomainPluginManual.html : /xl-deploy-jbossdm-plugin/7.5.x/jbossDomainPluginManual.html
 /xl-deploy-osb-plugin/latest/osbPluginManual.html : /xl-deploy-osb-plugin/7.0.x/osbPluginManual.html
 /xl-deploy-wls-plugin/latest/wlsPluginManual.html : /xl-deploy-wls-plugin/7.0.x/wlsPluginManual.html

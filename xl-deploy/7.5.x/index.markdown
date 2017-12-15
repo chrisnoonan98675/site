@@ -35,7 +35,7 @@ product-id: xl-deploy
 
 ### Java middleware plugins
 
-* [JBoss Application Server 5 and 6 plugin](/xl-deploy-jbossas-plugin/6.0.x/jbossPluginManual.html)
+* [JBoss Application Server 5 and 6 plugin](/xl-deploy-jbossas-plugin/7.5.x/jbossPluginManual.html)
 * [JBoss Application Server 7 and up plugin](/xl-deploy-jbossdm-plugin/7.5.x/jbossDomainPluginManual.html)
 * [Oracle Service Bus (OSB) plugin](/xl-deploy-osb-plugin/7.0.x/osbPluginManual.html)
 * [Oracle Service-Oriented Architecture (SOA) plugin](/xl-deploy-xld-oracle-soa-plugin/5.0.x/oracleSoaPluginManual.html)
