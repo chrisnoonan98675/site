@@ -12,6 +12,10 @@ tags:
 weight: 407
 ---
 
+<div class="alert alert-warning" style="width: 60%">
+If you are upgrading to XL Release 7.5, you will need to execute a different migration procedure. Please refer to <a href="/xl-release/how-to/upgrade-xl-release.html">these instructions</a>. 
+</div>
+
 Briefly, the process of upgrading XL Release is:
 
 1. Obtain a new version of the XL Release software and, if necessary, a new license from [XebiaLabs](https://dist.xebialabs.com/).
