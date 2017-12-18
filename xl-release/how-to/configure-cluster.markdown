@@ -39,9 +39,9 @@ Using XL Release in cluster mode requires the following:
 
 * XL Release servers and load balancers must be on the same network.
 
-## Active/Hot-standby setup procedure
+## Setup procedure
 
-The initial active/hot-standby setup is:
+The initial cluster setup is:
 
 * A load balancer
 * A database server
@@ -107,9 +107,12 @@ Open a command prompt, run the following server setup command, and follow the on
 
 ### Step 5 Set up the load balancer
 
-#### Active / active
+When running in cluster mode, you should configure a load balancer to route the requests to the available servers.
 
-When running in active/active mode, you should configure a load balancer to divide the requests between the available servers.
+The load balancer checks the `/ha/health` endpoint with a `HEAD` or `GET` request to verify that the node is up. This endpoint will return:
+
+* A non-success status code if it is running in hot-standby mode
+* A `200 OK` HTTP status code if it is the currently active node
 
 This is a sample `haproxy.cfg` configuration for HAProxy. Ensure that your configuration is hardened before using it in a production environment.
 
@@ -154,22 +157,10 @@ This is a sample `haproxy.cfg` configuration for HAProxy. Ensure that your confi
       default_backend default_service
     backend default_service
       cookie JSESSIONID prefix
-      server server1 xlrelease.local:5516 cookie server1 check port 5516
-      server server2 xlrelease.local:5517 cookie server2 check port 5517
+      option httpchk head /ha/health HTTP/1.0
+      server node_1 node_1:5516 cookie node_1 check inter 2000 rise 2 fall 3
+      server node_2 node_2:5516 cookie node_2 check inter 2000 rise 2 fall 3
 
-#### Active / hot standby
-
-To use active/hot-standby, you must front the XL Release servers with a load balancer. The load balancer checks the `/ha/health` endpoint with a `HEAD` or `GET` request to verify that the node is up. This endpoint will return:
-
-* A non-success status code if it is running in hot-standby mode
-* A `200 OK` HTTP status code if it is the currently active node
-
-To enable hot standby failover for HAProxy, replace the `***` section with data similar with the following:
-
-	backend default_service
-	  option httpchk head /ha/health HTTP/1.0
-	  server node_1 node_1:5516 check inter 2000 rise 2 fall 3
-	  server node_2 node_2:5516 check inter 2000 rise 2 fall 3
 
 #### Limitation on HTTP session sharing and resiliency in active / hot standby mode
 
@@ -185,3 +176,31 @@ XL Release does not share HTTP sessions among nodes. If the active XL Release no
 ### Step 6 Start the nodes
 
 Start XL Release on each node, beginning with the first node that you configured. Ensure that each node is fully up and running before starting the next one.
+
+## Advanced configuration
+
+### Network split resolution
+
+In case of a network split, the XL Release cluster has a default strategy configured to avoid the creation of multiple independent cluster partitions from the original cluster.
+The default configured strategy is the `MajorityLeaderAutoDowningProvider`.
+
+This auto-downing strategy shuts down every cluster partition which is in minority (example: `partition size < cluster size / 2`).
+When the cluster is split into two parts, `partition size == cluster size / 2`, the partition containing the oldest active cluster member will survive.
+If there are no partitions containing the sufficient number of members the quorum cannot be achieved and the whole cluster will be shutdown.
+When this occurs, an external restart of the cluster is required.
+
+An alternative strategy available by defauylt is the `OldestLeaderAutoDowningProvider`. The strategy can be activated in the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file by specifying:
+
+    xl {
+        cluster {
+            akka {
+                cluster {
+                    downing-provider-class = "com.xebialabs.xlrelease.actors.cluster.downing.OldestLeaderAutoDowningProvider"
+                }
+            }
+        }
+        ...
+    }
+
+This strategy will always keep the partition with the oldest active node alive.
+It is suitable for an XL Release cluster which requires to stay up as long as possible, without depdending on the number of members in the partitions.
