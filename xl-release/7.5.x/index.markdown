@@ -15,6 +15,7 @@ product-id: xl-release
 
 * [Remoting plugin](/xl-release/how-to/remoting-plugin.html)
 * [Kubernetes plugin](/xl-release/how-to/kubernetes-plugin.html)
+* [Openshift plugin](/xl-release/how-to/openshift-plugin.html)
 * [Ansible plugin](/xl-release/how-to/ansible-plugin.html)
 * [Docker Compose plugin](/xl-release/how-to/docker-compose-plugin.html)
 
