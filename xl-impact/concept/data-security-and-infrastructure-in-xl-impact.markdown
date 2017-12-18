@@ -12,7 +12,7 @@ tags:
 
 This is an overview of the data architecture of XL Impact:
 
-![image](../images/data-structure-diagram.png)
+![image](../images/impact-security-diagram.jpg)
 
 **Note:** The diagram shows the data flow and infrastructure for an individual customer. The components and data are not shared between multiple customers.
 
