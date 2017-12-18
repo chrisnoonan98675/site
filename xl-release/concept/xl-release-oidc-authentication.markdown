@@ -100,29 +100,6 @@ The `issuer`, `accessTokenUri`, `userAuthorizationUri`, and `logoutUri` options 
 
 **Note:** The `redirectUri` endpoint must always point to the `/oidc-login` XL Release endpoint. The `redirectUri` is an endpoint where authentication responses can be sent and received by XL Release. It must exactly match one of the `redirect_uris` you registered in OKTA and Azure AD portal and it must be URL encoded. For Keycloak you can register a pattern for `redirect_uri` from the Keycloak Admin Panel (For example, you can provide a mask such as: `http://example.com/mask**` that matches `http://example.com/mask/` or `http://example.com/mask`).
 
-##### Setting up a public key from JWK
-
-When you can get only JSON Web Key (JWK), you can use one of the Open Source scripts in order to convert the JWK to a PEM for use in `publicKey` (for example [jwk-to-pem](https://www.npmjs.com/package/jwk-to-pem)).
-You must provide only a key without the start and end headers.
-
-Example:
-
-        -----BEGIN RSA PUBLIC KEY-----
-        yourPublicKeyLine1
-        yourPublicKeyLine2
-        yourPublicKeyLineN
-        -----END RSA PUBLIC KEY-------
-
-The `publicKey` value should look like this:
-
-        xl {
-          security {
-            auth {
-              providers {
-                oidc {
-                  publicKey="yourPublicKeyLine1yourPublicKeyLine2yourPublicKeyLineN"
-        // other configurations fields...
-
 ##### Modify the `xl-release.conf` file
 
 To configure the OIDC Authentication plugin, modify the `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` file by adding a `xl.security.auth.providers` section:
@@ -135,7 +112,8 @@ To configure the OIDC Authentication plugin, modify the `XL_RELEASE_SERVER_HOME/
                   clientId="<your client id here>"
                   clientSecret="<your client secret here>"        
 
-                  publicKey="<your public key here>"
+                  keyRetrievalUri="https://oidc.example.com/endpoint/keys"
+                  keyRetrievalSchedule="<cron_schedule>"
 
                   issuer="<OpenID Provider Issuer here>"
 
@@ -156,7 +134,9 @@ To configure the OIDC Authentication plugin, modify the `XL_RELEASE_SERVER_HOME/
           }
         }
 
-**Note**: Only one authentication plugin at a time is supported. Make sure that your plugins directory contains only one `xlr-auth-*.jar` plugin.
+**Notes:**
+1. Only one authentication plugin at a time is supported. Make sure that your plugins directory contains only one `xlr-auth-*.jar` plugin.
+1. To obtain the signing keys from the Identity provider, XL Release checks the `keyRetrievalUri` endpoint periodically. To set a specific time interval, set the value of `keyRetrievalSchedule` to a cron expression.
 
 ##### Setup the post-logout URL
 
