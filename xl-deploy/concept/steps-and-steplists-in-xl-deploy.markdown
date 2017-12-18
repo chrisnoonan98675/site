@@ -53,3 +53,30 @@ All steps in a steplist are ordered in a manner similar to `/etc/init.d` scripts
 * 80 = START_CONTAINERS
 * 90 = START_ARTIFACTS
 * 100 = POST_FLIGHT
+
+### Steplist order for cloud and container plugins
+
+This is an alternative set of ordering steps for cloud and container plugins.
+
+{:.table .table-striped}
+| Destroy | Create |
+| ------- | ------ |
+| 41-49 | 51-59 = resource group / project / namespace |
+| 21-40 | 60-79 = low level resources -> network/storage/secrets/registry |
+| | 61 = create subnet |
+| | 62 = wait for subnet |
+| | 63 = create network interface |
+| 29 | 70 = upload files/binaries/blobs |
+| 22 | 78 = billing definition |  
+| 11-20 | 80-89 = vm / container / container scheduler / function resources |
+| 1-10 | 90-99 = run provisioners |
+| 0 | 100 |
+
+The basic rules:
+
+* Assign the same order for items that can be created in parallel (network/storage)
+* Wait steps should be incremented + 1 in according to their create step
+* Destroy = 100 - create
+* Modify similar to create
+* Do not use 50 because does not have a symmetrical value
+* 0 and 100 are reserved
