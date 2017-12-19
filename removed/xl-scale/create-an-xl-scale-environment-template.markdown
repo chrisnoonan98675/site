@@ -1,15 +1,6 @@
 ---
 title: Create an XL Scale environment template
-categories:
-- xl-deploy
-subject:
-- XL Scale
-tags:
-- xl scale
-- environment
-- template
-- virtualization
-weight: 384
+no_index: true
 ---
 
 [XL Scale](/xl-deploy/concept/introduction-to-xl-scale.html) can combine several hosts into a `cloud.Environment` CI. This type of CI behaves similar to `udm.Environment` and can immediately be used for application deployment. Analogous to the single-host scenario, a special CI type `cloud.EnvironmentTemplate` is used to define which host to create and allows the user to fine-tune the set of members which will end up in the new environment.

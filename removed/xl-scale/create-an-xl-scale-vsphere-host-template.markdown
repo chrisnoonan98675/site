@@ -1,17 +1,6 @@
 ---
 title: Create an XL Scale vSphere host template
-categories:
-- xl-deploy
-subject:
-- XL Scale
-tags:
-- xl scale
-- host
-- vsphere
-- plugin
-- template
-- virtualization
-weight: 386
+no_index: true
 ---
 
 A [vSphere](/xl-deploy/concept/xl-scale-vsphere-plugin.html) host template CI (`vsphere.HostTemplate`) describes a single host that can be launched on the vSphere platform. This CI is available under the **Configuration** node. In addition to generic host template properties, it allows some vSphere-specific properties.

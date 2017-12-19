@@ -1,17 +1,6 @@
 ---
 title: Create an XL Scale EC2 host template
-categories:
-- xl-deploy
-subject:
-- XL Scale
-tags:
-- xl scale
-- host
-- ec2
-- plugin
-- template
-- virtualization
-weight: 385
+no_index: true
 ---
 
 An [EC2](/xl-deploy/concept/xl-scale-ec2-plugin.html) host template CI (`ec2.HostTemplate`) describes a single host that can be launched on Amazon EC2. This CI is available under the **Configuration** node. In addition to generic host template properties, it allows some EC2-specific properties.

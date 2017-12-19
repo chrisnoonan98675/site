@@ -1,15 +1,6 @@
 ---
 title: Create an XL Scale host template
-categories:
-- xl-deploy
-subject:
-- XL Scale
-tags:
-- xl scale
-- host
-- template
-- virtualization
-weight: 387
+no_index: true
 ---
 
 [XL Scale](/xl-deploy/concept/introduction-to-xl-scale.html) host templates are created in the Repository under the **Configuration** root node. Because host templates are virtualization platform specific, there will be different configuration options depending on the exact vendor. The following configuration options are common to all vendors:

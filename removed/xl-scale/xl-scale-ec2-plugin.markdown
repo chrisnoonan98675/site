@@ -1,15 +1,6 @@
 ---
 title: Introduction to the XL Scale EC2 plugin
-categories:
-- xl-deploy
-subject:
-- XL Scale
-tags:
-- xl scale
-- plugin
-- virtualization
-- ec2
-weight: 382
+no_index: true
 ---
 
 XL Scale provides functionality to create and destroy environments on virtualized infrastructure that can be used as deployment targets. The XL Deploy EC2 plugin is a XL Deploy plugin that supports launching, provisioning and terminating hosts and environments on the Amazon EC2 platform.
