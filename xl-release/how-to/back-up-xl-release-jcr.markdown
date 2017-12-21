@@ -11,7 +11,7 @@ tags:
 - database
 removed:
  - XL Release 7.5.0
- weight: 490
+weight: 490
 ---
 
 <div class="alert alert-warning" style="width: 60%">
