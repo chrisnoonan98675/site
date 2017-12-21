@@ -9,6 +9,7 @@ tags:
 - system administration
 - installation
 - migration
+weight: 408
 ---
 
 This document describes how to upgrade to XL Release 7.5.x server from a previous version. In-place upgrade is not supported for the upgrade to 7.5, since the storage solution is a completely different architecture. The versions before 7.5 used JackRabbit (JCR) as storage and, in XL Release 7.5, the transition to a relational database model was made.
