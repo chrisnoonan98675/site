@@ -6,6 +6,7 @@ subject:
 - Getting started
 tags:
 - getting started
+weight: 399
 ---
 
 [XL Release](https://xebialabs.com/products/xl-release) is an end-to-end pipeline orchestrator for DevOps and continuous delivery. XL Release helps you automate and orchestrate your release processes and gives you visibility across your entire software release pipeline.

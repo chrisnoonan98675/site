@@ -11,7 +11,7 @@ tags:
 - database
 - active/hot-standby
 - clustering
-weight: 496
+weight: 494
 since:
 - XL Release 7.5.0
 ---
