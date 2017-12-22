@@ -27,6 +27,7 @@ For information about requirements and the configuration items (CIs) that the Az
 * Automatically destroy machines during undeployment
 * Leverage the *Blob Storage* scalable object storage for unstructured data
 * Create Web Apps with built-in auto-scale and load balancing
+* Create Function Apps based on an event-driven, serverless compute experience
 * Run containers (ACI) without managing virtual machines
 * Safeguard cryptographic keys and other secrets using Key Vault
 * Configure Load Balancer (Layer 4 TCP and UDP) to deliver high availability and network performance to your applications
