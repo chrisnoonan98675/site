@@ -38,6 +38,8 @@ To run XL Release in a cluster setup (Active/active or active/hot standby) it is
 
 **Note:** It is currently not possible to migrate the repository from an embedded database to an external database. Ensure that you configure production setup with an external database from the start. When migrating from a previous JCR version of XL Release (version 7.2 and earlier) make sure to migrate to an external database.
 
+**Important:** When migrating from XL Release version 7.2 and earlier, refer to [Upgrade to XL Release 7.5](/xl-release/how-to/upgrade-xl-release.html) for detailed migration instructions.
+
 More information:
 
 * Active/active mode: [Configure active/active](/xl-release/how-to/configure-active-active.html)
