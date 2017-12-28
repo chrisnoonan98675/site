@@ -12,7 +12,7 @@ since:
 - XL Release 7.5.0
 ---
 
-The XL Release Relationships plugin allows you to visualize relationships between releases, and mange them in bulk.
+The XL Release Relationships plugin allows you to visualize relationships between releases, and manage them in bulk.
 
 ## Features
 
@@ -46,8 +46,8 @@ If multiple relations exist from the same parents to the same child, only one ar
 
 Navigation can be done from both the Graph screen and the Table screen:
 
-* On the Graph screen, you can navigate to a specific release by double clicking the release in the graph. You will end up in the Relationship page for that release.
-* On the Table screen, you can navigate to a specific release by double clicking the release title in the table. You will end up un the release flow page for that release.
+* On the Graph screen, you can navigate to a specific release by double clicking the release in the graph. You will end up in the Relationships page for that release.
+* On the Table screen, you can navigate to a specific release by double clicking the release title in the table. You will end up on the release flow page for that release.
 
 Navigating back can be done using the browsers "Back" button.
 
