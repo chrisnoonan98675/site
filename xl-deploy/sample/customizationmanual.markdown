@@ -514,6 +514,7 @@ An _orchestrator_ is a class that performs the **Orchestration** stage described
 
 As an example, this is the implementation of the default orchestrator:
 
+    */
     @Orchestrator.Metadata(name = "default", description = "The default orchestrator")
     public class DefaultOrchestrator implements Orchestrator {
         @Override
@@ -521,6 +522,7 @@ As an example, this is the implementation of the default orchestrator:
             return interleaved(specification.getDeltas());
         }
     }
+    **
 
 It takes all delta specifications and puts them together in a single, interleaved plan. This results in a deployment plan that is ordered solely on the basis of the step's _order_ property.
 
@@ -561,7 +563,7 @@ For example, this is the implementation of a class that logs all notifications i
 
     /**
      * This event listener logs auditable events using our standard logging facilities.
-     */
+    */
     @DeployitEventListener
     public class TextLoggingAuditableEventListener {
 
@@ -585,6 +587,7 @@ Command event listeners are Java classes that have the `@DeployitEventListener` 
 
 As an example, this listener class listens for update CI commands and optionally vetoes them:
 
+    */
     @DeployitEventListener
     public class RepositoryCommandListener {
 
@@ -601,6 +604,7 @@ As an example, this listener class listens for update CI commands and optionally
             }
         }
     }
+    **
 
 ### Writing a plugin
 
@@ -705,10 +709,11 @@ Analogous to the copying of values of properties from the deployable to the depl
 
 During planning a Deployment plugin can contribute steps to the deployment plan. Each of the mechanisms that can be used is described below.
 
-##### @PrePlanProcessor and @PostPlanProcessor
+##### `@PrePlanProcessor` and @PostPlanProcessor`
 
-The @PrePlanProcessor and @PostPlanProcessor annotations can be specified on a method to define a pre- or postprocessor. The pre- or postprocessor takes an optional order attribute which defaults to '100'; lower order means it is earlier, higher order means it is later in the processor chain. The method should take a _DeltaSpecification_ and return either a _Step_, _List of Step_ or _null_, the name can be anything, so you can define multiple pre- and postprocessors in one class. See these examples:
+The `@PrePlanProcessor` and `@PostPlanProcessor` annotations can be specified on a method to define a pre- or postprocessor. The pre- or postprocessor takes an optional order attribute which defaults to '100'; lower order means it is earlier, higher order means it is later in the processor chain. The method should take a _DeltaSpecification_ and return either a _Step_, _List of Step_ or _null_, the name can be anything, so you can define multiple pre- and postprocessors in one class. See these examples:
 
+    */
     @PrePlanProcessor
     public Step preProcess(DeltaSpecification specification) { ... }
 
@@ -721,9 +726,11 @@ The @PrePlanProcessor and @PostPlanProcessor annotations can be specified on a m
     @PostPlanProcessor
     public List<Step> bar(DeltaSpecification specification) { ... }
 
+    **
+
 As a pre- or postprocessor is instantiated when it is needed, it should have a default constructor. Any fields on the class are not set, so the annotated method should not rely on them being set.
 
-##### @Create, @Modify, @Destroy, @Noop
+##### `@Create`, `@Modify`, `@Destroy`, `@Noop`
 
 Deployeds can contribute steps to a deployment in which it is present. The methods that are invoked should also be specified in the _udm.Deployed_ CI. It should take a _DeploymentPlanningContext_ (to which one or more Steps can be added with specific ordering) and a _Delta_ (specifying the operation that is being executed on the CI). The return type of the method should be _void_.
 
@@ -736,6 +743,7 @@ The method is annotated with the operation that is currently being performed on 
 
 In the following example, the method `createEar()` is called for both a _create_ and _modify_ operation of the DeployedWasEar.
 
+    */
     public class DeployedWasEar extends BaseDeployed<Ear, WasServer> {
         ...
 
@@ -749,12 +757,14 @@ In the following example, the method `createEar()` is called for both a _create_
 
 **N.B.** These methods cannot occur on _udm.EmbeddedDeployed_ CIs. The EmbeddedDeployed CIs do not add any additional behavior, but can be checked by the owning _udm.Deployed_ and that can generate steps for the EmbeddedDeployed CIs.
 
-##### @Contributor
+##### `@Contributor`
 
-A @Contributor contributes steps for the set of `Deltas` in the current subplan being evaluated. The methods annotated with @Contributor can be present on any Java class which has a default constructor. The generated steps should be added to the collector argument _context_.
+A `@Contributor` contributes steps for the set of `Deltas` in the current subplan being evaluated. The methods annotated with `@Contributor` can be present on any Java class which has a default constructor. The generated steps should be added to the collector argument _context_.
 
+    */
     @Contributor
     public void contribute(Deltas deltas, DeploymentPlanningContext context) { ... }
+    **
 
 ##### The DeploymentPlanningContext
 
@@ -772,6 +782,7 @@ Deployit must be told to add a checkpoint after a step that completes the operat
 
 Here's an example of adding a checkpoint:
 
+    */
     @Create
     public void executeCreateCommand(DeploymentPlanningContext ctx, Delta delta) {
         ctx.addStepWithCheckpoint(new ExecuteCommandStep(order, this), delta);
@@ -788,12 +799,13 @@ This informs Deployit to add the specified step and to add a _create_ checkpoint
             ctx.addStepWithCheckpoint(new NoCommandStep(order, this), delta);
         }
     }
+    **
 
 Deployit will add a _destroy_ checkpoint after the created step.
 
 Checkpoints with the _modify_ action on CIs are a bit more complicated since a _modify_ operation is frequently implemented as a combination of _destroy_ (remove the old version of the CI) and a _create_ (create the new version). In this case, we need to tell Deployit to add a checkpoint after the step removing the old version as well as a checkpoint after creating the new one. More specifically, we need to tell Deployit that the first checkpoint of the _modify_ operation is really a _destroy_ checkpoint. This is how that looks:
 
-
+    */
     @Modify
     public void executeModifyCommand(DeploymentPlanningContext ctx, Delta delta) {
         if (undoCommand != null && runUndoCommandOnUpgrade) {
@@ -803,6 +815,7 @@ Checkpoints with the _modify_ action on CIs are a bit more complicated since a _
 
         ctx.addStepWithCheckpoint(new ExecuteCommandStep(order, this), delta);
     }
+    **
 
 Note that additional parameter _Operation.DESTROY_ in the _addStepWithCheckpoint_ invocation that lets Deployit know the checkpoint is a _destroy_ checkpoint even though the delta passed in represents a _modify_ operation.
 
@@ -820,7 +833,7 @@ Parameters are specified by defining a parameters CI type. See the next section 
 
 Control tasks can be implemented in different ways:
 
-1. In Java as methods annotated with the @ControlTask annotation. The method returns a _List&lt;Step&gt;_ that the server will execute when it is invoked:
+1. In Java as methods annotated with the `@ControlTask` annotation. The method returns a _List&lt;Step&gt;_ that the server will execute when it is invoked:
 
         @ControlTask(description = "Start the Apache webserver")
         public List<Step> start() {
@@ -828,7 +841,7 @@ Control tasks can be implemented in different ways:
             return newArrayList();
         }
 
-2. In Java as a **delegate** which is bound via synthetic XML. Delegate is an object with a default constructor which contains one or more methods annotated with @Delegate. Those can be used to generate steps for control tasks.
+2. In Java as a **delegate** which is bound via synthetic XML. Delegate is an object with a default constructor which contains one or more methods annotated with `@Delegate`. Those can be used to generate steps for control tasks.
 
         class MyControlTasks {
 
@@ -907,6 +920,7 @@ For example, to indicate that a CI is stored under a ```overthere.Host``` CI in 
 
 For example:
 
+    */
     @Inspect
     public void inspect(InspectionContext ctx) {
         CliInspectionStep step = new SomeInspectionStep(...);
@@ -922,6 +936,7 @@ Next to defining CIs, new validation rules can also be defined in Java. These ca
 
 This is an example of a property validation rule called _static-content_ that validates that a string kind field has a specific fixed value:
 
+    */
     import com.xebialabs.deployit.plugin.api.validation.Rule;
     import com.xebialabs.deployit.plugin.api.validation.ValidationContext;
     import com.xebialabs.deployit.plugin.api.validation.ApplicableTo;
@@ -951,11 +966,13 @@ This is an example of a property validation rule called _static-content_ that va
             }
         }
     }
+    **
 
 A validation rule consists of an annotation, in this case _@StaticContent_, which is associated with an implementation of _com.xebialabs.deployit.plugin.api.validation.Validator&lt;T&gt;_. They are associated using the _@com.xebialabs.deployit.plugin.api.validation.Rule_ annotation. Each method of the annotation needs to be present in the validator as a property with the same name, see the _content_ field and property above. It is possible to limit the kinds of properties that a validation rule can be applied to by annotating it with the _@ApplicableTo_ annotation and providing that with the allowed property kinds.
 
 When you've defined this validation rule, you can use it to annotate a CI like such:
 
+    */
     public class MyLinuxHost extends BaseContainer {
         @Property
         @StaticContent(content = "/tmp")
@@ -969,6 +986,7 @@ Or you can use it in synthetic XML in the following way:
             <rule type="static-content" content="/tmp"/>
         </property>
     </type>
+    **
 
 ### Plugin versioning
 
@@ -1048,6 +1066,7 @@ In our sample deployment, both yakfile1 and yakfile2 are instances of this Java 
 
 The _YakServer_ is the container that will be the target of our deployment.
 
+    */
     package com.xebialabs.deployit.plugin.test.yak.ci;
 
     // imports omitted...
@@ -1073,12 +1092,13 @@ The _YakServer_ is the container that will be the target of our deployment.
             return servers;
         }
     }
+    **
 
 This class shows several interesting features:
 
 * The YakServer extends the built-in _BaseContainer_ class.
-* The @Metadata annotation specifies where in the Deployit repository the CI will be stored. In this case, the CI will be stored under the Infrastructure node. (see the Deployit Reference Manual for more information on the repository).
-* The `restartYakServers()` method annotated with @Contributor is invoked when any deployment takes place (also deployments that may not necessarily contain an instance of the YakServer class). The method `serversRequiringRestart()` searches for any YakServer instances that are present in the deployment and that requires a restart. For each of these YakServer instances, a _StartYakServerStep_ and _StopYakServerStep_ is added to the plan.
+* The `@Metadata` annotation specifies where in the Deployit repository the CI will be stored. In this case, the CI will be stored under the Infrastructure node. (see the Deployit Reference Manual for more information on the repository).
+* The `restartYakServers()` method annotated with `@Contributor` is invoked when any deployment takes place (also deployments that may not necessarily contain an instance of the YakServer class). The method `serversRequiringRestart()` searches for any YakServer instances that are present in the deployment and that requires a restart. For each of these YakServer instances, a _StartYakServerStep_ and _StopYakServerStep_ is added to the plan.
 
 When the _restartYakServers_ method is invoked, the _deltas_ parameter contains operations for both yakfile CIs. If either of the yakfile CIs was an instance of _RestartRequiringDeployedYakFile_, a start step would be added to the deployment plan.
 
@@ -1086,6 +1106,7 @@ When the _restartYakServers_ method is invoked, the _deltas_ parameter contains 
 
 The _DeployedYakFile_ represents a _YakFile_ deployed to a _YakServer_, as reflected in the class definition. The class extends the built-in _BaseDeployed_ class.
 
+    */
     package com.xebialabs.deployit.plugin.test.yak.ci;
 
     // imports omitted...
@@ -1126,8 +1147,9 @@ The _DeployedYakFile_ represents a _YakFile_ deployed to a _YakServer_, as refle
 
        private static final Logger logger = LoggerFactory.getLogger(DeployedYakFile.class);
 }
+**
 
-This class shows how to use the @Contributor to contribute steps to a deployment that includes a configured instance of the DeployedYakFile. Each annotated method annotated is invoked when the specified operation is present in the deployment for the YakFile.
+This class shows how to use the `@Contributor` to contribute steps to a deployment that includes a configured instance of the DeployedYakFile. Each annotated method annotated is invoked when the specified operation is present in the deployment for the YakFile.
 
 In our sample deployment, yakfile1 already exists on the target container CI so a *MODIFY* delta will be present in the delta specification for this CI, causing the _stop_, _start_ and _upgrade_ methods to be invoked on the CI instance. Because yakfile2 is new, a *CREATE* delta will be present, causing the _start_, and _deploy_ method to be invoked on the CI instance.
 
@@ -1135,6 +1157,7 @@ In our sample deployment, yakfile1 already exists on the target container CI so 
 
 Steps are the actions that will be executed when the deployment plan is started.
 
+    */
     package com.xebialabs.deployit.plugin.test.yak.step;
 
     import com.xebialabs.deployit.plugin.api.flow.ExecutionContext;
@@ -1171,3 +1194,4 @@ Steps are the actions that will be executed when the deployment plan is started.
          return 90;
        }
    }
+   ** 
