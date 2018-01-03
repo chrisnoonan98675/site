@@ -1,3 +1,8 @@
+---
+title: Customization manual
+no_index: true
+---
+
 ## Introduction
 
 This manual describes how to customize Deployit for use in your environment.
@@ -810,7 +815,7 @@ CIs can also define _control tasks_. Control tasks allow actions to be executed 
 1. by specifying _arguments_ to the control task in the control task _configuration_
 2. by allowing the user to specify _parameters_ to the control task during control task _execution_
 
-Arguments are configured in the control task definition in the _synthetic.xml_ file. Arguments are specified as attributes on the synthetic method definition XML and are passed as-is to the control task. 
+Arguments are configured in the control task definition in the _synthetic.xml_ file. Arguments are specified as attributes on the synthetic method definition XML and are passed as-is to the control task.
 Parameters are specified by defining a parameters CI type. See the next section for more information about defining and using control task parameters.
 
 Control tasks can be implemented in different ways:
@@ -891,14 +896,14 @@ Deployit's discovery mechanism is used to discover existing middleware and creat
 Do the following to enable discovery in your plugin:
 
 * Indicate that the CI type is discoverable (can be used as the starting point of the discovery process) by giving it the annotation ```Metadata(inspectable = true)```.
-* Indicate where in the repository tree the discoverable CI should be placed by adding an as-containment reference to the parent CI type. This also means that the context menu for the parent CI type will show the _Discover_ menu item for your CI type. 
+* Indicate where in the repository tree the discoverable CI should be placed by adding an as-containment reference to the parent CI type. This also means that the context menu for the parent CI type will show the _Discover_ menu item for your CI type.
 
 For example, to indicate that a CI is stored under a ```overthere.Host``` CI in the repository, define the following field in your CI:
 
     @Property(asContainment=true)
     private Host host;
 
-* Implement an inspection method that inspects the environment for an instance of your CI. This method needs to add an inspection step to the given context. 
+* Implement an inspection method that inspects the environment for an instance of your CI. This method needs to add an inspection step to the given context.
 
 For example:
 
