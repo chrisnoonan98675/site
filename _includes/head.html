@@ -32,6 +32,11 @@
     <link rel="stylesheet" href="/styles/syntax.css" type="text/css">
     <link rel="stylesheet" href="/fonts/online-doc-icons/styles.css" type="text/css">
     <link rel="stylesheet" href="/styles/magnific-popup.css">
+{% capture page_ext %}{{ page.path | split: "." | last }}{% endcapture %}
+{% if page_ext == "asciidoc" or page_ext == "adoc" %}
+    <link rel="stylesheet" href="/styles/asciidoctor.css" media="screen" type="text/css">
+ 	<link rel="stylesheet" href="/fonts/fontawesome/fontawesome-all.css">
+{% endif %}
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!-- Javascript -->

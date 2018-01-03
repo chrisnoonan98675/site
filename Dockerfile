@@ -1,9 +1,15 @@
-FROM jekyll/jekyll:3.2
+FROM ruby:latest
+MAINTAINER jvanerp@xebialabs.com
 
-RUN [ "gem", "install", "--no-document", "jekyll-seo-tag"]
+#Copy over the gemfile to a temporary directory and run the install command.
+WORKDIR /tmp
+ADD Gemfile Gemfile
+ADD Gemfile.lock Gemfile.lock
+RUN bundle install
 
-ARG JEKYLL_ENV=production
-
-COPY . /srv/jekyll
-
-RUN ["jekyll", "build"]
+#Switch into the working directory and run the server.
+VOLUME /src
+WORKDIR /src
+ENTRYPOINT ["/bin/sh", "-c"]
+ENV JEKYLL_ENV development
+CMD ["bundle exec jekyll serve --port 4000 --host 0.0.0.0 --incremental --destination /site"]
