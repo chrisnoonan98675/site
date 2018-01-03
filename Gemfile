@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'json'
 gem 'jekyll', '~> 3.4.4'
 gem 'jekyll-seo-tag', '~> 2.4'
 gem 'asciidoctor', '~> 1.5'
