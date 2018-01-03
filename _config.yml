@@ -23,7 +23,7 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 kramdown:
   input: GFM # Make Jekyll recognize GitHub Flavored Markdown
 
-plugins:
+gems:
   - jekyll-seo-tag
   - jekyll-asciidoc
 
