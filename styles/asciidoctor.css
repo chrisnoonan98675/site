@@ -135,6 +135,11 @@ ol.CodeRay li { white-space: pre }
 span.icon>.fa {
   cursor: default;
 }
+.admonitionblock {
+  border: 1px dotted lightgray;
+  padding: 5px;
+  background-color: #ffffee;
+}
 .admonitionblock td.icon {
   text-align: center;
   width: 80px;
