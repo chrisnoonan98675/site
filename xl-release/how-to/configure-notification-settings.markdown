@@ -14,7 +14,7 @@ tags:
 
 You can configure the email notification preferences in XL Release by adding events that trigger notifications and by modifying the recipients that receive the email notifications.
 
-To view or edit the default email notification settings, select **Settings** > **Notification settings** from the top menu.
+To view or edit the default email notification settings, select **Settings** > **Notification settings** from the top menu. The Notification page is only available to users who have the *Admin* global permission.
 
   ![Notification settings](../images/notification-settings.png)
 
