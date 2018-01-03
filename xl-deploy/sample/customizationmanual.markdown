@@ -1,5 +1,5 @@
 ---
-title: Architecture
+title: Customization manual
 no_index: true
 ---
 
