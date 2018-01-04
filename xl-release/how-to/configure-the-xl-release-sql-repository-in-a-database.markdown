@@ -20,7 +20,7 @@ weight: 493
 This document describes the database configuration for XL Release 7.5 and later versions. For previous versions that use the JackRabbit (JCR) repository, refer to <a href="/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html">Configure the XL Release JCR repository in a database</a>.
 </div>
 
-XL Release stores its data in a repository. By default, this an embedded database stored in `XL_RELEASE_SERVER_HOME/repository`.
+XL Release stores its data in a repository. By default, this repository is an embedded database stored in `XL_RELEASE_SERVER_HOME/repository`.
 
 Completed releases and reporting information are stored in another database called 'archive'. By default, this is also an embedded database stored in `XL_RELEASE_SERVER_HOME/archive`.
 
