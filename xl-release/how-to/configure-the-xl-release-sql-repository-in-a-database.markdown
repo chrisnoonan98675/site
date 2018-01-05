@@ -28,11 +28,11 @@ The embedded databases are automatically created when XL Release is started for 
 
 The purpose for the embedded databases is the easy setup in evaluation and test environments. For production use, it is strongly recommended to use an industrial-grade external database server. The following databases are supported:
 
-* PostgreSQL
-* MySQL
-* Oracle 11g or 12c
-* Microsoft SQL Server 2012
-* DB2
+* PostgreSQL version 9.6
+* MySQL version 5.7
+* Oracle 11g
+* Microsoft SQL Server 2012 and later
+* DB2 version 10.5
 
 To run XL Release in a cluster setup (Active/active or active/hot standby) it is required to have the repository stored in an external database.
 
