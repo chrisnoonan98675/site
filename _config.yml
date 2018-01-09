@@ -20,6 +20,16 @@ sitemap:
 
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
+exclude:
+    - gradle*
+    - build.gradle
+    - README.md
+    - sources.yml
+    - Dockerfile
+    - docker-compose.yml
+    - Gemfile
+    - Gemfile.lock
+
 kramdown:
   input: GFM # Make Jekyll recognize GitHub Flavored Markdown
 
