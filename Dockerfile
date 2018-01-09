@@ -1,5 +1,8 @@
-FROM ruby:latest
+FROM ruby:alpine
 MAINTAINER jvanerp@xebialabs.com
+
+# Install Ruby development tools
+RUN apk add --update ruby-dev libffi-dev build-base
 
 #Copy over the gemfile to a temporary directory and run the install command.
 WORKDIR /tmp
