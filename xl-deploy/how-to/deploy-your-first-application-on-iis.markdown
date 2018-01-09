@@ -12,7 +12,7 @@ since:
 - XL Deploy 5.0.0
 ---
 
-After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) and the [Microsoft IIS plugin](/xl-deploy/latest/iisPluginManual.html), log in to XL Deploy and follow these instructions to:
+After you have installed [XL Deploy](http://xebialabs.com/products/xl-deploy) and the [Microsoft IIS plugin](/xl-deploy-iis-plugin/latest/iisPluginManual.html), log in to XL Deploy and follow these instructions to:
 
 1. Create an environment and add Microsoft Internet Information Services (IIS) middleware containers to it
 1. Import a sample application into XL Deploy

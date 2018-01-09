@@ -13,7 +13,7 @@ weight: 407
 ---
 
 <div class="alert alert-warning" style="width: 60%">
-If you are upgrading to XL Release 7.5, you will need to execute a different migration procedure. Please refer to <a href="/xl-release/how-to/upgrade-xl-release.html">these instructions</a>. 
+If you are upgrading to XL Release 7.5, you will need to execute a different migration procedure. Please refer to <a href="/xl-release/how-to/upgrade-to-7.5.0.html">these instructions</a>. 
 </div>
 
 Briefly, the process of upgrading XL Release is:

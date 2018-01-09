@@ -13,13 +13,14 @@ tags:
 - sql
 since:
 - XL Release 7.5.0
+weight: 493
 ---
 
 <div class="alert alert-warning" style="width: 60%">
-This document describes the database configuration for XL Release 7.5 and later versions. For previous versions that use the JackRabbit (JCR) repository, refer to <a href="xl-release/how-to/configure-the-xl-release-repository-in-a-database.html">Configure the XL Release JCR repository in a database</a>.
+This document describes the database configuration for XL Release 7.5 and later versions. For previous versions that use the JackRabbit (JCR) repository, refer to <a href="/xl-release/how-to/configure-the-xl-release-repository-in-a-database.html">Configure the XL Release JCR repository in a database</a>.
 </div>
 
-XL Release stores its data in a repository. By default, this an embedded database stored in `XL_RELEASE_SERVER_HOME/repository`.
+XL Release stores its data in a repository. By default, this repository is an embedded database stored in `XL_RELEASE_SERVER_HOME/repository`.
 
 Completed releases and reporting information are stored in another database called 'archive'. By default, this is also an embedded database stored in `XL_RELEASE_SERVER_HOME/archive`.
 
@@ -27,15 +28,17 @@ The embedded databases are automatically created when XL Release is started for 
 
 The purpose for the embedded databases is the easy setup in evaluation and test environments. For production use, it is strongly recommended to use an industrial-grade external database server. The following databases are supported:
 
-* PostgreSQL
-* MySQL
-* Oracle 11g or 12c
-* Microsoft SQL Server 2012
-* DB2
+* PostgreSQL version 9.6
+* MySQL version 5.7
+* Oracle 11g
+* Microsoft SQL Server 2012 and later
+* DB2 version 10.5
 
 To run XL Release in a cluster setup (Active/active or active/hot standby) it is required to have the repository stored in an external database.
 
 **Note:** It is currently not possible to migrate the repository from an embedded database to an external database. Ensure that you configure production setup with an external database from the start. When migrating from a previous JCR version of XL Release (version 7.2 and earlier) make sure to migrate to an external database.
+
+**Important:** When migrating from XL Release version 7.2 and earlier, refer to [Upgrade to XL Release 7.5](/xl-release/how-to/upgrade-to-7.5.0.html) for detailed migration instructions.
 
 More information:
 

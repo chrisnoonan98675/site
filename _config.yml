@@ -1,7 +1,8 @@
 title: XebiaLabs documentation
-tagline: 'Deliver faster'
-description: 'Leading provider of Continuous Delivery tooling with agentless application release and deployment automation solutions for the Enterprise.'
+tagline: 'Intelligence and Automation for Enterprise DevOps'
+description: 'XebiaLabs develops enterprise-scale Continuous Delivery and DevOps software.'
 url: https://docs.xebialabs.com
+baseurl: /
 twitter:
   username: xebialabs
 logo: /images/logos/xebialabs-standard.jpg
@@ -19,11 +20,22 @@ sitemap:
 
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
+exclude:
+    - gradle*
+    - build.gradle
+    - README.md
+    - sources.yml
+    - Dockerfile
+    - docker-compose.yml
+    - Gemfile
+    - Gemfile.lock
+
 kramdown:
   input: GFM # Make Jekyll recognize GitHub Flavored Markdown
 
-gems:
+plugins:
   - jekyll-seo-tag
+  - jekyll-asciidoc
 
 jira_dashboard:
   generate: true
@@ -32,6 +44,14 @@ jira_dashboard:
   jira_url: 'https://xebialabs.atlassian.net/rest/api/2'
   jira_username: 'documentation@xebialabs.com'
   jira_password: '18docs_ci1313#'
+
+asciidoc: {}
+asciidoctor:
+  base_dir: :docdir
+  safe: unsafe
+  attributes:
+    - source-highlighter=coderay
+    - icons=font
 
 defaults:
     -

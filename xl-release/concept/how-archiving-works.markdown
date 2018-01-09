@@ -14,7 +14,7 @@ since:
 weight: 436
 ---
 
-In XL Release 4.7.0 and later, *completed* and *aborted* releases are archived, which means that they are removed from the XL Release repository (JCR database) and stored in a different internal database, which is called the *archive database*. This improves performance and allows you to create custom hooks that export release information to external databases or reporting tools.
+In XL Release 4.7.0 and later, *completed* and *aborted* releases are archived, which means that they are removed from the XL Release repository and stored in a different internal database, which is called the *archive database*. This improves performance and allows you to create custom hooks that export release information to external databases or reporting tools.
 
 ![How archiving works](../images/diagram-databases-export-hooks.png)
 

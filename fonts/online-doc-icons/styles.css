@@ -26,7 +26,7 @@
 }
 
 [class^="icon-"]:before,
-[class*=" icon-"]:before {
+[class*=" icon-"]:not([class^="fa"]):before {
   font-family: "online-doc-icons" !important;
   font-style: normal !important;
   font-weight: normal !important;

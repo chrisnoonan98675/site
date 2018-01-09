@@ -10,34 +10,39 @@ This repository contains:
 
 For general information about XebiaLabs documentation, refer to [Technical documentation basics](https://xebialabs.atlassian.net/wiki/display/Labs/Technical+documentation+basics).
 
-# Generate the documentation site locally
+# Run a local documentation site
+1. Clone this repository
+2. Ensure that you have `docker` and `docker-compose` installed.
+3. Run: `docker-compose up`
+Go to `http://localhost:4000` to see the site running locally.
 
-To generate the Jekyll-based part of the documentation site locally:
+## Running a different Jekyll environment
+There are 3 different flavours of Jekyll environments that you can run in the docker container. By default the `development` environment is being built.
 
-1. Clone this repository.
-1. Install Jekyll version 3.4.4 and its requirements:
-    * Linux and OS X users, follow [the official instructions](http://jekyllrb.com/docs/installation/). **Important:** If you're using OS X 10.11 (El Capitan) or later, [read this important info](http://jekyllrb.com/docs/troubleshooting/#jekyll-amp-mac-os-x-1011)!
-    * Windows users, follow [these instructions](https://jekyllrb.com/docs/windows/#installation)
-1. Install the `jekyll-seo-tag` gem.
-1. In the directory where you cloned the repository, execute `jekyll serve`. Go to `http://localhost:4000` to see the site running locally.
+* **Development**: Default environment for development purposes
+* **Lightweight**: Used to generate the site locally as quickly as possible
+* **Production**: Used to generate pages for the live documentation site
+
+To run the docker jekyll container with another environment, you can pass this on the command line using an environment variable as follows:
+
+    $ JEKYLL_ENV=production docker-compose up
+
+See below for a description of the different environments.
+
+# Running on Jenkins
+The Jenkins build is setup to also run from the docker container. However, instead of running a local webserver, it executes `jekyll build` to only generate the output. The command executed by Jenkins is:
+
+    $ JEKYLL_ENV=production JEKYLL_DIST=_site docker-compose run xl-jekyll bundle exec jekyll build
+
+Jekyll will then generate the site and drop back to the command line.
 
 ## Installation tips
 
 You may also want to install [Magnific Popup](https://github.com/dimsemenov/Magnific-Popup), which is used for video links.
 
-If you use [Homebrew](http://brew.sh/) to install Jekyll on OS X, you may encounter [this issue](https://github.com/Homebrew/homebrew/issues/11448). [Here](http://davidensinger.com/2013/03/installing-jekyll/) is more information about fixing it.
-
 ## Usage tips
 
-If you run into problems, first check that you have the right version of Jekyll with `jekyll --version`.
-
 ### Jekyll environments
-
-***NEW!*** There are three Jekyll environments that you can use.
-
-* **Development**: Default environment when you execute `jekyll serve` or `jekyll build`
-* **Lightweight**: Used to generate the site locally as quickly as possible
-* **Production**: Used to generate pages for the live documentation site
 
 #### Development environment
 
@@ -50,9 +55,7 @@ Keep in mind that a site generated in development mode will not look exactly lik
 
 To use the development environment, start Jekyll with:
 
-    jekyll serve
-
-You can combine this with the `--incremental` or `--no-watch` options (see below).
+    $ docker-compose up
 
 #### Lightweight environment
 
@@ -62,11 +65,9 @@ Keep in mind that a site generated in lightweight mode will look very different 
 
 To use the lightweight environment, start Jekyll with:
 
-    JEKYLL_ENV=lightweight jekyll serve
+    $ JEKYLL_ENV=lightweight docker-compose up
 
 Note that this command is case-sensitive.
-
-You can combine this with the `--incremental` or `--no-watch` options (see below).
 
 #### Production environment
 
@@ -74,19 +75,13 @@ You can combine this with the `--incremental` or `--no-watch` options (see below
 
 To use the production environment, start Jekyll with:
 
-    JEKYLL_ENV=production jekyll serve
+    $ JEKYLL_ENV=production docker-compose up
 
 Note that this command is case-sensitive.
 
-You can combine this with the `--incremental` or `--no-watch` options (see below).
-
 ## Speed up site regeneration
 
-***NEW!*** If you execute `jekyll serve`, the whole site is regenerated every time you make a change (except in `_config.yml`). You can prevent this by using the `--incremental` option. This means Jekyll will only regenerate the file(s) that you change, which usually takes less than 1 second.
-
-Note that this is an experimental feature; incremental builds don't always pick up changes in Liquid code or changes that affect the various lists of topics that Jekyll generates. If you're using incremental builds and you don't see the output you expected, stop Jekyll (with CTRL+C) and run `jekyll serve` or `jekyll build`. This will regenerate the whole site and clean up the `_site` directory; you can then try using incremental builds again.
-
-You can also disable regeneration altogether by executing `jekyll --no-watch`.
+***NEW!*** If you execute `docker-compose up`, by default the site will be generated incrementally (using the `--incremental` flag of Jekyll). This works 90% of the time. Incremental builds don't always pick up changes in Liquid code or changes that affect the various lists of topics that Jekyll generates. If you don't see the output you expected, stop Jekyll (with CTRL+C) and run `docker-compose up`. This will regenerate the whole site; you can then try using incremental builds again.
 
 ## Disable the Fix Tracker
 
@@ -96,7 +91,9 @@ Change the `jira_dashboard` `generate` setting in `_config.yml` to `false`, then
 
 ## Writing tips
 
-* You may want to use a Markdown editor such as [MacDown](http://macdown.uranusjr.com/), [Atom](https://atom.io), or [MarkdownPad](http://markdownpad.com/).
+***NEW!*** It's now also possible to write documentation in AsciiDoc.
+
+* You may want to use a Markdown editor such as [MacDown](http://macdown.uranusjr.com/), [Atom](https://atom.io), [MarkdownPad](http://markdownpad.com/) or [Sublime Text](https://sublimetext.com/).
 * In MacDown, go to **Preferences** > **Rendering** and select **Detect Jekyll front-matter** to see the [YAML front matter](http://jekyllrb.com/docs/frontmatter/) in a nice table.
 * Be sure to spell check your work! Set your spell checker to *U.S. English*.
 
@@ -124,7 +121,7 @@ After review, the pull request should be merged into the master branch, a releas
 
 # File naming convention
 
-The naming convention for documentation site files is `your-file-name-here.markdown`. Do not use underscores, spaces, or uppercase letters in the file name.
+The naming convention for documentation site files is `your-file-name-here.markdown` or `your-file-name-here.adoc`. Do not use underscores, spaces, or uppercase letters in the file name.
 
 # Front matter options
 
@@ -208,9 +205,11 @@ For lots of examples of placeholder pages, see the `/xl-deploy/concept/versioned
 
 Jekyll uses the [Kramdown](http://kramdown.gettalong.org/) Markdown converter. It can also accept [GitHub Flavored Markdown](https://help.github.com/articles/about-writing-and-formatting-on-github/).
 
+For AsciiDoc Jekyll uses the excellent [AsciiDoctor](http://asciidoctor.org) AsciiDoc converter. 
+
 ## Headings
 
-Use heading 2 (`##` in Markdown) and lower. Don't use heading 1.
+Use heading 2 (`##` in Markdown, `==` in AsciiDoc) and lower. Don't use heading 1.
 
 ## Placeholders and double curly brackets
 
