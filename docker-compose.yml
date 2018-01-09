@@ -8,3 +8,4 @@ services:
       - .:/src
     environment:
       - JEKYLL_ENV
+      - JEKYLL_DEST

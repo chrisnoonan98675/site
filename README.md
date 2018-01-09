@@ -29,6 +29,13 @@ To run the docker jekyll container with another environment, you can pass this o
 
 See below for a description of the different environments.
 
+# Running on Jenkins
+The Jenkins build is setup to also run from the docker container. However, instead of running a local webserver, it executes `jekyll build` to only generate the output. The command executed by Jenkins is:
+
+    $ JEKYLL_ENV=production JEKYLL_DIST=_site docker-compose run xl-jekyll bundle exec jekyll build
+
+Jekyll will then generate the site and drop back to the command line.
+
 ## Installation tips
 
 You may also want to install [Magnific Popup](https://github.com/dimsemenov/Magnific-Popup), which is used for video links.
@@ -74,9 +81,7 @@ Note that this command is case-sensitive.
 
 ## Speed up site regeneration
 
-***NEW!*** If you execute `jekyll serve`, the whole site is regenerated every time you make a change (except in `_config.yml`). You can prevent this by using the `--incremental` option. This means Jekyll will only regenerate the file(s) that you change, which usually takes less than 1 second.
-
-Note that this is an experimental feature; incremental builds don't always pick up changes in Liquid code or changes that affect the various lists of topics that Jekyll generates. If you're using incremental builds and you don't see the output you expected, stop Jekyll (with CTRL+C) and run `docker-compose up`. This will regenerate the whole site; you can then try using incremental builds again.
+***NEW!*** If you execute `docker-compose up`, by default the site will be generated incrementally (using the `--incremental` flag of Jekyll). This works 90% of the time. Incremental builds don't always pick up changes in Liquid code or changes that affect the various lists of topics that Jekyll generates. If you don't see the output you expected, stop Jekyll (with CTRL+C) and run `docker-compose up`. This will regenerate the whole site; you can then try using incremental builds again.
 
 ## Disable the Fix Tracker
 

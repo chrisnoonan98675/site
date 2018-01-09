@@ -10,6 +10,6 @@ RUN bundle install
 #Switch into the working directory and run the server.
 VOLUME /src
 WORKDIR /src
-ENTRYPOINT ["/bin/sh", "-c"]
 ENV JEKYLL_ENV development
-CMD ["bundle exec jekyll serve --port 4000 --host 0.0.0.0 --incremental --destination /site"]
+ENV JEKYLL_DEST /site
+CMD ["bundle exec jekyll serve --port 4000 --host 0.0.0.0 --incremental --destination $JEKYLL_DEST"]
