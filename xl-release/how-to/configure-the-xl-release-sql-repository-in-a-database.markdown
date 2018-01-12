@@ -42,8 +42,8 @@ To run XL Release in a cluster setup (Active/active or active/hot standby) it is
 
 More information:
 
-* Active/active mode: [Configure active/active](/xl-release/how-to/configure-active-active.html)
 * Active/hot standby mode: [Configure active/hot-standby](/xl-release/how-to/configure-active-hot-standby.html)
+* Cluster mode: [Configure cluster mode](/xl-release/how-to/configure-cluster.html)
 * Backing up and restore: [Back up XL Release](/xl-release/how-to/back-up-xl-release.html)
 
 ## Preparing the external database
