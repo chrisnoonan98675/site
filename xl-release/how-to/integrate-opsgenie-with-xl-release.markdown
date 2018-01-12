@@ -1,6 +1,13 @@
 ---
 title: Using OpsGenie with XL Release
-no_index: true
+categories:
+- xl-release
+subject:
+- Releases
+tags:
+- opsgenie
+- ops
+- plugin
 ---
 
 The XL Release OpsGenie plugin allows you to use XL Release with [OpsGenie](https://www.opsgenie.com/) to generate alerts with all the supporting information to the responsible teams and people from within the release pipeline.
@@ -24,7 +31,7 @@ Download a sample of the [ReleaseFile](/xl-release/how-to/sample-scripts/OpsGeni
 
 * A valid [OpsGenie](https://www.opsgenie.com/) subscription and a user with admin rights.
 * [XL Release 7.5](/xl-release/concept/requirements-for-installing-xl-release.html) or later.
-* The [XL Release OpsGenie plugin](https://dist.xebialabs.com/customer/xl-release/plugins/xlr-opsgenie-plugin/7.5.0/)
+* The [XL Release OpsGenie plugin](https://github.com/xebialabs/xlr-opsgenie-plugin/releases/tag/xlr-opsgenie-plugin-7.5.0)
 
 ## Setup
 
