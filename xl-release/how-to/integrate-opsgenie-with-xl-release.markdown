@@ -18,7 +18,7 @@ The XL Release OpsGenie plugin allows you to use XL Release with [OpsGenie](http
 * Execute custom actions on alerts in OpsGenie
 * Disable or enable integrations in OpsGenie
 
-Download a sample of the ![ReleaseFile](/xl-release/how-to/sample-scripts/OpsGenie-demo-Releasefile.groovy) for a demo of the OpsGenie XL Release plugin.
+Download a sample of the [ReleaseFile](/xl-release/how-to/sample-scripts/OpsGenie-demo-Releasefile.groovy) for a demo of the OpsGenie XL Release plugin.
 
 ## Requirements
 
