@@ -22,6 +22,11 @@ The options for the notification task are:
 | To | A list of email addresses where the message will be sent |
 | Subject | The subject of the message |
 | Body | The message body, in plain text |
+| CC | A list of email addresses that receive the message as CC | 
+| BCC | A list of email addresses that receive the message as BCC |
+| Reply to | A email address of the reply message recipient |
+| Mail priority | The priority of the email |
+| From | The email address of the message sender. It overrides the default SMTP server sender |
 
 Click a field to edit it. You can use [variables](/xl-release/concept/variables-in-xl-release.html).
 
