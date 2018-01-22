@@ -22,12 +22,16 @@ Please also refer to the general <a href="/xl-release/how-to/upgrade-xl-release.
 
 * Upgrade source XL Release server to version 7.0.x or 7.2.0.
 * External database for the storage of XL Release data. Supported databases:
-    * PostgreSQL version 9.6
-    * MySQL version 5.7
+    * PostgreSQL versions 9.3, 9.4, 9.5, 9.6, and 10.1
+
+      **Note:** The archiving database and the normal database must point to different external databases.
+    * MySQL versions 5.5, 5.6, and 5.7
     * Oracle 11g
     * Microsoft SQL Server 2012 and later
-    * DB2 version 10.5
-* Note that the archive database is still needed. The structure and functionality have not changed in this upgrade.
+    * DB2 versions 10.5 and 11.1
+
+      **Important:** To use DB2 as an external database, ensure you increase the `pagesize` to `32K`.
+* The archive database is still required. The structure and functionality have not changed in this upgrade.
 
 ## Overview
 
