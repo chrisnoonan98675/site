@@ -27,7 +27,7 @@ The XL Release Relationships feature allows you to visualize relationships betwe
 The Relationships feature requires the following:
 
 1. XL Release version 7.5 or later to be installed.
-1. The XL Release `relationship-plugin` to be installed.
+1. The [XL Release `relationship-plugin`](https://dist.xebialabs.com/customer/xl-release/plugins/xlr-relationships-plugin/7.5.0/) to be installed.
 
 ## Types of relationships
 
