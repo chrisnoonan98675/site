@@ -18,6 +18,7 @@ product-id: xl-release
 * [Openshift plugin](/xl-release/how-to/openshift-plugin.html)
 * [Ansible plugin](/xl-release/how-to/ansible-plugin.html)
 * [Docker Compose plugin](/xl-release/how-to/docker-compose-plugin.html)
+* [Relationships plugin](/xl-release/how-to/relationships-plugin.html)
 
 ### Tools
 
