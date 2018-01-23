@@ -1,5 +1,5 @@
 ---
-title: Using the *View As* feature
+title: Using the View As feature
 categories:
 - xl-deploy
 subject:
@@ -21,3 +21,7 @@ To view XL Deploy from a different user perspective:
 ![View As](images/view-as.png)
 
 The XL Deploy view is filtered by the read permissions of the selected user or role. When you are in the *View As* mode, you still have the admin permissions.
+
+**Important:**
+* If you want to view XL Deploy as an existing LDAP user, the LDAP user will not listed for autocompletion in the drop down list.
+* If you try to view as another SSO user, a message will inform you that the user could not be found because roles cannot be queried for other SSO users.
