@@ -41,6 +41,6 @@ To renew an Enterprise Edition license or extend a Trial Edition license, [conta
 
 To renew your license using a license file that you download from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/), replace the license file in the `XL_RELEASE_SERVER_HOME/conf` directory with the new file.
 
-To renew your license using a license key, click the gear icon in the top right corner in XL Release, select **Renew license**, and enter the new license key.
+To renew your license using a license key you must have the [Admin global permission](/xl-release/how-to/configure-permissions.html). Click the gear icon in the top right corner in XL Release, select **Renew license**, and enter the new license key.
 
 If you are using XL Release version 7.5 or earlier and you want to renew your license using a license key, go to **Help** > **About** in XL Release, click **Renew license**, and enter the new license key.
