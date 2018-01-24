@@ -86,12 +86,12 @@ To configure XL Release to use an LDAP repository, modify the `xl-release-securi
 
     &lt;bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/&gt;
 
-    &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider"/&gt;
+    &lt;bean id="internalAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider"/&gt;
 
     &lt;security:authentication-manager alias="authenticationManager"&gt;
         &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt;
         &lt;security:authentication-provider ref="ldapProvider" /&gt;
-        &lt;security:authentication-provider ref="jcrAuthenticationProvider"/&gt;
+        &lt;security:authentication-provider ref="internalAuthenticationProvider"/&gt;
     &lt;/security:authentication-manager&gt;
 
 &lt;/beans&gt;
@@ -212,7 +212,7 @@ This example creates a group called `everyone` that is assigned to each user who
             <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
         </bean>
 
-        <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider">
+        <bean id="internalAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider">
             <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
         </bean>
 
