@@ -233,7 +233,7 @@ At folder or release level, you can add permissions for a team called *Dev Team*
 
 When you log in as a user to the *devs* group using LDAP/Active Directory, you automatically have the permissions for the *Developers* role at folder or release level.  
 
-# LDAP data caching
+## LDAP data caching
 
 To ensure a high level of performance of the server, XL Release caches the user data for 30 minutes and a group email for 1 minute. 
 This can produce a small delay between the time when updates in your LDAP repository occur and the time when they appear in XL Release.
