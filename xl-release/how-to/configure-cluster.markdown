@@ -51,7 +51,7 @@ To set up the cluster, perform the following configuration steps before starting
 
 ### Step 1 Set up external databases
 
-Follow the instructions in [Configure the XL Release SQL repository in a database](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.markdown).
+Follow the instructions in [Configure the XL Release SQL repository in a database](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html).
 
 For the cluster setup, both the `xlrelease` repository and the reporting archive must be configured in an external database.
 
