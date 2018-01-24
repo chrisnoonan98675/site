@@ -20,7 +20,7 @@ Please also refer to the general <a href="/xl-release/how-to/upgrade-xl-release.
 
 ## Prerequisites
 
-* Upgrade source XL Release server to version 7.0.x or 7.2.0.
+* Upgrade source XL Release server to version 7.0.x, 7.1.x, or 7.2.x.
 * External database for the storage of XL Release data. Supported databases:
     * PostgreSQL versions 9.3, 9.4, 9.5, 9.6, and 10.1
 
