@@ -1,5 +1,5 @@
 ---
-title: Using the XL Release Relationships feature
+title: Using the Release Relationships View
 categories:
 - xl-release
 subject:
@@ -13,7 +13,7 @@ since:
 - XL Release 7.5.0
 ---
 
-The XL Release Relationships feature allows you to visualize relationships between releases and manage multiple releases at the same time.
+The Release Relationships View allows you to visualize relationships between releases and manage multiple releases at the same time.
 
 ## Features
 
@@ -24,7 +24,7 @@ The XL Release Relationships feature allows you to visualize relationships betwe
 
 ## Requirements
 
-The Relationships feature requires the following:
+The Relationships View requires the following:
 
 1. XL Release version 7.5 or later to be installed.
 1. The [XL Release `relationship-plugin`](https://dist.xebialabs.com/customer/xl-release/plugins/xlr-relationships-plugin/7.5.0/) to be installed.
