@@ -10,32 +10,32 @@ tags:
 - deployment pattern
 ---
 
-This guide explains how to perform ["blue-green" deployments](http://martinfowler.com/bliki/BlueGreenDeployment.html) using XL Release and XL Deploy. 
+This guide explains how to perform ["blue-green" deployments](http://martinfowler.com/bliki/BlueGreenDeployment.html) using XL Release and XL Deploy.
 
-Blue-green deployment is a pattern in which identical production environments known as Blue and Green are maintained, one of which is live at all times. 
-Suppose Blue is the live environment. Then, applications or features are deployed to and tested on the non-live environment Green before user traffic is diverted to it.
+Blue-green deployment is a pattern in which identical production environments known as Blue and Green are maintained, one of which is live at all times.
+If the Blue is the live environment, applications or features are deployed to and tested on the non-live Green environment before user traffic is diverted to it.
 
-If it is necessary to roll back the release in the Green environment, you can simply route user traffic back to the Blue environment.
+If it is necessary to roll back the release in the Green environment, you can route user traffic back to the Blue environment.
 
-When the Green environment is stable, the Blue environment can be retired and is ready updated in the next iteration, where it will take the role of the Green environment of this example. 
+When the Green environment is stable, the Blue environment can be retired and is ready to be updated in the next iteration, where it will take the role of the Green environment of this example.
 
-This guide has the following parts
+This guide has the following parts:
 
 1. Defining the pattern in XL Release.
 2. Defining the environments in XL Deploy.
-3. Putting it all together and making it work.
+3. Combining the defined components and setting up the process.
 
 ## Defining the Blue/Green pattern in XL Release
 
-XL Release makes it easy to define your release process and is an excellent tool to prototype the process that is immediatley usable. As you evolve and get experience with the process, you can easily refine the defined release flow in XL Release and integrate your toolchain.
+With XL Release you can define your release process in simple steps and create a process prototype that is immediately usable. With advance knowledge of the process, you can refine the defined release flow in XL Release and integrate your toolchain.
 
-First, we will make a sketch of the process. This gives a nice high-level overview of the Blue/Green deployment pattern.
+The first step is to create a sketch of the process. This gives you a high-level overview of the Blue/Green deployment pattern.
 
 ![Blue/green sketch](../images/bluegreen/bluegreen-sketch.png)
 
-This XL Release template shows the basic steps. It can be made quickly by adding manual tasks as placeholders. In this example we will use XL Deploy, so also stub XL Deploy tasks are added.
+This XL Release template shows the basic steps. You can create it by adding manual tasks as placeholders. XL Deploy will be used this example, so XL Deploy stub tasks are added.
 
-This high level sketch is the starting point of your Blue/Geen deployment process. It reads as a more fine grained description of Blue/Green deployments, but can immediately be used as a workflow model.
+This high level sketch is the starting point of your Blue/Green deployment process. The primary purpose is to be detailed description of Blue/Green deployments, but can be used as a workflow model.
 
 _Download the Blue/Green deployment template in [XLR format](../images/bluegreen/BlueGreen-template.xlr) (for XL Release 7.5 and higher) or as [Releasefile](../images/bluegreen/Releasefile.groovy) to import it in your XL Release server._
 
@@ -45,23 +45,23 @@ There are four phases:
 
 This is a preparation phase to make sure that the software is deployed to the correct environment.
 
- * **What is currently running?**. Determine the environment that is currently live ('Blue') and deduce the new environment ('Green'). Since 'Blue' and 'Green' can switch roles, we will use the the terms 'current live environment' for 'Blue' and 'new environment' for 'Green' in this example.
+ * **What is currently running?**. Determine the environment that is currently live ('Blue') and deduce the new environment ('Green'). Because 'Blue' and 'Green' can switch roles, in this example the term 'current live environment' is used for 'Blue' and 'new environment' for 'Green' .
 
- * **Confirm new environment**. The Release Manager confirms that we will deploy to the right environment. This is modeled in XL Release by way of a User Input Task.
+ * **Confirm new environment**. The Release Manager confirms that you will deploy to the right environment. This is modeled in XL Release using a User Input Task.
 
 #### 2. **Deploy and test**
 
-We are ready to deploy the new application version to the environment that is not in use.
+You are ready to deploy the new application version to the environment that is not in use.
 
- * **Deploy to new environment**. XL Deploy takes care of the deployment of the new version to the environment that is not currently live. The [XL Deploy task in XL Release](/xl-release/how-to/xld-plugin.html) takes care of communicating with the XL Deploy server.
- * **Run tests**. In the sketch this is modeled as a manual activity. This allowes you to run the template without having all the integrations in place. Later, this task can be replaced wqith an automated task that integrates with a testing tool.
+ * **Deploy to new environment**. XL Deploy handles the deployment of the new version to the environment that is not currently live. The [XL Deploy task in XL Release](/xl-release/how-to/xld-plugin.html) handles the communication with the XL Deploy server.
+ * **Run tests**. In the sketch, this is modeled as a manual activity. This allows you to run the template without having all the integrations in place. Later, this task can be replaced with an automated task that integrates with a testing tool.
  * **OK to switch?** This is a *gate* in the process, where the release manager confirms we can proceed to bring the new environment ('Green') live.
 
-#### 3. **Switch to live** 
+#### 3. **Switch to live**
 
 Now that the deployment is running and fully tested we can make the switch.
 
-* **Change load balancer**. For now we have to manually do this step and mark this task as done in XL Release before the process continuess. Later we can replace it with an automated integration.
+* **Change load balancer**. For now we have to manually do this step and mark this task as done in XL Release before the process continues. Later we can replace it with an automated integration.
 
 * **Update registry with live environment**. Remember which environment is currently live so we know the next time we will run this template.
 
@@ -76,7 +76,7 @@ When the new environment is running fine and there is no need for a rollback, th
 * **Undeploy old environment**. Turn of old environment. We are using XL Deploy to do this.
 
 
-## Refine the process 
+## Refine the process
 
 We will now setup XL Deploy to have the environments ready and link everything together in XL Release using variables to communicate between tasks.
 
@@ -94,7 +94,7 @@ In XL Release, [add an XL Deploy Server item](/xl-release/how-to/xld-plugin.html
 
 We will define the following variables in XL Release that maintain the state of the Blue/Green process.
 
-* A [global variable](https://docs.xebialabs.com/xl-release/how-to/configure-global-variables.html) `${global.bluegreen-environments}`. This is the list of available environments. This list will be used by various other variables. We want to configure the list of environments once, so we create a global variable for it. It is a variable of type 'List' that has two values: 'Blue' and 'Green', corresponding to the names of the environment in XL Deploy. 
+* A [global variable](https://docs.xebialabs.com/xl-release/how-to/configure-global-variables.html) `${global.bluegreen-environments}`. This is the list of available environments. This list will be used by various other variables. We want to configure the list of environments once, so we create a global variable for it. It is a variable of type 'List' that has two values: 'Blue' and 'Green', corresponding to the names of the environment in XL Deploy.
 
 ![${global.live-environment} configuration](../images/bluegreen/bluegreen-globalvariable-list.png)
 
@@ -111,15 +111,15 @@ We will define the following variables in XL Release that maintain the state of 
 We use these variables in the release flow. Here are some examples of tasks using the variable.
 
 In **What is currently live?**, we use a simple script to determine the new environment:
-	
+
 	if globalVariables['global.live-environment'] == 'Blue':
 	    releaseVariables['new-environment'] = 'Green'
 	    releaseVariables['old-environment'] = 'Blue'
-	
+
 	if globalVariables['global.live-environment'] == 'Green':
 	    releaseVariables['new-environment'] = 'Blue'
 	    releaseVariables['old-environment'] = 'Green'
-    
+
 Next, the User Input task **Confirm new environment** confirms the environments with the release manager. The Release manager may override this choice by choosing another value from the drop down. Note that you can use the variables in the description in order to render a helpful message.
 
 ![Confirm environment dialog](../images/bluegreen/bluegreen-userinput.png)
@@ -148,7 +148,7 @@ Furthermore, you should create teams and assign them to the appropiate tasks. Fo
 ![Assign team in bulk](../images/bluegreen/bluegreen-bulk-assignment.png)
 
 
-## Running the release 
+## Running the release
 
 We are now ready to run the release. Create the release and fill in the values for the application name and version. Note that they should match the application name and version as defined in XL Deploy.
 
@@ -179,7 +179,7 @@ Integrate load balancer
 
 #### Blue/Green with Kubernetes
 
-* Don't recycle the old env. 
+* Don't recycle the old env.
 
 
 #### Why not everything in XL Deploy?
