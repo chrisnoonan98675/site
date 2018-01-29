@@ -94,7 +94,7 @@ Postgres configuration:
 | synchronous_commits | off |
 | max_wal_size | 1GB |
 
-For more details about the configuration, see [tunning postgreSQL server](https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server).
+For more details about the configuration, see [tuning postgreSQL server](https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server).
 
 This configuration supports up to 2000 concurrent users running a test set with 200 active releases, 200 templates and 200 completed releases and 200 folders, with a mean response time less then 100 milliseconds.
 

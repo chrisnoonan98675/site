@@ -97,6 +97,12 @@ The following Jenkinsfile can be used to build a pipeline and deploy a simple we
 
 ## Release notes
 
+### Version 7.5.0
+
+### Improvements
+
+* REL-5850 Allow user to override credentials in plugin.
+
 ### Version 6.1.2
 
 ### Improvements

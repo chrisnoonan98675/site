@@ -20,15 +20,18 @@ Please also refer to the general <a href="/xl-release/how-to/upgrade-xl-release.
 
 ## Prerequisites
 
-* Upgrade source XL Release server to version 7.0.x or 7.2.0.
+* Upgrade source XL Release server to version 7.0.x, 7.1.x, or 7.2.x.
 * External database for the storage of XL Release data. Supported databases:
-      * PostgreSQL version 9.6
-      * MySQL version 5.7
-      * Oracle 11g
-      * Microsoft SQL Server 2012 and later
-      * DB2 version 10.5
+    * PostgreSQL versions 9.3, 9.4, 9.5, 9.6, and 10.1
 
-* Note that the archive database is still needed. The structure and functionality have not changed in this upgrade.
+      **Note:** The archiving database and the normal database must point to different external databases.
+    * MySQL versions 5.5, 5.6, and 5.7
+    * Oracle 11g
+    * Microsoft SQL Server 2012 and later
+    * DB2 versions 10.5 and 11.1
+
+      **Important:** To use DB2 as an external database, ensure you increase the `pagesize` to `32K`.
+* The archive database is still required. The structure and functionality have not changed in this upgrade.
 
 ## Overview
 
@@ -37,7 +40,7 @@ The upgrade procedure to XL Release 7.5 is different than before. This is an ove
 1. Install XL Release 7.5.0
 1. On the database, add a database schema / user that will contain the XL Release data
 1. Install and configure the migrator tool
-1. Shutdown **source** XL Release server and run Migrator tool
+1. Shutdown **source** XL Release server and run migrator tool
 1. Copy files from **source** server to XL Release 7.5.0
 1. Configure XL Release 7.5.0 to point to the new database
 1. Start XL Release 7.5.0
@@ -116,7 +119,7 @@ The migration tool uses 4Gb JVM heap, but if you get an `OutOfMemoryError` durin
 
 If you modified your `xlr-wrapper-*.conf` from XL Release, you must add your custom classpath on `bin/xl-release-sql-migrator` like:
 
-      CLASSPATH=$APP_HOME/conf:$APP_HOME/lib/*:./conf:./ext:./hotfix/*:./plugins/*
+    CLASSPATH=$APP_HOME/conf:$APP_HOME/lib/*:./conf:./ext:./hotfix/*:./plugins/*
 
 ## Step 4. Running the migrator
 
@@ -130,7 +133,7 @@ If the **source** XL Release installation is at the location:
 
 And the migration tool is at the location:
 
-	  /opt/xl-release-sql-migrator-7.5.0
+    /opt/xl-release-sql-migrator-7.5.0
 
 Execute the following command:
 
@@ -160,38 +163,38 @@ Get the database driver file (see Step 3) and install the jar file in the `plugi
 
 Edit `conf/xl-release.conf` and configure database details to point to your database instance.
 
-      xl {
-          cluster.mode = default
-          database {
-              db-driver-classname="org.postgresql.Driver"
-              db-url="jdbc:postgresql://localhost:5432/xlrelease"
-              db-username=xlrelease
-              db-password="xlrelease"
-          }
+    xl {
+      cluster.mode = default
+      database {
+          db-driver-classname="org.postgresql.Driver"
+          db-url="jdbc:postgresql://localhost:5432/xlrelease"
+          db-username=xlrelease
+          db-password="xlrelease"
       }
+    }
 
 If the reporting archive is configured to use an external database, also configure the connection settings in `conf/xl-release.conf`. If you are using the embedded archive database, you do not need to configure it.
 
 <!--
            !!! Check details !!
 -->
-      xl {
-          cluster.mode = default
-          database {
-              db-driver-classname="org.postgresql.Driver"
-              db-url="jdbc:postgresql://localhost:5432/xlrelease"
-              db-username=xlrelease
-              db-password="xlrelease"
-          }
-          reporting {
-              db-driver-classname="org.postgresql.Driver"
-              db-url="jdbc:postgresql://localhost:5432/xlarchive"
-              db-username=xlarchive
-              db-password="xlarchive"
-          }
+    xl {
+      cluster.mode = default
+      database {
+          db-driver-classname="org.postgresql.Driver"
+          db-url="jdbc:postgresql://localhost:5432/xlrelease"
+          db-username=xlrelease
+          db-password="xlrelease"
       }
+      reporting {
+          db-driver-classname="org.postgresql.Driver"
+          db-url="jdbc:postgresql://localhost:5432/xlarchive"
+          db-username=xlarchive
+          db-password="xlarchive"
+      }
+    }
 
-_The passwords will be encrypted in this file by XL Release_
+_The passwords will be encrypted in this file by XL Release._
 
 ## Step 7. Starting XL Release 7.5.0
 

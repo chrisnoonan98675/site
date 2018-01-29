@@ -72,16 +72,26 @@ To configure XL Release to use an LDAP repository, modify the `xl-release-securi
                 &lt;property name="convertToUpperCase" value="false" /&gt;
             &lt;/bean&gt;
         &lt;/constructor-arg&gt;
+        &lt;constructor-arg&gt;
+            &lt;bean class="com.xebialabs.xlrelease.principaldata.LdapGroupEmailProvider"&gt;                
+                &lt;constructor-arg index="0" value="<mark>GROUP_EMAIL_SEARCH_BASE</mark>" /&gt;
+                &lt;constructor-arg index="1" value="<mark>GROUP_EMAIL_SEARCH_FILTER</mark>" /&gt;
+                &lt;constructor-arg index="2" ref="ldapServer" /&gt;
+                &lt;property name="searchSubtree" value="true" /&gt;
+                &lt;property name="searchTimeLimit" value="<mark>GROUP_EMAIL_SEARCH_TIME_LIMIT_IN_MS</mark>" /&gt;
+                &lt;property name="groupEmailAttribute" value="<mark>GROUP_EMAIL_ATTRIBUTE_NAME</mark>" /&gt;
+            &lt;/bean&gt;
+        &lt;/constructor-arg&gt;
     &lt;/bean&gt;
 
     &lt;bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/&gt;
 
-    &lt;bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider"/&gt;
+    &lt;bean id="internalAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider"/&gt;
 
     &lt;security:authentication-manager alias="authenticationManager"&gt;
         &lt;security:authentication-provider ref="rememberMeAuthenticationProvider" /&gt;
         &lt;security:authentication-provider ref="ldapProvider" /&gt;
-        &lt;security:authentication-provider ref="jcrAuthenticationProvider"/&gt;
+        &lt;security:authentication-provider ref="internalAuthenticationProvider"/&gt;
     &lt;/security:authentication-manager&gt;
 
 &lt;/beans&gt;
@@ -103,6 +113,10 @@ Update `xl-release-security.xml` with information about your LDAP setup:
 | `USER_SEARCH_BASE` | LDAP filter to use as a basis for searching for users | `dc=example,dc=com` |
 | `GROUP_SEARCH_FILTER` | LDAP filter to determine the group memberships of the user; `{0}` will be replaced with the `dn` of the user | `(memberUid={0})` |
 | `GROUP_SEARCH_BASE` | LDAP filter to use as a basis for searching for groups | `ou=groups,dc=example,dc=com` |
+| `GROUP_EMAIL_SEARCH_BASE` | LDAP filter to use as a basis for searching for mailing groups | `ou=groups,dc=example,dc=com` |
+| `GROUP_EMAIL_SEARCH_FILTER` | LDAP filter to determine the mailing group; `{0}` will be replaced with the `dn` of the group | `(cn={0})` |
+| `GROUP_EMAIL_SEARCH_TIME_LIMIT_IN_MS` | LDAP request time limit in milliseconds | `1000` |
+| `GROUP_EMAIL_ATTRIBUTE_NAME` | LDAP attribute to determine a mailing group mail | `mail` |
 
 After you enter your values, restart the XL Release server. Add the user and group as principals in the XL Release interface and assign them permission to log in.
 
@@ -198,7 +212,7 @@ This example creates a group called `everyone` that is assigned to each user who
             <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
         </bean>
 
-        <bean id="jcrAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider">
+        <bean id="internalAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider">
             <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
         </bean>
 
@@ -218,3 +232,8 @@ You can setup an LDAP/Active Directory group called *devs* to be used by the mem
 At folder or release level, you can add permissions for a team called *Dev Team* that contains the XL Release role *Developers*. This role contains the created LDAP/Active Directory group called *devs*.
 
 When you log in as a user to the *devs* group using LDAP/Active Directory, you automatically have the permissions for the *Developers* role at folder or release level.  
+
+## LDAP data caching
+
+To ensure a high level of performance of the server, XL Release caches the user data for 30 minutes and a group email for 1 minute. 
+This can produce a small delay between the time when updates in your LDAP repository occur and the time when they appear in XL Release.

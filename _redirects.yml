@@ -83,6 +83,7 @@
 # XL Deploy tools
 
 /xldeploy-maven-plugin/latest/index.html : /xldeploy-maven-plugin/6.0.x/index.html
+/xl-deploy/latest/maven-plugin/index.html : /xldeploy-maven-plugin/6.0.x/index.html
 /xl-deploy/latest/jenkins-plugin/index.html : https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin
 /bamboo-xl-deploy-plugin/latest/bambooPluginManual.html : /bamboo-xl-deploy-plugin/5.1.x/bambooPluginManual.html
 /xl-deploy-tfs-plugin/latest/tfsPluginManual.html : /xl-deploy-tfs-plugin/6.0.x/tfsPluginManual.html
