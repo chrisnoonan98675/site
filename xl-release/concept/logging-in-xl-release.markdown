@@ -65,7 +65,7 @@ This is a sample `logback.xml` file:
 ## The audit log
 
 <div class="alert alert-warning" style="width: 60%">
-**Note:** The audit log is not available in XL Release 7.5.0.
+<strong>Note:</strong> The audit log is not available in XL Release 7.5.0.
 </div>
 
 XL Release keeps an audit log of each human-initiated event on the server, which complements the auditing provided by the [release activity logs](/xl-release/concept/release-activity-logs.html) (which track activity for each release at a more domain-specific level of granularity).
