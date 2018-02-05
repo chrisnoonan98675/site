@@ -1,0 +1,174 @@
+= How to set up XL Release in production
+:sectnums:
+:toc2: right
+:page-liquid:
+:page-categories: [xl-release]
+:page-subject: Installation
+:page-tags: [production, setup, installation]
+
+== Introduction
+To run XL Release in a highly available production setup, you need to properly configure the product, environment and server resources to get the most out of the product. This document provides a step-by-step implementation guide to set up XL Release in a production ready environment.
+
+CAUTION: Proper configuration of I/O subsystems (database, file system, network) is critical for the optimal performance and operation of XL Release. This guide provides best practices and sizing recommendations.
+
+This guide is broken up into several phases each covering several topics needed to know to install a production environment.
+
+== Setup of production environment
+This guide will describe how to setup a hardened production environment for XL Release. The setup that is described can be explained using the following deployment diagram:
+
+image:../../images/xl-prod-diagram.png[]
+
+In the above diagram you can see the following components from left to right:
+
+- The user's computer: The user will initiate an SSL (secure) connection to the loadbalancer which fronts the clustered XL Release installation.
+- The loadbalancer: The loadbalancer terminates the SSL connection and routes the request to the XL Release instance that the user is logged in to.
+- The XL Release instances: The instances run in a clustered (Active/Active) setup, sharing the load.
+- The Database: The (SQL) database that will host the repository of the XL Release instances.
+
+== Preparation
+The first phase of setting up the production environment consists of determining the correct hardware requirements and obtaining all the necessary prerequisites.
+
+=== Sizing the XL-Release environment
+In the link:../concept/requirements-for-installing-xl-release.html[requirements for installing XL Release] guide, the minimal system requirements are defined on which XL Release can run. For a production setup we recommend the following setup for each production XL Release machine:
+
+Hardware requirements XL Release servers
+
+- **3+ Ghz 2 CPU Quad-core** machine (amounting to 8 cores) or better.
+- **16 GB RAM** or more
+- **500GB** harddisk space
+
+Software requirements XL Release servers
+
+- **RedHat Enterprise Linux** installation, upgraded with all the latest security updates
+- **Java 8**, latest patchlevel
+
+=== Database server
+For a production setup you need to use an external (clustered) database to store both the active as well as the archived data of XL Release. You have the choice of the following database to store the repository in:
+
+- Oracle 11g
+- Oracle 12c
+- PostgreSQL versions 9.3, 9.4, 9.5, 9.6, and 10.1
+- MySQL versions 5.5, 5.6, and 5.7
+- Microsoft SQL Server 2012 and later
+- DB2 versions 10.5 and 11.1
+
+Please refer to the relevant documentation of the database server of your choice for hardware recommendations.
+
+=== Loadbalancer
+In order to run an HA setup of XL Release, you need to front the installation with a loadbalancer so that users are unaware of which of the clustered nodes they're being routed to. The example configuration given in this document is for HAProxy.
+However any HTTP(s) loadbalancer that supports the following features is supported for following this guide:
+
+- SSL offloading
+- Checking a custom HTTP endpoint for node availability
+- Sticky sessions
+
+Loadbalancers that support this feature set are (not limited to):
+
+- link:https://www.citrix.com/products/netscaler-adc/[Citrix NetScaler]
+- link:https://f5.com/products/big-ip[F5 BIG-IP]
+- link:http://www.haproxy.org/[HAProxy]
+
+=== Proactive monitoring and alerting
+For a production installation XebiaLabs recommends setting up a proactive monitoring system to monitor system and product performance for the different parts of your installation. XL Release exposes internal and system metrics over JMX. Any monitoring system that can read JMX data can be sed to monitor the installation.
+
+Typical monitoring and alerting tools that can be hooked up to XL Release are:
+
+- link:https://www.nagios.org/[Nagios]
+- link:https://www.dynatrace.com/[Dynatrace]
+- link:https://www.appdynamics.com/[AppDynamics]
+
+These tools allow to monitor the product and the systems it is running on in real time. This will allow you to set thresholds and alert on them so that appropriate action can be taken before a system goes down.
+
+=== Forensic data gathering
+Next to doing proactive monitoring, for a production installation it is good practice to have data gathering available. When gathering forensic data you can analyze this at a later point in time. This gathered data can be used to determine root cause analysis for outages. It can also be used to determine usage patterns or peak load patterns.
+
+For this kind of monitoring a timeseries database is typically used. XL Release can be hooked up to either:
+
+- link:https://www.influxdata.com/time-series-platform/influxdb/[InfluxDB]
+- link:https://prometheus.io/[Prometheus]
+
+The gathered data can then be graphed and analyzed using tools such as link:https://grafana.com[Grafana]
+
+=== Log file analysis
+The third kind of monitoring that should be hooked up to a production system is log file monitoring. An industry standard stack for this is the ELK stack. This stack consists of:
+
+- link:https://elastic.co[Elasticsearch]
+- link:https://www.elastic.co/products/logstash[Logstash]
+- link:https://www.elastic.co/products/kibana[Kibana]
+
+This stack will read and index the log files while they're being written, so that they can be easily analyzed during a root cause analysis for a production outage.
+
+== Execution phase
+Once all the machines in the production environment are available, XL Release and subsystems can be installed and activated.
+
+=== Setup the database server
+XL Release requires two separate schemas in the target database platform. Typically schemas are tied to users by default. XL Release will use the main schema to store its active data in. The second schema is used to store the archived (immutable) data in.
+
+For this guide we will create the following users and schemas:
+
+- `xlrelease`: This will be the user/schema for the active release data.
+- `xlrarchive`: This will be the user/schema for the archived release data. This schema will over time grow in size.
+
+For some of the databases some extra configuration options need to be set for them to be supported or to perform better
+
+==== DB2
+XL Release requires that DB2 is set in MySQL compatible mode in order for it to support the pagination queries. Please run the following command on your DB2 database to enable this:
+
+[source,console]
+----
+$ db2set DB2_COMPATIBILITY_VECTOR=MYS
+$ db2stop
+$ db2start
+----
+
+==== MySQL / MariaDB
+The default installation of MySQL is not tuned to be run on a dedicated high-end machine. XebiaLabs recommends changing the following settings of MySQL to improve its performance.
+
+[cols="^,2",options="header"]
+|===
+| Setting | Value
+| `innodb_buffer_pool_size` | XebiaLabs recommends setting this to 70-75% of the available RAM of the database server, but not higher. This setting controls how much of the database structure can be kept in memory. The larger it is, the better performant the application will be due to caching at the database level.
+| `innodb_log_file_size` | XebiaLabs recommends setting this to `256M`. This setting controls how much redo logs MySQL keeps. This setting should be set large enough so that MySQL can smooth out peak loads by keeping transactions in the redo log.
+| `innodb_thread_concurrency` | XebiaLabs recommends setting this to `2 * CPU cores` of the database server. So for a 2 CPU Quad-core machine, this setting should be set to `2 CPU * 4 Cores * 2 = 16`.
+| `max_allowed_packet` | XebiaLabs recommends setting this value to `16M`. This setting controls how large the packet can be that the server transmits to the client. As the XL Release database for some columns works with BLOBs, this setting is recommended over the default of `1M`.
+| `open_files_limit` | XebiaLabs recommends setting this value to `10000` for large installations. This setting controls how many file descriptors the MySQL database can keep open. This setting cannot be configured higher than the output of `ulimit -n` on a Linux/Unix system. Please refer to the documentation of your operating system if this limit is lower than the recommended value.
+| `innodb_flush_log_at_trx_commit` a| **Advanced**: The default setting of this option is `1` which means that every transaction is always flushed to disk on commit, ensuring full ACID compliance. Setting this to either `0` (only flush the transaction buffer once per second to the transaction log), or `2` (directly write the transaction to the transaction log, flush the log once per second to disk), can lead to transaction loss of up to a second worth of data.
+
+When using battery backed disk-cache, this setting can be set to `2` to prevent direct flushes to disk. The battery backed disk-cache will then ensure that the cache is flushed to disk before the power fails.
+|===
+
+==== PostgreSQL
+There are a number of settings in a default installation of PostgreSQL that can be tuned to better perform on higher end systems.
+
+
+[cols="^,2",options="header"]
+|===
+| Setting | Value
+| `shared_buffers` | XebiaLabs recommends setting this to 30% of the available RAM of the database server. This setting controls how much memory is dedicated to PostgreSQL to use for caching data.
+| `effective_cache_size` | XebiaLabs recommends setting this to 50% of the available RAM of the database server. This setting provides an estimate of how much memory is available for disk caching. The PostgreSQL query planner uses this to figure out whether query plan results would fit in memory or not.
+| `checkpoint_segments` | Xebialabs recommends setting this to `64`. This setting controls how often the Write Ahead Log (WAL) is checkpointed. The WAL is written in 16MB segments. Setting this to `64` means that either once every `64 * 16MB = 1024MB` or once per 5 minutes the WAL is checkpointed, whichever is reached first.
+| `default_statistics_target` | XebiaLabs recommends setting this to `250`. This setting controls the amount of information stored in the statistics tables for optimizing query execution.
+| `work_mem` | XebiaLabs recommends setting this to 0.2% of the available RAM of the database server. This setting controls how much memory is available per connection for doing in memory sorts and joins of query results. In a 100 connection scenario this will amount to 20% of the available RAM in total.
+| `maintenance_work_mem` | XebiaLabs recommends setting this to 2% of the available RAM. This setting controls the amount of memory available to PostgreSQL for maintenance operations such as VACUUM and ANALYZE.
+| `synchronous_commit` | **Advanced**: The default setting of this option is `on`, this guarantees full ACID compliance and no data-loss on power failure. If you have a battery-backed disk cache, you can switch this setting to `off` to get an increase in transactions per second.
+|===
+
+=== Setup of the XL Release environment
+Many of these instructions are industry-standard best practices for setting up production applications.
+
+. Create a dedicated _non-root_ user called `xl-release`. This ensures that you can lock down the operating system and prevents accidental privilege escalations.
+. Create a directory under `/opt` called `xebialabs`
+. Install a clean version of the product in a directory where the `xl-release` user has access to.
+.
+
+=== Monitoring
+Hardware monitoring and alerting
+- Network
+- Disk
+- RAM
+- CPU
+
+Product monitoring
+
+
+Database monitoring
