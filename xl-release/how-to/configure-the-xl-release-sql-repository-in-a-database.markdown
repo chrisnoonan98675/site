@@ -223,6 +223,12 @@ This is a sample `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` configuration for
           ...
        }
 
+**Note:** If you are using DB2 version 9.7.2 or later, you can enable support for `LIMIT x` using the `DB2_COMPATIBILITY_VECTOR` registry variable:
+
+        db2set DB2_COMPATIBILITY_VECTOR=MYS
+        db2stop
+        db2start      
+
 ### SQL Server
 
 Driver:

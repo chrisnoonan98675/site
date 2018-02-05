@@ -38,9 +38,9 @@ Please also refer to the general <a href="/xl-release/how-to/upgrade-xl-release.
 The upgrade procedure to XL Release 7.5 is different than before. This is an overview of the steps that need to be taken.
 
 1. Install XL Release 7.5.0
-1. On the database, add a database schema / user that will contain the XL Release data
+1. On the database, add a database schema and user that will contain the XL Release data
 1. Install and configure the migrator tool
-1. Shutdown **source** XL Release server and run migrator tool
+1. Shut down **source** XL Release server and run migrator tool
 1. Copy files from **source** server to XL Release 7.5.0
 1. Configure XL Release 7.5.0 to point to the new database
 1. Start XL Release 7.5.0
@@ -54,13 +54,13 @@ Do not start the server at this moment.
 
 ## Step 2. Database setup
 
-Create the following database / user in your SQL database:
+Create the following database and user in your SQL database:
 
-* `xlrelease` -- this database will contain the active releases and configuration data.
+* `xlrelease`: This database will contain the active releases and configuration data.
 
 The user must have access to create tables. Tables are created during the upgrade procedure, not during operation.
 
-The **archive database** remains as-is and is copied / configured in the final configuration steps.
+The **archive database** remains as-is and is copied and configured in the final configuration steps.
 
 ## Step 3. Migrator tool setup
 
@@ -83,7 +83,7 @@ The migrator application contains only JDBC drivers for the embedded databases: 
 
 ### Migrator database configuration
 
-The configuration of the migrator is done in `conf/xl-release-sql-migrator.conf`.
+The configuration of the migrator is done in `conf/xl-release-sql-migrator.conf`. This file is provided in the **xl-release-sql-migrator-7.5.0.zip** package.
 
 Configure the `xlrelease` database that will be used by the **target** XL Release 7.5.0 server.
 
@@ -113,7 +113,7 @@ You can set the page size used to fetch releases from the JCR repository using t
 
 For example: this is recommended when you have large releases that contain a large number of comments.
 
-The migration tool uses 4Gb JVM heap, but if you get an `OutOfMemoryError` during migration, you can fix it by decreasing the page size.
+The migration tool uses 4 GB JVM heap, but if you get an `OutOfMemoryError` during migration, you can fix it by decreasing the page size.
 
 ### Add custom classpath
 
@@ -125,21 +125,14 @@ If you modified your `xlr-wrapper-*.conf` from XL Release, you must add your cus
 
 You must run the application from the `XL_RELEASE_SERVER_HOME` folder of the **source** server. The migration tool will load your XL Release `conf`, `ext`, and `plugins` folder to load extra synthetic types.
 
-For example:
+For example, if the **source** XL Release installation is located at `/opt/xl-release-7.0.1-server` and the migration tool is located at `/opt/xl-release-sql-migrator-7.5.0`:
 
-If the **source** XL Release installation is at the location:
+1. Go to `/opt/xl-release-7.0.1-server`.
+2. Execute:
 
-    /opt/xl-release-7.0.1-server
+        /opt/xl-release-sql-migrator-7.5.0/bin/xl-release-sql-migrator
 
-And the migration tool is at the location:
-
-    /opt/xl-release-sql-migrator-7.5.0
-
-Execute the following command:
-
-    /opt/xl-release-7.0.1-server/$ /opt/xl-release-sql-migrator-7.5.0/bin/xl-release-sql-migrator
-
-The **source** server does not require to be running. The migrator does not modify the repository of the source server. It is recommended to create a backup of the production server and run the migrator from the backup directory.
+The **source** server does not need to be running. The migrator does not modify the repository of the source server. It is recommended that you create a backup of the production server and run the migrator from the backup directory.
 
 **Note:** You do not need to specify the installation directory of the **target** server. Configuring the database location is sufficient.
 
@@ -147,21 +140,17 @@ The migrator supports incremental migration. If you stop it in the middle of the
 
 ## Step 5. Copy the files from source to target server
 
-1. If you have implemented any custom plugins, copy them from the `plugins` directory of the previous installation directory to the new installation directory.
-
-1. Copy the contents of the `ext` directory from the old installation directory to the new installation directory.
-
-1. Copy the entire `archive` directory from the previous installation directory to the new installation directory.
-
-1. Copy the contents of the `conf` directory from the previous installation to the new installation directory.
-
-1. If you have changed the XL Release server startup script(s) in the `bin` directory, do not copy the changed script(s) to the new installation directory. Instead, manually reapply the changes to the files that were provided in the new version of XL Release.
+1. If you have implemented any custom plugins, copy them from the `plugins` directory of the **source** XL Release installation to the `plugins` directory of the **target** installation.
+1. Copy the content of the `ext` directory of the **source** installation to the `ext` directory of the **target** installation.
+1. Copy the entire `archive` directory of the **source** installation to the **target** installation.
+1. Copy the content of the `conf` directory of the **source** installation to the `conf` directory of the **target** installation.
+1. If you have changed the XL Release server startup script(s) in the `bin` directory of the **source** installation, do not copy the changed script(s) to the **target** installation. Instead, manually reapply the changes to the files that were provided in the new version of XL Release.
 
 ## Step 6. Configure the database in XL Release 7.5.0
 
-Get the database driver file (see Step 3) and install the jar file in the `plugins` folder.
+Install the database driver (JAR) file from Step 3 in the `plugins` folder of the **target** installation.
 
-Edit `conf/xl-release.conf` and configure database details to point to your database instance.
+Edit `conf/xl-release.conf` and configure the database details to point to your database instance. This configuration must exactly match the configuration in the migrator tool.
 
     xl {
       cluster.mode = default
@@ -173,7 +162,7 @@ Edit `conf/xl-release.conf` and configure database details to point to your data
       }
     }
 
-If the reporting archive is configured to use an external database, also configure the connection settings in `conf/xl-release.conf`. If you are using the embedded archive database, you do not need to configure it.
+If the reporting archive is configured to use an external database, you must also configure the connection settings in `conf/xl-release.conf`. If you are using the embedded archive database, you do not need to configure it.
 
 <!--
            !!! Check details !!
@@ -194,9 +183,9 @@ If the reporting archive is configured to use an external database, also configu
       }
     }
 
-_The passwords will be encrypted in this file by XL Release._
+**Note:** XL Release will encrypt the passwords in the `xl-release.conf` file upon startup.
 
-## Step 7. Starting XL Release 7.5.0
+## Step 7. Start XL Release 7.5.0
 
 [Start the XL Release server interactively](/xl-release/how-to/start-xl-release.html) to allow automatic repository upgraders to run.
 
@@ -206,6 +195,6 @@ If you normally run the XL Release server [as a service](/xl-release/how-to/inst
 
 ## Troubleshooting
 
-* Make sure the configuration file to set up the database in XL Release (`conf/xl-release.conf`) matches exactly the database configuration in the migrator tool.
+* Make sure the configuration file to set up the database in XL Release (`conf/xl-release.conf`) exactly matches the database configuration in the migrator tool.
 
 * If you need to adjust the configuration in XL Release, rerun the migrator afterwards and it will create the new tables and migrate the existing data with the new settings.

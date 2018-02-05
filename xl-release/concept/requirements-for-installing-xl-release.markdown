@@ -67,7 +67,7 @@ XL Release configuration:
 {:.table .table-striped}
 | Parameter | Value | Location  | Description |
 | -------- |-------- | -------- | ---------------- |
-| `wrapper.java.additional.1` | `-Xms4096m -Xmx12288m` | `XL_RELEASE_SERVER_HOME/conf/xlr-wrapper-linux.conf` | Sets the heap size to minimum 4 GB and maximum 12 GB |
+| `wrapper.java.additional.1` | `-Xms2048m -Xmx6144m` | `XL_RELEASE_SERVER_HOME/conf/xlr-wrapper-linux.conf` | Sets the heap size to minimum 2 GB and maximum 6 GB. The default values are minimum 1 GB and maximum 4 GB|
 | `threads.min` | `64` | `XL_RELEASE_SERVER_HOME/conf/xl-release-server.conf` | Sets the minimum number of HTTP threads to 64  |
 | `threads.max` | `256` | `XL_RELEASE_SERVER_HOME/conf/xl-release-server.conf` | Sets the maximum number of HTTP threads to 256  |
 | `xl.executors.scheduler.maxThreadsCount` | `50` | `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` | Sets the maximum number of threads for asynchronous operations to 50  |

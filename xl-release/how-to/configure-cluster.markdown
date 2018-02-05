@@ -162,7 +162,7 @@ This is a sample `haproxy.cfg` configuration for HAProxy. Ensure that your confi
       server node_2 node_2:5516 cookie node_2 check inter 2000 rise 2 fall 3
 
 
-#### Limitation on HTTP session sharing and resiliency in active / hot standby mode
+#### Limitation on HTTP session sharing and resiliency in cluster setups
 
 In active/hot-standby mode, there is always at most one "active" XL Release node. The nodes use a health REST endpoint (`/ha/health`) to inform the load balancer which node is the active one. The load balancer will always route users to the active node; calling a standby node directly will result in an incorrect behavior.
 
@@ -172,6 +172,8 @@ XL Release does not share HTTP sessions among nodes. If the active XL Release no
 * Any script tasks that were running on the previously active node will have the `failed` status. After another node has become the new active node (this happens automatically), you can restart these tasks.
 
 **Note:** Performing a simple TCP check or `GET` operation on `/` is not sufficient. This only determines if the node is running and does not indicate if the node is in standby mode.
+
+**Important:** The HTTP session sharing limitation applies to both active/hot-standby mode and active/active mode.
 
 ### Step 6 Start the nodes
 
