@@ -16,7 +16,7 @@ This guide is broken up into several phases each covering several topics needed 
 == Setup of production environment
 This guide will describe how to setup a hardened production environment for XL Release. The setup that is described can be explained using the following deployment diagram:
 
-image:../../images/xl-prod-diagram.png[]
+image:../../images/xl-prod-diagram.png[align=center]
 
 In the above diagram you can see the following components from left to right:
 
@@ -154,12 +154,24 @@ There are a number of settings in a default installation of PostgreSQL that can 
 |===
 
 === Setup of the XL Release environment
-Many of these instructions are industry-standard best practices for setting up production applications.
+As XL Release has the potential of running both remote and local script tasks, you need to take care to harden the XL Release environment from (accidental) abuse. There are many industry standard practices to ensure that an app is running in a sandboxed environment. At the very least we recommend taking the following actions:
+
+==== Installation
+This section describes how to install XL Release on the machines so that it is installed with minimum rights.
 
 . Create a dedicated _non-root_ user called `xl-release`. This ensures that you can lock down the operating system and prevents accidental privilege escalations.
-. Create a directory under `/opt` called `xebialabs`
-. Install a clean version of the product in a directory where the `xl-release` user has access to.
-.
+. Create a directory under `/opt` called `xebialabs`, where the `xl-release` user has _read_ access.
+. Extract a clean version of XL Release in the `/opt/xebialabs` directory.
+. Change the ownership of the installed product to `xl-release`, and grant the user _read_ access to the installation directory.
+. Grant the `xl-release` user _write_ access to the `/opt/xebialabs/xl-release-<version>-server/conf` and `/opt/xebialabs/xl-release-<version>-server/log` directories.
+. Copy your license file, obtained from link:https://dist.xebialabs.com/customer/license[the XebiaLabs distribution site] to the `/opt/xebialabs/xl-release-<version>-server/conf` directory.
+
+==== Configuration
+In the following 2 guides, the configuration options are described that need to be set in order to configure the use of an external database and to configure the clustering of XL Release. Please follow these configuration guides:
+
+- link:configure-the-xl-release-sql-repository-in-a-database.html[How to configure the XL Release SQL repository in a database]
+- link:configure-cluster.html[How to configure cluster mode]
+
 
 === Monitoring
 Hardware monitoring and alerting
