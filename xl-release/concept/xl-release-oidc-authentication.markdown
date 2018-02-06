@@ -44,7 +44,6 @@ Using MFA and depending on your identity provider settings, users are required t
 
 ### Current setup limitations
 
-1. **Important** Only static configuration is supported. If an OIDC provider changes the encryption keys, the XL Release instance must be reconfigured and rebooted.
 1. The supported tokens are JWT tokens with RS256 signatures
 1. Unsigned tokens and HS256 signed tokens are not supported.
 1. XL Release does not support `nonce` in the OIDC handshake (protection against replay attacks).
@@ -113,7 +112,7 @@ To configure the OIDC Authentication plugin, modify the `XL_RELEASE_SERVER_HOME/
                   clientSecret="<your client secret here>"        
 
                   keyRetrievalUri="https://oidc.example.com/endpoint/keys"
-                  keyRetrievalSchedule="<cron_schedule>"
+                  keyRetrievalSchedule="<duration_expression>"
 
                   issuer="<OpenID Provider Issuer here>"
 
@@ -136,7 +135,9 @@ To configure the OIDC Authentication plugin, modify the `XL_RELEASE_SERVER_HOME/
 
 **Notes:**
 1. Only one authentication plugin at a time is supported. Make sure that your plugins directory contains only one `xlr-auth-*.jar` plugin.
-1. To obtain the signing keys from the Identity provider, XL Release checks the `keyRetrievalUri` endpoint periodically. To set a specific time interval, set the value of `keyRetrievalSchedule` to a cron expression.
+1. To obtain the signing keys from the Identity provider, XL Release checks the `keyRetrievalUri` endpoint periodically.
+To set a specific time interval, set the value of `keyRetrievalSchedule` to a duration expression.
+Here is the list of time units - day, hour, minute. Example: `keyRetrievalSchedule="1 minute"`.
 
 ##### Setup the post-logout URL
 
