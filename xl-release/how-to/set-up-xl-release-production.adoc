@@ -180,17 +180,23 @@ This section describes how to install XL Release on the machines so that it is i
 . Grant the `xl-release` user _write_ access to the `/opt/xebialabs/xl-release-<version>-server/conf` and `/opt/xebialabs/xl-release-<version>-server/log` directories.
 . Copy your license file, obtained from link:https://dist.xebialabs.com/customer/license[the XebiaLabs distribution site] to the `/opt/xebialabs/xl-release-<version>-server/conf` directory.
 
-==== Configuration
-In the following guides, the configuration options are described that need to be set in order to configure the use of an external database and to configure the clustering of XL Release. Please follow these configuration guides:
+==== Configuration of the SQL Repository
+For a clustered production setup XL Release requires than an external database is configured. This is documented in the following guide:
 
 - link:configure-the-xl-release-sql-repository-in-a-database.html[How to configure the XL Release SQL repository in a database]
+
+==== Configuration of the XL Release clustering
+To configure XL Release in a clustered active/active setup, please read the following guide:
+
 - link:configure-cluster.html[How to configure cluster mode]
 
+==== Configuration of user authentication
 Next to the cluster and database configuration, you will also need to setup a secure way of authenticating the user. For production setups, XebiaLabs recommends using either an OIDC provider, or an LDAP directory system over the **LDAPS** protocol. For setting these up, please refer to the following configuration guides:
 
 - link:../concept/xl-release-oidc-authentication.html[Configure Open ID Connect authentication for XL Release]
 - link:configure-ldap-security-for-xl-release.html[Configure LDAP security for XL Release]
 
+==== Configuration of the XL Release JVM options
 By default XL Release is configured to provide a good out of the box trial experience. For optimal production use, the runtime configuration of XL Release needs to be configured. XebiaLabs recommends adding/changing the following settings in the `conf/xlr-wrapper-linux.conf`
 
 [cols="^,2",options="header"]
