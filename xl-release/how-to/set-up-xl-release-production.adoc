@@ -16,13 +16,14 @@ This guide is broken up into several phases each covering several topics needed 
 == Setup of production environment
 This guide will describe how to setup a hardened production environment for XL Release. The setup that is described can be explained using the following deployment diagram:
 
-image:../../images/xl-prod-diagram.png[align=center]
+image::../../images/xl-prod-diagram.png[,800,,align="center"]
 
 In the above diagram you can see the following components from left to right:
 
 - The user's computer: The user will initiate an SSL (secure) connection to the loadbalancer which fronts the clustered XL Release installation.
 - The loadbalancer: The loadbalancer terminates the SSL connection and routes the request to the XL Release instance that the user is logged in to.
 - The XL Release instances: The instances run in a clustered (Active/Active) setup, sharing the load.
+- The OIDC (Open ID Connect) provider will authenticate users logging into the XL Release systems. Instead of an OIDC provider, XL Release also has support for LDAP(s).
 - The Database: The (SQL) database that will host the repository of the XL Release instances.
 
 == Preparation
@@ -41,6 +42,8 @@ Software requirements XL Release servers
 
 - **RedHat Enterprise Linux** installation, upgraded with all the latest security updates
 - **Java 8**, latest patchlevel
+
+All the XL Release cluster nodes _should_ reside in the same network segment. This is required for the clustering protocol to function correctly. For optimal performance it is also recommended to put the database server in the same network segment to minimize network latency.
 
 === Database server
 For a production setup you need to use an external (clustered) database to store both the active as well as the archived data of XL Release. You have the choice of the following database to store the repository in:
@@ -67,6 +70,17 @@ Loadbalancers that support this feature set are (not limited to):
 - link:https://www.citrix.com/products/netscaler-adc/[Citrix NetScaler]
 - link:https://f5.com/products/big-ip[F5 BIG-IP]
 - link:http://www.haproxy.org/[HAProxy]
+
+=== Authentication provider
+XL Release has support for a number of (SSO) authentication providers. In its most basic form, there is support for LDAPS (Secure LDAP). However for modern environments, there is also support for authentication through an link:http://openid.net/connect/[OIDC provider].
+
+A large number of cloud providers have support for authenticating through OIDC:
+
+- link:https://developers.google.com/identity/protocols/OpenIDConnect[Google Identity Platform]
+- link:https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code#register-your-application-with-your-ad-tenant[Microsoft Azure Active Directory (Office 365)]
+- link:https://developer.okta.com/docs/api/resources/oidc.html#openid-connect-api[OKTA Identity provider]
+
+If you don't want to depend on a cloud provider, or your SSO solution is not compatible with OIDC, it is possible to integrate your SSO with link:http://www.keycloak.org[Keycloak], which is an OIDC bridge.
 
 === Proactive monitoring and alerting
 For a production installation XebiaLabs recommends setting up a proactive monitoring system to monitor system and product performance for the different parts of your installation. XL Release exposes internal and system metrics over JMX. Any monitoring system that can read JMX data can be sed to monitor the installation.
@@ -167,11 +181,32 @@ This section describes how to install XL Release on the machines so that it is i
 . Copy your license file, obtained from link:https://dist.xebialabs.com/customer/license[the XebiaLabs distribution site] to the `/opt/xebialabs/xl-release-<version>-server/conf` directory.
 
 ==== Configuration
-In the following 2 guides, the configuration options are described that need to be set in order to configure the use of an external database and to configure the clustering of XL Release. Please follow these configuration guides:
+In the following guides, the configuration options are described that need to be set in order to configure the use of an external database and to configure the clustering of XL Release. Please follow these configuration guides:
 
 - link:configure-the-xl-release-sql-repository-in-a-database.html[How to configure the XL Release SQL repository in a database]
 - link:configure-cluster.html[How to configure cluster mode]
 
+Next to the cluster and database configuration, you will also need to setup a secure way of authenticating the user. For production setups, XebiaLabs recommends using either an OIDC provider, or an LDAP directory system over the **LDAPS** protocol. For setting these up, please refer to the following configuration guides:
+
+- link:../concept/xl-release-oidc-authentication.html[Configure Open ID Connect authentication for XL Release]
+- link:configure-ldap-security-for-xl-release.html[Configure LDAP security for XL Release]
+
+By default XL Release is configured to provide a good out of the box trial experience. For optimal production use, the runtime configuration of XL Release needs to be configured. XebiaLabs recommends adding/changing the following settings in the `conf/xlr-wrapper-linux.conf`
+
+[cols="^,2",options="header"]
+|===
+| Setting | Value
+| `-server` | Instructs the JVM to run in the server profile
+| `-Xms8192m` | Instructs the JVM to reserve a minimum of 8GB of Heap space
+| `-Xmx8192m` | Instructs the JVM to reserve a maximum of 8GB of Heap space
+| `-XX:+UnlockExperimentalVMOptions` | Instructs the JVM to unlock experimental options
+| `-XX:MaxMetaspaceSize=1024m` | Instructs the JVM to assign 1GB of memory to the Metaspace region (off-heap memory region for loading classes and native libraries)
+| `-Xss1024k` | Instructs the JVM to limit the stack size to 1MB
+| `-XX:+UseG1GC` | Instructs the JVM to use the new G1 (Garbage First) Garbage Collector. As of Java9 this will be the default GC.
+| `-Dsun.net.inetaddr.ttl=60` |
+| `-XX:+HeapDumpOnOutOfMemoryError` | Instructs the JVM to dump the heap to a file in case of an OutOfMemoryError. This is useful for debugging purposes after the XL Release process has crashed.
+| `-XX:HeapDumpPath=log/` | Instructs the JVM to store the generated heap dumps to the `log/` directory of the XL Release server.
+|===
 
 === Monitoring
 Hardware monitoring and alerting
