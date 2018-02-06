@@ -26,26 +26,36 @@ In the above diagram you can see the following components from left to right:
 - The OIDC (Open ID Connect) provider will authenticate users logging into the XL Release systems. Instead of an OIDC provider, XL Release also has support for LDAP(s).
 - The Database: The (SQL) database that will host the repository of the XL Release instances.
 
+== Structure of the document
+This document is structured into 3 phases:
+
+- Preparation
+- Installation
+- Administration
+
+In the preparation phase the prerequisites are described for the XL Release setup. In the installation phase, the setup and configuration procedures for each of the components is described. Finally, in the administration section, best practices will be described to maintain and administer the system once it is in production.
+
 == Preparation
 The first phase of setting up the production environment consists of determining the correct hardware requirements and obtaining all the necessary prerequisites.
 
-=== Sizing the XL-Release environment
+=== Obtaining the XL-Release servers
 In the link:../concept/requirements-for-installing-xl-release.html[requirements for installing XL Release] guide, the minimal system requirements are defined on which XL Release can run. For a production setup we recommend the following setup for each production XL Release machine:
 
-Hardware requirements XL Release servers
+Hardware requirements XL Release servers:
 
 - **3+ Ghz 2 CPU Quad-core** machine (amounting to 8 cores) or better.
 - **16 GB RAM** or more
 - **500GB** harddisk space
 
-Software requirements XL Release servers
+XebiaLabs has performance tested XL Release 7.5.0 with this setup. TODO
 
-- **RedHat Enterprise Linux** installation, upgraded with all the latest security updates
-- **Java 8**, latest patchlevel
+XL Release supports both Microsoft Windows and Linux/Unix operating systems to run on. Any 64-bit version of Windows works. Ensure that whichever Operating System you run, you are always running the latest security updates.
 
-All the XL Release cluster nodes _should_ reside in the same network segment. This is required for the clustering protocol to function correctly. For optimal performance it is also recommended to put the database server in the same network segment to minimize network latency.
+Furthermore XL Release requires **Java8**. Both the Oracle JDK or JRE, as well as OpenJDK are supported. Again, please always run the latest patch level of the JDK/JRE unless otherwise instructed.
 
-=== Database server
+NOTE: All the XL Release cluster nodes _should_ reside in the same network segment. This is required for the clustering protocol to function correctly. For optimal performance it is also recommended to put the database server in the same network segment to minimize network latency.
+
+=== Choosing your database server
 For a production setup you need to use an external (clustered) database to store both the active as well as the archived data of XL Release. You have the choice of the following database to store the repository in:
 
 - Oracle 11g
@@ -57,7 +67,7 @@ For a production setup you need to use an external (clustered) database to store
 
 Please refer to the relevant documentation of the database server of your choice for hardware recommendations.
 
-=== Loadbalancer
+=== Choosing your loadbalancer
 In order to run an HA setup of XL Release, you need to front the installation with a loadbalancer so that users are unaware of which of the clustered nodes they're being routed to. The example configuration given in this document is for HAProxy.
 However any HTTP(s) loadbalancer that supports the following features is supported for following this guide:
 
@@ -71,7 +81,7 @@ Loadbalancers that support this feature set are (not limited to):
 - link:https://f5.com/products/big-ip[F5 BIG-IP]
 - link:http://www.haproxy.org/[HAProxy]
 
-=== Authentication provider
+=== Choosing your authentication provider
 XL Release has support for a number of (SSO) authentication providers. In its most basic form, there is support for LDAPS (Secure LDAP). However for modern environments, there is also support for authentication through an link:http://openid.net/connect/[OIDC provider].
 
 A large number of cloud providers have support for authenticating through OIDC:
@@ -82,7 +92,7 @@ A large number of cloud providers have support for authenticating through OIDC:
 
 If you don't want to depend on a cloud provider, or your SSO solution is not compatible with OIDC, it is possible to integrate your SSO with link:http://www.keycloak.org[Keycloak], which is an OIDC bridge.
 
-=== Proactive monitoring and alerting
+=== Choosing your proactive monitoring and alerting solution
 For a production installation XebiaLabs recommends setting up a proactive monitoring system to monitor system and product performance for the different parts of your installation. XL Release exposes internal and system metrics over JMX. Any monitoring system that can read JMX data can be sed to monitor the installation.
 
 Typical monitoring and alerting tools that can be hooked up to XL Release are:
@@ -93,7 +103,7 @@ Typical monitoring and alerting tools that can be hooked up to XL Release are:
 
 These tools allow to monitor the product and the systems it is running on in real time. This will allow you to set thresholds and alert on them so that appropriate action can be taken before a system goes down.
 
-=== Forensic data gathering
+=== Choosing your forensic data gathering toolchain
 Next to doing proactive monitoring, for a production installation it is good practice to have data gathering available. When gathering forensic data you can analyze this at a later point in time. This gathered data can be used to determine root cause analysis for outages. It can also be used to determine usage patterns or peak load patterns.
 
 For this kind of monitoring a timeseries database is typically used. XL Release can be hooked up to either:
@@ -102,6 +112,8 @@ For this kind of monitoring a timeseries database is typically used. XL Release 
 - link:https://prometheus.io/[Prometheus]
 
 The gathered data can then be graphed and analyzed using tools such as link:https://grafana.com[Grafana]
+
+Next to system monitoring, another set of tools that are useful for forensic data analysis is the ELK stack.
 
 === Log file analysis
 The third kind of monitoring that should be hooked up to a production system is log file monitoring. An industry standard stack for this is the ELK stack. This stack consists of:
@@ -116,14 +128,14 @@ This stack will read and index the log files while they're being written, so tha
 Once all the machines in the production environment are available, XL Release and subsystems can be installed and activated.
 
 === Setup the database server
-XL Release requires two separate schemas in the target database platform. Typically schemas are tied to users by default. XL Release will use the main schema to store its active data in. The second schema is used to store the archived (immutable) data in.
+XL Release requires two separate schemas in the target database platform. Typically schemas are tied to users by default. XL Release will use the main schema to store its active data in. The second schema is used to store the compliancy / archived (immutable) data in.
 
 For this guide we will create the following users and schemas:
 
 - `xlrelease`: This will be the user/schema for the active release data.
-- `xlrarchive`: This will be the user/schema for the archived release data. This schema will over time grow in size.
+- `xlrarchive`: This will be the user/schema for the compliance release data. This schema will over time grow in size.
 
-For some of the databases some extra configuration options need to be set for them to be supported or to perform better
+For some of the databases some extra configuration options need to be set for them to be supported or to perform better.
 
 ==== DB2
 XL Release requires that DB2 is set in MySQL compatible mode in order for it to support the pagination queries. Please run the following command on your DB2 database to enable this:
@@ -136,7 +148,7 @@ $ db2start
 ----
 
 ==== MySQL / MariaDB
-The default installation of MySQL is not tuned to be run on a dedicated high-end machine. XebiaLabs recommends changing the following settings of MySQL to improve its performance.
+The default installation of MySQL is not tuned to be run on a dedicated high-end machine. XebiaLabs recommends changing the following settings of MySQL to improve its performance. These settings can be set in the MySQL options file. See the link:https://dev.mysql.com/doc/refman/5.7/en/option-files.html[MySQL documentation] to locate this file on your operating system.
 
 [cols="^,2",options="header"]
 |===
@@ -152,7 +164,7 @@ When using battery backed disk-cache, this setting can be set to `2` to prevent 
 |===
 
 ==== PostgreSQL
-There are a number of settings in a default installation of PostgreSQL that can be tuned to better perform on higher end systems.
+There are a number of settings in a default installation of PostgreSQL that can be tuned to better perform on higher end systems. These configuration options can be set in the PostgreSQL configuration file. See the link:https://www.postgresql.org/docs/9.6/static/runtime-config-file-locations.html[PostgreSQL documentation] to locate this file on your operating system.
 
 
 [cols="^,2",options="header"]
