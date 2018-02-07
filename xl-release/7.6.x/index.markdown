@@ -19,6 +19,7 @@ product-id: xl-release
 * [Ansible plugin](/xl-release/how-to/ansible-plugin.html)
 * [Docker Compose plugin](/xl-release/how-to/docker-compose-plugin.html)
 * [Relationships plugin](/xl-release/how-to/relationships-plugin.html)
+* [Blackduck plugin](/xl-release/how-to/blackduck-plugin.html)
 * [Fortify SSC plugin](/xl-release/how-to/fortify-ssc-plugin.html)
 
 ### Tools
