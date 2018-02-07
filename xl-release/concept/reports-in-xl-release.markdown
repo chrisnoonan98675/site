@@ -22,8 +22,11 @@ XL Release reports show graphs and statistics based on historical release data. 
 The following types of reports are available:
 
 * [Dashboard](/xl-release/concept/dashboard-report.html)
-* [Release automation](/xl-release/concept/release-automation-report.html)
 * [Release value stream](/xl-release/concept/release-value-stream-report.html)
+
+If you are using XL Release version 7.5 or earlier you can view this type of report:
+
+* [Release automation](/xl-release/concept/release-automation-report.html)
 
 To access a report, select it from the **Reports** list in the top menu bar.
 

@@ -11,6 +11,14 @@ tags:
 
 To configure XL Release, select **Settings** > **General settings** from the top menu. The General settings page is only available to users who have the *Admin* [global permission](/xl-release/how-to/configure-permissions.html).
 
+## XL Release header color
+
+You can configure the color scheme of the XL Release header and menu bar items. For each type of your XL Release instance, you can define an associated color.
+
+Select a color from the list and specify the name of you environment (for example: Production, Development). You can set a short description for the selected XL Release instance.
+
+![Header color](../images/header-color.png)
+
 ## Reports
 
 Use the **Reports** section to configure thresholds used in the [release value stream](/xl-release/concept/reports-in-xl-release.html#release-value-stream) screen.
