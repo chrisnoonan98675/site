@@ -1,6 +1,7 @@
 = How to set up XL Release in production
 :sectnums:
-:toc2: right
+:toc: right
+:toclevels: 2
 :page-liquid:
 :page-categories: [xl-release]
 :page-subject: Installation
@@ -47,7 +48,7 @@ Hardware requirements XL Release servers:
 - **16 GB RAM** or more
 - **500GB** harddisk space
 
-XebiaLabs has performance tested XL Release 7.5.0 with this setup. TODO
+XebiaLabs has performance tested XL Release 7.5.0 with a similar setup. In this setup a TODO
 
 XL Release supports both Microsoft Windows and Linux/Unix operating systems to run on. Any 64-bit version of Windows works. Ensure that whichever Operating System you run, you are always running the latest security updates.
 
@@ -113,16 +114,13 @@ For this kind of monitoring a timeseries database is typically used. XL Release 
 
 The gathered data can then be graphed and analyzed using tools such as link:https://grafana.com[Grafana]
 
-Next to system monitoring, another set of tools that are useful for forensic data analysis is the ELK stack.
-
-=== Log file analysis
-The third kind of monitoring that should be hooked up to a production system is log file monitoring. An industry standard stack for this is the ELK stack. This stack consists of:
+Next to system monitoring, another set of tools that are useful for forensic data analysis is the ELK stack. This is an industry standard stack used to provide log file monitoring and analysis. The stack consists of the following 3 tools:
 
 - link:https://elastic.co[Elasticsearch]
 - link:https://www.elastic.co/products/logstash[Logstash]
 - link:https://www.elastic.co/products/kibana[Kibana]
 
-This stack will read and index the log files while they're being written, so that they can be easily analyzed during a root cause analysis for a production outage.
+Using these tools, logfiles can be read and indexed while they're being written, so that they can be easily analyzed during a root cause analysis for a production outage.
 
 == Execution phase
 Once all the machines in the production environment are available, XL Release and subsystems can be installed and activated.
@@ -180,7 +178,7 @@ There are a number of settings in a default installation of PostgreSQL that can 
 |===
 
 === Setup of the XL Release environment
-As XL Release has the potential of running both remote and local script tasks, you need to take care to harden the XL Release environment from (accidental) abuse. There are many industry standard practices to ensure that an app is running in a sandboxed environment. At the very least we recommend taking the following actions:
+As XL Release has the potential of running both remote and local script tasks, you need to take care to harden the XL Release environment from (accidental) abuse. There are many industry standard practices to ensure that an application is running in a sandboxed environment. At the very least we recommend taking the following actions:
 
 ==== Installation
 This section describes how to install XL Release on the machines so that it is installed with minimum rights.
@@ -193,7 +191,7 @@ This section describes how to install XL Release on the machines so that it is i
 . Copy your license file, obtained from link:https://dist.xebialabs.com/customer/license[the XebiaLabs distribution site] to the `/opt/xebialabs/xl-release-<version>-server/conf` directory.
 
 ==== Configuration of the SQL Repository
-For a clustered production setup XL Release requires than an external database is configured. This is documented in the following guide:
+For a clustered production setup XL Release requires that an external database is configured. This is documented in the following guide:
 
 - link:configure-the-xl-release-sql-repository-in-a-database.html[How to configure the XL Release SQL repository in a database]
 
@@ -201,6 +199,10 @@ For a clustered production setup XL Release requires than an external database i
 To configure XL Release in a clustered active/active setup, please read the following guide:
 
 - link:configure-cluster.html[How to configure cluster mode]
+
+For a production setup, please set the clustering mode to either `full` or `hot-standby`. The difference is that in `hot-standby` mode only _1_ node is active at any given moment, the other node(s) are marked as offline in the loadbalancer and will not receive any HTTP traffic. In `full` cluster mode, the cluster is running in an active/active manner. This means that all nodes are available in the loadbalancer and traffic is shared between them.
+
+NOTE: Please ensure that you choose the same cluster mode for _all_ nodes in the cluster. It is not possible to mix them.
 
 ==== Configuration of user authentication
 Next to the cluster and database configuration, you will also need to setup a secure way of authenticating the user. For production setups, XebiaLabs recommends using either an OIDC provider, or an LDAP directory system over the **LDAPS** protocol. For setting these up, please refer to the following configuration guides:
@@ -225,6 +227,66 @@ By default XL Release is configured to provide a good out of the box trial exper
 | `-XX:+HeapDumpOnOutOfMemoryError` | Instructs the JVM to dump the heap to a file in case of an OutOfMemoryError. This is useful for debugging purposes after the XL Release process has crashed.
 | `-XX:HeapDumpPath=log/` | Instructs the JVM to store the generated heap dumps to the `log/` directory of the XL Release server.
 |===
+
+==== Extra production configuration options
+The following are extra settings that are not part of the other setup guides that XebiaLabs recommends to configure for production installations:
+
+[cols="^,1,3",options="header"]
+|===
+| Setting | File | Value
+| `xl.metrics.enabled` | `xl-release.conf` | XebiaLabs recommends to set this to `true` so that the XL Release system can be monitored using monitoring tools. Metrics will then be exposed over JMX
+|===
+
+==== Boot sequence
+Now that all XL Release nodes are configured, we can start them up. In order to do this, please follow the following steps:
+
+. Start the first node. This node will initialize the database schemas.
+. Wait until the node is reachable on `http://<node_ip_address>:5516/`.
+. When the node is reachable, boot the other node(s).
+. In case of `full` cluster mode, check that every node reports success on a GET request to `http://<node_ip_address>:5516/ha/health`
+. In case of `hot-standby` cluster mode, check that only the first node reports success on a GET request to `http://<node_ip_address>:5516/ha/health`. All other nodes should report http status code `503 Service Unavailable`.
+
+
+=== Setting up the loadbalancer
+In this guide we will use HAProxy to setup a loadbalancer configuration, and explain the settings that you need to set.
+
+You can download the full link:sample-script/haproxy.cfg[HAProxy configuration file] here. The sections copied below are the ones that show how to set up the routing and health checks for the loadbalancer. The provided configuration is usable for XL Release in both `full` and `hot-standby` cluster modes.
+
+[source]
+----
+frontend xl-http // <1>
+  bind 0.0.0.0:80
+  reqadd X-Forwarded-Proto:\ http
+  default_backend xl-backend
+
+frontend xl-https // <3>
+  bind 0.0.0.0:443 ssl crt /etc/ssl/certs/certificate.pem // <4>
+  reqadd X-Forwarded-Proto:\ https
+  option httplog
+  log global
+  default_backend xlr-backend // <5>
+
+backend xl-backend // <2>
+  redirect scheme https if !{ ssl_fc }
+
+backend xlr-backend // <6>
+  option httpchk GET /ha/health // <7>
+  balance roundrobin // <8>
+  cookie JSESSIONID prefix // <9>
+  server xlr-1 xl-release1.acme.com:5516 check cookie xlr-1 // <10>
+  server xlr-2 xl-release2.acme.com:5516 check cookie xlr-2
+----
+
+<1> The `xl-http` frontend routes all HTTP requests coming in on port 80 to the `xl-backend` backend.
+<2> The `xl-backend` backend will redirect all requests to HTTPS if the front connection was not made using an SSL transport layer.
+<3> The `xl-https` frontend will handle all incoming SSL requests on port 443.
+<4> Ensure you have a properly signed certificate here to ensure a hardened configuration
+<5> Every incoming request on HTTPS will be routed to the `xlr-backend` backend
+<6> The `xlr-backend` will handle the actual loadbalancing for the XL Release nodes.
+<7> Every XL Release node is checked on the `/ha/health` endpoint to verify whether it is up. If this endpoint returns a non-success status code, the node is taken out of the loadbalancer until it is back up.
+<8> The loadbalancer is configured to `roundrobin` mode, i.e. every new user gets assigned a different node than the previous user if there is more than 1 node available.
+<9> The XL Release cookie that is used for the session stickiness (ensuring a user always ends up on the same node in a single session) is the `JSESSIONID` cookie. The loadbalancer will add a `prefix` to that cookie so that it can remember which node the user needs to be routed to.
+<10> This line defines that the server `xl-release1.acme.com` lives on port 5516. It needs to be `check`-ed for aliveness, and the cookie-prefix is `xlr-1`.
 
 === Monitoring
 Hardware monitoring and alerting
