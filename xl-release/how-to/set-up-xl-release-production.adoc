@@ -28,13 +28,13 @@ In the above diagram you can see the following components from left to right:
 - The Database: The (SQL) database that will host the repository of the XL Release instances.
 
 == Structure of the document
-This document is structured into 3 phases:
+This document is structured into 4 sections:
 
 - Preparation
 - Installation
-- Administration
+- Administration / Operation
 
-In the preparation phase the prerequisites are described for the XL Release setup. In the installation phase, the setup and configuration procedures for each of the components is described. Finally, in the administration section, best practices will be described to maintain and administer the system once it is in production.
+In the preparation section the prerequisites are described for the XL Release setup. In the installation section, the setup and configuration procedures for each of the components is described. In the administration section, best practices will be described to maintain and administer the system once it is in production.
 
 == Preparation
 The first phase of setting up the production environment consists of determining the correct hardware requirements and obtaining all the necessary prerequisites.
@@ -94,7 +94,7 @@ A large number of cloud providers have support for authenticating through OIDC:
 If you don't want to depend on a cloud provider, or your SSO solution is not compatible with OIDC, it is possible to integrate your SSO with link:http://www.keycloak.org[Keycloak], which is an OIDC bridge.
 
 === Choosing your proactive monitoring and alerting solution
-For a production installation XebiaLabs recommends setting up a proactive monitoring system to monitor system and product performance for the different parts of your installation. XL Release exposes internal and system metrics over JMX. Any monitoring system that can read JMX data can be sed to monitor the installation.
+For a production installation XebiaLabs recommends setting up a proactive monitoring system to monitor system and product performance for the different parts of your installation. XL Release exposes internal and system metrics over JMX. Any monitoring system that can read JMX data can be used to monitor the installation.
 
 Typical monitoring and alerting tools that can be hooked up to XL Release are:
 
@@ -125,8 +125,8 @@ Using these tools, logfiles can be read and indexed while they're being written,
 == Execution phase
 Once all the machines in the production environment are available, XL Release and subsystems can be installed and activated.
 
-=== Setup the database server
-XL Release requires two separate schemas in the target database platform. Typically schemas are tied to users by default. XL Release will use the main schema to store its active data in. The second schema is used to store the compliancy / archived (immutable) data in.
+=== Setting up the database server
+XL Release requires two separate schemas in the target database platform. Typically schemas are tied to users by default. XL Release will use the main schema to store its active data in. The second schema is used to store the compliance / archived (immutable) data in.
 
 For this guide we will create the following users and schemas:
 
@@ -177,7 +177,7 @@ There are a number of settings in a default installation of PostgreSQL that can 
 | `synchronous_commit` | **Advanced**: The default setting of this option is `on`, this guarantees full ACID compliance and no data-loss on power failure. If you have a battery-backed disk cache, you can switch this setting to `off` to get an increase in transactions per second.
 |===
 
-=== Setup of the XL Release environment
+=== Setting up the XL Release nodes
 As XL Release has the potential of running both remote and local script tasks, you need to take care to harden the XL Release environment from (accidental) abuse. There are many industry standard practices to ensure that an application is running in a sandboxed environment. At the very least we recommend taking the following actions:
 
 ==== Installation
@@ -211,7 +211,7 @@ Next to the cluster and database configuration, you will also need to setup a se
 - link:configure-ldap-security-for-xl-release.html[Configure LDAP security for XL Release]
 
 ==== Configuration of the XL Release JVM options
-By default XL Release is configured to provide a good out of the box trial experience. For optimal production use, the runtime configuration of XL Release needs to be configured. XebiaLabs recommends adding/changing the following settings in the `conf/xlr-wrapper-linux.conf`
+By default XL Release is configured to provide a good out of the box trial experience. For optimal production use, the runtime configuration of XL Release needs to be configured. XebiaLabs recommends adding/changing the following settings in the `conf/xlr-wrapper-linux.conf` or the `conf/xlr-wrapper-windows.conf`
 
 [cols="^,2",options="header"]
 |===
@@ -250,7 +250,7 @@ Now that all XL Release nodes are configured, we can start them up. In order to 
 === Setting up the loadbalancer
 In this guide we will use HAProxy to setup a loadbalancer configuration, and explain the settings that you need to set.
 
-You can download the full link:sample-script/haproxy.cfg[HAProxy configuration file] here. The sections copied below are the ones that show how to set up the routing and health checks for the loadbalancer. The provided configuration is usable for XL Release in both `full` and `hot-standby` cluster modes.
+You can download the full link:production-setup/haproxy.cfg[HAProxy configuration file] here. The sections copied below are the ones that show how to set up the routing and health checks for the loadbalancer. The provided configuration is usable for XL Release in both `full` and `hot-standby` cluster modes.
 
 [source]
 ----
@@ -288,14 +288,50 @@ backend xlr-backend // <6>
 <9> The XL Release cookie that is used for the session stickiness (ensuring a user always ends up on the same node in a single session) is the `JSESSIONID` cookie. The loadbalancer will add a `prefix` to that cookie so that it can remember which node the user needs to be routed to.
 <10> This line defines that the server `xl-release1.acme.com` lives on port 5516. It needs to be `check`-ed for aliveness, and the cookie-prefix is `xlr-1`.
 
-=== Monitoring
-Hardware monitoring and alerting
-- Network
-- Disk
-- RAM
-- CPU
+=== Setting up monitoring
 
-Product monitoring
+==== What to monitor
+For a production setup, XebiaLabs recommends monitoring at the very least the following statistics of all of the systems involved (i.e. the loadbalancer, XL Release nodes and Database server(s)):
 
+- Network I/O
+- Disk I/O
+- RAM usage
+- CPU usage
 
-Database monitoring
+In the previous section we've enabled the `xl.metrics.enabled` configuration flag. This activates the JMX monitoring of the XL Release nodes. The important JMX beans to monitor are:
+
+[cols="^,2",options="header"]
+|===
+| Metric | Description
+| `com.xebialabs.xlrelease.metrics.api.internal` | Statistics about non-public API endpoints
+| `com.xebialabs.xlrelease.metrics.api.v1` | Statistics about public API endpoints
+| `com.xebialabs.xlrelease.metrics.repository` | Statistics about the persistence application layer
+| `com.xebialabs.xlrelease.metrics.service` | Statistics about the service application layer
+| `com.xebialabs.xlrelease.metrics.executors.scheduler` | Statistics about the background tasks thread pool
+| `com.xebialabs.xlrelease.metrics.releaseTrigger` | Statistics about the triggers thread pool
+| `com.xebialabs.xlrelease.metrics.riskCalculation` | Statistics about the risk calculation thread pool
+| `com.xebialabs.xlrelease.metrics.pool.repository` | Statistics about the database connection pool
+| `com.xebialabs.xlrelease.metrics.repository` | Statistics about the persistence application layer
+|===
+
+==== Adding monitoring to XL Release
+It is possible to either (remotely) monitor JMX, add a java agent such as the Dynatrace agent, or use a tool like _collectd_ to push the monitoring statistics to a central collectd server.
+
+There are pros and cons to each of these. In general, XebiaLabs does not recommend adding Java agents to the Java process. From our own testing it has been shown that these can adversely influence the performance characteristics of the XL Release system. Furthermore we do not recommend exposing insecure / unauthenticated JMX over the network as that can be used to execute remote procedure calls on the JVM.
+
+We recommend setting up link:https://collectd.org[collectd] to aggregate the statistics on the XL Release server, and push them to a central collecting server that can graph these statistics. In order to do this, you have to install the following tools on the XL Release server:
+
+- link:https://collectd.org[collectd]
+- link:https://collectd.org/wiki/index.php/Plugin:Java[collectd-java]
+- link:https://github.com/egineering-llc/collectd-fast-jmx[FastJMX]
+
+Once these tools are installed, you can download a link:production-setup/collectd.conf[sample collectd.conf file here which is preconfigured to monitor all the relevant XL Release application and system  statistics. In order to use this file, you will have to add 2 configuration values to the configuration.
+
+- IP_ADDRESS_HERE: Fill out the IP address of the central collectd server here.
+- NETWORK_INTERFACE_HERE: Add the network interface over which XL release communicates here.
+
+== Administration / Operation
+This section describes how to maintain the system once it's up, and what to do if monitoring shows erratic behavior.
+
+TODO...
+
