@@ -28,7 +28,7 @@ Also refer to:
 
 ## Requirements
 
-* Team Foundation Server 2015 Update 2 or later, or Visual Studio Team Services
+* Team Foundation Server 2015 Update 2 or Team Foundation Server 2017, or Visual Studio Team Services (VSTS)
 * XL Deploy version 5.1.0 and later
 
 **Note:** If you are using TFS 2015 or TFS 2015 Update 1, the Team Foundation Server 2015 version of the plugin is still available.

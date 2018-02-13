@@ -11,6 +11,8 @@ tags:
 
 The XL Deploy plugin for Microsoft Team Foundation Server (TFS) plugin provides automated deployment functionality for TFS 2010, TFS 2012, and TFS 2013.
 
+If you are using VSTS, TFS 2015 Update 2 or TFS 2017, please refer to [Visual Studio Team Services (VSTS) XL Deploy plugin](/xl-deploy/concept/team-foundation-server-2015-plugin.html).
+
 To support the use of XL Deploy from a TFS installation, this plugin provides custom build activities to interface with XL Deploy, a sample build template, and an editor to help you modify the build script with custom XL Deploy build actions.
 
 The build template extends the default build template with an XL Deploy-specific part that packages your software into an XL Deploy DAR archive, uploads it to a specified XL Deploy server, and lets XL Deploy deploy the software to a specified environment. This is achieved using custom activities that you can reuse in your own variants of the build template.
