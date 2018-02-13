@@ -237,15 +237,56 @@ The following are extra settings that are not part of the other setup guides tha
 | `xl.metrics.enabled` | `xl-release.conf` | XebiaLabs recommends to set this to `true` so that the XL Release system can be monitored using monitoring tools. Metrics will then be exposed over JMX
 |===
 
+==== Finalizing the node configuration
+Now that the node(s) are configured for production use, their configuration needs to be finalized. For this, please execute the following on just a single node:
+
+. Start up the server using the `/opt/xebialabs/xl-release-<version>-server/bin/run.sh` or `/opt/xebialabs/xl-release-<version>-server/bin/run.bat` script.
+
+Because this is the initial install, XL Release will start with asking a number of questions, please follow the next steps to provide the answers to these questions:
+
+[cols="2,1,3",options="header"]
+|===
+| Question | Answer | Explanation
+| Do you want to use the simple setup | no | Some of the properties need to be changed for production scenarios
+| Please enter the admin password | ... | Choose a sufficiently difficult admin password
+| Do you want to generate a new password encryption key | yes | XebiaLabs recommends generating a random unique password encryption key for the production environment
+| Please enter the password you wish to use for the password encryption key | ... | If you want to start XL Release as a service on system boot, XebiaLabs recommends not adding a password to the password encryption key. This prevents automated start. If your enterprise security compliance demands it, it is possible to add a password now.
+| Would you like to enable SSL | no | SSL offloading is done on the loadbalancer so that session stickiness can be enabled. There is no need in this scenario to enable SSL on the XL Release servers.
+| What HTTP bind address would you like the server to listen to | 0.0.0.0 | Add this to listen on all interfaces. If you only want to listen on a single IP address / interface, enter that one
+| What HTTP port number would you like the server to listen on | 5516 | This is the default port, it is possible to enter an different port number.
+| Enter the web context root where XL Release will run | / | By default XL Release runs on the `/` context root, i.e. in the root of the server.
+| Enter the public URL to access XL Release | https://\<HOSTNAME_OF_LOADBALANCER\> | In order for XL Release to correctly rewrite all the URLs it needs to be aware how it is reachable. Please fill out the IP address or hostname configured on the loadbalancer, instead of the IP address (and port) of the XL Release server itself. The protocol that needs to be entered here is _https_.
+| Enter the minimum number of threads for the HTTP server | 30 | Unless otherwise instructed, the default value can be used here
+| Enter the maximum number of threads for the HTTP server | 150 | Start with the default value. If monitoring points to threadpool saturation, this number can be increased.
+| Do you agree with these settings | yes | Type 'yes' after reviewing all the settings
+|===
+
+. After entering 'yes' to the final question, the XL Release server will boot up. During the initialization sequence it will initialize the database schemas after which it will display
+
+    You can now point your browser to https://<IP_OF_LOADBALANCER>/
+
+. Stop the XL Release server
+. Edit the `conf/xl-release-server.conf` file and change/add configuration options not asked during the setup procedure
+
+[cols="2,1,3",options="header"]
+|===
+| Option | Value | Explanation
+| `hide.internals` | `true` | Setting this to true, hides exception messages from the end-users and only presents them with a key using which the XL Release administrator can find the exception
+| `client.session.timeout.minutes` | 20 | This setting defines the session idle timeout. Set this to the amount of minutes that is defined by your enterprise security compliance department.
+|===
+
+. Copy the `conf/repository-keystore.jceks` and `conf/xl-release-server.conf` to the other nodes so that they run on the same settings.
+
+All nodes are now fully configured and can be booted up.
+
 ==== Boot sequence
 Now that all XL Release nodes are configured, we can start them up. In order to do this, please follow the following steps:
 
-. Start the first node. This node will initialize the database schemas.
+. Start the first node.
 . Wait until the node is reachable on `http://<node_ip_address>:5516/`.
 . When the node is reachable, boot the other node(s).
 . In case of `full` cluster mode, check that every node reports success on a GET request to `http://<node_ip_address>:5516/ha/health`
 . In case of `hot-standby` cluster mode, check that only the first node reports success on a GET request to `http://<node_ip_address>:5516/ha/health`. All other nodes should report http status code `503 Service Unavailable`.
-
 
 === Setting up the loadbalancer
 In this guide we will use HAProxy to setup a loadbalancer configuration, and explain the settings that you need to set.
@@ -325,10 +366,11 @@ We recommend setting up link:https://collectd.org[collectd] to aggregate the sta
 - link:https://collectd.org/wiki/index.php/Plugin:Java[collectd-java]
 - link:https://github.com/egineering-llc/collectd-fast-jmx[FastJMX]
 
-Once these tools are installed, you can download a link:production-setup/collectd.conf[sample collectd.conf file here which is preconfigured to monitor all the relevant XL Release application and system  statistics. In order to use this file, you will have to add 2 configuration values to the configuration.
+Once these tools are installed, you can download a link:production-setup/collectd.conf[sample collectd.conf file] here which is preconfigured to monitor all the relevant XL Release application and system  statistics. In order to use this file, you will have to add 2 configuration values to the configuration.
 
 - IP_ADDRESS_HERE: Fill out the IP address of the central collectd server here.
 - NETWORK_INTERFACE_HERE: Add the network interface over which XL release communicates here.
+
 
 == Administration / Operation
 This section describes how to maintain the system once it's up, and what to do if monitoring shows erratic behavior.
