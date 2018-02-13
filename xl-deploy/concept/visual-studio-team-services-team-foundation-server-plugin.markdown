@@ -8,11 +8,9 @@ tags:
 - tfs
 - vsts
 - microsoft
-since:
-- XL Deploy 5.1.0
 ---
 
-As of version 7.0.0 the Team Foundation Server 2015 XL Deploy plugin has been renamed to the Visual Studio Team Services (VSTS) XL Deploy plugin.
+As of version 7.0.0 the Team Foundation Server 2015 XL Deploy plugin has been renamed to the Visual Studio Team Services (VSTS)/ Team Foundation Server (TFS) XL Deploy plugin.
 
 The XL Deploy extension for Visual Studio Team Services (VSTS) provides automated deployment functionality through an XL Deploy build task for [Microsoft TFS 2015](https://msdn.microsoft.com/en-us/Library/vs/alm/Build/feature-overview), [Microsoft TFS 2017](https://www.visualstudio.com/en-us/news/releasenotes/tfs2017-update1), and [Visual Studio Team Services](https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx) (VSTS), which is also known as Visual Studio Online.
 
@@ -24,11 +22,11 @@ Also refer to:
 
 * [Visual Studio Team Services Plugin Reference](/xl-deploy-vsts-xld-plugin/latest/tfs2015PluginManual.html)
 * [The XL Deploy plugin on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=xebialabs.tfs2015-xl-deploy-plugin)
-* [Introduction to the Team Foundation Server plugin](/xl-deploy/concept/team-foundation-server-plugin.html) for the XL Deploy plugin for TFS 2010, TFS 2012, and TFS 2013
+* [Introduction to the Team Foundation Server XAML plugin](/xl-deploy/concept/team-foundation-server-xaml-plugin.html) for the XL Deploy plugin for TFS 2010, TFS 2012, and TFS 2013
 
 ## Requirements
 
-* Team Foundation Server 2015 Update 2 or Team Foundation Server 2017, or Visual Studio Team Services (VSTS)
+* Team Foundation Server 2015 Update 2, Team Foundation Server 2017, or Visual Studio Team Services (VSTS)
 * XL Deploy version 5.1.0 and later
 
 **Note:** If you are using TFS 2015 or TFS 2015 Update 1, the Team Foundation Server 2015 version of the plugin is still available.
@@ -38,9 +36,9 @@ Also refer to:
 {:.table .table-striped}
 | VSTS/TFS versions | Plugin |
 | ----------------- | ------ |
-| TFS 2010, 2012, 2013 | [Team Foundation Server plugin](/xl-deploy/concept/team-foundation-server-plugin.html) |
+| TFS 2010, 2012, 2013 | [Team Foundation Server XAML plugin](/xl-deploy/concept/team-foundation-server-xaml-plugin.html) |
 | TFS 2015 or TFS 2015 Update 1 | Team Foundation Server 2015 version of the plugin |
-| TFS 2015 Update 2, 2017, VSTS | Visual Studio Team Services (VSTS) plugin |
+| TFS 2015 Update 2, 2017, VSTS | Visual Studio Team Services (VSTS)/ Team Foundation Server (TFS) plugin |
 
 ## Features
 
@@ -54,7 +52,7 @@ Also refer to:
 
 Before using the XL Deploy build task for TFS 2015, TFS 2017 or Visual Studio Team Services, ensure that you have installed the build task as described in [Install a build task in TFS](/xl-deploy/how-to/install-a-build-task-in-tfs-2015.html).
 
-Also, ensure that you are not searching for the custom activities used for XAML builds. For information about custom activities, refer to the [documentation on the XL Deploy plugin for earlier versions of TFS](/xl-deploy/concept/team-foundation-server-plugin.html).
+Also, ensure that you are not searching for the custom activities used for XAML builds. For information about custom activities, refer to the [documentation on the XL Deploy plugin for earlier versions of TFS](/xl-deploy/concept/team-foundation-server-xaml-plugin.html).
 
 **Tip:** You can use the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=xebialabs.tfs2015-xl-deploy-plugin) to install the XL Deploy extension in VSTS.
 
