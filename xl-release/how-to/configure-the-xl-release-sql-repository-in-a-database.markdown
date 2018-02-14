@@ -257,3 +257,17 @@ This is a sample for SQL Server:
 	    }
 	    ...
     }
+
+Enable snapshot isolation mode by executing the following commands against the SQL Server:
+
+    ALTER DATABASE xlrelease SET ALLOW_SNAPSHOT_ISOLATION ON;
+    ALTER DATABASE xlrelease SET READ_COMMITTED_SNAPSHOT ON;
+    ALTER DATABASE xlarchive SET ALLOW_SNAPSHOT_ISOLATION ON;
+    ALTER DATABASE xlarchive SET READ_COMMITTED_SNAPSHOT ON;
+
+To maintain the performance of the database, make sure you execute the following maintenance tasks on the QL Server once a week:
+
+ * Recompute statistics by running `EXEC sp_updatestats`
+ * Clear buffers by running `DBCC DROPCLEANBUFFERS`
+ * Clear cache by running `DBCC FREEPROCCACHE`
+ * Rebuild indexes that are fragmented more than 30%
