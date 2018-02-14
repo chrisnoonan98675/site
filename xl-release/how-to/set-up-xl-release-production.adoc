@@ -146,6 +146,18 @@ $ db2start
 ==== MySQL / MariaDB
 The default installation of MySQL is not tuned to be run on a dedicated high-end machine. XebiaLabs recommends changing the following settings of MySQL to improve its performance. These settings can be set in the MySQL options file. See the link:https://dev.mysql.com/doc/refman/5.7/en/option-files.html[MySQL documentation] to locate this file on your operating system.
 
+The following settings are required to set for correct operation on MySQL:
+
+[cols="^.<,<.<2",options="header"]
+|===
+| Setting | Value
+| `skip-character-set-client-handshake` |
+| `collation_server` | `utf8_unicode_ci`
+| `character_set_server` | `utf8`
+|===
+
+The below settings are used to improve performance when running on MySQL
+
 [cols="^.<,<.<2",options="header"]
 |===
 | Setting | Value
