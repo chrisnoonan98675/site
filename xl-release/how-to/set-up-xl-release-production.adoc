@@ -8,9 +8,9 @@
 :page-tags: [production, setup, installation]
 
 == Introduction
-To run XL Release in a highly available production setup, you need to properly configure the product, environment and server resources to get the most out of the product. This document provides a step-by-step implementation guide to set up XL Release in a production ready environment.
+This document provides a step-by-step implementation guide to set up XL Release in a production ready environment. It describes how to configure the product, environment and server resources to get the most out of the product. 
 
-CAUTION: Proper configuration of I/O subsystems (database, file system, network) is critical for the optimal performance and operation of XL Release. This guide provides best practices and sizing recommendations.
+IMPORTANT: Proper configuration of I/O subsystems (database, file system, network) is critical for the optimal performance and operation of XL Release. This guide provides best practices and sizing recommendations.
 
 This guide is broken up into several phases each covering several topics needed to know to install a production environment.
 
