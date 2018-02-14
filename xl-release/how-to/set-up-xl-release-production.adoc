@@ -48,11 +48,9 @@ Hardware requirements XL Release servers:
 - **16 GB RAM** or more
 - **500GB** harddisk space
 
-XebiaLabs has performance tested XL Release 7.5.0 with a similar setup. In this setup a TODO
+XebiaLabs has performance tested XL Release 7.5.0 with a similar setup. In this setup a
 
-XL Release supports both Microsoft Windows and Linux/Unix operating systems to run on. Any 64-bit version of Windows works. Ensure that whichever Operating System you run, you are always running the latest security updates.
-
-Furthermore XL Release requires **Java8**. Both the Oracle JDK or JRE, as well as OpenJDK are supported. Again, please always run the latest patch level of the JDK/JRE unless otherwise instructed.
+NOTE: TODO expand performance data
 
 NOTE: All the XL Release cluster nodes _should_ reside in the same network segment. This is required for the clustering protocol to function correctly. For optimal performance it is also recommended to put the database server in the same network segment to minimize network latency.
 
@@ -148,7 +146,7 @@ $ db2start
 ==== MySQL / MariaDB
 The default installation of MySQL is not tuned to be run on a dedicated high-end machine. XebiaLabs recommends changing the following settings of MySQL to improve its performance. These settings can be set in the MySQL options file. See the link:https://dev.mysql.com/doc/refman/5.7/en/option-files.html[MySQL documentation] to locate this file on your operating system.
 
-[cols="^,2",options="header"]
+[cols="^.<,<.<2",options="header"]
 |===
 | Setting | Value
 | `innodb_buffer_pool_size` | XebiaLabs recommends setting this to 70-75% of the available RAM of the database server, but not higher. This setting controls how much of the database structure can be kept in memory. The larger it is, the better performant the application will be due to caching at the database level.
@@ -177,15 +175,44 @@ There are a number of settings in a default installation of PostgreSQL that can 
 | `synchronous_commit` | **Advanced**: The default setting of this option is `on`, this guarantees full ACID compliance and no data-loss on power failure. If you have a battery-backed disk cache, you can switch this setting to `off` to get an increase in transactions per second.
 |===
 
+==== Microsoft SQL Server
+Unlike other supported databases, MS SQL Server does not have Multi Version Concurrency Control activated by default. XL Release requires this to function correctly. For more information on the settings described below, please refer to link:https://msdn.microsoft.com/en-us/library/ms189050.aspx[this MSDN article].
+
+Enable snapshot isolation mode with the following commands executed against SQL Server:
+
+    ALTER DATABASE xlrelease SET ALLOW_SNAPSHOT_ISOLATION ON;
+    ALTER DATABASE xlrelease SET READ_COMMITTED_SNAPSHOT ON;
+    ALTER DATABASE xlarchive SET ALLOW_SNAPSHOT_ISOLATION ON;
+    ALTER DATABASE xlarchive SET READ_COMMITTED_SNAPSHOT ON;
+
+When this is enabled, you need to add a weekly maintenance task to MS SQL Server. This is described in the <<Maintenance on Microsoft SQL Server>> Administration section of this document.
+
 === Setting up the XL Release nodes
 As XL Release has the potential of running both remote and local script tasks, you need to take care to harden the XL Release environment from (accidental) abuse. There are many industry standard practices to ensure that an application is running in a sandboxed environment. At the very least we recommend taking the following actions:
+
+==== Operating system and Java
+XL Release supports both Microsoft Windows and Linux/Unix operating systems to run on. Any 64-bit version of Windows works. Ensure that whichever Operating System you run, you are always running the latest security updates.
+
+CAUTION: XL Release is not supported on **Java9**, ensure you have a **Java8** installation available.
+
+XL Release requires **Java8**. Both the Oracle JDK or JRE, as well as OpenJDK are supported. Again, please always run the latest patch level of the JDK/JRE unless otherwise instructed.
+
+==== Obtaining the XL Release distribution
+XL Release comes in two different versions:
+
+- __Long-Term Support (LTS)__ versions are supported for a year after they've been superseded by the next major LTS release. A major new version is released every 6 months, with maintenance releases in between.
+- __Short-term support (STS)__ versions are supported until they are superseded by the next LTS or STS version. Maintenance releases are not created for STS versions.
+
+XebiaLabs recommends that your production environment always runs the latest maintenance release of the LTS version. You can find the versions and their support cycle on the following link:https://support.xebialabs.com/hc/en-us/articles/115003299946-Supported-XebiaLabs-product-versions[support page].
+
+You can obtain the installation of XL Release from the XebiaLabs link:https://dist.xebialabs.com/customer/xl-release[distribution server].
 
 ==== Installation
 This section describes how to install XL Release on the machines so that it is installed with minimum rights.
 
 . Create a dedicated _non-root_ user called `xl-release`. This ensures that you can lock down the operating system and prevents accidental privilege escalations.
 . Create a directory under `/opt` called `xebialabs`, where the `xl-release` user has _read_ access.
-. Extract a clean version of XL Release in the `/opt/xebialabs` directory.
+. Extract the downloaded version of XL Release in the `/opt/xebialabs` directory.
 . Change the ownership of the installed product to `xl-release`, and grant the user _read_ access to the installation directory.
 . Grant the `xl-release` user _write_ access to the `/opt/xebialabs/xl-release-<version>-server/conf` and `/opt/xebialabs/xl-release-<version>-server/log` directories.
 . Copy your license file, obtained from link:https://dist.xebialabs.com/customer/license[the XebiaLabs distribution site] to the `/opt/xebialabs/xl-release-<version>-server/conf` directory.
@@ -255,7 +282,7 @@ Because this is the initial install, XL Release will start with asking a number 
 | What HTTP bind address would you like the server to listen to | 0.0.0.0 | Add this to listen on all interfaces. If you only want to listen on a single IP address / interface, enter that one
 | What HTTP port number would you like the server to listen on | 5516 | This is the default port, it is possible to enter an different port number.
 | Enter the web context root where XL Release will run | / | By default XL Release runs on the `/` context root, i.e. in the root of the server.
-| Enter the public URL to access XL Release | https://\<HOSTNAME_OF_LOADBALANCER\> | In order for XL Release to correctly rewrite all the URLs it needs to be aware how it is reachable. Please fill out the IP address or hostname configured on the loadbalancer, instead of the IP address (and port) of the XL Release server itself. The protocol that needs to be entered here is _https_.
+| Enter the public URL to access XL Release | https://<HOSTNAME_OF_LOADBALANCER> | In order for XL Release to correctly rewrite all the URLs it needs to be aware how it is reachable. Please fill out the IP address or hostname configured on the loadbalancer, instead of the IP address (and port) of the XL Release server itself. The protocol that needs to be entered here is _https_.
 | Enter the minimum number of threads for the HTTP server | 30 | Unless otherwise instructed, the default value can be used here
 | Enter the maximum number of threads for the HTTP server | 150 | Start with the default value. If monitoring points to threadpool saturation, this number can be increased.
 | Do you agree with these settings | yes | Type 'yes' after reviewing all the settings
@@ -377,3 +404,10 @@ This section describes how to maintain the system once it's up, and what to do i
 
 TODO...
 
+=== Maintenance on Microsoft SQL Server
+When running on MS SQL Server, because of the snapshot isolation mode you will need to run a set of weekly (or more frequent) maintenance tasks on the database in order to keep the performance on an acceptable level.
+
+- recompute statistics by running `EXEC sp_updatestats`
+- clear buffers by running `DBCC DROPCLEANBUFFERS`
+- clear cache by running `DBCC FREEPROCCACHE`
+- rebuild indexes that are fragmented more than 30%

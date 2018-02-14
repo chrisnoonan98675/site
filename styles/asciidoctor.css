@@ -200,3 +200,6 @@ pre .conum[data-value] {
     line-height: 1;
     vertical-align: top;
 }
+.valign-top {
+    vertical-align: top;
+}
