@@ -7,7 +7,8 @@ subject:
 tags:
 - template
 - version control
-since: - XL Release 7.6.0
+since:
+- XL Release 7.6.0
 ---
 
 You can use the template version control feature to track changes to a template and to revert past changes. While XL Release has always automatically tracked template changes for compliance and auditing purposes, template version control allows you to save specific versions of a template and to roll back changes.
