@@ -74,3 +74,13 @@ You can create an undeploy task in XL Release by adding a task of type XL Deploy
   * `Rollback On Failure`: Whether rollback should be done if the undeployment fails.
 
 For more information about using the deployment rollback option, refer to [Perform deployment rollback](/xl-release/how-to/perform-deployment-rollback.html).  
+
+## Release notes
+
+### Version 7.5.1
+
+### Improvements
+
+* [REL-4944] - Support for Control task parameters in xlr-xld-plugin
+* [REL-5877] - Add ability to pass parameters while invoking a control task in XL Deploy plugin for XL Release
+* [REL-5969] - Show exception raised for a failed XL Deploy deployment in XL Release

@@ -1,5 +1,5 @@
 ---
-title: Release automation report
+title: Release automation report (XL Release versions 7.5 and earlier)
 categories:
 - xl-release
 subject:
@@ -8,7 +8,10 @@ tags:
 - report
 - release
 - release automation
+removed: XL Release 7.6.0
 ---
+
+As of XL Release version 7.6.0, the **Release automation report** page from the **Reports** section has been removed.
 
 The XL Release release automation report shows the level of automation used in your releases. The data for this report comes from XL Release's [archive database](/xl-release/concept/how-archiving-works.html). Releases that are completed but not yet archived do not appear in reports.
 

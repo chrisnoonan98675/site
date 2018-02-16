@@ -1,0 +1,32 @@
+---
+title: Using template version control
+categories:
+- xl-release
+subject:
+- Releases
+tags:
+- template
+- version control
+since:
+- XL Release 7.6.0
+---
+
+You can use the template version control feature to track changes to a template and to revert past changes. While XL Release has always automatically tracked template changes for compliance and auditing purposes, template version control allows you to save specific versions of a template and to roll back changes.
+
+Template Version Control also enables you to label templates and to compare saved template versions by viewing them as code in XL Release’s Releasefile format.
+
+## View template changes and save template version
+
+To view the changes performed on a template, open the template and select **Show** > **Version control**. The version control displays a list of all the changes with the latest at the top.
+
+![Version control](../images/version-control.png)
+
+You can filter the list by setting a start date and an end date for the changes or by specifying a user in the *Filter by user...* field.
+
+To save a new template version with the latest change, click **Save a new version**, specify a name and a description, and the click **Save**. You can view only the saved versions in the list by clicking **Hide changes**.
+
+## Restore and compare templates
+
+To restore a template to a specific revision, click **Restore** from the **Actions** column. This creates a new change in the list that is identical to the revision you selected.
+
+To compare two versions of a template, click the square on the left side next to the desired versions to select them, and then click **Compare**. This shows the two selected versions as code in XL Release’s Releasefile format and highlights the differences.

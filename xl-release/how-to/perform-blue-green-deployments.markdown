@@ -54,16 +54,18 @@ This is a preparation phase to make sure that the software is deployed to the co
 You are ready to deploy the new application version to the environment that is not in use.
 
  * **Deploy to new environment**. XL Deploy handles the deployment of the new version to the environment that is not currently live. The [XL Deploy task in XL Release](/xl-release/how-to/xld-plugin.html) handles the communication with the XL Deploy server.
- * **Run tests**. In the sketch, this is modeled as a manual activity. This allows you to run the template without having all the integrations in place. Later, this task can be replaced with an automated task that integrates with a testing tool.
- * **OK to switch?** This is a *gate* in the process, where the release manager confirms we can proceed to bring the new environment ('Green') live.
+
+ * **Run tests**. In the sketch, this is modeled as a manual activity. This allows you to run the template without having all the integrations in place. At a later time this task can be replaced with an automated task that integrates with a testing tool.
+
+ * **OK to switch?** This is a *gate* in the process where the release manager confirms that you can proceed to bring the new environment ('Green') live.
 
 #### 3. **Switch to live**
 
-Now that the deployment is running and fully tested we can make the switch.
+After the deployment is running and is fully tested, you can make the switch.
 
-* **Change load balancer**. For now we have to manually do this step and mark this task as done in XL Release before the process continues. Later we can replace it with an automated integration.
+* **Change load balancer**. You must manually execute this step and mark this task as done in XL Release before the process continues. At a later time you can replace it with an automated integration.
 
-* **Update registry with live environment**. Remember which environment is currently live so we know the next time we will run this template.
+* **Update registry with live environment**. Remember which environment is currently live to know the next time you will run this template.
 
 * **Send notification**. Announce the availability of the new features.
 
@@ -73,44 +75,43 @@ When the new environment is running fine and there is no need for a rollback, th
 
 * **New environment is stable?**. Make the decision that the old environment is no longer needed for rollback and can be discarded.
 
-* **Undeploy old environment**. Turn of old environment. We are using XL Deploy to do this.
-
+* **Undeploy old environment**. Use XL Deploy to turn of old environment.
 
 ## Refine the process
 
-We will now setup XL Deploy to have the environments ready and link everything together in XL Release using variables to communicate between tasks.
+Set up XL Deploy prepare the environments and link everything together in XL Release using variables to communicate between tasks.
 
 ### XL Deploy setup
 
-In XL Deploy, you will have two nearly identical environments, 'Blue' and 'Green'.
+In XL Deploy, you will have two nearly identical environments: 'Blue' and 'Green'.
 
 ![Blue and Green environments in XL Deploy](../images/bluegreen/bluegreen-xldeploy.png)
 
-In this example, they live in the 'PROD' folder.
+In this example, they are located in the 'PROD' folder.
 
 In XL Release, [add an XL Deploy Server item](/xl-release/how-to/xld-plugin.html#configure-xl-deploy-server-shared-configuration) under Shared Configuration and point it to your XL Deploy installation.
 
 ### Variables in XL Release
 
-We will define the following variables in XL Release that maintain the state of the Blue/Green process.
+Define the following variables in XL Release that maintain the state of the Blue/Green process.
 
-* A [global variable](https://docs.xebialabs.com/xl-release/how-to/configure-global-variables.html) `${global.bluegreen-environments}`. This is the list of available environments. This list will be used by various other variables. We want to configure the list of environments once, so we create a global variable for it. It is a variable of type 'List' that has two values: 'Blue' and 'Green', corresponding to the names of the environment in XL Deploy.
+* A [global variable](https://docs.xebialabs.com/xl-release/how-to/configure-global-variables.html) `${global.bluegreen-environments}`. This is the list of available environments. This list will be used by various other variables. Configure the list of environments once to create a global variable for it. It is a variable of type `List` that has two values: 'Blue' and 'Green', corresponding to the names of the environment in XL Deploy.
 
 ![${global.live-environment} configuration](../images/bluegreen/bluegreen-globalvariable-list.png)
 
-* A global variable `${global.live-environment}`. We use a global variable as a registry of which environment is currently live. This variable can have two values: 'Blue' or 'Green'. It is modeled as a variable of type ListBox and we link it to the list of environments we created earlier:
+* A global variable `${global.live-environment}`. Use a global variable as a registry of the currently live environment. This variable can have two values: 'Blue' or 'Green'. It is modeled as a variable of type `ListBox` and you link it to the list of environments you created earlier:
 
 ![${global.live-environment} configuration](../images/bluegreen/bluegreen-globalvariable.png)
 
-* [Release variables](/xl-release/how-to/create-release-variables.html) `${new-environment}` -- which is the environment we are going to deploy to; and `${old-environment}` -- which is the environment that is currently active and that will be retired at the end of the process. Both are modeled as a ListBox that links to the list of available environments in `${global.bluegreen-environments}`. The values of these variables are determined during the release process and are not filled in by the user. Therefore we need to uncheck the option 'Show on Create release form'.
+* [Release variables](/xl-release/how-to/create-release-variables.html) `${new-environment}` - this is the environment you deploy to; and `${old-environment}` - this is the environment that is currently active and that will be retired at the end of the process. Both are modeled as a `ListBox` that links to the list of available environments in `${global.bluegreen-environments}`. The values of these variables are determined during the release process and are not filled in by the user. This is why you must uncheck the option **Show on Create release form**.
 
 ![New environment variable](../images/bluegreen/bluegreen-release-variable.png)
 
-* Release variables `${app}` and `${version}`. The version of the application to deploy is filled in when the release process starts and is passed to XL Deploy to indicate which version to deploy. The values of these variables are filled in by the release manager when the release starts, so the option 'Show en Create release form' should be enabled.
+* Release variables `${app}` and `${version}`. The version of the application to deploy is filled in when the release process starts and is passed to XL Deploy to indicate which version to deploy. The values of these variables are filled in by the release manager when the release starts. This is why the option `Show en Create release form` should be enabled.
 
-We use these variables in the release flow. Here are some examples of tasks using the variable.
+Use these variables in the release flow. Here are some examples of tasks using the variable.
 
-In **What is currently live?**, we use a simple script to determine the new environment:
+In the **What is currently live?** task, use a simple script to determine the new environment:
 
 	if globalVariables['global.live-environment'] == 'Blue':
 	    releaseVariables['new-environment'] = 'Green'
@@ -120,7 +121,7 @@ In **What is currently live?**, we use a simple script to determine the new envi
 	    releaseVariables['new-environment'] = 'Blue'
 	    releaseVariables['old-environment'] = 'Green'
 
-Next, the User Input task **Confirm new environment** confirms the environments with the release manager. The Release manager may override this choice by choosing another value from the drop down. Note that you can use the variables in the description in order to render a helpful message.
+The User Input task **Confirm new environment** confirms the environments with the release manager. The Release manager can override this choice by selecting another value from the drop down. You can use the variables in the description to render a helpful message.
 
 ![Confirm environment dialog](../images/bluegreen/bluegreen-userinput.png)
 
@@ -128,33 +129,30 @@ The **Deploy** task takes the variable to determine which environment to deploy 
 
 ![Deploy task](../images/bluegreen/bluegreen-deploytask.png)
 
-When the deployment was successful, the registry of what is running is updated by setting the global variables in a the Script task **Update registry with live  environment**.
+When the deployment was successful, the registry of what is running is updated by setting the global variables in a the Script task **Update registry with live environment**.
 
 	globalVariables['global.live-environment'] = '${new-environment}'
 	globalVariables['global.live-version'] = '${application}/${version}'
 
-Finally, the `${old-environment}` variable is needed in the **Undeploy old environment** task.
+The `${old-environment}` variable is needed in the **Undeploy old environment** task.
 
 ![Undeploy task](../images/bluegreen/bluegreen-undeploy.png)
 
+### Users and Teams in XL Release
 
+To run the scripts with proper permissions, make sure the **Run automated tasks as user** is set in the template properties page. This user needs the **Edit global variables** global permission.
 
-### Users & Teams in XL Release
-
-In order to run the scripts with proper permissions, make sure a **Run automated tasks as user** is set in the template properties page. This user needs the global permission **Edit global variables**.
-
-Furthermore, you should create teams and assign them to the appropiate tasks. For the example, we will assign each task to the Release admin team. This will make it easier to run the examples. The easiest way to do this is to do a bulk edit from the table view:
+You should create teams and assign them to the appropriate tasks. For example, you can assign each task to the Release admin team. This will make it easier to run the examples. The easiest way to do this is to do a bulk edit from the table view:
 
 ![Assign team in bulk](../images/bluegreen/bluegreen-bulk-assignment.png)
 
-
 ## Running the release
 
-We are now ready to run the release. Create the release and fill in the values for the application name and version. Note that they should match the application name and version as defined in XL Deploy.
+You can now to run the release. Create the release and fill in the values for the application name and version. These should match the application name and version as defined in XL Deploy.
 
 ![Create new release](../images/bluegreen/bluegreen-create-release.png)
 
-When the release reaches the task, you enter the environment to use:
+When the release reaches the task, enter the environment to use:
 
 ![Sample blue-green release](../images/bluegreen/bluegreen-choose-target.png)
 
