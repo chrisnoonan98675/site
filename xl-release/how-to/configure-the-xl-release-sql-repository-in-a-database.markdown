@@ -30,7 +30,7 @@ The purpose for the embedded databases is the easy setup in evaluation and test 
 
 * PostgreSQL versions 9.3, 9.4, 9.5, 9.6, and 10.1
 
-  **Note:** The archiving database and the normal database must point to different external databases.
+  **Note:** The archiving database and the normal database must point to different database servers.
 * MySQL versions 5.5, 5.6, and 5.7
 * Oracle 11g
 * Microsoft SQL Server 2012 and later
