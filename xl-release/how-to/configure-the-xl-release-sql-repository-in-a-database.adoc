@@ -1,0 +1,384 @@
+= Configure the XL Release SQL repository in a database (XL Release 7.5 and later)
+:sectnums:
+:toc: right
+:toclevels: 2
+:page-liquid:
+:page-categories: [xl-release]
+:page-subject: System administration
+:page-tags: [system administration, setup, installation, database, repository, sql]
+:page-since: [XL Release 7.5.0]
+:page-weight: 493
+
+== Introduction
+
+IMPORTANT: This document describes the database configuration for XL Release 7.5 and later versions. For previous versions that use the JackRabbit (JCR) repository, refer to link:configure-the-xl-release-repository-in-a-database.html[Configure the XL Release JCR repository in a database].
+
+XL Release stores its data in a repository. By default, this repository is an embedded database stored in `XL_RELEASE_SERVER_HOME/repository`.
+
+Completed releases and reporting information are stored in another database called 'archive'. By default, this is also an embedded database stored in `XL_RELEASE_SERVER_HOME/archive`.
+
+The embedded databases are automatically created when XL Release is started for the first time.
+
+The purpose for the embedded databases is the easy setup in evaluation and test environments. For production use, it is strongly recommended to use an industrial-grade external database server. The following databases are supported:
+
+* PostgreSQL versions 9.3, 9.4, 9.5, 9.6, and 10.1
+* MySQL versions 5.5, 5.6, and 5.7
+* Oracle 11g
+* Microsoft SQL Server 2012 and later
+* DB2 versions 10.5 and 11.1
+
+NOTE: The archiving database and the normal database must not reside in the same database in the database server.
+
+To run XL Release in a cluster setup (Active/active or active/hot standby) it is required to have the repository stored in an external database.
+
+NOTE: It is currently not possible to migrate the repository from an embedded database to an external database. Ensure that you configure production setup with an external database from the start. When migrating from a previous JCR version of XL Release (version 7.2 and earlier) make sure to migrate to an external database.
+
+IMPORTANT: When migrating from XL Release version 7.2 and earlier, refer to link:upgrade-to-7.5.0.html[Upgrade to XL Release 7.5] for detailed migration instructions.
+
+More information:
+
+* Active/hot standby mode: link:configure-active-hot-standby.html[Configure active/hot-standby]
+* Cluster mode: link:configure-cluster.html[Configure cluster mode]
+* Backing up and restore: link:back-up-xl-release.html[Back up XL Release]
+
+== Preparing the external database
+
+To use an external database, two empty database schemas should be created.
+
+1. **xlrelease** - active release data and configuration data.
+2. **xlarchive** - completed releases and reporting data.
+
+NOTE: When migrating from a previous version of XL Release with the archive configured in the `archive` directory as an embedded database, the data will remain in the embedded database and this schema should not be created in the external database.
+
+The account that accesses the database must be able to create tables during the initial installation and, later, it must be able to write to and delete from tables.
+
+The following set of SQL privileges are required.
+
+**During installation / upgrade**:
+
+* REFERENCES
+* INDEX
+* CREATE
+* DROP
+
+**During operation**:
+
+* SELECT, INSERT, UPDATE, DELETE
+
+=== PostgreSQL
+In order to create the XL Release database in PostgreSQL, you can execute the following script:
+
+[source,sql]
+----
+CREATE USER xlrelease WITH
+  NOSUPERUSER
+  NOCREATEDB
+  NOCREATEROLE
+  ENCRYPTED PASSWORD 'xlrelease';
+
+CREATE USER xlarchive WITH
+  NOSUPERUSER
+  NOCREATEDB
+  NOCREATEROLE
+  ENCRYPTED PASSWORD 'xlarchive';
+
+CREATE DATABASE xlrelease OWNER xlrelease;
+CREATE DATABASE xlarchive OWNER xlarchive;
+----
+
+=== MySQL
+In order to create the XL Release database in MySQL, you can execute the following script:
+
+[source,sql]
+----
+CREATE DATABASE xlrelease;
+CREATE DATABASE xlarchive;
+
+GRANT ALL PRIVILEGES ON xlrelease.* TO 'xlrelease'@'%' IDENTIFIED BY 'xlrelease';
+GRANT ALL PRIVILEGES ON xlarchive.* TO 'xlarchive'@'%' IDENTIFIED BY 'xlarchive';
+
+FLUSH PRIVILEGES;
+----
+
+In order for XL Release to function correctly when running on MySQL, please change the following settings in the MySQL configuration file. To locate the file, please refer to the link:https://dev.mysql.com/doc/refman/5.7/en/option-files.html[MySQL documentation].
+
+[cols="^.<,<.<2",options="header"]
+|===
+| Setting | Value
+| `skip-character-set-client-handshake` |
+| `collation_server` | `utf8_unicode_ci`
+| `character_set_server` | `utf8`
+|===
+
+=== Oracle 11g
+In order to create the XL Release database in Oracle 11g, you can execute the following script:
+
+[source,sql]
+----
+ALTER SYSTEM SET disk_asynch_io = FALSE SCOPE = SPFILE;
+
+CREATE USER xlarchive IDENTIFIED BY xlarchive;
+GRANT CONNECT,RESOURCE,DBA TO xlarchive;
+GRANT CREATE SESSION TO xlarchive WITH ADMIN OPTION;
+
+CREATE USER xlrelease IDENTIFIED BY xlrelease;
+GRANT CONNECT,RESOURCE,DBA TO  xlrelease;
+GRANT CREATE SESSION TO xlrelease WITH ADMIN OPTION;
+
+save /dblibs/touch.log create;
+----
+
+=== Microsoft SQL Server
+In order to create the XL Release database in Microsoft SQL Server, you can execute the following script:
+
+[source,sql]
+----
+CREATE DATABASE xlrelease COLLATE SQL_Latin1_General_CP1_CI_AS;
+GO
+USE xlrelease;
+GO
+CREATE LOGIN xlrelease WITH PASSWORD = 'xlrelease', CHECK_EXPIRATION = OFF, CHECK_POLICY = OFF, DEFAULT_DATABASE = xlrelease;
+GO
+CREATE USER [xlrelease] FOR LOGIN [xlrelease];
+EXEC sp_addrolemember N'db_owner', N'xlrelease';
+GO
+
+CREATE DATABASE xlarchive COLLATE SQL_Latin1_General_CP1_CI_AS;
+GO
+USE xlarchive;
+GO
+CREATE LOGIN xlarchive WITH PASSWORD = 'xlarchive', CHECK_EXPIRATION = OFF, CHECK_POLICY = OFF, DEFAULT_DATABASE = xlrelease;
+GO
+CREATE USER [xlarchive] FOR LOGIN [xlarchive];
+EXEC sp_addrolemember N'db_owner', N'xlarchive';
+GO
+----
+
+Unlike other supported databases, MS SQL Server does not have Multi Version Concurrency Control activated by default. XL Release requires this to function correctly. For more information on the settings described below, please refer to link:https://msdn.microsoft.com/en-us/library/ms189050.aspx[this MSDN article].
+
+Enable snapshot isolation mode with the following commands executed against SQL Server:
+
+[source,sql]
+----
+ALTER DATABASE xlrelease SET ALLOW_SNAPSHOT_ISOLATION ON;
+ALTER DATABASE xlrelease SET READ_COMMITTED_SNAPSHOT ON;
+ALTER DATABASE xlarchive SET ALLOW_SNAPSHOT_ISOLATION ON;
+ALTER DATABASE xlarchive SET READ_COMMITTED_SNAPSHOT ON;
+----
+
+When this is enabled, you need to add a weekly maintenance task to MS SQL Server. This task will maintain the indexes and query statistics
+
+- recompute statistics by running `EXEC sp_updatestats`
+- clear buffers by running `DBCC DROPCLEANBUFFERS`
+- clear cache by running `DBCC FREEPROCCACHE`
+- rebuild indexes that are fragmented more than 30%
+
+=== IBM DB2
+In order to create the XL Release database in DB2, you can execute the following script:
+
+[source,sql]
+----
+create database xlr using codeset UTF8 territory us PAGESIZE 32K;
+connect to xlr;
+
+CREATE BUFFERPOOL TMP_BP SIZE AUTOMATIC PAGESIZE 32K;
+connect reset;
+
+connect to xlr;
+CREATE SYSTEM TEMPORARY TABLESPACE TMP_TBSP PAGESIZE 32K MANAGED BY SYSTEM USING ("<PATH>") BUFFERPOOL TMP_BP;
+CREATE SCHEMA xlrelease AUTHORIZATION xlrelease;
+CREATE SCHEMA xlarchive AUTHORIZATION xlarchive;
+connect reset;
+----
+
+CAUTION: To use DB2 as an external database, ensure you increase the `pagesize` to `32K`.
+
+XL Release requires that DB2 is set in MySQL compatible mode in order for it to support the pagination queries. Please run the following command on your DB2 database to enable this:
+
+[source,console]
+----
+$ db2set DB2_COMPATIBILITY_VECTOR=MYS
+$ db2stop
+$ db2start
+----
+
+== Database-specific configuration in XL Release
+
+=== The configuration file: `xl-release.conf`
+
+All the configuration is done in `XL_RELEASE_SERVER_HOME/conf/xl-release.conf`.
+
+This file is in link:https://github.com/typesafehub/config/blob/master/HOCON.md[HOCON] format.
+
+After the first run, passwords in the configuration file will be encrypted and replaced with the base64-encoded encrypted values.
+
+=== PostgreSQL
+
+Driver:
+
+ * link:https://jdbc.postgresql.org/download.html[PostgreSQL JDBC driver]
+
+Place the driver JAR file in the `XL_RELEASE_SERVER_HOME/lib` folder.
+
+Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema.
+
+This is a sample configuration for PostgreSQL:
+
+[source,console]
+----
+xl {
+  ...
+  database {
+      db-driver-classname = "org.postgresql.Driver"
+      db-url = "jdbc:postgresql://localhost:5432/xlrelease"
+      db-username = "xlrelease"
+      db-password = "xlrelease"
+  }
+  reporting {
+      db-driver-classname = "org.postgresql.Driver"
+      db-url = "jdbc:postgresql://localhost:5432/xlarchive"
+      db-username = "xlarchive"
+      db-password = "xlarchive"
+  }
+  ...
+}
+----
+
+=== MySQL
+
+Driver:
+
+ * link:http://dev.mysql.com/downloads/connector/j/[MySQL JDBC driver]
+
+Place the driver JAR file in the `XL_RELEASE_SERVER_HOME/lib` folder.
+
+Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema.
+
+This is a sample for MySQL:
+
+[source,console]
+----
+xl {
+  ...
+  database {
+    db-driver-classname = "com.mysql.jdbc.Driver"
+    db-url = "jdbc:mysql://localhost:3306/xlrelease?useSSL=false&nullNamePatternMatchesAll=true"
+    db-username = "xlrelease"
+    db-password = "xlrelease"
+  }
+  reporting {
+	  db-driver-classname = "com.mysql.jdbc.Driver"
+	  db-url = "jdbc:mysql://localhost:3306/xlrelease?useSSL=false&nullNamePatternMatchesAll=true"
+	  db-username = "xlarchive"
+	  db-password = "xlarchive"
+	}
+	...
+}
+----
+
+=== Oracle
+
+Driver:
+
+ * link:http://www.oracle.com/technetwork/database/features/jdbc/index- 091264.html[Oracle JDBC driver]
+
+Place the driver JAR file in the `XL_RELEASE_SERVER_HOME/lib` folder.
+
+Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema.
+
+This is a sample for Oracle:
+
+[source,console]
+----
+xl {
+  ...
+  database {
+    db-driver-classname="oracle.jdbc.driver.OracleDriver"
+    db-url="jdbc:oracle:thin:@localhost:1521:XE"
+    db-username = "xlrelease"
+    db-password = "xlrelease"
+  }
+	reporting {
+	  db-driver-classname="oracle.jdbc.driver.OracleDriver"
+	  db-url="jdbc:oracle:thin:@localhost:1521:XE"
+	  db-username = "xlarchive"
+	  db-password = "xlarchive"
+	}
+	...
+}
+----
+
+If you use the TNSNames Alias syntax to connect to Oracle, you must specify where the driver can find the `TNSNAMES` file. For more information, refer to the Oracle documentation.
+
+=== DB2
+
+Driver:
+
+ * link:http://www-01.ibm.com/support/docview.wss?uid=swg21363866[DB2 JDBC driver]
+
+Place the driver JAR file in the `XL_RELEASE_SERVER_HOME/lib` folder.
+
+Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema.
+
+This is a sample for DB2:
+
+[source,console]
+----
+xl {
+  ...
+  database {
+    db-driver-classname="com.ibm.db2.jcc.DB2Driver"
+    db-url="jdbc:db2://127.0.0.1:50000/xlr"
+    db-username = "xlrelease"
+    db-password = "xlrelease"
+  }
+	reporting {
+	  db-driver-classname="com.ibm.db2.jcc.DB2Driver"
+	  db-url="jdbc:db2://127.0.0.1:50000/xlr"
+	  db-username = "xlarchive"
+	  db-password = "xlarchive"
+	}
+	...
+}
+----
+
+**Note:** If you are using DB2 version 9.7.2 or later, you must enable support for pagination queries using the `DB2_COMPATIBILITY_VECTOR` registry variable:
+
+[source,console]
+----
+db2set DB2_COMPATIBILITY_VECTOR=MYS
+db2stop
+db2start
+----
+
+=== Microsoft SQL Server
+
+Driver:
+
+ * link:[Microsoft JDBC driver for SQL Server]
+
+Place the driver JAR file in the `XL_RELEASE_SERVER_HOME/lib` folder.
+
+Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema.
+
+This is a sample for SQL Server:
+
+[source,console]
+----
+xl {
+  ...
+  database {
+    db-driver-classname = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    db-url = "jdbc:sqlserver://localhost:1433;databaseName=xlrelease"
+    db-username = "xlrelease"
+    db-password = "xlrelease"
+  }
+	reporting {
+	  db-driver-classname = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+	  db-url = "jdbc:sqlserver://localhost:1433;databaseName=xlarchive"
+	  db-username = "xlarchive"
+	  db-password = "xlarchive"
+	}
+	...
+}
+----

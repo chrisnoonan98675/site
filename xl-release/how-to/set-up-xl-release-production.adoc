@@ -14,6 +14,13 @@ IMPORTANT: Proper configuration of I/O subsystems (database, file system, networ
 
 This guide is broken up into several phases each covering several topics needed to know to install a production environment.
 
+== Structure of the document
+This document is structured into 3 sections:
+
+- Preparation: In this section the prerequisites are described for the prescribed XL Release setup.
+- Installation: In this section we will cover the setup and configuration procedures for each of the components.
+- Administration / Operation: This section provides an overview of best practices to maintain and administer the system once it is in production.
+
 == Setup of production environment
 This guide will describe how to setup a hardened production environment for XL Release. The setup that is described can be explained using the following deployment diagram:
 
@@ -24,17 +31,8 @@ In the above diagram you can see the following components from left to right:
 - The user's computer: The user will initiate an SSL (secure) connection to the loadbalancer which fronts the clustered XL Release installation.
 - The loadbalancer: The loadbalancer terminates the SSL connection and routes the request to the XL Release instance that the user is logged in to.
 - The XL Release instances: The instances run in a clustered (Active/Active) setup, sharing the load.
-- The OIDC (Open ID Connect) provider will authenticate users logging into the XL Release systems. Instead of an OIDC provider, XL Release also has support for LDAP(s).
+- The OIDC (Open ID Connect) provider will authenticate users logging into the XL Release systems. Next to an OIDC provider, XL Release also has support for LDAP(s).
 - The Database: The (SQL) database that will host the repository of the XL Release instances.
-
-== Structure of the document
-This document is structured into 4 sections:
-
-- Preparation
-- Installation
-- Administration / Operation
-
-In the preparation section the prerequisites are described for the XL Release setup. In the installation section, the setup and configuration procedures for each of the components is described. In the administration section, best practices will be described to maintain and administer the system once it is in production.
 
 == Preparation
 The first phase of setting up the production environment consists of determining the correct hardware requirements and obtaining all the necessary prerequisites.
@@ -55,16 +53,15 @@ NOTE: TODO expand performance data
 NOTE: All the XL Release cluster nodes _should_ reside in the same network segment. This is required for the clustering protocol to function correctly. For optimal performance it is also recommended to put the database server in the same network segment to minimize network latency.
 
 === Choosing your database server
-For a production setup you need to use an external (clustered) database to store both the active as well as the archived data of XL Release. You have the choice of the following database to store the repository in:
+For a production setup you need to use an external (clustered) database to store both the active as well as the archived data of XL Release. As described in this link:configure-the-xl-release-sql-repository-in-a-database.html[document], you have the choice of the following external databases to store the repository in:
 
-- Oracle 11g
-- Oracle 12c
+- Oracle versions 11g and 12c
 - PostgreSQL versions 9.3, 9.4, 9.5, 9.6, and 10.1
 - MySQL versions 5.5, 5.6, and 5.7
 - Microsoft SQL Server 2012 and later
 - DB2 versions 10.5 and 11.1
 
-Please refer to the relevant documentation of the database server of your choice for hardware recommendations.
+Please refer to the relevant documentation of supplier of the database server of your choice for hardware recommendations.
 
 === Choosing your loadbalancer
 In order to run an HA setup of XL Release, you need to front the installation with a loadbalancer so that users are unaware of which of the clustered nodes they're being routed to. The example configuration given in this document is for HAProxy.
@@ -112,24 +109,19 @@ For this kind of monitoring a timeseries database is typically used. XL Release 
 
 The gathered data can then be graphed and analyzed using tools such as link:https://grafana.com[Grafana]
 
-Next to system monitoring, another set of tools that are useful for forensic data analysis is the ELK stack. This is an industry standard stack used to provide log file monitoring and analysis. The stack consists of the following 3 tools:
+Next to system monitoring, XebiaLabs recommends setting up log file monitoring. The industry standard toolchain to set this up is the ELK stack. The tools in this stack provide log file monitoring and analysis. The stack is comprised of the following 3 tools:
 
 - link:https://elastic.co[Elasticsearch]
 - link:https://www.elastic.co/products/logstash[Logstash]
 - link:https://www.elastic.co/products/kibana[Kibana]
 
-Using these tools, logfiles can be read and indexed while they're being written, so that they can be easily analyzed during a root cause analysis for a production outage.
+Using these tools, logfiles can be read and indexed while they're being written. This makes it possible to monitor for errant behavior during operation and allows for after the fact analysis after outages.
 
 == Execution phase
 Once all the machines in the production environment are available, XL Release and subsystems can be installed and activated.
 
 === Setting up the database server
-XL Release requires two separate schemas in the target database platform. Typically schemas are tied to users by default. XL Release will use the main schema to store its active data in. The second schema is used to store the compliance / archived (immutable) data in.
-
-For this guide we will create the following users and schemas:
-
-- `xlrelease`: This will be the user/schema for the active release data.
-- `xlrarchive`: This will be the user/schema for the compliance release data. This schema will over time grow in size.
+The basic database setup procedure is explained in the link:configure-the-xl-release-sql-repository-in-a-database.html[Configure the XL Release SQL repository in a database]. The referred document explains which schemas need to be created and which privileges need to be assigned to the users.
 
 For some of the databases some extra configuration options need to be set for them to be supported or to perform better.
 
@@ -145,18 +137,6 @@ $ db2start
 
 ==== MySQL / MariaDB
 The default installation of MySQL is not tuned to be run on a dedicated high-end machine. XebiaLabs recommends changing the following settings of MySQL to improve its performance. These settings can be set in the MySQL options file. See the link:https://dev.mysql.com/doc/refman/5.7/en/option-files.html[MySQL documentation] to locate this file on your operating system.
-
-The following settings are required to set for correct operation on MySQL:
-
-[cols="^.<,<.<2",options="header"]
-|===
-| Setting | Value
-| `skip-character-set-client-handshake` |
-| `collation_server` | `utf8_unicode_ci`
-| `character_set_server` | `utf8`
-|===
-
-The below settings are used to improve performance when running on MySQL
 
 [cols="^.<,<.<2",options="header"]
 |===
@@ -187,17 +167,6 @@ There are a number of settings in a default installation of PostgreSQL that can 
 | `synchronous_commit` | **Advanced**: The default setting of this option is `on`, this guarantees full ACID compliance and no data-loss on power failure. If you have a battery-backed disk cache, you can switch this setting to `off` to get an increase in transactions per second.
 |===
 
-==== Microsoft SQL Server
-Unlike other supported databases, MS SQL Server does not have Multi Version Concurrency Control activated by default. XL Release requires this to function correctly. For more information on the settings described below, please refer to link:https://msdn.microsoft.com/en-us/library/ms189050.aspx[this MSDN article].
-
-Enable snapshot isolation mode with the following commands executed against SQL Server:
-
-    ALTER DATABASE xlrelease SET ALLOW_SNAPSHOT_ISOLATION ON;
-    ALTER DATABASE xlrelease SET READ_COMMITTED_SNAPSHOT ON;
-    ALTER DATABASE xlarchive SET ALLOW_SNAPSHOT_ISOLATION ON;
-    ALTER DATABASE xlarchive SET READ_COMMITTED_SNAPSHOT ON;
-
-When this is enabled, you need to add a weekly maintenance task to MS SQL Server. This is described in the <<Maintenance on Microsoft SQL Server>> Administration section of this document.
 
 === Setting up the XL Release nodes
 As XL Release has the potential of running both remote and local script tasks, you need to take care to harden the XL Release environment from (accidental) abuse. There are many industry standard practices to ensure that an application is running in a sandboxed environment. At the very least we recommend taking the following actions:
@@ -244,7 +213,7 @@ For a production setup, please set the clustering mode to either `full` or `hot-
 NOTE: Please ensure that you choose the same cluster mode for _all_ nodes in the cluster. It is not possible to mix them.
 
 ==== Configuration of user authentication
-Next to the cluster and database configuration, you will also need to setup a secure way of authenticating the user. For production setups, XebiaLabs recommends using either an OIDC provider, or an LDAP directory system over the **LDAPS** protocol. For setting these up, please refer to the following configuration guides:
+Next to the cluster and database configuration, you will also need to setup a secure way of authenticating the user. For production setups, XebiaLabs recommends using either an OIDC provider, Keycloak or an LDAP directory system over the **LDAPS** protocol. For setting these up, please refer to the following configuration guides:
 
 - link:../concept/xl-release-oidc-authentication.html[Configure Open ID Connect authentication for XL Release]
 - link:configure-ldap-security-for-xl-release.html[Configure LDAP security for XL Release]
@@ -414,12 +383,9 @@ Once these tools are installed, you can download a link:production-setup/collect
 == Administration / Operation
 This section describes how to maintain the system once it's up, and what to do if monitoring shows erratic behavior.
 
-TODO...
+=== Backup your XL Release installation
 
-=== Maintenance on Microsoft SQL Server
-When running on MS SQL Server, because of the snapshot isolation mode you will need to run a set of weekly (or more frequent) maintenance tasks on the database in order to keep the performance on an acceptable level.
+=== Setting up Release Purge policies
 
-- recompute statistics by running `EXEC sp_updatestats`
-- clear buffers by running `DBCC DROPCLEANBUFFERS`
-- clear cache by running `DBCC FREEPROCCACHE`
-- rebuild indexes that are fragmented more than 30%
+=== Setting up Release archival policies
+
