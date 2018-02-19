@@ -1,7 +1,5 @@
 = How to set up XL Release in production
 :sectnums:
-:toc: right
-:toclevels: 2
 :page-liquid:
 :page-categories: [xl-release]
 :page-subject: Installation
