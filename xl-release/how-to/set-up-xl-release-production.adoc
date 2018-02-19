@@ -6,7 +6,7 @@
 :page-tags: [production, setup, installation]
 
 == Introduction
-This is a step-by-step implementation guide to set up XL Release in a production-ready environment. It describes how to configure the product, environment, and server resources to get the most out of the product. This document is structured in three sections:
+This is a step-by-step implementation guide to set up XL Release in a production-ready environment. It describes how to configure the product, environment, and server resources to get the most out of the product. The goal is to deliver an environment that is hardened and can be used in a performand and secure way. This document is structured in three sections:
 
 - Preparation: Describes the prerequisites for the prescribed XL Release setup.
 - Installation: Covers setup and configuration procedures for each of the components.
@@ -21,10 +21,10 @@ image::../../images/xl-prod-diagram.png[,,,align="center"]
 
 The diagram shows the following components from left to right:
 
-- The user's computer: The user will initiate an SSL (secure) connection to the load balancer that fronts the clustered XL Release installation.
+- The user's computer (on the left): The user will initiate an SSL (secure) connection to the load balancer that fronts the clustered XL Release installation.
 - The load balancer: The load balancer terminates the SSL connection and routes the request to the XL Release instance that the user is logged into.
 - The XL Release instances: The instances run in a clustered (active/active) setup, sharing the load.
-- The Open ID Connect (OIDC) provider authenticates users who are logging into the XL Release systems. XL Release supports both OIDC and LDAP.
+- The Open ID Connect (OIDC) provider authenticates users who are logging into the XL Release systems. XL Release supports both OIDC and LDAP. (Using the OIDC is optional)
 - The database: The SQL database that hosts the repository of the XL Release instances.
 
 == Preparation
@@ -39,7 +39,7 @@ link:../concept/requirements-for-installing-xl-release.html[Requirements for ins
 
 XebiaLabs has performance tested XL Release 7.5.0 with a similar setup. In this setup XebiaLabs was able to simulate a load of 100 requests per second with a 99% response time of under 700ms.
 
-NOTE: All the XL Release cluster nodes _should_ reside in the same network segment. This is required for the clustering protocol to function correctly. For optimal performance, it is also recommended that you put the database server in the same network segment to minimize network latency.
+NOTE: All the XL Release cluster nodes _should_ reside in the same network segment. This is required for the clustering protocol to function correctly. For optimal performance, it is also recommended that the database server in the same network segment to minimize network latency.
 
 === Choosing a database server
 A production setup requires an external (clustered) database to store XL Release's active and archived data. The external databases that are supported is described in link:configure-the-xl-release-sql-repository-in-a-database.html[Configure the XL Release SQL repository in a database].
@@ -68,6 +68,8 @@ XL Release supports a number of single-sign on (SSO) authentication providers, i
 
 If you do not want to use a cloud provider or if your SSO solution is not compatible with OIDC, you can integrate your SSO with link:http://www.keycloak.org[Keycloak], which is an OIDC bridge.
 
+Next to these SSO providers, XebiaLabs supports the usage of LDAP and Active Directory (AD). The advice is to make use of an external OIDC provider to make use of the latest security updates.
+
 === Choosing a proactive monitoring and alerting solution
 For a production installation, it is recommended that you set up a proactive monitoring system to monitor system and product performance for the different parts of your installation. XL Release exposes internal and system metrics over JMX. Any monitoring system that can read JMX data can be used to monitor the installation.
 
@@ -78,6 +80,8 @@ Typical monitoring and alerting tools are:
 - link:https://www.appdynamics.com/[AppDynamics]
 
 These tools allow you to monitor the product and the systems it is running on in real time. This will allow you to set thresholds and alert on them so that appropriate action can be taken before a system goes down.
+
+//comment: probably make this part a big bigger? How to do this, do we have examples? What parameters are good ones to use?
 
 === Choosing a forensic data gathering toolchain
 In addition to proactive monitoring, it is good practice to make data gathering available for a production instance. Gathering forensic data enables you to analyze it at a later point in time and perform root cause analysis for outages. You can also use forensic data to determine usage patterns and peak load patterns.
