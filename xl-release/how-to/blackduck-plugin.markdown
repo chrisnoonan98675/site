@@ -54,7 +54,7 @@ After the server connection is set up, you can create a release or template with
 
 ## Check Compliance Task
 
-![Check Compliance Task](../images/xlr-blackduck-plugin/images/check-compliance-task.png)
+![Check Compliance Task](../images/xlr-blackduck-plugin/check-compliance-task.png)
 
 The **Check Compliance** task creates a gate in the release flow which can break the flow if the count of components of various risks are greater than the configured thresholds.
 
@@ -88,4 +88,4 @@ To configure the Blackduck Risk Profile tile:
 
 The tile should show data related to the risk type configured for the Project.
 
-    ![Blackduck Risk Proile Tile](../images/xlr-blackduck-plugin/tile-license-risk.png)
+![Blackduck Risk Proile Tile](../images/xlr-blackduck-plugin/tile-license-risk.png)
