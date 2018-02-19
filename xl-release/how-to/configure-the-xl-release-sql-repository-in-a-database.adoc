@@ -205,7 +205,7 @@ Download the link:https://jdbc.postgresql.org/download.html[PostgreSQL JDBC driv
 
 Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema. This is a sample configuration for PostgreSQL:
 
-[source,console]
+[source]
 ----
 xl {
   ...
@@ -231,7 +231,7 @@ Download the link:http://dev.mysql.com/downloads/connector/j/[MySQL JDBC driver]
 
 Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema. This is a sample configuration for MySQL:
 
-[source,console]
+[source]
 ----
 xl {
   ...
@@ -242,12 +242,12 @@ xl {
     db-password = "xlrelease"
   }
   reporting {
-	  db-driver-classname = "com.mysql.jdbc.Driver"
-	  db-url = "jdbc:mysql://localhost:3306/xlrelease?useSSL=false&nullNamePatternMatchesAll=true"
-	  db-username = "xlarchive"
-	  db-password = "xlarchive"
-	}
-	...
+    db-driver-classname = "com.mysql.jdbc.Driver"
+    db-url = "jdbc:mysql://localhost:3306/xlrelease?useSSL=false&nullNamePatternMatchesAll=true"
+    db-username = "xlarchive"
+    db-password = "xlarchive"
+  }
+  ..
 }
 ----
 
@@ -257,7 +257,7 @@ Download the link:http://www.oracle.com/technetwork/database/features/jdbc/index
 
 Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema. This is a sample configuration for Oracle:
 
-[source,console]
+[source]
 ----
 xl {
   ...
@@ -267,13 +267,13 @@ xl {
     db-username = "xlrelease"
     db-password = "xlrelease"
   }
-	reporting {
-	  db-driver-classname="oracle.jdbc.driver.OracleDriver"
-	  db-url="jdbc:oracle:thin:@localhost:1521:XE"
-	  db-username = "xlarchive"
-	  db-password = "xlarchive"
-	}
-	...
+  reporting {
+    db-driver-classname="oracle.jdbc.driver.OracleDriver"
+    db-url="jdbc:oracle:thin:@localhost:1521:XE"
+    db-username = "xlarchive"
+    db-password = "xlarchive"
+  }
+  ...
 }
 ----
 
@@ -285,7 +285,7 @@ Download the link:http://www-01.ibm.com/support/docview.wss?uid=swg21363866[DB2 
 
 Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema. This is a sample configuration for DB2:
 
-[source,console]
+[source]
 ----
 xl {
   ...
@@ -295,23 +295,14 @@ xl {
     db-username = "xlrelease"
     db-password = "xlrelease"
   }
-	reporting {
-	  db-driver-classname="com.ibm.db2.jcc.DB2Driver"
-	  db-url="jdbc:db2://127.0.0.1:50000/xlr"
-	  db-username = "xlarchive"
-	  db-password = "xlarchive"
-	}
-	...
+  reporting {
+    db-driver-classname="com.ibm.db2.jcc.DB2Driver"
+    db-url="jdbc:db2://127.0.0.1:50000/xlr"
+    db-username = "xlarchive"
+    db-password = "xlarchive"
+  }
+  ...
 }
-----
-
-If you are using DB2 version 9.7.2 or later, you must enable support for pagination queries using the `DB2_COMPATIBILITY_VECTOR` registry variable:
-
-[source,console]
-----
-db2set DB2_COMPATIBILITY_VECTOR=MYS
-db2stop
-db2start
 ----
 
 === Microsoft SQL Server
@@ -320,7 +311,7 @@ Download the [Microsoft JDBC driver for SQL Server] JAR file and place it in the
 
 Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema. This is a sample configuration for SQL Server:
 
-[source,console]
+[source]
 ----
 xl {
   ...
@@ -330,12 +321,12 @@ xl {
     db-username = "xlrelease"
     db-password = "xlrelease"
   }
-	reporting {
-	  db-driver-classname = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-	  db-url = "jdbc:sqlserver://localhost:1433;databaseName=xlarchive"
-	  db-username = "xlarchive"
-	  db-password = "xlarchive"
-	}
-	...
+  reporting {
+    db-driver-classname = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    db-url = "jdbc:sqlserver://localhost:1433;databaseName=xlarchive"
+    db-username = "xlarchive"
+    db-password = "xlarchive"
+  }
+  ...
 }
 ----
