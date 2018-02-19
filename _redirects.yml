@@ -57,7 +57,7 @@
 /xl-deploy/latest/powershellPluginManual.html : /xl-deploy/7.6.x/powershellPluginManual.html
 /xl-deploy/latest/pythonPluginManual.html : /xl-deploy/7.6.x/pythonPluginManual.html
 /xl-deploy/latest/remotingPluginManual.html : /xl-deploy/7.6.x/remotingPluginManual.html
-/xl-deploy-xld-script-plugin/latest/scriptPluginManual.html : /xl-deploy-xld-script-plugin/7.6.x/scriptPluginManual.html
+/xl-deploy-xld-script-plugin/latest/scriptPluginManual.html : /xl-deploy-xld-script-plugin/7.5.x/scriptPluginManual.html
 /xl-deploy/latest/webserverPluginManual.html : /xl-deploy/7.6.x/webserverPluginManual.html
 /xl-deploy/latest/triggerPluginManual.html : /xl-deploy/7.6.x/triggerPluginManual.html
 
@@ -85,7 +85,8 @@
 /xldeploy-maven-plugin/latest/index.html : /xldeploy-maven-plugin/6.0.x/index.html
 /xl-deploy/latest/maven-plugin/index.html : /xldeploy-maven-plugin/6.0.x/index.html
 /xl-deploy/latest/jenkins-plugin/index.html : https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin
-/bamboo-xl-deploy-plugin/latest/bambooPluginManual.html : /bamboo-xl-deploy-plugin/7.5.x/bambooPluginManual.html
+/bamboo-xl-deploy-plugin/latest/bambooPluginManual.html : /xl-deploy-bamboo-xl-deploy-plugin/7.5.x/bambooPluginManual
+/xl-deploy-bamboo-xl-deploy-plugin/latest/bambooPluginManual : /xl-deploy-bamboo-xl-deploy-plugin/7.5.x/bambooPluginManual
 /xl-deploy-tfs-plugin/latest/tfsPluginManual.html : /xl-deploy-tfs-plugin/6.0.x/tfsPluginManual.html
 /xl-deploy-vsts-xld-plugin/latest/tfs2015PluginManual.html : /xl-deploy-vsts-xld-plugin/7.5.x/tfs2015PluginManual.html
 /xl-deploy-xld-chef-plugin/latest/chefPluginManual.html : /xl-deploy-xld-chef-plugin/6.0.x/chefPluginManual.html
