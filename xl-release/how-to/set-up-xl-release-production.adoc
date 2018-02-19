@@ -39,9 +39,7 @@ link:../concept/requirements-for-installing-xl-release.html[Requirements for ins
 * 16 GB RAM or more
 * 500 GB hard disk space
 
-XebiaLabs has performance tested XL Release 7.5.0 with a similar setup. In this setup a
-
-NOTE: TODO expand performance data
+XebiaLabs has performance tested XL Release 7.5.0 with a similar setup. In this setup XebiaLabs was able to simulate a load of 100 requests per second with a 99% response time of under 700ms.
 
 NOTE: All the XL Release cluster nodes _should_ reside in the same network segment. This is required for the clustering protocol to function correctly. For optimal performance, it is also recommended that you put the database server in the same network segment to minimize network latency.
 
@@ -106,16 +104,6 @@ After all the machines in the production environment are available, you can inst
 
 === Setting up the database server
 The basic database setup procedure, including schemas and privileges, is explained in link:configure-the-xl-release-sql-repository-in-a-database.html[Configure the XL Release SQL repository in a database]. However, for some databases, additional configuration options are required for use with XL Release or for better performance.
-
-==== DB2
-XL Release requires DB2 to be set in MySQL compatible mode so it can support pagination queries. Run the following command on your DB2 database to enable MySQL compatible mode:
-
-[source,console]
-----
-$ db2set DB2_COMPATIBILITY_VECTOR=MYS
-$ db2stop
-$ db2start
-----
 
 ==== MySQL or MariaDB
 The default installation of MySQL is not tuned run on a dedicated high-end machine. It is recommended that you change the following MySQL settings to improve its performance. These settings can be set in the MySQL options file; see the link:https://dev.mysql.com/doc/refman/5.7/en/option-files.html[MySQL documentation] to locate this file on your operating system.
@@ -350,7 +338,4 @@ After these tools are installed, you can download a link:production-setup/collec
 This section describes how to maintain the system once it's up, and what to do if monitoring shows erratic behavior.
 
 === Back up your XL Release installation
-
-=== Setting up release purge policies
-
-=== Setting up release archive policies
+To prevent inadvertent loss of data, XebiaLabs recommends to regularly backup your production database. Procedures for this are described in the "link:back-up-xl-release.html[Back up XL Release]" topic
