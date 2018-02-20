@@ -113,6 +113,8 @@ This is a sample configuration for PostgreSQL:
        ...
 	}
 
+**Note:** As of XL Release version 8.0.0, the maximum number of threads for the reporting database is configurable by changing the value of the `max-pool-size` parameter. The default value for the `max-pool-size` parameter is 10.
+
 ### MySQL
 
 Driver:
@@ -141,6 +143,8 @@ This is a sample for MySQL:
 	     }
 	    ...
     }
+
+**Note:** As of XL Release version 8.0.0, the maximum number of threads for the reporting database is configurable by changing the value of the `max-pool-size` parameter. The default value for the `max-pool-size` parameter is 10.
 
 Your MySQL instance should be configured in your `cnf` file as:
 
@@ -177,6 +181,7 @@ This is a sample for Oracle:
 	    ...
     }
 
+**Note:** As of XL Release version 8.0.0, the maximum number of threads for the reporting database is configurable by changing the value of the `max-pool-size` parameter. The default value for the `max-pool-size` parameter is 10.
 
 If you use the TNSNames Alias syntax to connect to Oracle, you must specify where the driver can find the `TNSNAMES` file. For more information, refer to the Oracle documentation.
 
@@ -208,6 +213,8 @@ This is a sample for DB2:
 	    }
 	    ...
     }
+
+**Note:** As of XL Release version 8.0.0, the maximum number of threads for the reporting database is configurable by changing the value of the `max-pool-size` parameter. The default value for the `max-pool-size` parameter is 10.
 
 This is a sample `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` configuration for [DB2](http://www-01.ibm.com/software/data/db2/). Ensure that the [DB2 JDBC driver](http://www-01.ibm.com/support/docview.wss?uid=swg21363866) JAR file is located in `XL_RELEASE_SERVER_HOME/lib` or on the Java classpath.
 
@@ -257,3 +264,5 @@ This is a sample for SQL Server:
 	    }
 	    ...
     }
+
+**Note:** As of XL Release version 8.0.0, the maximum number of threads for the reporting database is configurable by changing the value of the `max-pool-size` parameter. The default value for the `max-pool-size` parameter is 10.     
