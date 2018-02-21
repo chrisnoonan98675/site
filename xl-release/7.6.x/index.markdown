@@ -21,7 +21,7 @@ product-id: xl-release
 * [Relationships plugin](/xl-release/how-to/relationships-plugin.html)
 * [Blackduck plugin](/xl-release/how-to/blackduck-plugin.html)
 * [Fortify SSC plugin](/xl-release/how-to/fortify-ssc-plugin.html)
-* [Sonarqube plugin](xl-release/how-to/sonarqube-plugin.html)
+* [Sonarqube plugin](/xl-release/how-to/sonarqube-plugin.html)
 
 ### Tools
 
