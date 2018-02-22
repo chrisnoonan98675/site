@@ -1,8 +1,8 @@
 .CodeRay {
-  background-color: #FFF;
+  background-color: #f6f6f6;
   border: 1px solid #CCC;
   font-family: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
-  color: #000;
+  color: #54636f;
   padding: 1em 0px 1em 1em;
 }
 
@@ -136,9 +136,8 @@ span.icon>.fa {
   cursor: default;
 }
 .admonitionblock {
-  border: 1px dotted lightgray;
   padding: 5px;
-  background-color: #ffffee;
+  margin-bottom: 10px;
 }
 .admonitionblock td.icon {
   text-align: center;
@@ -169,4 +168,42 @@ span.icon>.fa {
 .admonitionblock td.icon .icon-important:before {
   content: "\f06a";
   color: #bf0000;
+}
+pre .conum[data-value] {
+    position: relative;
+    top: -0.125em;
+}
+.conum[data-value] {
+    display: inline-block;
+    color: #fff !important;
+    background-color: rgba(0,163,86,0.8);
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    text-align: center;
+    width: 1.67em;
+    height: 1.67em;
+    font-size: 0.75em;
+    line-height: 1.67em;
+    font-family: "Open Sans", "Sans", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+}
+.conum[data-value]::after {
+    content: attr(data-value);
+}
+.conum[data-value] + b {
+    display: none;
+}
+.colist > table tr > td:first-of-type {
+    padding: 0.4em 0.75em 0 0.75em;
+    line-height: 1;
+    vertical-align: top;
+}
+.valign-top {
+    vertical-align: top;
+}
+
+.imageblock {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
