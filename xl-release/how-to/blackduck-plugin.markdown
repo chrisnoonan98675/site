@@ -20,6 +20,16 @@ A gate task is included in the plugin that allows you to configure various thres
 
 In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), the Blackduck Check Compliance task has a red border.
 
+## Release notes
+
+### XL Release Blackduck plugin 7.6.1
+
+#### Improvements
+
+* [REL-6148] - Show timestamps of last scan in logs for task and summary tile
+
+### XL Release Blackduck plugin 7.6.0
+
 ## Features
 
 The plugin added to XL Release provides:
