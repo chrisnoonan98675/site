@@ -104,7 +104,7 @@ After all the machines in the production environment are available, you can inst
 The basic database setup procedure, including schemas and privileges, is explained in link:configure-the-xl-release-sql-repository-in-a-database.html[Configure the XL Release SQL repository in a database]. However, for some databases, additional configuration options are required for use with XL Release or for better performance.
 
 ==== MySQL or MariaDB
-The default installation of MySQL is not tuned run on a dedicated high-end machine. It is recommended that you change the following MySQL settings to improve its performance. These settings can be set in the MySQL options file; see the link:https://dev.mysql.com/doc/refman/5.7/en/option-files.html[MySQL documentation] to locate this file on your operating system.
+The default installation of MySQL is not tuned to run on a dedicated high-end machine. It is recommended that you change the following MySQL settings to improve its performance. These settings can be set in the MySQL options file; see the link:https://dev.mysql.com/doc/refman/5.7/en/option-files.html[MySQL documentation] to locate this file on your operating system.
 
 [cols="^,2",role="table table-striped table-bordered",options="header"]
 |===
