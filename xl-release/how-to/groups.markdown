@@ -30,10 +30,10 @@ By grouping components together, you can manage a collection of individual relea
 You can order how groups are displayed based on two attributes, **Status** and **Order by**.
 
 ### Delete a group
-On the right of the group, click **Delete**.
+On the right of the group, click ![Delete button](../../images/deleteBtn.png).
 
 ### Editing a group
-1. On the right of the group, click **Edit**.
+1. On the right of the group, click ![Edit button](../../images/editBtn.png).
 1. Edit the group.
 1. Click **Save**.
 
