@@ -15,6 +15,8 @@ since:
 ## Release groups
 By grouping components together, you can manage a collection of individual releases as one entity.
 
+![Release groups page](../images/release_groups_page.png)
+
 **Question: What kind of components can be added to a group. Are there restrictions?**
 
 ### Create a new group
@@ -30,10 +32,10 @@ By grouping components together, you can manage a collection of individual relea
 You can order how groups are displayed based on two attributes, **Status** and **Order by**.
 
 ### Delete a group
-On the right of the group, click ![Delete button](../../images/deleteBtn.png).
+On the right of the group, click **Delete**.
 
 ### Editing a group
-1. On the right of the group, click ![Edit button](../../images/editBtn.png).
+1. On the right of the group, click **Edit**.
 1. Edit the group.
 1. Click **Save**.
 
