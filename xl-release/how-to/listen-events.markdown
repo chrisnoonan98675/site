@@ -22,17 +22,16 @@ In your plugin project add the following class under the package `com.xebialabs.
 package com.xebialabs.xlrelease;
 
 import org.springframework.stereotype.Component;
-import com.xebialabs.xlrelease.events.EventListener;
+import com.xebialabs.xlrelease.events.ComponentEventListener;
 
-@Component
-@EventListener
+@ComponentEventListener
 public class TestListener {
 
   private NotifcationApi notificationApi = new ....
 
   @AsyncSubscribe
   public void notifyCriticalPhaseStarted(PhaseStartedEvent event) {
-    if (event.phase().getName().equals("Critical phase")) {
+    if (event.phase().getTitle().equals("Critical phase")) {
       notificationApi.sendAlert("Critical phase started!", "all@xebialabs.com");
     }
   }
@@ -43,7 +42,7 @@ public class TestListener {
 
 **Important:** Your listener class *must* live under `com.xebialabs.xlrelease`.
 
-In order to listen to events your class must be annotated as `@Component` along with `@EventListener`. The method with the event logic must have `@AsyncSubscribe`.
+In order to listen to events your class must be annotated as `@ComponentEventListener`. The method with the event logic must have `@AsyncSubscribe`.
 
 This `TestListener` is listening to all `PhaseStartedEvent` (event thrown when a phase has started), and sends an alert to `all@xebialabs.com` that a critical phase has started
 
