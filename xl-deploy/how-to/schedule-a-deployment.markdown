@@ -16,7 +16,7 @@ XL Deploy allows you to schedule deployment tasks for execution at a specified l
 
 To schedule a deployment using the default GUI:
 
-1. Expand **Applications**, and then expand the application that for which you want to schedule a deployment.
+1. Expand **Applications**, and then expand the application for which you want to schedule a deployment.
 1. Hover over the desired deployment package or provisioning package, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Deploy**. A new tab appears in the right pane.
 1. Select the target environment and click **Continue**.
 1. Click the arrow icon on the **Deploy** button and select **Schedule**.

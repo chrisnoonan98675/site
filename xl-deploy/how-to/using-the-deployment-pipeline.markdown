@@ -22,7 +22,10 @@ To view the deployment pipeline of an application:
 1. Expand **Applications** in the left pane.
 1. Hover over the desired application, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Deployment pipeline**.
 
-  **Note:** You can also expand the desired application, hover over a deployment package or provisioning package, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Deployment pipeline**.
+  **Notes:**
+  1. You can also expand the desired application, hover over a deployment package or provisioning package, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Deployment pipeline**.
+  1. You can view a read-only version of the deployment pipeline in the summary screen of an application. To view the summary screen, double-click the desired application.
+
 
   A new tab appears in the right pane.
 
