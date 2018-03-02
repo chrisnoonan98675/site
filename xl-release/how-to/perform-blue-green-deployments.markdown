@@ -79,7 +79,7 @@ When the new environment is running fine and there is no need for a rollback, th
 
 ## Refine the process
 
-Set up XL Deploy prepare the environments and link everything together in XL Release using variables to communicate between tasks.
+Set up XL Deploy, prepare the environments, and link everything together in XL Release using variables to communicate between tasks.
 
 ### XL Deploy setup
 
