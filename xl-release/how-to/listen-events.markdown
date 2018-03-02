@@ -14,20 +14,33 @@ From XL Release 8.0.0 your custom code can react on events that are happening in
 
 ## Example
 
-In the following example we will show how to listen to different events and react on them.
+In the following example we will show how to listen to one of the XLR event and react on it. We will create a Java class `PhaseNotifiyListener` inside the package `com.example.plugin`.
 
-In your plugin project add the following class under the package `com.xebialabs.xlrelease`:
+XL Release will use [java ServiceLoader](https://docs.oracle.com/javase/7/docs/api/java/util/ServiceLoader.html) to discover your custom listeners, this means you need to create a file with name `com.xebialabs.xlrelease.events.XLReleaseEventListener` inside your `.jar` under `META-INF/services`
+
+```
+META-INF/services/com.xebialabs.xlrelease.events.XLReleaseEventListener
+```
+
+The content of the file is just a line with the implementation of the `XLReleaseEventListener`, in our case:
+
+```
+com.example.plugin.PhaseNotifiyListener
+```
+
+The content of our class:
 
 {% highlight java %}
-package com.xebialabs.xlrelease;
 
-import org.springframework.stereotype.Component;
-import com.xebialabs.xlrelease.events.ComponentEventListener;
+package com.example.plugin;
 
-@ComponentEventListener
-public class TestListener {
+import com.xebialabs.xlrelease.domain.events.PhaseStartedEvent;
+import com.xebialabs.xlrelease.events.AsyncSubscribe;
+import com.xebialabs.xlrelease.events.XLReleaseEventListener;
 
-  private NotifcationApi notificationApi = new ....
+public class PhaseNotifiyListener implements XLReleaseEventListener {
+
+  private NotificationApi notificationApi = new ....
 
   @AsyncSubscribe
   public void notifyCriticalPhaseStarted(PhaseStartedEvent event) {
@@ -40,12 +53,9 @@ public class TestListener {
 
 {% endhighlight %}
 
-**Important:** Your listener class *must* live under `com.xebialabs.xlrelease`.
+Your java class must implement the interface `XLReleaseEventListener` (which is the same that the file that we created under `META-INF/services`). The method with the event logic must be annotated with `@AsyncSubscribe`. This `TestListener` is listening to all `PhaseStartedEvent` (event thrown when a phase has started), and sends an alert to `all@xebialabs.com` that a critical phase has started.
 
-In order to listen to events your class must be annotated as `@ComponentEventListener`. The method with the event logic must have `@AsyncSubscribe`.
-
-This `TestListener` is listening to all `PhaseStartedEvent` (event thrown when a phase has started), and sends an alert to `all@xebialabs.com` that a critical phase has started
-
+**important:** As this class is instantiated by XL Release, the constructor can't have any argument.
 
 ## List of events
 
