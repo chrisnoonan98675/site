@@ -23,8 +23,6 @@ These options provide general support for both fully and partially automated rel
 
 The examples shown here are based on a [sample template](https://gist.github.com/xlcommunity/a289a5a766fde13c1614/raw/c407e554521f32d91c8f879cd70bbfb080bed409/handling-task-failure-examples.xlr) that you can download and import. Note that this requires adding a [custom task type](/xl-release/how-to/create-custom-task-types.html), which you can do by [copying the type definition to the `ext` directory](/xl-release/how-to/create-custom-task-types.html#defining-a-custom-task) or by downloading and installing [this community plugin](https://gist.github.com/xlcommunity/a289a5a766fde13c1614/raw/c407e554521f32d91c8f879cd70bbfb080bed409/xlr-acme-webhook-2016-02-20.jar).
 
-**Tip:** An alternative approach is to implement a custom failure handling phase; refer to [Implement a custom release failure handler](/xl-release/how-to/implement-a-custom-failure-handler.html) for more information.
-
 ## Handling failure in the task
 
 The simplest and most effective way to handle failure in a task is to include the appropriate error-handling logic in the task implementation itself. For example:
