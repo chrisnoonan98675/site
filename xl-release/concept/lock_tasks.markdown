@@ -14,9 +14,9 @@ since:
 ---
 
 ## Lock tasks
-Locked activities are mandatory. If a locked task occurs during a release, this task needs to be executed before the release can continue.
+Lock tasks are mandatory. If a lock task occurs during a release, this task needs to be executed before the release can continue.
 
-In highly regulated environments with strict compliance requirements, lock tasks ensure that standards are adhered to, and also that evidence, along task details, are stored to an evidence database. Lock tasks make continuous delivery and compliance possible in regulated environments.
+In highly regulated environments with strict compliance requirements, lock tasks ensure that standards are adhered to, and also that evidence along task details, are stored to an evidence database. Lock tasks make continuous delivery and compliance possible in regulated environments.
 
 In an environment that is not highly regulated, and steps are open to interpretation, lock tasks ensure that mandatory activities are executed. In this case, you can give teams the freedom to compose their own pipeline and adjust it to their situation.
 
@@ -25,17 +25,17 @@ Locked tasks can be:
 
   Or
 
-- Manual - a user will need to sign-off in XL Release, or by remote approval, for a release to continue.
+- Manual - for a release to continue, a user will need to sign-off in XL Release, or by remote approval.
 
 ### Lock permissions and pipeline design
 Lock permission is role based and must be added to a user's profile before they can lock or unlock tasks. We recommend that this role is given to users who create release pipelines, or specific compliance people. Before adding lock tasks, specify, design, and test your complete pipeline. Adding locks before the pipeline is designed and tested will make the design process complex.
 
 ### Audits
 Lock tasks ensure your audit trail. If a team decides to skip certain activities, limited evidence is stored in the XL Release Evidence database. This can result in bad auditing results.
-By locking tasks you ensure that they are executed and also that evidence, along with task details and signee information, is stored in the evidence database.
+By locking tasks you ensure that they are executed and also that evidence, along with task details, and signee information, is stored in the evidence database.
 
 ### Lock tasks and groups
 **Question: can we place locks on groups or are the locks only placed on tasks?**
 Using lock tasks in a group ensures that steps will be executed in a certain order. For example, a signoff can only be given after a static code scan.
 
-For more information on lock tasks and how to use them, refer to [place holder](http://www.jhohjjs.com)
+For more information on lock tasks and how to use them, see [place holder](http://www.jhohjjs.com)
