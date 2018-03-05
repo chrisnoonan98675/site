@@ -10,25 +10,21 @@ since:
 - XL Release 8.0.0
 ---
 
-From XL Release 8.0.0 your custom code can react on events that are happening inside XL Release. These events are published in a lot of different moments during the release execution.
+As of XL Release version 8.0.0, your custom code can react on events that are happening inside XL Release. These events are published in a lot of different moments during the release execution.
 
 ## Example
 
-In the following example we will show how to listen to one of the XLR event and react on it. We will create a Java class `PhaseNotifiyListener` inside the package `com.example.plugin`.
+In the following example, you can see how to listen to one of the XL Release events and react to it. This requires you to create a Java class `PhaseNotifiyListener` inside the `com.example.plugin` package.
 
-XL Release will use [java ServiceLoader](https://docs.oracle.com/javase/7/docs/api/java/util/ServiceLoader.html) to discover your custom listeners, this means you need to create a file with name `com.xebialabs.xlrelease.events.XLReleaseEventListener` inside your `.jar` under `META-INF/services`
+XL Release uses [java ServiceLoader](https://docs.oracle.com/javase/7/docs/api/java/util/ServiceLoader.html) to discover your custom listeners. You must create a file with the name `com.xebialabs.xlrelease.events.XLReleaseEventListener` inside your `.jar` file under the `META-INF/services` directory.
 
-```
-META-INF/services/com.xebialabs.xlrelease.events.XLReleaseEventListener
-```
+    META-INF/services/com.xebialabs.xlrelease.events.XLReleaseEventListener
 
-The content of the file is just a line with the implementation of the `XLReleaseEventListener`, in our case:
+The content of the file is a line with the implementation of the `XLReleaseEventListener`, in this case:
 
-```
-com.example.plugin.PhaseNotifiyListener
-```
+    com.example.plugin.PhaseNotifiyListener
 
-The content of our class:
+The content of your class:
 
 {% highlight java %}
 
@@ -53,9 +49,9 @@ public class PhaseNotifiyListener implements XLReleaseEventListener {
 
 {% endhighlight %}
 
-Your java class must implement the interface `XLReleaseEventListener` (which is the same that the file that we created under `META-INF/services`). The method with the event logic must be annotated with `@AsyncSubscribe`. This `TestListener` is listening to all `PhaseStartedEvent` (event thrown when a phase has started), and sends an alert to `all@xebialabs.com` that a critical phase has started.
+Your java class must implement the interface `XLReleaseEventListener` (same as the file created under `META-INF/services`). The method with the event logic must be annotated with `@AsyncSubscribe`. This `TestListener` is listening to all `PhaseStartedEvent` (event thrown when a phase has started), and sends an alert to `all@xebialabs.com` that a critical phase has started.
 
-**important:** As this class is instantiated by XL Release, the constructor can't have any argument.
+**Important:** As this class is instantiated by XL Release, the constructor cannot have any argument.
 
 ## List of events
 
@@ -64,17 +60,17 @@ The following table shows the events that are published by XL Release:
 {:.table .table-bordered}
 | Event type | Fields | Description |
 | --------- | -------- | ----------- |
-| `XLReleaseEvent`      | username, timeMs | Event thrown when in any `XXXEvent`. |
-| `AttachmentEvent`      | Same as `XLReleaseEvent` | Event thrown in any `AttachmentXXXEvent`. |
-| `AttachmentCreatedEvent`      | containerId, attachment | Event thrown when attachment is created. |
-| `AttachmentDeletedEvent`      | containerId, attachment | Event thrown when attachment is deleted. |
-| `CalendarEvent`      |  Same as `XLReleaseEvent` | Event thrown when in any `BlackoutXXXEvents`. |
-| `BlackoutCreatedEvent`      | blackout | Event thrown when a blackout is created. |
-| `BlackoutUpdatedEvent`      | original, updated | Event thrown when a blackout is updated. |
-| `BlackoutDeletedEvent`      | blackout | Event thrown when a blackout is deleted. |
-| `CommentEvent`      | Same as `XLReleaseEvent` | Event thrown in any `CommentXXXEvent`. |
-| `CommentCreatedEvent`      | task, comment, author, createdByUser | Event thrown when a comment is created. |
-| `CommentUpdatedEvent`      | task, original, updated | Event thrown when a comment is updated. |
+| `XLReleaseEvent` | username, timeMs | Event thrown when in any `XXXEvent`. |
+| `AttachmentEvent` | Same as `XLReleaseEvent` | Event thrown in any `AttachmentXXXEvent`. |
+| `AttachmentCreatedEvent` | containerId, attachment | Event thrown when attachment is created. |
+| `AttachmentDeletedEvent` | containerId, attachment | Event thrown when attachment is deleted. |
+| `CalendarEvent` |  Same as `XLReleaseEvent` | Event thrown when in any `BlackoutXXXEvents`. |
+| `BlackoutCreatedEvent` | blackout | Event thrown when a blackout is created. |
+| `BlackoutUpdatedEvent` | original, updated | Event thrown when a blackout is updated. |
+| `BlackoutDeletedEvent` | blackout | Event thrown when a blackout is deleted. |
+| `CommentEvent` | Same as `XLReleaseEvent` | Event thrown in any `CommentXXXEvent`. |
+| `CommentCreatedEvent` | task, comment, author, createdByUser | Event thrown when a comment is created. |
+| `CommentUpdatedEvent` | task, original, updated | Event thrown when a comment is updated. |
 | `DependencyEvent` | Same as `XLReleaseEvent`| Event thrown when in any `DependencyXXXEvent` |
 | `DependencyCreatedEvent` | dependency | Event thrown when a dependency is created |
 | `DependencyUpdatedEvent` | original, updated | Event thrown when a dependency is updated |
