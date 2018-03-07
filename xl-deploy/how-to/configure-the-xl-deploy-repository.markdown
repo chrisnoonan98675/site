@@ -58,6 +58,10 @@ Make sure the userid accessing the MySQL database has been granted the following
 This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for MySQL:
 
 {% highlight xml %}
+<?xml version="1.0"?>
+<!DOCTYPE Repository
+          PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 2.0//EN"
+          "http://jackrabbit.apache.org/dtd/repository-2.0.dtd">
 <Repository>
 
     <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
@@ -155,6 +159,7 @@ This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configur
 <!DOCTYPE Repository
           PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 2.0//EN"
           "http://jackrabbit.apache.org/dtd/repository-2.0.dtd">
+<Repository>          
 
     <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
            <param name="driver" value="com.ibm.db2.jcc.DB2Driver"/>
@@ -247,7 +252,7 @@ This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configur
 <!DOCTYPE Repository
           PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 2.0//EN"
           "http://jackrabbit.apache.org/dtd/repository-2.0.dtd">
-
+<Repository>
     <FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
        <param name="driver" value="oracle.jdbc.OracleDriver"/>
        <param name="url" value="jdbc:oracle:thin:@ABCD1234:1522:1521/XLD"/>
@@ -342,7 +347,7 @@ This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configur
 <!DOCTYPE Repository
           PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 2.0//EN"
           "http://jackrabbit.apache.org/dtd/repository-2.0.dtd">
-
+<Repository>
    <FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
            <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
            <param name="url" value="jdbc:sqlserver://15.51.45.218:4516;DatabaseName=XLD"/>
@@ -435,7 +440,7 @@ This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configur
 <!DOCTYPE Repository
           PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 2.0//EN"
           "http://jackrabbit.apache.org/dtd/repository-2.0.dtd">
-
+<Repository>
     <DataSources>
         <DataSource name="ds1">
             <param name="driver" value="org.postgresql.Driver" />
