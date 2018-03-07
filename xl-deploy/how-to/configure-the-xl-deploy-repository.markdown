@@ -151,7 +151,10 @@ To use XL Deploy with [IBM DB2](http://www-01.ibm.com/software/data/db2/), ensur
 This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for DB2:
 
 {% highlight xml %}
-<Repository>
+<?xml version="1.0"?>
+<!DOCTYPE Repository
+          PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 2.0//EN"
+          "http://jackrabbit.apache.org/dtd/repository-2.0.dtd">
 
     <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
            <param name="driver" value="com.ibm.db2.jcc.DB2Driver"/>
@@ -240,7 +243,11 @@ To use XL Deploy with [Oracle](http://www.oracle.com/us/products/database/index.
 This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for Oracle:
 
 {% highlight xml %}
-<Repository>
+<?xml version="1.0"?>
+<!DOCTYPE Repository
+          PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 2.0//EN"
+          "http://jackrabbit.apache.org/dtd/repository-2.0.dtd">
+
     <FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
        <param name="driver" value="oracle.jdbc.OracleDriver"/>
        <param name="url" value="jdbc:oracle:thin:@ABCD1234:1522:1521/XLD"/>
@@ -331,7 +338,11 @@ To use XL Deploy with [Microsoft SQL Server](https://www.microsoft.com/en-us/ser
 This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for SQL Server:
 
 {% highlight xml %}
-<Repository>
+<?xml version="1.0"?>
+<!DOCTYPE Repository
+          PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 2.0//EN"
+          "http://jackrabbit.apache.org/dtd/repository-2.0.dtd">
+
    <FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
            <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
            <param name="url" value="jdbc:sqlserver://15.51.45.218:4516;DatabaseName=XLD"/>
@@ -420,7 +431,11 @@ For more information about SQL Server configuration for Jackrabbit, refer to the
 This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [PostgreSQL](https://www.postgresql.org/) database:
 
 {% highlight xml %}
-<Repository>
+<?xml version="1.0"?>
+<!DOCTYPE Repository
+          PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 2.0//EN"
+          "http://jackrabbit.apache.org/dtd/repository-2.0.dtd">
+
     <DataSources>
         <DataSource name="ds1">
             <param name="driver" value="org.postgresql.Driver" />
