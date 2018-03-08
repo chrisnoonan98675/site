@@ -21,10 +21,10 @@ Please also refer to the general <a href="/xl-release/how-to/upgrade-xl-release.
 ## Prerequisites
 
 * Upgrade the **source** XL Release server to version 7.0.x, 7.1.x, or 7.2.x.
-* External database for the storage of XL Release data. Supported databases:
+* External database servers for the storage of XL Release data. Supported databases:
     * PostgreSQL versions 9.3, 9.4, 9.5, 9.6, and 10.1
 
-      **Note:** The archiving database and the normal database must point to different external databases.
+      **Note:** The archiving database and the normal database must point to different database servers.
 
     * MySQL versions 5.5, 5.6, and 5.7
     * Oracle 11g
@@ -34,6 +34,8 @@ Please also refer to the general <a href="/xl-release/how-to/upgrade-xl-release.
       **Important:** To use DB2 as an external database, ensure you increase the `pagesize` to `32K`.
 
 * The archive database is still required. The structure and functionality have not changed in this upgrade.
+
+**Important:** As of version 7.5.2, the SQL migrator allows you to migrate the archive database to a different database server.
 
 ## Overview
 
@@ -87,13 +89,19 @@ Configure the `conf/xl-release-sql-migrator.conf` in the SQL Migrator Tool direc
 
 For example, a MySQL configuration would be:
 
-    xl {
-      database {
-        db-driver-classname = "com.mysql.jdbc.Driver"
-        db-url = "jdbc:mysql://mysql-server-host/xlrelease"
-        db-username = "xlrelease"
-        db-password = "xlrelease"
-      }
+      xl {
+          database {
+            db-driver-classname = "com.mysql.jdbc.Driver"
+            db-url = "jdbc:mysql://mysql-server-host/xlrelease"
+            db-username = "xlrelease"
+            db-password = "xlrelease"
+          }
+          archive {
+          db-driver-classname = "org.h2.Driver"
+          db-url = "jdbc:h2:mem:test"
+          db-username = "sa"
+          db-password = ""
+        }
     }
 
 ### Set the page size
@@ -135,6 +143,17 @@ The source server does not need to be running. The SQL Migrator Tool does not mo
 **Note:** You do not need to specify the installation directory of the target server. Configuring the database location is sufficient.
 
 The SQL Migrator Tool supports incremental migration. If you stop it in the middle of the process and restart it later, it will skip the releases that were already migrated.
+
+### Running options
+
+You can run the migrator with the following environment variables:
+
+{:.table .table-striped}
+| Option | Description | Default value |
+| ACCEPT_MIGRATION=true | The confirmation screen is not displayed | false |
+| MIGRATE_REPOSITORY=true | The JCR repository will be migrated | true |
+| MIGRATE_ARCHIVE=true | The archive database will be migrated | false |
+| SKIP_ERRORS=true | Errors on writing configuration items will be skipped and logged in error log | false |
 
 ## Step 5. Copy files from source to target server
 
