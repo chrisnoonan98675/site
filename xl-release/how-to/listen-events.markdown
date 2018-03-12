@@ -70,135 +70,123 @@ The following table shows the different activity log types that you can receive 
 | RELEASE_DUE_DATE_UPDATED | Changed release due date |
 | RELEASE_SCHEDULED_START_DATE_UPDATED | Changed release scheduled start date |
 | RELEASE_OWNER_UPDATED | Changed release owner |
-
-TODO from here! :-)
-
 | RELEASE_TAGS_UPDAsTED | Updated release tags |
 | RELEASE_FLAG_STATUS_UPDATED | Changed flag status for release |
 | RELEASE_FLAG_COMMENT_UPDATED | Changed flag comment on release |
 | RELEASE_ABORT_RELEASE_ON_FAILURE_UPDATED | Changed 'Abort release on failure' status on status |
-| COMMENT_ADDED| Added a comment on task |
-| COMMENT_UPDATED| Updated comment on task |
-| PHASE_CREATED| Created a phase in a release|
-| PHASE_RENAMED| Renamed a phase in a release|
-| PHASE_DESCRIPTION_UPDATED| Changed the description of a phase |
-| PHASE_DURATION_UPDATED| Changed the duration of a phase |
-| PHASE_DUE_DATE_UPDATED| Changed the due date of a phase |
-| PHASE_SCHEDULED_START_DATE_UPDATED| Changed scheduled start date of Phase '%s' from '%s' to '%s', RELEASE_EDIT) |
-| PHASE_COLOR_CHANGED| Changed color of Phase '%s' from '%s' to '%s', RELEASE_EDIT) |
-| PHASE_MOVED| Moved Phase '%s', RELEASE_EDIT) |
-| PHASE_DELETED| Deleted Phase '%s', RELEASE_EDIT) |
-| PHASE_DUPLICATED| Duplicated Phase to '%s', RELEASE_EDIT) |
-| PHASE_STARTED| Started Phase '%s', LIFECYCLE, IMPORTANT) |
-| PHASE_FAILED| Failed Phase '%s' , LIFECYCLE) |
-| PHASE_FAILING|  Phase '%s' started failing, LIFECYCLE) |
-| PHASE_RESTARTED| Restarted Phase '%s', LIFECYCLE) |
-| PHASE_COMPLETED| Completed Phase '%s', LIFECYCLE) |
-| PHASE_CLOSED| Closed Phase '%s' and skipped all its tasks, LIFECYCLE) |
-| TASK_CREATED| Created Task '%s' of type '%s', RELEASE_EDIT, TASK_EDIT) |
-| TASK_MOVED_BETWEEN_CONTAINERS| Moved Task '%s' from '%s' to '%s', RELEASE_EDIT) |
-| TASK_MOVED_WITHIN_CONTAINER| Moved Task '%s' within '%s', RELEASE_EDIT) |
-| TASK_DELETED| Deleted Task '%s', RELEASE_EDIT, IMPORTANT) |
-| TASK_TITLE_UPDATED| Changed title of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_DESCRIPTION_UPDATED| Changed description of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_DURATION_UPDATED| Changed duration of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_OWNER_UPDATED| Changed owner of Task '%s' from %s to %s, TASK_EDIT, REASSIGN) |
-| TASK_TASK_TEAM_UPDATED| Changed team of Task '%s' from %s to %s, TASK_EDIT, REASSIGN) |
-| TASK_DUE_DATE_UPDATED| Changed due date of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_SCHEDULED_START_DATE_UPDATED| Changed scheduled start date of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_WAIT_FOR_SCHEDULED_START_DATE_UPDATED| Changed wait for scheduled start date of Task '%s' to '%s', TASK_EDIT) |
-| TASK_FLAG_STATUS_UPDATED| Flagged Task '%s' from '%s' to '%s', TASK_EDIT, IMPORTANT) |
-| TASK_FLAG_COMMENT_UPDATED| Changed flag status of Task '%s' from '%s' to '%s', TASK_EDIT, IMPORTANT, COMMENTS) |
-| TASK_COPIED| Copied Task to '%s', RELEASE_EDIT) |
-| TASK_NOTIFICATION_ADDRESSES_UPDATED| Changed Notification addresses of recipients of the Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_NOTIFICATION_CC_UPDATED| Changed Notification list of email addresses that receive the message as CC of Task '%s' from '%s' to '%s' | TASK_EDIT),
-| TASK_NOTIFICATION_BCC_UPDATED| Changed Notification list of email addresses that receive the message as BCC of Task '%s' from '%s' to '%s' | TASK_EDIT),
-| TASK_NOTIFICATION_REPLY_TO_UPDATED| Changed Notification email address of the reply message recipient of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_NOTIFICATION_PRIORITY_UPDATED| Changed Notification email priority of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_NOTIFICATION_SUBJECT_UPDATED| Changed Notification subject of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_NOTIFICATION_BODY_UPDATED| Changed Notification body of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_SCRIPT_UPDATED| Changed Script of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_INPUT_PROPERTY_UPDATED| Changed input property '%s' of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_INPUT_PROPERTY_PASSWORD_UPDATED| Changed input property '%s' of Task '%s', TASK_EDIT) |
-| TASK_OUTPUT_PROPERTIES_UPDATED| Changed output property '%s' of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_PRECONDITION_UPDATED| Changed precondition of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_TYPE_CHANGED| Changed type of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_RELEASE_TITLE_UPDATED| Changed release title of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_RELEASE_TEMPLATE_UPDATED| Changed release template of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_START_RELEASE_FLAG_UPDATED| Changed start release flag of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_RELEASE_VARIABLE_UPDATED| Changed variable '%s' of Task '%s' from '%s' to '%s', TASK_EDIT) |
-| TASK_RELEASE_TAGS_UPDATED| Changed release tags of Task '%s' from '%s' to '%s', TASK_EDIT) |
-|
-|  TEAM_CREATED| Created Team '%s', SECURITY, RELEASE_EDIT) |
-| TEAM_UPDATED| Updated Team '%s' with members '%s' and roles '%s', REASSIGN,SECURITY) |
-| TEAM_DELETED| Removed Team '%s', SECURITY, RELEASE_EDIT) |
-| FOLDER_TEAM_MERGED| Merged teams and permissions from template %s into folder %s, SECURITY, RELEASE_EDIT) |
-| REMOVE_TEMPLATE_TEAMS| Removed teams from template %s. It will inherit teams and permissions from folder %s, SECURITY, RELEASE_EDIT) |
-|
-|  GATE_CONDITION_CREATED| Created Condition '%s' on gate '%s', TASK_EDIT) |
-| GATE_CONDITION_TITLE_UPDATED| Updated title on Condition '%s' of gate '%s' from '%s' to '%s', TASK_EDIT) |
-| GATE_CONDITION_FULFILLED| Fulfilled Condition '%s' on gate '%s', TASK_EDIT, LIFECYCLE) |
-| GATE_CONDITION_UNFULFILLED| Unfulfilled Condition '%s' on gate '%s', TASK_EDIT, LIFECYCLE) |
-| GATE_CONDITION_DELETED| Deleted Condition '%s' from gate '%s', TASK_EDIT) |
-|
-|  LINK_ADDED| Created Link on Group '%s' from Task '%s' to Task '%s', TASK_EDIT) |
-| LINK_REMOVED| Removed Link on Group '%s' from Task '%s' to Task '%s', TASK_EDIT) |
-|
-|  DEPENDENCY_CREATED| Added Dependency in gate '%s' on '%s', TASK_EDIT) |
-| DEPENDENCY_UPDATED| Changed Dependency in gate '%s' on '%s' to '%s', TASK_EDIT) |
-| DEPENDENCY_DELETED| Deleted Dependency in gate '%s' on '%s', TASK_EDIT) |
-|
-|  RELEASE_CREATED_FROM_TEMPLATE| Created Release '%s' from template '%s', LIFECYCLE) |
-| RELEASE_CREATED_FROM_CREATE_RELEASE_TASK| Created Release '%s' from create release task '%s' and template '%s', LIFECYCLE) |
-| RELEASE_CREATED_FROM_DSL| Created Release '%s' from DSL, LIFECYCLE) |
-| RELEASE_RESTORED_FROM_REVISION| Template '%s' restored from revision '%s', LIFECYCLE) |
-| RELEASE_CREATED| Created Empty Release '%s', LIFECYCLE, RELEASE_EDIT) |
-| RELEASE_STARTED| Started Release, LIFECYCLE, IMPORTANT) |
-| RELEASE_STARTED_FROM_CREATE_RELEASE_TASK| Started Release '%s' from create release task '%s', LIFECYCLE) |
-| RELEASE_FAILED| Failed Release, LIFECYCLE) |
-| RELEASE_FAILING| Release started failing, LIFECYCLE) |
-| RELEASE_RESTARTED| Restarted Release, LIFECYCLE) |
-| RELEASE_COMPLETED| Completed Release, LIFECYCLE, IMPORTANT) |
-| RELEASE_ABORTED| Aborted Release, LIFECYCLE, IMPORTANT) |
-|
-|  TASK_STARTED| Started Task '%s', LIFECYCLE) |
-| TASK_DELAYED| Activated Task '%s' with a scheduled start date of '%s', LIFECYCLE) |
-| TASK_DELAYED_DUE_TO_BLACKOUT| Activated Task '%s' with a scheduled start date of '%s' due to a blackout, LIFECYCLE) |
-| TASK_COMPLETED| Completed Task '%s', LIFECYCLE) |
-| TASK_COMPLETED_IN_ADVANCE| Completed in advance Task '%s', LIFECYCLE) |
-| TASK_SKIPPED| Skipped Task '%s', LIFECYCLE, IMPORTANT) |
-| TASK_SKIPPED_IN_ADVANCE| Skipped in advance Task '%s', LIFECYCLE, IMPORTANT) |
-| TASK_FAILED| Failed Task '%s': %s, LIFECYCLE, IMPORTANT) |
-| TASK_RESTARTED| Restarted Task '%s', LIFECYCLE) |
-| TASK_FAILING| Task '%s' started failing, LIFECYCLE) |
-| TASK_REOPENED| Task '%s' reopened, LIFECYCLE) |
-| TASK_WAITING_FOR_INPUT| Task '%s' requires input for variables: %s, LIFECYCLE) |
-|
-|  TEMPLATE_IMPORTED| Imported template, RELEASE_EDIT) |
-|
-|  PERMISSIONS_UPDATED| Updated permissions to:\n%s, SECURITY) |
-|
-|  ATTACHMENT_ADDED| Added attachment: '%s' (%s), RELEASE_EDIT) |
-| ATTACHMENT_ADDED_ON_TASK| Added attachment: '%s' (%s) on task: '%s', RELEASE_EDIT) |
-| ATTACHMENT_DELETED| Deleted attachment: '%s', RELEASE_EDIT) |
-| ATTACHMENT_DELETED_FROM_TASK| Deleted attachment: '%s' from task : '%s', RELEASE_EDIT) |
-| TRIGGER_ADDED| Added release trigger '%s', RELEASE_EDIT) |
-| TRIGGER_EDITED| Edited release trigger '%s', RELEASE_EDIT) |
-| TRIGGER_DELETED| Deleted release trigger '%s', RELEASE_EDIT) |
-| TRIGGER_CREATE_NEW_RELEASE| Trigger %s created new release '%s' from template '%s', RELEASE_EDIT) |
-| TEMPLATE_ALLOW_CONCURRENT_RELEASES_FROM_TRIGGER_UPDATED| Changed 'Allow concurrent triggered releases' from '%s' to '%s', RELEASE_EDIT) |
-| RELEASE_VARIABLE_CREATED| Created variable %s, RELEASE_EDIT) |
-| RELEASE_VARIABLE_DELETED| Deleted variable %s, RELEASE_EDIT) |
-| RELEASE_VARIABLE_REPLACED| Replaced variable %s with %s, RELEASE_EDIT) |
-| RELEASE_VARIABLE_RENAMED| Renamed variable '%s' to '%s', RELEASE_EDIT) |
-| RELEASE_VARIABLE_VALUE_UPDATED| Changed value of variable %s from '%s' to '%s', RELEASE_EDIT) |
-| RELEASE_VARIABLE_PASSWORD_VALUE_UPDATED| Changed value of password variable %s, RELEASE_EDIT) |
-| RELEASE_VARIABLE_NAME_UPDATED| Changed name of variable %s from '%s' to '%s', RELEASE_EDIT) |
-| RELEASE_VARIABLE_LABEL_UPDATED| Changed label of variable %s from '%s' to '%s', RELEASE_EDIT) |
-| RELEASE_VARIABLE_DESCRIPTION_UPDATED| Changed description of variable %s from '%s' to '%s', RELEASE_EDIT) |
-| RELEASE_VARIABLE_REQUIRED_UPDATED| Changed required flag of variable %s from %s to %s, RELEASE_EDIT) |
-| RELEASE_VARIABLE_SHOW_ON_CREATE_UPDATED| Changed 'show on create release form' flag of variable %s from %s to %s, RELEASE_EDIT) |
-| GLOBAL_VARIABLE_CREATED| Created global variable %s, RELEASE_EDIT) |
-| GLOBAL_VARIABLE_VALUE_UPDATED| Changed value of global variable %s from '%s' to '%s', RELEASE_EDIT) |
-| GLOBAL_VARIABLE_DELETED| Deleted global variable %s, RELEASE_EDIT) |
-| RELEASE_RISK_PROFILE_UPDATED| Changed risk profile from '%s' to '%s', RELEASE_EDIT) |
+| COMMENT_ADDED | Added a comment on task |
+| COMMENT_UPDATED | Updated comment on task |
+| PHASE_CREATED | Created a phase in a release|
+| PHASE_RENAMED | Renamed a phase in a release|
+| PHASE_DESCRIPTION_UPDATED | Changed the description of a phase |
+| PHASE_DURATION_UPDATED | Changed the duration of a phase |
+| PHASE_DUE_DATE_UPDATED | Changed the due date of a phase |
+| PHASE_SCHEDULED_START_DATE_UPDATED | Changed the scheduled start date of a phase |
+| PHASE_COLOR_CHANGED | Changed the phase color |
+| PHASE_MOVED | Moved phase |
+| PHASE_DELETED | Deleted phase |
+| PHASE_DUPLICATED | Duplicated phase |
+| PHASE_STARTED | Started phase |
+| PHASE_FAILED | Failed phase |
+| PHASE_FAILING |  Phase started failing |
+| PHASE_RESTARTED | Restarted phase |
+| PHASE_COMPLETED | Completed phase |
+| PHASE_CLOSED | Closed phase and skipped all its tasks |
+| TASK_CREATED | Created task |
+| TASK_MOVED_BETWEEN_CONTAINERS | Moved a task between containers |
+| TASK_MOVED_WITHIN_CONTAINER | Moved a task within a container |
+| TASK_DELETED | Deleted task |
+| TASK_TITLE_UPDATED | Changed the title of a task |
+| TASK_DESCRIPTION_UPDATED | Changed the description of a task |
+| TASK_DURATION_UPDATED | Changed the duration of a task |
+| TASK_OWNER_UPDATED | Changed the owner of a task |
+| TASK_TASK_TEAM_UPDATED | Changed the team of a task |
+| TASK_DUE_DATE_UPDATED | Changed the due date of a task |
+| TASK_SCHEDULED_START_DATE_UPDATED | Changed the scheduled start date of a task |
+| TASK_WAIT_FOR_SCHEDULED_START_DATE_UPDATED | Changed the wait for scheduled start date property of a task |
+| TASK_FLAG_STATUS_UPDATED | Changed the flag on a task |
+| TASK_FLAG_COMMENT_UPDATED | Changed the flag comment on a task |
+| TASK_COPIED | Copied task |
+| TASK_NOTIFICATION_ADDRESSES_UPDATED | Changed the notification addresses of recipients of the task |
+| TASK_NOTIFICATION_CC_UPDATED | Changed the notification list of email addresses that receive the message as CC of a task |
+| TASK_NOTIFICATION_BCC_UPDATED | Changed the notification list of email addresses that receive the message as BCC of a task |
+| TASK_NOTIFICATION_REPLY_TO_UPDATED | Changed the notification email address of the reply message recipient of a task |
+| TASK_NOTIFICATION_PRIORITY_UPDATED | Changed the notification email priority of a task |
+| TASK_NOTIFICATION_SUBJECT_UPDATED | Changed the notification subject of a task |
+| TASK_NOTIFICATION_BODY_UPDATED | Changed the notification body of a task  |
+| TASK_SCRIPT_UPDATED | Changed the script of a task |
+| TASK_INPUT_PROPERTY_UPDATED | Changed the input property of a task |
+| TASK_INPUT_PROPERTY_PASSWORD_UPDATED | Changed the password on an input property of a task |
+| TASK_OUTPUT_PROPERTIES_UPDATED | Changed the output property of a task |
+| TASK_PRECONDITION_UPDATED | Changed the precondition of a task |
+| TASK_TYPE_CHANGED | Changed the type of a task |
+| TASK_RELEASE_TITLE_UPDATED | Changed the release title of a task |
+| TASK_RELEASE_TEMPLATE_UPDATED | Changed the release template of a task |
+| TASK_START_RELEASE_FLAG_UPDATED | Changed the start release flag of a task |
+| TASK_RELEASE_VARIABLE_UPDATED | Changed a variable of a task |
+| TASK_RELEASE_TAGS_UPDATED | Changed release tags of a task |
+| TEAM_CREATED | Created team |
+| TEAM_UPDATED | Updated team |
+| TEAM_DELETED | Removed team |
+| FOLDER_TEAM_MERGED | Merged teams and permissions from a template into a folder |
+| REMOVE_TEMPLATE_TEAMS | Removed teams from template. It will inherit teams and permissions from a folder |
+| GATE_CONDITION_CREATED | Created condition on a gate |
+| GATE_CONDITION_TITLE_UPDATED | Updated the condition gate title |
+| GATE_CONDITION_FULFILLED | Fulfilled condition on gate |
+| GATE_CONDITION_UNFULFILLED | Unfulfilled condition on gate |
+| GATE_CONDITION_DELETED | Deleted condition from gate |
+| LINK_ADDED | Created a link between tasks on a group |
+| LINK_REMOVED | Removed a link between tasks on a group |
+| DEPENDENCY_CREATED | Added a dependency in a gate |
+| DEPENDENCY_UPDATED | Changed a dependency in a gate |
+| DEPENDENCY_DELETED | Deleted a dependency in a gate |
+| RELEASE_CREATED_FROM_TEMPLATE | Created a release from a template |
+| RELEASE_CREATED_FROM_CREATE_RELEASE_TASK | Created a release from a create release task and a template |
+| RELEASE_CREATED_FROM_DSL | Created a release from DSL |
+| RELEASE_RESTORED_FROM_REVISION | Restored a template from a revision |
+| RELEASE_CREATED | Created an empty release |
+| RELEASE_STARTED | Started a release |
+| RELEASE_STARTED_FROM_CREATE_RELEASE_TASK | Started a release from a create release task |
+| RELEASE_FAILED | Failed release |
+| RELEASE_FAILING | Release started failing |
+| RELEASE_RESTARTED | Restarted release |
+| RELEASE_COMPLETED | Completed release |
+| RELEASE_ABORTED | Aborted release |
+| TASK_STARTED | Started task |
+| TASK_DELAYED | Activated a task with a scheduled start date |
+| TASK_DELAYED_DUE_TO_BLACKOUT | Activated a task with a scheduled start date due to a blackout |
+| TASK_COMPLETED | Completed a task |
+| TASK_COMPLETED_IN_ADVANCE | Completed a task in advance |
+| TASK_SKIPPED | Skipped task |
+| TASK_SKIPPED_IN_ADVANCE | Skipped a task in advance |
+| TASK_FAILED | Failed task |
+| TASK_RESTARTED | Restarted task |
+| TASK_FAILING | Task started failing |
+| TASK_REOPENED | Reopened task |
+| TASK_WAITING_FOR_INPUT | Task requires input for variables |
+| TEMPLATE_IMPORTED | Imported template |
+| PERMISSIONS_UPDATED | Updated permissions |
+| ATTACHMENT_ADDED | Added attachment |
+| ATTACHMENT_ADDED_ON_TASK | Added attachment on a task |
+| ATTACHMENT_DELETED | Deleted attachment |
+| ATTACHMENT_DELETED_FROM_TASK | Deleted attachment from task |
+| TRIGGER_ADDED | Added release trigger |
+| TRIGGER_EDITED | Edited release trigger |
+| TRIGGER_DELETED | Deleted release trigger |
+| TRIGGER_CREATE_NEW_RELEASE | Trigger created a new release from a template |
+| TEMPLATE_ALLOW_CONCURRENT_RELEASES_FROM_TRIGGER_UPDATED | Changed 'Allow concurrent triggered releases' template |
+| RELEASE_VARIABLE_CREATED | Created release variable |
+| RELEASE_VARIABLE_DELETED | Deleted release variable |
+| RELEASE_VARIABLE_REPLACED | Replaced release variable |
+| RELEASE_VARIABLE_RENAMED | Renamed release variable |
+| RELEASE_VARIABLE_VALUE_UPDATED | Changed the value of a release variable |
+| RELEASE_VARIABLE_PASSWORD_VALUE_UPDATED | Changed the value of a password variable |
+| RELEASE_VARIABLE_NAME_UPDATED | Changed the name of a release variable |
+| RELEASE_VARIABLE_LABEL_UPDATED | Changed the label of a release variable |
+| RELEASE_VARIABLE_DESCRIPTION_UPDATED | Changed the description of a release variable |
+| RELEASE_VARIABLE_REQUIRED_UPDATED | Changed the required flag of a release variable |
+| RELEASE_VARIABLE_SHOW_ON_CREATE_UPDATED | Changed the 'show on create release form' flag of a release variable |
+| GLOBAL_VARIABLE_CREATED | Created global variable |
+| GLOBAL_VARIABLE_VALUE_UPDATED | Changed the value of a global variable |
+| GLOBAL_VARIABLE_DELETED | Deleted global variable |
+| RELEASE_RISK_PROFILE_UPDATED | Changed the release risk profile |
