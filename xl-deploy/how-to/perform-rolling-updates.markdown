@@ -137,15 +137,13 @@ Open the deployment package, say **PetClinic/1.0** in the Explorer and add the r
 
 The disadvantage is that the orchestrators are hardcoded on the application and may not apply to each environment. For example, rolling update is only needed in the Production environment but not in the QA environment.
 
-### Setting orchestrators on the environment using a dictionary
+### Configuring orchestrators on the environment
 
-It is not possible to set orchestrators on the environment directly, but we can work around this be using dictionaries.
+We can define the orchestrators on the environment using dictionaries.
 
 First, remove the orchestrator from the PetClinic application.
 
 Now add create a dictionary called **Dictionary**.
-
-![Plan with load balancer](images/rolling-update/add-dictionary.png)
 
 In the dictionary, create the following entry:
 
@@ -154,7 +152,9 @@ Key                                    Value
 udm.DeployedApplication.orchestrator   sequential-by-deployment-group, sequential-by-loadbalancer-group
 ```
 
-We are using two dictionary tricks here
+![Plan with load balancer](images/rolling-update/add-dictionary.png)
+
+We are using two dictionary features here:
 
  * The key maps to a fully quantified property of the application being deployed. If this property is left empty on the application, the value is taken from the dictionary.
 * The value is a comma-separated list and will be mapped to a list of values.
