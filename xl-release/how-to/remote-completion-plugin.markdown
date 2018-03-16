@@ -86,7 +86,7 @@ The XL Release server logging for the remote completion plugin can be turned on 
 The basic flow of the remote completion process can be followed with log level **info**. The log level **debug** or even **trace** can be used for more detailed logging. 
 
 ### JavaMail
-Inside the shell script to run the XL Release server, located in bin > run.sh add the following system property to the **$JAVACMD** to turn on session debugging. `-Dmail.debug=true`
+Inside the shell script to run the XL Release server, located in bin > run.sh add the following system property to the **$JAVACMD** to turn on session debugging: `-Dmail.debug=true`.
 That will cause debug information to be printed to the console, including a protocol trace.
 
 ## Recommendations
