@@ -32,7 +32,7 @@ Each of the two buttons will generate a new remote completion email upon click. 
 
 ## Auditing
 The activity log shows everything that happens in a release. It provides an audit trail of who did what, and when. To open the activity log, select **Activity logs** from the **Show** menu. For a more in detail explanation of the activity logs see: [Release activity logs](https://docs.xebialabs.com/xl-release/concept/release-activity-logs.html).
-Click **Filter categories** and select **Comments** to see who and when someone remotely completed or failed a task.
+Click **Filter categories** and select **Comments** or **Task edits** to see who and when someone remotely completed or failed a task.
 
 ## Limitations
 
