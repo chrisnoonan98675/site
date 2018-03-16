@@ -3,7 +3,7 @@ title: Using the Remote completion task
 categories:
 - xl-release
 subject:
-- Releases
+-
 tags:
 - plugin
 - remote completion task
