@@ -3,7 +3,7 @@ title: Using the Release Relationships View
 categories:
 - xl-release
 subject:
-- 
+- Releases
 tags:
 - plugin
 - relationships
