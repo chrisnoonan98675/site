@@ -1,0 +1,49 @@
+---
+title: Using the remote completion task
+categories:
+- xl-release
+subject:
+-
+tags:
+- plugin
+- remote completion task
+since:
+- XL Release 8.0.0
+---
+
+# Using the remote completion task
+The remote completion task allows you to complete or fail a certain task without logging into XL Release from a remote place without access to a company’s network.
+
+## How to use the remote completion task
+A remote completion task represents a step in a template or release that must be completed by a person, remotely or from within XL Release.
+Like other task types, you can assign remote completion tasks to a single user or to a release team.
+
+**_TODO img of remote completion tasks_**
+
+In the release flow editor, remote completion tasks have a purple border.
+
+When a Remote completion task has been started, the users that are assigned to the task will receive an email with a request to remotely complete or fail a task. This email contains two buttons Complete task and Fail task.
+
+**_TODO img of email with buttons_**
+
+Each of the two buttons will generate a new remote completion email upon click. This email can be send in order to complete or fail a task.
+
+**_TODO img of generated email_**
+
+## Auditing
+The activity log shows everything that happens in a release. It provides an audit trail of who did what, and when. To open the activity log, select **Activity logs** from the **Show** menu. For a more in detail explanation of the activity logs see: [Release activity logs](https://docs.xebialabs.com/xl-release/concept/release-activity-logs.html).
+Click **Filter categories** and select **Comments** or **Task edits** to see who and when someone remotely completed or failed a task.
+
+## Limitations
+
+### Reassigning
+When a Remote completion task has been started, the users that are assigned to the task will receive an email with a request to remotely complete or fail a task. 
+In case you want to re-assign a new user or team and want to make sure that they receive a new email with a remote completion request, you have to fail and restart the task after you reassigned a new user or team.
+
+## Supported mail clients
+- MacOS > Mail, Thunderbird
+- Windows > Mail, Outlook, Thunderbird
+- Android > Outlook, Gmail
+- iOS > Mail, Gmail
+
+There are some known issues with webmail clients.
