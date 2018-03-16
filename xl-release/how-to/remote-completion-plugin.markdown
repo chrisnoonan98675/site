@@ -22,7 +22,7 @@ Like other task types, you can assign remote completion tasks to a single user o
 
 In the release flow editor, remote completion tasks have a purple border.
 
-When a remote completion task has been started, the users that are assigned to the task will receive an email. This email contains two buttons Complete task and Fail task.
+When a Remote completion task has been started, the users that are assigned to the task will receive an email with a request to remotely complete or fail a task. This email contains two buttons Complete task and Fail task.
 
 **_TODO img of email with buttons_**
 
@@ -37,7 +37,8 @@ Click **Filter categories** and select **Comments** or **Task edits** to see who
 ## Limitations
 
 ### Reassigning
-When a remote completion task is assigned to a user or a team and the task is in progress, the only way to re-assign a user or team is to fail and retry the task after you reassigned a new user or team.
+When a Remote completion task has been started, the users that are assigned to the task will receive an email with a request to remotely complete or fail a task. 
+In case you want to re-assign a new user or team and want to make sure that they receive a new email with a remote completion request, you have to fail and restart the task after you reassigned a new user or team.
 
 ## Supported mail clients
 - MacOS > Mail, Thunderbird
@@ -53,11 +54,11 @@ There are some known issues with webmail clients.
 
 ### SMTP
 XL Release sends remote completion requests to users of the system by email. To configure the email server that is used to send these requests, select Settings > SMTP server from the top menu. 
-The SMTP server page is only available to users who have the Admin global permission. For a more in detail explanation of how to setup an SMTP server see: [Configure SMTP server](https://docs.xebialabs.com/xl-release/how-to/configure-smtp-server.html)
+The SMTP server page is only available to users who have the  _Admin_ [global permission](https://docs.xebialabs.com/xl-release/how-to/configure-permissions.html). For a more in detail explanation of how to setup an SMTP server see: [Configure SMTP server](https://docs.xebialabs.com/xl-release/how-to/configure-smtp-server.html)
 
 ### IMAP
 XL Release fetches the remote completion emails send by users that want to complete or fail a remote completion task. To configure the email server that is used to receive the remote completion emails, 
-select Settings > Shared configuration > Add IMAP server. The IMAP server settings is only available to users who have the Admin global permission.
+select Settings > Shared configuration > Add IMAP server. The IMAP server settings is only available to users who have the _Admin_ [global permission](https://docs.xebialabs.com/xl-release/how-to/configure-permissions.html).
 
 **_TODO img of IMAP Server settings_**
 
