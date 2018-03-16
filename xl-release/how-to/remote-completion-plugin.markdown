@@ -1,5 +1,5 @@
 ---
-title: Using the Remote completion task
+title: Using the remote completion task
 categories:
 - xl-release
 subject:
@@ -11,18 +11,18 @@ since:
 - XL Release 8.0.0
 ---
 
-# Using the Remote completion task
-The Remote completion task allows you to complete or fail a certain task without logging into XL Release from a remote place without access to a company’s network.
+# Using the remote completion task
+The remote completion task allows you to complete or fail a certain task without logging into XL Release from a remote place without access to a company’s network.
 
-## How to use the Remote completion task
-A Remote completion task represents a step in a template or release that must be completed by a person, remotely or from within XL Release.
-Like other task types, you can assign Remote completion tasks to a single user or to a release team.
+## How to use the remote completion task
+A remote completion task represents a step in a template or release that must be completed by a person, remotely or from within XL Release.
+Like other task types, you can assign remote completion tasks to a single user or to a release team.
 
-**_TODO img of Remote completion tasks_**
+**_TODO img of remote completion tasks_**
 
-In the release flow editor, Remote completion tasks have a purple border.
+In the release flow editor, remote completion tasks have a purple border.
 
-When a Remote completion task has been started, the users that are assigned to the task will receive an email. This email contains two buttons Complete task and Fail task.
+When a remote completion task has been started, the users that are assigned to the task will receive an email. This email contains two buttons Complete task and Fail task.
 
 **_TODO img of email with buttons_**
 
@@ -47,7 +47,7 @@ When a remote completion task is assigned to a user or a team and the task is in
 
 There are some known issues with webmail clients. 
 
-# Administrating the Remote completion task
+# Administrating the remote completion task
 
 ## Configuration
 
@@ -56,7 +56,7 @@ XL Release sends remote completion requests to users of the system by email. To 
 The SMTP server page is only available to users who have the Admin global permission. For a more in detail explanation of how to setup an SMTP server see: [Configure SMTP server](https://docs.xebialabs.com/xl-release/how-to/configure-smtp-server.html)
 
 ### IMAP
-XL Release fetches the remote completion emails send by users that want to complete or fail a Remote completion task. To configure the email server that is used to receive the remote completion emails, 
+XL Release fetches the remote completion emails send by users that want to complete or fail a remote completion task. To configure the email server that is used to receive the remote completion emails, 
 select Settings > Shared configuration > Add IMAP server. The IMAP server settings is only available to users who have the Admin global permission.
 
 **_TODO img of IMAP Server settings_**
