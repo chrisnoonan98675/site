@@ -63,12 +63,12 @@ select Settings > Shared configuration > Add IMAP server. The IMAP server settin
 
 **Host** is used to specify the internet address of the mail server, followed by the **Port** it is listening on. Consult your system administrator on the values to use and whether to use **TLS** to secure the connection.
 
-Most IMAP servers require authentication. Use the **Username** and **Password** fields to set the credentials of the user that will connect. The **From Address** is used as the email address that users reply to in order to remotely complete or fail a task. 
-You must enter a valid email address, but you can add a name by using the following syntax: `Full name <name@example.com>`. The **Enable whitelisting** field can be checked to enable whitelisting, then only emails to and from whitelisted domains will be processed for remote completion. 
+Use the **Username** and **Password** fields to set the credentials of the user that will connect. Make sure to setup a new email account especially for receiving remote completion emails. All existing emails can be deleted when you use an existing email account. The **From Address** is used as the email address that users reply to in order to remotely complete or fail a task. 
+You must enter a valid email address. The **Enable whitelisting** field can be checked to enable whitelisting, then only emails to and from whitelisted domains will be processed for remote completion. 
 The domains can be added using the **Domain whitelist** field. The **secret** field is used to generate an email signature that is used to verify that a received remote completion email hasn’t been modified.
 
 ### xl-release.conf
-Advanced configuration can be specified inside the xl-release.conf file that can be located inside the conf folder from the XL Release server. The advanced configuration is used by the mail fetcher which processes incoming remote completion emails. 
+Advanced configuration can be specified inside the xl-release.conf file located inside the conf folder from the XL Release server. The advanced configuration is used by the mail fetcher which processes incoming remote completion emails. 
 The fetching of remote completion emails can be turned on or off using the **fetching-enabled** field. The **sync-interval** field specifies the interval time for the email fetcher. The **startup-delay** field specifies the initial startup delay of the mail fetcher. 
 
 **_TODO Image of the conf file_**
