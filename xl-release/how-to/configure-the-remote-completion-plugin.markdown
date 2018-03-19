@@ -42,7 +42,7 @@ Advanced configuration can be specified inside the **xl-release.conf** file loca
 
 ```
 xl {
-  remote-approval {
+  remote-completion {
     sync-interval = 30 seconds
     startup-delay = 30 seconds
   }
