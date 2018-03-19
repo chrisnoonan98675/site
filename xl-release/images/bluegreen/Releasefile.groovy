@@ -1,6 +1,6 @@
 // Exported from:        http://HesBook.xebialabs.com:5516/#/templates/Foldere0a164530122451b94505af4529186b2-Release5225171a46ee49dcbd0c55886239e546/releasefile
 // XL Release version:   7.6.0
-// Date created:         Mon Mar 19 15:59:09 CET 2018
+// Date created:         Mon Mar 19 16:29:15 CET 2018
 
 def server(type, title) {
     def cis = configurationApi.searchByTypeAndTitle(type, title)
@@ -31,7 +31,7 @@ xlr {
         required false
         showOnReleaseStart false
         label 'Environment to deploy to'
-        possibleValues variable('global.bluegreen-environments')
+        possibleValues variable('global.blue-green.environments')
       }
     }
     description 'Blue /green deployment pattern.'
@@ -44,18 +44,15 @@ xlr {
         tasks {
           script('What is currently live?') {
             description 'This task inspects what the environment is that is currently live and determines what will be the new environment to deploy to.'
-            script 'if globalVariables[\'global.live-environment\'] == \'Blue\':\n' +
+            script 'if globalVariables[\'global.blue-green.live-environment\'] == \'Blue\':\n' +
                    '    releaseVariables[\'new-environment\'] = \'Green\'\n' +
-                   '    releaseVariables[\'old-environment\'] = \'Blue\'\n' +
                    '\n' +
-                   'if globalVariables[\'global.live-environment\'] == \'Green\':\n' +
-                   '    releaseVariables[\'new-environment\'] = \'Blue\'\n' +
-                   '    releaseVariables[\'old-environment\'] = \'Green\'\n' +
-                   '    '
+                   'if globalVariables[\'global.blue-green.live-environment\'] == \'Green\':\n' +
+                   '    releaseVariables[\'new-environment\'] = \'Blue\'\n'
           }
           userInput('Confirm new environment') {
-            description 'The current live environment is **${global.live-environment}** and is running **\n' +
-                        '${global.live-version}**.\n' +
+            description 'The current live environment is **${global.blue-green.live-environment}** and is running **\n' +
+                        '${global.blue-green.live-version}**.\n' +
                         '\n' +
                         'Please confirm to deploy **${application}/${version}**.'
             owner 'admin'
@@ -92,8 +89,8 @@ xlr {
             
           }
           script('Update registry with live environment') {
-            script 'globalVariables[\'global.live-environment\'] = \'${new-environment}\'\n' +
-                   'globalVariables[\'global.live-version\'] = \'${application}/${version}\'\n'
+            script 'globalVariables[\'global.blue-green.live-environment\'] = \'${new-environment}\'\n' +
+                   'globalVariables[\'global.blue-green.live-version\'] = \'${application}/${version}\'\n'
           }
           notification('Send notification that new version is live') {
             precondition 'False'

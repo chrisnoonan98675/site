@@ -88,13 +88,15 @@ In XL Release, [add an XL Deploy Server item](/xl-release/how-to/xld-plugin.html
 
 Define the following variables in XL Release that maintain the state of the Blue/Green process.
 
-* A [global variable](https://docs.xebialabs.com/xl-release/how-to/configure-global-variables.html) `${global.bluegreen-environments}`. This is the list of available environments. This list will be used by various other variables. Configure the list of environments once to create a global variable for it. It is a variable of type `List` that has two values: 'Blue' and 'Green', corresponding to the names of the environment in XL Deploy.
+* A [global variable](https://docs.xebialabs.com/xl-release/how-to/configure-global-variables.html) `${global.blue-green.environments}`. This is the list of available environments. This list will be used by various other variables. Configure the list of environments once to create a global variable for it. It is a variable of type `List` that has two values: 'Blue' and 'Green', corresponding to the names of the environment in XL Deploy.
 
-![${global.live-environment} configuration](../images/bluegreen/bluegreen-globalvariable-list.png)
+![global.blue-green.environments configuration](../images/bluegreen/bluegreen-globalvariable-list.png)
 
-* A global variable `${global.live-environment}`. Use a global variable as a registry of the currently live environment. This variable can have two values: 'Blue' or 'Green'. It is modeled as a variable of type `ListBox` and you link it to the list of environments you created earlier:
+* A global variable `${global.blue-green.live-environment}`. Use a global variable as a registry of the currently live environment. This variable can have two values: 'Blue' or 'Green'. It is modeled as a variable of type `ListBox` and you link it to the list of environments you created earlier:
 
-![${global.live-environment} configuration](../images/bluegreen/bluegreen-globalvariable.png)
+![global.blue-green.live-environment configuration](../images/bluegreen/bluegreen-globalvariable.png)
+
+In the same fashion, we maintain the version of the application in the global variable `${global.blue-green.live-version}`.
 
 * [Release variables](/xl-release/how-to/create-release-variables.html) `${new-environment}` - this is the environment you deploy to; and `${old-environment}` - this is the environment that is currently active and that will be retired at the end of the process. Both are modeled as a `ListBox` that links to the list of available environments in `${global.bluegreen-environments}`. The values of these variables are determined during the release process and are not filled in by the user. This is why you must uncheck the option **Show on Create release form**.
 
@@ -108,11 +110,9 @@ In the **What is currently live?** task, use a simple script to determine the ne
 
 	if globalVariables['global.live-environment'] == 'Blue':
 	    releaseVariables['new-environment'] = 'Green'
-	    releaseVariables['old-environment'] = 'Blue'
 
 	if globalVariables['global.live-environment'] == 'Green':
 	    releaseVariables['new-environment'] = 'Blue'
-	    releaseVariables['old-environment'] = 'Green'
 
 The User Input task **Confirm new environment** confirms the environments with the release manager. The Release manager can override this choice by selecting another value from the drop down. You can use the variables in the description to render a helpful message.
 
@@ -124,8 +124,8 @@ The **Deploy** task takes the variable to determine which environment to deploy 
 
 When the deployment was successful, the registry of what is running is updated by setting the global variables in a the Script task **Update registry with live environment**.
 
-	globalVariables['global.live-environment'] = '${new-environment}'
-	globalVariables['global.live-version'] = '${application}/${version}'
+	globalVariables['global.blue-green.live-environment'] = '${new-environment}'
+	globalVariables['global.blue-green.live-version'] = '${application}/${version}'
 
 
 ### Users and Teams in XL Release
