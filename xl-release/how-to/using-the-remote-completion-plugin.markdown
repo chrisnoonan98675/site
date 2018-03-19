@@ -36,9 +36,11 @@ Click **Filter categories** and select **Comments** or **Task edits** to see who
 
 ## Limitations
 
-### Reassigning
-When a Remote completion task has been started and becomes in progress, the users that are assigned to the task will receive an email with a request to remotely complete or fail a task. 
+- When a Remote completion task has been started and becomes in progress, the users that are assigned to the task will receive an email with a request to remotely complete or fail a task. 
 In case you want to re-assign a new user or team to a task that's in progress and want to make sure that they receive a new email with a remote completion request, you have to fail and restart the task after you reassigned a new user or team.
+- The user completing or failing a task remotely has to send the email from the same email address the email was send to.
+
+
 
 ## Recommended mail clients
 The **Complete task** and **Fail task** buttons will generate a new email based on _mailto_ links. Most email clients support this.

@@ -56,7 +56,7 @@ xl {
 
 Note that when the fetching of the emails is disabled, you are still able to add remote completion tasks inside releases. 
 It will also still send emails to all assignees. Disabling means that the email fetcher will not fetch for remote completion emails. That means
-that all remote completion request will not be processed. 
+that all remote completion requests will not be processed. 
 
 ## Auditing
 
