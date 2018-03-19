@@ -45,21 +45,42 @@ Using lock tasks in a group ensures that steps will be executed in a certain ord
 
 For more information on lock tasks and how to use them, see [Configure lock tasks] holder](https://docs.xebialabs.com/xl-release/how-to/configure-lock_tasks.html).
 
-### Lock task specification table
-The following table defines what you can and can't do when a task is locked.
+### Lock task specification 
+The following section defines what actions are available when a task is locked.
 
-**When a task is locked, the following actions available:**
-- Add or edit comments? :heavy_check_mark:   
-- Add watchers   :heavy_check_mark:  
-- Complete **complete what?**  :heavy_check_mark:
+**When a task is locked, the following actions are available:**
+- Add or edit comments
+- Add watchers  
+- Complete a task  
+- Retry a task
+- Abort a task
+- Fail a task
+- Add attachments
+- Toggle conditions
+- Set the variable values that will be passed to the created release
 
 **When a task is locked, the following actions are not available:**
-- Edit title, description, start/end dates, and tags     :x:  
-- Edit something task specific (like scripts, remote servers, cc, bcc, etc) :x:    
-- Toggle postponed during blackout :x:
-- Remove attachments :x:    
-- Edit preconditions :x:    
-- Assign and owner, to a team, or to a person :x:  
-- Remove watchers  :x:
-- Move  :x:
-- complete in advance
+- Edit title, description, start and end dates, and tags    
+- Edit something that is task specific (like scripts, remote servers, cc, bcc, etc.)    
+- Toggle postponed during blackout
+- Remove attachments   
+- Remove watchers
+- Edit preconditions  
+- Assign and owner, to a team, or to a person
+- Remove watchers  
+- Move  
+- Complete a task in advance
+- Skip a task
+- Duplicate a task
+- Assign a task to an owner, a team, or to me
+- Edit the subtasks from within a locked task grouping
+- Add or remove the subtasks from within a locked task grouping
+- Move a task from inside a locked task grouping
+- Add or remove tasks from a parallel group
+- Link or unlink a task
+- Add or remove dependencies
+- Add or remove conditions
+- Toggle conditions
+- Edit input or output properties
+- Edit title, template, risk profile, or release ID
+- Edit the variable list
