@@ -59,17 +59,17 @@ Mailbox auditing can be turned on to log mailbox access by mailbox owners, deleg
 ## Troubleshooting
 
 ### XL Release server
-The XL Release server provides a mechanism for logging the application. As for default the basic remote completion process is being logged.
-In order to enable more detailed logging, you can add the following line into the **logback.xml**: 
+The XL Release server provides a mechanism for logging the application. By default, only the basic remote completion process is logged.
+In order to enable more detailed logging, you can add the following line into the **logback.xml** file located inside the conf folder of the XL Release server: 
 `<logger name="com.xebialabs.xlrelease.plugins.remotecompletion" level="debug" />`
 The log level **trace** can be used for even more detailed logging.
 
 ### JavaMail
-Inside the shell script to run the XL Release server, located in bin > run.sh add the following system property to the **$JAVACMD** to turn on session debugging: `-Dmail.debug=true`.
-That will cause debug information to be printed to the console, including a protocol trace.
+Inside the shell script to run the XL Release server, located in bin > run.sh, add the following system property to the **$JAVACMD** to turn on session debugging: `-Dmail.debug=true`.
+This property enables the printing of debugging information to the console, including a protocol trace.
 
 ## Security Recommendations
-- Enable whitelisting, then only emails to and from whitelisted domains will be processed for remote completion.
+- Enable whitelisting, then only emails to and from whitelisted domains are processed for remote completion.
 - IMAP and SMTP protocols should be encrypted with SSL/TLS to prevent any data leakage.
 - Set up SMTP authentication to control user access.
 - To prevent spamming, use content filters, enable DNS-based black lists (DNSBL) and SURBL (Spam URI Real-time Block Lists). Also maintain local blacklists of IP addresses of spam senders. Properly configure mail relay parameter of the email server to prevent open relay.
