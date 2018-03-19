@@ -23,17 +23,17 @@ The SMTP server page is only available to users who have the  _Admin_ [global pe
 
 ### IMAP
 XL Release fetches the remote completion emails sent by users that want to complete or fail a remote completion task. To configure the email server that is used to receive the remote completion emails, 
-select Settings > Shared configuration > Add IMAP server. The IMAP server settings is only available to users who have the _Admin_ [global permission](https://docs.xebialabs.com/xl-release/how-to/configure-permissions.html).
+select Settings > Shared configuration > Add IMAP server. The IMAP server settings are only available to users who have the _Admin_ [global permission](https://docs.xebialabs.com/xl-release/how-to/configure-permissions.html).
 
 - IMAP server host (used to specify the internet address of the mail server)
 - IMAP server port (port where the server is listening on)
 - Use TLS (used to secure the connection)
-- IMAP from address (used as the email address that users reply to in order to remotely complete or fail a task)
+- IMAP from address (this is the email address belonging to the IMAP server account; requests to remotely complete or fail a task gets fetched from this email account)
 - IMAP server login ID
 - IMAP server login password
-- Enable whitelisting (can be checked to enable whitelisting, then only emails to and from whitelisted domains will be processed for remote completion)
+- Enable whitelisting (can be checked to enable whitelisting, then only emails to and from whitelisted domains are processed for remote completion)
 - Domain whitelist (used for adding whitelisted domains)
-- Secret for generating email signatures (used to generate an email signature that is used to verify that a received remote completion email hasn’t been modified)
+- Secret for generating email signatures (used to generate an email signature that verifies the integrity of a received remote completion email)
 
 Make sure to setup a new email account especially for receiving remote completion emails. All existing emails can be deleted when you use an existing email account.
 
@@ -76,7 +76,7 @@ That will cause debug information to be printed to the console, including a prot
 
 ## Security Recommendations
 - Enable whitelisting, then only emails to and from whitelisted domains will be processed for remote completion.
-- To prevent any data leakage, ongoing and incoming emails should be encrypted. IMAP and SMTP protocols should be encrypted with SSL/TLS.
+- IMAP and SMTP protocols should be encrypted with SSL/TLS to prevent any data leakage.
 - Set up SMTP authentication to control user access.
 - To prevent spamming, use content filters, enable DNS-based black lists (DNSBL) and SURBL (Spam URI Real-time Block Lists). Also maintain local blacklists of IP addresses of spam senders. Properly configure mail relay parameter of the email server to prevent open relay.
 - Activate Reverse DNS to block bogus senders.
