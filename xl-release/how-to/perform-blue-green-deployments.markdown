@@ -69,13 +69,6 @@ After the deployment is running and is fully tested, you can make the switch.
 
 * **Send notification**. Announce the availability of the new features.
 
-#### 4. Retire old environment
-
-When the new environment is running fine and there is no need for a rollback, the old environment that is no longer live can be turned off and recycled for a subsequent update.
-
-* **New environment is stable?**. Make the decision that the old environment is no longer needed for rollback and can be discarded.
-
-* **Undeploy old environment**. Use XL Deploy to turn of old environment.
 
 ## Refine the process
 
@@ -134,9 +127,6 @@ When the deployment was successful, the registry of what is running is updated b
 	globalVariables['global.live-environment'] = '${new-environment}'
 	globalVariables['global.live-version'] = '${application}/${version}'
 
-The `${old-environment}` variable is needed in the **Undeploy old environment** task.
-
-![Undeploy task](../images/bluegreen/bluegreen-undeploy.png)
 
 ### Users and Teams in XL Release
 
