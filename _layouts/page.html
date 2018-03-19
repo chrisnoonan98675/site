@@ -16,6 +16,13 @@ layout: default
 				<h1 class="page-title">{{ page.title }}</h1>
 			</div>
 
+{% capture page_ext %}{{ page.path | split: "." | last }}{% endcapture %}
+{% if page_ext == "asciidoc" or page_ext == "adoc" %}
+	<div id="toc" class="mini-toc hidden-sm hidden-xs hidden-print">
+    	{{ page.document | tocify_asciidoc: 3 }}
+    </div>
+{% endif %}
+
 			<!-- Page content -->
 			{{ content }}
 

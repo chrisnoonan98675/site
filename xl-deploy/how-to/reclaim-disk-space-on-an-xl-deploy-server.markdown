@@ -14,7 +14,7 @@ weight: 274
 
 When you delete a deployment package from XL Deploy, XL Deploy initially only deletes the reference to the package. This helps optimize performance. You can reclaim disk space on an XL Deploy server by using garbage collection to delete the actual deployment package at a later time.
 
-You do not need to run garbage collection every time you delete a package. How often you should run garbage collection depends on how many packages you delete and the buffer of free space on your desk; generally, you should not need to run garbage collection more than once per day.
+You do not need to run garbage collection every time you delete a package. How often you should run garbage collection depends on how many packages you delete and the buffer of free space on your disk; generally, you should not need to run garbage collection more than once per day.
 
 ## Schedule garbage collection from the CLI
 

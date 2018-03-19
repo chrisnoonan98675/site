@@ -98,4 +98,3 @@ At this time, you can specify the new deployment package for PetPortal 2.3. The 
 XL Release supports several approaches to automating failure handling. For detailed information, refer to:
 
 * [How to handle failures](/xl-release/how-to/handle-failures-in-tasks.html)
-* [Implementing a custom failure handler](/xl-release/how-to/implement-a-custom-failure-handler.html)

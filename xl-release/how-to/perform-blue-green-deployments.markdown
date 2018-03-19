@@ -1,5 +1,5 @@
 ---
-title: Perform blue-green deployments
+title: Perform Blue/Green deployments
 categories:
 - xl-release
 - xl-deploy
@@ -10,7 +10,7 @@ tags:
 - deployment pattern
 ---
 
-This guide explains how to perform ["blue-green" deployments](http://martinfowler.com/bliki/BlueGreenDeployment.html) using XL Release and XL Deploy.
+This guide explains how to perform ["Blue/Green" deployments](http://martinfowler.com/bliki/BlueGreenDeployment.html) using XL Release and XL Deploy.
 
 Blue-green deployment is a pattern in which identical production environments known as Blue and Green are maintained, one of which is live at all times.
 If the Blue is the live environment, applications or features are deployed to and tested on the non-live Green environment before user traffic is diverted to it.
@@ -79,7 +79,7 @@ When the new environment is running fine and there is no need for a rollback, th
 
 ## Refine the process
 
-Set up XL Deploy prepare the environments and link everything together in XL Release using variables to communicate between tasks.
+Set up XL Deploy, prepare the environments, and link everything together in XL Release using variables to communicate between tasks.
 
 ### XL Deploy setup
 

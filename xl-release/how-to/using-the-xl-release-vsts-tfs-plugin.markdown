@@ -14,7 +14,7 @@ since: XL Release 7.5.0
 
 * [XL Release 6.1.0](/xl-release/concept/requirements-for-installing-xl-release.html) or later
 **Note:** If you are using XL Release version 7.5.0 or later, you must use the XL Release VSTS/TFS plugin version 7.5.1. The XL Release VSTS/TFS plugin version 7.5.0 is not compatible with XL Release version 7.5.0.
-* Visual Studio Team Services or Team Foundation Server 2015 or later
+* Visual Studio Team Services (VSTS) or Team Foundation Server 2015
 
 ## Supported VSTS/TFS operations
 

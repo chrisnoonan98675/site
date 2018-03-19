@@ -24,14 +24,9 @@ To [install](/xl-deploy/how-to/install-xl-deploy.html) the XL Deploy server, you
 * **Operating system:** Microsoft Windows (32-bit or 64-bit) or a Unix-family operating system running Java
 
 * **Oracle, IBM, or Apple Java Development Kit (JDK):**
-    * For XL Deploy 5.5.0 and later: JDK 1.8.0_25 or later
+    * For XL Deploy 6.0.0 and later: JDK 1.8.0_25 or later
 
     **Important:** XL Deploy is not compatible with Java Development Kit 9 (JDK 9).
-
-    * For XL Deploy 5.1.1 and later: JDK 7 or 8
-    * For XL Deploy 5.1.0 and earlier: JDK 7
-
-    **Warning:** It is a known issue that using XL Deploy 5.1.1, 5.1.2, or 5.1.3 with JDK 8 may prevent pending tasks from being recovered after the XL Deploy server is restarted. To prevent this issue, use JDK 7 with these versions. Note that XL Deploy 5.1.0 and earlier should not be used with JDK 8.
 
 * **RAM:** At least 2 GB of RAM available for XL Deploy
 

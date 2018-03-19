@@ -20,6 +20,16 @@ A gate task is included in the plugin that allows you to configure various thres
 
 In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html), the Blackduck Check Compliance task has a red border.
 
+## Release notes
+
+### XL Release Blackduck plugin 7.6.1
+
+#### Improvements
+
+* [REL-6148] - Show timestamps of last scan in logs for task and summary tile
+
+### XL Release Blackduck plugin 7.6.0
+
 ## Features
 
 The plugin added to XL Release provides:
@@ -41,20 +51,20 @@ To set up a connection to a Blackduck Hub Server:
 
 1. In XL Release, go to **Settings** > **Configuration**, click **Blackduck: Server**, and select **Add Server**.
 
-![Add Blackduck Server](../images/xlr-blackduck-plugin/configure-server-add-server.png)
+  ![Add Blackduck Server](../images/xlr-blackduck-plugin/configure-server-add-server.png)
 
 2. In the **Title** box, enter the identifier for this Blackduck server.
 3. In the **Url** box, enter the IP Address or hostname with the port where the Blackduck Hub Server can be reached.
 4. In the **Trust Certificate** box, you can select to trust all SSL certificates exposed by the server.
 5. In the **Username** and **Password** boxes, specify the user name and password of the Blackduck Hub Server.
 
-    ![Define Blackduck Server](../images/xlr-blackduck-plugin/configure-server-configuration.png)
+  ![Define Blackduck Server](../images/xlr-blackduck-plugin/configure-server-configuration.png)
 
 After the server connection is set up, you can create a release or template with tasks for checking thresholds of various risks according to the Blackduck Hub.
 
 ## Check Compliance Task
 
-![Check Compliance Task](images/check-compliance-task.png)
+![Check Compliance Task](../images/xlr-blackduck-plugin/check-compliance-task.png)
 
 The **Check Compliance** task creates a gate in the release flow which can break the flow if the count of components of various risks are greater than the configured thresholds.
 
@@ -88,4 +98,4 @@ To configure the Blackduck Risk Profile tile:
 
 The tile should show data related to the risk type configured for the Project.
 
-    ![Blackduck Risk Proile Tile](../images/xlr-blackduck-plugin/tile-license-risk.png)
+![Blackduck Risk Proile Tile](../images/xlr-blackduck-plugin/tile-license-risk.png)

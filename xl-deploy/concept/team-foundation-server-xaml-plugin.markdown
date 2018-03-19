@@ -1,5 +1,5 @@
 ---
-title: Introduction to the Team Foundation Server XL Deploy plugin
+title: Introduction to the Team Foundation Server XAML XL Deploy plugin
 categories:
 - xl-deploy
 subject:
@@ -9,7 +9,9 @@ tags:
 - microsoft
 ---
 
-The XL Deploy plugin for Microsoft Team Foundation Server (TFS) plugin provides automated deployment functionality for TFS 2010, TFS 2012, and TFS 2013.
+The XL Deploy plugin for Microsoft Team Foundation Server (TFS) provides automated deployment functionality for TFS 2010, TFS 2012, and TFS 2013.
+
+If you are using VSTS, TFS 2015 Update 2 or TFS 2017, refer to the [Visual Studio Team Services (VSTS)/ Team Foundation Server (TFS) XL Deploy plugin](/xl-deploy/concept/visual-studio-team-services-team-foundation-server-plugin.html).
 
 To support the use of XL Deploy from a TFS installation, this plugin provides custom build activities to interface with XL Deploy, a sample build template, and an editor to help you modify the build script with custom XL Deploy build actions.
 
@@ -25,7 +27,7 @@ For version-specific information about the TFS plugin, refer to the [Team Founda
 
 ## Background information about TFS
 
-TFS combines a source control system, a build service, a bug tracking system, and more. The XL Deploy TFS plugin deals with the build system exclusively.
+TFS combines a source control system, a build service, a bug tracking system, and more. The XL Deploy TFS XAML plugin deals with the build system exclusively.
 
 In TFS, you can have multiple project collections; however, the examples here assume that there is only a single one, as different project collections don't talk to each other.
 
@@ -33,7 +35,7 @@ In TFS, everything that is version-controlled is reference by a TFS path that st
 
 ### TFS workflows
 
-A TFS build workflow is defined by an XAML file (XAML is an XML dialect). New TFS team projects receive a default set of XAML files, and the XL Deploy TFS plugin provides another set. These XAML files are templates for a TFS build and contain parameters to be set when a build is started.
+A TFS build workflow is defined by an XAML file (XAML is an XML dialect). New TFS team projects receive a default set of XAML files, and the XL Deploy TFS XAML plugin provides another set. These XAML files are templates for a TFS build and contain parameters to be set when a build is started.
 
 You can set a build definition from the Team Explorer window by indicating an XAML file to use and entering default values for a specific build. It can be any XAML file anywhere in the project collection. For example, for *MvcMusicStore*, you may indicate that a build should use `$/NerdDinner/BuildDefinitions/NerdDinner_deployit.xaml`.
 
@@ -58,13 +60,13 @@ The XL Deploy-enabling custom activities and their dependencies are contained in
 1. Open the TFS Administration console (Start Menu > All Programs > Microsoft Visual Studio Team Foundation Server 2013 > Team Foundation Server Administration Console).
 1. On the Build Configuration screen, find the Build Controller for the project that is going to use XL Deploy, and click the 'Properties' link.
 1. The Build Controller Properties screen will show a text box called 'Version control path to custom assemblies'. This points to a directory inside a TFS-managed project.
-1. "Get" that project, go to the indicated directory, add the XL Deploy TFS plugin DLLs, and check them in.
+1. "Get" that project, go to the indicated directory, add the XL Deploy TFS XAML plugin DLLs, and check them in.
 
 In the BuildProcessTemplates directory of your team project, add the provided XL Deploy-enabled build template (`TfvcTemplate_XLDeploy.12.xaml`, `DefaultTemplate-WithDeployit.11.1.xaml` or `...10.xaml`). Then, set your team project's build process to use it.
 
 ## Create your own XL Deploy-enabled build template
 
-If you want to write your own XL Deploy-enabled build template, you must use the custom activities that come with the TFS plugin. The following activities are available:
+If you want to write your own XL Deploy-enabled build template, you must use the custom activities that come with the TFS XAML plugin. The following activities are available:
 
 {:.table .table-striped}
 | Activity | Description |
@@ -93,9 +95,9 @@ And for TFS 2013:
 
 ## Automatically deploy your application
 
-After the TFS plugin is properly configured for your TFS build collection, you can auto-deploy built software projects by selecting an XL Deploy-enabled build template.
+After the TFS XAML plugin is properly configured for your TFS build collection, you can auto-deploy built software projects by selecting an XL Deploy-enabled build template.
 
-The XL Deploy TFS plugin contains a build template that is derived from the standard TFS default build template, and augments it with an XL Deploy piece that will combine the build artifacts with a manifest and upload the package to an XL Deploy instance. This template can be used out of the box or can be used as a basis to set up your own build process.
+The XL Deploy TFS XAML plugin contains a build template that is derived from the standard TFS default build template, and augments it with an XL Deploy piece that will combine the build artifacts with a manifest and upload the package to an XL Deploy instance. This template can be used out of the box or can be used as a basis to set up your own build process.
 
 1. In Visual Studio, go to your project's build definitions (Team Explorer > Connect to your team project > select Builds).
 1. Click New Build Definition or right-click one of the current build definitions and select 'Edit Build definition'.
@@ -118,7 +120,7 @@ The settings you enter here will be used by all builds of the project, except th
 
 The build agent must have the credentials to connect to XL Deploy. Security dictates that these credentials must not be exposed on casual inspection; therefore, they must not be hard-coded in the build template (this would also lead to inflexibility). However, setting them as `string`s in build parameters exposes the default values to anyone viewing the build definition, which may not be desirable.
 
-The XL Deploy-enabled build template that is included with the TFS plugin solves this issue by using a build process parameter of custom type `DeployitCredentials` that holds the credentials, and by using a custom editor called `DeployitCredentialsEditor`. The editor uses a password text box for the password, so the value is never exposed.
+The XL Deploy-enabled build template that is included with the TFS XAML plugin solves this issue by using a build process parameter of custom type `DeployitCredentials` that holds the credentials, and by using a custom editor called `DeployitCredentialsEditor`. The editor uses a password text box for the password, so the value is never exposed.
 
 This is achieved by setting an attribute on the process parameter metadata. On TFS 2010:
 
