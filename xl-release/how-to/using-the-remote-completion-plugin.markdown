@@ -23,6 +23,7 @@ Like other task types, you can assign remote completion tasks to a single user, 
 Remote completion tasks distinct themselves with a purple border.
 
 When a Remote completion task starts, the users assigned to the task receive an email with a request to complete or fail a task remotely. This email contains two buttons **Complete task** and **Fail task**.
+
 ![Remote Completion Task Email](../images/remote-completion-plugin/remote-completion-email.png)
 
 Each of the two buttons generates a new remote completion email upon click. This email can be sent to complete or fail a task.
