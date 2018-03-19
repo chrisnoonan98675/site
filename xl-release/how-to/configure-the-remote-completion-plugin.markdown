@@ -35,7 +35,7 @@ select Settings > Shared configuration > Add IMAP server. The IMAP server settin
 - Domain whitelist (used for adding whitelisted domains)
 - Secret for generating email signatures (used to generate an email signature that verifies the integrity of a received remote completion email)
 
-Make sure to setup a new email account especially for receiving remote completion emails. All existing emails can be deleted when you use an existing email account.
+Make sure to set up a new email account specifically for receiving remote completion emails. All emails are deleted from INBOX once processed by XL Release, including unrecognized and existing emails.
 
 ### xl-release.conf
 Advanced configuration can be specified inside the **xl-release.conf** file located inside the conf folder from the XL Release server. The advanced configuration is used by the mail fetcher which processes incoming remote completion emails. 
