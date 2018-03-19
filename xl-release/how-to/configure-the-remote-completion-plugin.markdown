@@ -54,7 +54,7 @@ xl {
 
 ## Auditing
 
-Mailbox auditing can be turned on to log mailbox access by mailbox owners, delegates, and administrators. Inquire your mailbox provider how to setup mailbox auditing.
+Mailbox auditing can be turned on to log mailbox access by mailbox owners, delegates, and administrators. Inquire your mailbox provider how to set up mailbox auditing.
 
 ## Troubleshooting
 
