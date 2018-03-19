@@ -38,25 +38,19 @@ select Settings > Shared configuration > Add IMAP server. The IMAP server settin
 Make sure to set up a new email account specifically for receiving remote completion emails. All emails are deleted from INBOX once processed by XL Release, including unrecognized and existing emails.
 
 ### xl-release.conf
-Advanced configuration can be specified inside the **xl-release.conf** file located inside the conf folder from the XL Release server. The advanced configuration is used by the mail fetcher which processes incoming remote completion emails. 
+Advanced configuration can be specified inside the **xl-release.conf** file located inside the conf folder of the XL Release server. The advanced configuration is used by the mail fetcher which processes incoming remote completion emails. 
 
 ```
 xl {
   remote-approval {
-    fetching-enabled = true
-    sync-interval = 10 seconds
-    startup-delay = 10 seconds
+    sync-interval = 30 seconds
+    startup-delay = 30 seconds
   }
 }
 ```
 
-- fetching-enabled (used to turn the fetching of remote completion emails on or off)
-- sync-interval (specifies the interval time for the email fetcher)
-- startup-delay (specifies the initial startup delay of the mail fetcher)
-
-Note that when the fetching of the emails is disabled, you are still able to add remote completion tasks inside releases. 
-It will also still send emails to all assignees. Disabling means that the email fetcher will not fetch for remote completion emails. That means
-that all remote completion requests will not be processed. 
+- sync-interval (specifies the interval time for the email fetcher, default 30 seconds)
+- startup-delay (specifies the initial startup delay of the mail fetcher, default 30 seconds)
 
 ## Auditing
 
