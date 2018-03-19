@@ -72,7 +72,7 @@ This property enables the printing of debugging information to the console, incl
 - Enable whitelisting, then only emails to and from whitelisted domains are processed for remote completion.
 - IMAP and SMTP protocols should be encrypted with SSL/TLS to prevent any data leakage.
 - Set up SMTP authentication to control user access.
-- To prevent spamming, use content filters, enable DNS-based black lists (DNSBL) and SURBL (Spam URI Real-time Block Lists). Also maintain local blacklists of IP addresses of spam senders. Properly configure mail relay parameter of the email server to prevent open relay.
+- To prevent spamming, use content filters, enable DNS-based blacklists (DNSBL) and SURBL (Spam URI Real-time Block Lists). Also, maintain local blacklists of IP addresses of spam senders. Correctly configure mail relay parameter on the email server to prevent open relay.
 - Activate Reverse DNS to block bogus senders.
 - Activate Sender Policy Framework (SPF) to prevent spoofed sources.
 - Implement proactive measures to defend DoS and DDoS attack.
