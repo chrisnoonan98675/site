@@ -22,7 +22,7 @@ XL Release sends remote completion requests to users of the system by email. To 
 The SMTP server page is only available to users who have the  _Admin_ [global permission](https://docs.xebialabs.com/xl-release/how-to/configure-permissions.html). For a more detailed explanation of how to set up an SMTP server see: [Configure SMTP server](https://docs.xebialabs.com/xl-release/how-to/configure-smtp-server.html)
 
 ### IMAP
-XL Release fetches the remote completion emails send by users that want to complete or fail a remote completion task. To configure the email server that is used to receive the remote completion emails, 
+XL Release fetches the remote completion emails sent by users that want to complete or fail a remote completion task. To configure the email server that is used to receive the remote completion emails, 
 select Settings > Shared configuration > Add IMAP server. The IMAP server settings is only available to users who have the _Admin_ [global permission](https://docs.xebialabs.com/xl-release/how-to/configure-permissions.html).
 
 - IMAP server host (used to specify the internet address of the mail server)
