@@ -16,6 +16,7 @@ since:
 **Questions:**
 - Can lock permission be granted to a team?
 - Can I add lock permissions from both 'User management > Permissions' and 'Design > Teams & Permissions' pages.
+- Are approvals being incorporated into this release of the lock feature? For example, if a task is locked and approval is required, a certain user must give approval before the task can complete.
 
 ## Lock tasks
 Lock tasks are mandatory. If a lock task occurs during a release, this task needs to be executed before the release can continue.
@@ -45,7 +46,7 @@ Using lock tasks in a group ensures that steps will be executed in a certain ord
 
 For more information on lock tasks and how to use them, see [Configure lock tasks] holder](https://docs.xebialabs.com/xl-release/how-to/configure-lock_tasks.html).
 
-### Lock task specification 
+### Lock task specification
 The following section defines what actions are available when a task is locked.
 
 **When a task is locked, the following actions are available:**
