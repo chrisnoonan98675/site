@@ -69,10 +69,12 @@ Inside the shell script to run the XL Release server, located in bin > run.sh, a
 This property enables the printing of debugging information to the console, including a protocol trace.
 
 ## Security Recommendations
-- Enable whitelisting, then only emails to and from whitelisted domains are processed for remote completion.
-- IMAP and SMTP protocols should be encrypted with SSL/TLS to prevent any data leakage.
-- Set up SMTP authentication to control user access.
-- To prevent spamming, use content filters, enable DNS-based blacklists (DNSBL) and SURBL (Spam URI Real-time Block Lists). Also, maintain local blacklists of IP addresses of spam senders. Correctly configure mail relay parameter on the email server to prevent open relay.
-- Activate Reverse DNS to block bogus senders.
-- Activate Sender Policy Framework (SPF) to prevent spoofed sources.
-- Implement proactive measures to defend DoS and DDoS attack.
+XL Release remote completion feature uses emails sent by users to complete or fail any task. Below are the risks associated with this feature.
+
+- Spamming & Flooding attacks - XL Release processes each incoming mail of the configured mailbox. Anyone can send thousand of email to this mailbox and flood your mailbox.  Enable whitelisting, then only emails to and from whitelisted domains are processed for remote completion. Use content filters, enable DNS-based blacklists (DNSBL) and SURBL (Spam URI Real-time Block Lists). Also, maintain local blacklists of IP addresses of spam senders. Correctly configure mail relay parameter on the email server to prevent open relay.
+
+- Data Leakage - XL Release sends and receives email from task owner to take action on any task. To prevent any data leakage during this process, IMAP and SMTP protocols should be encrypted with SSL/TLS. Also, set up SMTP authentication to control user access.
+
+- DoS and DDoS attack - To avoid DoS and DDoS attacks, limit the number of connection and authentication errors with your SMTP server.
+
+- Email Abuse attack - Most of the abusive email messages carry fake sender addresses. Activate Sender Policy Framework (SPF) to prevent spoofed sources. SPF check ensures that the sending Message transfer agent (MTA) is allowed to send mail on behalf of the senders domain name. Also, activate Reverse DNS to block bogus senders. Once Reverse DNS Lookup is activated, your SMTP verifies that the senders IP address matches both the host and domain names that were submitted by the SMTP client in the EHLO/HELO command.
