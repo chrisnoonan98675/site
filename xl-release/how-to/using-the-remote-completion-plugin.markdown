@@ -3,7 +3,7 @@ title: Using the remote completion task
 categories:
 - xl-release
 subject:
--
+- Tasks
 tags:
 - plugin
 - remote completion task
@@ -11,44 +11,44 @@ since:
 - XL Release 8.0.0
 ---
 
-# Using the remote completion task
-The remote completion task allows you to complete or fail a certain task without logging into XL Release from a remote place without access to a company’s network.
+With the remote completion task, you can complete or fail a specific task from a remote location without access to the company network and without logging in to XL Release.
 
-## How to use the remote completion task
-A remote completion task represents a step in a template or release that must be completed by a person, remotely or from within XL Release.
-Like other task types, you can assign remote completion tasks to a single user, a release team or both.
+## Set up the remote completion task
+
+A remote completion task represents a step in a template or a release that must be completed by a user remotely or from XL Release.
+Like other task types, you can assign remote completion tasks to a single user, a release team, or both.
 
 ![Remote Completion Task](../images/remote-completion-plugin/remote-completion-task.png)
 
-Remote completion tasks distinct themselves with a purple border.
+The visual difference between remote completion tasks and other tasks is the purple border.
 
-When a Remote completion task starts, the users assigned to the task receive an email with a request to complete or fail a task remotely. This email contains two buttons **Complete task** and **Fail task**.
+When a remote completion task starts, the users assigned to the task receive an email with a request to complete or fail a task remotely. This email contains two buttons: **Complete task** and **Fail task**.
 
 ![Remote Completion Task Email](../images/remote-completion-plugin/remote-completion-email.png)
 
-Each of the two buttons generates a new remote completion email upon click. This email can be sent to complete or fail a task.
+When you click any of the two buttons, a new remote completion email is generated. This email can be sent to complete or fail a task.
 
 ![Remote Completion Task Email Request](../images/remote-completion-plugin/remote-completion-email-request.png)
 
-## Auditing
-The activity log shows everything that happens in a release. It provides an audit trail of who did what, and when. To open the activity log, select **Activity logs** from the **Show** menu. For a more detailed explanation of the activity logs, see: [Release activity logs](https://docs.xebialabs.com/xl-release/concept/release-activity-logs.html).
-Click **Filter categories** and select **Comments** or **Task edits** to see who and when someone remotely completed or failed a task.
+## Auditing information
+
+The activity log shows all the events that take place in a release. This provides an audit trail of every action and the user responsible for it. To open the activity log, select **Activity logs** from the **Show** menu. For a more detailed explanation of the activity logs, see: [Release activity logs](/xl-release/concept/release-activity-logs.html).
+To see which user and time when that user remotely completed or failed a task, click **Filter categories** and select **Comments** or **Task edits**.
 
 ## Limitations
 
-- When a Remote completion task has been started and becomes in progress, the users that are assigned to the task will receive an email with a request to remotely complete or fail a task. 
-In case you want to re-assign a new user or team to a task that's in progress and want to make sure that they receive a new email with a remote completion request, you have to fail and restart the task after you reassigned a new user or team.
-- The user completing or failing a task remotely has to send the email from the same email address the email was send to.
-
-
+* When a remote completion task was started and is currently in progress, the users that are assigned to the task receive an email with a request to remotely complete or fail a task.
+If you want to reassign a different user or team to a task that is in progress and you want to make sure that they receive a new email with a remote completion request, you must fail and restart the task after you reassigned the new user or team.
+* The user completing or failing a task remotely must send the email from the same email address the email was send to.
 
 ## Recommended mail clients
-The **Complete task** and **Fail task** buttons will generate a new email based on _mailto_ links. Most email clients support this.
-We recommend the following email clients:
 
-- MacOS > Mail, Thunderbird
-- Windows > Mail, Outlook, Thunderbird
-- Android > Outlook, Gmail
-- iOS > Mail, Gmail
+The **Complete task** and **Fail task** buttons generate a new email based on the _mailto_ links. The majority of email clients support this setting.
+These are the recommended email clients:
 
-There are some known issues with several webmail clients that have problems generating an email based on mailto links.
+* For MacOS: Mail, Thunderbird
+* For Windows: Mail, Outlook, Thunderbird
+* For Android: Outlook, Gmail
+* For iOS: Mail, Gmail
+
+**Note:** There are known issues with several webmail clients that have problems generating an email based on mailto links.
