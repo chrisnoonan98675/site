@@ -35,7 +35,7 @@ When you click any of the two buttons, a new remote completion email is generate
 The activity log shows all the events that take place in a release. This provides an audit trail of every action and the user responsible for it. To open the activity log, select **Activity logs** from the **Show** menu. For a more detailed explanation of the activity logs, see: [Release activity logs](/xl-release/concept/release-activity-logs.html).
 To see which user and time when that user remotely completed or failed a task, click **Filter categories** and select **Comments** or **Task edits**.
 
-## Limitations
+## System behavior notes
 
 * When a remote completion task was started and is currently in progress, the users that are assigned to the task receive an email with a request to remotely complete or fail a task.
 If you want to reassign a different user or team to a task that is in progress and you want to make sure that they receive a new email with a remote completion request, you must fail and restart the task after you reassigned the new user or team.
