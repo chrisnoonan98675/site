@@ -63,7 +63,7 @@ You are ready to deploy the new application version to the environment that is n
 
 After the deployment is running and is fully tested, you can make the switch.
 
-* **Change load balancer**. You must manually execute this step and mark this task as done in XL Release before the process continues. At a later time you can replace it with an automated integration.
+* **Reconfigure load balancer**. You must manually execute this step and mark this task as done in XL Release before the process continues. At a later time you can replace it with an automated integration.
 
 * **Update registry with live environment**. Remember which environment is currently live to know the next time you will run this template.
 
@@ -110,8 +110,7 @@ In the **What is currently live?** task, use a simple script to determine the ne
 
 	if globalVariables['global.live-environment'] == 'Blue':
 	    releaseVariables['new-environment'] = 'Green'
-
-	if globalVariables['global.live-environment'] == 'Green':
+	else
 	    releaseVariables['new-environment'] = 'Blue'
 
 The User Input task **Confirm new environment** confirms the environments with the release manager. The Release manager can override this choice by selecting another value from the drop down. You can use the variables in the description to render a helpful message.
