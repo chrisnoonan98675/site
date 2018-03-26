@@ -49,6 +49,6 @@ These are the recommended email clients:
 * For MacOS: Mail, Thunderbird
 * For Windows: Mail, Outlook, Thunderbird
 * For Android: Outlook, Gmail
-* For iOS: Mail, Gmail
+* For iOS: Mail, Outlook, Gmail
 
 **Note:** There are known issues with several webmail clients that have problems generating an email based on mailto links.
