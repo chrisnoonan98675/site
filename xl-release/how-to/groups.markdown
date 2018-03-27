@@ -72,6 +72,18 @@ You can edit group details from two locations:
   1. In the **Group name** field, enter a group name, or select a group by clicking the drop-down arrow.
   1. Click **Add**.    
 
+#### Add multiple releases to a group
+1. On the navigation bar, click **Design**.
+1. Click **Folders**.
+1. Select a folder.
+1. From the tab, click **Groups**.
+1. Select a group.
+1. Click **Add a release**.
+2. Click **Select all** or select the releases you want to add.
+1. Click **Add**.   
+
+![Add multiple releases to a group](../images/add-bulk-release.png)
+
 #### Remove a release from a group
 
 1. On the navigation bar, click **Releases**.
@@ -94,6 +106,16 @@ You can delete a group from two locations:
  1. Click Select a folder.
  1. From the tab, click **groups**.
  1. On the right side of the group, click **Delete**.  
+
+### Status types
+All releases and release groups display a current status. There are seven status types, they are as follows:
+- Planned: releases that have not started.  
+- In process: releases that are being executed.
+- Paused: releases that are in process but have been paused.
+- Failing: releases that are in process but are failing.
+- Failed: releases that have failed.  
+- Aborted: releases that were aborted. 
+- Completed: releases that are completed.
 
 ### Ordering and displaying groups
 Groups are displayed and ordered based on two attributes: **Status** and **Order by**. Both attributes are displayed at the top of all release and group pages.
