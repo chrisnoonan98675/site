@@ -38,36 +38,39 @@ This XL Release template shows the basic steps. You can create it by adding manu
 
 This high level sketch is the starting point of your Canary Release process. The primary purpose is to be detailed description of the Canary Release deployment pattern, but it can also be used as a workflow model.
 
-<!--
-_Download the Canary Release deployment pattern in [XLR format](../images/canary/Canary-Release.xlr) (for XL Release 7.5 and higher) or as [Releasefile](../images/canary/Releasefile.groovy) to import it in your XL Release server._
--->
+
+_Download the Canary Release deployment pattern in [XLR format](../images/canary/Canary-Release.xlr) (for XL Release 7.6 and higher) or as [Releasefile](../images/canary/Releasefile.groovy) to import it in your XL Release server._
+
 There are two phases:
 
 #### 1. **Canary phase**
 
-The new version is deployed to the Canary section of the environment and tests are performed. At the end of the test, confirmation is given to roll out the change to the Main environment.
+The new version is deployed to the Canary section of the environment and tests are performed. At the end of the test, confirmation is given to roll out the change to the Main environment. If the tests fail, the original version can berolled back to the Canary environment.
 
-#### 2. **Main phase**
+* **Deploy to Canary environment**. XL Deploy will deploy the new version to the Canary environment, ready to be tested.
 
-The new version is rolled out into the Main environment and a notification is sent that the new version is available.
+ * **Run tests**. In the sketch, this is modeled as a manual activity. This allows you to run the template without having all the integrations in place. At a later time this task can be replaced with an automated task that integrates with a testing tool.
 
-### Variables in XL Release
+ * **Confirm full deployment**. With this task, the release manager confirms whether the tests passed successfully and the new version can be deployed to the main environment or if the new version is not satisfactory and the Canary environment should be rolled back to the previous environment. A User input task is used here that provides context for the decision and the available options.
 
-The following variables are defined in the XL Release Canary Release template.
+![Confirm deployment](../images/canary/confirm-deployment-to-main.png)
 
-* Release variables `${app}` and `${version}`. The version of the application to deploy is filled in when the release process starts and is passed to XL Deploy to indicate which version to deploy. The values of these variables are filled in by the release manager when the release starts. This is why the option **Show en Create release form** should be enabled.
+ 
+#### 2. **Rollout phase**
 
-The variables are marked with 'Show on Create Release form'.
+There are two courses of action in this phase. If all went well, 
+the new version is rolled out into the Main environment and a notification is sent that the new version is available. Otherwise the Canary environment is rolled back to the previous version.
 
-![application variable](../images/canary/application-variable.png)
+Each alternative is a Sequential Group with a precondition (indicated by the diamond). The precondition selects which action is taken. 
 
-This means that they need to be filled in when the release starts.
+![Deployment precondition](../images/canary/deployment-precondition.png)
 
-The variables are used in the XL Deploy tasks to inform XL Deploy which version to deploy.
+ * **Deploy to Main environment**. XL Deploy is used to deploy to new version.
 
-![XL Deploy task to Canary environment](../images/canary/deploy-to-canary.png)
+ * **Send notification**. Announce the availability of the new features.
 
-You can now define the environments in XL Deploy.
+ * **Rollback Canary environment**. XL Deploy is used to restore the Canary environment to its original state. 
+
 
 ## XL Deploy setup
 
@@ -77,22 +80,19 @@ In XL Deploy, you will have two environments: 'Canary' and 'Main'. In this examp
 
 The Canary environment contains a small subset of the available servers. The Main environment contains the servers that can handle the full production load. You will need to have at least two nodes that can operate simultaneously. If resources are limited, the node of the Canary environment can be lighter. Make sure to configure your load balancer to route traffic accordingly.
 
-In XL Release, [add an XL Deploy Server item](/xl-release/how-to/xld-plugin.html#configure-xl-deploy-server-shared-configuration) under Shared Configuration and point it to your XL Deploy installation.
+In XL Release, [add an XL Deploy Server item](/xl-release/how-to/xld-plugin.html#configure-xl-deploy-server-shared-configuration) under Shared Configuration and point it to your XL Deploy installation. When you have done this, configure the XL Deploy tasks in the Canary deployment template to use this server.
 
-## Configure the XL Deploy tasks in XL Release
-
-You can now configure the environments in the XL Deploy tasks of the release template in XL Release.
-
-The environments will appear as type-ahead suggestions in the task configuration screen:
-
-![Canary environments type ahead](../images/canary/type-ahead.png)
 
 ## Running the release
 
-You can now to run the release. Create the release and fill in the values for the application name and version. These should match the application name and version as defined in XL Deploy.
+You can now to run the release. Create the release and fill in the values for the application name, versions and environments. Note that these value should match the corresponding items in XL Deploy.
 
 ![Create new release](../images/canary/create-release.png)
 
-The correct deployments will be triggered in XL Deploy.
+These variables are used in the XL Deploy tasks to inform XL Deploy which version to deploy to where.
 
-![Canary main](../images/canary/main-deployment.png)
+Start the release and the correct deployments will be triggered in XL Deploy.
+
+![Canary release in progress](../images/canary/release-execution.png)
+
+![Canary deployment in XL Deploy](../images/canary/main-deployment.png)

@@ -47,7 +47,7 @@ This is a preparation phase to make sure that the software is deployed to the co
 
  * **What is currently running?**. Determine the environment that is currently live ('Blue') and deduce the new environment ('Green'). Because 'Blue' and 'Green' can switch roles, in this example the term 'current live environment' is used for 'Blue' and 'new environment' for 'Green' .
 
- * **Confirm new environment**. The Release Manager confirms that you will deploy to the right environment. This is modeled in XL Release using a User Input Task.
+ * **Confirm new environment**. The release manager confirms that you will deploy to the right environment. This is modeled in XL Release using a User Input Task.
 
 #### 2. **Deploy and test**
 
