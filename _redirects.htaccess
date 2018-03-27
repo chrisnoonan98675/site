@@ -223,6 +223,7 @@ Redirect 301 /xl-deploy/concept/xl-deploy-ec2-plugin.html /xl-deploy/concept/xl-
 Redirect 301 /xl-deploy/how-to/import-a-deployment-package.html /xl-deploy/how-to/add-a-package-to-xl-deploy.html
 Redirect 301 /xl-deploy/concept/team-foundation-server-2015-plugin.html /xl-deploy/concept/visual-studio-team-services-team-foundation-server-plugin.html
 Redirect 301 /xl-deploy/concept/team-foundation-server-plugin.html /xl-deploy/concept/team-foundation-server-xaml-plugin.html
+Redirect 301 xl-deploy/how-to/deploy-using-sequential-by-loadbalancer-orchestrator.html /xl-deploy/how-to/perform-rolling-deployments.html
 
 # XL Release topics
 
