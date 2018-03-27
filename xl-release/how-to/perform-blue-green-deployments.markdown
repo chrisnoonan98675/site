@@ -98,7 +98,7 @@ Define the following variables in XL Release that maintain the state of the Blue
 
 In the same fashion, we maintain the version of the application in the global variable `${global.blue-green.live-version}`.
 
-* [Release variables](/xl-release/how-to/create-release-variables.html) `${new-environment}` - this is the environment you deploy to; and `${old-environment}` - this is the environment that is currently active and that will be retired at the end of the process. Both are modeled as a `ListBox` that links to the list of available environments in `${global.bluegreen-environments}`. The values of these variables are determined during the release process and are not filled in by the user. This is why you must uncheck the option **Show on Create release form**.
+* [Release variable](/xl-release/how-to/create-release-variables.html) `${new-environment}` is the environment you deploy to. It is modeled as a `ListBox` that links to the list of available environments in `${global.bluegreen-environments}`. The actual value of this variable is determined during the release process and are not filled in by the user. This is why you must uncheck the option **Show on Create release form**.
 
 ![New environment variable](../images/bluegreen/bluegreen-release-variable.png)
 
