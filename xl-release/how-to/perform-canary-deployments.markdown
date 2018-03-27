@@ -74,6 +74,8 @@ Each alternative is a Sequential Group with a precondition (indicated by the dia
 
 ## XL Deploy setup
 
+### Environment setup
+
 In XL Deploy, you will have two environments: 'Canary' and 'Main'. In this example, they are located in the 'Canary Deployment' folder.
 
 ![Canary environments in XL Deploy](../images/canary/xld-environments.png)
@@ -81,6 +83,12 @@ In XL Deploy, you will have two environments: 'Canary' and 'Main'. In this examp
 The Canary environment contains a small subset of the available servers. The Main environment contains the servers that can handle the full production load. You will need to have at least two nodes that can operate simultaneously. If resources are limited, the node of the Canary environment can be lighter. Make sure to configure your load balancer to route traffic accordingly.
 
 In XL Release, [add an XL Deploy Server item](/xl-release/how-to/xld-plugin.html#configure-xl-deploy-server-shared-configuration) under Shared Configuration and point it to your XL Deploy installation. When you have done this, configure the XL Deploy tasks in the Canary deployment template to use this server.
+
+### Configure load balancer
+
+The application should be reachable at all times. To achieve this using a Canary deployment pattern, a load balancer needs to be added that redirects traffic to the active environments and stops forwarding traffic when a node is down during the application upgrade.
+
+Configuring the load balancer in XL Deploy is outside the scope of this article, please refer to [Perform Rolling Update Deployments](/xl-deploy/how-to/perform-rolling-updates.html) for more information on how to do this. The technique describe in this article is also applicable to the Canary deployment pattern. 
 
 
 ## Running the release
