@@ -37,7 +37,7 @@ This XL Release template shows the basic steps. You can create it by adding manu
 
 This high level sketch is the starting point of your Blue/Green deployment process. The primary purpose is to be detailed description of Blue/Green deployments, but can be used as a workflow model.
 
-_Download the Blue/Green deployment template in [XLR format](../images/bluegreen/BlueGreen-template.xlr) (for XL Release 7.5 and higher) or as [Releasefile](../images/bluegreen/Releasefile.groovy) to import it in your XL Release server._
+_The Blue/Green Release deployment template can be found in the **Samples & Tutorials** folder (XL Release 8.0 and higher)_
 
 There are four phases:
 

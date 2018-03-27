@@ -39,7 +39,7 @@ This XL Release template shows the basic steps. You can create it by adding manu
 This high level sketch is the starting point of your Canary Release process. The primary purpose is to be detailed description of the Canary Release deployment pattern, but it can also be used as a workflow model.
 
 
-_Download the Canary Release deployment pattern in [XLR format](../images/canary/Canary-Release.xlr) (for XL Release 7.6 and higher) or as [Releasefile](../images/canary/Releasefile.groovy) to import it in your XL Release server._
+_The Canary Release deployment template can be found in the **Samples & Tutorials** folder (XL Release 8.0 and higher)_
 
 There are two phases:
 
