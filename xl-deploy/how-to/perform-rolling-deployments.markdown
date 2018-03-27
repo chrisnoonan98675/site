@@ -1,68 +1,173 @@
 ---
-title: Perform rolling deployments
+title: Perform rolling update deployments
 categories:
 - xl-deploy
 subject:
 - Deployment
 tags:
+- rolling update
 - deployment pattern
 - orchestration
+- load balancer
 ---
 
 This guide explains how to perform "rolling" deployments using XL Deploy. Rolling deployments are generally used to implement changes to infrastructure in an incremental fashion. Rolling deployments often take advantage of load balancers to minimize disruption to the running application. XL Deploy can orchestrate deployment plans to accommodate this requirement.
 
-In XL Deploy, you can implement a rolling deployment by:
+XL Deploy's powerful [orchestrator feature](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) will take care of calculating the correct deployment plan, providing support for a scalable solution. No scripting is needed, only configuration of the environments, load balancer and application.
 
-1. Applying an orchestrator to deploy to each middleware container sequentially
-1. Inserting pauses between deployment to each container
+In the Rolling Update pattern, the application is run on several nodes. Traffic to these nodes is distributed by a load balancer. When updating to a new version, one node is taken out of the load balancer pool at the time and taken offline to update. This ensures that the application is still available because it is being served by the other nodes. When the update is complete, the updated node is added to the load balancer pool again and the next node is updated, until all nodes are done.
 
-## Step 1 Set up the deployment with an orchestrator
+This pattern requires that at least two versions of the software are active in the same environment at the same time. This adds requirements to the architecture of the software, for example: the two versions must be able to connect to the same database and the database upgrades must be managed more carefully. This is outside the scope of this article. <!-- ADD SOME LINK -->
 
-In XL Deploy, the [orchestration](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) feature allows a deployment plan to be generated in different ways to satisfy requirements such as rolling deployments, canary deployments, and blue/green deployments.
+*Note: this guide was written using XL Deploy 7.6.*
 
-You can apply one or more orchestrators to an application, and you can parameterize them so you have ultimate flexibility in how a deployment to your environments is performed.
 
-To specify an orchestrator at deployment time:
 
-1. [Set up the deployment](/xl-deploy/how-to/deploy-an-application.html) in the XL Deploy GUI by selecting a deployment package and an environment.
-1. Click **Preview** to see a live preview of the generated deployment plan.
-1. Click **Deployment Properties** and select the `sequential-by-container` orchestrator.
-1. Click **OK**.
+## Import sample application
 
-![Sequential-by-container orchestrator](images/rolling-select-orchestrator.png)
+The Rolling Update deployment pattern can be used with any application.
 
-## Step 2 Review the plan
+In this example we will use the PetClinic demo application that is shipped with XL Deploy. To import it, use the context menu on **Applications** to import it from **XL Deploy Server**. Import both versions 1.0 and 2.0.
 
-After you select an orchestrator, XL Deploy updates the preview of the deployment plan. While reviewing the plan, you will see that the application will be deployed to one container, the next container, and so on.
+![Create new release](images/rolling-update/import-petclinic.png)
 
-![Sample rolling deployment plan](images/rolling-preview.png)
+## Preparing the nodes 
 
-## Step 3 Add pauses to the plan
+First we will set up the multiple nodes that will serve the application and make sure that they are updated in the correct order.
 
-XL Deploy allows you to insert [pause steps](/xl-deploy/how-to/deploy-an-application.html#add-a-pause-step) in the deployment plan, so you can progress through the deployment at your own pace. Each pause step halts the deployment process, and you must click **Continue** to resume it.
+For the Rolling Update deployment pattern we will use the [Deployment Group Orchestrator](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html#by-deployment-group-orchestrators). With this orchestrator, you group containers that belong together and assign each group a number. XL Deploy will generate a deployment plan that deploys the application group by group in the order specified.
 
-To add pause steps to the deployment plan:
+Let's define the infrastructure nodes that will run the application. In this example we will use an application deployed to Apache Tomcat, but keep in mind that his technique applies to any setup.
 
-1. Click **Advanced**.
-1. Right-click the step before which or after which you want to insert a pause (you may need to first expand the blocks of steps in the plan).
-1. Select **Pause Before** or **Pause After**.
+In this example we have three application servers that will host our application simultaneously.
 
-![Adding a pause step to a deployment plan](images/rolling-pause.png)
+![Create new release](images/rolling-update/appserver-infrastructure.png)
 
-## Step 5 Execute the plan
+We will deploy the application to **Tomcat 1**, **Tomcat 2** and **Tomcat 3**.
 
-To start the deployment, click **Execute**. Each time XL Deploy reaches a pause step, it will stop execution, giving you time to verify the results of that part of the deployment. When you are ready to resume deployment execution, click **Continue**.
+Steps to create this infrastructure:
 
-![Executing a rolling deployment](images/rolling-execution.png)
+1. For **Appserver Host**, create an Overthere host like `overthere.SshHost` that connects to the physical machine running the tomcat installations.
+2. For each **Appserver**, create a `tomcat.Server` that points to the Tomcat installation directory.
+3. To create the **Tomcat** targets, add a `tomcat.VirtualHost`. 
 
-## Specifying orchestrators in advance
+Each Tomcat server get its own deployment group, so we can deploy in sequence.
 
-Instead of specifying orchestrators when you set up the deployment, you can specify them as a property of the deployment package:
+To do so, edit each Tomcat server, find the 'Deployment' section and fill in the sequence number of the rolling update. Note that the Deployment section is available on any [container](https://docs.xebialabs.com/xl-deploy/concept/key-xl-deploy-concepts.html#containers) in XL Deploy, not only Tomcat hosts.
 
-1. Click **Explorer** in the top bar of the XL Deploy GUI.
-1. Expand **Applications**, then expand the desired application, and double-click the version you want to update.
-1. Enter the exact name (case-sensitive) of an orchestrator in the **Orchestrator** box on the **Common** section. Alternatively, you can enter a placeholder that will be filled by a dictionary; for example, `{% raw %}{{ orchestrator }}{% endraw %}`.
+![Create new release](images/rolling-update/deployment-group-number.png)
 
-![Specifying an orchestrator on a deployment package](images/rolling-application-property.png)
+Now, under **Environments**, create an environment **Rolling Environment** and add the three Tomcat Servers to it.
 
-**Tip:** You can see the names of the available orchestrators by clicking **Deployment Properties** when setting up a deployment.
+![Create new release](images/rolling-update/rolling-environment.png)
+
+You are now ready to do your first rolling deployment!
+
+## First rolling deployment
+
+Start a deployment of **PetClinic 1.0** by selecting **Deploy** from the context menu and choosing the **Rolling Environment** you just created.
+
+In the **Configure** screen, press the **Preview** button to see the deployment plan that will be generated by XL Deploy.
+
+As we can see when we expand the plan, the plan is not a 'rolling update'. All servers are stopped, then the application is deployed to all three servers and then all three servers are started again. Hardly a rolling update!
+
+This is where the orchestrators and the magic of XL Deploy's AutoFlow come in.
+
+Click on **Deployment Properties** on the top-left side of the screen.
+
+In the Orchestrator field, type `sequential-by-deployment-group` and press **Add**. 
+
+![Add sequential-by-deployment-group orchestrator](images/rolling-update/sequential-by-deployment-group.png)
+
+The orchestrators take care of modifying the plan. In this case, the **sequential-by-deployment-group** orchestrator will create a rolling deployment plan. As we will see later on, it is possible to stack orchestrators to create fine tuned, scalable deployment plans.
+
+When we close the dialog, the plan is immediately updated.
+
+![Plan modified by orchestrator](images/rolling-update/plan-modification.png)
+
+You can now run the deployment.
+
+In principle, this is enough to do a rolling update deployment at any scale. Just configure the groups and add the proper orchestrator.
+
+In the next section we will see how to add a load balancer to the mix and how to select the required orchestrators by default so no manual plan modification is needed.
+
+## Adding the load balancer
+
+A load balancer is essential for the rolling update deployment pattern. While one node is being upgraded, it should not receive any traffic. The load balancer should take care of this, routing traffic to the other nodes while one is down for the upgrade.
+
+XL Deploy supports a number of load balancers, available as plugins. In this example we will use the
+[F5 BigIp plugin](https://docs.xebialabs.com/xl-deploy/concept/f5-big-ip-plugin.html), but the principle is the same for all load balancer plugins.
+
+For BigIp, add an Overthere host and a `big-ip.LocalTrafficManager` to the Infrastructure. Configure the CIs according to the instructions of the load balancer plugin documentation.
+
+For our example we end up with the following infrastructure:
+
+![Infrastructure with load balancer](images/rolling-update/infrastructure-with-loadbalancer.png)
+
+On the load balancer, add the nodes we are deploying to on the **Managed Servers** property. We are using the F5 BigIp plugin, but this property is available on any load balancer plugin.
+
+![Managed servers on the load balancer](images/rolling-update/managed-servers.png)
+
+Add load balancer itself to the environment. In our case the **Traffic Manager** is added to the **Rolling Environment**.
+
+![Environment with load balancer](images/rolling-update/environment-with-loadbalancer.png)
+
+Now we are ready to start the deployment again. In order to trigger the load balancing behavior in the plan, we need to add another orchestrator: `sequential-by-loadbalancer-group`.
+
+![Plan with load balancer](images/rolling-update/deployment-properties-with-loadbalancer.png)
+
+The resulting plan takes the load balancer into account and removes and adds the Tomcat servers from the load balancer when the node is being upgraded.
+
+![Plan with load balancer](images/rolling-update/plan-with-loadbalancer.png)
+
+The plan is now ready for a rolling update deployment with zero downtime.
+
+## Preparing the applications for the Rolling Update deployment pattern
+
+The plan is perfect, but there is still a manual step: adding the orchestrators to the Deployment Properties when creating the deployment. 
+
+There are two ways to configure the CIs the pick up the orchestrators automatically.
+
+### Setting orchestrators on the application
+
+The easiest way to configure orchestrators automatically is to configure them directly on the application to be deployed. This is the most convenient way if the rolling update pattern applies to all environments the application is deployed to.
+
+Open the deployment package, say **PetClinic/1.0** in the Explorer and add the relevant orchestrators to the **Orchestrator** property.
+
+![Orcherstrators on deployment package](images/rolling-update/orchestrators-on-deployment-package.png)
+
+The disadvantage is that the orchestrators are hardcoded on the application and may not apply to each environment. For example, rolling update is only needed in the Production environment but not in the QA environment.
+
+### Configuring orchestrators on the environment
+
+We can define the orchestrators on the environment using dictionaries.
+
+First, remove the orchestrator from the PetClinic application.
+
+Now add create a dictionary called **Dictionary**.
+
+In the dictionary, create the following entry:
+
+```
+Key                                    Value
+udm.DeployedApplication.orchestrator   sequential-by-deployment-group, sequential-by-loadbalancer-group
+```
+
+![Plan with load balancer](images/rolling-update/add-dictionary.png)
+
+We are using two dictionary features here:
+
+ * The key maps to a fully quantified property of the application being deployed. If this property is left empty on the application, the value is taken from the dictionary.
+* The value is a comma-separated list and will be mapped to a list of values.
+
+Add the dictionary to **Rolling Environment**.
+
+Now start the deployment again. The orchestrators should be picked up, generating the correct plan without having to configure anything on the application directly.
+
+## Summary
+
+In this article we have shown how to perform a rolling update in XL Deploy without scripting. This can be done by installing a load balancer plugin and configuring the `sequential-by-group` and `sequential-by-loadbalancer-group` orchestrators.
+
+More orchestrators can still be added to fine tune the generated deployment plan.
+
+This is a scalable approach that will work for any environment or any number of applications or environments.
