@@ -1,5 +1,5 @@
 ---
-title: Configure lock tasks (XL Release 8.0)
+title: Configuring lock tasks (XL Release 8.0)
 
 categories:
 -XL-release
@@ -13,7 +13,6 @@ tags:
 - Locks
 ---
 
-## Lock tasks
 Lock tasks are mandatory. If a lock task occurs during a release, this task needs to be executed before the release can continue.
 
 In highly regulated environments with strict compliance requirements, lock tasks ensure that standards are adhered to, and also that evidence along task details, are stored in activity logs. Lock tasks make continuous delivery and compliance possible in regulated environments.
@@ -25,11 +24,11 @@ Configuring lock tasks involves the following procedures:
 1. Adding locks to tasks.
 1. Setting approvals.
 
-### Audits
+## Audits
 Lock tasks ensure your audit trail. If a team decides to skip certain activities, limited evidence is stored in activity logs. This can result in bad auditing results.
 By locking tasks you ensure that they are executed and also that evidence, along with task details, and signee information, is stored in the evidence database.
 
-### Grant lock permission to user or a team
+## Grant lock permission to user or a team
 Lock permission is role based and must be added to a user or team before they can lock or unlock tasks. We recommend that this role is given to users who create release pipelines, or specific compliance people.
 
 **Important:** Before adding lock tasks, specify, design, and test your complete pipeline. Adding locks before the pipeline is designed and tested will make the design process complex.
@@ -43,9 +42,9 @@ Lock permission is role based and must be added to a user or team before they ca
   ![Lock permissions](../images/lock-permissions.png)
 
 
-### Lock task actions
+## Lock task actions
 
-#### Add a lock to task
+### Add a lock to task
 1. Click the **Release** tab.
 2. From the **Show** dropdown, select **Release flow**
 3. Click ![menu button](../images/menuBtn.png) on the right side of a task or grouping.
@@ -55,13 +54,13 @@ When a task is locked, a lock is displayed on the left side of the task and the 
 
 ![Locked task example](../images/locked-task.png)
 
-#### Remove a lock from a tasks
+### Remove a lock from a tasks
 1. Click the **Release** tab.
 2. From the **Show** dropdown, select **Release flow**
 3. Click ![menu button](../images/menuBtn.png) on the right side of a task or grouping.
 2. Click **Unlock**.
 
-### Lock task specification
+## Lock task specification
 The following section defines what actions are available when a task is locked.
 
 **When a task is locked, the following actions are available:**

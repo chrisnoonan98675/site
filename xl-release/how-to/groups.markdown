@@ -12,22 +12,21 @@ since:
 - XL Release 8.0
 ---
 
-## Release groups
 By grouping releases together, you can manage a collection of releases together as one group. Releases can be added to multiple release groups, and into multiple folders. The release group feature also provides estimates on when the release group will start and finish, based on the schedule and other tasks that are being executing at the same time.
 
-### Release group overview screen
+## Release group overview screen
 This screen shows all release groups based on status. From this screen, you can view start and end dates, completion status, duration, and the number of releases per group. You can also edit group details and delete groups.
 
 ![Release group overview](../images/release-groups-overview.png)
 
-### Release group flow screen
+## Release group flow screen
 This screen shows detailed information on the releases that are in a release group. From this screen, you can add and remove releases, view the release group schedule, view planned and estimated completion dates. Selecting a release item in this screen will open the release flow screen for an individual release.
 
 ![Release group flow screen](../images/Release-group-flow-screen.png)
 
-### Release group actions
+## Release group actions
 
-#### Create a new group
+### Create a new group
 1. On the navigation bar, click **Design**.
 1. Click **Folders**.
 1. Select a folder.
@@ -40,7 +39,7 @@ This screen shows detailed information on the releases that are in a release gro
 
 **Note:** To view groups that are not active, click **Status** and select the **Planned** checkbox from the drop-down.
 
-#### Edit group details
+### Edit group details
 You can edit group details from two locations:
 
 - From the Releases screen:
@@ -61,14 +60,14 @@ You can edit group details from two locations:
 
 **Note:** To view groups that are not active, click **Status** and select the **Planned** checkbox from the drop-down.
 
-#### Add a release to a group
+### Add a release to a group
  1. On the navigation bar, click **Releases**.
  1. On the right of the release, click ![menu button](../images/menuBtn.png).
  1. Click **Add to group**.
  1. In the **Group name** field, enter a group name, or select a group by clicking the drop-down arrow.
  1. Click **Add**.
 
-#### Add multiple releases to a group
+### Add multiple releases to a group
  1. On the navigation bar, click **Design**.
  1. Click **Folders**.
  1. Select a folder.
@@ -80,14 +79,14 @@ You can edit group details from two locations:
 
  ![Add multiple releases to a group](../images/bulk-add-releases.png)
 
-#### Remove a release from a group
+### Remove a release from a group
  1. On the navigation bar, click **Releases**.
  1. Click **Groups**.
  1. Click the group name.
  1. Beside the release name, click ![menu button](../images/menuBtn.png)
  1. Click **Remove from group**.
 
-#### Delete a group
+### Delete a group
 You can delete a group from two locations:
 
 - From the Release screen:
@@ -102,14 +101,14 @@ You can delete a group from two locations:
  1. From the tab, click **Groups**.
  1. On the right side of the group, click **Delete**.
 
-#### Ordering and displaying groups
+### Ordering and displaying groups
 Groups are displayed and ordered based on two attributes: **Status** and **Order by**. Both attributes are displayed at the top of all release and group pages.
 
 To order and display groups based on status: From the **Status** drop-down, select a checkbox, or checkboxes, based on activity or completion status.
 
 To order groups based on risk or date: Select an option from the **Order by** drop-down.
 
-##### Status types
+#### Status types
 All releases and release groups display a current status. The status types are as follows:
 
 - **Planned:** releases that have not started.

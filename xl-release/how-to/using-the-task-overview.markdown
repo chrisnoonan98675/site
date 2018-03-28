@@ -18,6 +18,10 @@ An orange triangle indicates an active task, and a clock icon indicates a pendin
 
 To see more information about a task, click it.
 
+As of XL Release 8.0, is it possible to lock tasks. When a task is locked only users with lock permissions are able to edit or unlock it. A locked task appears striped to indicate that it is locked.  For more information, see [Configuring lock tasks](http://docs.xebialabs.com/xl-release/how-to/configure-lock-tasks.markdown).
+
+![Locked task](../images/locked-mytasks-view.png)
+
 ## Task overview actions
 
 Next to each task, click:
