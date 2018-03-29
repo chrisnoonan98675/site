@@ -43,10 +43,10 @@ In XL Release 5.0.x and earlier, you add teams by opening the template or releas
 XL Release automatically creates the following predefined teams, which you cannot remove:
 
 {:.table .table-striped}
-| Team | Description | Default Permissions |
+| Team | Description | Default permissions |
 | ---- | ----------- | ----------- |
-| Folder Owner | People that manage the folders, subfolder, and folder security. | All folder permissions. |
-| Template Owner | People that design the templates. | All template permissions. |
+| Folder owner | People that manage the folders, subfolder, and folder security. | All folder permissions. |
+| Template owner | People that design the templates. | All template permissions. |
 | Release Admin | Contains the release owners, the people responsible for executing the release. Members of this team receive extra notifications when, for example, a task fails and the release is halted. | All release permissions. |
 
 Note that you are free to add and remove people to these teams, and to assign permissions to them.
@@ -68,9 +68,11 @@ To configure permissions in XL Release 6.0.0 and later:
 4. Under **Folder permissions**, add release teams to each permission.
 5. Click **Save** to save your changes.
 
-![Folder permissions](../images/folder-permissions.png)
+![Folder permissions](../images/permissions-with-locks.png)
 
 In XL Release 5.0.x and earlier, you configure permissions by opening the template or release and going to **Show** > **Permissions**. In XL Release 6.0.0 and later, the Permissions screen provides a read-only view of the permissions on the template or release.
+
+**Note:** As of XL Release 8.0, is it possible to lock tasks. When a task is locked only users with lock permissions are able to edit or unlock it. A locked task appears striped to indicate that it is locked.  For more information, see [Configuring lock tasks](http://docs.xebialabs.com/xl-release/how-to/configure-lock-tasks.markdown).
 
 ### Folder permissions
 
@@ -79,9 +81,9 @@ Folder permissions are available in XL Release 6.0.0 and later. The following pe
 {:.table .table-striped}
 | Permission | Description |
 | ---------- | ----------- |
-| View Folder | Users can see the folder in the Folders screen. |
-| Edit Folder | Users can edit the folder (for example, by renaming it). |
-| Edit Folder Security | Users can edit the teams and permissions on a folder. |
+| View folder | Users can see the folder in the Folders screen. |
+| Edit folder | Users can edit the folder (for example, by renaming it). |
+| Edit folder security | Users can edit the teams and permissions on a folder. |
 
 ### Template permissions
 
@@ -90,11 +92,12 @@ The following permissions apply to templates:
 {:.table .table-striped}
 | Permission | Description |
 | ---------- | ----------- |
-| Create Release | Users can create a release from the template. |
-| View Template | Users can see the template in the template overview. |
-| Edit Template | Users can change the template by adding tasks and phases and changing them. |
-| Edit Template Security | Users can edit teams and permissions on the template; this permission is named _Edit Security_ prior to XL Release 6.0.0. |
-| Edit Triggers | Users can view, edit, and delete triggers on the template; this permission is available in XL Release 6.0.0 and later. To create a trigger, you also need the *Create Release* permission. |
+| Create release | Users can create a release from the template. |
+| View template | Users can see the template in the template overview. |
+| Edit template | Users can change the template by adding tasks and phases and changing them. |
+| Edit template security | Users can edit teams and permissions on the template; this permission is named _Edit Security_ prior to XL Release 6.0.0. |
+| Edit triggers | Users can view, edit, and delete triggers on the template; this permission is available in XL Release 6.0.0 and later. To create a trigger, you also need the *Create Release* permission. |
+|Lock template task  (XL Release 8.0 and later) | When a template task is locked only users with lock permissions are able to edit or unlock it.   |
 
 ### Release permissions
 
@@ -111,3 +114,4 @@ The following permissions apply to releases:
 | Reassign Task | Users can assign tasks to other people. Team assignment is also enabled. |
 | Edit Task | Users can edit individual tasks. |
 | Edit Task Blackout| Users can enable or disable the Postpone during blackout period setting at task level. |
+|Lock release task  (XL Release 8.0 and later) |  When a release task is locked only users with lock permissions are able to edit or unlock it.  |
