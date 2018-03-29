@@ -10,11 +10,9 @@ tags:
 - file upload
 - settings
 weight: 498
-since:
-- XL Release 8.0.0
 ---
 
-In XL Release version 8.0.0 and later you can configure the file upload properties.
+In XL Release version 7.5.3 you can configure the file upload properties.
 File upload properties are used to set a limit for the size of uploaded files and to restrict content accepted by XL Release.
 
 ## Configure the file upload size
