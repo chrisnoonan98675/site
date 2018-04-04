@@ -12,7 +12,7 @@ since:
 - XL Release 8.0
 ---
 
-By grouping releases together, you can manage a collection of releases together as one group. Releases can be added to multiple release groups, and into multiple folders. The release group feature also provides estimates on when the release group will start and finish, based on the schedule and other tasks that are being executing at the same time.
+By grouping releases together, you can manage a collection of releases as one group. Releases can be added to multiple release groups, and into multiple folders. The release group feature also provides estimates on when the release group will start and finish, based on the schedule and other tasks that are being executing at the same time.
 
 ## Release group overview screen
 This screen shows all release groups based on status. From this screen, you can view start and end dates, completion status, duration, and the number of releases per group. You can also edit group details and delete groups.
