@@ -29,16 +29,12 @@ By default, the repository is located in `XL_DEPLOY_SERVER_HOME/repository`. You
 
 ## Using a database server
 
-In addition to storing the data, XL Deploy stores user supplied artifacts in the database, such as scripts or deployment packages (`jar` or `war` files). These can be stored on the file system (this is the default setting) or in the database server. XL Deploy can use only one of these options at any time. That is why you must configure the database correctly before using XL Deploy in a production setting. This setting can be configured in the `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf` file.
-
-The default settings is to use the internal database that stores the data on the file system. This is intended for temporary use and is not recommended for production use.
+The default setting in XL Deploy is to use the internal database that stores the data on the file system. This is intended for temporary use and is not recommended for production use.
 
 * When the installation is upgraded to a new version, XL Deploy creates and maintains the database schema. The database administrator requires the following permissions on the database: REFERENCES, INDEX, CREATE, DROP, in addition to the permissions used in operation: SELECT, INSERT, UPDATE, DELETE.
 
 * Table definitions in XL Deploy use limited column sizes. You must configure this for all the supported databases to prevent these limits from restricting users in how they can use XL Deploy.
 Example: The ID of a Configuration Item (CI) is a path-like structure and consists of the concatenation of the names of all the parent folders for the CI. A restriction is set on the length of this combined structure. For the majority of the Relational DataBase Management Systems (RDBMSes), the maximum length is 2000. For MySQL and MS SQL Server, the maximum length is 1024.
-
-**Note:** For MySQL, XL Deploy requires the Barracuda file format for [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-format.html). This is the default format in MySQL 5.7 or later and can be configured in earlier versions.
 
 XL Deploy can be configured to use two different database connections: one for primary XL Deploy data and one for the task archive. Both database connections can be configured in the `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf` file. The main database connection can be configured under the repository key and the database connection for the task archive can be configured under the reporting key. The default configuration for the repository database connection is also used for the reporting connection.
 
@@ -46,6 +42,10 @@ For information about:
 
 * Backing up the database, refer to [Back up XL Deploy](/xl-deploy/how-to/back-up-xl-deploy.html)
 * Active/hot standby mode: refer to [Configure active/hot-standby](/xl-deploy/how-to/configure-xl-deploy-active-hot-standby.html)
+
+### Artifacts in XL Deploy
+
+In addition to storing the data, XL Deploy stores user supplied artifacts in the database, such as scripts or deployment packages (`jar` or `war` files). These can be stored on the file system (this is the default setting) or in the database server. XL Deploy can use only one of these options at any time. That is why you must configure the database correctly before using XL Deploy in a production setting. This setting can be configured in the `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf` file.
 
 ### Preparing the database and repository
 
@@ -74,13 +74,21 @@ The following set of SQL privileges are required.
 
 All the configuration is done in `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf`.
 
-**Important:** You can set the artifacts root folder in the `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf` file by adding this:
-
-        xl.repository.artifacts.root = ${xl.repository.root}"/artifacts"
-
 This file is in [HOCON](https://github.com/typesafehub/config/blob/master/HOCON.md) format.
 
 After the first run, passwords in the configuration file will be encrypted and replaced with the base64-encoded encrypted values.
+
+**Important:** You can configure the settings for the artifacts in the `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf` file.
+Specify type of artifact storage to use. Valid values are:
+* `file`: use the specified file system location for storing artifacts.
+* `db`: use the database for storing artifacts.
+
+Set the location for artifact storage on file system. Only active when `type = "file"`.
+
+         artifacts {
+            type = "file"
+            root = ${xl.repository.root}"/artifacts"
+        }
 
 ### Database-specific configurations in XL Deploy
 
@@ -107,9 +115,10 @@ This is a sample configuration for MySQL:
                 }
             }
         }
-        xl.repository.artifacts.root = "build/artifacts"
 
-**Note:** The MySQL database does not support full unicode character set. For more information, see [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/charset-unicode-utf8mb3.html).       
+**Notes:**
+1. The MySQL database does not support full unicode character set. For more information, see [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/charset-unicode-utf8mb3.html).    
+1. For MySQL, XL Deploy requires the [`innodb_large_prefix`](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_large_prefix) option to be `ON`. For more information, see the MySQL version specific documentation.
 
 #### Using XL Deploy with DB2
 
@@ -129,7 +138,6 @@ This is a sample configuration for DB2:
                 }
             }
         }
-        xl.repository.artifacts.root = "build/artifacts"
 
 #### Using XL Deploy with Oracle
 
@@ -150,7 +158,6 @@ This is a sample configuration for Oracle:
                 }
             }
         }
-        xl.repository.artifacts.root = "build/artifacts"
 
 **Note:** If you use the TNSNames Alias syntax to connect to Oracle, you may need to inform the driver where to find the `TNSNAMES` file. Refer to the Oracle documentation for more information.
 
@@ -173,7 +180,6 @@ This is a sample configuration for SQL Server:
                 }
             }
         }
-        xl.repository.artifacts.root = "build/artifacts"
 
 #### Use XL Deploy with PostgreSQL
 
@@ -198,4 +204,3 @@ This is a sample configuration for PostgreSQL:
                 }
             }
         }
-        xl.repository.artifacts.root = "build/artifacts"
