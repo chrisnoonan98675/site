@@ -327,7 +327,7 @@ It is recommended that you set up collectd to aggregate the statistics on the XL
 - link:https://collectd.org/wiki/index.php/Plugin:Java[collectd-java]
 - link:https://github.com/egineering-llc/collectd-fast-jmx[FastJMX]
 
-After these tools are installed, you can download a link:production-setup/collectd.conf[this sample `collectd.conf` file], which is preconfigured to monitor relevant XL Release application and system statistics. To use this file, add two configuration values to the configuration:
+After these tools are installed, you can download link:production-setup/collectd.conf[this sample `collectd.conf` file], which is preconfigured to monitor relevant XL Release application and system statistics. To use this file, add two configuration values to the configuration:
 
 - `IP_ADDRESS_HERE`: Enter the IP address of the central collectd server
 - `NETWORK_INTERFACE_HERE`: Enter the network interface over which XL release communicates
