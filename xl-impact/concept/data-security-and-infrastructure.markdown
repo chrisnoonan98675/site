@@ -1,6 +1,5 @@
 ---
 title: Data security and infrastructure
-no_index: true
 ---
 
 This is an overview of the data architecture of XL Impact:
