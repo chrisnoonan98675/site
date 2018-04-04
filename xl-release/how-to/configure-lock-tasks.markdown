@@ -22,7 +22,6 @@ In an environment that is not highly regulated, and steps are open to interpreta
 Configuring lock tasks involves the following procedures:
 1. Granting permission to a user or a team.
 1. Adding locks to tasks.
-1. Setting approvals.
 
 ## Audits
 Lock tasks ensure your audit trail. If a team decides to skip certain activities, limited evidence is stored in activity logs. This can result in bad auditing results.
