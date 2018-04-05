@@ -32,6 +32,10 @@ XL Release receives the remote completion emails sent by users that want to comp
 * Domain whitelist: used for adding whitelisted domains
 * Secret for generating email signatures: generate an email signature that verifies the integrity of a received remote completion email. Notice that changing the secret will invalidate all previously send completion request emails.
 
+There are two important notes:
+
+Please make sure to only configure 1 IMAP server. The system will search for an IMAP server configuration and use that one. Having only one will make sure its clear which one is picked. Currently we only support 1 IMAP server.
+
 Make sure to set up a new email account specifically for receiving remote completion emails. All emails are deleted from INBOX after they are processed by XL Release, including unrecognized and existing emails.
 
 ### Settings in `xl-release.conf`
