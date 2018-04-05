@@ -3,11 +3,10 @@ title: Administrating the remote completion task
 categories:
 - xl-release
 subject:
-- Tasks
+- System administration
 tags:
 - plugin
-- remote
-- task
+- remote completion task
 since:
 - XL Release 7.6.0
 ---
