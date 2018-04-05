@@ -25,6 +25,18 @@ This screen shows detailed information on the releases that are in a release gro
 ![Release group flow screen](../images/Release-group-flow-screen.png)
 
 ## Release group actions
+Group actions are role based and permissions must be granted to a user or team before they can view, edit, or create release groups.
+
+### Grant release group permissions
+1. On the navigation bar, click **Design**.
+1. Click **Folders**.
+1. Select a folder.
+1. From the tab, click **Teams & Permissions**.
+1. Under the **Folder permissions** section, add a team name to the right of **View release group** and **Edit release group**.
+
+ **Note:** The edit release group permission is required to create release groups.
+
+ ![release-group-permissions](../images/release-group-permissions.png)
 
 ### Create a new group
 1. On the navigation bar, click **Design**.
@@ -53,7 +65,7 @@ You can edit group details from two locations:
  1. On the navigation bar, click **Design**.
  1. Click **Folders**.
  1. Select a folder.
- 1. From the tab, click Groups.
+ 1. From the tab, click **Groups**.
  1. On the right of a group, click **Edit**.
  1. Edit group details.
  1. Click **Save**.    
@@ -80,26 +92,26 @@ You can edit group details from two locations:
  ![Add multiple releases to a group](../images/bulk-add-releases.png)
 
 ### Remove a release from a group
+You can remove a release from group in two locations:   
+
+- From the Releases screen:
  1. On the navigation bar, click **Releases**.
  1. Click **Groups**.
  1. Click the group name.
  1. Beside the release name, click ![menu button](../images/menuBtn.png)
- 1. Click **Remove from group**.
-
-### Delete a group
-You can delete a group from two locations:
-
-- From the Release screen:
- 1. On the navigation bar, click **Releases**.
- 1. Click **Groups**.
- 1. On the right side of the group, click **Delete**.   
- <br/>
+ 1. Click **Remove from group**.   
+ <br/>   
 - From the Design screen:
  1. On the navigation bar, click **Design**.
  1. Click **Folders**.
  1. Select a folder.
  1. From the tab, click **Groups**.
  1. On the right side of the group, click **Delete**.
+
+### Delete a group
+1. On the navigation bar, click **Releases**.
+1. Click **Groups**.
+1. On the right side of the group, click **Delete**.   
 
 ### Ordering and displaying groups
 Groups are displayed and ordered based on two attributes: **Status** and **Order by**. Both attributes are displayed at the top of all release and group pages.
