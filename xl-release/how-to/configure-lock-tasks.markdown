@@ -1,4 +1,5 @@
 ---
+
 title: Configuring lock tasks
 
 categories:
@@ -40,10 +41,10 @@ Lock permission is role based and must be added to a user or team before they ca
 
   ![Lock permissions](../images/lock-permissions.png)
 
-
 ## Lock task actions
 
 ### Add a lock to task
+
 1. Click the **Release** tab.
 2. From the **Show** dropdown, select **Release flow**
 3. Click ![menu button](../images/menuBtn.png) on the right side of a task or grouping.
@@ -52,6 +53,7 @@ Lock permission is role based and must be added to a user or team before they ca
 When a task is locked, a lock is displayed on the left side of the task and the task appears striped.       
 
 ![Locked task example](../images/locked-task.png)
+
 
 ### Remove a lock from a tasks
 1. Click the **Release** tab.
@@ -98,3 +100,4 @@ The following section defines what actions are available when a task is locked.
 - Edit input or output properties
 - Edit title, template, risk profile, or release ID
 - Edit the variable list
+
