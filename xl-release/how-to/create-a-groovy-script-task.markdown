@@ -12,11 +12,12 @@ since:
 - XL Release 6.1.0
 ---
 
-A Groovy Script task contains a [Groovy script](http://www.groovy-lang.org/) that is executed on the XL Release server. This is an automated task that completes automatically when the script finishes successfully.
+A Groovy Script task contains a [Groovy script](http://www.groovy-lang.org/) that is executed on the XL Release server. This is an automated task that completes when the script finishes successfully.
 
-![Goovy Script Task Details](../images/groovy-script-task.png)
+![Goovy Script Task Details](../images/groovy-script-editor.png)
 
-As of XL Release version 7.5.0, you can use the inline script editor to type the script you want to use in the **Script** field.
+
+As of XL Release version 7.5.0, the inline script editor is used to enter script. Type or paste a Groovy script into the **Script** field of the Groovy script task details. To enlarge the script editor, click ![enlarge editor](../images/editor-btn.png). Pressing this button again will minimize the editor.
 
 **Note:** The output of the remote script task is in markdown format. For more information, refer to [Using Markdown in XL Release](/xl-release/how-to/using-markdown-in-xl-release.html).
 
