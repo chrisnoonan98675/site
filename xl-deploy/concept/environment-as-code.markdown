@@ -24,11 +24,7 @@ Every CI or set of CIs must be defined in the Deployfile using the `define` synt
 
 The Deployfile determines whether a CI or set of CIs should be created under the **Environments** or **Infrastructure** parent node in the repository, as identified by the `forEnvironments` and `forInfrastructure` keywords.
 
-**Note:**
-<!--
-* The scope must be a directory under the **Environments** or **Infrastructure** parent node. The scope cannot be a parent node itself.
--->
-* At this time, the Deployfile cannot be used to define CIs under **Configuration**.
+**Note:** At this time, the Deployfile cannot be used to define CIs under **Configuration**.
 
 ### Sample Deployfile
 
@@ -160,7 +156,7 @@ repository.generateDeployfile(["Infrastructure/MyInfra","Infrastructure/Experime
 To generate a Deployfile using the default XL Deploy user interface:
 
 1. Expand **Environments** or **Infrastructure** from the left pane.
-1. Hover over a folder, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Generate Deployfile**. A `.groovy` file is generated and saved on your local machine.
+1. Hover over a folder, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Generate Example Deployfile**. A `.groovy` file is generated and saved on your local machine.
 
 ## Apply a Deployfile
 

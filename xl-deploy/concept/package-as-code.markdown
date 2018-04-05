@@ -53,9 +53,28 @@ xld {
 }
 {% endhighlight %}
 
+### Deploy to a target environment
+
+There are three options to deploy using the Deployfile:
+
+1. Deploy to the default environment (the first environment defined in the Deployfile).
+1. Deploy to a target environment defined inside the Deployfile
+
+                deploy('PetPortal', '1.1.0', 'Environments/XLD/Staging') {      
+                  deployable('PetClinic-ear', 'jee.Ear') {
+                    fileUri = upload("PetClinic-1.0.ear")
+                  }
+
+1. Deploy to target environment existing on your XL Deploy server (not defined in the Deployfile)
+
+                deploy('PetPortal', '1.1.0', '<FullEnvironmentID>') {      
+                  deployable('PetClinic-ear', 'jee.Ear') {
+                    fileUri = upload("PetClinic-1.0.ear")
+                  }
+
 ### Create provisioning package
 
-This sample deployfile creates a provisioning package using the `template` syntax:
+This sample Deployfile creates a provisioning package using the `template` syntax:
 
 {% highlight groovy %}
 xld {
@@ -72,7 +91,7 @@ xld {
 }
 {% endhighlight %}    
 
-This sample deployfile creates a provisioning package using the `embeddedDeployable` syntax:
+This sample Deployfile creates a provisioning package using the `embeddedDeployable` syntax:
 
 {% highlight groovy %}
 xld {
@@ -90,28 +109,11 @@ xld {
 
 ### Deploy an application using the Lightweight CLI
 
-1. Create a deployfile as described in one of the samples above or [generate the deployfile](/xl-deploy/concept/xl-deploy-lightweight-cli.html#generate-a-deployfile).
-1. There are three options to deploy using the deployfile:
-
-    1. Deploy to the default environment (the first environament defined in the deployfile).
-    1. Deploy to a target environment defined inside the deployfile
-
-                deploy('PetPortal', '1.1.0', 'Environments/XLD/Staging') {      
-                  deployable('PetClinic-ear', 'jee.Ear') {
-                    fileUri = upload("PetClinic-1.0.ear")
-                  }
-
-    1. Deploy to target environment existing on your XL Deploy server (not defined in the deployfile)
-
-                deploy('PetPortal', '1.1.0', '<FullEnvironmentID>') {      
-                  deployable('PetClinic-ear', 'jee.Ear') {
-                    fileUri = upload("PetClinic-1.0.ear")
-                  }
-
+1. Create a Deployfile as described in one of the samples above or [generate the Deployfile](/xl-deploy/concept/xl-deploy-lightweight-cli.html#generate-a-deployfile).
 1. If you have the [lightweight CLI installed](/xl-deploy/concept/xl-deploy-lightweight-cli.html), upgrade to the latest version of [xld-py-cli](https://pypi.python.org/pypi/xld-py-cli/).
 1. Open a command terminal  
 1. Execute this command:
 
           xld --url http://localhost:4516 --username john --password secret01 apply Deployfile
 
-**Note:** Make sure the deployfile is located in the directory where you execute the command.        
+**Note:** Make sure the Deployfile is located in the directory where you execute the command.        
