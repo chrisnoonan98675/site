@@ -1,5 +1,5 @@
 ---
-title: Configuring lock tasks (XL Release 8.0)
+title: Configuring lock tasks
 
 categories:
 -XL-release
@@ -13,7 +13,7 @@ tags:
 - Locks
 ---
 
-Lock tasks are mandatory. If a lock task occurs during a release, this task needs to be executed before the release can continue.
+In XL Release 8.0 and later, the lock task feature is available. Lock tasks are mandatory. If a lock task occurs during a release, this task needs to be executed before the release can continue.
 
 In highly regulated environments with strict compliance requirements, lock tasks ensure that standards are adhered to, and also that evidence along task details, are stored in activity logs. Lock tasks make continuous delivery and compliance possible in regulated environments.
 
