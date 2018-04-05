@@ -9,7 +9,7 @@ tags:
 - remote
 - task
 since:
-- XL Release 8.0.0
+- XL Release 7.6.0
 ---
 
 ## Server configuration

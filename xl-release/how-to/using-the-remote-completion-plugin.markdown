@@ -8,7 +8,7 @@ tags:
 - plugin
 - remote completion task
 since:
-- XL Release 8.0.0
+- XL Release 7.6.0
 ---
 
 With the remote completion task, you can complete or fail a specific task from a remote location without access to the company network and without logging in to XL Release.
