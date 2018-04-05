@@ -39,7 +39,7 @@ To see which user and time when that user remotely completed or failed a task, c
 
 * When a remote completion task was started and is currently in progress, the users that are assigned to the task receive an email with a request to remotely complete or fail a task.
 If you want to reassign a different user or team to a task that is in progress and you want to make sure that they receive a new email with a remote completion request, you must fail and restart the task after you reassigned the new user or team.
-* The user completing or failing a task remotely must send the reply email from the same email address the completion email was send to. This requirement exists for XL Release to be able to authenticate the request. For this reason using email forwarding or email groups or distribution lists might not work.
+* The user completing or failing a task remotely must send the reply email from the same email address the completion email was sent to. This requirement exists for XL Release to be able to authenticate the request. For this reason using email forwarding or email groups or distribution lists might not work.
 
 ## Recommended mail clients
 
