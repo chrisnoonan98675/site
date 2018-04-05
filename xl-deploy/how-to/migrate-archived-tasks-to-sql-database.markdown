@@ -82,6 +82,8 @@ If you are using MySQL, a configuration property is required:
 
 You might require other configuration properties, depending on your setup.
 
+**Important:** To use XL Deploy with a supported database, ensure that the JDBC driver JAR file is located in XL_DEPLOY_SERVER_HOME/lib or on the Java classpath. For more information, see [Configure the XL Deploy repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html).
+
 For more information about upgrading XL Deploy, refer to [Upgrade XL Deploy](/xl-deploy/how-to/upgrade-xl-deploy.html).
 
 ### Known issues

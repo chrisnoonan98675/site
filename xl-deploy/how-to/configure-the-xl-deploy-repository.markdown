@@ -1,5 +1,5 @@
 ---
-title: Configure the XL Deploy repository
+title: Configure the XL Deploy JCR repository (XL Deploy 7.6 and earlier)
 categories:
 - xl-deploy
 subject:
@@ -9,6 +9,8 @@ tags:
 - repository
 - database
 weight: 156
+removed:
+- XL Deploy 8.0.0
 ---
 
 XL Deploy uses a repository to store all of its data such as configuration items (CIs), deployment packages, logging, etc. XL Deploy can use the filesystem or a database for binary artifacts (deployment packages) and CIs and CI history. By default, XL Deploy uses the filesystem to store all data in the repository.
@@ -58,6 +60,10 @@ Make sure the userid accessing the MySQL database has been granted the following
 This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for MySQL:
 
 {% highlight xml %}
+<?xml version="1.0"?>
+<!DOCTYPE Repository
+          PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 2.0//EN"
+          "http://jackrabbit.apache.org/dtd/repository-2.0.dtd">
 <Repository>
 
     <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
@@ -151,7 +157,11 @@ To use XL Deploy with [IBM DB2](http://www-01.ibm.com/software/data/db2/), ensur
 This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for DB2:
 
 {% highlight xml %}
-<Repository>
+<?xml version="1.0"?>
+<!DOCTYPE Repository
+          PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 2.0//EN"
+          "http://jackrabbit.apache.org/dtd/repository-2.0.dtd">
+<Repository>          
 
     <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
            <param name="driver" value="com.ibm.db2.jcc.DB2Driver"/>
@@ -240,6 +250,10 @@ To use XL Deploy with [Oracle](http://www.oracle.com/us/products/database/index.
 This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for Oracle:
 
 {% highlight xml %}
+<?xml version="1.0"?>
+<!DOCTYPE Repository
+          PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 2.0//EN"
+          "http://jackrabbit.apache.org/dtd/repository-2.0.dtd">
 <Repository>
     <FileSystem class="org.apache.jackrabbit.core.fs.db.OracleFileSystem">
        <param name="driver" value="oracle.jdbc.OracleDriver"/>
@@ -331,6 +345,10 @@ To use XL Deploy with [Microsoft SQL Server](https://www.microsoft.com/en-us/ser
 This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for SQL Server:
 
 {% highlight xml %}
+<?xml version="1.0"?>
+<!DOCTYPE Repository
+          PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 2.0//EN"
+          "http://jackrabbit.apache.org/dtd/repository-2.0.dtd">
 <Repository>
    <FileSystem class="org.apache.jackrabbit.core.fs.db.MSSqlFileSystem">
            <param name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
@@ -420,6 +438,10 @@ For more information about SQL Server configuration for Jackrabbit, refer to the
 This is a sample `XL_DEPLOY_SERVER_HOME/conf/jackrabbit-repository.xml` configuration for [PostgreSQL](https://www.postgresql.org/) database:
 
 {% highlight xml %}
+<?xml version="1.0"?>
+<!DOCTYPE Repository
+          PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 2.0//EN"
+          "http://jackrabbit.apache.org/dtd/repository-2.0.dtd">
 <Repository>
     <DataSources>
         <DataSource name="ds1">

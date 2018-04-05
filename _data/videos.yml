@@ -3,6 +3,8 @@
   videos:
     - title: Visibility, automation, and control with XL Release and XL Deploy
       id: vyAGFcFjdxI
+    - title: Benefits of the XebiaLabs Deployment Model
+      id: 6KYLoRP2HRI
     - title: A quick look at XL Deploy
       id: rmbH98YeWck
     - title: Getting started with XL Deploy - Introduction
@@ -30,7 +32,7 @@
     - title: Five unique XL Deploy features that workflow-based tools can't match
       id: MozM7bxuT4A
     - title: Provision cloud environments with XL Deploy
-      id: MpGNEPY-SrA
+      id: 5xy3Va68T30
 - product: xl-release
   name: XL Release
   videos:

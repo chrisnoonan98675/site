@@ -10,13 +10,13 @@ product-id: xl-deploy
 * [UDM CI Reference](udmcireference.html)
 * [REST API Reference](rest-api)
 * [Jython API Reference](/jython-docs/#!/xl-deploy/7.5.x/)
-* [Javadoc](/xl-deploy/7.5.x/javadoc/udm-plugin-api/index.html)
-* [UDM API Javadoc](/xl-deploy/7.5.x/javadoc/udm-plugin-api/index.html)
-* [XL Deploy Engine API Javadoc](/xl-deploy/7.5.x/javadoc/engine-api/index.html)
-* [XL Deploy Engine SPI Javadoc](/xl-deploy/7.5.x/javadoc/engine-spi/index.html)
-* [XL Endpoints API Javadoc](/xl-deploy/7.5.x/javadoc/xl-endpoints-api/index.html)
-* [XL Deploy satellite module CI reference](/xl-deploy/7.5.x/satellitecireference.html)
-* [XL Deploy satellite module](/xl-deploy/7.5.x/satellitecireference.html)
+* [Javadoc](/xl-deploy/7.6.x/javadoc/udm-plugin-api/index.html)
+* [UDM API Javadoc](/xl-deploy/7.6.x/javadoc/udm-plugin-api/index.html)
+* [XL Deploy Engine API Javadoc](/xl-deploy/7.6.x/javadoc/engine-api/index.html)
+* [XL Deploy Engine SPI Javadoc](/xl-deploy/7.6.x/javadoc/engine-spi/index.html)
+* [XL Endpoints API Javadoc](/xl-deploy/7.6.x/javadoc/xl-endpoints-api/index.html)
+* [XL Deploy satellite module CI reference](/xl-deploy/7.6.x/satellitecireference.html)
+* [XL Deploy satellite module](/xl-deploy/7.6.x/satellitecireference.html)
 
 ## Plugin reference documentation
 
@@ -65,13 +65,14 @@ product-id: xl-deploy
 
 * [XL Deploy plugin for Maven](/xldeploy-maven-plugin/7.0.x/)
 * [XL Deploy plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/XL+Deploy+Plugin)
-* [XL Deploy plugin for Bamboo](/bamboo-xl-deploy-plugin/5.1.x/bambooPluginManual.html)
-* [Puppet plugin for XL Deploy](/xl-deploy-xld-puppet-plugin/7.0.x/puppetPluginManual.html)
+* [XL Deploy plugin for Bamboo](/xl-deploy-bamboo-xl-deploy-plugin/7.5.x/bambooPluginManual)
+* [Puppet plugin for XL Deploy](/xl-deploy-xld-puppet-plugin/7.5.x/puppetPluginManual.html)
 * [Chef plugin for XL Deploy](/xl-deploy-xld-chef-plugin/6.0.x/chefPluginManual.html)
 * [Docker plugin for XL Deploy](/xl-deploy-xld-docker-plugin/7.0.x/dockerPluginManual.html)
 * [XL Deploy plugin for Team Foundation Server](/xl-deploy-tfs-plugin/7.0.x/tfsPluginManual.html)
 * [XL Deploy plugin for Team Foundation Server 2015](/xl-deploy-vsts-xld-plugin/7.0.x/tfs2015PluginManual.html)
 * [XL Deploy Manifest Editor (Windows only)](/xl-deploy/how-to/using-the-xl-deploy-manifest-editor.html)
+* [XL Deploy Script plugin](/xl-deploy-xld-script-plugin/7.5.x/scriptPluginManual.html)
 
 ### Provisioning plugins
 

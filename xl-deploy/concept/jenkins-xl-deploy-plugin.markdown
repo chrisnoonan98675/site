@@ -141,6 +141,12 @@ You can publish the same deployment package using one job to two XL Deploy insta
 
 ## Release notes
 
+### Version 7.5.0
+
+#### Improvements
+
+* DEPL-12826: Add override credentials in Jenkinsfile
+
 ### Version 6.1.1
 
 #### Improvements

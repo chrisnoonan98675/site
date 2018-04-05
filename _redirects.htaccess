@@ -54,6 +54,7 @@ Redirect 301 /xl-deploy/how-to/configure-the-release-dashboard.html /xl-deploy/c
 Redirect 301 /xl-release/help/configure-notification-settings.html /xl-release/how-to/configure-notification-settings.html
 Redirect 301 /xl-release/help/configure-risk-settings.html /xl-release/how-to/configure-risk-settings.html
 Redirect 301 /xl-release/help/plugin-manager.html /xl-release/how-to/using-the-plugins-manager.html
+Redirect 301 /xl-release/help/using-template-version-control.html /xl-release/how-to/using-template-version-control.html
 
 # XL TestView in-product links
 
@@ -220,6 +221,9 @@ Redirect 301 /xl-deploy/how-to/expose-additional-overthere-properties.html /xl-p
 Redirect 301 /xl-deploy/how-to/configure-the-xl-deploy-security-file.html /xl-deploy/how-to/connect-xl-deploy-to-ldap-or-active-directory.html
 Redirect 301 /xl-deploy/concept/xl-deploy-ec2-plugin.html /xl-deploy/concept/xl-deploy-aws-plugin.html
 Redirect 301 /xl-deploy/how-to/import-a-deployment-package.html /xl-deploy/how-to/add-a-package-to-xl-deploy.html
+Redirect 301 /xl-deploy/concept/team-foundation-server-2015-plugin.html /xl-deploy/concept/visual-studio-team-services-team-foundation-server-plugin.html
+Redirect 301 /xl-deploy/concept/team-foundation-server-plugin.html /xl-deploy/concept/team-foundation-server-xaml-plugin.html
+Redirect 301 xl-deploy/how-to/deploy-using-sequential-by-loadbalancer-orchestrator.html /xl-deploy/how-to/perform-rolling-deployments.html
 
 # XL Release topics
 

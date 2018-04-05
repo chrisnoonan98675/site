@@ -35,7 +35,6 @@ Lock tasks ensure your audit trail. If a team decides to skip certain activities
 By locking tasks you ensure that they are executed and also that evidence, along with task details, and signee information, is stored in the evidence database.
 
 ### Lock tasks and groups
-**Question: can we place locks on groups or are the locks only placed on tasks?**
 Using lock tasks in a group ensures that steps will be executed in a certain order. For example, a signoff can only be given after a static code scan.
 
-For more information on lock tasks and how to use them, see [place holder](http://www.jhohjjs.com)
+For more information on lock tasks and how to use them, see [place holder](http://www.jhohjjs.com).
