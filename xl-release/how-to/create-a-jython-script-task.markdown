@@ -10,13 +10,13 @@ tags:
 - jython
 ---
 
-A Jython Script task contains a Jython script that is executed on the XL Release server. This is an automated task that completes automatically when the script finishes successfully.
+A Jython Script task contains a Jython script that is executed on the XL Release server. This is an automated task that completes when the script finishes successfully.
 
-![Jython Script Task Details](../images/script-task-details.png)
+As of XL Release version 7.5.0, the inline script editor is used to enter script. Type or paste a Jython script into the **Script** field of the Jython script task details. To enlarge the script editor, click ![enlarge editor](../images/editor-btn.png). Pressing this button again will minimize the editor.
 
-Type or paste a Jython script in the **Script** field of the Jython Script task details. XL Release 4.7.0 and later supports Jython 2.7. Jython is the Java implementation of Python. This means that you have access to standard Python as well as the Java libraries included in Java 7.
+![Jython Script Task Details](../images/edit-jython-script.png)
 
-As of XL Release version 7.5.0, you can use the inline script editor to type the script you want to use in the **Script** field.
+ XL Release 4.7.0 and later supports Jython 2.7. Jython is the Java implementation of Python. This means that you have access to standard Python as well as the Java libraries included in Java 7.
 
 **Note:** The output of the Jython Script task is in markdown format. For more information, refer to [Using Markdown in XL Release](/xl-release/how-to/using-markdown-in-xl-release.html).
 
