@@ -22,6 +22,7 @@ product-id: xl-release
 * [Blackduck plugin](/xl-release/how-to/blackduck-plugin.html)
 * [Fortify SSC plugin](/xl-release/how-to/fortify-ssc-plugin.html)
 * [Sonarqube plugin](/xl-release/how-to/sonarqube-plugin.html)
+* [Remote completion plugin](/xl-release/how-to/using-the-remote-completion-plugin.html)
 
 ### Tools
 
