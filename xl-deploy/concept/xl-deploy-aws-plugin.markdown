@@ -21,9 +21,17 @@ The Amazon Web Services (AWS) plugin for XL Deploy supports:
 * Using Amazon's Elastic Load Balancing feature for EC2 instances
 * Creating and using Simple Storage Service (S3) buckets for file storage
 * Provisioning EC2 Container Service (ECS) clusters, tasks, and services
-* Working with EC2 Container Registry (ECR) repositories
 * Using the Relational Database Service (RDS) for databases
 * Using the Elastic Block Store (EBS) for persistent block storage
+* Provisioning AWS Elastic Compute Cloud (EC2) instances and deploying applications to those instances
+* Deploying network configurations such as Virtual Private Cloud (VPC) instances, subnets, routing tables, and network interfaces
+* Deploying load balancing configurations to AWS Elastic Load Balancing (ELB)
+* Deploying storage configurations such as Elastic Block Store (EBS) volumes and Simple Storage Service (S3) buckets for file storage
+* Deploying content to S3 buckets
+* Deploying tasks and services to ECS clusters
+* Provisioning and working with EC2 Container Registry (ECR) repositories
+* Provisioning and working with Relational Database Service (RDS) instances
+* Deploying AWS Lambda functions
 * Provisioning AWS API Gateway to invoke Lambda functions
 
 **Note:** Prior to version 6.2.0, the plugin was called the XL Deploy EC2 plugin.

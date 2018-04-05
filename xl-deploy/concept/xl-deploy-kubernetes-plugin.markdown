@@ -13,10 +13,14 @@ since:
 
 The XL Deploy Kubernetes (K8s) plugin supports:
 
+* Creating Namespaces
 * Deploying Kubernetes Namespaces and Pods
 * Deploying Deployment Configs
 * Mounting volumes on Kubernetes Pods
-* Deploying Secrets, Config Maps, and Services on Kubernetes clusters
+* Deploying containers in the form of Pods, Deployments, and StatefulSets including all the configuration settings such as environment variables, networking, and volume settings, as well as liveness and readiness probes
+* Deploying volume configuration through PersistentVolumes, PersistentVolumeClaims, and StorageClasses
+* Deploying proxy objects such as Services and Ingresses
+* Deploying configuration objects such as ConfigMaps and Secrets
 
 For more information about the XL Deploy Kubernetes plugin requirements and the configuration items (CIs) that the plugin supports, refer to the [Kuberenetes Plugin Reference](/xl-deploy-xld-kubernetes-plugin/latest/kubernetesPluginManual.html).
 
