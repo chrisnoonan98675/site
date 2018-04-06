@@ -83,7 +83,7 @@ When a CI property of the `STRING` type contains security keys like in `.pem` or
 
 You can also use the absolute path:
 
-        read('/var/.ssh/apiserver.pem').        
+        read('/var/.ssh/apiserver.pem')        
 
 The XL deploy server handles the rest of the process.
 

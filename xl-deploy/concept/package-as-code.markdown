@@ -35,6 +35,7 @@ Syntaxes to define an application:
 
          deploy('app', '1.0'){}
          deploy('directory/app', '1.0'){}
+         deploy('Application/app', '1.0'){}   
          deploy('Applications/directory/app', '1.0'){}
 
 You can also specify the target environment to deploy your package:
