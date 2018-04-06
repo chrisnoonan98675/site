@@ -26,6 +26,8 @@ The XL Deploy Cloud Foundry plugin supports:
 
 ## Create the Cloud Foundry organization
 
+To create a Cloud Foundry organization in XL Deploy:
+
 1. Under **Infrastructure**, create a `cloudFoundry.Organization` CI.
 2. Specify the following properties:
     * **Organization Name**: Organization name on the Cloud Foundry server.
@@ -33,14 +35,19 @@ The XL Deploy Cloud Foundry plugin supports:
     * **Username**: User name to use for authentication.
     * **Password**: Password to use for authentication.
 
-## Provision a Cloud Foundry space using a CI
+## Provision a Cloud Foundry space
+
+To provision a new Cloud Foundry space:
 
 1. Under **Applications**, create an application (`udm.Application`) and deployment package (`udm.DeploymentPackage`).
-2. Under the deployment package, create a `cloudFoundry.SpaceSpec` CI. Specify the following properties:
-    * **Space Name**: Space name to use. If not provided, the CI name will be used as the space name.
-    * Alternatively we can also use already created spaces by creating them on `cloudFoundry.Organization` by clicking on it in Infrastructure.
+2. Under the deployment package, create a `cloudFoundry.SpaceSpec` CI.
+3. Specify the **Space Name** to use. If not provided, the CI name will be used as the space name.
+
+Alternatively, you can use a space that already exists in Cloud Foundry by creating a `cloudFoundry.Space` CI under the `cloudFoundry.Organization` CI (in **Infrastructure**).
 
 ##  Push an application to Cloud Foundry
+
+To push an application to Cloud Foundry:
 
 1. Under **Applications**, create an application (`udm.Application`) and deployment package (`udm.DeploymentPackage`).
 2. Under the deployment package, create a `cloudFoundry.AppSpec` CI. Specify the following required properties:
@@ -49,11 +56,15 @@ The XL Deploy Cloud Foundry plugin supports:
 
 ## Configure Cloud Foundry services
 
+To configure Cloud Foundry services:
+
 1. Under **Applications**, create an application (`udm.Application`) and deployment package (`udm.DeploymentPackage`).
 2. Under the deployment package, create a `cloudFoundry.Services` CI.
 3. Specify the **Service Type**.
 
 ## Push an application to Cloud Foundry using a manifest
+
+To push an application to Cloud Foundry:
 
 1. Under **Applications**, create an application (`udm.Application`) and deployment package (`udm.DeploymentPackage`).
 2. Under the deployment package, create a `cloudFoundry.ManifestModuleSpec` CI.
