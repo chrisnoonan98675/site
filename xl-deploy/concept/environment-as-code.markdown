@@ -71,6 +71,38 @@ These are examples of the Groovy format for CI property kinds:
 | Date | `date('2017-06-28T18:40:35')` |
 | Enum | `FRIDAY` or `java.time.DayOfWeek.FRIDAY` |
 
+### Use `ref` and `read` syntaxes
+
+The `ref` syntax represents any CI property of the CI kind or individual elements of `SET_OF_CI` or `LIST_OF_CI`. Example:
+
+        members = [ref('Infrastructure/CICD/test_server_1.0.0')]
+
+When a CI property of the `STRING` type contains security keys like in `.pem` or `.cert` files, use the `read` syntax to wrap your file path instead of copying the content of those files in your Deployfile.
+
+        read('CA.cert')
+
+You can also use the absolute path:
+
+        read('/var/.ssh/apiserver.pem').        
+
+The XL deploy server handles the rest of the process.
+
+#### Example how to create a docker engine using a Deployfile:
+
+          xld {
+            define(
+              forInfrastructure: 'Infrastructure/dir'
+            ) {
+              infrastructure('dockerEngine', 'docker.Engine') {
+                dockerHost = 'tcp://127.0.0.1:2336'
+                enableTLS = true
+                certPem = read('/Users/admin/.docker/machine/machines/node1/cert.pem')
+                keyPem = read('certs/key.pem')
+                caPem = read('../ca.pem')
+              }
+            }
+          }
+
 ### Set permissions on directories
 
 You can set local permissions on the directories that will be created or modified when a Deployfile is applied. For example, to create an empty directory with permissions set on it:
@@ -164,6 +196,12 @@ You can use the XL Deploy REST API or the command-line interface (CLI) to apply 
 
 **Note:** For security reasons, Deployfiles are applied in a sandbox that does not have access to XL Deploy APIs.
 
+### Apply a Deployfile using the Lightweight CLI
+
+To apply a Deployfile, open a command terminal and execute this command:
+
+        xld --url http://xl-deploy.mycompany.com:4516 --username john --password secret01 apply /Users/john/Deployfile
+
 ### Apply a Deployfile using the REST API
 
 This is an example of applying a Deployfile using cURL:
@@ -181,7 +219,19 @@ from java.io import File
 repository.applyDeployfile(File("/path/to/file.groovy"))
 {% endhighlight %}
 
-## Security recommendations when using environment as code
+## Security recommendations when using the Deployfile
 
-* Use the *generate#dsl* local permission to limit the users who can export CIs containing sensitive data (encrypted property values such as password properties).
-* Use [property placeholders](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html#property-placeholders) instead of storing sensitive data directly in CIs.
+Use [property placeholders](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html#property-placeholders) instead of storing sensitive data directly in CIs.
+
+### Generate encrypted values
+
+To generate encrypted values using the Lightweight CLI, execute this command:
+
+        xld --url http://localhost:4516 --username admin --password admin - encrypt
+
+You will prompted with this message: `What is plain text to encrypt?`. Enter the value to be encrypted, for example: `mypassword`.
+To encrypt a value using the CLI, execute this command:
+
+        repository.encrypt("My password")
+
+Both examples of commands return an encrypted value such as `{b64}jnlt/MPFYnteuHr5rbCvzw==`. You can use this value as `encryptedString` wrapped in `encrypted('{b64}jnlt/MPFYnteuHr5rbCvzw==')`.        
