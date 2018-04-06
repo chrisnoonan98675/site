@@ -22,6 +22,8 @@ The XL Deploy Terraform plugin supports:
 
 ## Create the Terraform client
 
+To create a Terraform client in XL Deploy:
+
 1. Under **Infrastructure** create an `overthere.SshHost` or `overthere.LocalHost` CI, depending on the location of the Terraform client.
 2. Under the host, create a `terraform.TerraformClient` CI. Specify the following properties:
     * `path`: The path where the Terraform client executable is available.
@@ -29,6 +31,8 @@ The XL Deploy Terraform plugin supports:
     * `workingDirectory`: The path where Terraform maintains its state for incremental deployments. This is an optional property.
 
 ## Configure Terraform resources using artifact-based deployables
+
+To configure Terraform resources:
 
 1. Under **Applications**, create an application (`udm.Application`) and a deployment package (`udm.DeploymentPackage`).
 2. Under the deployment package, create a `terraform.Module` CI. Specify the following properties:
