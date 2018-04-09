@@ -1,16 +1,15 @@
 ---
-title: Lock tasks (XL Release 8.0)
-
+title: Lock tasks
 categories:
 - xl-release
 subject:
-- Lock tasks
+- Tasks
 tags:
-- Releases
-- Lock tasks
-- Locks
+- releases
+- lock tasks
+- locks
 since:
-- XL Release 8.0
+- XL Release 8.0.0
 ---
 
 ## Lock tasks
@@ -37,4 +36,4 @@ By locking tasks you ensure that they are executed and also that evidence, along
 ### Lock tasks and groups
 Using lock tasks in a group ensures that steps will be executed in a certain order. For example, a signoff can only be given after a static code scan.
 
-For more information on lock tasks and how to use them, see [place holder](http://www.jhohjjs.com).
+For more information on lock tasks and how to use them, see see [Configure lock tasks](/xl-release/how-to/configure-lock-tasks.html).

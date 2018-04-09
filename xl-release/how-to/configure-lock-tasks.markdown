@@ -1,17 +1,15 @@
 ---
-
 title: Configuring lock tasks
-
 categories:
--XL-release
-
+- xl-release
 subject:
--lock tasks
-
+- Tasks
 tags:
 - Releases
 - Lock tasks
 - Locks
+since:
+- XL Release 8.0.0
 ---
 
 In XL Release 8.0 and later, the lock task feature is available. Lock tasks are mandatory. If a lock task occurs during a release, this task needs to be executed before the release can continue.
@@ -100,4 +98,3 @@ The following section defines what actions are available when a task is locked.
 - Edit input or output properties
 - Edit title, template, risk profile, or release ID
 - Edit the variable list
-
