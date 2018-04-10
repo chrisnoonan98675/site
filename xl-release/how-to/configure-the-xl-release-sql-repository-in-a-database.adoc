@@ -251,7 +251,7 @@ xl {
 
 === Oracle
 
-Download the link:http://www.oracle.com/technetwork/database/features/jdbc/index- 091264.html[Oracle JDBC driver] JAR file and place it in the `XL_RELEASE_SERVER_HOME/lib` folder.
+Download the link:http://www.oracle.com/technetwork/database/features/jdbc/default-2280470.html[Oracle JDBC driver] JAR file and place it in the `XL_RELEASE_SERVER_HOME/lib` folder.
 
 Next, configure `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` to point to the database schema. This is a sample configuration for Oracle:
 
