@@ -34,9 +34,9 @@ The default setting in XL Deploy is to use the internal database that stores the
 * When the installation is upgraded to a new version, XL Deploy creates and maintains the database schema. The database administrator requires the following permissions on the database: REFERENCES, INDEX, CREATE, DROP, in addition to the permissions used in operation: SELECT, INSERT, UPDATE, DELETE.
 
 * Table definitions in XL Deploy use limited column sizes. You must configure this for all the supported databases to prevent these limits from restricting users in how they can use XL Deploy.
-Example: The ID of a Configuration Item (CI) is a path-like structure and consists of the concatenation of the names of all the parent folders for the CI. A restriction is set on the length of this combined structure. For the majority of the Relational Database Management Systems (RDBMSes), the maximum length is 2000. For MySQL and MS SQL Server, the maximum length is 1024.
+Example: The ID of a Configuration Item (CI) is a path-like structure and consists of the concatenation of the names of all the parent folders for the CI. A restriction is set on the length of this combined structure. The maximum character length for all the supported databases is set to 850 chars.
 
-XL Deploy can be configured to use two different database connections: one for primary XL Deploy data and one for the task archive. Both database connections can be configured in the `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf` file. The main database connection can be configured under the repository key and the database connection for the task archive can be configured under the reporting key. The default configuration for the repository database connection is also used for the reporting connection.
+XL Deploy can be configured to use two different database connections: one for primary XL Deploy data and one for the task archive. Both database connections can be configured in the `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf` file. The main database connection can be configured under the `repository` key and the database connection for the task archive can be configured under the `reporting` key. The default configuration for the `repository` database connection is also used for the `reporting` connection.
 
 For information about:
 
