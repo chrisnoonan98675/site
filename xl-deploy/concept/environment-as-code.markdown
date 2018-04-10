@@ -32,26 +32,28 @@ This is a sample Deployfile that defines a `docker.SwarmManager` CI, an environm
 
 {% highlight groovy %}
 xld {
-  define(forInfrastructure: 'Infrastructure/CICD') {
-    infrastructure('test_server_1.0.0', 'overthere.LocalHost') {
-      os = com.xebialabs.overthere.OperatingSystemFamily.UNIX
+  define(forInfrastructure: directory('Infrastructure/MyInfra') {
+        permissions = [
+          'admins': ['read', 'controltask#execute', 'generate#dsl', 'repo#edit'],
+          'deployer': ['read', 'controltask#execute', 'repo#edit']
+        ]
+      }
+    ) {
+      infrastructure('dkr-prd-mgr', 'docker.SwarmManager') {
+        dockerHost = 'tcp://192.168.99.103:2376'
+        registries = [
+          ref('Configuration/Docker/Docker Hub')
+        ]
+      }
     }
-    infrastructure('test_server_2.0.0', 'overthere.LocalHost') {
-      os = com.xebialabs.overthere.OperatingSystemFamily.UNIX
+  define(forEnvironments: 'Environments/Production') {
+       environment('PROD') {
+        members = [
+           ref('Infrastructure/Docker/dkr-prd-mgr')
+         ]
+         dictionaries = [dictionary('Production Settings', ['logFilePath': '/tmp', 'HOST_PORT': '8181', 'title': 'Dockerized SampleApp', 'timeout': '8', 'logLevel': 'WARN'])]
     }
   }
-  define(forEnvironments: 'Environments/XLD') {
-    environment('ACC') {
-      members = [
-        ref('Infrastructure/CICD/test_server_1.0.0')
-      ]
-    }
-    environment('Staging') {
-      members = [
-       ref('Infrastructure/CICD/test_server_2.0.0')
-      ]
-    }    
-  }  
 }
 {% endhighlight %}
 

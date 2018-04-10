@@ -77,35 +77,42 @@ Deployfile example using the `upload` syntax:
 
 ### Sample of a basic Deployfile
 
+To use this example, you must have [Minikube](https://kubernetes.io/docs/getting-started-guides/minikube/#installation) installed and running.
+
 {% highlight groovy %}
 xld {
-  define(forInfrastructure: 'Infrastructure/CICD') {
-    infrastructure('test_server_1.0.0', 'overthere.LocalHost') {
-      os = com.xebialabs.overthere.OperatingSystemFamily.UNIX
-    }
-    infrastructure('test_server_2.0.0', 'overthere.LocalHost') {
-      os = com.xebialabs.overthere.OperatingSystemFamily.UNIX
+  define(
+    forInfrastructure: 'Infrastructure/Kubernetes'
+  ) {
+    // single-node Kubernetes cluster inside a VM on your laptop
+    infrastructure('minikube', 'k8s.Master') {
+      apiServerURL = 'https://192.168.99.100:8443' // adapt IP based on your installation
+      caCert = read('/Users/john/.minikube/ca.crt') // adapt path based on your configuration
+      tlsCert = read('/Users/john/.minikube/apiserver.crt') // adapt path
+      tlsPrivateKey = read('/Users/john/.minikube/apiserver.key') // adapt path
     }
   }
-  define(forEnvironments: 'Environments/XLD') {
-    environment('ACC') {
+  define(
+    forEnvironments: 'Environments/Kubernetes'
+  ) {
+    environment('minikube') {
       members = [
-        ref('Infrastructure/CICD/test_server_1.0.0')
+        ref('Infrastructure/Kubernetes/minikube')
       ]
     }
-    environment('Staging') {
-      members = [
-       ref('Infrastructure/CICD/test_server_2.0.0')
-      ]
-    }
-    dictionary('PetDictionaryDev', [
-      'username': 'admin',
-      'securePassword': 'secret'
-    ])
   }
-  deploy('PetPortal', '1.1.0') {      
-    deployable('PetClinic-ear', 'jee.Ear') {
-      fileUri = upload("PetClinic-1.0.ear")
+  deploy('kube-redis', '5.0.2-15') {
+    deployable('redis-deployment', 'k8s.DeploymentSpec') {
+      containers = [
+        embeddedDeployable('redis-container', 'k8s.ContainerSpec') {
+          containerName = 'redis-container'
+          image = 'redis:5.0.2-15'
+        }
+      ]
+      labels = [
+        'key': 'value'
+      ]
+      replicasCount = '2'
     }
   }
 }
@@ -130,40 +137,52 @@ There are three options to deploy using the Deployfile:
                     fileUri = upload("PetClinic-1.0.ear")
                   }
 
-### Create a deployment or provisioning package
+### Create a provisioning package
 
-This sample Deployfile creates a provisioning package using the `template` syntax:
+This sample Deployfile creates a `aws.Cloud` CI, an environment, and a provisioning package using the `template` and `embeddedDeployable` syntaxes:
 
 {% highlight groovy %}
 xld {
-  provision('provision', '1.0') {
-    deployable('MySpec', 'dummyCis-test.DummyProvisionable') {
-        boundTemplates = [
-                relRef('createAmi')
-        ]
+  define(
+    forInfrastructure: 'Infrastructure/Cloud'
+  ) {
+    infrastructure('AWS', 'aws.Cloud') {[
+      // See documentation of `xld encrypt` on how to secure sensitive values
+      accesskey = 'yourEncryptedAWSAccountAccessKeyID',
+      accessSecret = 'yourEncryptedAWSAccountSecretAccessKey']
     }
-    template('createAmi', 'template.dummyCis-test.DummyTestCi') {
-        stringProperty = "testString"
+  }
+  define(
+    forEnvironments: 'Environments/Cloud'
+  ) {
+    environment('AWS') {
+      members = [
+        ref('Infrastructure/Cloud/AWS')
+      ]
+    }
+  }
+  provision('Applications/AWS/Provisioning EC2 - Apache + Tomcat', '1.0.1') {
+    deployable('awsec2', 'aws.ec2.InstanceSpec') {
+      boundTemplates = [
+        relRef('sshHost')
+      ]
+      region = 'south-west'
+    }
+    template('sshHost', 'template.overthere.SshHost') {
+      childTemplates = [
+        embeddedDeployable('tomcat', 'template.tomcat.Server') { host = relRef('sshHost')
+        home = '/opt/bin'
+        startCommand = 'start.sh'
+        stopCommand = 'stop.sh'
+      }]
+      os = 'UNIX'
+      address = '127.0.0.1'
+      username = 'admin'
+      password = 'encryptedPwd' // See documentation for `xld encrypt` command
     }
   }
 }
 {% endhighlight %}    
-
-This sample Deployfile creates a deployment package using the `embeddedDeployable` syntax:
-
-{% highlight groovy %}
-xld {
- deploy('MyApp', '1.0') {
-  deployable('dummyci', 'dummyCis-test.DummyTestDeployable') {
-   embeddedlistOfcis = [
-           embeddedDeployable('embeddedDeployable', 'dummyCis-test.DummyTestEmbeddedDeployable') {
-            stringProp = "someProp"
-           }
-   ]
-  }
- }
-}
-{% endhighlight %}   
 
 ### Deploy an application using the Lightweight CLI
 
