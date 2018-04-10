@@ -24,7 +24,7 @@ Locked tasks can be:
 
   Or
 
-- Manual - for a release to continue, a user will need to sign-off in XL Release, or by remote approval.
+- Manual - for a release to continue, a user will need to sign-off in XL Release, or by [remote approval](/xl-release/how-to/using-the-remote-completion-plugin.html).
 
 ### Lock permissions and pipeline design
 Lock permission is role based and must be added to a user's profile before they can lock or unlock tasks. We recommend that this role is given to users who create release pipelines, or specific compliance people. Before adding lock tasks, specify, design, and test your complete pipeline. Adding locks before the pipeline is designed and tested will make the design process complex.
