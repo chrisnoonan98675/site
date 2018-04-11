@@ -31,11 +31,9 @@ Example: The ID of a Configuration Item (CI) is a path-like structure and consis
 
 XL Deploy can be configured to use two different database connections: one for primary XL Deploy data and one for the task archive. Both database connections can be configured in the `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf` file. The main database connection can be configured under the repository key and the database connection for the task archive can be configured under the reporting key. The default configuration for the repository database connection is also used for the reporting connection.
 
-## Upgrade from XL Deploy version 7.5.0 to version 8.0.0
+## Upgrade XL Deploy to version 8.0.0
 
-**Important:** When you upgrade from version 7.5.0 to 8.0.0, XL Deploy uses a database connection for the task archive that can be configured under the reporting key. To use this same configuration for both the repository connection and the reporting connection, rename the key to repository. If you do not modify the configuration, XL Deploy will use the reporting connection configuration for the task archive and will use the default configuration (the internal database) for the primary connection. This situation is not correct and may cause issues for any installation.
-
-## Upgrade from XL Deploy version 7.2.0 or earlier to version 8.0.0
+**Important:** When you upgrade from version 7.5.0 to 8.0.0, XL Deploy uses a database connection for the task archive that can be configured under the `reporting` key. To use this same configuration for both the repository connection and the reporting connection, rename the key to `repository`. If you do not modify the configuration, XL Deploy will use the reporting connection configuration for the task archive and will use the default configuration (the internal database) for the primary connection. This situation is not correct and may cause issues for any installation.
 
 To upgrade an existing XL Deploy installation to version 8.0.0, the data must to be converted from the JackRabbit (JCR) format to the new SQL format. The process has two stages:
 
@@ -49,6 +47,8 @@ During the migration, the change history data will become available to the syste
 The upgrade process applies any upgraders that have not been applied to the data in the JCR repository. Then it migrates the data from the JCR format to the new SQL format.
 
 If the migration of the archived tasks (part of the upgrade to version 7.5.0) has not been completed, it will also start running during this operation.
+
+**Important** Ensure that you always [create a backup of your repository](/xl-deploy/how-to/back-up-xl-deploy.html) before you upgrade to a new version of XL Deploy.
 
 To perform the upgrade:
 
