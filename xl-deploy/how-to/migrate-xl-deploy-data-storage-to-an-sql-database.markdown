@@ -13,7 +13,7 @@ since: XL Deploy 8.0.0
 
 ## Requirements
 
-* A database connection configured in the `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf` file. This file is available in the installation with all the configuration settings commented out. When the configuration settings are commented out, XL Deploy uses the default settings.
+* A database connection configured in the `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf` file. A sample `xl-deploy.conf.example` file is available in the installation folder in `XL_DEPLOY_SERVER_HOME/conf`. When the custom database configuration settings are not set in `xl-deploy.conf`, XL Deploy uses the default settings.
 * A JDBC `jar` library in the `XL_DEPLOY_SERVER_HOME/lib` folder compatible with your selected database.
 
 ## Database usage in XL Deploy
