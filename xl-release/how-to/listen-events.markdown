@@ -14,11 +14,56 @@ As of XL Release version 8.0.0, your custom code can react on activity log event
 
 ## Example
 
-In the following example, you can see how to listen to one of the XL Release events and react to it. First of all, if you are using `maven` or `gradle` to build your plugin you have to add XebiaLabs maven repository: `https://dist.xebialabs.com/public/maven2` and the following dependency: `com.xebialabs.xlrelease:xlr-api:8.0.0`
+In the following example, you will see how to listen to one of the XL Release events and react to it. First of all, if you are using `maven` or `gradle` to build your plugin you have to add XebiaLabs maven repository: `https://dist.xebialabs.com/public/maven2` and the following dependency: `com.xebialabs.xlrelease:xlr-api:8.0.0`
 
-Now let's create a Java class `PhaseNotifiyListener` inside the `com.example.plugin` package.
+### Gradle
 
-XL Release uses [java ServiceLoader](https://docs.oracle.com/javase/7/docs/api/java/util/ServiceLoader.html) to discover your custom listeners. You must create a file with the name `com.xebialabs.xlrelease.events.XLReleaseEventListener` inside your `.jar` file under the `META-INF/services` directory.
+    repositories {
+      ...
+      maven {
+        url 'https://dist.xebialabs.com/public/maven2'
+      }
+    }
+    dependencies {
+      ...
+      compile: "com.xebialabs.xlrelease:xlr-api:8.0.0"
+    }
+
+
+### Maven
+
+    <project>
+      ...
+      <repositories>
+        <repository>
+          <id>xebialabs-dist-repo</id>
+          <name>Xebialabs maven repostiroy</name>
+          <url>https://dist.xebialabs.com/public/maven2</url>
+        </repository>
+      </repositories>
+      ...
+      <dependencies>
+        ...
+        <dependency>
+          <groupId>com.xebialabs.xlrelease</groupId>
+          <artifactId>xlr-api</artifactId>
+          <version>8.0.0</version>
+        </dependency>
+      </dependencies>
+      ...
+    </project>
+
+Here is a sample of the directories inside your plugin structure:
+
+    phase-notify-plugin
+    ├── META-INF/services
+    │   └── com.xebialabs.xlrelease.events.XLReleaseEventListener
+    └── com/example/plugin
+        └── PhaseNotifiyListener.java
+
+XL Release uses [java ServiceLoader](https://docs.oracle.com/javase/7/docs/api/java/util/ServiceLoader.html) to discover your custom listeners.
+
+You must create a file with the name `com.xebialabs.xlrelease.events.XLReleaseEventListener` inside your `.jar` file under the `META-INF/services` directory.
 
     META-INF/services/com.xebialabs.xlrelease.events.XLReleaseEventListener
 
@@ -26,7 +71,7 @@ The content of the file is a line with the implementation of the `XLReleaseEvent
 
     com.example.plugin.PhaseNotifiyListener
 
-The content of your class:
+Now we will create a Java class `PhaseNotifiyListener` inside the `com.example.plugin` package:
 
 {% highlight java %}
 
@@ -54,6 +99,38 @@ public class PhaseNotifiyListener implements XLReleaseEventListener {
 Your java class must implement the interface `XLReleaseEventListener` (same as the file created under `META-INF/services`). The method with the event logic must be annotated with `@AsyncSubscribe`. This `TestListener` is listening to all `ActivityLogEvent`, if the type of event is a `PHASE_STARTED` and contains our critical phase name, sends an alert to `all@xebialabs.com` that a critical phase has started.
 
 **Important:** As this class is instantiated by XL Release, the constructor cannot have any argument.
+
+## Using the Configuration API
+
+It is also possible to use the [Configuration API](https://docs.xebialabs.com/jython-docs/#!/xl-release/8.0.x//service/com.xebialabs.xlrelease.api.v1.ConfigurationApi) from your java class. You just need to create a private field with the `@Resource` annotation and XL Release will inject the interface for you.
+
+{% highlight java %}
+
+package com.example.plugin;
+
+import javax.annotation.Resource;
+
+import com.xebialabs.xlrelease.api.v1.ConfigurationApi;
+import com.xebialabs.xlrelease.domain.events.ActivityLogEvent;
+import com.xebialabs.xlrelease.events.AsyncSubscribe;
+import com.xebialabs.xlrelease.events.XLReleaseEventListener;
+
+public class PhaseNotifiyListener implements XLReleaseEventListener {
+
+  @Resource
+  private ConfigurationApi configurationApi;
+
+  @AsyncSubscribe
+  public void notifyCriticalPhaseStarted(ActivityLogEvent event) {
+    configurationApi.searchByTypeAndTitle(.......)
+    ...
+  }
+
+}
+
+{% endhighlight %}
+
+
 
 ## List of activity types
 
