@@ -25,6 +25,15 @@ The supported basic resource types are:
 * `BuildConfig` - the definition of a build process, which involves taking input parameters or source code and producing a runnable Docker image
 * `DeploymentConfig` - the definition of a deployment strategy, which involves the creation of a Replication Controller, the triggers to create a new deployment, the strategy for transitioning between deployments, and the life cycle hooks
 
+## Features
+
+* Creating Projects
+* Configuring ImageStteams
+* Deploying containers in the form of DeploymentConfigs including all the configuration settings such as environment variables, networking and volume settings, as well as liveness and readiness probes
+* Deploying volume configuration  through PersistentVolumes, PersistentVolumeClaims and StorageClasses
+* Deploying proxy objects such as Services and Routes
+* Deploying configuration objects such as ConfigMaps and Secrets
+
 ## Setup in OpenShift
 
 To deploy on OpenShift, you must have two parameters:

@@ -167,7 +167,7 @@ Note that:
 This is an example of generating a Deployfile using cURL:
 
 {% highlight curl %}
-curl --user "matt:secret01" --request GET 'http://localhost:4516/deployfile/generate?folder=Environments/MyEnvs'
+curl --user "matt:secret01" --request GET 'http://localhost:4516/deployit/deployfile/generate?folder=Environments/MyEnvs'
 {% endhighlight %}
 
 ### Generate a Deployfile using the CLI
@@ -209,7 +209,7 @@ To apply a Deployfile, open a command terminal and execute this command:
 This is an example of applying a Deployfile using cURL:
 
 {% highlight curl %}
-curl -v --user "matt:secret01" --request POST -H "Content-Type: text/plain" --data 'xld {define(forEnvironments: "Environments/MyEnvs"){}}' 'http://localhost:4516/deployfile/apply'
+curl -v --user "matt:secret01" --request POST -H "Content-Type: text/plain" --data 'xld {scope(forEnvironments: "Environments/MyEnvs"){}}' 'http://localhost:4516/deployit/deployfile/apply'
 {% endhighlight %}
 
 ### Apply a Deployfile using the CLI

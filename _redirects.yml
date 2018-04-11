@@ -98,6 +98,8 @@
 /xl-deploy-xld-azure-plugin/latest/azurePluginManual.html : /xl-deploy-xld-azure-plugin/7.5.x/azurePluginManual.html
 /xl-deploy-xld-provision/latest/xldProvisioningManual.html : /xl-deploy-xld-provision/5.5.x/xldProvisioningManual.html
 /xl-deploy-xld-aws-plugin/latest/awsPluginManual.html : /xl-deploy-xld-aws-plugin/7.5.x/awsPluginManual.html
+/xl-deploy-xld-terraform-plugin/latest/terraformPluginManual.html : /xl-deploy-xld-terraform-plugin/8.0.x/terraformPluginManual.html
+/xl-deploy-xld-cloud-foundry-plugin/latest/cfPluginManual.html : /xl-deploy-xld-cloud-foundry-plugin/8.0.x/cfPluginManual.html
 /xl-deploy-xld-provision-puppet-plugin/latest/provisionPuppetPluginManual.html : /xl-deploy-xld-provision-puppet-plugin/5.5.x/provisionPuppetPluginManual.html # The Provision Puppet plugin was merged into the Puppet plugin in XLD 6.0.2
 
 # XL Deploy container platforms

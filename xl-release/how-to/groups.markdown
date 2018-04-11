@@ -8,16 +8,26 @@ subject:
 tags:
 - releases
 - group
+<<<<<<< HEAD
 since:
 - XL Release 8.0
 ---
 
 In XL Release 8.0 and later, the release group feature is available. By grouping releases together, you can manage a collection of releases as one group. Releases can be added to multiple release groups, and into multiple folders. The release group feature also provides estimates on when the release group will start and finish, based on the schedule and other tasks that are being executing at the same time.
+=======
+---
+
+By grouping releases together, you can manage a collection of releases together as one group. Releases can be added to multiple release groups, and into multiple folders. The release group feature also provides estimates on when the release group will start and finish, based on the schedule and other tasks that are being executing at the same time.
+>>>>>>> master
 
 ## Release group overview screen
 This screen shows all release groups based on status. From this screen, you can view start and end dates, completion status, duration, and the number of releases per group. You can also edit group details and delete groups.
 
+<<<<<<< HEAD
 ![Release group overview](../images/release-groups-overview.png)
+=======
+<!-- ![Release group overview](../images/release-groups-overview.png) -->
+>>>>>>> master
 
 ## Release group flow screen
 This screen shows detailed information on the releases that are in a release group. From this screen, you can add and remove releases, view the release group schedule, view planned and estimated completion dates. Selecting a release item in this screen will open the release flow screen for an individual release.
@@ -25,6 +35,7 @@ This screen shows detailed information on the releases that are in a release gro
 ![Release group flow screen](../images/Release-group-flow-screen.png)
 
 ## Release group actions
+<<<<<<< HEAD
 Group actions are role based and permissions must be granted to a user or team before they can view, edit, or create release groups.
 
 ### Grant release group permissions
@@ -37,6 +48,8 @@ Group actions are role based and permissions must be granted to a user or team b
  **Note:** The edit release group permission is required to create release groups.
 
  ![release-group-permissions](../images/release-group-permissions.png)
+=======
+>>>>>>> master
 
 ### Create a new group
 1. On the navigation bar, click **Design**.
@@ -65,7 +78,11 @@ You can edit group details from two locations:
  1. On the navigation bar, click **Design**.
  1. Click **Folders**.
  1. Select a folder.
+<<<<<<< HEAD
  1. From the tab, click **Groups**.
+=======
+ 1. From the tab, click Groups.
+>>>>>>> master
  1. On the right of a group, click **Edit**.
  1. Edit group details.
  1. Click **Save**.    
@@ -89,18 +106,37 @@ You can edit group details from two locations:
  1. Click **Select all** or select the releases you want to add.
  1. Click **Add**.
 
+<<<<<<< HEAD
  ![Add multiple releases to a group](../images/bulk-add-releases.png)
 
 ### Remove a release from a group
 You can remove a release from group in two locations:   
 
 - From the Releases screen:
+=======
+ ![Add multiple releases to a group](../images/add-bulk-release.png)
+
+### Remove a release from a group
+>>>>>>> master
  1. On the navigation bar, click **Releases**.
  1. Click **Groups**.
  1. Click the group name.
  1. Beside the release name, click ![menu button](../images/menuBtn.png)
+<<<<<<< HEAD
  1. Click **Remove from group**.   
  <br/>   
+=======
+ 1. Click **Remove from group**.
+
+### Delete a group
+You can delete a group from two locations:
+
+- From the Release screen:
+ 1. On the navigation bar, click **Releases**.
+ 1. Click **Groups**.
+ 1. On the right side of the group, click **Delete**.   
+ <br/>
+>>>>>>> master
 - From the Design screen:
  1. On the navigation bar, click **Design**.
  1. Click **Folders**.
@@ -108,11 +144,14 @@ You can remove a release from group in two locations:
  1. From the tab, click **Groups**.
  1. On the right side of the group, click **Delete**.
 
+<<<<<<< HEAD
 ### Delete a group
 1. On the navigation bar, click **Releases**.
 1. Click **Groups**.
 1. On the right side of the group, click **Delete**.   
 
+=======
+>>>>>>> master
 ### Ordering and displaying groups
 Groups are displayed and ordered based on two attributes: **Status** and **Order by**. Both attributes are displayed at the top of all release and group pages.
 

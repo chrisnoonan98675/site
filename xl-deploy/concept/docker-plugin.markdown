@@ -20,6 +20,10 @@ For information about requirements and the configuration items (CIs) that the Do
 * Deploy Docker images
 * Create Docker containers
 * Connect networks and volumes to Docker containers
+* Deploying applications in the form of containers and swarm-mode services
+* Using external registries
+* Deploying network and volumes
+* Copying files to running Docker containers
 
 ## Using the plugin configuration items
 

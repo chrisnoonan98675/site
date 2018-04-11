@@ -226,6 +226,20 @@ This example creates a group called `everyone` that is assigned to each user who
 
     </beans>
 
+
+
+## Mailing group filters
+The following example defines and describes the mailing group filters.    
+```<constructor-arg>
+        <bean class="com.xebialabs.xlrelease.principaldata.LdapGroupEmailProvider">
+            <constructor-arg value="GROUP_EMAIL_SEARCH_BASE " /> <!-- LDAP filter to use as a basis for searching for mailing groups ou=groups,dc=example,dc=com -->
+            <property name="groupSearchFilter" value="GROUP_SEARCH_FILTER" /> <!-- LDAP filter to determine the mailing group; {0} will be replaced with the dn of the group (cn={0})  -->
+            <constructor-arg index="0" value="GROUP_EMAIL_SEARCH_BASE" /> <!-- LDAP request time limit in milliseconds (1000) -->
+            <constructor-arg index="1" value="GROUP_EMAIL_SEARCH_FILTER" /><!-- LDAP attribute to determine a mailing group mail. -->
+        </bean>
+    </constructor-arg>
+```
+
 ## Example of team security setup
 
 You can setup an LDAP/Active Directory group called *devs* to be used by the members of a team in XL Release. Assign this group to a role in XL Release called *Developers*.
@@ -235,5 +249,5 @@ When you log in as a user to the *devs* group using LDAP/Active Directory, you a
 
 ## LDAP data caching
 
-To ensure a high level of performance of the server, XL Release caches the user data for 30 minutes and a group email for 1 minute. 
+To ensure a high level of performance of the server, XL Release caches the user data for 30 minutes and a group email for 1 minute.
 This can produce a small delay between the time when updates in your LDAP repository occur and the time when they appear in XL Release.
