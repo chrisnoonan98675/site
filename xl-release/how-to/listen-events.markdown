@@ -14,7 +14,7 @@ As of XL Release version 8.0.0, your custom code can react on activity log event
 
 ## Example
 
-In the following example, you can see how to listen to one of the XL Release events and react to it. First of all, if you are using `maven` or `gradle` to build your plugin you have to add XebiaLabs maven repository: `https://dist.xebialabs.com/public/maven2` and the following dependency: `com.xebialabs.xlrelease:xlr-api:8.0.0`
+In the following example, you will see how to listen to one of the XL Release events and react to it. First of all, if you are using `maven` or `gradle` to build your plugin you have to add XebiaLabs maven repository: `https://dist.xebialabs.com/public/maven2` and the following dependency: `com.xebialabs.xlrelease:xlr-api:8.0.0`
 
 ### Gradle
 
@@ -71,7 +71,7 @@ The content of the file is a line with the implementation of the `XLReleaseEvent
 
     com.example.plugin.PhaseNotifiyListener
 
-Now let's create a Java class `PhaseNotifiyListener` inside the `com.example.plugin` package:
+Now we will create a Java class `PhaseNotifiyListener` inside the `com.example.plugin` package:
 
 {% highlight java %}
 
