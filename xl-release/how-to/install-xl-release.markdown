@@ -80,7 +80,7 @@ If you choose the simple setup, XL Release will be installed with these settings
 * The server will not use secure communication between the XL Release graphical user interface (GUI) and the XL Release server.
 * The server will listen on XL Release's standard HTTP port (5516).
 * The server will use `/` as the context root.
-* The server will use a minimum of 3 and a maximum of 24 threads.
+* The server will use a minimum of 30 and a maximum of 150 threads.
 
 ##### Step 1 Provide a password for the *admin* user
 
