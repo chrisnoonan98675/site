@@ -11,23 +11,22 @@ tags:
 - load balancer
 ---
 
-This guide describes how to perform the rolling update deployment pattern using XL Deploy. This is a scalable approach that will work for any environment or any number of applications or environments.
+This guide describes how to perform the rolling update deployment pattern using XL Deploy. This is a scalable approach that will work for any environment or any number of applications.
 
-XL Deploy uses the [orchestrator feature](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) to calculate a deployment plan and provide support for a scalable solution. No scripting is required, however, the environments, load balancer, and application need to be configured.
+XL Deploy uses the [orchestrator feature](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html) to calculate a deployment plan and provide support for a scalable solution. With scripting not required, the environments, load balancer, and application must be configured.
 
 To perform the rolling update deployment pattern, XL Deploy uses a load balancer plugin and orchestrators. More than one orchestrator can be added to fine-tune the generated deployment plan.
 
-In the rolling update pattern, the application is run on several nodes. Traffic to these nodes is distributed by a load balancer. When updating to a new version, a node is taken out of the load balancer pool and taken offline to update, one node at a time. This ensures that the application is still available because it is being served by other nodes. When the update is complete, the updated node is added to the load balancer pool again and the next node is updated, until all nodes have been updated.
+In the rolling update pattern, the application runs on several nodes. A load balancer distributes the traffic to these nodes. When updating to a new version, a node is removed from the load balancer pool and taken offline to update, one node at a time. This ensures that the application is still available because it is being served by other nodes. When the update is complete, the updated node is added to the load balancer pool again and the next node is updated, until all nodes have been updated.
 
 **Important:** At a minimum, this pattern requires that two versions of the software are active in the same environment at the same time. This adds requirements to the software architecture. For example, both versions must be able to connect to the same database, and database upgrades must be more carefully managed. <!-- This is outside the scope of this article.  ADD SOME LINK -->
 
 **Note:** This guide was written using XL Deploy 7.6.
 
 ## Tutorial
-The following tutorial takes you through the steps involved in a performing a rolling update deployment pattern. It uses the PetClinic demo application that is shipped with XL Deploy.
+The following tutorial takes you through the steps involved in performing a rolling update deployment pattern. It uses the PetClinic demo application that is shipped with XL Deploy.
 
-**Note:** To complete this tutorial, you must have the XL-Deploy Tomcat and the XL-Deploy F5 BIG-IP plugins installed. For more information, see [Install or remove XL Deploy plugins](https://docs.xebialabs.com/xl-deploy/how-to/install-or-remove-xl-deploy-plugins.html).
-
+**Note:** To complete this tutorial, you must have the XL-Deploy Tomcat and the XL-Deploy F5 BIG-IP plugins installed. For more information, see [Introduction to the XL Deploy Tomcat plugin](https://docs.xebialabs.com/xl-deploy/concept/tomcat-plugin.html) and [Introduction to the XL Deploy F5 BIG-IP plugin](https://docs.xebialabs.com/xl-deploy/concept/f5-big-ip-plugin.html).
 
 ### 1. Import a sample application
 
@@ -35,7 +34,7 @@ The rolling update deployment pattern can be used with any application.
 
 Import two samples:
 1. Open XL Deploy.
-2. Click **Explorer**
+2. Click **Explorer**.
 2. From the **Library** menu, click **Applications**.
 3. Click ![menu button](images/menuBtn.png).
 4. Rollover **Import** and click **From XL Deploy server**
@@ -43,18 +42,18 @@ Import two samples:
 6. Select **PetClinic-war/1.0**.
 7. Click **Import**.
 8. When the import is complete, repeat steps 2 to 5.
-9. Select **PetClinic-war/2.0**
+9. Select **PetClinic-war/2.0**.
 10. Click **Import**.
 
     ![Create new release](images/rolling-update/import-petclinic.png)
 
 ### 2. Prepare the nodes and setup the Infrastructure
 
-In this procedure, you will setup the nodes that will serve the application and ensure that they are updated in the correct order. We will use an application that is deployed to Apache Tomcat. This procedure applies to any setup.
+In this procedure, you will setup the nodes that will serve the application and ensure that they are updated in the correct order. You will use an application that is deployed to Apache Tomcat. This procedure applies to any setup.
 
-The rolling update deployment pattern, uses the [deployment group orchestrator](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html#by-deployment-group-orchestrators). This orchestrator groups containers and assigns each group a number. XL Deploy will generate a deployment plan to deploy the application, group by group, in the order specified.
+The rolling update deployment pattern uses the [deployment group orchestrator](/xl-deploy/concept/types-of-orchestrators-in-xl-deploy.html#by-deployment-group-orchestrators). This orchestrator groups containers and assigns each group a number. XL Deploy will generate a deployment plan to deploy the application, group by group, in the order specified.
 
-In this example, we have three application servers that will host our application simultaneously. We will deploy the application to **Tomcat 1**, **Tomcat 2** and **Tomcat 3**.
+In this example, there are three application servers that will host our application simultaneously. You will deploy the application to **Tomcat 1**, **Tomcat 2** and **Tomcat 3**.
 
 ![Create new release](images/rolling-update/appserver-infrastructure.png)
 
@@ -63,8 +62,8 @@ Step up the infrastructure:
 2. Click ![menu button](images/menuBtn.png).
 3. Create an appserver host:
   1. Rollover **New**, and **overthere**, and click **SshHost**.
-  2. Name this hope `Appserver Host`
-  2. Configure this component so that it connects to the physical machine running the tomcat installations.
+  2. Name this host `Appserver Host`.
+  2. Configure this component to connect to the physical machine running the tomcat installations.
   3. Click **Save**.
 4. Create three app servers:
   1. Click **Appserver Host**.
@@ -83,7 +82,7 @@ Step up the infrastructure:
 
 ### 3. Add the servers to a group
 
-In order to deploy in sequence, each Tomcat server must have its own deployment group.
+To deploy in sequence, each Tomcat server must have its own deployment group.
 
 1. From the **Infrastructure** menu, double click `Tomcat 1`.
 2. In the **Development** section, enter the sequence number for this rolling update into the **Deployment Group number** field.
@@ -131,7 +130,7 @@ The above procedure will perform any rolling update deployment, at any scale.
 
 While one node is being upgraded, the load balancer ensures that the node does not receive any traffic, by routing traffic to the other nodes while one is down for the upgrade.
 
-XL Deploy supports a number of load balancers that are available as plugins. In this example we will use the
+XL Deploy supports a number of load balancers that are available as plugins. In this example you will use the
 [F5 BigIp plugin](https://docs.xebialabs.com/xl-deploy/concept/f5-big-ip-plugin.html). The procedure is the same for all load balancer plugins.
 
 1. Ensure that your architecture is as described in: [2. Prepare the nodes and set up the Infrastructure](#2.-Prepare-the-nodes-and-setup-the-Infrastructure).
@@ -151,11 +150,11 @@ XL Deploy supports a number of load balancers that are available as plugins. In 
   ![Infrastructure with load balancer](images/rolling-update/infrastructure-with-loadbalancer.png)
 
 1. On the load balancer, add the nodes you are deploying to the **Managed Servers** field.
-**Note:** We are using the F5 BigIp plugin, but this property is available on any load balancer plugin.
+**Note:** You are using the F5 BigIp plugin, but this property is available on any load balancer plugin.
 
  ![Managed servers on the load balancer](images/rolling-update/managed-servers.png)
 
-1. Add a load balancer to the environment. In our case the **Traffic Manager** is added to the **Rolling Environment**.
+1. Add a load balancer to the environment. In this case the **Traffic Manager** is added to the **Rolling Environment**.
 
  ![Environment with load balancer](images/rolling-update/environment-with-loadbalancer.png)
 
@@ -171,10 +170,10 @@ The plan is now ready for a rolling update deployment.
 
 ## 7. Preparing the applications for the rolling update deployment pattern
 
-So far, we have manually added the orchestrators to the deployment properties when creating the deployment.
+So far, you manually added the orchestrators to the deployment properties when creating the deployment.
 
 There are two ways to configure the CIs to pick up the orchestrators automatically.
-1. **Setting orchestrators on the application**
+1. **Setting orchestrators on the application**  
  If the rolling update pattern applies to all environments the application is deployed to, the easiest way to configure orchestrators automatically is to configure them directly on the application that is to be deployed.
 
    1. Open the deployment package, double click **PetClinic/1.0**.
@@ -183,9 +182,8 @@ There are two ways to configure the CIs to pick up the orchestrators automatical
     ![Orcherstrators on deployment package](images/rolling-update/orchestrators-on-deployment-package.png)
 
   The disadvantage of this approach is that the orchestrators are hardcoded on the application and may not be required on each environment. For example, if a rolling update is only needed in the production environment but not in the QA environment.
-<br/>
-1. **Configuring orchestrators on the environment**
 
+1. **Configuring orchestrators on the environment**    
   Define the orchestrators on the environment using dictionaries:
 
   1. Remove the orchestrator from the PetClinic application:
@@ -205,8 +203,8 @@ There are two ways to configure the CIs to pick up the orchestrators automatical
   ![Plan with load balancer](images/rolling-update/add-dictionary.png)
 
     We are using two dictionary features here:
-     - The key maps to a fully quantified property of the application being deployed. If this property is left empty on the application, the value is taken from the dictionary.
-    - The value is a comma-separated list and will be mapped to a list of values.
+    * The key maps to a fully quantified property of the application being deployed. If this property is left empty on the application, the value is taken from the dictionary.
+    * The value is a comma-separated list and will be mapped to a list of values.
     <br/>
   1. Add the dictionary to **Rolling Environment**:
     1. Double click **Environment**.
@@ -215,3 +213,4 @@ There are two ways to configure the CIs to pick up the orchestrators automatical
   1. Start the deployment again.
   <BR/>
   The orchestrators are picked up, and the plan is generated without having to configure anything directly on the application.
+  
