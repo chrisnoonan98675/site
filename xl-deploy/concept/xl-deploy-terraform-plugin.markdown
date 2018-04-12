@@ -18,7 +18,15 @@ The XL Deploy Terraform plugin supports:
 * Applying Terraform resources
 * Destroying Terraform resources
 
-{% comment %} Insert link to Terraform CI reference doc {% endcomment %}
+For more information about the XL Deploy Terraform plugin requirements and the configuration items (CIs) that the plugin supports, refer to the [Terraform Plugin Reference](/xl-deploy-xld-terraform-plugin/latest/terraformPluginManual.html).	
+
+## Using the XL Deploy Terraform plugin
+
+The XL Deploy Terraform plugin can create and destroy Terraform resources using Terraform client. To use the plugin:	+The XL Deploy Terraform plugin can create and destroy Terraform resources using Terraform client.
+	
+1. Download the XL Deploy Terraform plugin ZIP from the [distribution site](https://dist.xebialabs.com/customer/xl-deploy/plugins/xld-terraform-plugin).	
+1. Unpack the plugin inside the `XL_DEPLOY_SERVER_HOME/plugins/` directory.	
+1. Restart XL Deploy.
 
 ## Create the Terraform client
 
