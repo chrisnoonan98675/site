@@ -160,12 +160,12 @@ To order and display groups based on status: From the **Status** drop-down, sele
 To order groups based on risk or date: Select an option from the **Order by** drop-down.
 
 #### Status types
-All releases and release groups display a current status. The status types are as follows:
+All release groups display a current status. The status types are as follows:
 
-- **Planned:** releases that have not started.
-- **In process:** releases that are being executed.
-- **Paused:** releases that are in process but have been paused.
-- **Failing:** releases that are in process but are failing.
-- **Failed:** releases that have failed.
-- **Aborted:** releases that were aborted.
-- **Completed:** releases that are completed.
+- **Planned:** No release in a release group has started.
+- **In process:** One or more releases in a release group is being executed.
+- **Paused:** All releases in a release group have been paused.
+- **Failing:** One or more releases in a release group is failing.
+- **Failed:** All releases in a release group have failed.
+- **Aborted:** All releases in a release group were aborted.
+- **Completed:** All releases in a release group were completed.
