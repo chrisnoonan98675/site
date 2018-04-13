@@ -37,6 +37,8 @@ To create a new CI, locate the place where you want to create it in the left pan
 
 To open an existing CI, double-click it in the left pane. A new tab opens in the right pane with the CI properties.
 
+To view the summary screen of an application, double-click the desired application. To edit the properties of the application, click **Edit properties** in the summary screen.
+
 Edit the properties as desired, and then click **Save** to save your changes. To discard your changes without saving, click **Cancel**.
 
 ### Rename a CI
@@ -47,7 +49,7 @@ To cancel without saving your changes, press ESC or click another CI in the left
 
 ### Duplicate a CI
 
-To duplicate an existing CI, locate it in the left pane, hover over it and click ![Explorer action menu](/images/menu_three_dots.png), and then select **Duplicate**. A new CI appears in the left pane with a number appended to its name; for example, if you duplicate an application called _MyApp_, the Explorer creates an application called _MyApp (1)_. You can then rename and/or edit the new CI as desired.
+To duplicate an existing CI, locate it in the left pane, hover over it and click ![Explorer action menu](/images/menu_three_dots.png), and then select **Duplicate**. A new CI appears in the left pane with a number appended to its name; for example, if you duplicate an application called _MyApp_, the Explorer creates an application called _MyApp (1)_. You can then rename and/or edit the new CI as desired. Double-click the duplicated application to view the summary screen and click **Edit properties** to change the application properties.
 
 ### Delete a CI
 

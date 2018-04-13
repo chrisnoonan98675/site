@@ -15,6 +15,22 @@ A deployment pipeline defines the sequence of environments to which an applicati
 To create a deployment pipeline for an application:
 
 1. Log in to XL Deploy.
+1. Click **Explorer** in the top bar.
+1. Hover over **Configuration**, click ![Explorer action menu](/images/menu_three_dots.png), and select **New** > **release** > **DeploymentPipeline**.
+1. In the **Name** box, enter a unique name for the pipeline.
+1. Under **Pipeline**, select each environment that should be in the application's pipeline from the drop-down list.
+
+    The order of environments in the **Members** list is the order that they will appear in the pipeline. You can reorder the list by dragging and dropping members.
+
+1. Click **Save**.
+1. Expand **Applications**, double-click the desired application and click **Edit properties**.
+1. On the **Common** tab, select the deployment pipeline from the **Pipeline** list.
+1. Click **Save**.
+1. To view the deployment pipeline, hover over the desired application, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Deployment pipeline**. Double-click the application to see the read-only deployment pipeline in the summary screen.
+
+To create a deployment pipeline for an application using the legacy interface:
+
+1. Log in to XL Deploy.
 1. Click **Repository** in the top bar.
 1. Right-click **Configuration** and select **New** > **release** > **DeploymentPipeline**.
 1. In the **Name** box, enter a unique name for the pipeline.

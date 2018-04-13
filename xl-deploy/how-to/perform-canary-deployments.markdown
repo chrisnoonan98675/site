@@ -73,9 +73,9 @@ To start the deployment, click **Execute**. Each time XL Deploy reaches a pause 
 
 Instead of specifying orchestrators when you set up the deployment, you can specify them as a property of the deployment package:
 
-1. Click **Repository** in the top bar of the XL Deploy GUI.
-1. Expand **Applications**, then expand the desired application.
-1. Enter the exact name (case-sensitive) of an orchestrator in the **Orchestrator** box on the **Common** tab. Alternatively, you can enter a placeholder that will be filled by a dictionary; for example, `{% raw %}{{ orchestrator }}{% endraw %}`.
+1. Click **Explorer** in the top bar of the XL Deploy GUI.
+1. Expand **Applications**, then expand the desired application, and double-click the version you want to update.
+1. Enter the exact name (case-sensitive) of an orchestrator in the **Orchestrator** box on the **Common** section. Alternatively, you can enter a placeholder that will be filled by a dictionary; for example, `{% raw %}{{ orchestrator }}{% endraw %}`.
 
 ![Specifying an orchestrator on a deployment package](images/canary-application-property.png)
 

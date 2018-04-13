@@ -30,12 +30,17 @@ Note that you cannot move, edit, or delete a phase that has already been complet
 
 In the release flow editor, you can also work with tasks:
 
+**Note:** As of XL Release 8.0, it is possible to lock tasks. When a task is locked only users with lock permissions are able to edit or unlock it. A locked task appears striped to indicate that it is locked. For more information, see [Configuring lock tasks](http://docs.xebialabs.com/xl-release/how-to/configure-lock-tasks.markdown).
+
 * [Add a task](/xl-release/how-to/add-a-task-to-a-phase.html) by clicking **Add task** in the desired phase
 * Move a task by dragging and dropping it (unless it is complete)
 * [Edit a task's details](/xl-release/how-to/working-with-tasks.html) by clicking it
 * Assign a task to yourself by clicking ![Task action menu](/images/menu_three_dots.png)
 * [Change a task's type](/xl-release/how-to/change-a-task-type.html) by clicking ![Task action menu](/images/menu_three_dots.png)
 * Skip, fail, duplicate, or delete a task by clicking ![Task action menu](/images/menu_three_dots.png)
+* lock or unlock a task (XL Release 8.0 and later), by clicking ![Task action menu](/images/menu_three_dots.png)
+
+**Note:** If a task is locked
 
 In an active release, ![Active task indicator](/images/active_task_arrow.png) indicates the task that is currently active. Note that you cannot move, edit, or delete a task that has already been completed.
 

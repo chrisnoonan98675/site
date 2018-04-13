@@ -37,6 +37,7 @@ To deploy an application to an environment:
 You can optionally:
 
 * View or edit the properties of a deployed item by double-clicking it.
+* Double-click an application to view the summary screen and click **Edit properties** to change the application properties.
 * View the relationship between deployables and deployeds by clicking them.
 * Click **Deployment Properties** to configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html).
 * Click **Preview** to preview the deployment plan that XL Deploy generates. You can double-click each step to see the script that XL Deploy will use to execute the step. In preview mode, when you click a deployable, deployed, or a step, XL Deploy highlights all the related deployables, deployeds, and steps.

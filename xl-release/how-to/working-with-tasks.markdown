@@ -11,6 +11,8 @@ weight: 462
 
 To edit a task in a template or release, go to the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html) and click the task.
 
+As of XL Release 8.0, it is possible to lock tasks. When a task is locked only users with lock permissions are able to edit or unlock it. A locked task appears striped to indicate that it is locked. For more information, see [Configuring lock tasks](http://docs.xebialabs.com/xl-release/how-to/configure-lock-tasks.markdown).
+
 ## Editing task fields
 
 To edit a field in a task, click it and make the desired changes, then press ENTER or click outside the field to finish editing. In large text fields, you can press ENTER to start a new line and click the checkmark icon to save.

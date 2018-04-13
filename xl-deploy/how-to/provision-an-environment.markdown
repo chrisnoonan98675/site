@@ -33,6 +33,7 @@ To provision an environment:
 1. You can optionally:
 
     * View or edit the properties of a provisioned item by double-clicking it.
+    * Double-click an application to view the summary screen and click **Edit properties** to change the application properties.
     * View the relationship between provisionables and provisioneds by clicking them.
     * Click **Deployment Properties** to configure properties such as [orchestrators](/xl-deploy/concept/understanding-orchestrators.html).
     * Click the arrow icon on the **Deploy** button and select **Modify plan** if you want to adjust the provisioning plan by skipping steps or inserting pauses.

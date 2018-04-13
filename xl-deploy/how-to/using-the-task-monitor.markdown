@@ -17,7 +17,12 @@ By default, the Task Monitor only shows the tasks that are assigned to you. To s
 
 ## Filter tasks
 
-You can use different filters to view specific tasks. You can search tasks by package or environment, filter tasks by selecting the type from a drop down list, by specifying the Start date and End date or by the task ID.
+You can use different filters to view specific tasks.
+* Search tasks by package or environment
+* Filter tasks by selecting the type or the user from a drop down list
+* Filter tasks by specifying the start date and end date or by the task ID.
+
+Click **Filter** to apply multiple filters on the list of tasks. To hide the filter section on the page, click **Hide filters**.
 
 ## Open a task
 

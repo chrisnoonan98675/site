@@ -32,6 +32,9 @@ Click the **More actions** button and select an option from the list:
 * Skip - Skip the selected tasks
 * Reopen - Reopen the selected tasks
 * Delete - Delete the selected tasks
+* lock - Lock the selected task (XL Release 8.0 and later)   
+ **Note:** A locked task appears with the following icon ![Locked task icon](../images/lock-icon.png). When a task is locked, only users with lock permissions are able to edit or unlock it. For more information, see [Configuring lock tasks](http://docs.xebialabs.com/xl-release/how-to/configure-lock-tasks.markdown).
+* Unlock - Unlock the selected task (XL Release 8.0 and later)
 
 To access the table view, click **Table** at the top of the release flow page.
 

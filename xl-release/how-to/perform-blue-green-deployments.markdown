@@ -150,28 +150,3 @@ The correct deployment will be triggered in XL Deploy.
 ![Sample blue-green release](../images/bluegreen/bluegreen-deployment.png)
 
 
-----
-
-<!-- NOTES
-
-
-
-#### Refine process: Retire old environment OR rollback
-
-* User Input boolean or list box
-* Precondition on block 'Undeploy' or 'Rollback'
-
-Integrate load balancer
-
-
-#### Blue/Green with Kubernetes
-
-* Don't recycle the old env.
-
-
-#### Why not everything in XL Deploy?
-
-* Some steps may need time
-* Integrations with tools that are not related to deployment, e.g. sending email.
-
--->

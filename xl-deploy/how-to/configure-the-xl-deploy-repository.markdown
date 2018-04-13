@@ -1,5 +1,5 @@
 ---
-title: Configure the XL Deploy repository
+title: Configure the XL Deploy JCR repository (XL Deploy 7.6 and earlier)
 categories:
 - xl-deploy
 subject:
@@ -9,6 +9,8 @@ tags:
 - repository
 - database
 weight: 156
+removed:
+- XL Deploy 8.0.0
 ---
 
 XL Deploy uses a repository to store all of its data such as configuration items (CIs), deployment packages, logging, etc. XL Deploy can use the filesystem or a database for binary artifacts (deployment packages) and CIs and CI history. By default, XL Deploy uses the filesystem to store all data in the repository.

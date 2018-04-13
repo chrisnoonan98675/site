@@ -174,6 +174,11 @@ This sample `deployit-security.xml` file shows the required LDAP configuration i
        <constructor-arg ref="authoritiesPopulator"/>
      </bean>
 
+     <bean id="userDetailsService" class="org.springframework.security.ldap.userdetails.LdapUserDetailsService">
+        <constructor-arg index="0" ref="userSearch"/>
+        <constructor-arg index="1" ref="authoritiesPopulator"/>
+     </bean>
+
      <bean id="rememberMeAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.RememberMeAuthenticationProvider"/>
      <bean id="XlAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider"/>
 
@@ -202,6 +207,11 @@ The following example shows how to set up a group called `everyone`, which is as
 
         <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
     </bean>
+
+    <bean id="userDetailsService" class="org.springframework.security.ldap.userdetails.LdapUserDetailsService">
+        <constructor-arg index="0" ref="userSearch"/>
+        <constructor-arg index="1" ref="authoritiesPopulator"/>
+    </bean>
 
     <bean id="XlAuthenticationProvider" class="com.xebialabs.deployit.security.authentication.XlAuthenticationProvider">
         <property name="authoritiesMapper" ref="additionalAuthoritiesMapper" />
