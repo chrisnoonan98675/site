@@ -22,7 +22,15 @@ The XL Deploy Cloud Foundry plugin supports:
 * Creating Cloud Foundry services
 * Deploying Cloud Foundry application using a manifest file
 
-{% comment %} Insert link to CI reference {% endcomment %}
+For more information about the XL Deploy Cloud Foundry plugin requirements and the configuration items (CIs) that the plugin supports, refer to the [Cloud Foundry Plugin Reference](/xl-deploy-xld-cloud-foundry-plugin/latest/cfPluginManual.html).
+
+## Using the XL Deploy Cloud Foundry plugin
+
+The XL Deploy Cloud Foundry plugin can push and remove applications on a Cloud Foundry organization. To use the plugin:
+
+1. Download the XL Deploy Cloud Foundry plugin ZIP from the [distribution site](https://dist.xebialabs.com/customer/xl-deploy/plugins/xld-cloud-foundry-plugin).
+1. Unpack the plugin inside the `XL_DEPLOY_SERVER_HOME/plugins/` directory.
+1. Restart XL Deploy.
 
 ## Create the Cloud Foundry organization
 
