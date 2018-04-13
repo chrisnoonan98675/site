@@ -68,7 +68,7 @@ To upgrade an XL Release server installation:
 
 1. If you are using an embedded repository, copy the `repository` directory from the old installation directory to the new installation directory.
 
-1. If you have implemented any custom plugins, copy them from the `plugins` directory from the previous installation directory to the new installation directory.
+1. If you have implemented any custom plugins, copy them from the `plugins` directory from the previous installation directory to the new installation directory. If you are upgrading from a previous version to XL Release version 8.0.0 or later, use the  `plugins/__local__/` folder for your custom plugins.
 
 1. Copy the contents of the `ext` directory from the old installation directory to the new installation directory.
 

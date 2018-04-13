@@ -20,4 +20,7 @@ You can view a list of all the currently plugins installed in XL Release.
 
 To upload a new plugin or a new version of an existing plugin, click **Upload new plugin file** and select a file. The plugin files are saved in `XL_RELEASE_SERVER_HOME/plugins`.
 
-**Note:** After you upload a plugin, ensure you restart you XL Release instance.
+**Note:** After you upload a plugin, ensure you restart your XL Release instance.
+
+As of XL Release version 8.0.0, the **Browse** tab in the **Plugins** section from the menu bar shows all the official plugins available for XL Release. You can install any plugin by clicking **Install**.
+You must restart XL Release to enable the newly installed plugins.
