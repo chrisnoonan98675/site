@@ -91,13 +91,51 @@ The Kubernetes cluster provides pre-created namespaces such as the `default` nam
 
 ### Configure Kubernetes resources using YAML-based deployables
 
-* The `Kubernetes cluster allows you to configure Kubernetes resources and XL Deploy.
+* The Kubernetes cluster allows you to configure Kubernetes resources in XL Deploy.
 * You can configure YAML-based Kubernetes resources using the `k8s.ResourcesFile` CI. This CI requires the YAML file containing the definition of the Kubernetes resources that will be configured on the Kubernetes cluster.
 * The deployment order of Kubernetes resources through multiple YAML based CI is:
     * You can have separate YAML files for Kubernetes resource.
     * Deployment order and YAML files should match the resources dependency.
-    * Deployment order across YAML-based CI is managed by create order, modify order, and destroy order
+* The `k8s.ResourcesFile` CI supports multiple API versions in the resource file. The plugin parses the file and creates a client based on the API version for each Kubernetes resource.
+* The YAML-based Kubernetes resources support multi-document YAML file for multiple Kubernetes resources in one file. Each resource within the YAML file is separated with dashes (---) and has its own API version. The deployment order of the Kubernetes resources within the YAML based CI depends on:
+    * The plugin parses the YAML file and automatically generates the deployment step order for each resource within the file, based on the type of the resource.
+    * For the resources of the same type within the file, the step order is generated on the basis of occurrence in the file. The step for the resource that occurs first is generated first and so on.
+
+Example of a multi-document YAML with multiple API versions:
+
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    metadata:
+      name: hello-openshift
+    spec:
+      replicas: 7
+      template:
+        metadata:
+          labels:
+            app: hello
+            tier: backend
+            track: stable
+        spec:
+          containers:
+            - name: hello
+              image: "gcr.io/google-samples/hello-go-gke:1.0"
+              ports:
+                - name: http
+                  containerPort: 80
+
+
+    ---
+
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: mysecret
+    type: Opaque
+    data:
+      username: YWRtaW4=
+      password: MWYyZDFlMmU2N2Rm
+
 
 ### Use CI-based deployables to configure Kubernetes resources
 
-XL Deploy also provides CIs for Kubernetes resource deployment (for example, `k8s.Pod` and `k8s.Deployment`). These CIs have some advantages over YAML-based CIs in terms of automatic deployment order: you do not need to specify the order, and XL Deploy handles the asynchronous create/delete operation of resources.    
+XL Deploy also provides CIs for Kubernetes resource deployment (for example: `k8s.Pod` and `k8s.Deployment`). XL Deploy handles the asynchronous create/delete operation of resources. The CI based deployables support the latest API version, based on the latest Kubernetes version.
