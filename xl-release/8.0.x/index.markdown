@@ -8,7 +8,7 @@ product-id: xl-release
 
 * [Release manual](releasemanual.html)
 * [REST API documentation](rest-docs/)
-* [Jython API reference](/jython-docs/#!/xl-release/7.5.x/)
+* [Jython API reference](/jython-docs/#!/xl-release/8.0.x/)
 * [DSL API reference](dsl-api)
 
 ## Plugin reference documentation
