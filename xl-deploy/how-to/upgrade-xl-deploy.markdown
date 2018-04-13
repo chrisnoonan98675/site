@@ -11,6 +11,10 @@ tags:
 weight: 115
 ---
 
+<div class="alert alert-warning" style="width: 60%">
+If you are upgrading to XL Deploy 8.0.x or later, you need to execute a different migration procedure. Please refer to <a href="/xl-deploy/how-to/migrate-xl-deploy-data-storage-to-an-sql-database.html">these instructions</a>.
+</div>
+
 Briefly, the process of upgrading XL Deploy is:
 
 1. Obtain a new version of the XL Deploy software and, if necessary, a new license from [XebiaLabs](https://dist.xebialabs.com/).
