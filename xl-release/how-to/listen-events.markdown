@@ -87,7 +87,7 @@ public class PhaseNotifiyListener implements XLReleaseEventListener {
 
   @AsyncSubscribe
   public void notifyCriticalPhaseStarted(ActivityLogEvent event) {
-    if (e.getActivityType().equals(PHASE_STARTED) && e.getMessage().contains(Critical phase)) {
+    if (e.activityType().equals(PHASE_STARTED) && e.message().contains(Critical phase)) {
       notificationApi.sendAlert(Critical phase started!, all@xebialabs.com);
     }
   }
@@ -102,7 +102,7 @@ Your java class must implement the interface `XLReleaseEventListener` (same as t
 
 ## Using the Configuration API
 
-It is also possible to use the [Configuration API](https://docs.xebialabs.com/jython-docs/#!/xl-release/8.0.x//service/com.xebialabs.xlrelease.api.v1.ConfigurationApi) from your java class. You just need to create a private field with the `@Resource` annotation and XL Release will inject the interface for you.
+It is also possible to use the [Configuration API](https://docs.xebialabs.com/jython-docs/#!/xl-release/7.6.x/service/com.xebialabs.xlrelease.api.v1.ConfigurationApi) from your java class. You just need to create a private field with the `@Resource` annotation and XL Release will inject the interface for you.
 
 {% highlight java %}
 
