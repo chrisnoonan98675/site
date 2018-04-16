@@ -8,6 +8,7 @@ tags:
 - SQL
 - database
 - migrate
+- upgrade
 since: XL Deploy 8.0.0
 ---
 
