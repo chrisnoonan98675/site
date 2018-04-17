@@ -77,9 +77,21 @@ For more information about using the deployment rollback option, refer to [Perfo
 
 ## Release notes
 
+### Version 8.0.0
+
+#### Improvements
+
+* Compatibility with XL Release 8.0.0
+
+### Version 7.5.2
+
+#### Bug Fixes
+
+* [REL-6222] - Bug fix for Jython: auto detect encoding issue
+
 ### Version 7.5.1
 
-### Improvements
+#### Improvements
 
 * [REL-4944] - Support for Control task parameters in xlr-xld-plugin
 * [REL-5877] - Add ability to pass parameters while invoking a control task in XL Deploy plugin for XL Release
