@@ -13,7 +13,7 @@ weight: 185
 
 In XL Deploy, you can use the tagging feature to configure deployments by marking which deployables should be mapped to which containers. By using tagging, in combination with [placeholders](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html), you can prepare your deployment packages and environments to automatically map deployables to containers and configuration details at deployment time.
 
-To perform a deployment using tags, assign tags to deployables and containers. You can do so in an imported deployment package or in the XL Deploy user interface.
+To perform a deployment using tags, assign tags to deployables and containers. You can assign tags in an imported deployment package or in the XL Deploy user interface.
 
 **Note:** It is not possible to use an environment variable in a tag.
 
@@ -22,7 +22,7 @@ To perform a deployment using tags, assign tags to deployables and containers. Y
 When deploying an application to an environment, XL Deploy will match the deployables and containers based on the following rules:
 
 1. Both have **no** tags
-1. Either is tagged with an asterisk (`*`)
+1. Either is tagged with an asterisk (`*`).
 1. Either is tagged with a plus sign (`+`) and the other has at least one tag
 1. Both have at least one tag in common
 
@@ -73,14 +73,11 @@ You want to deploy it to an environment that contains two containers:
 * A [JBoss AS/WildFly](/xl-deploy/concept/jboss-domain-plugin.html) server where you want to deploy the back-end application (EAR file)
 * An [Apache Tomcat](/xl-deploy/concept/tomcat-plugin.html) server where you want to deploy the front-end application (WAR file)
 
-By default, XL Deploy maps the EAR and WAR files to the WildFly server, because WildFly can run both types of files. To prevent the WAR file from being deployed to the WildFly server, you would need to manually remove it from the mapping.
+By default, XL Deploy maps the EAR and WAR files to the WildFly server, because WildFly can run both types of files. To prevent the WAR file from being deployed to the WildFly server, manually remove it from the mapping.
 
-![Default mapping](images/tagged-deployment-no-tags.png)
 
 To prevent XL Deploy from mapping the WAR file to the WildFly server, tag the WAR file and the Tomcat virtual host with the same tag.
 
-![Tagged jee.War and tomcat.VirtualHost](images/tagged-deployment-artifact-and-container.png)
+![Tagged jee.War and tomcat.VirtualHost](images/tagged-deployment-artifact-and-container-new-ui.png)
 
-XL Deploy then maps the WAR file to the Tomcat virtual host only.
-
-![Mapping with tags](images/tagged-deployment-with-tags.png)
+XL Deploy will now map the WAR file to the Tomcat virtual host only.
