@@ -11,9 +11,9 @@ tags:
 weight: 185
 ---
 
-XL Deploy's tagging feature allows you to configure deployments by marking which deployables should be mapped to which containers. Tagging, in combination with [placeholders](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html), allows you to prepare your deployment packages and environments so you do not have to manually map deployables to containers or provide configuration details at deployment time.
+In XL Deploy, you can use the tagging feature to configure deployments by marking which deployables should be mapped to which containers. By using tagging, in combination with [placeholders](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html), you can prepare your deployment packages and environments to automatically map deployables to containers and configuration details at deployment time.
 
-To perform a deployment using tags, you assign tags to deployables and containers. You can do so in an imported deployment package or in the XL Deploy user interface.
+To perform a deployment using tags, assign tags to deployables and containers. You can do so in an imported deployment package or in the XL Deploy user interface.
 
 **Note:** It is not possible to use an environment variable in a tag.
 
