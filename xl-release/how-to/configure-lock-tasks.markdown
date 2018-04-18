@@ -18,6 +18,13 @@ In highly regulated environments with strict compliance requirements, lock tasks
 
 In an environment that is not highly regulated, and steps are open to interpretation, lock tasks ensure that mandatory activities are executed. In this case, you can give teams the freedom to compose their own pipeline and adjust it to their situation.
 
+Locked tasks can be:
+- Automated - a release will continue once a locked task has completed.
+
+  Or
+
+- Manual - for a release to continue, a user will need to sign-off in XL Release, or by [remote approval](/xl-release/how-to/using-the-remote-completion-plugin.html).
+
 Configuring lock tasks involves the following procedures:
 1. Granting permission to a user or a team.
 1. Adding locks to tasks.
