@@ -9,6 +9,7 @@ Redirect 301 /xl-deploy/suggest-feature.html https://support.xebialabs.com/hc/en
 
 # XL Release in-product links
 
+Redirect 301 /xl-release/concept/lock-tasks.html /xl-release/how-to/configure-lock-tasks.html
 Redirect 301 /xl-release/support-request.html https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=30145
 Redirect 301 /xl-release/suggest-feature.html https://support.xebialabs.com/hc/en-us/requests/new?ticket_form_id=94473
 Redirect 301 /releases/3.0/xl-release/index.html /xl-release/3.0.x/index.html
