@@ -19,15 +19,15 @@ You create endpoints on a per-project basis. To create an endpoint for XL Deploy
 
 1. In the **XL Deploy Showcase** window, click **Services** in the right pane.
 
-    ![XL Deploy Showcase Services](images/vsts_services.png)
+    ![XL Deploy Showcase Services](../../images/vsts_services.png)
 
 1. Click **New Service Endpoint** and choose **XL Deploy**.
 
-    ![](images/vsts_add_xld_endpoint.png)
+    ![New Service Endpoint](../../images/vsts_add_xld_endpoint.png)
 
 1. In the **Add new XL Deploy Connection** window:
 
-    ![Add a new XL Deploy connection](images/vsts_new_endpoint.png)
+    ![Add a new XL Deploy connection](../../images/vsts_new_endpoint.png)
 
     1. In the **Connection name** field, enter a connection name such as *XL Deploy Server*.
 
