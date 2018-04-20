@@ -36,7 +36,7 @@ To configure a common context, create it in XL Deploy:
 
 ## Confine resources to the common context
 
-In an environment that contains a virtual host and a common context, XL Deploy will automatically map resources to both containers. To deploy resources to the common context only, you must use the tagging feature. For more information, see [Using tags to configure deployments](use-tags-to-configure-deployments.html).
+In an environment that contains a virtual host and a common context, XL Deploy will automatically map resources to both containers. To deploy resources to the common context only, you must use the tagging feature. For more information, see [Use tags to configure deployments](/xl-deploy/how-to/use-tags-to-configure-deployments.html).
 
 For example, add the tag "Common" to the common context:
 
