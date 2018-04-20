@@ -35,7 +35,9 @@ Please also refer to the general <a href="/xl-release/how-to/upgrade-xl-release.
 
 * The archive database is still required. The structure and functionality have not changed in this upgrade.
 
-**Important:** As of version 7.5.3, the SQL migrator allows you to migrate the archive database to a different database server.
+**Important:**
+1. As of version 7.5.3, the SQL migrator allows you to migrate the archive database to a different database server.
+1. If you want to upgrade from XL Release version 7.0.0 to version 8.0.0, you must first upgrade to version 7.5.3 and run XL Release on version 7.5.3. To upgrade from version 7.5.3 to version 8.0.0, copy your `XL_RELEASE_SERVER_HOME/conf` directory from the previous version.
 
 ## Overview
 
