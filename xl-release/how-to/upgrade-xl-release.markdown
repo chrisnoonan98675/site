@@ -13,7 +13,7 @@ weight: 407
 ---
 
 <div class="alert alert-warning" style="width: 60%">
-If you are upgrading to XL Release 7.5.x or later, you need to execute a different migration procedure. Please refer to <a href="/xl-release/how-to/upgrade-to-7.5.0.html">these instructions</a>. 
+If you are upgrading to XL Release 7.5.x or later, you need to execute a different migration procedure. Please refer to <a href="/xl-release/how-to/upgrade-to-7.5.0.html">these instructions</a>.
 </div>
 
 Briefly, the process of upgrading XL Release is:
@@ -66,15 +66,15 @@ To upgrade an XL Release server installation:
 
 1. [Shut down](/xl-release/how-to/shut-down-xl-release.html) the XL Release server.
 
-1. If you are using an embedded repository, copy the `repository` directory from the old installation directory to the new installation directory.
+1. If you are using an embedded repository, copy the `repository` directory and the entire `archive` directory from the old installation directory to the new installation directory.
 
 1. If you have implemented any custom plugins, copy them from the `plugins` directory from the previous installation directory to the new installation directory. If you are upgrading from a previous version to XL Release version 8.0.0 or later, use the  `plugins/__local__/` folder for your custom plugins.
 
 1. Copy the contents of the `ext` directory from the old installation directory to the new installation directory.
 
-1. Copy the entire `archive` directory from the previous installation to the new installation directory.
-
 1. Copy the contents of the `conf` directory from the previous installation to the new installation directory.
+
+    **Important:** As of version 8.0.0, the plugins are placed in a different location. When upgrading from version 7.5.3 to version 8.0.0, do not copy the `xlr-wrapper-linux.conf` or `xlr-wrapper-win.conf` files. You can compare the older version against the new version of the files and modify only the necessary lines.
 
     Some versions of XL Release require a new version of the license file. Refer to [XL Release licensing](/xl-release/concept/xl-release-licensing.html#license-types) to see if you need a new license. You can download all of your licenses from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/).
 

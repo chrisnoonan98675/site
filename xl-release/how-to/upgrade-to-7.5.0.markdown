@@ -21,6 +21,7 @@ Please also refer to the general <a href="/xl-release/how-to/upgrade-xl-release.
 ## Prerequisites
 
 * Upgrade the **source** XL Release server to version 7.0.x, 7.1.x, or 7.2.x.
+* Download the SQL Migrator Tool version 7.5.3 or later
 * External database servers for the storage of XL Release data. Supported databases:
     * PostgreSQL versions 9.3, 9.4, 9.5, 9.6, and 10.1
 
@@ -37,7 +38,7 @@ Please also refer to the general <a href="/xl-release/how-to/upgrade-xl-release.
 
 **Important:**
 1. As of version 7.5.3, the SQL migrator allows you to migrate the archive database to a different database server.
-1. If you want to upgrade from XL Release version 7.0.0 to version 8.0.0, you must first upgrade to version 7.5.3 and run XL Release on version 7.5.3. To upgrade from version 7.5.3 to version 8.0.0, copy your `XL_RELEASE_SERVER_HOME/conf` directory from the previous version.
+1. If you want to upgrade from XL Release version 7.0.0 to version 8.0.0, you must first upgrade to version 7.5.3 and run XL Release on version 7.5.3. To upgrade from version 7.5.3 to version 8.0.0, copy the contents of your `XL_RELEASE_SERVER_HOME/conf` directory from the previous installation to the new installation directory.
 
 ## Overview
 
@@ -62,8 +63,6 @@ The upgrade procedure to XL Release 7.5.x or later is different than before. Thi
 Create an `xlrelease` database and an `xlrelease` user in your SQL database.
 
 The user must have access to create tables. Tables are created during the upgrade procedure, not during operation.
-
-The **archive database** remains as-is. It will be copied and configured in the final steps of the upgrade process.
 
 ## Step 3. Set up the SQL Migrator Tool
 
@@ -161,7 +160,6 @@ You can run the migrator with the following environment variables:
 
 1. If you have implemented any custom plugins, copy them from the `plugins` directory of the **source** XL Release installation to the `plugins` directory of the **target** installation.
 1. Copy the content of the `ext` directory of the **source** installation to the `ext` directory of the **target** installation.
-1. Copy the entire `archive` directory of the **source** installation to the **target** installation.
 1. Copy the content of the `conf` directory of the **source** installation to the `conf` directory of the **target** installation.
 1. If you have changed the XL Release server startup script(s) in the `bin` directory of the **source** installation, do not copy the changed script(s) to the **target** installation. Instead, manually reapply the changes to the files that were provided in the new version of XL Release.
 
