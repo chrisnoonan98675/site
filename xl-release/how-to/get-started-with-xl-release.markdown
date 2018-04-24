@@ -15,7 +15,7 @@ Below, you'll find some tips for your first-time XL Release experience.
 
 ## Step 1 Explore XL Release
 
-First, read the [essential background information](/xl-release/concept/core-concepts-of-xl-release.html) about XL Release's key concepts and check out the [Visibility, Automation, and Control with XL Release and XL Deploy](https://www.youtube.com/watch?v=vyAGFcFjdxI) video.
+First, read the [essential background information](/xl-release/concept/core-concepts-of-xl-release.html) about XL Release's key concepts and check out the [Automation, Visibility, Intelligence, and Control with the XebiaLabs DevOps Platform](https://www.youtube.com/watch?v=3BibSXdlEgY) video.
 
 When you log in to XL Release for the first time, you'll see the task overview screen. A task called _Welcome! Click me to get started_ is assigned to you. Click the name of the task to follow a guided tour of XL Release's main features.
 
