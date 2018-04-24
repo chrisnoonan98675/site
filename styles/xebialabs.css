@@ -481,11 +481,13 @@ h6:hover .header-link {
 
 /* Dropdown Button */
 .dropbtn {
-    background-color: #3498DB;
+    background-color: #0081c1;
     color: white;
-    padding: 16px;
+    width: 120px;
+    padding: 6px 12px;
     font-size: 16px;
     border: none;
+    margin-left: 60px;
     cursor: pointer;
 }
 

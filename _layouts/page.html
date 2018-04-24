@@ -4,9 +4,11 @@ layout: default
 
 <div class="container-fluid">
 	<div class="row">
+		<div class="col-version-button">
+			{% include dropdown.html %}
+		</div> <!-- /.col-version-button -->	
 		<div class="col-sm-3">
 			{% include sidebar-navigation-beta.html %}
-			{% include dropdown.html %}
 		</div><!-- /.col -->
 		<div class="col-sm-9">
 			{% if page.since or page.deprecated or page.removed %}
