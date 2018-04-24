@@ -13,6 +13,10 @@ since:
 - XL Deploy 8.0.0
 ---
 
+<div class="alert alert-warning" style="width: 60%">
+This document describes the database configuration for XL Deploy 8.0.x and later versions. For earlier versions that use the JCR repository, please refer to <a href="/xl-deploy/how-to/configure-the-xl-deploy-repository.html">Configure the XL Deploy JCR repository</a>.
+</div>
+
 XL Deploy uses a repository to store all of its data such as configuration items (CIs), deployment packages, logging, etc. XL Deploy can use the filesystem or a database for binary artifacts (deployment packages) and CIs and CI history.
 
 By default, XL Deploy uses the filesystem to store all data in the repository. For production use, it is strongly recommended to use an industrial-grade external database server. The following databases are supported:
