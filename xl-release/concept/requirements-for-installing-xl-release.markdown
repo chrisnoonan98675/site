@@ -28,12 +28,12 @@ To [install](/xl-release/how-to/install-xl-release.html) the XL Release server, 
 
 * **XL Release license:** See [XL Release licensing](/xl-release/concept/xl-release-licensing.html)
 * **Operating system:** Microsoft Windows or a Unix-family operating system
-* **Java SE Development Kit (JDK):**
-    * For XL Release 4.8.0 and later: JDK 1.8.0_25 or later
+* **Java SE Runtime Environment (JRE):**
+    * For XL Release 4.8.0 and later: Oracle JRE 1.8.0_25 or later
 
-    **Important:** XL Release is not compatible with Java Development Kit 9 (JDK 9).
+    **Important:** XL Release is not compatible with Java Runtime Environment 9 (JRE 9).
 
-    * For XL Release 4.7.x and earlier: JDK 7 (Oracle or IBM)
+    * For XL Release 4.7.x and earlier: JRE 7 (Oracle or IBM)
 
 ### Server hardware requirements
 
@@ -60,7 +60,7 @@ If you are using XL Release version 7.2 or earlier, see [Configure the XL Releas
 | Installed software | A single XL Release instance running as a service, and monitoring systems |
 | XL Release version | 7.5.0 |
 | XL Release mode | Standalone, non-clustered |
-| Java version | Oracle JDK 1.8.0_74 |
+| Java version | Oracle JRE 1.8.0_74 |
 
 XL Release configuration:
 
