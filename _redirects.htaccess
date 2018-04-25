@@ -346,3 +346,7 @@ Redirect 301 /general/community.html http://xebialabs-community.github.io/
 Redirect 301 /faq/index.html /index.html
 Redirect 301 /generated/xl-release/4.0.x/index.html /xl-release/4.0.x/index.html
 Redirect 301 /generated/xl-release/3.0.x/index.html /xl-release/3.0.x/index.html
+
+# PLUGIN PAGES THAT ARE OUT OF SUPPORT
+
+Redirect 301 /xl-deploy-xld-oracle-soa-plugin/5.0.x/oracleSoaPluginManual.html /xl-deploy-xld-oracle-soa-plugin/6.0.x/oracleSoaPluginManual.html
