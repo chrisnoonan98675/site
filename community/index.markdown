@@ -85,5 +85,5 @@ For information about the plugins that are supported by the XebiaLabs customer s
 {:.table}
 | Plugin | Features |
 | ------ | -------- |
-| [XL Deploy module for Ansible](https://github.com/xebialabs-community/xldeploy-ansible) | Use [Ansible](http://www.ansibleworks.com/) to manage the XL Deploy repository |
+| [XL Deploy module for Ansible](https://github.com/xebialabs-community/xldeploy-ansible) | Use [Ansible](http://www.ansible.com/) to manage the XL Deploy repository |
 | [XL Release add-on for JIRA](https://github.com/xebialabs-community/xlr-addon-for-jira) | Trigger a release in XL Release from a JIRA workflow |
