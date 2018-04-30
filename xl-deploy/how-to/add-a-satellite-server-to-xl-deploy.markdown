@@ -26,3 +26,5 @@ To add a satellite server to XL Deploy:
  **Note:** If the **Encrypted** checkbox is selected, XL Deploy will use a secure connection to communicate with the satellite. For more information, see [Configure secure communication with a satellite](/xl-deploy/how-to/configure-secure-communication-with-a-satellite.html).
 
 ![image](images/satellite-ci-configuration-new-ui.png)
+
+**Note:** Satellite is an add-on module for XL Deploy. Please [contact us](https://xebialabs.com/contact/) for pricing information.
