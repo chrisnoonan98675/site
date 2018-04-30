@@ -72,6 +72,7 @@ The following section defines what actions are available when a task is locked.
 **When a task is locked, the following actions are available:**
 - Add or edit comments
 - Add watchers  
+- Move - when moving a locked task inside a group or phase that is not locked  
 - Complete a task  
 - Retry a task
 - Abort a task
@@ -89,7 +90,8 @@ The following section defines what actions are available when a task is locked.
 - Edit preconditions  
 - Assign and owner, to a team, or to a person
 - Remove watchers  
-- Move  
+- Move - when moving a locked task inside a group or phase that is locked
+- Move - when moving a locked task outside a group or phase that is locked    
 - Complete a task in advance
 - Skip a task
 - Duplicate a task
