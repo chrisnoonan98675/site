@@ -9,6 +9,8 @@ tags:
 - checklist
 - pipeline
 weight: 194
+removed:
+- XL Deploy 8.0.0
 ---
 
 Most organizations have a process around releasing software to their environments. Typically, application versions are promoted to a number of environments before being released to production. In each environment, the application version is integrated or tested before being allowed to progress to the next stage. XL Deploy includes a release dashboard to help you get insight into this process.
@@ -19,7 +21,7 @@ Most organizations have a process around releasing software to their environment
 
 Before using the release dashboard, you need to define a deployment pipeline, deployment checklists, and checklist items.
 
-**Note:** The release dashboard view is available only in the legacy UI. For more information about the deployment pipeline, refer to [Using the deployment pipeline view](/xl-deploy/how-to/using-the-deployment-pipeline.html). 
+**Important:** The release dashboard view is available only in the legacy GUI. For more information about the deployment pipeline, refer to [Using the deployment pipeline view](/xl-deploy/how-to/using-the-deployment-pipeline.html).
 
 ### Define a deployment pipeline
 
