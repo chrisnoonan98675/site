@@ -11,7 +11,7 @@ tags:
 weight: 196
 ---
 
-To ensure the quality of a deployment pipeline , you can optionally associate environments in the pipeline with a checklist that each deployment package must satisfy before being deployed to the environment. This topic describes how to create a deployment checklist for an environment.
+To ensure the quality of a deployment pipeline, you can optionally associate environments in the pipeline with a checklist that each deployment package must satisfy before being deployed to the environment. This topic describes how to create a deployment checklist for an environment.
 
 **Tip:** For an application to appear on the release dashboard, it must be associated with a [deployment pipeline](/xl-deploy/how-to/create-a-deployment-pipeline.html).
 
