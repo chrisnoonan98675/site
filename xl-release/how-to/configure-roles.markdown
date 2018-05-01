@@ -24,7 +24,7 @@ To configure roles, select **User management** > **Roles** from the top menu. Th
 
 ![Roles](../images/roles.png)
 
-In this example, the users *john* and *mary* have the *Administrators* role, while all users in the *all-it* group are members of the *Users* role.
+In this example, the users *john* and *mary* have the *Administrators* role, while all users in the *all-here* group are members of the *Users* role.
 
 You can give a role any name you want; there are no predefined role names.
 
