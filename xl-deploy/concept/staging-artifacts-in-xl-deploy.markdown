@@ -19,11 +19,11 @@ If the application [depends on other applications](/xl-deploy/concept/applicatio
 
 To enable staging on a host:
 
-1. Click **Repository** in the top bar.
+1. Click **Explorer** in the top bar.
 1. Expand **Infrastructure** and double-click the host that you want to modify.
 1. Go to the **Advanced** tab and enter a directory path in the **Staging Directory Path** box.
 1. Click **Save**.
 
-**Tip:** If you set a staging directory on a host but you do not see staging steps in the deployment plan, verify that the `file.DeployedFile.copyDirectlyToTargetPath` and `file.DeployedFile.DeployedFolder` properties in the `XL_DEPLOY_SERVER_HOME/conf/deployit-default.properties` file are set to "false" (their default setting).
+**Tip:** If you set a staging directory on a host but you do not see staging steps in the deployment plan, verify that the `file.DeployedFile.copyDirectlyToTargetPath` and `file.DeployedFile.DeployedFolder` properties in the `XL_DEPLOY_SERVER_HOME/conf/deployit-default.properties` file are set to `false` (their default setting).
 
 When a deployment fails to reach the target, you must skip the clean up staged files task before canceling the deployment. If the deployment is canceled without skipping the clean up staged files task, you can manually skip the task and click **Continue**.
