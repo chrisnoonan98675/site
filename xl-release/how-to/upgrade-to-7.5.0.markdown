@@ -167,7 +167,7 @@ You can run the migrator with the following environment variables:
 
 Install the database driver (JAR) file from Step 3 in the `plugins` folder of the **target** installation.
 
-Edit `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` and configure the database details to point to your database instance. This configuration must match the configuration in the SQL Migrator Tool **exactly**.
+Edit `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` and configure the database details to point to your database instance. This configuration must match the configuration in the SQL Migrator Tool, with the expection of the conf/xl-release-sql-migrator.conf `archive` method which corresponds with the XL_RELEASE_SERVER_HOME/conf/xl-release.conf  `reporting` method. 
 
 For example, a PostgreSQL configuration would be:
 
