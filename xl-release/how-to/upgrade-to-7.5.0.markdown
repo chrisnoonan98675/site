@@ -166,11 +166,10 @@ You can run the migrator with the following environment variables:
 ## Step 6. Configure the target XL Release server
 
 1. Install the database driver (JAR) file from Step 3 in the `plugins` folder of the **target** installation.
-1. In `XL_RELEASE_SERVER_HOME/conf/`, create a new file and name it `xl-release.conf`
 1. Open `conf/xl-release-sql-migrator.conf` and copy the contents of the file.
 1. Open `XL_RELEASE_SERVER_HOME/conf/xl-release.conf` and paste the content.
 1. Change the word `archive` to `reporting`.
-1. Configure the database details to point to your database instance.
+
  **Note:** Database configuration in `xl-release.conf` must match `xl-release-sql-migrator.conf`.
 
 
