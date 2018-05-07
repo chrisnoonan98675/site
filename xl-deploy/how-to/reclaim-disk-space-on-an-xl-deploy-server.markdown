@@ -33,11 +33,11 @@ The easiest way to schedule garbage collection is to create a garbage collection
 To create a garbage collection job:
 
 1. From the side bar, click **Configuration**
-1. Click ![Menu button](images/menuBtn.png), then select **New** > **Schedule** > **GarbageCollectionJob**.
+1. Click ![Menu button](/images/menu_three_dots.png), then select **New** > **Schedule** > **GarbageCollectionJob**.
 1. In the **Name** field, enter a unique policy name.
-1. In the **Crontab schedule** field, define a crontab pattern for executing the garbage collection job.
+1. In the **Crontab schedule** field, define a crontab pattern for executing the garbage collection job.    
 
-  The pattern is a list of six single space-separated fields representing second, minute, hour, day, month, and weekday. Month and weekday names can be entered as the first three letters of their English names. For example, to run the job every day at 20:00, enter `0 0 20 * * *`.
+ The pattern is a list of six single space-separated fields representing second, minute, hour, day, month, and weekday. Month and weekday names can be entered as the first three letters of their English names. For example, to run the job every day at 20:00, enter `0 0 20 * * *`.
 
 5. Click **Save**.
 
