@@ -18,17 +18,19 @@ A deployment pipeline defines the sequence of environments to which an applicati
 1. In the left pane, click **Configuration**.
 1. Click ![Explorer action menu](/images/menu_three_dots.png), and select **New** > **Release** > **DeploymentPipeline**.
 1. In the **Name** field, enter a unique name for the pipeline.
-1. In the **Pipeline** field, enter the environments to add them to deployment pipeline.   
-
-  **Note:** The order of the environments in the list is the order that they will appear in the pipeline. You can reorder the list by dragging and dropping items.
-
-  ![Adding environments to the pipeline](images/adding-environments-to-the-pipeline.png)
-
+1. In the **Pipeline** field, enter the environments to add them to deployment pipeline.  
+  **Note:** The order of the environments in the list is the order that they will appear in the pipeline. You can reorder the list by dragging and dropping items. 
 1. Click **Save**.
 1. Expand **Applications**.
 1. Click an application, click ![Explorer action menu](/images/menu_three_dots.png), and then click **Edit properties**.
 1. In the **Common** tab, select the deployment pipeline from the **Pipeline** list.
 1. Click **Save**.   
+
+
+
+  ![Adding environments to the pipeline](images/adding-environments-to-the-pipeline.png)
+
+
 
 #### To view a deployment pipeline:
  - Hover over the application, click ![Explorer action menu](/images/menu_three_dots.png), and then select **Deployment pipeline**.
