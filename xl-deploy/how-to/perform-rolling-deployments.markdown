@@ -205,12 +205,10 @@ There are two ways to configure the CIs to pick up the orchestrators automatical
     We are using two dictionary features here:
     * The key maps to a fully quantified property of the application being deployed. If this property is left empty on the application, the value is taken from the dictionary.
     * The value is a comma-separated list and will be mapped to a list of values.
-    <br/>
   1. Add the dictionary to **Rolling Environment**:
     1. Double click **Environment**.
     2. In the configuration window, in the **Common** section, add `Dictionary` to the **Dictionaries** field.
     3. Click `Save`.
   1. Start the deployment again.
-  <BR/>
+
   The orchestrators are picked up, and the plan is generated without having to configure anything directly on the application.
-  
