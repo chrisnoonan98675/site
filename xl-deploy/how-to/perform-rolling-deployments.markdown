@@ -200,7 +200,7 @@ There are two ways to configure the CIs to pick up the orchestrators automatical
   Key                                    Value
   udm.DeployedApplication.orchestrator   sequential-by-deployment-group, sequential-by-loadbalancer-group
   ```
-  ![Plan with load balancer](images/rolling-update/add-dictionary.png)
+  ![Plan with load balancer](images/rolling-update/add-dictionary.png) 
 
     We are using two dictionary features here:
     * The key maps to a fully quantified property of the application being deployed. If this property is left empty on the application, the value is taken from the dictionary.
