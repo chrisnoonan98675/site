@@ -80,7 +80,7 @@ As of XL Deploy version 7.5.0, the `cardinality` and `ordinal` properties are se
 
 To add a template to a provisioning package:
 
-1. Right-click the provisioning package, click ![Menu button](/images/menu_three_dots.png), select **New** > **Template**, and select the type of template that you want to add.
+1. Hover over the provisioning package, click ![Menu button](/images/menu_three_dots.png), select **New** > **Template**, and select the type of template that you want to add.
 
     A template's type is the same as the type of CI it represents, with a `template.` prefix. For example, the template type that will create an `overthere.SshHost` CI is called `template.overthere.SshHost`.
 
