@@ -33,27 +33,27 @@ The process of provisioning a cloud-based environment through XL Deploy is very 
 
 To create an application:
 
-1. Click **Repository** in the top bar.
-1. Right-click **Applications** and select **New** > **Application**.
-1. In the **Name** box, enter a unique name for the application.
+1. In the top bar, click **Explorer**
+1. In the side bar, hover over **Applications**, click ![Menu button](/images/menu_three_dots.png), and select **New** > **Application**.
+1. In the **Name** field, enter a unique name for the application.
 1. Click **Save**.
 
 ## Step 2 Create a provisioning package
 
 To create a provisioning package:
 
-1. Right-click the application and select **New** > **Provisioning Package**.
-1. In the **Name** box, enter the provisioning package version.
+1. Hover over the application, click ![Menu button](/images/menu_three_dots.png), and select **New** > **Provisioning Package**.
+1. In the **Name** field, enter the provisioning package version.
 1. Click **Save**.
 
 ## Step 3 Add a provisionable to a package
 
 To add a provisionable to a provisioning package:
 
-1. Right-click the provisioning package, select **New**, then select the type of provisionable that you want to add. For example, to add an Amazon Web Services EC2 AMI, select **aws** > **ec2.InstanceSpec**.
+1. Hover over the provisioning package, click ![Menu button](/images/menu_three_dots.png), and select the type of provisionable that you want to add. For example, to add an Amazon Web Services EC2 AMI, select **aws** > **ec2.InstanceSpec**.
 1. Fill in the provisionable properties. For example, some of the properties for an `aws.ec2.instanceSpec` are:
 
-    ![Create new provisionable (aws.ec2.InstanceSpec)](images/provisioning-create-new-provisionable-02.png)
+    ![Create new provisionable (aws.ec2.InstanceSpec)](images/provisioning-create-new-provisionable-new-ui.png)
 
 1. Click **Save**.
 
@@ -80,7 +80,7 @@ As of XL Deploy version 7.5.0, the `cardinality` and `ordinal` properties are se
 
 To add a template to a provisioning package:
 
-1. Right-click the provisioning package, select **New** > **Template**, then select the type of template that you want to add.
+1. Hover over the provisioning package, click ![Menu button](/images/menu_three_dots.png), select **New** > **Template**, and select the type of template that you want to add.
 
     A template's type is the same as the type of CI it represents, with a `template.` prefix. For example, the template type that will create an `overthere.SshHost` CI is called `template.overthere.SshHost`.
 
@@ -122,7 +122,7 @@ You can change this rule by specifying the optional **Instance Name** property o
 
 ### Creating a hierarchy of templates
 
-Like other CIs, you can create a hierarchy of templates that have a parent-child relationship. You do so by right-clicking the parent CI and selecting **New** > **Template**. For example, this is a hierarchy of `template.overthere.SshHost`, `template.tomcat.Server`, and `template.tomcat.VirtualHost` CIs:
+Like other CIs, you can create a hierarchy of templates that have a parent-child relationship. You do so by hovering over the parent CI, clicking ![Menu button](/images/menu_three_dots.png), and selecting **New** > **Template**. For example, this is a hierarchy of `template.overthere.SshHost`, `template.tomcat.Server`, and `template.tomcat.VirtualHost` CIs:
 
 ![Hierarchy of CI templates](images/provisioning-template-hierarchy.png)
 
@@ -132,7 +132,7 @@ In this case, you only need to specify the root (parent) of the hierarchy as a b
 
 You can optionally add a provisioner such as Puppet to a provisionable:
 
-1. Right-click the provisionable, select **New**, then select the type of provisioner that you want to add. For example, to add a Puppet manifest, select **provisioner.Manifest**.
+1. Hover over the provisionable, click ![Menu button](/images/menu_three_dots.png), select **New**, then select the type of provisioner that you want to add. For example, to add a Puppet manifest, select **provisioner.Manifest**.
 1. Fill in the configuration for the provisioner.
 1. Click **Save**.
 
