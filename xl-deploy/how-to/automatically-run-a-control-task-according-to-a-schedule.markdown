@@ -27,4 +27,4 @@ To automatically run a control task according to a schedule, create a new `sched
 7. Under **Control task parameters**, provide any parameters that the control task requires, in the form of a `udm.Parameters` CI.
 8. Click **Save**.
 
-![Control task job](images/system-admin-control-task-job.png)
+![Control task job](images/system-admin-control-task-job-html-ui.png)
