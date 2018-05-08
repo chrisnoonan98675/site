@@ -16,7 +16,7 @@ In XL Deploy, you can define [control tasks](/xl-deploy/how-to/using-control-tas
 
 ## Define a control task
 
-First, define a control task in the `XL_DEPLOY_SERVER_HOME/ext/synthetic.xml` file. This example adds a method to `overthere.LocalHost` using a type modification. The `method` tag is used to define a control task named `showEnvironmentVariables`. The `delegate` parameter defines the type of delegate and the `script` parameter defines the Python script that will perform the action.
+Define a control task in the `XL_DEPLOY_SERVER_HOME/ext/synthetic.xml` file. This example adds a method to `overthere.LocalHost` using a type modification. The `method` tag defines a control task named `showEnvironmentVariables`. The `delegate` parameter defines the type of delegate and the `script` parameter defines the Python script that will perform the action.
 
 {% highlight xml %}
 <type-modification type="overthere.LocalHost">
@@ -30,7 +30,7 @@ First, define a control task in the `XL_DEPLOY_SERVER_HOME/ext/synthetic.xml` fi
 
 ## Create a Jython script
 
-This is an example of a Jython script that will print the environment variables that are available on a host:
+This is an example of a Jython script that prints the environment variables that are available on a host:
 
 {% highlight python %}
 import os
@@ -43,17 +43,17 @@ After defining the control task and creating the script, restart the XL Deploy s
 
 ## Run the control task
 
-In XL Deploy, go to the Repository and right-click an `overthere.LocalHost` configuration item (CI). You will see the new control task in the menu.
+In XL Deploy, go to the **Explorer**, hover over an `overthere.LocalHost` configuration item (CI), and click ![Menu button](/images/menu_three_dots.png). You can see the new control task in the menu.
 
-![showEnvironmentVariables control task in menu](images/jython-delegate.png)
+![showEnvironmentVariables control task in menu](images/jython-delegate-html-ui.png)
 
 Click `ShowEnvironmentVariables` to see the steps of the control task. After it executes, it returns the environment variables on the host.
 
-![showEnvironmentVariables control task steps](images/jython-delegate-steps.png)
+![showEnvironmentVariables control task steps](images/jython-delegate-steps-html-ui.png)
 
 ## Define a control task with parameters
 
-The `showEnvironmentVariables` control task defined above prints all environment variables on a host. Suppose you want to limit the control task results. You can do so by defining a method parameter that will be passed to the Jython script.
+The `showEnvironmentVariables` control task defined above prints all environment variables on a host. If you want to limit the control task results, define a method parameter that will be passed to the Jython script.
 
 ### Update the control task
 
@@ -73,7 +73,7 @@ This defines a parameter called `limit` of type _integer_. The default value of 
 
 ### Update the Jython script
 
-Now the Jython script can access the method parameter using the `params` object. This is an implicit object that is available to the Jython script that stores all method parameters. Other implicit objects that are available to the script are `args`, which is a dictionary that contains arguments passed to the script, and `thisCi`, which refers to the configuration item on which the control action is defined.
+The Jython script can access the method parameter using the `params` object. This is an implicit object that is available to the Jython script that stores all method parameters. Other implicit objects that are available to the script are `args`, which is a dictionary that contains arguments passed to the script, and `thisCi`, which refers to the configuration item on which the control action is defined.
 
 {% highlight python %}
 import os
@@ -95,4 +95,4 @@ for env in env_var_keys:
 
 After restarting the XL Deploy server and selecting the `ShowEnvironmentVariables`, you will be able to provide a limit for the control task results.
 
-![showEnvironmentVariables control task with limit parameter](images/jython-delegate-parameters.png)
+![showEnvironmentVariables control task with limit parameter](images/jython-delegate-parameters-html-ui.png)
