@@ -90,8 +90,8 @@ If `NumPackages` and `NumDeployments` are expressed per time unit (that is, the 
 To use the XL Deploy GUI, you must meet the following requirements:
 
 * **Web browser:**
-	* Firefox
-	* Chrome
+	* Firefox: the 2 latest versions
+	* Chrome: the 2 latest versions
 	* Internet Explorer 11 or later
 * **Flash player:** Version 9 or later
 
