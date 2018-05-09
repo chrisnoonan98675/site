@@ -21,6 +21,9 @@ To schedule a deployment using the default GUI:
 1. Select the target environment and click **Continue**.
 1. Click the arrow icon on the **Deploy** button and select **Schedule**.
 1. In the Schedule window, select the date and time that you want to execute the deployment task. Specify the time using your local timezone.
+
+    ![Schedule Window](images/schedule-window-html-ui.png)
+
 1. Click **Schedule**.
 
 To schedule a deployment using the legacy GUI:
@@ -39,6 +42,8 @@ To schedule a deployment using the legacy GUI:
 ## View scheduled deployments
 
 To view scheduled deployment tasks using the default GUI, click the **Task Monitor** in the left pane. Note that you can only see deployment tasks that you have [permission](/xl-deploy/concept/overview-of-security-in-xl-deploy.html#permissions) to view.
+
+![Schedule Task Monitor](images/schedule-task-monitor-html-ui.png)
 
 To view scheduled deployment tasks using the legacy GUI, click the gear icon and select **Task Monitor**.
 
