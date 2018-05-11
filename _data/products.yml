@@ -27,7 +27,7 @@
   key-concepts-link: /xl-impact/concept/release-to-customer-filter.html
   installation-link: /xl-impact/how-to/install-xl-impact.html
   versions:
-    - 8.0.x
+    - 8.1.x
 - name: XL TestView
   id: xl-testview
   blurb: XL TestView lets you define, execute, and analyze all of the tests relevant to an application's quality. You can easily manage complex test sets and execute tests across a wide spectrum of tools.
