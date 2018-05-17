@@ -22,21 +22,20 @@ For instructions about assigning satellites to a host, refer to [Assign satellit
 
 When a satellite from the group fails, the failed deployment task does not transfer over to another satellite. To recover the failed deployment task, you must bring back up the downed satellite.
 
-Troubleshooting:
+## Troubleshooting
 
-* *Task is hanging on 'Send task to _satellite_' using satellite group*
-If you deploy to an environment where some host(s) are attached to a satellite _group_*_ **satgrp** while some other hosts are attached to some satellite _instance_ **sat1** directly, the deployment task will fail when the **satgrp** contains **sat1** and picks **sat1** as the 'active' satellite.
+### Task is hanging on `Send task to satellite` using satellite group
 
-Up until versions 7.0.2, 7.5.2 and 8.0.2, blocks assigned to the same satellite will be hanging on _EXECUTING_ state. The logs will show the following:
-{code:java}
-akka.actor.InvalidActorNameException: actor name [upload-supervisor-<something>] is not unique!
-    ...
-{code}
+If you deploy to an environment where one or more hosts are attached to a **satgrp** satellite group and other hosts are attached to a **sat1** satellite instance directly, the deployment task fails when the **satgrp** contains **sat1** and picks **sat1** as the active satellite.
 
-On later versions of XL-Deploy, one of the blocks will fail with the following output:
-{code:java}
-Error while sending file to satellite. (Task is already registered)
-{code}
-If you run into the situation described above, please cancel the task and ensure all hosts use **satgrp** not **sat1**.
+For versions 7.0.2, 7.5.2, and 8.0.2, the blocks assigned to the same satellite hang on the _EXECUTING_ state. The logs shows the following:
 
-Note that this issue could occur intermittently because of the random selection of a satellite from the satellite group.
+        akka.actor.InvalidActorNameException: actor name [upload-supervisor-<something>] is not unique!
+
+For XL Deploy version 8.0.3 and later, one of the blocks fails with the following output:
+
+        Error while sending file to satellite. (Task is already registered)
+
+If any of these situations occur, cancel the task and ensure all the hosts use **satgrp** and not **sat1**.
+
+**Note:** This issue can occur intermittently due to the random selection of a satellite from the satellite group.
