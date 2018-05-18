@@ -18,7 +18,7 @@ In addition, XL Release writes an audit trail to `XL_RELEASE_SERVER_HOME/log/aud
 
 ## Changing logging behavior
 
-It is possible to change the logging behavior (for example, to write log output to a file or to log output from a specific source).
+It is possible to change the logging behavior. For example, to write log output to a file, or to log output from a specific source.
 
 XL Release uses [Logback](http://logback.qos.ch/) as logging technology. The Logback configuration is stored in `XL_RELEASE_SERVER_HOME/conf/logback.xml`.
 
@@ -61,6 +61,22 @@ This is a sample `logback.xml` file:
 
 </configuration>
 {% endhighlight %}
+
+### Automatically reloading the configuration file upon modification
+
+Logback can be configured to scan for changes in its configuration file and reconfigure itself  accordingly.
+
+To enable this feature, set the scan attribute of the `<configuration>` element to `true`, and optionally, set the `scanPeriod` attribute to a period of time.
+
+**Note:** By default, the configuration file will be scanned every 60 seconds.
+
+{% highlight xml %}
+<configuration scan="true" scanPeriod="30 seconds" >
+  ...
+</configuration>
+{% endhiglight %}
+
+For more information, see [Logback - auto scan](https://logback.qos.ch/manual/configuration.html#autoScan).
 
 ## The audit log
 
