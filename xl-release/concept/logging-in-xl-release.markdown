@@ -26,7 +26,7 @@ For detailed information about the `logback.xml` file, refer to the [Logback doc
 
 This is a sample `logback.xml` file:
 
-{% highlight xml %}
+```xml
 <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!-- encoders are assigned the type
@@ -60,7 +60,8 @@ This is a sample `logback.xml` file:
     </root>
 
 </configuration>
-{% endhighlight %}
+
+```
 
 ### Automatically reloading the configuration file upon modification
 
@@ -70,11 +71,11 @@ To enable this feature, set the scan attribute of the `<configuration>` element 
 
 **Note:** By default, the configuration file will be scanned every 60 seconds.
 
-{% highlight xml %}
+``` XML
 <configuration scan="true" scanPeriod="30 seconds" >
   ...
 </configuration>
-{% endhiglight %}
+```
 
 For more information, see [Logback - auto scan](https://logback.qos.ch/manual/configuration.html#autoScan).
 
