@@ -74,6 +74,121 @@ The following set of SQL privileges are required.
 
 * SELECT, INSERT, UPDATE, DELETE
 
+### PostgreSQL
+To create the XL Release database in PostgreSQL, execute the following script:
+
+        CREATE USER xlrelease WITH
+          NOSUPERUSER
+          NOCREATEDB
+          NOCREATEROLE
+          ENCRYPTED PASSWORD 'xlrelease';
+
+        CREATE USER xlarchive WITH
+          NOSUPERUSER
+          NOCREATEDB
+          NOCREATEROLE
+          ENCRYPTED PASSWORD 'xlarchive';
+
+        CREATE DATABASE xlrelease OWNER xlrelease;
+        CREATE DATABASE xlarchive OWNER xlarchive;
+
+### MySQL
+To create the XL Release database in MySQL, execute the following script:
+
+        CREATE DATABASE xlrelease;
+        CREATE DATABASE xlarchive;
+
+        GRANT ALL PRIVILEGES ON xlrelease.* TO 'xlrelease'@'%' IDENTIFIED BY 'xlrelease';
+        GRANT ALL PRIVILEGES ON xlarchive.* TO 'xlarchive'@'%' IDENTIFIED BY 'xlarchive';
+
+        FLUSH PRIVILEGES;
+
+To ensure that XL Release functions correctly when running on MySQL, change the following settings in the MySQL configuration file. To locate the file, refer to the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/option-files.html).
+
+{:.table .table-striped}
+| Setting | Value |
+| ------- | ----- |
+| `skip-character-set-client-handshake` |
+| `collation_server` | `utf8_unicode_ci` |
+| `character_set_server` | `utf8` |
+
+### Oracle 11g
+To create the XL Release database in Oracle 11g, execute the following script:
+
+        ALTER SYSTEM SET disk_asynch_io = FALSE SCOPE = SPFILE;
+
+        CREATE USER xlarchive IDENTIFIED BY xlarchive;
+        GRANT CONNECT,RESOURCE,DBA TO xlarchive;
+        GRANT CREATE SESSION TO xlarchive WITH ADMIN OPTION;
+
+        CREATE USER xlrelease IDENTIFIED BY xlrelease;
+        GRANT CONNECT,RESOURCE,DBA TO  xlrelease;
+        GRANT CREATE SESSION TO xlrelease WITH ADMIN OPTION;
+
+        save /dblibs/touch.log create;
+
+### Microsoft SQL Server
+To create the XL Release database in Microsoft SQL Server, execute the following script:
+
+        CREATE DATABASE xlrelease COLLATE SQL_Latin1_General_CP1_CI_AS;
+        GO
+        USE xlrelease;
+        GO
+        CREATE LOGIN xlrelease WITH PASSWORD = 'xlrelease', CHECK_EXPIRATION = OFF, CHECK_POLICY = OFF, DEFAULT_DATABASE = xlrelease;
+        GO
+        CREATE USER [xlrelease] FOR LOGIN [xlrelease];
+        EXEC sp_addrolemember N'db_owner', N'xlrelease';
+        GO
+
+        CREATE DATABASE xlarchive COLLATE SQL_Latin1_General_CP1_CI_AS;
+        GO
+        USE xlarchive;
+        GO
+        CREATE LOGIN xlarchive WITH PASSWORD = 'xlarchive', CHECK_EXPIRATION = OFF, CHECK_POLICY = OFF, DEFAULT_DATABASE = xlrelease;
+        GO
+        CREATE USER [xlarchive] FOR LOGIN [xlarchive];
+        EXEC sp_addrolemember N'db_owner', N'xlarchive';
+        GO
+
+Unlike other supported databases, MS SQL Server does not have Multi Version Concurrency Control (MVCC) activated by default. XL Release requires this feature to function correctly. For more information on the settings described below, see [this MSDN article](https://msdn.microsoft.com/en-us/library/ms189050.aspx).
+
+To enable snapshot isolation mode, execute the following commands on an SQL Server:
+
+        ALTER DATABASE xlrelease SET ALLOW_SNAPSHOT_ISOLATION ON;
+        ALTER DATABASE xlrelease SET READ_COMMITTED_SNAPSHOT ON;
+        ALTER DATABASE xlarchive SET ALLOW_SNAPSHOT_ISOLATION ON;
+        ALTER DATABASE xlarchive SET READ_COMMITTED_SNAPSHOT ON;
+
+When MVCC is enabled, you must add a weekly maintenance task to MS SQL Server. This task will maintain the indexes and query statistics:
+
+* Recompute statistics by running `EXEC sp_updatestats`
+* Clear buffers by running `DBCC DROPCLEANBUFFERS`
+* Clear cache by running `DBCC FREEPROCCACHE`
+* Rebuild indexes that are fragmented more than 30%
+
+### IBM DB2
+To create the XL Release database in DB2, execute the following script:
+
+        create database xlr using codeset UTF8 territory us PAGESIZE 32K;
+        connect to xlr;
+
+        CREATE BUFFERPOOL TMP_BP SIZE AUTOMATIC PAGESIZE 32K;
+        connect reset;
+
+        connect to xlr;
+        CREATE SYSTEM TEMPORARY TABLESPACE TMP_TBSP PAGESIZE 32K MANAGED BY SYSTEM USING ("<PATH>") BUFFERPOOL TMP_BP;
+        CREATE SCHEMA xlrelease AUTHORIZATION xlrelease;
+        CREATE SCHEMA xlarchive AUTHORIZATION xlarchive;
+        connect reset;
+
+**Note:** To use DB2 as an external database, ensure that you increase the `pagesize` to `32K`.
+
+XL Release requires that DB2 is set in MySQL compatible mode in order for it to support pagination queries. Run the following command on your DB2 database to enable MySQL compatible mode:
+
+        $ db2set DB2_COMPATIBILITY_VECTOR=MYS
+        $ db2stop
+        $ db2start
+
 ## The configuration file: `xl-release.conf`
 
 All the configuration is done in `XL_RELEASE_SERVER_HOME/conf/xl-release.conf`.
