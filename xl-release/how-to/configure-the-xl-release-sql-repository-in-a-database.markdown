@@ -32,7 +32,7 @@ The purpose for the embedded databases is the easy setup in evaluation and test 
 
   **Note:** The archiving database and the normal database must point to different external databases.
 * MySQL versions 5.5, 5.6, and 5.7
-* Oracle 11g
+* Oracle 11g and 12c
 * Microsoft SQL Server 2012 and later
 * DB2 versions 10.5 and 11.1
 
