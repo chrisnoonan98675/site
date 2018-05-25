@@ -46,7 +46,7 @@ To create a dictionary:
 To create an encrypted dictionary:
 
 1. In the top bar, click **Explorer**.
-1. Hover over **Environments**, ![Menu button](/images/menu_three_dots.png), and select **Encrypted dictionary**.
+1. Hover over **Environments**, click ![Menu button](/images/menu_three_dots.png), and select **Encrypted dictionary**.
 1. In the **Name** field, enter a name for the encrypted dictionary.
 1. In the **Common** section, in the **Entries** field, click **Add new row**.
 1. In the **Key**, enter the placeholder without delimiters `{% raw %}{{{% endraw %}` and `{% raw %}}}{% endraw %}` by default.
