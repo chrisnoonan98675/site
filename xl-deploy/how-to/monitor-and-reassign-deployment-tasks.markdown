@@ -17,7 +17,7 @@ By default, the Task Monitor only shows the tasks that are assigned to you. To s
 
 To access the Task Monitor using the legacy GUI, select **Task Monitor** from the gear icon menu.
 
-![Task Monitor](images/task-monitor.png)
+![Task Monitor](images/task-monitor-new-ui.png)
 
 ## Open a task
 
@@ -25,6 +25,6 @@ To open a task from the Task Monitor, double-click it. You can only open tasks t
 
 ## Reassign a task
 
-To assign a task to yourself, select it and click **Assign to me**. This requires the `task#takeover` [global permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#global-permissions).
+To assign a task to yourself: On the right of the task, click ![Menu button](../../images/menu_three_dots.png), and click **Assign to me**. This requires the `task#takeover` [global permission](/xl-deploy/concept/roles-and-permissions-in-xl-deploy.html#global-permissions).
 
-To assign a task to another user, select it and click **Assign to user...**, and then select the user. This requires the `task#assign` global permission.
+To assign a task to another user: On the right of the task, click ![Menu button](../../images/menu_three_dots.png), and click **Assign to user**. This requires the `task#assign` global permission.

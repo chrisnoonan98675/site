@@ -118,6 +118,10 @@ The **OpenShift: Check Service** task type checks accessibility of a service in 
 
 ### XL Release Openshift plugin 8.0.0
 
+{% raw %}
+**Important**: Version 8.0.0 is not backward compatible and introduces a breaking change with the addition of the `{{openshift.client}}` shared configuration.
+{% endraw %}
+
 #### Improvements
 
 * [REL-6160] - Add oc path as a property in Shared Configuration

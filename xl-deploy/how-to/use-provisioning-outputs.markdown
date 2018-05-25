@@ -45,12 +45,14 @@ Say you want to provision an Amazon EC2 AMI and then apply a [Puppet manifest](h
 
   ![Sample template.overthere.SshHost with contextual placeholder](images/provisioning-create-new-template-new-ui.png)
 
+
 1. Double-click the package.
 1. Under **Provisioning**, click the **Bound Templates** field, and add `tomcat-host` to the list.     
 
  **Note:** This ensures that XL Deploy will save the generated `overthere.SshHost` CI in the Repository.
 
   ![Sample package with bound template](images/provisioning-add-bound-template-new-ui.png)
+
 
 1. Hover over **EC2-Instance-Spec**, click ![Menu button](../../images/menu_three_dots.png), and select **New** > **puppet** > **provisioner** > **Manifest**.
 2. In the **Name** field, enter `Puppet-provisioner-Manifest`.
@@ -60,10 +62,12 @@ Say you want to provision an Amazon EC2 AMI and then apply a [Puppet manifest](h
 
   ![Creating a puppet manifest](images/provisioning-create-puppet-manifest-new-ui.png)
 
+
 1. Double-click an environment that contains an Amazon EC2 [provider](/xl-deploy/how-to/create-a-provider.html).
 1. Under the **Provisioning** section, click the **Directory Path** field, and enter the directory where XL Deploy should save the generated `overthere.SshHost` CI.
 
   ![Directory path property on a sample provider](images/provisioning-directory-path-on-provider-new-ui.png)
+
 
   **Note:** The directory must already exist under **Infrastructure**.
 

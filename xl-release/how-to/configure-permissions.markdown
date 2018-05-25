@@ -25,13 +25,14 @@ The following global permissions are available:
 | Permission | Description |
 | ---------- | ----------- |
 | Admin | All permissions |
-| Edit Security | Access to the Roles and Permissions pages and permission to edit security on releases and templates |
-| Create Template | Permission to create a new template |
-| Create Release | Permission to create a release from any template; also see the [Create Release](/xl-release/how-to/configure-release-teams-and-permissions.html#template-permissions) template permission |
-| View Reports | Permission to review reports |
-| Edit Global Variables | Permission to edit [global variables](/xl-release/how-to/configure-global-variables.html) (available in XL Release 4.8.0 and later) |
-| Edit Blackout Period | Permission to create, edit, or delete a blackout period |
-| Edit Risk Profile | Permission to create, edit, or delete a risk profile |  
+| Edit security | Access to the Roles and Permissions pages and permission to edit security on releases and templates |
+| Create template | Permission to create a new template |
+| Create release | Permission to create a release from any template; also see the [Create Release](/xl-release/how-to/configure-release-teams-and-permissions.html#template-permissions) template permission |
+| View reports | Permission to review reports |
+| Edit global variables | Permission to edit [global variables](/xl-release/how-to/configure-global-variables.html) (available in XL Release 4.8.0 and later) |
+| Create top level folders | Permission to create folders |
+| Edit blackout period | Permission to create, edit, or delete a blackout period |
+| Edit risk profile | Permission to create, edit, or delete a risk profile |  
 
 Click **Save** to apply your changes. Click **Reset** to discard your changes and reload the current settings from the server.
 

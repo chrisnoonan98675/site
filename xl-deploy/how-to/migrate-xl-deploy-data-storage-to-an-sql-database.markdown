@@ -55,6 +55,9 @@ To migrate XL Deploy data storage to an SQL database, you must:
 The upgrade process has two stages:
 
 1. **Stage 1** happens during the upgrade. During this stage, basic data (metadata, security related data, and CI data) is migrated to SQL format. This stage must be completed successfully before you can use XL Deploy.
+
+**Note:** As of version 8.0.1, the migration process can be restarted during this first stage. If the process stops due to any issue, the migration can be restarted and it will continue from where it stopped. You are not required to perform a manual clean up of the partially migrated data. For example, when a database error occurs because a property value could not be written, the migration does not fail. The failed property is logged and you can manually handle the value later.
+
 1. **Stage 2** happens during normal operation of XL Deploy. During this stage, CI change history data (which is primary used to [compare CIs](/xl-deploy/how-to/working-with-configuration-items.html#compare-cis)) is migrated to SQL format. This operation is executed slowly, in small batches, to minimize the impact on XL Deploy's performance. During the migration, CI change history data will become available to the system. Functionality that relies on CI change history data will not be able to access that data until the migration is complete; however, all other functionality will operate normally.
 
 ### Upgrade instructions
@@ -77,6 +80,17 @@ To perform the upgrade:
 4. Ensure that the database connection(s) are configured correctly in `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf`. It is recommended that you use a different database or user (possibly on the same database instance) for the new SQL storage.
 
 5. Follow the normal upgrade procedure from step 14.
+
+#### Configuration options
+
+You can add these options to your configuration file:
+
+        xl.migration.ci.stateFile =
+        xl.migration.ci.errorLogLocation =
+
+Use the `stateFile` property to specify a file where to record the state of the migration. The process must have write access to the file. The file size depends on the size of the repository that is being migrated. The size will be approximately 80 bytes per CI that is migrated.
+
+The `errorLogLocation` property must be a folder where the process can write data about CIs that could not be migrated successfully. The process must have write access to the folder. It will attempt to create the folder if it does not exist.
 
 ### Monitoring progress during stage 1
 
@@ -153,11 +167,21 @@ After migration is complete (including stage 1, stage 2, and task archive migrat
 
 If the system does not start correctly at this stage, contact [XebiaLabs Support](https://support.xebialabs.com/). The issue may be caused by a plugin that depends on the JCR packages. You can add these packages to the server by reinstalling the Migrator; the server will start, but it is unlikely that the plugin that caused the issue will work correctly.
 
-## Removing remaining JCR data
+## Removing data after migration
 
-After you remove the XL Deploy JCR-to-SQL Migrator, some data will remain in JCR format. XL Deploy does not use this data. Depending on the configuration of your server, you can remove this data using different methods:
+### Remove configuration files
+
+* Remove the files in the configured `errorLogLocation` if they exist. Carefully inspect the files to see if there were any problems during migration that should be fixed manually.
+* Remove the migration state file: `migration.dat`.
+
+### Remove the remaining JCR data
+
+After you remove the XL Deploy JCR-to-SQL Migrator, some data will remain in JCR format. XL Deploy does not use this data. You can rename all resources and start XL Deploy to test that it still works before removing the resources.
+
+Depending on the configuration of your server, you can remove this data using different methods:
 
 * If you were using an internal database, you can delete the JCR repository from the file system. In the default XL Deploy configuration, this includes everything in the `XL_DEPLOY_SERVER_HOME/repository` directory except the `database` and `artifacts` folders.
-* If you were using an external database, you can drop the JCR tables, depending on your RDBMS and configuration.
+* If you were using an external database, you can completely remove this database. You can drop the JCR tables, depending on your RDBMS and configuration. If the new system is using the same schema, make sure you do not drop the tables of the new SQL implementation. These tables are: `DATABASECHANGELOG`, `DATABASECHANGELOGLOCK`, `PERSISTENT_LOGINS` and all tables starting with `XL_` or `XLD_`.
+* If the artifacts were stored on disk in the JCR implementation, these files will be moved or copied to the new location during the migration. The old files, if they exist, can be removed.
 
 It is not required that you delete the data after removing the migrator software. It will not impact the performance of XL Deploy.

@@ -16,13 +16,10 @@ An environment is a grouping of infrastructure and middleware items such as host
 
 To create an environment where you can deploy an application:
 
-1. In the top menu, click **Repository**.
-1. Right-click **Environments** and select **New** > **Environment**.
-2. In the **Name** box, enter a name for this environment.
-3. On the **Common** tab, select one or more middleware containers from the **Containers** list and click ![Right arrow button](/images/button_add_container.png) to move it to the **Members** list.
-
-      ![Sample environment](images/xl-deploy-trial/xl_deploy_trial_glassfish_environment.png)
-
-4. Click **Save**. XL Deploy saves the environment in the Repository.
+1. In the top bar, click **Explorer**.
+1. Hover over **Environments**, click ![Menu button](/images/menu_three_dots.png), and select **New** >Right-click  and select **New** > **Environment**.
+2. In the **Name** field, enter a name for the environment.
+3. In the **Common** section, click in the **Containers** field, and select one or more middleware containers from the list.  
+4. Click **Save**. 
 
 **Tip:** To see a sample environment being created, watch the *[Defining environments](https://www.youtube.com/watch?v=LU4NLPcCwlQ&list=PLIIv46GEoJ7ZvQd4BbzdMLaH0tc-gYyA1&index=3)* video.
