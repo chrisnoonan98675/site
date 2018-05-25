@@ -36,21 +36,23 @@ Say you want to provision an Amazon EC2 AMI and then apply a [Puppet manifest](h
 1. In the **Name** field, enter `EC2-Instance-Spec`
 1. Fill in the required fields and save the CI.
 
-    ![Create new provisionable (aws.ec2.InstanceSpec)](images/create-new-provisionable.png)
+  ![Create new provisionable (aws.ec2.InstanceSpec)](images/create-new-provisionable.png)
 
 1. Hover over the application, click ![menu button](../../images/menu_three_dots.png) and select **New** > **template** > **overthere** > **SshHost**.
-1. In the **Name** field, enter `tomcat-host`
+1. In the **Name** field, enter `tomcat-host`.
 1. Fill in the required properties, setting the **Address** property to `{% raw %}{{%publicHostname%}}{% endraw %}`.
 1. Click **Save**.
 
-    ![Sample template.overthere.SshHost with contextual placeholder](images/provisioning-create-new-template-new-ui.png)
+  ![Sample template.overthere.SshHost with contextual placeholder](images/provisioning-create-new-template-new-ui.png)
+
 
 1. Double-click the package.
 1. Under **Provisioning**, click the **Bound Templates** field, and add `tomcat-host` to the list.     
 
  **Note:** This ensures that XL Deploy will save the generated `overthere.SshHost` CI in the Repository.
 
-    ![Sample package with bound template](images/provisioning-add-bound-template-new-ui.png)
+  ![Sample package with bound template](images/provisioning-add-bound-template-new-ui.png)
+
 
 1. Hover over **EC2-Instance-Spec**, click ![Menu button](../../images/menu_three_dots.png), and select **New** > **puppet** > **provisioner** > **Manifest**.
 2. In the **Name** field, enter `Puppet-provisioner-Manifest`.
@@ -58,14 +60,16 @@ Say you want to provision an Amazon EC2 AMI and then apply a [Puppet manifest](h
 1. Fill in the required properties.
 1. Click **Save**.
 
-    ![Creating a puppet manifest](images/provisioning-create-puppet-manifest-new-ui.png)
+  ![Creating a puppet manifest](images/provisioning-create-puppet-manifest-new-ui.png)
+
 
 1. Double-click an environment that contains an Amazon EC2 [provider](/xl-deploy/how-to/create-a-provider.html).
 1. Under the **Provisioning** section, click the **Directory Path** field, and enter the directory where XL Deploy should save the generated `overthere.SshHost` CI.
 
-    ![Directory path property on a sample provider](images/provisioning-directory-path-on-provider-new-ui.png)
+  ![Directory path property on a sample provider](images/provisioning-directory-path-on-provider-new-ui.png)
 
-    **Note:** The directory must already exist under **Infrastructure**.
+
+  **Note:** The directory must already exist under **Infrastructure**.
 
 1. [Provision the package to an environment](/xl-deploy/how-to/provision-an-environment.html) that contains an Amazon EC2 [provider](/xl-deploy/how-to/create-a-provider.html).    
 

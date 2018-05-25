@@ -20,18 +20,24 @@ Starting in XL Deploy 5.0.0, a dictionary can contain both plain-text and encryp
 
 ## Create a dictionary
 
+
 To create a dictionary:
 
-1. Click **Repository** in the top menu.
-1. Right-click **Environments** and select **Dictionary**.
-1. In the **Name** box, enter a name for the dictionary.
-1. Click ![Add button](/images/button_add_placeholder.png) under **Entries** to add a plain-text entry.
-    1. Under **Key**, enter the placeholder without delimiters ({% raw %}`{{`{% endraw %} and {% raw %}`}}`{% endraw %} by default). Under **Value**, enter the corresponding value.
-    1. Repeat this process for each plain-text entry that you want to add. If you want to remove an entry, select it and click ![Remove button](/images/button_remove_placeholder.png).
-1. Click ![Add button](/images/button_add_placeholder.png) under **Encrypted Entries** to add an encrypted entry (supported in XL Deploy 5.0.0 and later).
-    1. Under **Key**, enter the placeholder without delimiters. Under **Value**, enter the corresponding value. Note that in encrypted entries, the value is always masked with asterisks (`*`).
-    1. Repeat this process for each encrypted entry that you want to add. If you want to remove an entry, select it and click ![Remove button](/images/button_remove_placeholder.png).
-1. Click **Save** to save the dictionary.
+1. In the top bar, click **Explorer**.
+1. Hover over **Environments**, click ![Menu button](/images/menu_three_dots.png), and select **Dictionary**.
+1. In the **Name** field, enter a name for the dictionary.
+1. In the **Common** section, in the **Entries** field, click **Add new row**.
+1. In the **Key**, enter the placeholder without delimiters `{% raw %}{{{% endraw %}` and `{% raw %}}}{% endraw %}` by default.
+1. Under **Value**, enter the corresponding value.
+1. Repeat this process for each plain-text entry.
+**Note:** To remove an entry, click ![Remove button](../../images/cancel-search.png).
+1. In the **Encrypted Entries** section, click **Add new row**.
+1. Under **Key**, enter the placeholder without delimiters.
+1. Under **Value**, enter the corresponding value.
+**Note:** Encrypted entry values are always masked with an asterisks (`*`).
+1. Repeat this process for each encrypted entry.
+**Note:** To remove an entry, click ![Remove button](../../images/cancel-search.png).
+1. Click **Save**.
 
 **Tip:** In XL Deploy 5.0.0 and later, you can create a dictionary [while creating a new environment](/xl-deploy/how-to/create-an-environment-in-xl-deploy.html).
 
@@ -39,35 +45,36 @@ To create a dictionary:
 
 To create an encrypted dictionary:
 
-1. Click **Repository** in the top menu.
-2. Right-click **Environments** and select **Encrypted Dictionary**.
-3. In the **Name** box, enter a name for the encrypted dictionary.
-4. Click ![Add button](/images/button_add_placeholder.png) under **Entries** to add an entry.
-1. Under **Key**, enter the placeholder without delimiters ({% raw %}`{{`{% endraw %} and {% raw %}`}}`{% endraw %} by default). Under **Value**, enter the corresponding value. Note that in encrypted dictionary entries, the value is always masked with asterisks (`*`).
-1. Repeat this process for each entry that you want to add. If you want to remove an entry, select it and click ![Remove button](/images/button_remove_placeholder.png).
+1. In the top bar, click **Explorer**.
+1. Hover over **Environments**, click ![Menu button](/images/menu_three_dots.png), and select **Encrypted dictionary**.
+1. In the **Name** field, enter a name for the encrypted dictionary.
+1. In the **Common** section, in the **Entries** field, click **Add new row**.
+1. In the **Key**, enter the placeholder without delimiters `{% raw %}{{{% endraw %}` and `{% raw %}}}{% endraw %}` by default.
+1. Under **Value**, enter the corresponding value.
+1. Repeat this process for each plain-text entry.
+**Note:** To remove an entry, click ![Remove button](../../images/cancel-search.png).
 1. Click **Save** to save the dictionary.
 
 ## Assign a dictionary to an environment
 
 To assign a dictionary to an environment:
 
-1. Click **Repository** in the top menu.
+1. In the top bar, click **Explorer**.
 2. Expand **Environments** and double-click the desired environment.
-3. Under **Dictionaries**, select the dictionary and click ![Add button](/images/button_add_container.png) to move it to the **Members** list.
+3. In the **Dictionaries** field, select a dictionary from the dropdown list.
 4. Click **Save** to save the environment.
 
-You can assign multiple dictionaries to an environment. Dictionaries are evaluated in order; XL Deploy resolves each [placeholder](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) using the first value that it finds.
+Multiple dictionaries can be assigned to an environment. Dictionaries are evaluated in order; XL Deploy resolves each [placeholder](/xl-deploy/how-to/using-placeholders-in-xl-deploy.html) using the first value that it finds.
 
 ## Restrict a dictionary to containers or applications
 
 You can restrict a dictionary so that XL Deploy will only apply it to specific containers, specific applications, or both. To restrict a dictionary:
 
-1. Click **Repository** in the top menu.
+1. In the top bar, click **Explorer**.
 1. Expand **Environments** and double-click the desired dictionary.
-1. Go to the **Restrictions** tab.
-1. Under **Restrict to containers**, select one or more containers and click ![Add button](/images/button_add_container.png) to move them to the **Members** list.
-1. Under **Restrict to applications**, select one or more applications and click ![Add button](/images/button_add_container.png) to move them to the **Members** list.
-1. Click **Save** to save the dictionary.
+1. Under the **Restrictions** section, click in the **Restrict to containers** field and select one or more container from the dropdown list.
+1. Click in the **Restrict to applications** field, and from the dropdown list, select one or more applications.
+1. Click **Save**.
 
 **Note:** An unrestricted dictionary cannot refer to entries in a restricted dictionary.
 
