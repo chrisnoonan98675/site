@@ -53,16 +53,13 @@ The plugins that are included in your XL Deploy installation determine the CI ty
 
 Before you create a deployment package, you should explore the CI types that are available. To do so in the XL Deploy interface, first import a sample deployment package:
 
-1. Go to **Deployment**.
-2. Click ![image](/images/button_add_package_deployment_workspace.png). The Import New Package tab appears.
-3. Select **Import deployment package from server**.
-4. Select the **PetClinic-ear 1.0** sample package.
-5. Click **Import**. XL Deploy imports the package.
-6. Click **Close**.
-7. Go to **Repository**.
-8. Click ![image](/images/button_refresh_repository.png) to refresh the Repository.
-9. Expand **Applications** and right-click a deployment package.
-10. Hover over **New** to see the CI types that are available. To see the properties that are available for a specific CI type, click it.
+1. Go to **Explorer**.
+1. Hover over **Applications**, click ![Menu button](images/menuBtn.png), and select **Import** > **From XL Deploy server**.
+1. Select the **PetClinic-ear/1.0** sample package.
+1. Click **Import**. XL Deploy imports the package.
+1. Click **Close**.
+1. Click ![image](images/refresh_button.png) to refresh the CI Library.
+1. Expand an application, hover over a deployment package, click ![Menu button](images/menuBtn.png), and select **New** to see the CI types that are available.
 
 ### How do I know which type to use?
 
@@ -99,16 +96,16 @@ Review the components of your application for values that are environment-specif
 
 To create a dictionary that defines values that are specific to an environment:
 
-1. In the XL Deploy interface, go to **Repository**.
-2. Right-click **Environments** and select **New** > **Dictionary**. The dictionary properties appear.
-3. Enter a name for the dictionary in the **Name** box.
-4. On the **Common** tab, click ![image](/images/button_add_placeholder.png) to add entries to the dictionary.
-5. Under **Key**, enter a placeholder that you are using in the application, without brackets (DB_USERNAME and DB_PASSWORD from the example above).
-6. Under **Value**, enter the value that XL Deploy should replace the placeholder with when you deploy the application to the target environment.
-7. Click **Save**.
-8. Double-click the environment that will use the newly created dictionary. The environment properties appear.
-9. On the **Common** tab, select the dictionary you created and move it to the **Members** column.
-10. Click **Save**.
+1. In the XL Deploy interface, go to the **Explorer**.
+1. Hover over **Environments**, click ![Menu button](images/menuBtn.png), and select **New** > **Dictionary**. The dictionary properties appear.
+1. Enter a name for the dictionary in the **Name** field.
+1. On the **Common** tab, click **Add new row** to add entries to the dictionary.
+1. Under **Key**, enter a placeholder that you are using in the application, without brackets (DB_USERNAME and DB_PASSWORD from the example above).
+1. Under **Value**, enter the value that XL Deploy should replace the placeholder with when you deploy the application to the target environment.
+1. Click **Save**.
+1. Double-click the environment that will use the newly created dictionary. The environment properties appear.
+1. On the **Common** tab, select the dictionary you created.
+1. Click **Save**.
 
 When you execute a deployment to this environment, XL Deploy replaces the placeholders with the values that you defined. For example:
 
@@ -120,7 +117,7 @@ Creating a deployment package in the XL Deploy interface is an easy way to see w
 
 #### Export the deployment package
 
-After you create a deployment package in the XL Deploy interface, right-click the package and select **Export**. The DAR file is downloaded to your computer.
+After you create a deployment package in the XL Deploy interface, hover over the package, click ![Menu button](images/menuBtn.png), and select **Export**. The DAR file is downloaded to your computer.
 
 To open the DAR file, change the file extension to ZIP, then open it with a file archiving program. In the package, you will see the artifacts that you uploaded when creating the package and a manifest file called `deployit-manifest.xml`. The manifest file contains:
 
@@ -180,18 +177,18 @@ If the infrastructure members that make up your target environment are not avail
 
 To create the deployment plan:
 
-1. Click **Start a deployment** to open the Deployment Workspace.
-2. Under **Packages**, expand your application.
+1. Click **Start a deployment**.
+2. Under **Applications**, expand your application.
 3. Select the desired version of your application and drag it to the left side of the Deployment Workspace.
 4. Under **Environments**, select the environment where your application should be deployed and drag it to the right side of the Deployment Workspace.
-5. Click ![image](/images/button_auto-map.png) to automatically map your application’s deployables to containers in the environment.
+5. Click ![image](images/button_auto-map-new.png) to automatically map your application’s deployables to containers in the environment.
 6. Double-click each mapped deployable to verify that its properties are configured as expected. Here, you can see the placeholders that XL Deploy found in your deployment package and the values that it will assign to them during the deployment process.
 
-    ![Deployed properties](images/deployment-workspace-deployed-properties.png)
+    ![Deployed properties](images/deployment-workspace-deployed-properties-new.png)
 
-7. Click **Preview** at the bottom of the Deployment Workspace to [Preview the deployment plan](/xl-deploy/how-to/preview-the-deployment-plan.html).
+7. Click **Preview** at to [Preview the deployment plan](/xl-deploy/how-to/preview-the-deployment-plan.html).
 8. Review the steps in the Preview pane.
-9. Optionally click the eye icon next to each step (where available) to preview the commands that XL Deploy will use to execute the step.
+9. Optionally double click the step to preview the commands that XL Deploy will use to execute the step.
 10. Click **Close preview** to return to the Deployment Workspace.
 
 ## Troubleshoot the deployment plan
@@ -214,17 +211,17 @@ If you cannot find the CI type that you need for a component of your application
 
 You can configure your plugins to change the deployment steps that it adds to the plan or to add new steps as needed.
 
-For example, say you are going to deploy an application to a JBoss or Tomcat server that you have configured for hot deployments, so you do not need the server to be stopped before the application is deployed or started afterward. In the [JBoss Application Server plugin reference documentation](/xl-deploy/latest/jbossPluginManual.html) and [Tomcat plugin reference documentation](/xl-deploy/latest/tomcatPluginManual.html), you'll find the `restartRequired` property for `jbossas.EarModule`, `tomcat.WarModule`, and other deployable types. The default value of this property is `true`. To change the value:
+For example, if you deploy an application to a JBoss or Tomcat server that you have configured for hot deployments, you are not required to stop the server before the application is deployed or start it afterward. In the [JBoss Application Server plugin reference documentation](/xl-deploy/latest/jbossPluginManual.html) and [Tomcat plugin reference documentation](/xl-deploy/latest/tomcatPluginManual.html), you can find the `restartRequired` property for `jbossas.EarModule`, `tomcat.WarModule`, and other deployable types. The default value of this property is `true`. To change the value:
 
 1. Set `restartRequired` to `false` in the `XL_DEPLOY_SERVER_HOME/conf/deployit-defaults.properties` file.
 2. Restart the XL Deploy server to load the new configuration setting.
 3. Create a deployment that will deploy your application to the target environment. You will see that the server stop and start steps do not appear in the deployment plan that is generated.
 
-For more detailed information about the way that XL Deploy creates deployment plans, refer to the [Understanding the packaging phase](/xl-deploy/concept/understanding-the-xl-deploy-planning-phase.html). For information about configuring the plugin you are using, refer to its manual in the XL Deploy documentation.
+For more detailed information about how XL Deploy creates deployment plans, refer to the [Understanding the packaging phase](/xl-deploy/concept/understanding-the-xl-deploy-planning-phase.html). For information about configuring the plugin you are using, refer to its manual in the XL Deploy documentation.
 
 ### Create a new plugin
 
-You may need to deploy an application to middleware for which XL Deploy does not already offer content. In this case, you can create a plugin by defining the CI types, rules, and actions that you need for your environment. In a plugin, you can define:
+To deploy an application to middleware for which XL Deploy does not already offer content, you can create a plugin by defining the CI types, rules, and actions that you need for your environment. In a plugin, you can define:
 
 * New container types, which are types of middleware that can be added to a target environment
 * New artifact and resources types that you can add to deployment packages and deploy to new or existing container types
