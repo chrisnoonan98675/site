@@ -29,7 +29,7 @@ The XL Deploy plugin for XL Release requires XL Release version 6.2.x or later t
 1. In XL Release menu bar, go to **Settings** > **Shared Configuration** > **XL Deploy Server** > **Add XL Deploy Server**.
 1. Specify the required information:
   * `Title` - [Required] Select a suitable title for the server configuration.
-  * `Url` - [Required] Url to connect to XL Deploy Server (Example: http://localhost:4516). If the port number is not specified in the url, plugin will assume port number as 4517 for https protocol and 4516 for http protocol. If XL Deploy is running over 80 or 443, it has to be mentioned explicitly in the url.
+  * `Url` - [Required] Url to connect to XL Deploy Server (Example: http://localhost:4516). If the port number is not specified in the url, the plugin uses the default port number: 4517 for https protocol and 4516 for http protocol. If XL Deploy is running over ports 80 or 443, you must mentione this explicitly in the url.
   * `Username` - Username for XL Deploy server. Can be provided/overridden at task level.
   * `Password` - Password for XL Deploy server. Can be provided/overridden at task level.
   * `Proxy Host` - HTTP proxy host if needed.
