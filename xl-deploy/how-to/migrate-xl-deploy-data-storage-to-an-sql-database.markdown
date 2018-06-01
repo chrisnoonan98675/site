@@ -43,6 +43,37 @@ The default configuration for the repository database connection is also used fo
 
 When you upgrade from XL Deploy 7.5.x to 8.0.x, XL Deploy uses a database connection for the task archive. To use the same configuration for the repository and reporting connections, rename the `reporting` key to `repository`. If you do not modify the configuration, XL Deploy will use the `reporting` connection configuration for the task archive and will use the default configuration (the internal database) for the primary connection. This situation is not correct and may cause issues for any installation.
 
+## Supported migration scenarios
+
+Depending on your data storage configuration in XL Deploy pre 8.0.0 version, there are two supported migration scenarios:
+
+1. The user-supplied artifacts are stored in a folder in the JCR repository (default configuration). If you are trying to migrate to an SQL database, the structure must be maintained. The migrated artifacts must be stored on the file system.
+
+Configure the settings for the artifacts in the `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf` file.
+Specify type of artifact storage to use.
+* `file`: use the specified file system location for storing artifacts.
+
+Set the location for artifact storage on file system:
+
+        artifacts {
+           type = "file"
+           root = ${xl.repository.root}"/artifacts"
+       }
+
+The repository will be stored in an external SQL database.       
+
+1. Your XL Deploy has a custom configuration to store the JCR repository in an external database. If you are trying to migrate to an SQL database, the structure must be maintained. The migrated artifacts must be stored in an external SQL database.
+
+Configure the settings for the artifacts in the `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf` file.
+Specify type of artifact storage to use.
+* `db`: use the database for storing artifacts.
+
+Set the location for the artifacts to be stored in the database. 
+
+        artifacts {
+           type = "db"
+       }
+
 ## Requirements
 
 To migrate XL Deploy data storage to an SQL database, you must:
