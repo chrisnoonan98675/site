@@ -48,31 +48,33 @@ When you upgrade from XL Deploy 7.5.x to 8.0.x, XL Deploy uses a database connec
 Depending on your data storage configuration in XL Deploy pre 8.0.0 version, there are two supported migration scenarios:
 
 1. The user-supplied artifacts are stored in a folder in the JCR repository (default configuration). If you are trying to migrate to an SQL database, the structure must be maintained. The migrated artifacts must be stored on the file system.
-
 Configure the settings for the artifacts in the `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf` file.
-Specify type of artifact storage to use.
-* `file`: use the specified file system location for storing artifacts.
+Specify the type of artifact storage to use: `file` - use the specified file system location for storing artifacts.
 
-Set the location for artifact storage on file system:
+    Set the location for artifact storage on the file system:
 
-        artifacts {
-           type = "file"
-           root = ${xl.repository.root}"/artifacts"
-       }
+            artifacts {
+               type = "file"
+               root = ${xl.repository.root}"/artifacts"
+           }
 
-The repository will be stored in an external SQL database.       
+    The repository will be stored in an external SQL database.       
 
-1. Your XL Deploy has a custom configuration to store the JCR repository in an external database. If you are trying to migrate to an SQL database, the structure must be maintained. The migrated artifacts must be stored in an external SQL database.
 
-Configure the settings for the artifacts in the `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf` file.
-Specify type of artifact storage to use.
-* `db`: use the database for storing artifacts.
+2. Your XL Deploy has a custom configuration to store the JCR repository in an external database. If you are trying to migrate to an SQL database, the structure must be maintained. The migrated artifacts must be stored in an external SQL database.
 
-Set the location for the artifacts to be stored in the database. 
+    Configure the settings for the artifacts in the `XL_DEPLOY_SERVER_HOME/conf/xl-deploy.conf` file.
+    Specify type of artifact storage to use: `db` - use the database for storing artifacts.
 
-        artifacts {
-           type = "db"
-       }
+    Set the location for the artifacts to be stored in the database.
+
+            artifacts {
+               type = "db"
+           }
+
+**Important: Migration scenarios not supported**
+1. The migration from a JCR setup where the artifacts are stored in a separate folder on the file system to a configuration where the artifacts are stored on an external SQL database server is not supported.
+1. The migration to SQL from a custom setup where the artifacts are stored in the JCR repository on an external database to a configuration where the artifacts are stored in the file system is not supported.
 
 ## Requirements
 
@@ -87,9 +89,10 @@ The upgrade process has two stages:
 
 1. **Stage 1** happens during the upgrade. During this stage, basic data (metadata, security related data, and CI data) is migrated to SQL format. This stage must be completed successfully before you can use XL Deploy.
 
-**Note:** As of version 8.0.1, the migration process can be restarted during this first stage. If the process stops due to any issue, the migration can be restarted and it will continue from where it stopped. You are not required to perform a manual clean up of the partially migrated data. For example, when a database error occurs because a property value could not be written, the migration does not fail. The failed property is logged and you can manually handle the value later.
+    **Note:** As of version 8.0.1, the migration process can be restarted during this first stage. If the process stops due to any issue, the migration can be restarted and it will continue from where it stopped. You are not required to perform a manual clean up of the partially migrated data. For example, when a database error occurs because a property value could not be written, the migration does not fail. The failed property is logged and you can manually handle the value later.
 
-1. **Stage 2** happens during normal operation of XL Deploy. During this stage, CI change history data (which is primary used to [compare CIs](/xl-deploy/how-to/working-with-configuration-items.html#compare-cis)) is migrated to SQL format. This operation is executed slowly, in small batches, to minimize the impact on XL Deploy's performance. During the migration, CI change history data will become available to the system. Functionality that relies on CI change history data will not be able to access that data until the migration is complete; however, all other functionality will operate normally.
+
+2. **Stage 2** happens during normal operation of XL Deploy. During this stage, CI change history data (which is primary used to [compare CIs](/xl-deploy/how-to/working-with-configuration-items.html#compare-cis)) is migrated to SQL format. This operation is executed slowly, in small batches, to minimize the impact on XL Deploy's performance. During the migration, CI change history data will become available to the system. Functionality that relies on CI change history data will not be able to access that data until the migration is complete; however, all other functionality will operate normally.
 
 ### Upgrade instructions
 
