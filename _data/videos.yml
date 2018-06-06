@@ -5,6 +5,8 @@
       id: 3BibSXdlEgY
     - title: Benefits of the XebiaLabs Deployment Model
       id: 6KYLoRP2HRI
+    - title: Getting to Know the New XL Deploy User Interface
+      id: x9D7m568V3I
     - title: Getting started with XL Deploy - Introduction
       id: gVNEnSr-YQs
     - title: Getting started with XL Deploy - Defining infrastructure
@@ -31,8 +33,7 @@
       id: MozM7bxuT4A
     - title: Provision cloud environments with XL Deploy
       id: 5xy3Va68T30
-    - title: Getting to Know the New XL Deploy User Interface
-      id: x9D7m568V3I
+
 - product: xl-release
   name: XL Release
   videos:
