@@ -19,7 +19,7 @@ Template Version Control also enables you to label templates and to compare save
 
 To use the version control feature, you must enable automated template versioning. By default, the automated template versioning is disabled in XL Release.
 
-To enable automated template versioning, go to **Settings** > **General** tab, and in the **Template versioning settings** section, click **Is automated template versioning enabled**.
+To enable automated template versioning, go to **Settings** > **General** tab, and in the **Track changes in template version control** section, click **Enable track changes**.
 
 ## View template changes and save template version
 
