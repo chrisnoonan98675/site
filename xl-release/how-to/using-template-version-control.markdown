@@ -29,7 +29,7 @@ To view the changes performed on a template, open the template and select **Show
 
 You can filter the list by setting a start date and an end date for the changes or by specifying a user in the *Filter by user...* field.
 
-To save a new template version with the latest change, click **Save a new version**, specify a name and a description, and the click **Save**. You can view only the saved versions in the list by clicking **Hide changes**.
+To save a new template version with the latest change, click **Save as new version**, specify a name and a description, and then click **Save**. You can view the revisions for all the versions in the list by clicking **View all changes**. You can also view the revisions for a specific version by clicking **View all changes** on the version row in the list. If tracking changes in the template version is enabled, all your changes since the last version are visible.
 
 ## Restore and compare templates
 
