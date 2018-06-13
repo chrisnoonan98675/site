@@ -36,3 +36,9 @@ To save a new template version with the latest change, click **Save as new versi
 To restore a template to a specific revision, click **Restore** from the **Actions** column. This creates a new change in the list that is identical to the revision you selected.
 
 To compare two versions of a template, click the square on the left side next to the desired versions to select them, and then click **Compare**. This shows the two selected versions as code in XL Release’s Releasefile format and highlights the differences.
+
+## Store template versions in Source Control Management
+
+As of XL Release 8.1.0, you can store template versions in a Source Control Management (SCM) tool. This provides easier management of all the artifacts, the possibility to store them together with Releasefiles and Jenkinsfiles, to configure and to use them from a release pipeline.
+
+You can store the template versions in SCM repositories in a Releasefile with all the necessary information, including attachments. For more information, see [Configure Source Control Management (SCM) connection](/xl-release/how-to/scm.html)
