@@ -57,6 +57,7 @@ Redirect 301 /xl-release/help/using-the-risk-aware-view.html /xl-release/how-to/
 Redirect 301 /xl-release/help/plugin-manager.html /xl-release/how-to/using-the-plugins-manager.html
 Redirect 301 /xl-release/help/using-template-version-control.html /xl-release/how-to/using-template-version-control.html
 Redirect 301 /xl-release/help/groups.html /xl-release/how-to/groups.html
+Redirect 301 /xl-release/help/task-failure-handler.html /xl-release/how-to/task-failure-handler.html
 
 # XL TestView in-product links
 
