@@ -1,28 +1,18 @@
 ---
-title: XL Release dashboard report (XL Release version 8.0 and earlier)
+title: Reports dashboard
 categories:
 - xl-release
 subject:
 - Reports
 tags:
-- report
+- reports
 - release
 - dashboard
-removed:
-- XL Release 8.1.0
 ---
 
-The XL Release dashboard report provides important information such as releases that have been flagged and which releases have the highest level of automation. The data for this report comes from XL Release's [archive database](/xl-release/concept/how-archiving-works.html). Releases that are completed but not yet archived do not appear in reports. The exception is the **Releases at risk** section; this section is about [active](/xl-release/concept/release-life-cycle.html) releases, so its data comes from XL Release's repository.
+The XL Release reports dashboard provides important information such as releases that have been flagged and which releases have the highest level of automation. The data for this report comes from XL Release's [archive database](/xl-release/concept/how-archiving-works.html). Releases that are completed but not yet archived do not appear in reports.
 
-To access the report, select **Reports** > **Dashboard** from the top menu. Use the buttons at the top of the report to select a time period such as "Last 6 months" or a specific date range. Type a part of a release title or release tags in the **Filter by title...** and **Add a tag...** boxes. When you start typing the release tag name, the tag autocompletes from a database of a maximum of 500 tags.
-
-## Releases at risk (Removed as of XL Release version 7.2)
-
-The **Releases at risk** section is available only in XL Release versions 7.1 and earlier and shows [active](/xl-release/concept/release-life-cycle.html) releases that contain one or more tasks that are [flagged](/xl-release/concept/xl-release-task-overview.html#task-details). Click a release to open its summary.
-
-![Releases at risk](../images/dashboard-releases-at-risk.png)
-
-**Note:** You can view the risk state of your releases in the Release Overview page.
+To access the reports dashboard, click **Dashboards** from the top menu and then click the **Reports** tab. Use the buttons at the top of the report to select a time period such as "Last 6 months" or a specific date range. Type a part of a release title or release tags in the **Filter by title...** and **Add a tag...** boxes. When you start typing the release tag name, the tag autocompletes from a database of a maximum of 500 tags.
 
 ## Release information tiles
 

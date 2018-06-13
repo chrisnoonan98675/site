@@ -1,22 +1,20 @@
 ---
-title: Release value stream report (XL Release version 8.0 and earlier)
+title: Release value stream dashboard
 categories:
 - xl-release
 subject:
-- Reports
+- Dashboards
 tags:
-- report
+- dashboard
 - release
 - release value stream
-removed:
-- XL Release 8.1.0
 ---
 
 The XL Release release value stream report focuses on the quality of [completed and aborted](/xl-release/concept/release-life-cycle.html) releases. The data for this report comes from XL Release's [archive database](/xl-release/concept/how-archiving-works.html). Releases that are completed or aborted but not yet archived do not appear in reports.
 
 Releases appear in this report in descending order. Under each phase of a release, you can see its duration and the proportion of the total duration that the phase took.
 
-To access the XL Release release value stream report, select **Reports** > **Release value stream** from the top menu. Use the buttons at the top of the report to select a time period such as "Last 6 months" or a specific date range. Type a part of a release title or release tags in the **Filter by title...** and **Add a tag...** boxes. When you start typing the release tag name, the tag autocompletes from a database of a maximum of 500 tags.
+To access the XL Release release value stream dashboard, click **Dashboards** from the top menu and then click the **Release value stream** tab. Use the buttons at the top of the report to select a time period such as "Last 6 months" or a specific date range. Type a part of a release title or release tags in the **Filter by title...** and **Add a tag...** boxes. When you start typing the release tag name, the tag autocompletes from a database of a maximum of 500 tags.
 
 ![Release Value Stream](../images/release-value-stream.png)
 
