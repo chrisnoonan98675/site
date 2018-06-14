@@ -113,7 +113,7 @@ To add a filter to a tile:
 To move a tile:
 1. Select a dashboard.
 1. Click **Configure dashboard**.
-1. Hover over a tile and click ![Move icon](/images/button-move-tile2.png).
+1. Hover over a tile and click ![Move icon](../../images/button-move-tile2.png).
 1. Drag the tile to a new location on the grid.
 
 ### Delete a tile
