@@ -17,12 +17,12 @@ In XL Release 8.1 and later you can create and configure personalized dashboards
 ## Permissions and roles
 The Create dashboard global permission is required to create dashboards, see [Grant the Create dashboard permission](#grant-the-create-dashboard-permission). Users with this permission can create and edit dashboards.
 
-The edit dashboard "Editors" role is required to modify dashboards. Users with this role can view and edit dashboards but not create them. This role is set by the dashboard owner when configuring a dashboard, see [Create a dashboard](#create-a-dashboard).
+The Editors role is required to modify dashboards. Users with this role can view and edit dashboards but not create them. This role is set by the dashboard owner when configuring a dashboard, see [Create a dashboard](#create-a-dashboard).
 
-The view dashboard "Viewers" role is view only. Users with this role can cannot modify or create a dashboard. This role is set by the dashboard owner when configuring a dashboard, see [Create a dashboard](#create-a-dashboard).
+The Viewers role is view only. Users with this role can cannot modify or create a dashboard. This role is set by the dashboard owner when configuring a dashboard, see [Create a dashboard](#create-a-dashboard).
 
 ### Grant the Create dashboard permission
-To allow users or user roles to create a dashboard:
+To allow users to create a dashboard:
 1. Click **User management** and then click the **Permissions** tab.
 2. Under the **Roles** section, add the user or user group name beside the **Create dashboard** action.
 
