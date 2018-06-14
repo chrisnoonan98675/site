@@ -54,7 +54,7 @@ To edit a dashboard:
 3. Edit the dashboard properties.
 4. Click **Save**.
 
-## Add a tile to a dashboard
+### Add a tile to a dashboard
 To add a tile to a dashboard:
 1. Select a dashboard.
 2. Click **Configure dashboard**.
@@ -85,34 +85,32 @@ To add a filter to a tile:
 1. Hover over a tile.
 1. Click ![Gear icon](/images/button_configure_tile.png).
 1. Edit the tile properties.
-1. Click **+ Add filter**.    
+1. Click **+ Add filter**.    <br/>
+    *To filter data based on specific parent folder names:*    
+        - Click **Select filter** and select **Parent folder**.    
+        - In the blank field under **matches**, enter parent folder names.    
+        **Note:** This filter returns data from a direct parent only. If you want to return data that is from more than one parent folder, add all folder names.<br/>
+    *To filter data based on specific source template names:*    
+        - Click **Select filter** and select **Source template**.    
+        - In the blank field under **matches**, enter source template names.    <br/>
+    *To filter databased on specific release tags:*    
+        - Click **Select filter** and select **Release tags**.    
+        - In the field under **contains all**, select a logical operator.    
+        <br/>
 
-  *To filter data based on specific parent folder names:*    
-      - Click **Select filter** and select **Parent folder**.
-      - In the blank field under **matches**, enter parent folder names.
-      **Note:** This filter returns data from a direct parent only. If you want to return data that is from more than one parent folder, add all folder names to the **field**.
-
-  *To filter data based on specific source template names:*    
-      - Click **Select filter** and select **Source template**.
-      - In the blank field under **matches**, enter source template names.
-
-  *To filter databased on specific release tags:*    
-      - Click **Select filter** and select **Release tags**.
-      - In the field under **contains all**, select a logical operator.
-
-   Two logical operators are available on the release tags filter:    
-      - Select **contains all** to return release data that has all of the specified tags. If data items do not have all of the specified tags no data will be returned.  
-      *Or*    
-      - Click **contains any** to return release data that has any of the mentioned tags.
-      - In the blank field under the logical operator, enter tag names.  
-
-5. Click **Save**.  
+     Two logical operators are available on the release tags filter:        
+        - Select **contains all** to return release data that has all of the specified tags. If data items do not have all of the specified tags no data will be returned.     
+        *Or*     
+        - Click **contains any** to return release data that has any of the mentioned tags.
+        - In the blank field under the logical operator, enter tag names.  
+        <br/>
+1. Click **Save**.  
 
 ### Move a tile
 To move a tile:
 1. Select a dashboard.
 1. Click **Configure dashboard**.
-1. Hover over a tile and click ![Move icon](/images/button-move-tile.png).
+1. Hover over a tile and click ![Move icon](/images/button-move-tile2.png).
 1. Drag the tile to a new location on the grid.
 
 ### Delete a tile
