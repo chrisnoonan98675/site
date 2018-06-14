@@ -12,7 +12,7 @@ tags:
 - release value stream
 ---
 
-In XL Release 8.1 and later you can create and configure personalized dashboards. Custom dashboards can be used to monitor a range of metrics across multiple releases, various folders and templates, Jenkins builds, JIRA tickets, or any custom item you wish to monitor.
+In XL Release 8.1 and later you can create and configure personalized dashboards. Custom dashboards can be used to monitor a range of metrics across multiple releases, folders, and templates. You can also create and add [custom tiles](xl-release/how-to/create-custom-tiles.html) to your dashboard.
 
 ## Permissions and roles
 The create dashboard global permission is required to create dashboards, see [Grant the create dashboard permission](#grant-the-create-dashboard-permission). Users with this permission can create and edit dashboards.
@@ -21,7 +21,7 @@ The editor role is required to modify dashboards. Users with this role can view 
 
 The viewer role can view but not modify or create a dashboard. This role is set by the dashboard owner when configuring a dashboard, see [create a dashboard](#create-a-dashboard).
 
-### Grant the Create dashboard permission
+### Grant the create dashboard permission
 To allow users to create a dashboard:
 1. Click **User management** and then click the **Permissions** tab.
 2. Under the **Roles** section, add the user or user group name beside the **Create dashboard** action.
