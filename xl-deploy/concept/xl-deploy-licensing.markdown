@@ -43,6 +43,15 @@ If XL Deploy finds a license violation while the server is running, the server w
 
 **Note:** After the server is stopped, it might not start again (for example, if the license expiry date has been reached).
 
+### License expiry warning
+
+If you have the Admin global permission, you will see the license expiry warning message 10 days before your XL Deploy license will expire. You can change this setting in your `XL_DEPLOY_SERVER_HOME/conf/system.conf` file. Add these lines in the `xl.deploy` section:
+
+        license
+          { daysBeforeWarning = 15 }
+
+You will see the license expiry warning message if the number of days until your XL Deploy license will expire is less than the value of `daysBeforeWarning`. The default value for `daysBeforeWarning` is 10 days.          
+
 ### Licensed number of configuration items
 
 If your license limits the number of CIs that you can create, XL Deploy validates it as follows:
