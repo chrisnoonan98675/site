@@ -12,7 +12,7 @@ tags:
 - release value stream
 ---
 
-In XL Release 8.1 and later you can create and configure personalized global dashboards. global dashboards can be used to monitor a range of metrics across multiple releases, folders, and templates. You can also create and add [custom tiles](xl-release/how-to/create-custom-tiles.html) to your dashboard.
+In XL Release 8.1 and later you can create and configure personalized global dashboards. Global dashboards can be used to monitor a range of metrics across multiple releases, folders, and templates. You can also create and add [custom tiles](xl-release/how-to/create-custom-tiles.html) to your dashboard.
 
 ## Permissions and roles
 The create dashboard permission is required to create dashboards, see [Grant the create dashboard permission](#grant-the-create-dashboard-permission). Users with this permission can create and edit dashboards.
