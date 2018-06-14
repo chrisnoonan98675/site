@@ -1,7 +1,7 @@
 ---
 title: Configure custom dashboards
 categories:
-- xl release
+- xl-release
 subject:
 - Dashboards
 tags:
