@@ -122,7 +122,6 @@ mark {
 }
 .splash-page-logo {
   margin-bottom: 20px;
-  height: 100px;
 }
 .help-page-logo {
   float: right;
@@ -475,7 +474,7 @@ h6:hover .header-link {
 /* SiteSearch360 search box */
 
 .sitesearch360 {
-  padding-top: 20px;   
+  padding-top: 20px;
 }
 
 /* Scroll-to-top button styles */
