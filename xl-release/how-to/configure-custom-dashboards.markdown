@@ -12,7 +12,7 @@ tags:
 - release value stream
 ---
 
-In XL Release 8.1 and later you can configure customized global dashboards. Custom dashboards can be used to monitor a range of metrics across multiple releases, various folders and templates, Jenkins builds, JIRA tickets, or any custom item you wish to monitor.
+In XL Release 8.1 and later you can create and configure personalized dashboards. Custom dashboards can be used to monitor a range of metrics across multiple releases, various folders and templates, Jenkins builds, JIRA tickets, or any custom item you wish to monitor.
 
 ## Permissions and roles
 The Create dashboard global permission is required to create dashboards, see [Grant the Create dashboard permission](#grant-the-create-dashboard-permission). Users with this permission can create and edit dashboards.
