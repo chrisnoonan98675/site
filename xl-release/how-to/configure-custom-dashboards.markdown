@@ -17,9 +17,9 @@ In XL Release 8.1 and later you can configure customized global dashboards. Cust
 ## Permissions and roles
 The Create dashboard global permission is required to create dashboards, see [Grant the Create dashboard permission](#grant-the-create-dashboard-permission). Users with this permission can create and edit dashboards.
 
-The edit dashboard "Editors" role is required to modify dashboards. Users with this role can view and edit dashboards but not create them. This role is set by the dashboard creator when configuring a dashboard, see [Create a dashboard](#create-a-dashboard).
+The edit dashboard "Editors" role is required to modify dashboards. Users with this role can view and edit dashboards but not create them. This role is set by the dashboard owner when configuring a dashboard, see [Create a dashboard](#create-a-dashboard).
 
-The view dashboard "Viewers" role is view only. Users with this role can cannot modify or create a dashboard. This role is set by the dashboard creator when configuring a dashboard, see [Create a dashboard](#create-a-dashboard).
+The view dashboard "Viewers" role is view only. Users with this role can cannot modify or create a dashboard. This role is set by the dashboard owner when configuring a dashboard, see [Create a dashboard](#create-a-dashboard).
 
 ### Grant the Create dashboard permission
 To allow users or user roles to create a dashboard:
@@ -45,7 +45,7 @@ To delete a dashboard:
 1. Select the dashboard you wish to delete.
 1. On the top right of the screen, click **Configure dashboard**.
 2. Click **Delete dashboard**.    
-**Note:** Only the dashboard creator or a user with the create dashboard permission can delete a dashboard.
+**Note:** Only the dashboard owner or a user with the create dashboard permission can delete a dashboard.
 
 ### Edit a dashboard
 To edit a dashboard:
@@ -113,7 +113,7 @@ To add a filter to a tile:
 To move a tile:
 1. Select a dashboard.
 1. Click **Configure dashboard**.
-1. Hover over a tile and click ![Move icon](../../images/button-move-tile2.png).
+1. Hover over a tile and click ![Move icon](../images/button-move-tile.png).
 1. Drag the tile to a new location on the grid.
 
 ### Delete a tile
