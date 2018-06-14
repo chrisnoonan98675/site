@@ -14,13 +14,14 @@ tags:
 
 In XL Release 8.1 and later you can configure customized global dashboards. Custom dashboards can be used to monitor a range of metrics across multiple releases, various folders and templates, Jenkins builds, JIRA tickets, or any custom item you wish to monitor.
 
-## Assign permissions
-The Create dashboard global permission is required to create dashboards, see [Configure permissions](/xl-release/how-to/configure-permissions.html). A user or user roles with this permission can create and edit dashboards.
+## Permissions and roles
+The Create dashboard global permission is required to create dashboards, see [Grant the Create dashboard permission](#grant-the-create-dashboard-permission). Users with this permission can create and edit dashboards.
 
-Users or user roles who do not have the Create dashboard permission, can be granted viewing and editing roles by a dashboard creator, see [Create a dashboard](#create-a-dashboard).
+The edit dashboard "Editors" role is required to modify dashboards. Users with this role can view and edit dashboards but not create them. This role is set by the dashboard creator when configuring a dashboard, see [Create a dashboard](#create-a-dashboard).
 
-The Edit dashboard "Editors" permission is required to modify dashboards. A user or user roles with this permission can edit dashboards but not create them. This permission is set by the dashboard creator when configuring a dashboard, see [Create a dashboard](#create-a-dashboard).
+The view dashboard "Viewers" role is view only. Users with this role can cannot modify or create a dashboard. This role is set by the dashboard creator when configuring a dashboard, see [Create a dashboard](#create-a-dashboard).
 
+### Grant the Create dashboard permission
 To allow users or user roles to create a dashboard:
 1. Click **User management** and then click the **Permissions** tab.
 2. Under the **Roles** section, add the user or user group name beside the **Create dashboard** action.
