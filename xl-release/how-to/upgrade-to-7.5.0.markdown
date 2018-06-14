@@ -161,6 +161,9 @@ You can run the migrator with the following environment variables:
 1. If you have implemented any custom plugins, copy them from the `plugins` directory of the **source** XL Release installation to the `plugins` directory of the **target** installation.
 1. Copy the content of the `ext` directory of the **source** installation to the `ext` directory of the **target** installation.
 1. Copy the content of the `conf` directory of the **source** installation to the `conf` directory of the **target** installation.
+
+    **Important:** As of version 7.5.0, the content of the `script.policy` file has been modified. When upgrading to XL Release version 7.5.x or later, do not overwrite the `script.policy` file, you must use the new version of the file.
+
 1. If you have changed the XL Release server startup script(s) in the `bin` directory of the **source** installation, do not copy the changed script(s) to the **target** installation. Instead, manually reapply the changes to the files that were provided in the new version of XL Release.
 
 ## Step 6. Configure the target XL Release server

@@ -74,9 +74,12 @@ To upgrade an XL Release server installation:
 
 1. Copy the contents of the `conf` directory from the previous installation to the new installation directory.
 
-    **Important:** As of version 8.0.0, the plugins are placed in a different location. When upgrading from version 7.5.3 to version 8.0.0, do not copy the `xlr-wrapper-linux.conf` or `xlr-wrapper-win.conf` files. You can compare the older version against the new version of the files and modify only the necessary lines.
+    **Important:**
+    1. As of version 8.0.0, the plugins are placed in a different location. When upgrading from version 7.5.3 to version 8.0.0, do not copy the `xlr-wrapper-linux.conf` or `xlr-wrapper-win.conf` files. You can compare the older version against the new version of the files and modify only the necessary lines.
 
-    Some versions of XL Release require a new version of the license file. Refer to [XL Release licensing](/xl-release/concept/xl-release-licensing.html#license-types) to see if you need a new license. You can download all of your licenses from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/).
+    1. Some versions of XL Release require a new version of the license file. Refer to [XL Release licensing](/xl-release/concept/xl-release-licensing.html#license-types) to see if you need a new license. You can download all of your licenses from the [XebiaLabs Software Distribution site](https://dist.xebialabs.com/).
+
+    1. As of version 7.5.0, the content of the `script.policy` file has been modified. When upgrading to XL Release version 7.5.x or later, do not overwrite the `script.policy` file, you must use the new version of the file.
 
 1. If you have changed the XL Release server startup script(s) in the `bin` directory, do not copy the changed script(s) to the new installation directory. Instead, manually reapply the changes to the files that were provided in the new version of XL Release.
 
