@@ -35,8 +35,7 @@ Currently available options are:
 
 To setup GitHub connection:
 
-1. In the **Username or Organization** field, enter the username or organization of your GitHub repository (`<organization_name>`).
-1. In the **Repository name** field, enter the name of the GitHub repository (`<repository_name>`).
+1. In the **Repository name** field, enter the qualified name of the GitHub repository (`<organization_name>/<project_name>`).
 1. In the **Branch** field, enter the name of the branch to which changes will be pushed. **Note:** The default value is `master`.
 1. In the **Folder** field, enter the name of the folder to which changes will be pushed. **Note:** The default value is `/`, which represents the top-level folder in the selected repository.
 1. In the **Filename** field, enter a file name to which changes will be pushed. **Note:** The file name should consists of a name and an extension. For example, `EBR_deployment.groovy`.
