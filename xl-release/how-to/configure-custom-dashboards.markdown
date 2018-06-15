@@ -15,11 +15,11 @@ tags:
 In XL Release 8.1.0 and later, you can create custom dashboards with the most relevant data for your team and share them with others in your organization. Custom dashboards give you the flexibility to focus on a small dataset or a specific topic such as security. You can also create and add [custom tiles](/xl-release/how-to/create-custom-tiles.html) to your dashboard.
 
 ## Permissions and roles
-The *Create dashboard* permission is required to create dashboards; see [Grant the *Create dashboard* permission](#grant-the-create-dashboard-permission). Users with this permission can create and edit dashboards.
+The *Create dashboard* permission is required to create dashboards; see [Grant the *Create dashboard* permission](#grant-the-create-dashboard-permission). Users with this permission can create dashboards.   
 
-The editor role is required to modify dashboards. Users with this role can view and edit dashboards but not create them. This role is set by the dashboard owner when configuring a dashboard; see [Create a dashboard](#create-a-dashboard).
+Both the editor and viewer role is required to modify dashboards. Users with these roles can view and edit dashboards but not create them. This role is set by the dashboard owner when configuring a dashboard; see [Create a dashboard](#create-a-dashboard).
 
-The viewer role provides view only access to a dashboard. Users with this role can view but not modify a dashboard. This role is set by the dashboard owner when configuring a dashboard; see [create a dashboard](#create-a-dashboard). only
+The viewer role provides view only access to a dashboard. Users with this role can view but not modify a dashboard. This role is set by the dashboard owner when configuring a dashboard; see [create a dashboard](#create-a-dashboard).
 
 ### Grant the *Create dashboard* permission
 To allow users to create a dashboard:   
