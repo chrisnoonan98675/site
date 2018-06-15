@@ -11,10 +11,18 @@ This repository contains:
 For general information about XebiaLabs documentation, refer to [Technical documentation basics](https://xebialabs.atlassian.net/wiki/display/Labs/Technical+documentation+basics).
 
 # Run a local documentation site
+If you are using a MAC:
 1. Clone this repository
 2. Ensure that you have `docker` and `docker-compose` installed.
 3. Run: `docker-compose up`
-Go to `http://localhost:4000` to see the site running locally.
+4. Go to `http://localhost:4000` to see the site running locally.
+
+If you are using a windows machine:
+1. Go to and open `online-docs-jekyll-master\Dockerfile`.
+2. In line 18 of the file, change `bundler` to `bundle`.
+3. Save the file.
+4. Run: `docker-compose up`.
+5. Go to `http://localhost:4000` to see the site running locally.
 
 ## Running a different Jekyll environment
 There are 3 different flavours of Jekyll environments that you can run in the docker container. By default the `development` environment is being built.
