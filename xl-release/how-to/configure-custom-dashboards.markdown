@@ -20,7 +20,7 @@ Both the editor and viewer role is required to modify dashboards. Users with the
 
 The viewer role provides view only access to a dashboard. Users with this role can view but not modify a dashboard. This role is set by the dashboard owner when configuring a dashboard; see [create a dashboard](#create-a-dashboard).
 
-### Grant the *Create dashboard* permission
+## Grant the Create dashboard permission
 To allow users to create a dashboard:   
 
 1. Click **User management** and then click the **Permissions** tab.
