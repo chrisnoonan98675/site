@@ -79,13 +79,18 @@ If you choose the simple setup, XL Deploy will be installed with these settings:
 
 #### Step 1 Provide a password for the `admin` user
 
-The setup wizard will promote you to provide a password for the `admin` user. The `admin` user has all permissions and is used to connect to XL Deploy's JCR repository.
+The setup wizard will promote you to provide a password for the `admin` user. The `admin` user has all permissions and is used to connect to XL Deploy's repository.
 
 To use the default password of `admin`, press ENTER twice. If you plan to connect to an existing repository, enter the password that you already use to connect to that repository.
 
 #### Step 2 Initialize the repository
 
 The setup wizard will ask if you want to initialize the repository. Answer `yes` to create the repository, or `no` to connect to an existing repository.
+
+For information about using an external database, refer to:
+
+ * [Configure the XL Deploy SQL repository (XL Deploy 8.0 and later)](/xl-deploy/how-to/configure-the-xl-deploy-sql-repository.html)
+ * [Configure the XL Deploy JCR repository (XL Deploy 7.6 and earlier)](/xl-release/how-to/configure-the-xl-deploy-repository.html)
 
 **Warning**: If you choose to initialize the repository and you have installed XL Deploy in the same location before, any information stored in the repository will be lost.
 
@@ -115,7 +120,7 @@ Manual setup gives you control over all of XL Deploy's installation settings.
 
 #### Step 1 Provide a password for the `admin` user
 
-The setup wizard will promote you to provide a password for the `admin` user. The `admin` user has all permissions and is used to connect to XL Deploy's JCR repository.
+The setup wizard will promote you to provide a password for the `admin` user. The `admin` user has all permissions and is used to connect to XL Deploy's repository.
 
 To use the default password of `admin`, press ENTER twice. If you plan to connect to an existing repository, enter the password that you already use to connect to that repository.
 
@@ -160,7 +165,11 @@ The setup wizard will prompt you for the minimum and maximum number of threads t
 
 #### Step 8 Configure the repository
 
-The setup wizard will ask where you want to store the JCR repository. If the directory does not exist, XL Deploy will create it. The setup wizard will also ask if you want to initialize the repository.
+The setup wizard will ask where you want to store the repository. If the directory does not exist, XL Deploy will create it. The setup wizard will also ask if you want to initialize the repository.
+
+For information about using an external database, refer to:
+* [Configure the XL Deploy SQL repository (XL Deploy 8.0 and later)](/xl-deploy/how-to/configure-the-xl-deploy-sql-repository.html)
+* [Configure the XL Deploy JCR repository (XL Deploy 7.6 and earlier)](/xl-release/how-to/configure-the-xl-deploy-repository.html)
 
 **Warning**: If you choose to initialize the repository and you have installed XL Deploy in the same location before, any information stored in the repository will be lost.
 

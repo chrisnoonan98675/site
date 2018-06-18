@@ -22,6 +22,22 @@ In the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.ht
 
 ## Release notes
 
+### XL Release Blackduck plugin 8.0.0
+
+#### Improvements
+
+* Compatibility with XL Release 8.0.0
+
+#### Bug Fixes
+
+* DEPL-12985: Fixed Last Analysis date formatting
+
+### XL Release Blackduck plugin 7.6.2
+
+#### Bug Fixes
+
+* REL-6280: Bug fixes for IE11
+
 ### XL Release Blackduck plugin 7.6.1
 
 #### Improvements

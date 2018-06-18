@@ -27,14 +27,16 @@ Deployed packages are never removed by the package retention policy. If a deploy
 
 To automatically purge old deployment packages according to a policy:
 
-1. Click **Repository** in XL Deploy.
-2. Right-click **Configuration** and select `policy.PackageRetentionPolicy`.
-3. Enter a unique name in the **Name** box.
-4. In the **Regex pattern** box, specify a regular expression that matches the packages to which the policy should apply.
-5. Enter the number of deployment packages to retain per application in the **Packages to retain** box.
-6. By default, automatic policy execution is enabled and will run according to the crontab scheduled defined on the **Schedule** tab. You can optionally change the crontab schedule or disable execution.
+1. From the side bar, click **Configuration**
+1. Click ![Menu button](images/menuBtn.png), then select **New** > **Policy** > `policy.PackageRetentionPolicy`.
+1. In the **Name** field, enter a unique policy name.
+1. In the **Regex pattern** field, specify a regular expression that matches the packages to which the policy should apply.
+1. In the **Packages to retain** field, enter the number of deployment packages to retain per application.
 
-    ![Package retention policy](images/system-admin-package-retention-policy.png)
+**Note:** By default, automatic policy execution is enabled and will run according to the crontab scheduled defined on the **Schedule** tab. You can optionally change the crontab schedule or disable execution.
+
+![Package retention policy](images/system-admin-package-retention-policy-new-ui.png)
+
 
 **Tip**: You can manually execute a package retention policy by right-clicking it and selecting **Execute job now**.
 

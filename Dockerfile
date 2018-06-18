@@ -15,4 +15,4 @@ VOLUME /src
 WORKDIR /src
 ENV JEKYLL_ENV development
 ENV JEKYLL_DEST /site
-CMD bundler exec jekyll serve --port 4000 --host 0.0.0.0 --incremental --destination $JEKYLL_DEST
+CMD bundle exec jekyll serve --port 4000 --host 0.0.0.0 --incremental --destination $JEKYLL_DEST

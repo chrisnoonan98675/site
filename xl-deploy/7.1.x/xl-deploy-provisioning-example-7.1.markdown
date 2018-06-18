@@ -67,7 +67,8 @@ To create a new provisionable, right-click the **1.0.0** package and select **Ne
 
 Click **Save** to save the CI.
 
-![Sample aws.ec2.InstanceSpec CI](images/provisioning-create-new-provisionable-02.png)
+
+![Sample aws.ec2.InstanceSpec CI](../how-to/images/provisioning-create-new-provisionable-02.png)
 
 ### Create an SSH host template
 

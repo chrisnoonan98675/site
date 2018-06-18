@@ -113,3 +113,27 @@ The **OpenShift: Start Deployment** task type starts a deployment in the default
 The **OpenShift: Check Service** task type checks accessibility of a service in the default project in OpenShift. You must specify the service name that already exists on OpenShift.
 
 ![OpenShift Check Service](../images/xlr-openshift-plugin/openshift-check-service.png)
+
+## Release notes
+
+### XL Release Openshift plugin 8.0.0
+
+{% raw %}
+**Important**: Version 8.0.0 is not backward compatible and introduces a breaking change with the addition of the `{{openshift.client}}` shared configuration.
+{% endraw %}
+
+#### Improvements
+
+* [REL-6160] - Add oc path as a property in Shared Configuration
+* [REL-6161] - Accept oc client cli configurations in Shared Configuration as separate object
+* [REL-6366] - Club wait logic with Create Resource and Remove Resource tasks
+
+### XL Release Openshift plugin 7.5.0
+
+#### Features
+
+* Add Create/Wait/Delete Resource tasks for Openshift
+* Add task to trigger a build in OpenShift
+* Add task to tag an image
+* Add a task to trigger a deployment
+* Add a task to verify whether a service is accessible

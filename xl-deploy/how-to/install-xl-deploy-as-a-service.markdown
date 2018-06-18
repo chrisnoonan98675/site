@@ -25,6 +25,8 @@ To install XL Deploy 5.0.0 or later on a Unix-based system:
 
     Also, you must ensure that the server is configured so that it can start without input from the user; for example, if a repository keystore password is required, then it should be provided in `XL_DEPLOY_SERVER_HOME/conf/deployit.conf`.
 
+    **Important:** Ensure that the `JAVA_HOME` environment variable is set correctly for the user or service the will be used to run the XL Deploy service. You can explicitly set the location of the Java executable by updating the `XL_DEPLOY_HOME/bin/.wrapper-env.sh` script.
+
 1. As root, execute `XL_DEPLOY_SERVER_HOME/bin/install-service.sh`. This command will install the service.
 
     You will be asked for the user name under which you installed the XL Deploy server when you executed `run.sh`.
@@ -38,6 +40,8 @@ To install XL Deploy 5.0.0 or later on a Microsoft Windows-based system:
 1. Follow the installation procedure described in [Install XL Deploy](/xl-deploy/how-to/install-xl-deploy.html). This procedure requires you to execute `XL_DEPLOY_SERVER_HOME\bin\run.cmd` to configure and initialize the server.
 
     You must ensure that the server is configured so that it can start without input from the user; for example, if a repository keystore password is required, then it should be provided in `XL_DEPLOY_SERVER_HOME\conf\deployit.conf`.
+
+    **Important:** Ensure that the `JAVA_HOME` environment variable is set correctly for the user or service the will be used to run the XL Deploy service and include the location of `Java/bin` in the `Windows Path` environment variable. You can explicitly set the location of the Java executable by updating the `XL_DEPLOY_HOME/bin/.wrapper-env.cmd` script.
 
 1. As an administrator, execute `XL_DEPLOY_SERVER_HOME\bin\install-service.cmd`. This command will install the service.
 

@@ -51,7 +51,7 @@ For information about the plugins that are supported by the XebiaLabs customer s
 | [XL Release Artifactory plugin](https://github.com/xebialabs-community/xlr-artifactory-trigger-plugin) | Automatically trigger a release when a new version of a specified artifact is published to [Artifactory](http://www.jfrog.com/artifactory/) |
 | [XL Release Atlassian Bamboo plugin](https://github.com/xebialabs-community/xlr-bamboo-plugin) | Run build jobs in [Atlassian Bamboo](https://www.atlassian.com/software/bamboo/) |
 | [XL Release CA LISA plugin](https://github.com/xebialabs-community/xlr-calisa-plugin) | Create a release, run a template, run a release, or check a release's status in [CA LISA (Nolio)](http://www.ca.com/us/devcenter/ca-service-virtualization.aspx) |
-| [XL Release Dynatrace plugin](https://github.com/xebialabs-community/xlr-dynatrace-pluginc) | Register a test run, retrieve test results, start and stop session recording, and register deployment in [Dynatrace](http://www.dynatrace.com/en/index.html) |
+| [XL Release Dynatrace plugin](https://github.com/xebialabs-community/xlr-dynatrace-plugin) | Register a test run, retrieve test results, start and stop session recording, and register deployment in [Dynatrace](http://www.dynatrace.com/en/index.html) |
 | [XL Release Flowdock plugin](https://github.com/xebialabs-community/xlr-flowdock-plugin) | Send a message to a [Flowdock](https://www.flowdock.com/) inbox |
 | [XL Release GitHub plugin](https://github.com/xebialabs-community/xlr-github-plugin) | Use the [GitHub API](https://github.com/) in XL Release script tasks and automatically squash the commits of a pull request |
 | [XL Release GitLab plugin](https://github.com/xebialabs-community/xlr-gitlab-plugin) | Create or merge a pull request in [GitLab](https://about.gitlab.com/) |
@@ -85,5 +85,5 @@ For information about the plugins that are supported by the XebiaLabs customer s
 {:.table}
 | Plugin | Features |
 | ------ | -------- |
-| [XL Deploy module for Ansible](https://github.com/xebialabs-community/xldeploy-ansible) | Use [Ansible](http://www.ansibleworks.com/) to manage the XL Deploy repository |
+| [XL Deploy module for Ansible](https://github.com/xebialabs-community/xldeploy-ansible) | Use [Ansible](http://www.ansible.com/) to manage the XL Deploy repository |
 | [XL Release add-on for JIRA](https://github.com/xebialabs-community/xlr-addon-for-jira) | Trigger a release in XL Release from a JIRA workflow |

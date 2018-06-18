@@ -35,6 +35,8 @@ The **Releases at risk** section is available only in XL Release versions 7.1 an
 
 The **Task efficiency** chart displays the percentages of automated tasks and manual tasks out of the total number of executed tasks. The **Time spent** chart displays the percentages of time spent for automated tasks and manual tasks out of the total number of days.
 
+![Releases information](../images/dashboard-release-information.png)
+
 ## Release efficiency
 
 The **Release efficiency** section displays a graph that provides an overview of your overall level of automation during the selected time period. It shows the following information about [completed](/xl-release/concept/release-life-cycle.html) releases in the selected time period:
@@ -63,7 +65,9 @@ The **Top-10 Longest Releases** section shows the ten releases that were [comple
 
 Click a release name to open it in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html).
 
-![Top-10 Longest Releases and Phases](../images/dashboard-longest-releases-phases.png)
+![Top-10 Longest Releases](../images/dashboard-longest-releases.png)
+
+![Top-10 Longest Phases](../images/dashboard-longest-phases.png)
 
 ## Top 10 longest tasks
 

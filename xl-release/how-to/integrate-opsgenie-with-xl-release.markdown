@@ -31,11 +31,11 @@ Download a sample of the [ReleaseFile](/xl-release/how-to/sample-scripts/OpsGeni
 
 * A valid [OpsGenie](https://www.opsgenie.com/) subscription and a user with admin rights.
 * [XL Release 7.5](/xl-release/concept/requirements-for-installing-xl-release.html) or later.
-* The [XL Release OpsGenie plugin](https://github.com/xebialabs/xlr-opsgenie-plugin/releases/tag/xlr-opsgenie-plugin-7.5.0)
+* The XL Release OpsGenie plugin
 
 ## Setup
 
-* Download the latest version of the [XL Release OpsGenie plugin](https://dist.xebialabs.com/public/) and copy it to the `XL_RELEASE_SERVER_HOME/plugins` directory.
+* Download the latest version of the XL Release OpsGenie plugin and copy it to the `XL_RELEASE_SERVER_HOME/plugins` directory.
 * Start the XL Release server. You will see the available new [task types](/xl-release/concept/types-of-tasks-in-xl-release.html):
 
     ![OpsGenie tasks in XL Release](../images/opsgenie-xl-release/task-types.png)

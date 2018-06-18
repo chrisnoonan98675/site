@@ -34,7 +34,8 @@ To [install](/xl-deploy/how-to/install-xl-deploy.html) the XL Deploy server, you
 
 Depending on the environment, the following may also be required:
 
-* **Database:** XL Deploy's Jackrabbit repository supports a number of different databases; for more information, see [Configure the XL Deploy repository](/xl-deploy/how-to/configure-the-xl-deploy-repository.html)
+* **Database:** The default XL Deploy setting is to use the internal database that stores the data on the file system. This is intended for temporary use and is not recommended for production use. For production use, it is strongly recommended to use an industrial-grade external database server such as PostgreSQL, MySQL, Oracle, Microsoft SQL Server or DB2. See [Configure the XL Deploy SQL repository (XL Deploy 8.0 and later)](/xl-deploy/how-to/configure-the-xl-deploy-sql-repository.html) for details.
+If you are using XL Deploy version 7.6 or earlier, see [Configure the XL Deploy JCR repository (XL Deploy 7.6 and earlier)](/xl-release/how-to/configure-the-xl-deploy-repository.html) for details.
 
 * **LDAP:** To enable group-based security, an LDAP x.509 compliant registry is needed; for more information, see [Configure the XL Deploy security file](/xl-deploy/how-to/configure-the-xl-deploy-security-file.html)
 
@@ -89,8 +90,8 @@ If `NumPackages` and `NumDeployments` are expressed per time unit (that is, the 
 To use the XL Deploy GUI, you must meet the following requirements:
 
 * **Web browser:**
-	* Firefox
-	* Chrome
+	* Firefox: the 2 latest versions
+	* Chrome: the 2 latest versions
 	* Internet Explorer 11 or later
 * **Flash player:** Version 9 or later
 

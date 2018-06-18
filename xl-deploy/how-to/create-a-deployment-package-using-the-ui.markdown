@@ -80,7 +80,7 @@ It is easy to specify property placeholders. For any deployable configuration it
 
 For example, open 'MyDataSource' and enter 'JNDI_VALUE' as placeholder:
 
-![image](images/package-placeholder.png)
+![image](images/package-placeholder-new-ui.png)
 
 The value for Jndi Name will be looked up form the dictionary associated with environment you deploy to.
 

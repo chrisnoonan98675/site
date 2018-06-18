@@ -1,12 +1,12 @@
 - product: xl-deploy
   name: XL Deploy
   videos:
-    - title: Visibility, automation, and control with XL Release and XL Deploy
-      id: vyAGFcFjdxI
+    - title: Automation, Visibility, Intelligence, and Control with the XebiaLabs DevOps Platform
+      id: 3BibSXdlEgY
     - title: Benefits of the XebiaLabs Deployment Model
       id: 6KYLoRP2HRI
-    - title: A quick look at XL Deploy
-      id: rmbH98YeWck
+    - title: Getting to Know the New XL Deploy User Interface
+      id: x9D7m568V3I
     - title: Getting started with XL Deploy - Introduction
       id: gVNEnSr-YQs
     - title: Getting started with XL Deploy - Defining infrastructure
@@ -33,13 +33,14 @@
       id: MozM7bxuT4A
     - title: Provision cloud environments with XL Deploy
       id: 5xy3Va68T30
+
 - product: xl-release
   name: XL Release
   videos:
-    - title: Visibility, automation, and control with XL Release and XL Deploy
-      id: vyAGFcFjdxI
-    - title: A quick look at XL Release
-      id: Y3tbOveSggA
+    - title: Automation, Visibility, Intelligence, and Control with the XebiaLabs DevOps Platform
+      id: 3BibSXdlEgY
+    - title: Achieve Continuous Delivery with XebiaLabs Release Orchestration
+      id: Ud0YZODJ-dw
     - title: Provisioning, building, deploying, and testing with XL Release
       id: 6AEv66A293A
     - title: Advanced pipeline orchestration and control in XL Release 5.0

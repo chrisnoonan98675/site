@@ -71,7 +71,7 @@ The content of the file is a line with the implementation of the `XLReleaseEvent
 
     com.example.plugin.PhaseNotifiyListener
 
-Now we will create a Java class `PhaseNotifiyListener` inside the `com.example.plugin` package:
+Create a Java class `PhaseNotifiyListener` inside the `com.example.plugin` package:
 
 {% highlight java %}
 
@@ -87,7 +87,7 @@ public class PhaseNotifiyListener implements XLReleaseEventListener {
 
   @AsyncSubscribe
   public void notifyCriticalPhaseStarted(ActivityLogEvent event) {
-    if (e.getActivityType().equals(PHASE_STARTED) && e.getMessage().contains(Critical phase)) {
+    if (e.activityType().equals(PHASE_STARTED) && e.message().contains(Critical phase)) {
       notificationApi.sendAlert(Critical phase started!, all@xebialabs.com);
     }
   }
@@ -102,7 +102,7 @@ Your java class must implement the interface `XLReleaseEventListener` (same as t
 
 ## Using the Configuration API
 
-It is also possible to use the [Configuration API](https://docs.xebialabs.com/jython-docs/#!/xl-release/8.0.x//service/com.xebialabs.xlrelease.api.v1.ConfigurationApi) from your java class. You just need to create a private field with the `@Resource` annotation and XL Release will inject the interface for you.
+It is also possible to use the [Configuration API](https://docs.xebialabs.com/jython-docs/#!/xl-release/7.6.x/service/com.xebialabs.xlrelease.api.v1.ConfigurationApi) from your java class. You just need to create a private field with the `@Resource` annotation and XL Release will inject the interface for you.
 
 {% highlight java %}
 
@@ -130,7 +130,19 @@ public class PhaseNotifiyListener implements XLReleaseEventListener {
 
 {% endhighlight %}
 
+## Update plugins to replace `DeployitEventListener` with `XLReleaseEventListener`
 
+As of XL Release version 8.0.0, the `DeployitEventListener` property has been removed and is no longer supported. If you are using this property in your custom plugins, follow these steps to update your custom plugins:
+
+1. Add a new dependency in `build.gradle`:
+
+    compile "com.xebialabs.xlrelease:xlr-api:8.0.0"
+
+This allows you to add the new events dependencies on the plugin scope.
+
+1. All classes that have the `@DeployitEventListener` annotation must be changed to implement `XLReleaseEventListener`.
+1. All methods on your old classes containing `@Subscribe` must be replaced with `@AsyncSubscribe` and the parameter must be changed to `ActivityLogEvent`.
+1. In the resources folder, create two new folders (META-INF/services) and a file named `com.xebialabs.xlrelease.events.XLReleaseEventListener`. Using a text editor, open `com.xebialabs.xlrelease.events.XLReleaseEventListener` and add a text line with the full name of your old class. This is required from XL Release to detect these "listener" classes outside the XL Release package. 
 
 ## List of activity types
 
@@ -147,7 +159,7 @@ The following table shows the different activity log types that you can receive 
 | RELEASE_DUE_DATE_UPDATED | Changed release due date |
 | RELEASE_SCHEDULED_START_DATE_UPDATED | Changed release scheduled start date |
 | RELEASE_OWNER_UPDATED | Changed release owner |
-| RELEASE_TAGS_UPDAsTED | Updated release tags |
+| RELEASE_TAGS_UPDATED | Updated release tags |
 | RELEASE_FLAG_STATUS_UPDATED | Changed flag status for release |
 | RELEASE_FLAG_COMMENT_UPDATED | Changed flag comment on release |
 | RELEASE_ABORT_RELEASE_ON_FAILURE_UPDATED | Changed 'Abort release on failure' status on status |

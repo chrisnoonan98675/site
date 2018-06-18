@@ -18,36 +18,34 @@ To configure a common context, create it in XL Deploy:
 1. Go to the Repository.
 2. Expand **Infrastructure** and locate the Tomcat host.
 3. Expand the host and locate the Tomcat server.
-4. Right-click the server and select **New** > **CommonContext**.
+4. On the right of the Tomcat server, click ![Menu button](images/menuBtn.png), then select **New** > **tomcat** > **CommonContext**.
 
-    ![Add a CommonContext](images/add-tomcat-common-context-in-repository.png)
+    ![Add a CommonContext](images/add-tomcat-common-context-in-repository-new-ui.png)
 
-5. Enter a name for the common context in the **Name** box.
+5. In the **Name** field, enter a name for the common context.
 6. Click **Save**.
 
-    ![CommonContext create screen](images/tomcat-common-context-create.png)
+    ![CommonContext create screen](images/tomcat-common-context-create-new-ui.png)
 
 7. Expand **Environments** and open the environment where you want to add the common context.
-8. Under **Containers**, add the common context to the **Members** list.
+8. In the **Containers** field, add the common content.
 
-    ![Adding CommonContext to an environment](images/add-tomcat-context-to-environment.png)
+    ![Adding CommonContext to an environment](images/add-tomcat-context-to-environment-new-ui.png)
 
 9. Click **Save**.
 
 ## Confine resources to the common context
 
-In an environment that contains a virtual host and a common context, XL Deploy will automatically map resources to both containers. However, you may want to deploy resources only to the common context. To do so, use the tagging feature; refer to [Using tags to configure deployments](using-tags-to-configure-deployments.html) for more information.
+In an environment that contains a virtual host and a common context, XL Deploy will automatically map resources to both containers. To deploy resources to the common context only, you must use the tagging feature. For more information, see [Use tags to configure deployments](/xl-deploy/how-to/use-tags-to-configure-deployments.html).
 
 For example, add the tag "Common" to the common context:
 
-![Add tag to tomcat.CommonContext](images/add-tag-to-tomcat-context.png)
+![Add tag to tomcat.CommonContext](images/add-tag-to-tomcat-context-new-ui.png)
 
 Then add the same tag to a resource (for example, a `tomcat.DataSourceSpec` CI):
 
-![Add tag to tomcat.DataSourceSpec](images/add-tag-to-tomcat-datasource.png)
+![Add tag to tomcat.DataSourceSpec](images/add-tag-to-tomcat-datasource-new-ui.png)
 
-XL Deploy will then automatically map the resource to the common context only:
-
-![Deployment with tag](images/tomcat-context-with-tag-deployment.png)
+When you deploy your application, during the configuration phase, XL Deploy will now automatically map the resource to the common context only.
 
 For more information about the Tomcat plugin, refer to [Introduction to the XL Deploy Tomcat plugin](/xl-deploy/concept/introduction-to-the-xl-deploy-tomcat-plugin.html) and the [Tomcat reference](/xl-deploy/latest/tomcatPluginManual.html).
