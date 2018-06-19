@@ -13,7 +13,11 @@ To configure XL Release, select **Settings** > **General settings** from the top
 
 ## Track changes in version control
 
-You can enable.... 
+To enable the track changes feature in XL-Release 8.1.0 and later:
+1. Go to **Settings** > **General**.
+1. In the **Track changes in template version control section**, select the **Enable track changes** checkbox.     
+
+To enable the track changes feature in previous versions of XL-Release, see [Enable automated template versioning](xl-release/how-to/using-template-version-control.html#enable-automated-template-versioning).
 
 ![Track changes](../images/track-changes.png)
 
