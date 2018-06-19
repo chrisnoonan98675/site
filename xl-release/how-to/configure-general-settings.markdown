@@ -11,6 +11,16 @@ tags:
 
 To configure XL Release, select **Settings** > **General settings** from the top menu. The General settings page is only available to users who have the *Admin* [global permission](/xl-release/how-to/configure-permissions.html).
 
+## Track changes in version control
+
+To enable the track changes feature in XL-Release 8.1.0 and later:
+1. Go to **Settings** > **General**.
+1. In the **Track changes in template version control section**, select the **Enable track changes** checkbox.     
+
+To enable the track changes feature in previous versions of XL-Release, see [Enable automated template versioning](xl-release/how-to/using-template-version-control.html#enable-automated-template-versioning).
+
+![Track changes](../images/track-changes.png)
+
 ## XL Release header color
 
 You can configure the color scheme of the XL Release header and menu bar items. For each type of your XL Release instance, you can define an associated color.
