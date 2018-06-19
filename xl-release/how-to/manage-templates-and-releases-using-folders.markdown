@@ -92,6 +92,14 @@ to all configurations defined on the folder and inherit all configurations from 
 defined globally. You must have the new "Edit configuration" permission to create or edit configurations on folders.
 If you use the default set of folder permissions, the _Folder Owner_ team has this permission on new folders.  
 
+### Add a custom configuration on a folder
+
+To add a new configuration on a specific folder:
+1. Go to **Design** > **Folders**.
+1. Select a folder from the list and click **Configuration** tab.
+1. To add a new instance of a configuration type, click ![image](/xl-release/images/add-button.png) on the desired configuration.
+1. Enter the required information and click **Save**.
+
 ### Inheritance and referencing configurations
 
 Configurations are inherited from all the parent folders in the folder hierarchy. A template defined in a folder has access to all configurations defined on the folder's ancestors, including globally defined configurations.

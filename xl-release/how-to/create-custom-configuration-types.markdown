@@ -57,7 +57,9 @@ The required attributes to refer to a custom configuration type are:
 
 ## Configuration page
 
-Use the **Task configurations** page to configure objects that a custom task can reference (such as JIRA tasks or Jenkins tasks). This page is accessible to users with Admin permissions.
+Use the **Shared configurations** page under **Settings** to configure objects that a custom task can reference (such as JIRA tasks or Jenkins tasks). This page is accessible to users with the Admin global permissions.
+
+You can also set up a custom configuration type on a specific folder. For more information, see [Folder level configuration](/xl-release/how-to/manage-templates-and-releases-using-folders.html#folder-level-configuration).
 
 **Note:** Prior to XL Release 6.0.0, the page is called **Configuration**.
 
@@ -67,11 +69,11 @@ The page shows the configuration types that are currently available and allows y
 
 XL Release includes two configuration types: JIRA Server and Jenkins Server.
 
-To add a configuration instance, click **Add** under the type that you need. You can then set properties:
+To add a configuration instance, click ![image](/xl-release/images/add-button.png) for the type that you need. You can then set properties:
 
 ![Configuration details](/xl-release/images/jira-configuration-details.png)
 
-Enter a symbolic name in the **Title** box. In the XL Release application, the configuration instance is referred to by this name.
+Enter a name in the **Title** box. In the XL Release application, the configuration instance is referred to by this name.
 
 To edit or delete an instance, click its name.
 
