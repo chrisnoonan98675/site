@@ -18,7 +18,13 @@ As of XL Release 8.1.0 a new property was added on the task level called **Handl
 * **Skip task**: If the task fails, it is automatically skipped.
 
 * **Define additional action**: This option allows you to write your own Jython script to be executed if the task is going to fail.
-**Caution**: If you do not modify the task status in your script, the task fails due to a wrong outcome. The modification of the task status (such as skip task, retry task, or other outcomes) should be the last line of your script.
+**Caution**: If you do not modify the task status in your script, the task fails due to a wrong outcome. The modification of the task status (such as skip task, retry task, or other outcomes) **must** be the last line of your script.
+
+The script will run until it finishes or until the timeout is reached. You can modify the duration of the timeout in `conf/xl-release.conf`by changing this property:
+
+      xl.timeouts.failureHandlerTimeout=60 seconds
+
+**Note:** If the failure handler is enabled and a script is running, you can manually abort the task. Click ![image](/xl-release/images/menuBtn.png) on the right of the task and select **Abort**.
 
 ## Example of scripts
 
@@ -80,8 +86,16 @@ taskApi.skipTask(getCurrentTask().getId(), Comment("Skipped task from error hand
 
 ## Disabling the feature
 
-If you want to disable this feature for a specific type of task, add the following line to `conf/deployit-defaults.properties`:
+If you want to disable this feature for a specific type of task, add the following line to `conf/deployit-defaults.properties`file:
 
     xlrelease.GateTask.failureHandlerEnabled=false
 
 This snippet sample disables **Handling failures** for the `Gate Task`.
+
+To disable this feature for all task types, add the following line to `conf/deployit-defaults.properties`file:
+
+    xlrelease.Task.failureHandlerEnabled=false
+
+This snippet sample disables **Handling failures** for all task types.
+
+**Important:** The code provided in this topic is sample code that is not officially supported by XebiaLabs. If you have questions, please contact the [XebiaLabs support team](https://support.xebialabs.com).
