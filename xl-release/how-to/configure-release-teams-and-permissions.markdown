@@ -56,6 +56,8 @@ Note that you are free to add and remove people to these teams, and to assign pe
 You can configure permissions on templates and releases if you have the _Edit Template Security_ or _Edit Release Security_ permission on a specific template or release, or if you have the _Edit Security_ [global permission](/xl-release/how-to/configure-permissions.html). This applies to all releases and templates in XL Release 5.0 and previous versions. In XL Release 6.0.0 and later versions, it only applies for templates and releases that are not stored in a folder.
 
 When using folders, you can only configure permissions on a folder and you need to have the _Edit Folder Security_ permission on the folder to do so. The global _Edit Security_ permission does not apply to folders.
+In XL Release 8.1 and later, you can view the **Teams & Permissions** tab if you have the _Edit folder teams and permissions_ permission. In this tab, you cannot view the _Edit folder teams and permissions_ and _Edit Folder Security_ permissions or the teams that have these permissions. 
+You can view all the permissions and teams in the folder if you have the _Admin_ global permission or the _Edit folder security_ permission on the folder. 
 
 To configure permissions in XL Release 6.0.0 and later:
 
@@ -74,6 +76,10 @@ In XL Release 5.0.x and earlier, you configure permissions by opening the templa
 
 **Note:** As of XL Release 8.0, is it possible to lock tasks. When a task is locked only users with lock permissions are able to edit or unlock it. A locked task appears striped to indicate that it is locked.  For more information, see [Configuring lock tasks](http://docs.xebialabs.com/xl-release/how-to/configure-lock-tasks.markdown).
 
+**Note:** As of XL Release 8.1, a new permission is available: _Edit folder teams and permissions_. Teams with this permission can manage the team composition and the permissions of all the teams within the folder, similar to the "Folder Owner" permission. There are two limitations:
+ 1. Cannot modify teams that have the permissions "Edit folder security" or "Edit teams and permissions".
+ 2. Cannot add or remove the permissions "Edit folder security" or "Edit teams and permissions".
+
 ### Folder permissions
 
 Folder permissions are available in XL Release 6.0.0 and later. The following permissions apply to folders:
@@ -84,6 +90,7 @@ Folder permissions are available in XL Release 6.0.0 and later. The following pe
 | View folder | Users can see the folder in the Folders screen. |
 | Edit folder | Users can edit the folder (for example, by renaming it). |
 | Edit folder security | Users can edit the teams and permissions on a folder. |
+| Edit teams and permissions (XL Release 8.1 and later) | Users can edit the teams and permissions on a folder, with the limitations listed above. |
 | Edit configuration | Users can see, create, and edit the configuration in the Folders screen. |
 
 ### Template permissions
