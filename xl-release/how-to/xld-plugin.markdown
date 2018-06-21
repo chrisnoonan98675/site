@@ -26,10 +26,10 @@ The XL Deploy plugin for XL Release requires XL Release version 6.2.x or later t
 
 ## Configure XL Deploy Server (Shared configuration)
 
-1. In XL Release menu bar, go to **Settings** > **Shared Configuration** > **XL Deploy Server** > **Add XL Deploy Server**.
+1. In XL Release menu bar, go to **Settings** > **Shared Configuration** > **XL Deploy Server** and click ![image](/xl-release/images/add-button.png).
 1. Specify the required information:
   * `Title` - [Required] Select a suitable title for the server configuration.
-  * `Url` - [Required] Url to connect to XL Deploy Server (Example: http://localhost:4516). If the port number is not specified in the url, the plugin uses the default port number: 4517 for https protocol and 4516 for http protocol. If XL Deploy is running over ports 80 or 443, you must mention this explicitly in the url.
+  * `Url` - [Required] URL to connect to XL Deploy Server (Example: `http://localhost:4516`). If the port number is not specified in the URL, the plugin uses the default port number: 4517 for `https` protocol and 4516 for `http` protocol. If XL Deploy is running over ports 80 or 443, you must mention this explicitly in the URL.
   * `Username` - Username for XL Deploy server. Can be provided/overridden at task level.
   * `Password` - Password for XL Deploy server. Can be provided/overridden at task level.
   * `Proxy Host` - HTTP proxy host if needed.
@@ -43,7 +43,7 @@ Control tasks are actions that you can perform on middleware or middleware resou
 
 You can create a control task in XL Release by adding a task of type `XL Deploy` -> `Control Task` with the following properties:
   * `Server`: [Required] XL Deploy Server to connect to.
-  * `Configuration Item Id`: [Required] Full CI name (Example: Infrastructure/ProductionBox). Autocomplete is not supported.
+  * `Configuration Item Id`: [Required] Full CI name (Example: `Infrastructure/ProductionBox`). Autocomplete is not supported.
   * `Control task name`: Name of the control task (Example: `checkConnection`). Autocomplete is not supported.
   * `Username`: Required if not provided in Shared Configuration.
   * `Password`: Required if not provided in Shared Configuration.
@@ -280,6 +280,57 @@ You can create a **Delete infrastructure** task in XL Release by adding a task o
   * `Password`: Required if not provided in Shared configuration.
   * `Infrastructure ID `: [Required] Name of the infrastructure you want to delete (Example: `Infrastructure/ProductionBox`). Autocomplete is supported.
 
+## Configure XL Deploy CLI (Shared configuration)
+
+1. In XL Release menu bar, go to **Settings** > **Shared Configuration** > **XL Deploy CLI config** and click ![image](/xl-release/images/add-button.png).
+1. Specify the required information:
+  * `Title` - [Required] Select a suitable title for the server configuration.
+  * `Cli Home` - [Required] The home directory where XL Deploy CLI is installed.
+  * `XLD Host` - The XL Deploy server host where the CLI should connect. DEFAULT will work if it is on the same server as XL Deploy.
+  * `XLD Port` - The XL Deploy server port where the CLI should connect. DEFAULT will work if it is using the default XL Deploy port.
+  * `XLD Secure` - Switch to specify if the connection to XL Deploy will be secure. If set to `True`, the port will default to 4517.
+  * `XLD Context` - The context for XL Deploy CLI. DEFAULT will work if no context is needed.
+  * `XLD Proxy Host` - HTTP proxy host if needed.
+  * `XLD Proxy Port` - HTTP proxy port if needed.
+  * `XLD Socket Timeout` - Connection timeout to XL Deploy.
+  * `XLD Username` - Username to connect to XL Deploy. Defaults to admin.
+  * `XLD Password` - Password to connect to XL Deploy. Defaults to admin.
+
+## Add a **Run script** task
+
+The **Run script** task is an automated task that runs a specified script on XL Deploy CLI.
+
+You can create a **Run script** task in XL Release by adding a task of type `XL Deploy CLI` -> `Run script` with the following properties:
+  * `XL Deploy CLI`: [Required] XL Deploy CLI to connect to.
+  * `Script`: [Required] The script that runs on XL Deploy CLI.
+  * `Options`: The command line options used with the script.
+  * `Console output`: The output property which displays the console output of the process.
+  * `Error`: The output property which displays the error stream of the process.
+  
+## Add a **Run script from file** task
+
+The **Run script from file** task is an automated task that runs a specified script from a file on XL Deploy CLI.
+
+You can create a **Run script from file** task in XL Release by adding a task of type `XL Deploy CLI` -> `Run script from file` with the following properties:
+  * `XL Deploy CLI`: [Required] XL Deploy CLI to connect to.
+  * `Script`: [Required] The location of the script file that runs on the XL Deploy CLI.
+  * `Options`: The command line options used with the script.
+  * `Console output`: The output property which displays the console output of the process.
+  * `Error`: The output property which displays the error stream of the process.
+  
+## Add a **Run script from url** task
+
+The **Run script from url** task is an automated task that runs a specified script from a URL on XL Deploy CLI.
+
+You can create a **Run script from url** task in XL Release by adding a task of type `XL Deploy CLI` -> `Run script from url` with the following properties:
+  * `XL Deploy CLI`: [Required] XL Deploy CLI to connect to.
+  * `Script Url`: [Required] The URL of the script file that runs on the XL Deploy CLI.
+  * `URL Username`: Username used when accessing the URL.
+  * `URL Password`: Password used when accessing the URL.
+  * `Options`: The command line options used with the script.
+  * `Console output`: The output property which displays the console output of the process.
+  * `Error`: The output property which displays the error stream of the process.
+  
 ## Release notes
 
 ### Version 8.1.0
@@ -301,6 +352,7 @@ You can create a **Delete infrastructure** task in XL Release by adding a task o
 * [REL-4476] - Add a task to get latest version of an application
 * [REL-4477] - Add a task to get latest deployed version of an application
 * [REL-6570] - Add a task to create a folder
+* [REL-6974] - Add tasks to run XL Deploy CLI scripts
 
 #### Improvements
 
