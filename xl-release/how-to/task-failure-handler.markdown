@@ -18,13 +18,18 @@ As of XL Release 8.1.0 a new property was added on the task level called **Handl
 * **Skip task**: If the task fails, it is automatically skipped.
 
 * **Define additional action**: This option allows you to write your own Jython script to be executed if the task is going to fail.
-**Caution**: If you do not modify the task status in your script, the task fails due to a wrong outcome. The modification of the task status (such as skip task, retry task, or other outcomes) **must** be the last line of your script.
+You can use the script to do clean up, retry the task or conditionally skip or fail among other things.
+
+The modification of the task status (such as skip task, retry task, or other outcomes) **must** be the last line of your script.
+If you do not modify the task status in your script, the task will be in the failed state after the script has run.
 
 The script will run until it finishes or until the timeout is reached. You can modify the duration of the timeout in `conf/xl-release.conf`by changing this property:
 
       xl.timeouts.failureHandlerTimeout=60 seconds
 
-**Note:** If the failure handler is enabled and a script is running, you can manually abort the task. Click ![image](/xl-release/images/menuBtn.png) on the right of the task and select **Abort**.
+If the handler script produces an error or a time out occurs, the task will be marked as failed.
+
+While the failure handler script is running, you can manually abort the task. Click ![image](/xl-release/images/menuBtn.png) on the right of the task and select **Abort**.
 
 ## Example of scripts
 
@@ -38,14 +43,14 @@ If your release process contains a third party dependency that is error prone an
 * Set the operation to **Define additional action**.
 * Set the following script:
 
+
 {% highlight python %}
 
-from com.xebialabs.xlrelease.api.v1.forms import Comment
 if (releaseVariables['attempt'] < 3):
   releaseVariables['attempt'] = releaseVariables['attempt'] + 1
-  taskApi.retryTask(getCurrentTask().getId(), Comment("retrying again..."))
+  taskApi.retryTask(getCurrentTask().getId(), taskApi.newComment("Retrying task from failure handler."))
 else:
-  taskApi.skipTask(getCurrentTask().getId(), Comment("Skipped task from error handling"))
+  taskApi.skipTask(getCurrentTask().getId(), taskApi.newComment("Skipped task from failure handler."))
 
 {% endhighlight %}
 
@@ -59,9 +64,7 @@ Depending on the status of one of your tasks, you can execute the succeeding tas
 
 {% highlight python %}
 
-from com.xebialabs.xlrelease.api.v1.forms import Comment
 releaseVariables['executeTask'] = False
-taskApi.skipTask(getCurrentTask().getId(), Comment("Skipped task from error handling"))
 
 {% endhighlight %}
 
@@ -76,11 +79,10 @@ You can skip a complete phase if an error occurred in previous phases:
 
 {% highlight python %}
 
-from com.xebialabs.xlrelease.api.v1.forms import Comment
 phase = phaseApi.searchPhasesByTitle("next phase", getCurrentRelease().getId())[0]
 for task in phase.tasks:
-  taskApi.skipTask(task.getId(), Comment("skipped from error handling") )
-taskApi.skipTask(getCurrentTask().getId(), Comment("Skipped task from error handling"))
+  taskApi.skipTask(task.getId(), taskApi.newComment("Skipped from failure handler.") )
+taskApi.skipTask(getCurrentTask().getId(), taskApi.newComment("Skipped task from failure handler."))
 
 {% endhighlight %}
 
