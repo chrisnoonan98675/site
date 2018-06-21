@@ -64,6 +64,62 @@ To create and attach an elastic IP with a Virtual Private Cloud (VPC) EC2 instan
 1. You can set the **Elastic IP** property to `false` during a MODIFY operation. This will detach the elastic IP and will release it.
 1. If you perform an undeployment, the elastic IP is released.
 
+### Create AWS ECS resources
+
+With the Amazon Web Services (AWS) plugin for XL Deploy, you can create cluster instances and ECS task and services. The ECS task and services are deployed over AWS cluster and run on the instances of the cluster. Amazon specifies the AMIs which are [optimized for ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html).
+
+To create a new **Cluster** type CI:
+
+1. Expand an application from the **Applications** list, hover over a package, click ![Menu button](/images/menu_three_dots.png), and select **New** > **aws** > **ecs** > **ClusterSpec**.
+1. Specify a name for the CI, the AWS ECS Cluster Name, and the Region.
+
+[AWS ECS](images/xl-deploy-aws-ecs-cluster.png)
+
+To create a new **Cluster (Container) Instance** type CI:
+
+1. Expand an application from the **Applications** list, hover over a package, click ![Menu button](/images/menu_three_dots.png), and select **New** > **aws** > **ecs** > **ContainerInstanceSpec**.
+1. Go to **Create EC2 instances** section to configure the properties.
+1. Specify a name for the CI, AWS ECS Cluster Name, AMI ID, and IAMRole.
+**Note:** Container Instance is extension of the **EC2 instance** type and it supports all the properties supported by the instance type.
+
+[AWS ECS](images/xl-deploy-aws-ecs-container-instance.png)
+
+To create a new **ECS Service** type CI:
+
+1. Expand an application from the **Applications** list, hover over a package, click ![Menu button](/images/menu_three_dots.png), and select **New** > **aws** > **ecs** > **ServiceSpec**.
+1. Specify a name for the CI, Task Placement Template, volumes, network mode, and the service name.
+1. To configure the number of instances of a running task, enter a value for the **Desired Count** property.
+1. To attach the IAM Role to the EC2 instance, specify the **IAMRole** property.
+1. To configure deployment configuration, specify values for the **Maximum Percent** and **Minimum Healthy Percent** properties.
+**Note:** The ECS Service contains an embedded CI for configuring **Load Balancers**  and **Container Definitions**.
+
+[AWS ECS](images/xl-deploy-aws-ecs-service.png)
+
+To create a new **ECS Service Load Balancer** type embedded CI:
+1. Expand an application from the **Applications** list, navigate to **ECS Service**, click ![Menu button](/images/menu_three_dots.png), and select **New** > **aws** > **ecs** > **LoadBalancerSpec**.
+1. Specify a name for the CI, Target Group, and the Load Balancer Name.
+1. To configure the attached container configuration, specify the **Container Name** and **Container Port** properties.
+
+[AWS ECS](images/xl-deploy-aws-ecs-service-loadbalancer.png)
+
+To create a new **ECS Service/ Task Container** type embedded CI:
+1. Expand an application from the **Applications** list, navigate to **ECS Service** or **ECS Task**, click ![Menu button](/images/menu_three_dots.png), and select **New** > **aws** > **ecs** > **ContainerDefinitionSpec**.
+1. Specify a name for the CI, Container Name and the Image Name.
+1. To configure the memory limit, specify values for the **Hard Memory Limit** and **Soft Memory Limit** properties.
+**Note:** The ECS Container contains an embedded CI for configuring **Mount Points** and **Port Mappings**. Mount Points are used for mounting the volume and Port Mappings for mapping the ports.
+
+[AWS ECS](images/xl-deploy-aws-ecs-service-container.png)
+
+To create a new **ECS Task** type CI:
+
+1. Expand an application from the **Applications** list, hover over a package, click ![Menu button](/images/menu_three_dots.png), and select **New** > **aws** > **ecs** > **TaskSpec**.
+1. Specify a name for the CI, Task Placement Template, volumes, and network mode.
+1. To configure the number of instances of a running task, enter a value for the **Desired Count** property.
+1. To attach the IAM Role to the EC2 instance, specify the **IAMRole** property.
+**Note:** The ECS Service contains an embedded CI for configuring **Container Definitions**. For configuring them, refer to section **ECS Service/ Task Container**.
+
+[AWS ECS](images/xl-deploy-aws-ecs-task.png)
+
 ### Create network resources
 
 With the Amazon Web Services (AWS) plugin for XL Deploy, you can create various network resources: VPCs, subnets, internet gateway, routing tables, and others.
