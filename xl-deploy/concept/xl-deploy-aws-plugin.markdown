@@ -74,7 +74,7 @@ To create a new **Stack** type embedded infrastructure CI:
 1. Specify a name for the CI and the Region.
 1. Click **Save**.
 
-[AWS Cloudformation](images/xl-deploy-aws-cloudformation-stack.png)
+![AWS Cloudformation](images/xl-deploy-aws-cloudformation-stack.png)
 
 To create a new **Template** type CI:
 
@@ -87,7 +87,7 @@ To create a new **Template** type CI:
 ```
 "Metadata" : {"XLD::Infrastructure":[{"id":"cloud","type":"core.Directory"},{"id":"cloud/webserver","type":"overthere.SshHost","os":"UNIX","connectionType":"SFTP","address":"{Address}","port":"22","username":"admin"}],"XLD::Environments":[{"id":"cloud-dev","type":"udm.Environment","members":[{"ci ref":"Infrastructure/cloud/webserver"}]}]}
 ```
-[AWS Cloudformation](images/xl-deploy-aws-cloudformation-template.png)
+![AWS Cloudformation](images/xl-deploy-aws-cloudformation-template.png)
 
 ### Create AWS ECS resources
 
@@ -98,7 +98,7 @@ To create a new **Cluster** type CI:
 1. Expand an application from the **Applications** list, hover over a package, click ![Menu button](/images/menu_three_dots.png), and select **New** > **aws** > **ecs** > **ClusterSpec**.
 1. Specify a name for the CI, the AWS ECS Cluster Name, and the Region.
 
-[AWS ECS](images/xl-deploy-aws-ecs-cluster.png)
+![AWS ECS](images/xl-deploy-aws-ecs-cluster.png)
 
 To create a new **Cluster (Container) Instance** type CI:
 
@@ -107,7 +107,7 @@ To create a new **Cluster (Container) Instance** type CI:
 1. Specify a name for the CI, AWS ECS Cluster Name, AMI ID, and IAMRole.
 **Note:** Container Instance is extension of the **EC2 instance** type and it supports all the properties supported by the instance type.
 
-[AWS ECS](images/xl-deploy-aws-ecs-container-instance.png)
+![AWS ECS](images/xl-deploy-aws-ecs-container-instance.png)
 
 To create a new **ECS Service** type CI:
 
@@ -118,14 +118,14 @@ To create a new **ECS Service** type CI:
 1. To configure deployment configuration, specify values for the **Maximum Percent** and **Minimum Healthy Percent** properties.
 **Note:** The ECS Service contains an embedded CI for configuring **Load Balancers**  and **Container Definitions**.
 
-[AWS ECS](images/xl-deploy-aws-ecs-service.png)
+![AWS ECS](images/xl-deploy-aws-ecs-service.png)
 
 To create a new **ECS Service Load Balancer** type embedded CI:
 1. Expand an application from the **Applications** list, navigate to **ECS Service**, click ![Menu button](/images/menu_three_dots.png), and select **New** > **aws** > **ecs** > **LoadBalancerSpec**.
 1. Specify a name for the CI, Target Group, and the Load Balancer Name.
 1. To configure the attached container configuration, specify the **Container Name** and **Container Port** properties.
 
-[AWS ECS](images/xl-deploy-aws-ecs-service-loadbalancer.png)
+![AWS ECS](images/xl-deploy-aws-ecs-service-loadbalancer.png)
 
 To create a new **ECS Service/ Task Container** type embedded CI:
 1. Expand an application from the **Applications** list, navigate to **ECS Service** or **ECS Task**, click ![Menu button](/images/menu_three_dots.png), and select **New** > **aws** > **ecs** > **ContainerDefinitionSpec**.
@@ -133,7 +133,7 @@ To create a new **ECS Service/ Task Container** type embedded CI:
 1. To configure the memory limit, specify values for the **Hard Memory Limit** and **Soft Memory Limit** properties.
 **Note:** The ECS Container contains an embedded CI for configuring **Mount Points** and **Port Mappings**. Mount Points are used for mounting the volume and Port Mappings for mapping the ports.
 
-[AWS ECS](images/xl-deploy-aws-ecs-service-container.png)
+![AWS ECS](images/xl-deploy-aws-ecs-service-container.png)
 
 To create a new **ECS Task** type CI:
 
@@ -143,7 +143,7 @@ To create a new **ECS Task** type CI:
 1. To attach the IAM Role to the EC2 instance, specify the **IAMRole** property.
 **Note:** The ECS Service contains an embedded CI for configuring **Container Definitions**. For configuring them, refer to section **ECS Service/ Task Container**.
 
-[AWS ECS](images/xl-deploy-aws-ecs-task.png)
+![AWS ECS](images/xl-deploy-aws-ecs-task.png)
 
 ### Create network resources
 
