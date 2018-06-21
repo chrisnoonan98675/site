@@ -29,6 +29,7 @@ The following global permissions are available:
 | Create template | Permission to create a new template |
 | Create release | Permission to create a release from any template; also see the [Create Release](/xl-release/how-to/configure-release-teams-and-permissions.html#template-permissions) template permission |
 | View reports | Permission to review reports |
+| Create dashboard | Permission to create, edit, or delete a custom dashboard |
 | Edit global variables | Permission to edit [global variables](/xl-release/how-to/configure-global-variables.html) (available in XL Release 4.8.0 and later) |
 | Create top level folders | Permission to create folders |
 | Edit blackout period | Permission to create, edit, or delete a blackout period |

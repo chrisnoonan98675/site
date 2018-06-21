@@ -1,5 +1,5 @@
 ---
-title: Reports in XL Release
+title: Reports in XL Release version 8.0 and earlier
 categories:
 - xl-release
 subject:
@@ -11,6 +11,8 @@ tags:
 - release value stream
 - release automation
 weight: 485
+removed:
+- XL Release 8.1.0
 ---
 
 XL Release reports show graphs and statistics based on historical release data. In XL Release 4.6.x and earlier, this data is stored in the XL Release repository. In XL Release 4.7.0 and later, it is stored in the [archive database](/xl-release/concept/how-archiving-works.html). Releases that are completed or aborted but not yet archived do not appear in reports.

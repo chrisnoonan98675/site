@@ -30,7 +30,7 @@ The Ansible plugin requires the XL Release [Remoting plugin](/xl-release/how-to/
 
 To set up a connection to a Unix server running Ansible:
 
-1. In XL Release, go to **Settings** > **Shared configuration** and click **Add Unix Host**.
+1. In XL Release, go to **Settings** > **Shared configuration** and on **Unix Host** click ![image](/xl-release/images/add-button.png). You can also set up the configuration on a specific folder. For more information, see [Folder level configuration](/xl-release/how-to/manage-templates-and-releases-using-folders.html#folder-level-configuration).
 
     **Note:** Prior to XL Release 6.0.0, go to **Settings** > **Configuration**.
 

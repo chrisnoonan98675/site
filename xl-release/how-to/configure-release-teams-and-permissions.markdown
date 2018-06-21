@@ -84,6 +84,7 @@ Folder permissions are available in XL Release 6.0.0 and later. The following pe
 | View folder | Users can see the folder in the Folders screen. |
 | Edit folder | Users can edit the folder (for example, by renaming it). |
 | Edit folder security | Users can edit the teams and permissions on a folder. |
+| Edit configuration | Users can see, create, and edit the configuration in the Folders screen. |
 
 ### Template permissions
 

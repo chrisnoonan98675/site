@@ -1,5 +1,5 @@
 ---
-title: Task life cycle (XL Release 8.1.0 and later)
+title: Task life cycle (XL Release 4.8.0 and later)
 categories:
 - xl-release
 subject:
@@ -7,12 +7,15 @@ subject:
 tags:
 - task
 since:
+- XL Release 4.8.0
+deprecated:
 - XL Release 8.1.0
+weight: 461
 ---
 
 In an active release, tasks transition through different states. The following diagram shows the lifecycle of a task.
 
-![Task life cycle](../images/task-lifecycle.png)
+![Task life cycle](../images/task-lifecycle-7.x.png)
 
 Tasks start in *planned* state. This means that they are not active yet. All properties can still be edited.
 
@@ -41,8 +44,6 @@ Tasks may also be completed or skipped in advance; that is, before the execution
 ### Failed tasks
 
 If a user fails a task or an automated task encounters an error, the task goes into the *failed* state. This triggers a notification to the release owner. The task can then be either restarted (*in progress* state) or skipped if no more work will be done (*skipped* state).
-
-If the task has the [failure handler](/xl-release/how-to/task-failure-handler.html) enabled, the task changes state to *failure handler in progress* and, depending of the configuration, the end state can be *in progress*, *skipped*, or *failed*.
 
 ### Failing tasks
 

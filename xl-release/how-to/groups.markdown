@@ -4,7 +4,7 @@ title: Using release groups
 categories:
 - xl-release
 subject:
-- releases
+- Releases
 tags:
 - releases
 - group

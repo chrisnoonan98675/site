@@ -43,7 +43,7 @@ Use the following buttons to indicate that something has happened on the task (o
 
 * **Skip**: No work was needed or could be done, and you have moved on to another task. You can use this option for tasks that are not relevant to the release. You are required to enter a comment explaining why you skipped the task. XL Release marks the task as complete and moves on to the next task.
 
-* **Fail**: An unforeseen event is impeding the completion of the task or you do not know how to complete the task. This stops the release flow, and XL Release notifies the [release owner](/xl-release/concept/core-concepts-of-xl-release.html).
+* **Fail**: An unforeseen event is impeding the completion of the task or you do not know how to complete the task. If the task does not have a [failure handler](/xl-release/how-to/task-failure-handler.html) configured, the release flow stops, and XL Release notifies the [release owner](/xl-release/concept/core-concepts-of-xl-release.html).
 
 ## Task attachments
 

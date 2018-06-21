@@ -17,7 +17,7 @@ With XL Release you can define a release from a Groovy-based DSL script, that de
 
 The Releasefile format is a defined structure for a `.groovy` file that can be used to create a release.
 
-Using the [XL Release DSL API](/xl-release/6.2.x/dsl-api) you can create a custom release template file containing phases, multiple tasks, and task-groups. This allows you to launch a Releasefile Groovy script task that creates a release.
+Using the [XL Release DSL API](/xl-release/latest/dsl-api/index.html) you can create a custom release template file containing phases, multiple tasks, and task-groups. This allows you to launch a Releasefile Groovy script task that creates a release.
 
 ## Example of a Releasefile
 

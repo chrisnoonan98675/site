@@ -197,7 +197,7 @@ An alternative strategy available by defauylt is the `OldestLeaderAutoDowningPro
         cluster {
             akka {
                 cluster {
-                    downing-provider-class = "com.xebialabs.xlrelease.actors.cluster.downing.OldestLeaderAutoDowningProvider"
+                    downing-provider-class = "com.xebialabs.xlplatform.cluster.full.downing.OldestLeaderAutoDowningProvider"
                 }
             }
         }

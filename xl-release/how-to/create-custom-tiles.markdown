@@ -16,6 +16,8 @@ since:
 
 In XL Release you can customize the [release dashboard](/xl-release/how-to/using-the-release-dashboard.html) by adding new tiles. This topic describes how to create custom tiles.
 
+In XL Release 8.1 and later, you can create and add [custom tiles](xl-release/how-to/create-custom-tiles.html) to your global dashboard.
+
 ## Dashboard tile structure
 
 A dashboard tile is based on the following concepts:
