@@ -64,6 +64,31 @@ To create and attach an elastic IP with a Virtual Private Cloud (VPC) EC2 instan
 1. You can set the **Elastic IP** property to `false` during a MODIFY operation. This will detach the elastic IP and will release it.
 1. If you perform an undeployment, the elastic IP is released.
 
+### Create AWS CloudFormation resources
+
+With the Amazon Web Services (AWS) plugin for XL Deploy, you can create AWS CloudFormation templates and stacks.
+
+To create a new **Stack** type embedded infrastructure CI:
+
+1. Expand the **Infrastructure** CI list, navigate to a CI of **AWS Cloud** type, click ![Menu button](/images/menu_three_dots.png), and select **New** > **aws** > **cloudformation** > **Stack**.
+1. Specify a name for the CI and the Region.
+1. Click **Save**.
+
+[AWS Cloudformation](images/xl-deploy-aws-cloudformation-stack.png)
+
+To create a new **Template** type CI:
+
+1. Expand an application from the **Applications** list, hover over a package, click ![Menu button](/images/menu_three_dots.png), and select **New** > **aws** > **cloudformation** > **Template**.
+1. Specify a name for the CI, the Json File as per AWS configuration, and the Input variables.
+1. To bind the templates with output variables, configure the **Bound Templates**.
+1. Click **Save**.
+
+**Note:** You can also create the XL Deploy resources by configuring them in METADATA section.
+```
+"Metadata" : {"XLD::Infrastructure":[{"id":"cloud","type":"core.Directory"},{"id":"cloud/webserver","type":"overthere.SshHost","os":"UNIX","connectionType":"SFTP","address":"{Address}","port":"22","username":"admin"}],"XLD::Environments":[{"id":"cloud-dev","type":"udm.Environment","members":[{"ci ref":"Infrastructure/cloud/webserver"}]}]}
+```
+[AWS Cloudformation](images/xl-deploy-aws-cloudformation-template.png)
+
 ### Create AWS ECS resources
 
 With the Amazon Web Services (AWS) plugin for XL Deploy, you can create cluster instances and ECS task and services. The ECS task and services are deployed over AWS cluster and run on the instances of the cluster. Amazon specifies the AMIs which are [optimized for ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html).
@@ -180,7 +205,6 @@ To create a new **ec2.InstanceSpec** type CI:
 1. Specify a name for the CI, the AMI name, the Region, and the Instance Type.
 1. To attach the IAM Role to the EC2 instance, specify the **IAMRole** property.
 
-
 **Notes:**
 1. You can refer to a subnet by its subnet ID if it already exists on AWS, or by Name:<subnet_name> if the subnet belongs to the package that is to be deployed.
 1. The **AWS key pair name** associates the existing key pair name with the EC2 instance to be created, used to access the EC2 instance via SSH.
@@ -197,9 +221,7 @@ You can attach multiple network interfaces to an EC2 instance by specifying the 
 
 You can mount multiple volumes to an EC2 instance by specifying the **Volumes** map property. The key column is the volume ID if the volume exist on AWS, or Name:<vol-name> if the volume belongs to the package to be deployed and the value is the device name. For more details, see [Device naming in AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html).
 
-
 ![AWS EC2 Volume](images/xl-deploy-aws-ec2-vol.png)
-
 
 ### Creating lambda function and run it in response to HTTP requests using Amazon API Gateway.
 
@@ -215,7 +237,6 @@ There are two ways to create a lambda function. The first is by providing the co
 
 ![AWS LAMBDA FUNCTION](images/xl-deploy-lambda-function.png)
 ![AWS LAMBDA S3](images/xl-deploy-s3-lambda.png)
-
 
 **Creating API Gateway**
 
