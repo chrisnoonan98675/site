@@ -5,6 +5,7 @@ categories:
 subject:
 - System administration
 tags:
+- high availability
 - system administration
 - installation
 - failover
