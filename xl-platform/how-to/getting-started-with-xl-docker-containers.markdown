@@ -155,7 +155,7 @@ The first time that the container starts, it is populated with the default plugi
 
 #### Data directories
 
-The default setup of XL Release and XL Deploy uses embedded databases and the data is stored in `repository` and `archive` (XL Release only) directories. To set up an external database server, refer to the documentation for [XL Release](/xl-release/how-to/configure-the-xl-release-sal-repository-in-a-database.html) or [XL Deploy](/xl-deploy/how-to/configure-the-xl-deploy-sql-repository.html).
+The default setup of XL Release and XL Deploy uses embedded databases and the data is stored in `repository` and `archive` (XL Release only) directories. To set up an external database server, refer to the documentation for [XL Release](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html) or [XL Deploy](/xl-deploy/how-to/configure-the-xl-deploy-sql-repository.html).
 
 #### Customizations and hotfixes directories
 
