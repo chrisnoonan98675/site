@@ -9,11 +9,10 @@ tags:
 - images
 ---
 
-There are three types of Docker images available for XL Deploy:
+There are two types of Docker images available for XL Deploy:
 
 * A regular image based on Debian (slim) Linux flavor of the [OpenJDK base image](https://hub.docker.com/_/openjdk/)
-* A regular image based on the Alpine Linux flavor of the [OpenJDK base image](https://hub.docker.com/_/openjdk/)
-* The Red Hat certified image based on the `rhel7-atomic` base image
+* An alternative image based on the Alpine Linux flavor of the [OpenJDK base image](https://hub.docker.com/_/openjdk/)
 
 // ## Description / advantages of using the docker image
 
@@ -38,16 +37,16 @@ To change the default setup procedure that runs when a fresh installation is det
 
 ### Ports exposed
 
-The XL Deploy image exposes port `5516` over which the XL Deploy user interface and REST API are served.
+The XL Deploy image exposes port `4516` over which the XL Deploy user interface and REST API are served.
 
 ### Set volumes as mount points
 
 The XL Deploy image exposes the following directories as mount points:
 
-* `/opt/xl-deploy-server/archive`
 * `/opt/xl-deploy-server/conf`
 * `/opt/xl-deploy-server/ext`
-* `/opt/xl-deploy-server/hotfix`
+* `/opt/xl-deploy-server/hotfix/lib`
+* `/opt/xl-deploy-server/hotfix/plugins`
 * `/opt/xl-deploy-server/plugins`
 * `/opt/xl-deploy-server/repository`
 
@@ -71,11 +70,11 @@ If you provide a volume for the `/opt/xl-deploy-server/plugins` directory, you c
 
 #### Data directories (`repository` and `archive`)
 
-In the default setup, the embedded H2 and Derby databases are used to persist the repository and the archive data respectively and are stored in the `/opt/xl-deploy-server/repository` and `/opt/xl-deploy-server/archive` directories. Provide a mount point for these volumes to ensure that the repository and archive data are preserved across container runs. To set up an external database server, refer to the documentation for [XL Deploy](/xl-deploy/how-to/configure-the-xl-deploy-sql-repository-in-a-database.html).
+In the default setup, the embedded H2 and Derby databases are used to persist the repository and the archive data respectively and are stored in the `/opt/xl-deploy-server/repository` and `/opt/xl-deploy-server/archive` directories. Provide a mount point for these volumes to ensure that the repository and archive data are preserved across container runs. To set up an external database server, refer to the documentation for [XL Deploy](/xl-deploy/how-to/configure-the-xl-deploy-sql-repository.html).
 
 #### Customizations and hotfixes directories (`ext` and `hotfix`)
 
-The `/opt/xl-deploy-server/ext` and `/opt/xl-deploy-server/hotfix` volumes are provided to allow customizations for [custom tasks](https://docs.xebialabs.com/xl-deploy/how-to/create-custom-task-types.html) and to install hotfixes.
+The `/opt/xl-deploy-server/ext`, `/opt/xl-deploy-server/hotfix/lib` and `/opt/xl-deploy-server/hotfix/plugins` volumes are provided to allow customizations and to install hotfixes.
 
 ### Persistent configuration examples
 
@@ -83,7 +82,7 @@ The mount points are passed to the Docker command using the `-v` parameter.
 
 For example, the following command starts an XL Deploy container with persistent configuration and storage:
 
-        $ docker run -d -p 5516:5516 \
+        $ docker run -d -p 4516:4516 \
         -v ${HOME}/XebiaLabs/xl-deploy-docker/conf:/opt/xl-deploy-server/conf:rw \
         -v ${HOME}/XebiaLabs/xl-deploy-docker/repository:/opt/xl-deploy-server/repository:rw \
         -v ${HOME}/XebiaLabs/xl-deploy-docker/archive:/opt/xl-deploy-server/archive:rw \
@@ -97,7 +96,7 @@ In this example, all mount points are mapped to directories in the `<USER_HOME>/
           image: xebialabs/xl-deploy:8.1
           container_name: xld
           ports:
-           - "5516:5516"
+           - "4516:4516"
           links:
            - xld
           volumes:

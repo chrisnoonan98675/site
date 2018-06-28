@@ -29,7 +29,7 @@ The following section describes the methods that are available for running a con
 
 1. Run the XL Deploy container with the following command:   
 
-          $ docker run -d -p 5516:5516 --name xld xebialabs/xl-deploy:v8.1.0-rc.2
+          $ docker run -d -p 4516:4516 --name xld xebialabs/xl-deploy:v8.1
 
 1. Run the logs command:
 
@@ -51,7 +51,7 @@ By default, XL Deploy uses a randomly generated admin password. Including the XL
 
 To create a predefined `ADMIN_PASSWORD` environment variable, enter the following command:
 
-          $ docker run -d -p 5516:5516 -e ADMIN_PASSWORD#secret --name xld xebialabs/xl-deploy:v8.1.0-rc.2
+          $ docker run -d -p 4516:4516 -e ADMIN_PASSWORD#secret --name xld xebialabs/xl-deploy:v8.1.0-rc.2
 
 ### XL Deploy setup for production usage - includes persistence
 
@@ -63,10 +63,9 @@ For more details about the XL Deploy image, persistence configuration, and examp
 
 To ensure persistence when reconfiguring, volumes must be mounted at the `conf`, `repository`, and `archive` mount points:
 
-        $ docker run -d -p 5516:5516 \
+        $ docker run -d -p 4516:4516 \
         -v ${HOME}/xl-deploy-server/conf:/opt/xl-deploy-server/conf:rw \
         -v ${HOME}/xl-deploy-server/repository:/opt/xl-deploy-server/repository:rw \
-        -v ${HOME}/xl-deploy-server/archive:/opt/xl-deploy-server/archive:rw \
         --name xld xebialabs/xl-deploy:v8.1.0-rc.2
 
 ## Building and publishing the images
@@ -115,9 +114,3 @@ To build non-final versions, use:
 To publish non-final versions, use:
 
 $ docker push xebialabs/xl-deploy:8.1.0-rc.2-alpine
-
-### Red Hat certified image
-
-To build the Red Hat certified image:
-
-        $ docker build --build-arg XLD_VERSION=8.0.1 --tag xebialabs/xl-deploy:8.0-rhel --tag xebialabs/xl-deploy:8.0.1-rhel -f rhel/Dockerfile buildContext
