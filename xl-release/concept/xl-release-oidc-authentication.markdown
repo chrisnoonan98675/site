@@ -127,6 +127,11 @@ To configure the OIDC Authentication plugin, modify the `XL_RELEASE_SERVER_HOME/
                   userNameClaim="<your username claim here>"
                   emailClaim="<your email claim here>"
                   fullNameClaim="<your fullName claim here>"
+                  
+                  // proxyPort and proxyHost are optional parameters -
+                  // available in XL Release 8.2.0 and later. 
+                  proxyHost="your-proxy-host-here.example.com"
+                  proxyPort="3128"
                 }
               }
             }
