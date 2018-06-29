@@ -22,7 +22,7 @@ The images can be found here:
 
 ## Set up and start the Docker containers
 
-There are multiple methods to set up and start the Docket images for XL Release and XL Deploy.
+There are multiple methods to set up and start the Docker images for XL Release and XL Deploy.
 
 ### Fast setup using the `docker-compose.yaml` file
 
@@ -37,7 +37,7 @@ To start both XL Deploy and XL Release with a persistent setup:
 
         $ docker-compose up -d
 
-1. You can access XL Release at http://localhost:5516 and XL Deploy at http://localhost:4516.
+1. Access XL Release at http://localhost:5516 and XL Deploy at http://localhost:4516.
 
 You can now remove the passwords from the `docker-compose.yaml` file.
 
