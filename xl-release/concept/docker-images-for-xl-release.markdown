@@ -55,7 +55,7 @@ Providing volumes for these mount points is optional and guarantees persistence 
 
 #### Configuration directory (`conf`)
 
-The `/opt/xl-release-server/conf` folder on the image is empty. The first time the container is started, the contents of the `/opt/xl-release-server/default-conf` directory are copied into the `conf` directory. The files in the `default-conf` are similar to the files in a regular XL Release installation ZIP. except that they have been tweaked for XL Release running in a container.
+The `/opt/xl-release-server/conf` folder on the image is empty. The first time the container is started, the content of the `/opt/xl-release-server/default-conf` directory is copied into the `conf` directory. The files in the `default-conf` are similar to the files in a regular XL Release installation ZIP. except that they have been tweaked for XL Release running in a container.
 
 If a volume is provided for the `/opt/xl-release-server/conf` mount point, the configuration (including the admin password and the product license) is persisted across all container runs. If any files are present on the volume the first time that the container starts, they will not be overwritten by the files from the `default-conf` directory. This allows you to set configurations like the `logback.xml` ahead of time.
 
@@ -63,7 +63,7 @@ The image also contains the `/opt/xl-release-server/node-conf` directory. This d
 
 #### Plugins directory (`plugins`)
 
-The `/opt/xl-release-server/plugins` folder on the image is empty. The first time that the container is started, the contents of the `/opt/xl-release-server/default-plugins` directory are copied into the `plugins` directory.
+The `/opt/xl-release-server/plugins` folder on the image is empty. The first time that the container is started, the content of the `/opt/xl-release-server/default-plugins` directory is copied into the `plugins` directory.
 
 If a plugin is already present in a volume mounted on the `plugins` mount point, it is not overwritten. This behavior also identifies different versions of the same plugin.
 
@@ -71,7 +71,7 @@ If you provide a volume for the `/opt/xl-release-server/plugins` directory, you 
 
 #### Data directories (`repository` and `archive`)
 
-In the default setup, the embedded H2 and Derby databases are used to persist the repository and the archive data respectively and are stored in the `/opt/xl-release-server/repository` and `/opt/xl-release-server/archive` directories. Provide a mount point for these volumes to ensure that the repository and archive data are preserved across container runs. To set up an external database server, refer to the documentation for [XL Release](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html).
+In the default setup, the embedded H2 and Derby databases are used to persist the repository and the archive data respectively, and are stored in the `/opt/xl-release-server/repository` and `/opt/xl-release-server/archive` directories. Provide a mount point for these volumes to ensure that the repository and archive data are preserved across container runs. To set up an external database server, refer to the documentation for [XL Release](/xl-release/how-to/configure-the-xl-release-sql-repository-in-a-database.html).
 
 #### Customizations and hotfixes directories (`ext` and `hotfix`)
 
@@ -108,7 +108,7 @@ In this example, all mount points are mapped to directories in the `<USER_HOME>/
            - ~/XebiaLabs/xl-release-docker/plugins:/opt/xl-release-server/plugins
            - ~/XebiaLabs/xl-release-docker/repository:/opt/xl-release-server/repository
 
-Run the Docker Compose file using the `docker-compose up -d` command and inspect the contents of the folders when the servers are up and running.
+Run the Docker Compose file using the `docker-compose up -d` command and inspect the content of the folders when the servers are up and running.
 
 **Note:** Before starting the containers, save the license file in the local `conf` directory:
 

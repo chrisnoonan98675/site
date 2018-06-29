@@ -54,7 +54,7 @@ Providing volumes for these mount points is optional and guarantees persistence 
 
 #### Configuration directory (`conf`)
 
-The `/opt/xl-deploy-server/conf` folder on the image is empty. The first time the container is started, the contents of the `/opt/xl-deploy-server/default-conf` directory are copied into the `conf` directory. The files in the `default-conf` are similar to the files in a regular XL Deploy installation ZIP. except that they have been tweaked for XL Deploy running in a container.
+The `/opt/xl-deploy-server/conf` folder on the image is empty. The first time the container is started, the content of the `/opt/xl-deploy-server/default-conf` directory is copied into the `conf` directory. The files in the `default-conf` are similar to the files in a regular XL Deploy installation ZIP. except that they have been tweaked for XL Deploy running in a container.
 
 If a volume is provided for the `/opt/xl-deploy-server/conf` mount point, the configuration (including the admin password and the product license) is persisted across all container runs. If any files are present on the volume the first time that the container starts, they will not be overwritten by the files from the `default-conf` directory. This allows you to set configurations like the `logback.xml` ahead of time.
 
@@ -62,7 +62,7 @@ The image also contains the `/opt/xl-deploy-server/node-conf` directory. This di
 
 #### Plugins directory (`plugins`)
 
-The `/opt/xl-deploy-server/plugins` folder on the image is empty. The first time that the container is started, the contents of the `/opt/xl-deploy-server/default-plugins` directory are copied into the `plugins` directory.
+The `/opt/xl-deploy-server/plugins` folder on the image is empty. The first time that the container is started, the content of the `/opt/xl-deploy-server/default-plugins` directory is copied into the `plugins` directory.
 
 If a plugin is already present in a volume mounted on the `plugins` mount point, it is not overwritten. This behavior also identifies different versions of the same plugin.
 
@@ -107,7 +107,7 @@ In this example, all mount points are mapped to directories in the `<USER_HOME>/
            - ~/XebiaLabs/xl-deploy-docker/plugins:/opt/xl-deploy-server/plugins
            - ~/XebiaLabs/xl-deploy-docker/repository:/opt/xl-deploy-server/repository
 
-Run the Docker Compose file using the `docker-compose up -d` command and inspect the contents of the folders when the servers are up and running.
+Run the Docker Compose file using the `docker-compose up -d` command and inspect the content of the folders when the servers are up and running.
 
 **Note:** Before starting the containers, save the license file in the local `conf` directory:
 
