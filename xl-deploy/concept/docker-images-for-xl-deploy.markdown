@@ -73,7 +73,7 @@ In the default setup, the embedded H2 and Derby databases are used to persist th
 
 The `/opt/xl-deploy-server/ext`, `/opt/xl-deploy-server/hotfix/lib` and `/opt/xl-deploy-server/hotfix/plugins` volumes are provided to allow customizations and to install hotfixes.
 
-### Persistent configuration examples
+### Persistent configuration example
 
 The mount points are passed to the Docker command using the `-v` parameter.
 
@@ -84,31 +84,6 @@ For example, the following command starts an XL Deploy container with persistent
         -v ${HOME}/XebiaLabs/xl-deploy-docker/repository:/opt/xl-deploy-server/repository:rw \
         -v ${HOME}/XebiaLabs/xl-deploy-docker/archive:/opt/xl-deploy-server/archive:rw \
         --name xld xebialabs/xl-deploy:8.1
-
-#### Example using `docker-compose` command
-
-With multiple mount points, it is easier to use a Docker Compose file.
-
-In this example, all mount points are mapped to directories in the `<USER_HOME>/XebiaLabs` folder.
-
-        xld:
-          image: xebialabs/xl-deploy:8.1
-          container_name: xld
-          ports:
-           - "4516:4516"
-          links:
-           - xld
-          volumes:
-           - ~/XebiaLabs/xl-deploy-docker/archive/lib:/opt/xl-deploy-server/archive
-           - ~/XebiaLabs/xl-deploy-docker/conf:/opt/xl-deploy-server/conf
-           - ~/XebiaLabs/xl-deploy-docker/ext:/opt/xl-deploy-server/ext
-           - ~/XebiaLabs/xl-deploy-docker/hotfix/:/opt/xl-deploy-server/hotfix/
-           - ~/XebiaLabs/xl-deploy-docker/plugins:/opt/xl-deploy-server/plugins
-           - ~/XebiaLabs/xl-deploy-docker/repository:/opt/xl-deploy-server/repository
-
-Run the Docker Compose file using the `docker-compose up -d` command and inspect the content of the folders when the servers are up and running. Run the logs using this command:
-
-        $ docker logs -f xld
 
 **Note:** Before starting the containers, save the license file in the local `conf` directory:
 

@@ -74,7 +74,7 @@ In the default setup, the embedded H2 and Derby databases are used to persist th
 
 The `/opt/xl-release-server/ext` and `/opt/xl-release-server/hotfix` volumes are provided to allow customizations for [custom tasks](https://docs.xebialabs.com/xl-release/how-to/create-custom-task-types.html) and to install hotfixes.
 
-### Persistent configuration examples
+### Persistent configuration example
 
 The mount points are passed to the Docker command using the `-v` parameter.
 
@@ -85,31 +85,6 @@ For example, the following command starts an XL Release container with persisten
         -v ${HOME}/XebiaLabs/xl-release-docker/repository:/opt/xl-release-server/repository:rw \
         -v ${HOME}/XebiaLabs/xl-release-docker/archive:/opt/xl-release-server/archive:rw \
         --name xlr xebialabs/xl-release:8.1
-
-#### Example using `docker-compose` command
-
-With multiple mount points, it is easier to use a Docker Compose file.
-
-In this example, all mount points are mapped to directories in the `<USER_HOME>/XebiaLabs` folder.
-
-        xlr:
-          image: xebialabs/xl-release:8.1
-          container_name: xlr
-          ports:
-           - "5516:5516"
-          links:
-           - xld
-          volumes:
-           - ~/XebiaLabs/xl-release-docker/archive/lib:/opt/xl-release-server/archive
-           - ~/XebiaLabs/xl-release-docker/conf:/opt/xl-release-server/conf
-           - ~/XebiaLabs/xl-release-docker/ext:/opt/xl-release-server/ext
-           - ~/XebiaLabs/xl-release-docker/hotfix/:/opt/xl-release-server/hotfix/
-           - ~/XebiaLabs/xl-release-docker/plugins:/opt/xl-release-server/plugins
-           - ~/XebiaLabs/xl-release-docker/repository:/opt/xl-release-server/repository
-
-Run the Docker Compose file using the `docker-compose up -d` command and inspect the content of the folders when the servers are up and running. Run the logs using this command:
-
-        $ docker logs -f xlr
 
 **Note:** Before starting the containers, save the license file in the local `conf` directory:
 

@@ -15,13 +15,13 @@ The directory `/opt/xl-deploy-server` contains an extracted installation setup, 
 
 To download a docker image for XL Deploy, go to [XL Deploy Docker images](https://github.com/xebialabs/xl-deploy-docker-image).
 
-For a quick use guide of the XL Deploy image, see [Getting started with the XebiaLabs Docker containers](/xl-platform/how-to/getting-started-with-xl-docker-containers.html).
+## Set up and start the Docker containers
 
-## Running the container
+There are multiple methods to set up and start the Docker image for XL Deploy.
 
-The following section describes the methods that are available for running a container.
+For information about running the XL Deploy image using Docker Compose, see [Running the XebiaLabs Docker containers with Docker Compose](/xl-platform/how-to/getting-started-with-xl-docker-containers.html).
 
-### XL Deploy setup for demonstrations and simple trials
+### Start containers with quick run commands
 
 **Important:** This setup method does not include persistence and must not be used in production environments.
 
@@ -31,29 +31,45 @@ The following section describes the methods that are available for running a con
 
           $ docker run -d -p 4516:4516 --name xld xebialabs/xl-deploy:v8.1
 
-1. Run the logs command:
+XL Deploy will run on http://localhost:4516. You can log in with `username`: `admin` and `password`: `admin`.
 
-          $ docker logs -f xld
+You must provide a valid license before you can log in. Browse to the above URL and paste the license to the product. If you do not have a license yet, apply for an [XL Deploy trial license](https://xebialabs.com/products/xl-deploy/trial/) on the XebiaLabs web site.
 
-1. Search the logs to capture the generated admin password. Find the "XL Deploy has started" message the logs.
+### Secure container setup using a generated password
 
-To stop the XL Deploy container:
+You can make the setup more secure and start with a generated admin password instead of the default password. Including the XL Deploy container in an automated test or use case that depends on using a known admin password is not recommended.
 
-          $ docker stop xld
+If the environment variable `ADMIN_PASSWORD` is not set and you are starting up for the first time, the container will generate a random password and print it in the logs.
 
-To start the XL Deploy container:
+To trigger this behavior, remove the `ADMIN_PASSWORD` from the Docker run command:
 
-          $ docker start xld
+    $ docker run -d -p 5516:5516 --name xld xebialabs/xl-deploy:8.1
 
-### XL Deploy setup for automated testing
+The generated password is printed when the container starts up and can be found at the top of the log file. You can view the logs using the following command:
 
-By default, XL Deploy uses a randomly generated admin password. Including the XL Deploy container in an automated test or use case that depends on using a known admin password is not recommended.
+    $ docker logs xld
 
-To create a predefined `ADMIN_PASSWORD` environment variable, enter the following command:
+Search for the following line:
 
-          $ docker run -d -p 4516:4516 -e ADMIN_PASSWORD#secret --name xld xebialabs/xl-deploy:v8.1.0-rc.2
+    ... Generating admin password: [PASSWORD IS PRINTED HERE]
 
-### XL Deploy setup for production usage - includes persistence
+### Stopping and removing containers
+
+To stop the containers, use the following commands:
+
+    $ docker stop xld
+
+The state of the application is saved in the containers. They can be started again using this command:
+
+    $ docker start xld
+
+You can also remove the containers completely:
+
+    $ docker rm xld
+
+**Note:** This will result in a blank slate. When you run the container again with the simple run command, the database will be empty, you will receive a new admin password, and the license must be entered again.
+
+### XL Deploy setup for production using persistent volumes
 
 **Note:** In production setups, volumes must be defined and XL Deploy must be configured to store its state in an external database.
 

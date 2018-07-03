@@ -15,13 +15,13 @@ The directory `/opt/xl-release-server` contains an extracted installation setup,
 
 To download a docker image for XL-Release, go to [XL Release Docker images](https://github.com/xebialabs/xl-release-docker-image).
 
-For a quick use guide of the XL Release image, see [Getting started with the XebiaLabs Docker containers](/xl-platform/how-to/getting-started-with-xl-docker-containers.html).
+## Set up and start the Docker containers
 
-## Running the container
+There are multiple methods to set up and start the Docker image for XL Release.
 
-The following section describes the methods that are available for running a container.
+For information about running the XL Release image using Docker Compose, see [Running the XebiaLabs Docker containers with Docker Compose](/xl-platform/how-to/getting-started-with-xl-docker-containers.html).
 
-### XL Release setup for demonstrations and simple trials
+### Start containers with quick run commands
 
 **Important:** This setup method does not include persistence and must not be used in production environments.
 
@@ -31,29 +31,45 @@ The following section describes the methods that are available for running a con
 
           $ docker run -d -p 5516:5516 --name xlr xebialabs/xl-release:v8.1.0-rc.2
 
-1. Run the logs command:
+XL Release  will run on http://localhost:5516. You can log in with `username`: `admin` and `password`: `admin`.
 
-          $ docker logs -f xlr
+You must provide a valid license before you can log in. Browse to the above URL and paste the license to the product. If you do not have a license yet, apply for an [XL Release trial license](https://xebialabs.com/products/xl-release/trial/ ).
 
-1. Search the logs to capture the generated admin password. Find the "XL Release has started" message the logs.
+### Secure container setup using a generated password
 
-To stop the XL Release container:
+You can make the setup more secure and start with a generated admin password instead of the default password. Including the XL Release container in an automated test or use case that depends on using a known admin password is not recommended.
 
-          $ docker stop xlr
+If the environment variable `ADMIN_PASSWORD` is not set and you are starting up for the first time, the container will generate a random password and print it in the logs.
 
-To start the XL Release container:
+To trigger this behavior, remove the `ADMIN_PASSWORD` from the Docker run command:
 
-          $ docker start xlr
+      $ docker run -d -p 5516:5516 -e ADMIN_PASSWORD#secret --name xlr xebialabs/xl-release:v8.1.0-rc.2
 
-### XL Release setup for automated testing
+The generated password is printed when the container starts up and can be found at the top of the log file. You can view the logs using the following command:
 
-By default, XL Release uses a randomly generated admin password. Including the XL Release container in an automated test or use case that depends on using a known admin password is not recommended.
+    $ docker logs xlr
 
-To create a predefined `ADMIN_PASSWORD` environment variable, enter the following command:
+Search for the following line:
 
-          $ docker run -d -p 5516:5516 -e ADMIN_PASSWORD#secret --name xlr xebialabs/xl-release:v8.1.0-rc.2
+    ... Generating admin password: [PASSWORD IS PRINTED HERE]
 
-### XL Release setup for production usage - includes persistence
+### Stopping and removing containers
+
+To stop the containers, use the following commands:
+
+    $ docker stop xlr
+
+The state of the application is saved in the containers. They can be started again using this command:
+
+    $ docker start xlr
+
+You can also remove the containers completely:
+
+    $ docker rm xlr
+
+**Note:** This will result in a blank slate. When you run the container again with the simple run command, the database will be empty, you will receive a new admin password, and the license must be entered again.
+
+### XL Release setup for production using persistent volumes
 
 **Note:** In production setups, volumes must be defined and XL Release must be configured to store its state in an external database.
 
