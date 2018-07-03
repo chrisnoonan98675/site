@@ -116,6 +116,12 @@ The **OpenShift: Check Service** task type checks accessibility of a service in 
 
 ## Release notes
 
+### XL Release Openshift plugin 8.1.0
+
+#### Improvements
+
+* [REL-6783] - Add support for self-signed certs or optionally skip verification
+
 ### XL Release Openshift plugin 8.0.0
 
 {% raw %}

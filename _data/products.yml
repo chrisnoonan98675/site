@@ -1,6 +1,6 @@
-- name: XL Platform
+- name: XebiaLabs DevOps Platform
   id: xl-platform
-  blurb: The XebiaLabs suite of products provides lightweight, plug-and-play delivery automation modules for deployment, environment provisioning, Agile test management, and release coordination to help enterprises deliver higher quality software faster.
+  blurb: The XebiaLabs DevOps Platform provides the intelligence, automation, and control that technical and business teams need for Continuous Delivery at enterprise scale. It provides the backbone for DevOps release automation, complements existing tools, and enables full visibility across the entire software delivery process.
 - name: XL Deploy
   id: xl-deploy
   blurb: <a href="https://xebialabs.com/products/xl-deploy/">XL Deploy</a> is the only application release automation solution that is agentless across all target platforms. Connect to Windows and Unix target systems using proven, industry-standard remote protocols; no agent installation and maintenance, no overhead on the target systems, no firewall ports to be opened, and no security reviews.
