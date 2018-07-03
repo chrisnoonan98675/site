@@ -9,18 +9,15 @@ tags:
 - images
 ---
 
-There are two types of Docker images available for XL Deploy:
+The available Docker image for XL Deploy:
 
 * A regular image based on Debian (slim) Linux flavor of the [OpenJDK base image](https://hub.docker.com/_/openjdk/)
-* An alternative image based on the Alpine Linux flavor of the [OpenJDK base image](https://hub.docker.com/_/openjdk/)
-
-// ## Description / advantages of using the docker image
 
 ## Requirements and prerequisites
 
 To run the Docker image for XL Deploy you must have:
 * An XL Deploy valid license
-// * An installed version of Docker. Version?*
+* Docker version 18.03.1-ce installed
 
 ## Persistent configuration setup
 
@@ -88,6 +85,8 @@ For example, the following command starts an XL Deploy container with persistent
         -v ${HOME}/XebiaLabs/xl-deploy-docker/archive:/opt/xl-deploy-server/archive:rw \
         --name xld xebialabs/xl-deploy:8.1
 
+#### Example using `docker-compose` command
+
 With multiple mount points, it is easier to use a Docker Compose file.
 
 In this example, all mount points are mapped to directories in the `<USER_HOME>/XebiaLabs` folder.
@@ -107,7 +106,9 @@ In this example, all mount points are mapped to directories in the `<USER_HOME>/
            - ~/XebiaLabs/xl-deploy-docker/plugins:/opt/xl-deploy-server/plugins
            - ~/XebiaLabs/xl-deploy-docker/repository:/opt/xl-deploy-server/repository
 
-Run the Docker Compose file using the `docker-compose up -d` command and inspect the content of the folders when the servers are up and running.
+Run the Docker Compose file using the `docker-compose up -d` command and inspect the content of the folders when the servers are up and running. Run the logs using this command:
+
+        $ docker logs -f xld
 
 **Note:** Before starting the containers, save the license file in the local `conf` directory:
 

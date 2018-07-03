@@ -9,19 +9,16 @@ tags:
 - images
 ---
 
-There are three types of Docker images available for XL Release:
+The available Docker images for XL Release:
 
 * A regular image based on Debian (slim) Linux flavor of the [OpenJDK base image](https://hub.docker.com/_/openjdk/)
-* A regular image based on the Alpine Linux flavor of the [OpenJDK base image](https://hub.docker.com/_/openjdk/)
 * The Red Hat certified image based on the `rhel7-atomic` base image
-
-// ## Description / advantages of using the docker image
 
 ## Requirements and prerequisites
 
 To run the Docker image for XL Release you must have:
 * An XL Release valid license
-// * An installed version of Docker. Version?*
+* Docker version 18.03.1-ce installed
 
 ## Persistent configuration setup
 
@@ -89,6 +86,8 @@ For example, the following command starts an XL Release container with persisten
         -v ${HOME}/XebiaLabs/xl-release-docker/archive:/opt/xl-release-server/archive:rw \
         --name xlr xebialabs/xl-release:8.1
 
+#### Example using `docker-compose` command
+
 With multiple mount points, it is easier to use a Docker Compose file.
 
 In this example, all mount points are mapped to directories in the `<USER_HOME>/XebiaLabs` folder.
@@ -108,7 +107,9 @@ In this example, all mount points are mapped to directories in the `<USER_HOME>/
            - ~/XebiaLabs/xl-release-docker/plugins:/opt/xl-release-server/plugins
            - ~/XebiaLabs/xl-release-docker/repository:/opt/xl-release-server/repository
 
-Run the Docker Compose file using the `docker-compose up -d` command and inspect the content of the folders when the servers are up and running.
+Run the Docker Compose file using the `docker-compose up -d` command and inspect the content of the folders when the servers are up and running. Run the logs using this command:
+
+        $ docker logs -f xlr
 
 **Note:** Before starting the containers, save the license file in the local `conf` directory:
 
