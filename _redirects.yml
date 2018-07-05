@@ -104,7 +104,7 @@
 
 # XL Deploy container platforms
 
-/xl-deploy-xld-openshift-plugin/latest/openshiftPluginManual.html : /xl-deploy-xld-openshift-plugin/7.5.x/openshiftPluginManual.html
+/xl-deploy-xld-openshift-plugin/latest/openshiftPluginManual.html : /xl-deploy-xld-openshift-plugin/8.0.x/openshiftPluginManual.html
 /xl-deploy-xld-kubernetes-plugin/latest/kubernetesPluginManual.html : /xl-deploy-xld-kubernetes-plugin/8.0.x/kubernetesPluginManual.html
 
 # XL Scale docs
