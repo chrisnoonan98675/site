@@ -33,19 +33,19 @@ The **Release efficiency** section displays a graph that provides an overview of
 * A comparison of the percentage of automated tasks and manual tasks
 * A comparison of the time spent on automated tasks and manual tasks
 
-![Releases efficiency](../images/dashboard-release-efficiency.png)
+![Releases efficiency](../images/release-efficiency.png)
 
 ## Average release duration over time
 
 The **Average release duration over time** section allows you to assess whether your level of automation improved over time during the selected time period. It shows the percentage of automated tasks in [completed](/xl-release/concept/release-life-cycle.html) releases during the selected time period, aggregated per month.
 
-![Average release duration and automation](../images/dashboard-release-duration.png)
+![Average release duration over time](../images/avg-release-duration-over-time.png)
 
 ## Number of releases
 
 The **Number of releases** section shows how many releases were [completed](/xl-release/concept/release-life-cycle.html) in each month in the selected time period.
 
-![Releases per month](../images/dashboard-release-number.png)
+![Releases per month](../images/number-of-releases.png)
 
 ## Top 10 longest releases and phases
 
@@ -53,13 +53,15 @@ The **Top-10 Longest Releases** section shows the ten releases that were [comple
 
 Click a release name to open it in the [release flow editor](/xl-release/how-to/using-the-release-flow-editor.html).
 
-![Top-10 Longest Releases and Phases](../images/dashboard-longest-releases-phases.png)
+![Top-10 Longest Releases](../images/longest-releases.png)
+
+![Top-10 Longest Phases](../images/longest-phases.png)
 
 ## Top 10 longest tasks
 
 The **Top-10 Longest Tasks** section shows the ten tasks with status *completed* or *completed in advance* in the selected time period that had the longest duration. It also shows the task owner (the most recent assignee).
 
-![Top-10 Longest Tasks](../images/dashboard-longest-tasks.png)
+![Top-10 Longest Tasks](../images/longest-tasks.png)
 
 ## Top 10 people most involved (Removed as of XL Release version 7.5)
 
