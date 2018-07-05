@@ -128,6 +128,22 @@ For more information, refer to [XL Deploy manifest format](/xl-deploy/concept/xl
 
 For Windows environments, there is a Manifest Editor that can help you create and edit `deployit-manifest.xml` files. For information about using this tool, refer to [GitHub](https://github.com/xebialabs-community/xld-manifest-editor).
 
+### Add a bound template to a deployment package
+
+You can use templates to create configuration items (CIs) in XL Deploy. To resolve a template in XL Deploy and create a CI based on it, add the template as a *bound template* on a deployment package (`udm.DeploymentPackage`).
+
+The default setting for the `boundTemplates` property on the `udm.DeploymentPackage` is `hidden="true"`. To attach templates to a deployment package, enable the `boundTemplates` property in the `synthetic.xml` file.
+
+          <type-modification type="udm.DeploymentPackage">
+             <property name="boundTemplates" hidden="false" kind="set_of_ci" required="false"/>
+          </type-modification>
+
+#### Storing generated CIs
+
+CIs that are generated from bound templates are saved in the directory that you specify in the Directory Path property of the target environment; for example, `Cloud/EC2/Testing`.
+
+**Important:** The directory that you specify must already exist under Infrastructure and/or Environments (for `udm.Dictionary` CIs).
+
 ### Create a deployment package using an XL Deploy plugin
 
 XL Deploy includes plugins that enable you to automatically build packages as part of your delivery pipeline. Some of the plugins that are available are:
