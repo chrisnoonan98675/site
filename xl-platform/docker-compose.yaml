@@ -21,7 +21,7 @@ xlr:
   links:
    - xld
   volumes:
-   - ~/XebiaLabs/xl-release-docker/archive/lib:/opt/xl-release-server/archive
+   - ~/XebiaLabs/xl-release-docker/archive:/opt/xl-release-server/archive
    - ~/XebiaLabs/xl-release-docker/conf:/opt/xl-release-server/conf
    - ~/XebiaLabs/xl-release-docker/ext:/opt/xl-release-server/ext
    - ~/XebiaLabs/xl-release-docker/hotfix/:/opt/xl-release-server/hotfix/
