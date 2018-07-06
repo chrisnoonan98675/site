@@ -30,7 +30,7 @@ To start both XL Deploy and XL Release with a persistent setup:
 
 1. Download the Docker Compose file using the following command:
 
-        $ curl https://docs.xebialabs.com/xl-platform/docker-compose.yaml > docker-compose.yaml
+        $ curl https://raw.githubusercontent.com/xebialabs/xl-docker-compose/8.1/docker-compose.yaml > docker-compose.yaml
 
 1. Open the `docker-compose.yaml` file and change the ADMIN_PASSWORD for both servers to a secure password.
 1. Run the file with Docker Compose:
