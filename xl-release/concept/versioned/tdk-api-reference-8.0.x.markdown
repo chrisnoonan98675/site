@@ -1,6 +1,6 @@
 ---
 placeholder: true
-destination: <full-path>
+destination: https://docs.xebialabs.com/xlr-test-api/java-docs/8.0.x/index.html
 title: Test Development Kit Reference 8.0.x
 categories:
 - xl-release
