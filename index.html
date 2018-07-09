@@ -1,97 +1,35 @@
 ---
-no_mini_toc: true
-title: Welcome to XebiaLabs DevOps Platform documentation site
-layout: default2
+title: XL Deploy
+product-id: xl-deploy
 ---
 
-<body>
+{% include product_blurb.html %}
 
+<h2 id="get-started">Get started</h2>
+{% include get_started_xld.html %}
 
-    <!-- Masthead -->
-    <header class="masthead text-white text-center">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 mx-auto">
-            <h1 class="mb-5">Welcome to the documentation site for the XebiaLabs DevOps Platform.
-						</br></br> Visit our <a href="http://xebialabs.com/products/">product page</a> to download your free trial today!</h1>
-					</br>
-          </div>
-				 <div class="col-md-12 mx-auto">
-            <form>
-              <div class="form-row">
-                <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <!-- SiteSearch360 search box -->
-										<input class="form-control form-control-lg" id="searchBox" type="text" placeholder="Search the documentation..." />
-                </div>
-								 <div class="col-12 col-md-3">
-                  <button type="submit" class="btn btn-block btn-md btn-primary">Search</button>
-                </div>
-              </div>
-            </form>
-          </div>
-
-          </div>
-      </div>
-    </header>
-  </br>
-    <hr>
-  </br>
-    <!-- Icons Grid -->
-    <section class="features-icons bg-light text-center">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-md-12">
-							<h3 style="text-align:left;">XL Release</h3>
-							</br>
-							<ul class="nav nav-pills nav-justified">
-								<li><a href="/xl-release/concept/requirements-for-installing-xl-release.html"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;<h4>Install</h4></a></li>
-								<li><a href="/xl-release/concept/logging-in-xl-release.html"><span class="glyphicon glyphicon-wrench"></span>&nbsp;<h4>Manage your installation</h4></a></li>
-								<li><a href="/xl-release/how-to/"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;<h4>How-to guides</h4></a></li>
-								<li><a href="/xl-release/#browse-documentation-by-subject"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;<h4>Browse by subject</h4></a></li>
-								<li><a href="/xl-release/how-to/ansible-plugin.html"><span class="glyphicon glyphicon-cog"></span>&nbsp;<h4>Plugins</h4></a></li>
-							</ul>
-					</div>
-				</div>
-			</div>
-		</section>
 <hr>
-		<section class="features-icons bg-light text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h3 style="text-align:left;">XL Deploy</h3>
-						</br>
-							<ul class="nav nav-pills nav-justified">
-								<li><a href="/xl-deploy/concept/requirements-for-installing-xl-deploy.html"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;<h4>Install</h4></a></li>
-								<li><a href="/xl-deploy/concept/logging-in-xl-deploy.html"><span class="glyphicon glyphicon-wrench"></span>&nbsp;<h4>Manage your installation</h4></a></li>
-								<li><a href="/xl-deploy/how-to/"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;<h4>How-to guides</h4></a></li>
-								<li><a href="/xl-deploy/#browse-documentation-by-subject"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;<h4>Browse by subject</h4></a></li>
-								<li><a href="/xl-deploy"><span class="glyphicon glyphicon-cog"></span>&nbsp;<h4>Plugins</h4></a></li>
-							</ul>
-					 </div>
-				</div>
-			</div>
-		</section>
+
+{% include product_video_list.html %}
+
 <hr>
-		<section class="features-icons bg-light text-center">
-			<div class="container">
-				<div class="row">
-          <div class="col-md-12">
-            <h3 style="text-align:left;">XL Impact</h3>
-						</br>
-							<ul class="nav nav-pills nav-justified" >
-								<li><a href="/xl-impact/how-to/install-xl-impact.html"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;<h4>Install</h4></a></li>
-								<li><a href="/xl-impact/how-to/getting-started-with-xl-impact.html"><span class="glyphicon glyphicon-wrench"></span>&nbsp;<h4>Manage your installation</h4></a></li>
-								<li><a href="//xl-impact/#browse-documentation-by-subject"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;<h4>How-to guides</h4></a></li>
-								<li><a href="/community/"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp;<h4>Browse by subject</h4></a></li>
-								<li><a href="/xl-impact"><span class="glyphicon glyphicon-cog"></span>&nbsp;<h4>Plugins</h4></a></li>
-							</ul>
-				 </div>
-      </div>
-    </section>
-</br>
-</br>
-{% include footer.html %}
-    </body>
+
+{% include browse_the_documentation.html %}
+
+<hr>
+
+{% comment %}
+{% include product_topic_list_concept.html %}
+
+{% include product_topic_list_how-to.html %}
+{% endcomment %}
+
+{% include product_legacy_doc_list.html %}
+
+<hr>
+
+{% include product_doc_browse_by_subject.html %}
+
+<hr>
+
+{% include product_doc_browse_by_tag.html %}
