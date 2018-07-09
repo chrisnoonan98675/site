@@ -16,7 +16,7 @@
 		<meta http-equiv="refresh" content="0; url={{ page.destination }}" />
 	{% endif %}
 
-	<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+	<link rel="icon" type="image/ico" href="{{ site.url }}/favicon.ico"/>
 
 	<title>
 		{% if page.title == "XebiaLabs documentation" %}
@@ -113,6 +113,34 @@
 
 	<!-- Jekyll SEO plugin -->
 	{% seo %}
+
+	<!-- stop affixed sidebar from overlapping the footer and header -->
+
+<script>
+	$(document).ready(function(){
+$(window).scroll(function () {
+
+	if && $(window).width() > 767){
+
+ if($(window).scrollTop() > 200) {
+    $('#sidebar').css('position','fixed');
+    $('#sidebar').css('top','0');
+ }
+
+ else if ($(window).scrollTop() <= 200 ) {
+    $('#sidebar').css('position','');
+    $('#sidebar').css('top','');
+ }
+    if ($('#sidebar').offset().top + $("#sidebar").height() > $("#footer").offset().top) {
+        $('#sidebar').css('top',-($("#sidebar").offset().top + $("#sidebar").height() - $("#footer").offset().top));
+					 $('#sidebar').css('top',-($("#sidebar").offset().top + $("#sidebar").height() - $("#footer").offset().top));
+    }
+}
+});
+});
+
+
+</script>
 
 	<!--SiteSearch360 code -->
 	<script>

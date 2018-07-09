@@ -1,13 +1,12 @@
-- name: XebiaLabs DevOps Platform
+- name: XL Platform
   id: xl-platform
-  blurb: The XebiaLabs DevOps Platform provides the intelligence, automation, and control that technical and business teams need for Continuous Delivery at enterprise scale. It provides the backbone for DevOps release automation, complements existing tools, and enables full visibility across the entire software delivery process.
+  blurb: The XebiaLabs suite of products provides lightweight, plug-and-play delivery automation modules for deployment, environment provisioning, Agile test management, and release coordination to help enterprises deliver higher quality software faster.
 - name: XL Deploy
   id: xl-deploy
   blurb: <a href="https://xebialabs.com/products/xl-deploy/">XL Deploy</a> is the only application release automation solution that is agentless across all target platforms. Connect to Windows and Unix target systems using proven, industry-standard remote protocols; no agent installation and maintenance, no overhead on the target systems, no firewall ports to be opened, and no security reviews.
   key-concepts-link: /xl-deploy/concept/key-xl-deploy-concepts.html
   installation-link: /xl-deploy/how-to/install-xl-deploy.html
   versions:
-    - 8.1.x
     - 8.0.x
     - 7.5.x
     - 7.0.x
@@ -17,7 +16,6 @@
   key-concepts-link: /xl-release/concept/core-concepts-of-xl-release.html
   installation-link: /xl-release/how-to/install-xl-release.html
   versions:
-    - 8.1.x
     - 8.0.x
     - 7.5.x
     - 7.0.x
@@ -27,7 +25,7 @@
   key-concepts-link: /xl-impact/concept/release-to-customer-filter.html
   installation-link: /xl-impact/how-to/install-xl-impact.html
   versions:
-    - 8.1.x
+    - 8.0.x
 - name: XL TestView
   id: xl-testview
   blurb: XL TestView lets you define, execute, and analyze all of the tests relevant to an application's quality. You can easily manage complex test sets and execute tests across a wide spectrum of tools.

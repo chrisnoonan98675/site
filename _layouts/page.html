@@ -5,13 +5,13 @@ layout: default
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-3">
-			{% include sidebar-navigation-beta.html %}
+			{% include sidebar-nav-general-short.html %}
 		</div><!-- /.col -->
-		<div class="col-sm-9">
+		<div  id="main-wrapper">
 			{% if page.since or page.deprecated or page.removed %}
 				{% include since-deprecated-removed.html %}
 			{% endif %}
-
+			<div id="main">
 			<div class="page-header">
 				<h1 class="page-title">{{ page.title }}</h1>
 			</div>
@@ -25,12 +25,10 @@ layout: default
 
 			<!-- Page content -->
 			{{ content }}
-
+		</div>
 		</div><!-- /.col-sm-9 -->
 	</div><!-- /.row -->
 </div><!-- /.container -->
-
-</main>
 
 <div class="scroll-top-wrapper hidden-print">
 	<span class="scroll-top-inner">
