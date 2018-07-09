@@ -9,7 +9,64 @@
     font-style: normal;
 }
 
+.glyphicon {
+    font-size: 30px;
+}
+
+
+
+header.masthead {
+  position: relative;
+  background-color: #f5f5f5;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+header.masthead .overlay {
+  position: absolute;
+  background-color: #f5f5f5;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+
+header.masthead h1 {
+  font-size: 2rem;
+}
+
+
 /* Experimental styles for navigation beta */
+
+#sidebar{
+margin-top: 60px;
+}
+
+#center{
+  width: 80%;
+  padding-top: 20px;
+}
+
+#sidebar.affix {
+  position: fixed;
+  top: 10px
+}
+
+#sidebar.affix-bottom {
+ position: fixed;
+
+}
+
+#nav li {
+  display: inline;
+  <font color='"white"'>padding-right: 30px;</font>
+}
+
 
 #sidebar-navigation-beta {
     margin-top: 40px;
@@ -19,6 +76,8 @@
   #sidebar-navigation-beta {
       display: none;
   }
+
+
 }
 #nav-beta ul {
 	list-style: none;
@@ -50,6 +109,8 @@
     margin-right: 5px;
 }
 
+
+
 /* XebiaLabs-specific styles */
 
 body {
@@ -58,6 +119,7 @@ body {
 	font-size: 14px;
 	color: #54636f;
 	margin-bottom: 60px; /* Must match the height of the footer */
+  padding-top: 70px;
 }
 h1,h2,h3,h4,h5,h6 {
 	font-weight: 100;
@@ -122,7 +184,6 @@ mark {
 }
 .splash-page-logo {
   margin-bottom: 20px;
-  width: 100%;
 }
 .help-page-logo {
   float: right;
@@ -380,10 +441,7 @@ h6:hover .header-link {
   margin-top: 0px;
   margin-bottom: 20px;
 }
-.xebialabs-logo {
-  padding-top: 15px;
-  padding-left: 20px;
-}
+
 .xltopmenu {
   height: 75px;
   padding-top: 25px;
@@ -391,7 +449,52 @@ h6:hover .header-link {
 
 /* Vertical sidebar navigation */
 
+.affix{
+  position:fixed;
+  overflow-y:auto;
+  height:100vh;
+  margin-top: 6.5em;
+  margin-bottom: 6.5em;
+}
+
+.affix-bottom{
+  position:absolute;
+  margin-top: 6.5em;
+  bottom: 60px;
+  overflow-y:auto;
+}
+
+.affix-top{
+    position: static;
+
+}
+
+.navbar-right{
+  padding-right: 30px;
+}
+
+@media (max-width: 767px) {
+    .affix {
+        position: static;
+
+    }
+}
+
 @media (min-width: 768px) {
+  .affix{
+    position:static;
+    width: auto;
+    top: 0;
+  }
+
+  header.masthead {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+  header.masthead h1 {
+    font-size: 3rem;
+  }
+
   .sidebar-nav .navbar .navbar-collapse {
     padding: 0;
     max-height: none;
@@ -409,13 +512,19 @@ h6:hover .header-link {
   }
 }
 @media (min-width: 992px) {
-  .navbar {
+  #nav-beta {
     width: 212px;
+  }
+  .affix{
+    position:fixed;
   }
 }
 @media (min-width: 1200px) {
-  .navbar {
+  #nav-beta {
     width: 262px;
+  }
+  .affix{
+    position:fixed;
   }
 }
 .sidebar-nav .navbar-header {
@@ -756,4 +865,29 @@ form.form-search:before {
 }
 .in-product-help-subheading {
     font-weight: bold;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+  width: auto;
+}
+
+
+/* Search box place holder text alignment */
+::-webkit-input-placeholder {
+ text-align: center;
+}
+:-moz-placeholder { /* older Firefox*/
+  text-align: center;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  text-align: center;
+}
+:-ms-input-placeholder {
+  text-align: center;
 }
