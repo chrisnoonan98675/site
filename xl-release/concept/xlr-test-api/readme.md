@@ -1,4 +1,4 @@
-## This API maintains api's (common functions) which can be used to write platform independent End to End UI Tests against XL Release
+## This library maintains api's (common functions) which can be used to write platform independent End to End UI Tests against XL Release
 
     This library uses selenium webdriver approach to act on browser as a normal user would do 
 
