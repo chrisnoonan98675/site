@@ -1,5 +1,4 @@
 ---
-placeholder: true
 title: Test Development Kit ReadMe
 categories:
 - xl-release
