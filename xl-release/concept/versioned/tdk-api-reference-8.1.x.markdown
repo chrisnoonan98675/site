@@ -1,7 +1,7 @@
 ---
 placeholder: true
 destination: https://docs.xebialabs.com/xlr-test-api/java-docs/8.1.x/index.html
-title: Test Development Kit Reference 8.1.x
+title: Test Development Kit Javadocs - XL Release 8.1.x
 categories:
 - xl-release
 subject:
