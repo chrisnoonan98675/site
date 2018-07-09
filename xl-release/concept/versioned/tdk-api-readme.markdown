@@ -1,7 +1,7 @@
 ---
 placeholder: true
 destination: https://docs.xebialabs.com/xl-release/concept/xlr-test-api/readme.md
-title: Test Development Kit ReadMe 8.1.x
+title: Test Development Kit ReadMe
 categories:
 - xl-release
 subject:
