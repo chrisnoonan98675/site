@@ -48,9 +48,9 @@ If your release process contains a third party dependency that is error prone an
 
 if (releaseVariables['attempt'] < 3):
   releaseVariables['attempt'] = releaseVariables['attempt'] + 1
-  taskApi.retryTask(getCurrentTask().getId(), taskApi.newComment("Retrying task from failure handler."))
+  taskApi.retryTask(getCurrentTask().getId(), "Retrying task from failure handler.")
 else:
-  taskApi.skipTask(getCurrentTask().getId(), taskApi.newComment("Skipped task from failure handler."))
+  taskApi.skipTask(getCurrentTask().getId(), "Skipped task from failure handler.")
 
 {% endhighlight %}
 
@@ -81,8 +81,8 @@ You can skip a complete phase if an error occurred in previous phases:
 
 phase = phaseApi.searchPhasesByTitle("next phase", getCurrentRelease().getId())[0]
 for task in phase.tasks:
-  taskApi.skipTask(task.getId(), taskApi.newComment("Skipped from failure handler.") )
-taskApi.skipTask(getCurrentTask().getId(), taskApi.newComment("Skipped task from failure handler."))
+  taskApi.skipTask(task.getId(), "Skipped from failure handler.")
+taskApi.skipTask(getCurrentTask().getId(), "Skipped task from failure handler.")
 
 {% endhighlight %}
 
