@@ -57,11 +57,8 @@ Redirect 301 /xl-release/help/configure-risk-settings.html /xl-release/how-to/co
 Redirect 301 /xl-release/help/using-the-risk-aware-view.html /xl-release/how-to/using-the-risk-aware-view.html
 Redirect 301 /xl-release/help/plugin-manager.html /xl-release/how-to/using-the-plugins-manager.html
 Redirect 301 /xl-release/help/using-template-version-control.html /xl-release/how-to/using-template-version-control.html
-Redirect 301 /xl-release/help/groups.html /xl-release/how-to/groups.html
-Redirect 301 /xl-release/help/custom-dashboard.html /xl-release/how-to/configure-custom-dashboards.html
-Redirect 301 /xl-release/help/task-failure-handler.html /xl-release/how-to/task-failure-handler.html
+Redirect 301 /xl-release/help/release-groups.html /xl-release/how-to/groups.html
 Redirect 301 /xl-release/help/release-groups-details.html /xl-release/how-to/groups.html#release-group-flow-screen
-Redirect 301 /xl-release/help/scm.html /xl-release/how-to/scm.html
 
 # XL TestView in-product links
 
