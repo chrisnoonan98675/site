@@ -16,7 +16,7 @@
 		<meta http-equiv="refresh" content="0; url={{ page.destination }}" />
 	{% endif %}
 
-	<link rel="icon" type="image/ico" href="/images/logos/favicon.ico"/>
+	<link rel="icon" type="image/ico" href="{{ site.url }}/favicon.ico"/>
 
 	<title>
 		{% if page.title == "XebiaLabs documentation" %}
@@ -113,6 +113,52 @@
 
 	<!-- Jekyll SEO plugin -->
 	{% seo %}
+
+	<!-- stop affixed sidebar from overlapping the footer and header -->
+
+<script>
+	$(document).ready(function(){
+$(window).scroll(function () {
+
+	if && $(window).width() > 767){
+
+ if($(window).scrollTop() > 200) {
+    $('#sidebar').css('position','fixed');
+    $('#sidebar').css('top','0');
+ }
+
+ else if ($(window).scrollTop() <= 200 ) {
+    $('#sidebar').css('position','');
+    $('#sidebar').css('top','');
+ }
+    if ($('#sidebar').offset().top + $("#sidebar").height() > $("#footer").offset().top) {
+        $('#sidebar').css('top',-($("#sidebar").offset().top + $("#sidebar").height() - $("#footer").offset().top));
+					 $('#sidebar').css('top',-($("#sidebar").offset().top + $("#sidebar").height() - $("#footer").offset().top));
+    }
+}
+});
+});
+
+
+</script>
+
+<!-- script for map squares-->
+
+
+
+<script>
+$(document).ready(function() {
+  var elmnt = document.getElementById("userMap");
+  elmnt.scrollLeft = 300;
+  $('.box4').addClass('active');
+});
+
+$(document).ready ( function(){
+			 $('.modalButton1').addClass('active');
+	 });
+
+
+</script>
 
 	<!--SiteSearch360 code -->
 	<script>
