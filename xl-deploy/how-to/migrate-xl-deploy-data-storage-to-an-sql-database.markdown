@@ -45,6 +45,8 @@ When you upgrade from XL Deploy 7.5.x to 8.0.x, XL Deploy uses a database connec
 
 ## Supported migration scenarios
 
+This sections describes migration scenarios to versions 8.0.x and 8.1.x. For moving artifacts in later versions, see [Move artifacts from the file system to a database](/xl-deploy/how-to/move-artifacts.html).
+
 Depending on your data storage configuration in XL Deploy pre 8.0.0 version, there are two supported migration scenarios:
 
 1. The user-supplied artifacts are stored in a folder in the JCR repository (default configuration). If you are trying to migrate to an SQL database, the structure must be maintained. The migrated artifacts must be stored on the file system.
