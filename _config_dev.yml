@@ -1,0 +1,4 @@
+# Start development with › $ jekyll serve --config _config.yml,_config_dev.yml
+
+url: 'https://devdocver.xebialabs.com/76v'
+baseurl: '/76v'
