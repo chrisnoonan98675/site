@@ -1,6 +1,0 @@
-{% for product in site.data.products %}
-	{% if product.id == page.product-id %}
-		<p>{{ product.blurb }}</p>
-		<p>For information about upcoming releases, visit the <a href="/tracker/{{ page.product-id }}-tracker.html">Fix Tracker</a>.</p>
-	{% endif %}
-{% endfor %}

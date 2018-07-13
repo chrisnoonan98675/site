@@ -1,6 +1,0 @@
-* text=auto
-*.bat text=eol=crlf
-*.sh text=eol=lf
-*.lic binary
-*.ps1 text=eol=crlf
-*.svg binary
