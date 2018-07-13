@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'open_sansregular';
-    src: url('/fonts/OpenSans-Regular-webfont.eot');
-    src: url('/fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/OpenSans-Regular-webfont.woff') format('woff'),
-         url('/fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
-         url('/fonts/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+    src: url('../fonts/OpenSans-Regular-webfont.eot');
+    src: url('../fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/OpenSans-Regular-webfont.woff') format('woff'),
+         url('../fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -373,7 +373,7 @@ h6:hover .header-link {
   color: #0081c1;
 }
 #top-ribbon {
-  background: url('/images/lines-blue.png');
+  background: url('../images/lines-blue.png');
   padding: 0px;
   height: 20px;
   margin-top: 0px;

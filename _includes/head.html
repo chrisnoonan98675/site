@@ -27,25 +27,25 @@
 	</title>
 
 	<!-- Styles -->
-    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="/styles/xebialabs.css" type="text/css">
-    <link rel="stylesheet" href="/styles/syntax.css" type="text/css">
-    <link rel="stylesheet" href="/fonts/online-doc-icons/styles.css" type="text/css">
-    <link rel="stylesheet" href="/styles/magnific-popup.css">
+    <link rel="stylesheet" href="{{site.baseurl}}/vendor/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="{{site.baseurl}}/styles/xebialabs.css" type="text/css">
+    <link rel="stylesheet" href="{{site.baseurl}}/styles/syntax.css" type="text/css">
+    <link rel="stylesheet" href="{{site.baseurl}}/fonts/online-doc-icons/styles.css" type="text/css">
+    <link rel="stylesheet" href="{{site.baseurl}}/styles/magnific-popup.css">
 {% capture page_ext %}{{ page.path | split: "." | last }}{% endcapture %}
 {% if page_ext == "asciidoc" or page_ext == "adoc" %}
-    <link rel="stylesheet" href="/styles/asciidoctor.css" media="screen" type="text/css">
- 	<link rel="stylesheet" href="/fonts/fontawesome/fontawesome-all.css">
+    <link rel="stylesheet" href="{{site.baseurl}}/styles/asciidoctor.css" media="screen" type="text/css">
+ 	<link rel="stylesheet" href="{{site.baseurl}}/fonts/fontawesome/fontawesome-all.css">
 {% endif %}
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!-- Javascript -->
-	<script src="/js/jquery-3.2.1.min.js"></script>
-	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="/js/ie10-viewport-bug-workaround.js"></script>
-	<script src="/js/scroll_button_show_hide.js"></script>
-	<script src="/js/scroll_button_scroll_to_top.js"></script>
-	<script src="/js/toc.js"></script>
+	<script src="{{site.baseurl}}/js/jquery-3.2.1.min.js"></script>
+	<script src="{{site.baseurl}}/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="{{site.baseurl}}/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="{{site.baseurl}}/js/scroll_button_show_hide.js"></script>
+	<script src="{{site.baseurl}}/js/scroll_button_scroll_to_top.js"></script>
+	<script src="{{site.baseurl}}/js/toc.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#toc').toc({ listType: 'ul', noBackToTopLinks: true, showSpeed: 0 });
@@ -69,8 +69,8 @@
 		});
 	</script>
 	{% unless page.path contains "tracker" %}
-		<script src="/js/jquery.collapse.js"></script>
-		<script src="/js/jquery.collapse_storage.js"></script>
+		<script src="{{site.baseurl}}/js/jquery.collapse.js"></script>
+		<script src="{{site.baseurl}}/js/jquery.collapse_storage.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$("#expand-all-subjects").click(function(){
@@ -89,8 +89,8 @@
 		</script>
 	{% endunless %}
 
-    <script type="text/javascript" src="/js/jquery.cookie.js"></script>
-    <script type="text/javascript" src="/js/jquery.navgoco.js"></script>
+    <script type="text/javascript" src="{{site.baseurl}}/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="{{site.baseurl}}/js/jquery.navgoco.js"></script>
 
 	<!-- Google Analytics -->
 	<script>
