@@ -16,7 +16,7 @@ theme:
 nav:
     - Home: index.md
     - User Guide:
-        - Writing Your Docs:/docs/xl-release/how-to/add-a-phase-to-a-release-or-template.markdown
+        - Writing Your Docs: docs/xl-release/how-to/add-a-phase-to-a-release-or-template.markdown
         - Styling Your Docs: user-guide/styling-your-docs.md
         - Configuration: user-guide/configuration.md
         - Deploying Your Docs: user-guide/deploying-your-docs.md
