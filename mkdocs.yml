@@ -1,7 +1,9 @@
-site_name: MkDocs
+site_name: no name
+site_url: http://www.mkdocs2211.org
 site_description: Project documentation with Markdown.
 site_author: MkDocs Team
 
+repo_url: https://github.com/chrisnoonan98675/site
 edit_uri: ""
 
 theme:
@@ -10,23 +12,22 @@ theme:
     hljs_languages:
         - yaml
         - django
-        
-        
+                
  pages:
 - Home: 'index.md'
 - User Guide:
-    - 'Writing your docs': 'docs/xl-release/how-to/add-a-phase-to-a-release-or-template.markdown'
-    - 'Styling your docs': 'docs/xl-release/how-to/add-a-phase-to-a-release-or-template.markdown'
+    - 'Writing your docs': 'docs/add-a-phase-to-a-release-or-template.markdown'
+    - 'Styling your docs': 'docs/add-a-phase-to-a-release-or-template.markdown'
 - About:
-    - 'License': 'docs/xl-release/how-to/add-a-phase-to-a-release-or-template.markdown'
-    - 'Release Notes': 'docs/xl-release/how-to/add-a-phase-to-a-release-or-template.markdown'
+    - 'License': 'docs/add-a-phase-to-a-release-or-template.markdown'
+    - 'Release Notes': 'docs/add-a-phase-to-a-release-or-template.markdown'
 
 nav:
     - Home: index.md
     - User Guide:
-        - Writing Your Docs: 'docs/xl-release/how-to/add-a-phase-to-a-release-or-template.markdown'
-        - Styling Your Docs: 'docs/xl-release/how-to/add-a-phase-to-a-release-or-template.markdown'
-        - Configuration: 'docs/xl-release/how-to/add-a-phase-to-a-release-or-template.markdown'
+        - Writing Your Docs: 'docs/add-a-phase-to-a-release-or-template.markdown'
+        - Styling Your Docs: 'docs/add-a-phase-to-a-release-or-template.markdown'
+        - Configuration: 'docs/add-a-phase-to-a-release-or-template.markdown'
 
 - About:
         - Release Notes: 'docs/xl-release/how-to/add-a-phase-to-a-release-or-template.markdown'
