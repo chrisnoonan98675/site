@@ -14,7 +14,6 @@ theme:
         - django
                 
  pages:
-- Home: 'index.md'
 - User Guide:
     - 'Writing your docs': 'docs/add-a-phase-to-a-release-or-template.markdown'
     - 'Styling your docs': 'docs/add-a-phase-to-a-release-or-template.markdown'
