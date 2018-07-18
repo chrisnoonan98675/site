@@ -14,21 +14,17 @@ theme:
         - django
                 
  pages:
-- User Guide:
     - 'Writing your docs': 'docs/add-a-phase-to-a-release-or-template.markdown'
     - 'Styling your docs': 'docs/add-a-phase-to-a-release-or-template.markdown'
-- About:
     - 'License': 'docs/add-a-phase-to-a-release-or-template.markdown'
     - 'Release Notes': 'docs/add-a-phase-to-a-release-or-template.markdown'
 
 nav:
-    - Home: index.md
-    - User Guide:
+    
         - Writing Your Docs: 'docs/add-a-phase-to-a-release-or-template.markdown'
         - Styling Your Docs: 'docs/add-a-phase-to-a-release-or-template.markdown'
         - Configuration: 'docs/add-a-phase-to-a-release-or-template.markdown'
 
-- About:
         - Release Notes: 'docs/xl-release/how-to/add-a-phase-to-a-release-or-template.markdown'
 
 
