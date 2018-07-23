@@ -13,11 +13,11 @@ To use the repository browser, start Jackrabbit JCR and the CRaSH shell by execu
 
 You will see a message similar to the following:
 
-    2016-07-28 16:27:44.697 [main] {} INFO  c.x.xlplatform.config.ConfigLoader$ - Loading xl-release.conf
-    2016-07-28 16:27:44.823 [main] {} INFO  c.x.xlrelease.XLReleaseBootstrapper - XL Release version 6.0.0 (built at 16-07-28 13:00:50)
-    2016-07-28 16:27:44.825 [main] {} INFO  c.x.xlrelease.XLReleaseBootstrapper - (c) 2012-2016 XebiaLabs, Inc.
+    2016-07-28 16:27:44.697 [main] {} INFO  c.x.xlplatform.config.ConfigLoader$ Loading xl-release.conf
+    2016-07-28 16:27:44.823 [main] {} INFO  c.x.xlrelease.XLReleaseBootstrapper XL Release version 6.0.0 (built at 16-07-28 13:00:50)
+    2016-07-28 16:27:44.825 [main] {} INFO  c.x.xlrelease.XLReleaseBootstrapper (c) 2012-2016 XebiaLabs, Inc.
 
-    2016-07-28 16:27:44.949 [main] {} INFO  c.x.xlrelease.XLReleaseBootstrapper - Reading configuration file from: /Users/ilx/work/xebialabs/xl-release/package/build/distributions/xl-release-6.0.0-server/conf/xl-release-server.conf
+    2016-07-28 16:27:44.949 [main] {} INFO  c.x.xlrelease.XLReleaseBootstrapper Reading configuration file from: /Users/ilx/work/xebialabs/xl-release/package/build/distributions/xl-release-6.0.0-server/conf/xl-release-server.conf
     *** We're going to attempt to start only the JCR repository with CRaSH shell enabled. ***
     ***      Changes that you save to the JCR repository may corrupt it permanently.      ***
     ***           It is HIGHLY recommended to make a backup before you proceed.           ***
@@ -130,7 +130,7 @@ To see information about CRaSH commands, execute `man <COMMAND_NAME>`:
 
     % man ls
     NAME
-           ls - list the content of a node
+           ls list the content of a node
 
     SYNOPSIS
            ls [-d | --depth] [-h | --help] <path>
