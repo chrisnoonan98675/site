@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      {%- block site_meta %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if page and page.is_homepage %}<meta name="description" content="{{ config['site_description'] }}">{% endif %}
+        {% if config.site_author %}<meta name="author" content="{{ config.site_author }}">{% endif %}
+        {% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
+        {% if config.site_favicon %}<link rel="shortcut icon" href="{{ base_url }}/{{ config.site_favicon }}">
+        {% else %}<link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">{% endif %}
+      {%- endblock %}
+
+      {%- block htmltitle %}
+        <title>{% if page and page.title and not page.is_homepage %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+      {%- endblock %}
+
+      {%- block styles %}
+        <link href="{{ base_url }}/css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="{{ base_url }}/css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="{{ base_url }}/css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ base_url }}/css/highlight.css">
+        {%- for path in extra_css %}
+        <link href="{{ path }}" rel="stylesheet">
+        {%- endfor %}
+      {%- endblock %}
+
+      {%- block libs %}
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="{{ base_url }}/js/jquery-1.10.2.min.js"></script>
+        <script src="{{ base_url }}/js/bootstrap-3.0.3.min.js"></script>
+        <script src="{{ base_url }}/js/highlight.pack.js"></script>
+      {%- endblock %}
+
+      {%- block analytics %}
+        {%- if config.google_analytics %}
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', '{{ config.google_analytics[0] }}', '{{ config.google_analytics[1] }}');
+            ga('send', 'pageview');
+        </script>
+        {%- endif %}
+      {%- endblock %}
+
+      {%- block extrahead %}
+      <div id="top-bar">
+        <div class="container-fluid">
+          <div class="row hidden-print">
+            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 xebialabs-logo">
+              <a href="https://xebialabs.com"><img height="50" class="img-no-border" src="/img/logos/xebialabs-standard.jpg"></a>
+            </div>
+
+            <!-- SiteSearch360 search box-->
+            <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs pull-right sitesearch360">
+              <input id="searchBox" type="text" placeholder="Search" />
+            </div>
+
+            <div class="col-lg-5 col-md-5 hidden-sm hidden-xs pull-right">
+              <ul class="list-inline xltopmenu pull-right">
+                <li><a href="http://blog.xebialabs.com">Blog</a></li>
+                <li><a href="/support.html">Support</a></li>
+                <li><a href="http://xebialabs.com/contact/">Contact</a></li>
+              </ul>
+            </div>
+          </div> <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div><!-- /#top-bar -->
+
+      <div id="top-ribbon">
+        <div class="container-fluid">
+          <div class="row">
+          </div>
+        </div>
+      </div>
+
+      {% endblock %}
+    </head>
+
+    <body{% if page and page.is_homepage %} class="homepage"{% endif %}>
+
+        <div class="container">
+            {%- block content %}
+                <div class="col-md-3">{% include "toc.html" %}</div>
+                <div class="col-md-9" role="main">{% include "content.html" %}</div>
+            {%- endblock %}
+        </div>
+
+        <footer class="row">
+          {%- block footer %}
+              <section id="footer-bottom">
+                <div class="container-fluid hidden-print">
+                  <div class="row">
+                    <div class="col-xs-3 col-sm-3 col-md-offset-1 col-md-4 col-lg-offset-1 col-lg-4">
+                      <a href="https://xebialabs.com/"><img src="/img/logos/xl-footer-white.svg" alt="Visit xebialabs.com" title="Visit xebialabs.com" class="mini-logo-img"></a>
+                    </div>
+                    <div class="pull-right col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+                      <p>&#169; Copyright
+                        <script type="text/javascript">
+                          document.write(new Date().getFullYear());
+                          </script>.
+                        XebiaLabs, Inc. All rights reserved &#149; <a href="https://xebialabs.com/privacy-policy/">Privacy Policy</a> &#149; <a href="https://xebialabs.com/contact/">Contact</a></p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+          {%- endblock %}
+        </footer>
+
+      {%- block scripts %}
+        <script>var base_url = '{{ base_url }}';</script>
+        <script src="{{ base_url }}/js/base.js"></script>
+        {%- for path in extra_javascript %}
+        <script src="{{ path }}"></script>
+        {%- endfor %}
+      {%- endblock %}
+
+        {% if 'search' in config['plugins'] %}{%- include "search-modal.html" %}{% endif %}
+        {%- include "keyboard-modal.html" %}
+
+    </body>
+</html>
+{% if page and page.is_homepage %}
+<!--
+MkDocs version : {{ mkdocs_version }}
+Build Date UTC : {{ build_date_utc }}
+-->
+{% endif %}

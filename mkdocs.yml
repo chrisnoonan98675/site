@@ -1,0 +1,9 @@
+site_name: XebiaLabs Documentation
+pages:
+  - Home: index.html
+  - Getting Started: get-started-with-xl-deploy.md
+  - Bamboo plugin: xl-deploy/
+
+theme:
+  name: null
+  custom_dir: xldocs
